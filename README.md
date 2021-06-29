@@ -1,5 +1,5 @@
 # UCSD Political Science Math Camp
-![](https://travis-ci.com/KengChiChang/MathCamp.svg?branch=master)
+![](https://travis-ci.com/UCSDPoliSci/MathCamp.svg?branch=main)
 
 
 
