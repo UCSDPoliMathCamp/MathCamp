@@ -1,0 +1,29 @@
+--- 
+title: "UCSD Political Science Math Camp"
+author: ""
+date: "`r format(Sys.Date(), '%B %Y')`"
+description: "Text for UCSD Department of Political Science Math Camp"
+github-repo: "UCSDPoliSci/MathCamp"
+site: "bookdown::bookdown_site"
+documentclass: book
+geometry: "margin=1.5in"
+biblio-style: apalike
+link-citations: yes
+cover-image: "./images/logo.png"
+---
+# About this Booklet {-}
+
+
+
+
+### Authors and Contributors {-}
+
+- Past Authors and Instructors:  
+- Repository Maintainer: 
+
+
+### Contributing {-}
+
+We transitioned the booklet into a bookdown [github repository](https://github.com/UCSDPoliSci/MathCamp) in 2021.  As we update this version, we appreciate any bug reports or fixes appreciated. 
+
+All changes should be made in the `.Rmd` files in the project root. Changes pushed to the repository will be checked for compilation by Travis-CI. To contribute a change, please make a pull request and set the repository maintainer as the reviewer.

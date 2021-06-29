@@ -1,0 +1,12 @@
+.Rproj.user/*
+.Rhistory
+.RData
+.Ruserdata
+_book
+_bookdown_files
+rsconnect
+
+.Rproj.user
+.DS_Store
+
+prefresher\\.log
