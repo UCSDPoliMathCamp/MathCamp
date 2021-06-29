@@ -7,7 +7,7 @@ bookdown::gitbook:
       before: |
         <li><a href="./">UCSD PoliSciMath Camp</a></li>
     download: ["pdf", "epub"]
-    edit : https://github.com/UCSDPoliSci/MathCamp/edit/master/%s
+    edit : https://github.com/UCSDPoliSci/MathCamp/edit/main/%s
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
