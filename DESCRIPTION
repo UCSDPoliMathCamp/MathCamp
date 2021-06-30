@@ -1,0 +1,18 @@
+Package: placeholder
+Type: Book
+Title: Does not matter.
+Version: 0.0.1
+Imports: 
+    bookdown, 
+    dplyr,
+    ggplot2,
+    readr,
+    forcats,
+    scales, 
+    haven,
+    readxl, 
+    tidyr (>= 1.0.0), 
+    fs,
+    data.table,
+    ggrepel,
+    patchwork
