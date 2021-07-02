@@ -11,7 +11,7 @@ biblio-style: apalike
 link-citations: yes
 cover-image: "./images/logo.png"
 ---
-## About this Booklet {-}
+# About this Booklet {-}
 
 
 
