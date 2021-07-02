@@ -14,8 +14,6 @@ bookdown::gitbook:
     edit : https://github.com/UCSDPoliSci/MathCamp/edit/main/%s
     sharing: no
     info: no
-  includes:
-    in_header: header.html
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
