@@ -1,6 +1,6 @@
 # (PART) Math {-}
 
-# Functions and Operations
+# Preliminaries
 
 __Topics__
  Dimensionality;
