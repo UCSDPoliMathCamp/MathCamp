@@ -1,7 +1,7 @@
 --- 
 title: "UCSD Political Science Math Camp"
 author: ""
-date: "`r format(Sys.Date(), '%B %Y')`"
+date: "Under Construction"
 description: "Text for UCSD Department of Political Science Math Camp"
 github-repo: "UCSDPoliSci/MathCamp"
 site: "bookdown::bookdown_site"
@@ -11,12 +11,14 @@ biblio-style: apalike
 link-citations: yes
 cover-image: "./images/logo.png"
 ---
-# About this Booklet {-}
+## About this Booklet {-}
 
 
 
 
 ### Authors and Contributors {-}
+
+This material is adapted from previous instructors of the class at UCSD and [Harvard Gov Prefresher](https://github.com/IQSS/prefresher). 
 
 - Past Authors and Instructors:  
 - Repository Maintainer: 
@@ -26,4 +28,4 @@ cover-image: "./images/logo.png"
 
 We transitioned the booklet into a bookdown [github repository](https://github.com/UCSDPoliSci/MathCamp) in 2021.  As we update this version, we appreciate any bug reports or fixes appreciated. 
 
-All changes should be made in the `.Rmd` files in the project root. Changes pushed to the repository will be checked for compilation by Travis-CI. To contribute a change, please make a pull request and set the repository maintainer as the reviewer.
+All changes should be made in the `.Rmd` files in the project root. To contribute a change, please make a pull request and set the repository maintainer as the reviewer.

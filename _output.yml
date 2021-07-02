@@ -5,9 +5,17 @@ bookdown::gitbook:
       collapse: section
       scroll_highlight: yes
       before: |
-        <li><a href="./">UCSD PoliSciMath Camp</a></li>
+        <li class="book-summary-header"><a href="./">UCSD PoliSci Math Camp</a></li>
+    toolbar:
+      position: fixed
+    fontsettings:
+      family: serif
     download: ["pdf", "epub"]
     edit : https://github.com/UCSDPoliSci/MathCamp/edit/main/%s
+    sharing: no
+    info: no
+  includes:
+    in_header: header.html
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
