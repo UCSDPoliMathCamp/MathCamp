@@ -4,7 +4,7 @@ author: ""
 date: "Under Construction"
 description: "Text for UCSD Department of Political Science Math Camp"
 github-repo: "UCSDPoliSci/MathCamp"
-site: "bookdown::bookdown_site"
+site: bookdown::bookdown_site
 documentclass: book
 geometry: "margin=1.5in"
 biblio-style: apalike
