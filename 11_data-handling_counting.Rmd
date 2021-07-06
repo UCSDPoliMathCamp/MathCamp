@@ -1,15 +1,15 @@
 # (PART) Programming {-}
 
 
-# Orientation and Reading in Data^[Module originally written by Shiro Kuriwaki] {#dataimport}
+# Orientation and Reading in Data
 
+Welcome to Math Camp! The first day we will get to know each other and get acquainted with R. We will be working with R throughout this course, and today is the beginning, where you will learn about this program. It can be overwhelming to learn any programming language, but we will spend a lot of time and practice with it. Please work through the following tutorials and exercises. Please come to class with areas of confusion and questions; we will walk through more examples together.
 
+You should downloaded [R](https://cran.r-project.org/) and [R Studio](https://www.rstudio.com/products/rstudio/). [This video](https://www.youtube.com/watch?v=iffR3fWv4xw&list=PLOU2XLYxmsIK9qQfztXeybpHvru-TrqAP&index=3) has a nice brief introduction.
 
-Welcome to the first in-class session for programming. Up till this point, you should have already:
+[R Studio Cloud](https://rstudio.cloud/learn/primers/) has great resources we will be using throughout this course. Please complete the following primer tutorials for the first session: 
+* [The Basics: Programming Basics](https://rstudio.cloud/learn/primers/1.2)
 
-* Completed the R Visualization and Programming primers (under "The Basics") on your own at <https://rstudio.cloud/learn/primers/>,
-* Made an account at RStudio Cloud and join the Math Prefresher 2019 Space, and
-* Successfully signed up for the University wi-fi: <https://getonline.harvard.edu/> (Access Harvard Secure with your HarvardKey. Try to get a HarvardKey as soon as possible.)
 
 
 ## Motivation: Data and You {-}
@@ -48,22 +48,15 @@ library(fs)
 
 ## Orienting
 
-1. We will be using a cloud version of RStudio at <https://rstudio.cloud>. You should join the Math Prefresher Space 2019 from the link that was emailed to you. Each day, click on the project with the day's date on it.
-
-    Although most of you will probably doing your work on RStudio local rather than cloud, we are trying to use cloud because it makes it easier to standardize people's settings.  
-
-2.  RStudio (either cloud or desktop) is a __GUI__ and an IDE for the programming language R. A Graphical User Interface allows users to interface with the software (in this case R) using graphical aids like buttons and tabs. Often we don't think of GUIs because to most computer users, everything is a GUI (like Microsoft Word or your "Control Panel"), but it's always there! A Integrated Development Environment just says that the software to interface with R comes with useful useful bells and whistles to give you shortcuts. 
+1. RStudio is a __GUI__ and an IDE for the programming language R. A Graphical User Interface allows users to interface with the software (in this case R) using graphical aids like buttons and tabs. Often we don't think of GUIs because to most computer users, everything is a GUI (like Microsoft Word or your "Control Panel"), but it's always there! A Integrated Development Environment just says that the software to interface with R comes with useful useful bells and whistles to give you shortcuts. 
 
     The __Console__ is kind of a the core window through which you see your GUI actually operating through R. It's not graphical so might not be as intuitive. But all your results, commands, errors, warnings.. you see them in here. A console tells you what's going on now. 
 
-![A Typical RStudio Window at Startup](images/11_1_rstudio-startup.png)
 
-3. via the GUI, you the analyst needs to sends instructions, or __commands__, to the R application. The verb for this is "run" or "execute" the command. Computer programs ask users to provide instructions in very specific formats. While a English-speaking human can understand a sentence with a few typos in it by filling in the blanks, the same typo or misplaced character would halt a computer program. Each program has its own requirements for how commands should be typed; after all, each of these is its own language. We refer to the way a program needs its commands to be formatted as its __syntax__. 
+2. via the GUI, you the analyst needs to sends instructions, or __commands__, to the R application. The verb for this is "run" or "execute" the command. Computer programs ask users to provide instructions in very specific formats. While a English-speaking human can understand a sentence with a few typos in it by filling in the blanks, the same typo or misplaced character would halt a computer program. Each program has its own requirements for how commands should be typed; after all, each of these is its own language. We refer to the way a program needs its commands to be formatted as its __syntax__. 
 
 
-4.  Theoretically, one could do all their work by typing in commands into the Console. But that would be a lot of work, because you'd have to give instructions each time you start your data analysis. Moreover, you'll have no record of what you did. That's why you need a __script__. This is a type of __code__. It can be referred to as a __source__ because that is the source of your commands. Source is also used as a verb; "source the script" just means execute it.  RStudio doesn't start out with a script, so you can make one from "File > New" or the New file icon.
-
-![Opening New Script (as opposed to the Console)](images/11_2_rstudio-script.png)
+3.  Theoretically, one could do all their work by typing in commands into the Console. But that would be a lot of work, because you'd have to give instructions each time you start your data analysis. Moreover, you'll have no record of what you did. That's why you need a __script__. This is a type of __code__. It can be referred to as a __source__ because that is the source of your commands. Source is also used as a verb; "source the script" just means execute it.  RStudio doesn't start out with a script, so you can make one from "File > New" or the New file icon.
 
 
 4.  You can also open scripts that are in folders in your computer. A script is a type of File. Find your Files in the bottom-right "Files" pane. 
@@ -82,8 +75,6 @@ library(fs)
     * `.Rmd`: Rmarkdown code (text + code)
     * `.do`: Stata code (script)
 
-
-![Opening an Existing Script from Files](images/11_3_rstudio-files.png)
 
 5.   In R, there are two main types of scripts. A classic `.R` file and a `.Rmd` file (for Rmarkdown). A .R file is just lines and lines of R code that is meant to be inserted right into the Console. A .Rmd tries to weave code and English together, to make it easier for users to create reports that interact with data and intersperse R code with explanation. For example, we built this book in Rmds. 
 
@@ -105,7 +96,7 @@ R is an object oriented programming language primarily used for statistical comp
 # Adding a string and a string does not work because the '+' operator 
 # does not work for strings:
 
-# 'Harvard' + 'Gov'
+# 'UCSD' + 'PoliSci'
 
 # The '+' operator can add numbers just fine
 9 + 13
@@ -114,7 +105,7 @@ R is an object oriented programming language primarily used for statistical comp
 x <- 9
 class(9)
 class(x)
-class('Harvard')
+class('UCSD')
 ```
 
 Object oriented programming makes languages flexible and powerful:
@@ -126,33 +117,11 @@ Object oriented programming makes languages flexible and powerful:
 It is helpful to think in terms of object manipulation at a high level while programming in R, particularly at the beginning of tackling a new problem. Think about what objects you want to manipulate, what types they are, and how they fit together. Once you have the logic of your solution ready then you can write it in R.
 
 
-## The Computer and You: Giving Instructions
-
-We'll do the Peanut Butter and Jelly Exercise in class as an introduction to programming for those who are new.^[This Exercise is taken from Harvard's Introductory Undergraduate Class, CS50 (<https://www.youtube.com/watch?v=kcbT3hrEi9s>), and many other writeups.]
-
-Assignment: Take 5 minutes to write down on a piece of paper, how to make a peanut butter and jelly sandwich. Be as concise and unambiguous as possible so that a robot (who doesn't know what a PBJ is) would understand. You can assume that there will be loaf of sliced bread, a jar of jelly, a jar of peanut butter, and a knife. 
-
-Simpler assignment: Say we just want a robot to be able to tell us if we have enough ingredients to make a peanut butter and jelly sandwich. Write down instructions so that if told how many slices of bread, servings of peanut butter, and servings of jelly you have, the robot can tell you if you can make a PBJ.
-
-Now, translate the simpler assignment into R code using the code below as a starting point:
-
-```{r}
-n_bread <- 8
-n_pb <- 3
-n_jelly <- 9
-
-# write instructions in R here
-
-
-```
-
-
-
 ## Base-R vs. tidyverse 
 
 One last thing before we jump into data. Many things in R and other open source packages have competing standards. A lecture on a technique inevitably biases one standard over another. Right now among R users in this area, there are two families of functions: base-R and tidyverse.  R instructors thus face a dilemma about which to teach primarily.^[See for example this community discussion: https://community.rstudio.com/t/base-r-and-the-tidyverse/2965/17]
 
-In this prefresher, we try our best to choose the one that is most useful to the modal task of social science researchers, and make use of the tidyverse functions in most applications. but feel free to suggest changes to us or to the booklet. 
+In this math camp, we try our best to choose the one that is most useful to the modal task of social science researchers, and make use of the tidyverse functions in most applications. However, feel free to suggest changes to us or to the booklet. 
 
 Although you do not need to choose one over the other, for beginners it is confusing what is a tidyverse function and what is not. Many of the tidyverse _packages_ are covered in this 2017 graphic below, and the cheat-sheets that other programmers have written: https://www.rstudio.com/resources/cheatsheets/
 
@@ -292,106 +261,3 @@ These `tidyverse` commands from the `dplyr` package are newer and not built-in, 
 * 80 percent of your data wrangling needs might be doable with these basic `dplyr` functions: `select`, `mutate`, `group_by`, `summarize`, and `arrange`.
 * These verbs roughly correspond to the same commands in SQL, another important language in data science. 
 * The `%>%` symbol is a pipe. It takes the thing on the left side and pipes it down to the function on the right side. We could have done `count(cen10, race)` as `cen10 %>% count(race)`. That means take `cen10` and pass it on to the function `count`, which will count observations by race and return a collapsed dataset with the categories in its own variable and their respective counts in `n`.
-
-
-### Extra: A sneak peak at Ober's data
-
-
-Although this is a bit beyond our current stage, it's hard to resist the temptation to see what you can do with data like this.  For example, you can map it.^[In mid-2018, changes in Google's services made it no longer possible to render maps on the fly. Therefore, the map is not currently rendered automatically (but can be rendered once the user registers their API).  Instead, you now need to register with Google. See the [change](https://github.com/dkahle/ggmap/blob/e55c0b22b0d16a010b4b45dd2fce800ff0ef19b8/NEWS#L6-L12) to the pacakge ggmap.]
-
-Using the `ggmap` package
-```{r message=FALSE, warning=FALSE, eval = FALSE}
-library(ggmap)
-```
-
-First get a map of the Greek world.
-```{r, message=FALSE, warning=FALSE, eval = FALSE}
-greece <- get_map(location = c(lon = 22.6382849, lat = 39.543287),
-                  zoom = 5, 
-                  source = "stamen",
-                  maptype = "toner")
-ggmap(greece)
-```
-![](images/ober_ggmap_default.png)
-
-I chose the specifications for arguments `zoom` and `maptype` by looking at the webpage and Googling some examples.
-
-
-Ober's data has the latitude and longitude of each polis. Because the map of Greece has the same coordinates, we can add the polei on the same map. 
-
-```{r, warning=FALSE, eval = FALSE}
-gg_ober <- ggmap(greece) +
-  geom_point(data = ober, 
-             aes(y = Latitude, x = Longitude), 
-             size = 0.5,
-             color = "orange")
-gg_ober + 
-  scale_x_continuous(limits = c(10, 35)) + 
-  scale_y_continuous(limits = c(32, 44)) +
-  theme_void()
-```
-![](images/ober_ggmap_polis.png)
-
-
-
-
-## Exercises {-}
-
-### 1 {-}
-
-What is the Fame value of Delphoi?
-
-```{r}
-# Enter here
-```
-
-
-### 2 {-}
-
-Find the polis with the top 10 Fame values.
-
-```{r}
-# Enter here
-```
-
-
-
-### 3 {-}
-
-Make a scatterplot with the number of colonies on the x-axis and Fame on the y-axis.
-
-```{r}
-# Enter here
-```
-
-
-### 4 {-}
-Find the correct function to read the following datasets (available in your rstudio.cloud session) into your R window.
-
-
-* `data/input/acs2015_1percent.csv`: A one percent sample of the American Community Survey
-* `data/input/gapminder_wide.tab`: Country-level wealth and health from Gapminder^[Formatted and taken from <https://doi.org/10.7910/DVN/GJQNEQ>]
-* `data/input/gapminder_wide.Rds`: A Rds version of the Gapminder (What is a Rds file? What's the difference?)
-* `data/input/Nunn_Wantchekon_sample.dta`: A sample from the Afrobarometer survey (which we'll explore tomorrow). `.dta` is a Stata format. 
-* `data/input/german_credit.sav`: A hypothetical dataset on consumer credit. `.sav` is a SPSS format. 
-
-Our Recommendations: Look at the packages `haven` and `readr`
-
-
-```{r}
-# Enter here, perhaps making a chunk for each file.
-```
-
-
-### 5 {-}
-Read Ober's codebook and find a variable that you think is interesting. Check the distribution of that variable in your data, get a couple of statistics, and summarize it in English.
-
-```{r}
-# Enter here
-```
-
-
-### 6 {-}
-This is day 1 and we covered a lot of material. Some of you might have found this completely new; others not so. Please click through this survey before you leave so we can adjust accordingly on the next few days.
-
-<https://harvard.az1.qualtrics.com/jfe/form/SV_8As7Y7C83iBiQzH>
