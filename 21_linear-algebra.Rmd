@@ -808,8 +808,6 @@ $$A = \begin{pmatrix}
 
 ## Answers to Examples and Exercises {-}
 
-
-
 Answer to Example \@ref(exm:vectors):
 
   1. $\begin{pmatrix} -1 &-3&-3 \end{pmatrix}$
