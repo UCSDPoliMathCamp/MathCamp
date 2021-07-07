@@ -1,4 +1,4 @@
-# (PART) Introduction to R: {-}
+# (PART) Introduction to R {-}
 
 
 # Orientation and Reading in Data

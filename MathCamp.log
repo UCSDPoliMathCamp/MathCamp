@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.5.24)  5 JUL 2021 14:22
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.5.24)  7 JUL 2021 07:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1370,38 +1370,82 @@ LaTeX Warning: Reference `setoper' on page 10 undefined on input line 460.
 
 LaTeX Warning: Reference `probdef' on page 10 undefined on input line 460.
 
-[10] [11
-
-] [12]
+[10]
 Chapter 1.
-LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 24.88pt on input line 466.
-LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 20.74pt on input line 466.
-LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 17.28pt on input line 466.
-LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 24.88037pt on input line 466.
-LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 20.74031pt on input line 466.
-LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 17.28026pt on input line 466.
-LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 24.87962pt on input line 466.
-LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 20.73969pt on input line 466.
-LaTeX Font Info:    Font shape `EU1/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 17.27972pt on input line 466.
-[13
+Missing character: There is no 𝑅 in font rm-lmbx10!
+[11
 
 ]
-File: images/11_1_rstudio-startup.png Graphic file (type QTm)
-<use  "images/11_1_rstudio-startup.png" > [14]
-File: images/11_2_rstudio-script.png Graphic file (type QTm)
-<use  "images/11_2_rstudio-script.png" > [15]
-File: images/11_3_rstudio-files.png Graphic file (type QTm)
-<use  "images/11_3_rstudio-files.png" >
-Overfull \hbox (2376.265pt too wide) in paragraph at lines 609--609
+Missing character: There is no 𝑅 in font rm-lmbx10!
+[12]
+Missing character: There is no 𝑅 in font rm-lmbx10!
+Missing character: There is no 𝑅 in font rm-lmbx10!
+Missing character: There is no 𝑅 in font rm-lmbx10!
+Missing character: There is no 𝑅 in font rm-lmbx10!
+Missing character: There is no 𝑅 in font rm-lmbx10!
+Missing character: There is no 𝑅 in font rm-lmbx10!
+Missing character: There is no 𝑅 in font rm-lmbx10!
+Missing character: There is no 𝑅 in font rm-lmbx10!
+Missing character: There is no 𝑅 in font rm-lmbx10!
+Missing character: There is no 𝑅 in font rm-lmbx10!
+Missing character: There is no 𝑅 in font rm-lmbx10!
+Missing character: There is no 𝑅 in font rm-lmbx10!
+Missing character: There is no 𝑅 in font rm-lmbx10!
+Missing character: There is no 𝑅 in font rm-lmbx10!
+Missing character: There is no 𝑅 in font rm-lmbx10!
+Missing character: There is no 𝑅 in font rm-lmbx10!
+[13]
+Missing character: There is no 𝑅 in font rm-lmbx10!
+Missing character: There is no 𝑅 in font rm-lmbx10!
+Missing character: There is no 𝑅 in font rm-lmbx10!
+Missing character: There is no 𝑅 in font rm-lmbx10!
+[14] [15] [16]
+Missing character: There is no 𝑥 in font rm-lmbx10!
+Missing character: There is no 𝑥 in font rm-lmbx10!
+Missing character: There is no 𝑥 in font rm-lmbx10!
+Missing character: There is no 𝑥 in font rm-lmbx10!
+Missing character: There is no 𝑥 in font rm-lmbx10!
+Missing character: There is no 𝑥 in font rm-lmbx10!
+Missing character: There is no 𝑥 in font rm-lmbx10!
+
+LaTeX Warning: Reference `exm:operators' on page 17 undefined on input line 940
+.
+
+[17]
+
+LaTeX Warning: Reference `exr:operators1' on page 18 undefined on input line 95
+4.
+
+
+LaTeX Warning: Reference `exm:functions' on page 18 undefined on input line 966
+.
+
+
+LaTeX Warning: Reference `exr:functions1' on page 18 undefined on input line 97
+6.
+
+
+LaTeX Warning: Reference `exm:log' on page 18 undefined on input line 986.
+
+
+LaTeX Warning: Reference `exr:log1' on page 18 undefined on input line 998.
+
+
+LaTeX Warning: Reference `exm:solvevar' on page 18 undefined on input line 1010
+.
+
+
+LaTeX Warning: Reference `exr:solvevar1' on page 18 undefined on input line 102
+0.
+
+[18] [19
+
+] [20]
+Chapter 2.
+[21
+
+] [22]
+Overfull \hbox (2376.265pt too wide) in paragraph at lines 1136--1136
 []\EU1/lmtt/m/n/10 The Rmarkdown facilitates is the use of __code chunks__, whi
 ch are used here. These start and end with three back-ticks. In the beginning, 
 we can add options in curly braces (`{}`). Specifying `r` in the beginning tell
@@ -1413,546 +1457,64 @@ he code that was executed.
  []
 
 File: images/11_4_codechunk.png Graphic file (type QTm)
-<use  "images/11_4_codechunk.png" > [16] [17]
+<use  "images/11_4_codechunk.png" > [23]
 LaTeX Font Info:    Font shape `EU1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 643.
-[18]
-Underfull \hbox (badness 1902) in paragraph at lines 721--721
+(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 1170.
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 1227--1227
 [][][]\EU1/lmr/m/n/8 See for example this community discussion: [][]$[][][][][]
  [] [] [] [][][][][][][][][] [] [][][][][][][] [] [][][] [] [] [] [][][][] [][]
  [] [][] [][][] [][] [][][] [][]
  []
 
+[24]
 File: images/tidyverse-packages.png Graphic file (type QTm)
-<use  "images/tidyverse-packages.png" > [19]
+<use  "images/tidyverse-packages.png" > [25]
 
-LaTeX Warning: Reference `dataviz' on page 20 undefined on input line 914.
+LaTeX Warning: Reference `dataviz' on page 26 undefined on input line 1420.
 
 
-LaTeX Warning: Reference `dataviz' on page 20 undefined on input line 916.
+LaTeX Warning: Reference `dataviz' on page 26 undefined on input line 1422.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[20]
-Overfull \hbox (19.015pt too wide) in paragraph at lines 934--934
+[26]
+Overfull \hbox (19.015pt too wide) in paragraph at lines 1440--1440
 []\EU1/lmtt/m/n/10 ## data/input/Nunn_Wantchekon_AER_2011.dta data/input/Nunn_W
 antchekon_sample.dta 
  []
 
-[21]
 
-LaTeX Warning: Reference `@' on page 22 undefined on input line 943.
+LaTeX Warning: Reference `@' on page 27 undefined on input line 1449.
 
-
-Overfull \hbox (12.015pt too wide) in paragraph at lines 1010--1010
+[27]
+Overfull \hbox (12.015pt too wide) in paragraph at lines 1516--1516
 []\EU1/lmtt/m/n/10 ##    polis_number Name  Latitude Longitude Hellenicity  Fam
 e Size  Colonies Regime[] 
  []
 
-[22]
 
-LaTeX Warning: Reference `dataviz' on page 23 undefined on input line 1035.
-
-File: MathCamp_files/figure-latex/unnamed-chunk-11-1.pdf Graphic file (type QTm
-)
-<use  "MathCamp_files/figure-latex/unnamed-chunk-11-1.pdf" >
-File: MathCamp_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (type QTm
-)
-<use  "MathCamp_files/figure-latex/unnamed-chunk-12-1.pdf" > [23] [24]
-File: images/ober_ggmap_default.png Graphic file (type QTm)
-<use  "images/ober_ggmap_default.png" > [25]
-File: images/ober_ggmap_polis.png Graphic file (type QTm)
-<use  "images/ober_ggmap_polis.png" > [26] [27] [28
-
-]
-Chapter 2.
-[29]
-Overfull \hbox (13.765pt too wide) in paragraph at lines 1293--1293
-[]\EU1/lmtt/m/n/10 ## #   urban_dum <dbl>, occupation <dbl>, religion <dbl>, li
-ving_conditions <dbl>,[] 
- []
-
-
-Overfull \hbox (1.515pt too wide) in paragraph at lines 1296--1296
-[]\EU1/lmtt/m/n/10 ## #   council_listen <dbl>, corrupt_local_council <dbl>, sc
-hool_present <dbl>,[] 
- []
-
-
-Overfull \hbox (17.265pt too wide) in paragraph at lines 1297--1297
-[]\EU1/lmtt/m/n/10 ## #   electricity_present <dbl>, piped_water_present <dbl>,
- sewage_present <dbl>,[] 
- []
-
-
-Overfull \hbox (5.015pt too wide) in paragraph at lines 1299--1299
-[]\EU1/lmtt/m/n/10 ## #   frac_ethnicity_in_district <dbl>, townvill_nonethnic_
-mean_exports <dbl>,[] 
- []
-
-
-Overfull \hbox (20.765pt too wide) in paragraph at lines 1300--1300
-[]\EU1/lmtt/m/n/10 ## #   district_nonethnic_mean_exports <dbl>, region_nonethn
-ic_mean_exports <dbl>,[] 
- []
-
-
-Overfull \hbox (1.515pt too wide) in paragraph at lines 1303--1303
-[]\EU1/lmtt/m/n/10 ## #   railway_contact <dbl>, dist_Saharan_node <dbl>, dist_
-Saharan_line <dbl>,[] 
- []
-
-[30] [31]
-LaTeX Font Info:    Font shape `EU1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 1437.
-
-[32] [33] [34]
-Underfull \vbox (badness 2744) has occurred while \output is active []
-
-[35]
-File: images/nunn_wantchekon_table1.png Graphic file (type QTm)
-<use  "images/nunn_wantchekon_table1.png" > [36] [37] [38] [39] [40]
-Underfull \vbox (badness 2990) has occurred while \output is active []
-
-[41] [42] [43]
-Missing character: There is no 𝐴 in font rm-lmbx10!
-[44] [45] [46]
-Underfull \vbox (badness 2644) has occurred while \output is active []
-
-[47] [48]
-Chapter 3.
-[49
-
-] [50] [51] [52]
-File: MathCamp_files/figure-latex/unnamed-chunk-91-1.pdf Graphic file (type QTm
-)
-<use  "MathCamp_files/figure-latex/unnamed-chunk-91-1.pdf" >
-LaTeX Font Info:    Font shape `EU1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 2905.
-
-
-Overfull \hbox (225.515pt too wide) in paragraph at lines 2917--2917
-[]\EU1/lmtt/m/n/10 ##  $       : chr [1:5] "subitem 1 in slot 1 of my_list" "su
-bitem 1 in slot 2 of my_list" "subitem 1 in slot 3 of my_list" "4" ...[] 
- []
-
-[53] [54] [55] [56] [57] [58] [59] [60]
-Overfull \hbox (5.015pt too wide) in paragraph at lines 3464--3464
-[]\EU1/lmtt/m/n/10 ## [1] "Percentage of  American Indian or Alaska Native in M
-assachusetts is 0.77"[] 
- []
-
-
-Overfull \hbox (3.265pt too wide) in paragraph at lines 3473--3473
-[]\EU1/lmtt/m/n/10 ## [1] "Percentage of  American Indian or Alaska Native in N
-ew Hampshire is 0.72"[] 
- []
-
-[61]
-Overfull \hbox (5.015pt too wide) in paragraph at lines 3552--3552
-[]\EU1/lmtt/m/n/10 ## [1] "Percentage of  American Indian or Alaska Native in M
-assachusetts is 0.77"[] 
- []
-
-
-Overfull \hbox (3.265pt too wide) in paragraph at lines 3561--3561
-[]\EU1/lmtt/m/n/10 ## [1] "Percentage of  American Indian or Alaska Native in N
-ew Hampshire is 0.72"[] 
- []
-
-[62] [63] [64
-
-]
-Chapter 4.
-[65]
-File: images/Martin-Quinn_Wikipedia.png Graphic file (type QTm)
-<use  "images/Martin-Quinn_Wikipedia.png" > [66] [67] [68]
-File: MathCamp_files/figure-latex/unnamed-chunk-135-1.pdf Graphic file (type QT
-m)
-<use  "MathCamp_files/figure-latex/unnamed-chunk-135-1.pdf" >
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[69]
-File: MathCamp_files/figure-latex/unnamed-chunk-137-1.pdf Graphic file (type QT
-m)
-<use  "MathCamp_files/figure-latex/unnamed-chunk-137-1.pdf" >
-Underfull \vbox (badness 3919) has occurred while \output is active []
-
-[70]
-File: MathCamp_files/figure-latex/unnamed-chunk-138-1.pdf Graphic file (type QT
-m)
-<use  "MathCamp_files/figure-latex/unnamed-chunk-138-1.pdf" >
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[71]
-File: MathCamp_files/figure-latex/unnamed-chunk-139-1.pdf Graphic file (type QT
-m)
-<use  "MathCamp_files/figure-latex/unnamed-chunk-139-1.pdf" >
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[72] [73]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[74]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[75]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[76] [77]
-File: MathCamp_files/figure-latex/unnamed-chunk-145-1.pdf Graphic file (type QT
-m)
-<use  "MathCamp_files/figure-latex/unnamed-chunk-145-1.pdf" >
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[78]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[79]
-Overfull \hbox (8.515pt too wide) in paragraph at lines 4205--4205
-[]\EU1/lmtt/m/n/10 ##     term justice_id justice    idealpt idealpt_sd median_
-idealpt median_justice[] 
- []
-
-File: MathCamp_files/figure-latex/unnamed-chunk-148-1.pdf Graphic file (type QT
-m)
-<use  "MathCamp_files/figure-latex/unnamed-chunk-148-1.pdf" >
-Underfull \vbox (badness 1708) has occurred while \output is active []
-
-[80] [81] [82] [83] [84
-
-]
-Chapter 5.
-[85]
-Underfull \hbox (badness 2181) in paragraph at lines 4384--4386
-[]\EU1/lmr/bx/n/10 Correlates of war dataset (COW): \EU1/lmr/m/n/10 Find and do
-wnload the Militarized
- []
-
-
-Underfull \hbox (badness 1057) in paragraph at lines 4384--4386
-\EU1/lmr/m/n/10 Interstate Disputes (MIDs) data from the Correlates of War webs
-ite: [][]$[][][][] []
- []
-
-[86]
-File: MathCamp_files/figure-latex/unnamed-chunk-155-1.pdf Graphic file (type QT
-m)
-<use  "MathCamp_files/figure-latex/unnamed-chunk-155-1.pdf" > [87] [88]
-File: images/dplyr-joins.png Graphic file (type QTm)
-<use  "images/dplyr-joins.png" >
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[89] [90]
-Underfull \hbox (badness 10000) in paragraph at lines 4636--4637
-[]\EU1/lmtt/m/n/10 readxl\EU1/lmr/m/n/10 /\EU1/lmtt/m/n/10 readr\EU1/lmr/m/n/10
- /\EU1/lmtt/m/n/10 haven \EU1/lmr/m/n/10 packages([][]$[][][][][] [] [] [] [][]
-[][][][] [] [][][] [] [][][][][][][][][] [] [][][][][][][][][]$[][]) is con-
- []
-
-[91] [92]
-Chapter 6.
-[93
-
-] [94]
-Overfull \hbox (232.515pt too wide) in paragraph at lines 4825--4825
-[]\EU1/lmtt/m/n/10 ## Error in sample.int(length(x), size, replace, prob): cann
-ot take a sample larger than the population when 'replace = FALSE' 
- []
-
-[95] [96] [97]
-File: MathCamp_files/figure-latex/unnamed-chunk-178-1.pdf Graphic file (type QT
-m)
-<use  "MathCamp_files/figure-latex/unnamed-chunk-178-1.pdf" > [98] [99] [100] [
-101] [102]
-Chapter 7.
-[103
-
-] [104]
-File: images/RMarkdownFlow.png Graphic file (type QTm)
-<use  "images/RMarkdownFlow.png" > [105] [106]
-Underfull \hbox (badness 1102) in paragraph at lines 5430--5431
-\EU1/lmtt/m/n/10 stargazer\EU1/lmr/m/n/10 , and then called into LaTeX by \EU1/
-lmtt/m/n/10 \input{regression_table.tex} \EU1/lmr/m/n/10 where
- []
-
-[107]
-Overfull \hbox (435.515pt too wide) in paragraph at lines 5480--5480
-[]  \EU1/lmtt/m/n/10 \textcite{nunn2011slave} argue that current variation in t
-he trust among citizens of African countries has historical roots in the Europe
-an slave trade in the 1600s. 
- []
-
-File: images/biblatex_inline.png Graphic file (type QTm)
-<use  "images/biblatex_inline.png" >
-File: images/biblatex_bibliography.png Graphic file (type QTm)
-<use  "images/biblatex_bibliography.png" > [108]
-Missing character: There is no 譚 in font [lmroman10-regular]:mapping=tex-text!
-Missing character: There is no 吉 in font [lmroman10-regular]:mapping=tex-text!
-Missing character: There is no 娜 in font [lmroman10-regular]:mapping=tex-text!
-
-Package natbib Warning: Citation `DGTam86' on page 109 undefined on input line 
-5553.
-
-
-Package natbib Warning: Citation `amitabhchandra2' on page 109 undefined on inp
-ut line 5559.
-
-[109]
-
-Package natbib Warning: Citation `EmilyRiederer' on page 110 undefined on input
- line 5565.
-
-[110] [111
-
-] [112]
-Chapter 8.
-Missing character: There is no 𝑅 in font rm-lmbx10!
-[113
-
-]
-Missing character: There is no 𝑅 in font rm-lmbx10!
-[114]
-Missing character: There is no 𝑅 in font rm-lmbx10!
-Missing character: There is no 𝑅 in font rm-lmbx10!
-Missing character: There is no 𝑅 in font rm-lmbx10!
-Missing character: There is no 𝑅 in font rm-lmbx10!
-Missing character: There is no 𝑅 in font rm-lmbx10!
-Missing character: There is no 𝑅 in font rm-lmbx10!
-Missing character: There is no 𝑅 in font rm-lmbx10!
-Missing character: There is no 𝑅 in font rm-lmbx10!
-Missing character: There is no 𝑅 in font rm-lmbx10!
-Missing character: There is no 𝑅 in font rm-lmbx10!
-Missing character: There is no 𝑅 in font rm-lmbx10!
-Missing character: There is no 𝑅 in font rm-lmbx10!
-Missing character: There is no 𝑅 in font rm-lmbx10!
-Missing character: There is no 𝑅 in font rm-lmbx10!
-Missing character: There is no 𝑅 in font rm-lmbx10!
-Missing character: There is no 𝑅 in font rm-lmbx10!
-[115]
-Missing character: There is no 𝑅 in font rm-lmbx10!
-Missing character: There is no 𝑅 in font rm-lmbx10!
-Missing character: There is no 𝑅 in font rm-lmbx10!
-Missing character: There is no 𝑅 in font rm-lmbx10!
-[116] [117] [118]
-Missing character: There is no 𝑥 in font rm-lmbx10!
-Missing character: There is no 𝑥 in font rm-lmbx10!
-Missing character: There is no 𝑥 in font rm-lmbx10!
-Missing character: There is no 𝑥 in font rm-lmbx10!
-Missing character: There is no 𝑥 in font rm-lmbx10!
-Missing character: There is no 𝑥 in font rm-lmbx10!
-Missing character: There is no 𝑥 in font rm-lmbx10!
-
-LaTeX Warning: Reference `exm:operators' on page 119 undefined on input line 60
-56.
-
-[119]
-
-LaTeX Warning: Reference `exr:operators1' on page 120 undefined on input line 6
-070.
-
-
-LaTeX Warning: Reference `exm:functions' on page 120 undefined on input line 60
-82.
-
-
-LaTeX Warning: Reference `exr:functions1' on page 120 undefined on input line 6
-092.
-
-
-LaTeX Warning: Reference `exm:log' on page 120 undefined on input line 6102.
-
-
-LaTeX Warning: Reference `exr:log1' on page 120 undefined on input line 6114.
-
-
-LaTeX Warning: Reference `exm:solvevar' on page 120 undefined on input line 612
-6.
-
-
-LaTeX Warning: Reference `exr:solvevar1' on page 120 undefined on input line 61
-36.
-
-[120]
-Chapter 9.
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑅 in font rm-lmbx10!
-Missing character: There is no 𝑢 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑢 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑢 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-
-Underfull \hbox (badness 10000) in paragraph at lines 6176--6177
-
- []
-
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑢 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑢 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑢 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-[121
-
-]
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-
-Underfull \hbox (badness 1817) in paragraph at lines 6201--6202
-[]\EU1/lmr/bx/n/10 Exercise 9.1 \EU1/lmr/m/n/10 (Vector Algebra)\EU1/lmr/bx/n/1
-0 . []\EU1/lmr/m/n/10 Let $[] [] []$, $[] [] []$,
- []
-
-Missing character: There is no 𝑢 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑢 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-[122]
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝑣 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝑎 in font rm-lmbx10!
-Missing character: There is no 𝑎 in font rm-lmbx10!
-Missing character: There is no 𝑎 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-[123]
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐶 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐶 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐶 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐶 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐶 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐶 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐶 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐶 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐶 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐶 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-[124]
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐶 in font rm-lmbx10!
-Missing character: There is no 𝐶 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐵 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-[125] [126]
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝑥 in font rm-lmbx10!
-Missing character: There is no 𝑏 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝑥 in font rm-lmbx10!
-Missing character: There is no 𝑏 in font rm-lmbx10!
-Missing character: There is no 𝑏 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-Missing character: There is no 𝐴 in font rm-lmbx10!
-
-
-! ! Internal error: bad native font flag in `map_char_to_glyph'
-
-! xdvipdfmx:fatal: File ended prematurely
-
+LaTeX Warning: Reference `dataviz' on page 28 undefined on input line 1541.
+
+
+LaTeX Warning: File `MathCamp_files/figure-latex/unnamed-chunk-10-1.pdf' not fo
+und on input line 1553.
+
+! Unable to load picture or PDF file 'MathCamp_files/figure-latex/unnamed-chunk
+-10-1.pdf'.
+<to be read again> 
+                   }
+l.1553 ...les/figure-latex/unnamed-chunk-10-1.pdf}
+                                                   
+Here is how much of TeX's memory you used:
+ 31209 strings out of 493706
+ 549065 string characters out of 6145769
+ 692230 words of memory out of 5000000
+ 34148 multiletter control sequences out of 15000+600000
+ 31770 words of font info for 96 fonts, out of 8000000 for 9000
+ 1328 hyphenation exceptions out of 8191
+ 57i,10n,103p,10403b,656s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on MathCamp.pdf (27 pages).

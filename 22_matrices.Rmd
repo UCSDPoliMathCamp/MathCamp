@@ -1,4 +1,4 @@
-#  Manipulating Vectors and  Matrices^[Module originally written by Shiro Kuriwaki and Yon Soo Park] {#rmatrices}
+#  Manipulating Vectors and  Matrices {#rmatrices}
 
 ```{r, include=FALSE, message = FALSE, warning = FALSE}
 library(dplyr)
