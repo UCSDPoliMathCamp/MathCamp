@@ -3,12 +3,12 @@
 
 # Orientation and Reading in Data
 
-Welcome to Math Camp! The first day we will get to know each other and get acquainted with R. We will be working with R throughout this course, and today is the beginning, where you will learn about this program. It can be overwhelming to learn any programming language, but we will spend a lot of time and practice with it. Please work through the following tutorials and exercises. Please come to class with areas of confusion and questions; we will walk through more examples together.
+Welcome to Math Camp! The first day we will get to know each other and get acquainted with R. We will be working with R throughout this course, and today is the beginning, where you will learn about this program. It can be overwhelming to learn any programming language, but we will spend a lot of time and practice with it. Please work through the following tutorials and exercises. There is a lot of information here, and it will take time to understand everything. In fact, programming is a continual learning experience. Please come to class with areas of confusion and questions; we will walk through more examples together.
 
 You should downloaded [R](https://cran.r-project.org/) and [R Studio](https://www.rstudio.com/products/rstudio/). [This video](https://www.youtube.com/watch?v=iffR3fWv4xw&list=PLOU2XLYxmsIK9qQfztXeybpHvru-TrqAP&index=3) has a nice brief introduction.
 
-[R Studio Cloud](https://rstudio.cloud/learn/primers/) has great resources we will be using throughout this course. Please complete the following primer tutorials for the first session: 
-* [The Basics: Programming Basics](https://rstudio.cloud/learn/primers/1.2)
+[R Studio Cloud](https://rstudio.cloud/learn/primers/) has great resources we will be using throughout this course. Please complete the following primer tutorial for the first session: 
+[The Basics: Programming Basics](https://rstudio.cloud/learn/primers/1.2)
 
 
 
@@ -19,7 +19,7 @@ The modal social science project starts by importing existing datasets. Datasets
 Reviewing data import will allow us to get on the same page on how computer systems work.
 
 
-### Where are we? Where are we headed? {-}
+### Where are we starting? {-}
 
 Today we'll cover:
 
@@ -187,7 +187,7 @@ What files do we have in the `data/input` folder?
 dir_ls("data/input")
 ```
 
-A typical file format is Microsoft Excel. Although this is not usually the best format for R because of its highly formatted structure as opposed to plain text (more on this in Section \ref@(sec:wysiwyg)), recent packages have made this fairly easy. 
+A typical file format is Microsoft Excel. Although this is not usually the best format for R because of its highly formatted structure as opposed to plain text (more on this in Section \ref@(sec:nonwysiwyg)), recent packages have made this fairly easy. 
 
 
 

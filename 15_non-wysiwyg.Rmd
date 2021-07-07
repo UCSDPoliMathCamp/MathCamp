@@ -1,4 +1,4 @@
-#  LaTeX and markdown^[Module originally written by Shiro Kuriwaki] {#nonwysiwyg}
+#  LaTeX and markdown {#nonwysiwyg}
 
 
 ### Where are we? Where are we headed? {-}
@@ -16,13 +16,9 @@ Here will cover
 
 as examples of a non-WYSIWYG editor
 
-and the next chapter (you can read it without reading this LaTeX chapter) covers
-
-* command-line
-* git
-
 command-line are a basic set of tools that you may have to use from time to time. It also clarifies what more complicated programs are doing. Markdown is an example of compiling a plain text file. LaTeX is a typesetting program and git is a version control program -- both are useful for non-quantitative work as well.
 
+Please familiarize yourself closing with Markdown, and be sure you know how to open an .Rmd file as described below. In class, we will walk through an Rmd file together. LaTeX is included here for your future reference as this is a popular typesetting program among political scientists. This is not needed for Math Camp and is never required for any course. In fact, many prefer R Markdown's integration rather than a separate typesetting program. This depends on your background and interests but exposure to the range of popular programs and techniques will be helpful moving forward.
 
 
 ### Check your understanding {-}
@@ -49,7 +45,7 @@ Statistical programming is a fast-moving field. The beta version of `R` was rele
 
 ## Markdown
 
-Markdown is the text we have been using throughout this course! At its core markdown is just plain text. Plain text does not have any formatting embedded in it. Instead, the formatting is coded up as text. Markdown is _not_ a WYSIWYG (What you see is what you get) text editor like Microsoft Word or Google Docs. This will mean that you need to explicitly code for `bold{text}` rather than hitting Command+B and making your text look __bold__ on your own computer. 
+At its core markdown is just plain text. Plain text does not have any formatting embedded in it. Instead, the formatting is coded up as text. Markdown is _not_ a WYSIWYG (What you see is what you get) text editor like Microsoft Word or Google Docs. This will mean that you need to explicitly code for `bold{text}` rather than hitting Command+B and making your text look __bold__ on your own computer. 
 
 Markdown is known as a "light-weight" editor, which means that it is relatively easy to write code that will compile. It is quick and easy and satisfies most presentation purposes; you might want to try `LaTeX` for more involved papers.
 
@@ -86,6 +82,7 @@ Multiple software exist where you can edit plain-text (roughly speaking, text th
 * [emacs](https://www.gnu.org/software/emacs/), aquamacs (general)
 * [vim](http://www.vim.org/download.php) (general)
 * [Sublime Text](https://www.sublimetext.com) (general)
+* [Atom](https://atom.io/) (general)
 
 Each has their own keyboard shortcuts and special features. You can browse a couple and see which one(s) you like.
  
@@ -227,7 +224,7 @@ For example, Gary's BibTeX file is here: <https://github.com/iqss-research/gkbib
 
 Citation management software (Mendeley or Zotero) automatically generates .bib entries from your library of PDFs for you, provided you have the bibliography attributes right. 
 
-## Exercise {-}
+## Extension: Optional Exercise {-}
 
 Create a LaTeX document for a hypothetical research paper on your laptop and, once you've verified it compiles into a PDF, come show it to either one of the instructors. 
 
@@ -249,34 +246,3 @@ Depending on your subfield or interests, try to implement some of the following:
 * A different font
 * Different page margins
 * Different line spacing
-
-
-
-
-## Concluding the Prefresher {-}
-
-Math may not be the perfect tool for every aspiring political scientist, but hopefully it was useful background to have at the least:
-
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Historians think this totally meaningless and nonsensical statistic is the product of an early-modern epistemological shift in which numbers and quantifiable data became revered above other kinds of knowledge as the most useful and credible form of truth <a href="https://t.co/wVFyAQGxEv">https://t.co/wVFyAQGxEv</a></p>&mdash; Gina Anne Tam 譚吉娜 (@DGTam86) <a href="https://twitter.com/DGTam86/status/1001279033638727680?ref_src=twsrc%5Etfw">May 29, 2018</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-
-But we should be aware that too much slant towards math and programming can miss the point:
-
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">To be clear, PhD training in Econ (first year) is often a disaster-- like how to prove the Central Limit Theorem (the LeBron James of Statistics) with polar-cooardinates. This is mostly a way to demoralize actual economists and select a bunch of unimaginative math jocks.</p>&mdash; Amitabh Chandra (@amitabhchandra2) <a href="https://twitter.com/amitabhchandra2/status/1029359117226438657?ref_src=twsrc%5Etfw">August 14, 2018</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-
-Keep on learning, trying new techniques to improve your work, and learn from others! 
-
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">What <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> tricks did it take you way too long to learn? One of mine is using readRDS and saveRDS instead of repeatedly loading from CSV</p>&mdash; Emily Riederer (@EmilyRiederer) <a href="https://twitter.com/EmilyRiederer/status/898735640031920129?ref_src=twsrc%5Etfw">August 19, 2017</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-### Your Feedback Matters {-}
-
-_Please tell us how we can improve the Prefresher_: The Prefresher is a work in progress, with material mainly driven by graduate students. Please tell us how we should change (or not change) each of its elements:
-
-https://harvard.az1.qualtrics.com/jfe/form/SV_esbzN8ZFAOPTqiV
