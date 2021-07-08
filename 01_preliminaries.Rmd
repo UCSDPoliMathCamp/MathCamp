@@ -1,6 +1,6 @@
-# (PART) Math {-}
-
 # Preliminaries
+
+The syllabus lists the assumed knowledge for Math Camp (Chapters 1-4 of Moore and Siegel). Below, you will find additional review material, examples, and sample exercises.
 
 __Topics__
  Dimensionality;

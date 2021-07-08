@@ -1,3 +1,5 @@
+# (PART) Linear Algebra {-}
+
 # Linear Algebra {#linearalgebra}
 
 Topics:
@@ -805,8 +807,6 @@ $$A = \begin{pmatrix}
 
 
 ## Answers to Examples and Exercises {-}
-
-
 
 Answer to Example \@ref(exm:vectors):
 

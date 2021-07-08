@@ -7,9 +7,6 @@ Up till now, you should have covered:
 
 * R basic programming
 * Data Import
-* Statistical Summaries
-* Visualization
-
 
 Today we'll cover
 
@@ -21,7 +18,7 @@ Today we'll cover
 
 ## What is an object?
 
-Now that we have covered some hands-on ways to use graphics, let's go into some fundamentals of the R language. 
+Now that we have covered how to load in data and some basic information about R, let's dive into some fundamentals of the R language. 
 
 Let's first set up 
 
@@ -151,7 +148,7 @@ pikachu$type
 
 
 ### Seeing R through objects
-Most of the R objects that you will see as you advance are their own objects. For example, here's a linear regression object (which you will learn more about in Gov 2000):
+Most of the R objects that you will see as you advance are their own objects. For example, here's a linear regression object (which you will learn more about in 204B):
 ```{r}
 ols <- lm(mpg ~ wt + vs + gear + carb, mtcars)
 class(ols)
@@ -186,7 +183,7 @@ gg_tab<- gg_tab + coord_flip()
 
 
 ### Parsing an object by `str()s`
-It can be hard to understand an `R` object because it's contents are unknown. The function `str`, short for structure, is a quick way to look into the innards of an object
+It can be hard to understand an `R` object because its contents are unknown. The function `str`, short for structure, is a quick way to look into the innards of an object
 
 ```{r}
 str(my_list)
