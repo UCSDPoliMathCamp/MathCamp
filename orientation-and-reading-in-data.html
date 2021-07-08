@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Solutions to Warmup Questions | UCSD Political Science Math Camp</title>
+  <title>Chapter 2 Orientation and Reading in Data | UCSD Political Science Math Camp</title>
   <meta name="description" content="Text for UCSD Department of Political Science Math Camp" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Solutions to Warmup Questions | UCSD Political Science Math Camp" />
+  <meta property="og:title" content="Chapter 2 Orientation and Reading in Data | UCSD Political Science Math Camp" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="/./images/logo.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="UCSDPoliSci/MathCamp" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Solutions to Warmup Questions | UCSD Political Science Math Camp" />
+  <meta name="twitter:title" content="Chapter 2 Orientation and Reading in Data | UCSD Political Science Math Camp" />
   
   <meta name="twitter:description" content="Text for UCSD Department of Political Science Math Camp" />
   <meta name="twitter:image" content="/./images/logo.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="probability-theory.html"/>
-
+<link rel="prev" href="preliminaries.html"/>
+<link rel="next" href="robjloops.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -415,201 +415,349 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="solutions-to-warmup-questions" class="section level1 unnumbered">
-<h1>Solutions to Warmup Questions</h1>
-<div id="linear-algebra-1" class="section level2 unnumbered">
-<h2>Linear Algebra</h2>
-<div id="vectors-1" class="section level3 unnumbered">
-<h3>Vectors</h3>
-<p>Define the vectors <span class="math inline">\(u = \begin{pmatrix} 1 \\2 \\3 \end{pmatrix}\)</span>, <span class="math inline">\(v = \begin{pmatrix} 4\\5\\6 \end{pmatrix}\)</span>, and the scalar <span class="math inline">\(c = 2\)</span>.</p>
+<div id="orientation-and-reading-in-data" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Orientation and Reading in Data</h1>
+<p>Welcome to Math Camp! The first day we will get to know each other and get acquainted with R. We will be working with R throughout this course, and today is the beginning, where you will learn about this program. It can be overwhelming to learn any programming language, but we will spend a lot of time and practice with it. Please work through the following tutorials and exercises. There is a lot of information here, and it will take time to understand everything. In fact, programming is a continual learning experience. Please come to class with areas of confusion and questions; we will walk through more examples together.</p>
+<p>You should downloaded <a href="https://cran.r-project.org/">R</a> and <a href="https://www.rstudio.com/products/rstudio/">R Studio</a>. <a href="https://www.youtube.com/watch?v=iffR3fWv4xw&amp;list=PLOU2XLYxmsIK9qQfztXeybpHvru-TrqAP&amp;index=3">This video</a> has a nice brief introduction.</p>
+<p><a href="https://rstudio.cloud/learn/primers/">R Studio Cloud</a> has great resources we will be using throughout this course. Please complete the following primer tutorial for the first session:
+<a href="https://rstudio.cloud/learn/primers/1.2">The Basics: Programming Basics</a></p>
+<div id="motivation-data-and-you" class="section level2 unnumbered">
+<h2>Motivation: Data and You</h2>
+<p>The modal social science project starts by importing existing datasets. Datasets come in all shapes and sizes. As you search for new data you may encounter dozens of file extensions – csv, xlsx, dta, sav, por, Rdata, Rds, txt, xml, json, shp … the list continues. Although these files can often be cumbersome, its a good to be able to find a way to encounter any file that your research may call for.</p>
+<p>Reviewing data import will allow us to get on the same page on how computer systems work.</p>
+<div id="where-are-we-starting" class="section level3 unnumbered">
+<h3>Where are we starting?</h3>
+<p>Today we’ll cover:</p>
+<ul>
+<li>What’s what in RStudio</li>
+<li>What R is, at a high level</li>
+<li>How to read in data</li>
+<li>Comment on coding style on the way</li>
+</ul>
+</div>
+<div id="check-your-understanding" class="section level3 unnumbered">
+<h3>Check your understanding</h3>
+<ul>
+<li>What is the difference between a file and a folder?</li>
+<li>In the RStudio windows, what is the difference between the “Source” Pane and the “Console”? What is a “code chunk”?</li>
+<li>How do you read a R help page? What is the <code>Usage</code> section, the <code>Values</code> section, and the <code>Examples</code> section?</li>
+<li>What use is the “Environment” Pane?</li>
+<li>How would you read in a spreadsheet in R?</li>
+<li>How would you figure out what variables are in the data? size of the data?</li>
+<li>How would you read in a <code>csv</code> file, a <code>dta</code> file, a <code>sav</code> file?</li>
+</ul>
+</div>
+</div>
+<div id="orienting" class="section level2">
+<h2><span class="header-section-number">2.1</span> Orienting</h2>
 <ol style="list-style-type: decimal">
-<li><span class="math inline">\(u + v = \begin{pmatrix}5\\7\\9\end{pmatrix}\)</span></li>
-<li><span class="math inline">\(cv = \begin{pmatrix}8\\10\\12\end{pmatrix}\)</span></li>
-<li><span class="math inline">\(u \cdot v = 1(4) + 2(5) + 3(6) = 32\)</span></li>
+<li><p>RStudio is a <strong>GUI</strong> and an IDE for the programming language R. A Graphical User Interface allows users to interface with the software (in this case R) using graphical aids like buttons and tabs. Often we don’t think of GUIs because to most computer users, everything is a GUI (like Microsoft Word or your “Control Panel”), but it’s always there! A Integrated Development Environment just says that the software to interface with R comes with useful useful bells and whistles to give you shortcuts.</p>
+<p>The <strong>Console</strong> is kind of a the core window through which you see your GUI actually operating through R. It’s not graphical so might not be as intuitive. But all your results, commands, errors, warnings.. you see them in here. A console tells you what’s going on now.</p></li>
+<li><p>via the GUI, you the analyst needs to sends instructions, or <strong>commands</strong>, to the R application. The verb for this is “run” or “execute” the command. Computer programs ask users to provide instructions in very specific formats. While a English-speaking human can understand a sentence with a few typos in it by filling in the blanks, the same typo or misplaced character would halt a computer program. Each program has its own requirements for how commands should be typed; after all, each of these is its own language. We refer to the way a program needs its commands to be formatted as its <strong>syntax</strong>.</p></li>
+<li><p>Theoretically, one could do all their work by typing in commands into the Console. But that would be a lot of work, because you’d have to give instructions each time you start your data analysis. Moreover, you’ll have no record of what you did. That’s why you need a <strong>script</strong>. This is a type of <strong>code</strong>. It can be referred to as a <strong>source</strong> because that is the source of your commands. Source is also used as a verb; “source the script” just means execute it. RStudio doesn’t start out with a script, so you can make one from “File &gt; New” or the New file icon.</p></li>
+<li><p>You can also open scripts that are in folders in your computer. A script is a type of File. Find your Files in the bottom-right “Files” pane.</p>
+<p>To load a dataset, you need to specify where that file is. Computer files (data, documents, programs) are organized hiearchically, like a branching tree. Folders can contain files, and also other folders. The GUI toolbar makes this lineaer and hiearchical relationship apparent. When we turn to locate the file in our commands, we need another set of syntax. Importantly, denote the hierarchy of a folder by the <code>/</code> (slash) symbol. <code>data/input/2018-08</code> indicates the <code>2018-08</code> folder, which is included in the <code>input</code> folder, which is in turn included in the <code>data</code> folder.</p>
+<p>Files (but not folders) have “file extensions” which you are probably familiar with already: <code>.docx</code>, <code>.pdf</code>, and <code>.pdf</code>. The file extensions you will see in a stats or quantitative social science class are:</p>
+<ul>
+<li><p><code>.pdf</code>: PDF, a convenient format to view documents and slides in, regardless of Mac/Windows.</p></li>
+<li><p><code>.csv</code>: A comma separated values file</p></li>
+<li><p><code>.xlsx</code>: Microsoft Excel file</p></li>
+<li><p><code>.dta</code>: Stata data</p></li>
+<li><p><code>.sav</code>: SPSS data</p></li>
+<li><p><code>.R</code>: R code (script)</p></li>
+<li><p><code>.Rmd</code>: Rmarkdown code (text + code)</p></li>
+<li><p><code>.do</code>: Stata code (script)</p></li>
+</ul></li>
+<li><p>In R, there are two main types of scripts. A classic <code>.R</code> file and a <code>.Rmd</code> file (for Rmarkdown). A .R file is just lines and lines of R code that is meant to be inserted right into the Console. A .Rmd tries to weave code and English together, to make it easier for users to create reports that interact with data and intersperse R code with explanation. For example, we built this book in Rmds.</p></li>
 </ol>
-<p>If you are having trouble with these problems, please review Section <a href="linearalgebra.html#vector-def">7.1</a> “Working with Vectors” in Chapter <a href="linearalgebra.html#linearalgebra">7</a>.</p>
-<p>Are the following sets of vectors linearly independent?</p>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(u = \begin{pmatrix} 1\\ 2\end{pmatrix}\)</span>, <span class="math inline">\(v = \begin{pmatrix} 2\\4\end{pmatrix}\)</span></li>
+<pre><code>The Rmarkdown facilitates is the use of __code chunks__, which are used here. These start and end with three back-ticks. In the beginning, we can add options in curly braces (`{}`). Specifying `r` in the beginning tells to render it as R code. Options like `echo = TRUE` switch between showing the code that was executed or not; `eval = TRUE` switch between evaluating the code. More about Rmarkdown in Section \@ref(nonwysiwyg). For example, this code chunk would evaluate `1 + 1` and show its output when compiled, but not display the code that was executed.</code></pre>
+<div class="figure">
+<img src="images/11_4_codechunk.png" alt="" />
+<p class="caption">A code chunk in Rmarkdown (before rendering)</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="but-what-is-r" class="section level2">
+<h2><span class="header-section-number">2.2</span> But what is R?</h2>
+<p>R is an object oriented programming language primarily used for statistical computing. An object oriented language is a programming language built around manipulating objects.</p>
+<ul>
+<li>In R, objects can be matrices, vectors, scalars, strings, and data frames, for example</li>
+<li>Objects contain different types of information</li>
+<li>Different objects have different allowable procedures:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="orientation-and-reading-in-data.html#cb2-1"></a><span class="co"># Adding a string and a string does not work because the &#39;+&#39; operator </span></span>
+<span id="cb2-2"><a href="orientation-and-reading-in-data.html#cb2-2"></a><span class="co"># does not work for strings:</span></span>
+<span id="cb2-3"><a href="orientation-and-reading-in-data.html#cb2-3"></a></span>
+<span id="cb2-4"><a href="orientation-and-reading-in-data.html#cb2-4"></a><span class="co"># &#39;UCSD&#39; + &#39;PoliSci&#39;</span></span>
+<span id="cb2-5"><a href="orientation-and-reading-in-data.html#cb2-5"></a></span>
+<span id="cb2-6"><a href="orientation-and-reading-in-data.html#cb2-6"></a><span class="co"># The &#39;+&#39; operator can add numbers just fine</span></span>
+<span id="cb2-7"><a href="orientation-and-reading-in-data.html#cb2-7"></a><span class="dv">9</span> <span class="op">+</span><span class="st"> </span><span class="dv">13</span></span></code></pre></div>
+<pre><code>## [1] 22</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="orientation-and-reading-in-data.html#cb4-1"></a><span class="co"># Reminder: to figure out the type of an object use:</span></span>
+<span id="cb4-2"><a href="orientation-and-reading-in-data.html#cb4-2"></a>x &lt;-<span class="st"> </span><span class="dv">9</span></span>
+<span id="cb4-3"><a href="orientation-and-reading-in-data.html#cb4-3"></a><span class="kw">class</span>(<span class="dv">9</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="orientation-and-reading-in-data.html#cb6-1"></a><span class="kw">class</span>(x)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="orientation-and-reading-in-data.html#cb8-1"></a><span class="kw">class</span>(<span class="st">&#39;UCSD&#39;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>Object oriented programming makes languages flexible and powerful:</p>
+<ul>
+<li>You can create custom functions and objects for your needs</li>
+<li>Other people can create great packages for everyone to use</li>
+<li>Many errors come from using the wrong data type and a lot of programming in R is getting data into the right format and type to work with.</li>
+</ul>
+<p>It is helpful to think in terms of object manipulation at a high level while programming in R, particularly at the beginning of tackling a new problem. Think about what objects you want to manipulate, what types they are, and how they fit together. Once you have the logic of your solution ready then you can write it in R.</p>
+</div>
+<div id="base-r-vs.-tidyverse" class="section level2">
+<h2><span class="header-section-number">2.3</span> Base-R vs. tidyverse</h2>
+<p>One last thing before we jump into data. Many things in R and other open source packages have competing standards. A lecture on a technique inevitably biases one standard over another. Right now among R users in this area, there are two families of functions: base-R and tidyverse. R instructors thus face a dilemma about which to teach primarily.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p>In this math camp, we try our best to choose the one that is most useful to the modal task of social science researchers, and make use of the tidyverse functions in most applications. However, feel free to suggest changes to us or to the booklet.</p>
+<p>Although you do not need to choose one over the other, for beginners it is confusing what is a tidyverse function and what is not. Many of the tidyverse <em>packages</em> are covered in this 2017 graphic below, and the cheat-sheets that other programmers have written: <a href="https://www.rstudio.com/resources/cheatsheets/" class="uri">https://www.rstudio.com/resources/cheatsheets/</a></p>
+<div class="figure">
+<img src="images/tidyverse-packages.png" alt="" />
+<p class="caption">Names of Packages in the tidyverse Family</p>
+</div>
+<p>The following side-by-side comparison of commands for a particular function compares some tidyverse and non-tidyverse functions (which we refer to loosely as base-R). This list is not meant to be comprehensive and more to give you a quick rule of thumb.</p>
+<div id="dataframe-subsetting" class="section level3 unnumbered">
+<h3>Dataframe subsetting</h3>
+<table>
+<colgroup>
+<col width="31%" />
+<col width="35%" />
+<col width="32%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>In order to …</th>
+<th align="left">in tidyverse:</th>
+<th align="left">in base-R:</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Count each category</td>
+<td align="left"><code>count(df, var)</code></td>
+<td align="left"><code>table(df$var)</code></td>
+</tr>
+<tr class="even">
+<td>Filter rows by condition</td>
+<td align="left"><code>filter(df, var == "Female")</code></td>
+<td align="left"><code>df[df$var == "Female", ]</code> or <code>subset(df, var == "Female")</code></td>
+</tr>
+<tr class="odd">
+<td>Extract columns</td>
+<td align="left"><code>select(df, var1, var2)</code></td>
+<td align="left"><code>df[, c("var1", "var2")]</code></td>
+</tr>
+<tr class="even">
+<td>Extract a single column as a vector</td>
+<td align="left"><code>pull(df, var)</code></td>
+<td align="left"><code>df[["var"]]</code> or <code>df[, "var"]</code></td>
+</tr>
+<tr class="odd">
+<td>Combine rows</td>
+<td align="left"><code>bind_rows()</code></td>
+<td align="left"><code>rbind()</code></td>
+</tr>
+<tr class="even">
+<td>Combine columns</td>
+<td align="left"><code>bind_cols()</code></td>
+<td align="left"><code>cbind()</code></td>
+</tr>
+<tr class="odd">
+<td>Create a dataframe</td>
+<td align="left"><code>tibble(x = vec1, y = vec2)</code></td>
+<td align="left"><code>data.frame(x = vec1, y = vec2)</code></td>
+</tr>
+<tr class="even">
+<td>Turn a dataframe into a tidyverse dataframe</td>
+<td align="left"><code>tbl_df(df)</code></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<p>Remember that tidyverse applies to <em>dataframes</em> only, not vectors. For subsetting vectors, use the base-R functions with the square brackets.</p>
+</div>
+<div id="read-data" class="section level3 unnumbered">
+<h3>Read data</h3>
+<p>Some non-tidyverse functions are not quite “base-R” but have similar relationships to tidyverse. For these, we recommend using the <em>tidyverse</em> functions as a general rule due to their common format, simplicity, and scalability.</p>
+<table>
+<colgroup>
+<col width="31%" />
+<col width="35%" />
+<col width="32%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>In order to …</th>
+<th align="left">in tidyverse:</th>
+<th align="left">in base-R:</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Read a Excel file</td>
+<td align="left"><code>read_excel()</code></td>
+<td align="left"><code>read.xlsx()</code></td>
+</tr>
+<tr class="even">
+<td>Read a csv</td>
+<td align="left"><code>read_csv()</code></td>
+<td align="left"><code>read.csv()</code></td>
+</tr>
+<tr class="odd">
+<td>Read a Stata file</td>
+<td align="left"><code>read_dta()</code></td>
+<td align="left"><code>read.dta()</code></td>
+</tr>
+<tr class="even">
+<td>Substitute strings</td>
+<td align="left"><code>str_replace()</code></td>
+<td align="left"><code>gsub()</code></td>
+</tr>
+<tr class="odd">
+<td>Return matching strings</td>
+<td align="left"><code>str_subset()</code></td>
+<td align="left"><code>grep(., value = TRUE)</code></td>
+</tr>
+<tr class="even">
+<td>Merge <code>data1</code> and <code>data2</code> on variables <code>x1</code> and <code>x2</code></td>
+<td align="left"><code>left_join(data1, data2, by = c("x1", "x2"))</code></td>
+<td align="left"><code>merge(data1, data2, by.x = "x1", by.y = "x2", all.x = TRUE)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="visualization" class="section level3 unnumbered">
+<h3>Visualization</h3>
+<p>Plotting by ggplot2 (from your tutorials) is also a tidyverse family.</p>
+<table>
+<colgroup>
+<col width="31%" />
+<col width="35%" />
+<col width="32%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>In order to …</th>
+<th align="left">in tidyverse:</th>
+<th align="left">in base-R:</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Make a scatter plot</td>
+<td align="left"><code>ggplot(data, aes(x, y)) + geom_point()</code></td>
+<td align="left"><code>plot(data$x, data$y)</code></td>
+</tr>
+<tr class="even">
+<td>Make a line plot</td>
+<td align="left"><code>ggplot(data, aes(x, y)) + geom_line()</code></td>
+<td align="left"><code>plot(data$x, data$y, type = "l")</code></td>
+</tr>
+<tr class="odd">
+<td>Make a histogram</td>
+<td align="left"><code>ggplot(data, aes(x, y)) + geom_histogram()</code></td>
+<td align="left"><code>hist(data$x, data$y)</code></td>
+</tr>
+<tr class="even">
+<td>Make a barplot</td>
+<td align="left">See Section <a href="dataviz.html#dataviz">4</a></td>
+<td align="left">See Section <a href="dataviz.html#dataviz">4</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="a-is-for-athens" class="section level2">
+<h2><span class="header-section-number">2.4</span> A is for Athens</h2>
+<p>For our first dataset, let’s try reading in a dataset on the Ancient Greek world. Political Theorists and Political Historians study the domestic systems, international wars, cultures and writing of this era to understand the first instance of democracy, the rise and overturning of tyranny, and the legacies of political institutions.</p>
+<p>This POLIS dataset was generously provided by Professor Josiah Ober of Stanford University. This dataset includes information on city states in the Ancient Greek world, parts of it collected by careful work by historians and archaeologists. It is part of his recent books on Greece (Ober 2015), “The Rise and Fall of Classical Greece”<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> and Institutions in Ancient Athens (Ober 2010) , “Democracy and Knowledge: Innovation and Learning in Classical Athens.”<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<div id="locating-the-data" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Locating the Data</h3>
+<p>What files do we have in the <code>data/input</code> folder?</p>
+<pre><code>## data/input/Nunn_Wantchekon_AER_2011.dta data/input/Nunn_Wantchekon_sample.dta   
+## data/input/acs2015_1percent.csv         data/input/gapminder_wide.Rds           
+## data/input/gapminder_wide.tab           data/input/german_credit.sav            
+## data/input/justices_court-median.csv    data/input/ober_2018.xlsx               
+## data/input/sample_mid.csv               data/input/sample_polity.csv            
+## data/input/upshot-siena-polls.csv       data/input/usc2010_001percent.Rds       
+## data/input/usc2010_001percent.csv</code></pre>
+<p>A typical file format is Microsoft Excel. Although this is not usually the best format for R because of its highly formatted structure as opposed to plain text (more on this in Section (sec:nonwysiwyg)), recent packages have made this fairly easy.</p>
+</div>
+<div id="reading-in-data" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> Reading in Data</h3>
+<p>In Rstudio, a good way to start is to use the GUI and the Import tool. Once you click a file, an option to “Import Dataset” comes up. RStudio picks the right function for you, and you can copy that code, but it’s important to eventually be able to write that code yourself.</p>
+<p>For the first time using an outside package, you first need to install it.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="orientation-and-reading-in-data.html#cb11-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span></code></pre></div>
+<p>After that, you don’t need to install it again. But you <strong>do</strong> need to load it each time.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="orientation-and-reading-in-data.html#cb12-1"></a><span class="kw">library</span>(readxl)</span></code></pre></div>
+<p>The package <code>readxl</code> has a website: <a href="https://readxl.tidyverse.org/" class="uri">https://readxl.tidyverse.org/</a>. Other packages are not as user-friendly, but they have a help page with a table of contents of all their functions.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="orientation-and-reading-in-data.html#cb13-1"></a><span class="kw">help</span>(<span class="dt">package =</span> readxl)</span></code></pre></div>
+<p>From the help page, we see that <code>read_excel()</code> is the function that we want to use.</p>
+<p>Let’s try it.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="orientation-and-reading-in-data.html#cb14-1"></a><span class="kw">library</span>(readxl)</span>
+<span id="cb14-2"><a href="orientation-and-reading-in-data.html#cb14-2"></a>ober &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;data/input/ober_2018.xlsx&quot;</span>)</span></code></pre></div>
+<p>Review: what does the <code>/</code> mean? Why do we need the <code>data</code> term first? Does the argument need to be in quotes?</p>
+</div>
+<div id="inspecting" class="section level3">
+<h3><span class="header-section-number">2.4.3</span> Inspecting</h3>
+<p>For almost any dataset, you usually want to do a couple of standard checks first to understand what you loaded.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="orientation-and-reading-in-data.html#cb15-1"></a>ober</span></code></pre></div>
+<pre><code>## # A tibble: 1,035 x 10
+##    polis_number Name  Latitude Longitude Hellenicity  Fame Size  Colonies Regime
+##           &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; 
+##  1            1 Alal…     42.1      9.51 most Greek   1.12 100-…        0 &lt;NA&gt;  
+##  2            2 Empo…     42.1      3.11 most barba…  2.12 25-1…        0 &lt;NA&gt;  
+##  3            3 Mass…     43.3      5.38 most Greek   4    25-1…        2 no ev…
+##  4            4 Rhode     42.3      3.17 most Greek   0.87 &lt;NA&gt;         0 &lt;NA&gt;  
+##  5            5 Abak…     38.1     15.1  most barba…  1    &lt;NA&gt;         0 &lt;NA&gt;  
+##  6            6 Adra…     37.7     14.8  most Greek   1    &lt;NA&gt;         0 &lt;NA&gt;  
+##  7            7 Agyr…     37.7     14.5  most Greek   1.25 &lt;NA&gt;         0 no ev…
+##  8            8 Aitna     38.2     15.6  most Greek   3.25 200-…        1 no ev…
+##  9            9 Akra…     37.3     13.6  most Greek   6.37 500 …        0 evide…
+## 10           10 Akrai     37.1     14.9  most Greek   1.25 &lt;NA&gt;         0 &lt;NA&gt;  
+## # … with 1,025 more rows, and 1 more variable: Delian &lt;chr&gt;</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="orientation-and-reading-in-data.html#cb17-1"></a><span class="kw">dim</span>(ober)</span></code></pre></div>
+<pre><code>## [1] 1035   10</code></pre>
+<p>From your tutorials, you also know how to do graphics! Graphics are useful for grasping your data, but we will cover them more deeply in Chapter <a href="dataviz.html#dataviz">4</a>.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="orientation-and-reading-in-data.html#cb19-1"></a><span class="kw">ggplot</span>(ober, <span class="kw">aes</span>(<span class="dt">x =</span> Fame)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>()</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="MathCamp_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>What about the distribution of fame by regime?</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="orientation-and-reading-in-data.html#cb21-1"></a><span class="kw">ggplot</span>(ober, <span class="kw">aes</span>(<span class="dt">y =</span> Fame, <span class="dt">x =</span> Regime, <span class="dt">group =</span> Regime)) <span class="op">+</span></span>
+<span id="cb21-2"><a href="orientation-and-reading-in-data.html#cb21-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="MathCamp_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>What do the 1’s, 2’s, and 3’s stand for?</p>
+</div>
+<div id="finding-observations" class="section level3">
+<h3><span class="header-section-number">2.4.4</span> Finding observations</h3>
+<p>These <code>tidyverse</code> commands from the <code>dplyr</code> package are newer and not built-in, but they are one of the increasingly more popular ways to wrangle data.</p>
+<ul>
+<li>80 percent of your data wrangling needs might be doable with these basic <code>dplyr</code> functions: <code>select</code>, <code>mutate</code>, <code>group_by</code>, <code>summarize</code>, and <code>arrange</code>.</li>
+<li>These verbs roughly correspond to the same commands in SQL, another important language in data science.</li>
+<li>The <code>%&gt;%</code> symbol is a pipe. It takes the thing on the left side and pipes it down to the function on the right side. We could have done <code>count(cen10, race)</code> as <code>cen10 %&gt;% count(race)</code>. That means take <code>cen10</code> and pass it on to the function <code>count</code>, which will count observations by race and return a collapsed dataset with the categories in its own variable and their respective counts in <code>n</code>.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>See for example this community discussion: <a href="https://community.rstudio.com/t/base-r-and-the-tidyverse/2965/17" class="uri">https://community.rstudio.com/t/base-r-and-the-tidyverse/2965/17</a><a href="orientation-and-reading-in-data.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p><a href="https://press.princeton.edu/titles/10423.html">Ober, Josiah (2015). <em>The Rise and Fall of Classical Greece</em>. Princeton University Press.</a><a href="orientation-and-reading-in-data.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://press.princeton.edu/titles/8742.html">Ober, Josiah (2010). <em>Democracy and Knowledge: Innovation and Learning in Classical Athens</em>. Princeton University Press.</a><a href="orientation-and-reading-in-data.html#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
-<p><span class="math inline">\(\leadsto\)</span> No: <span class="math display">\[2u = \begin{pmatrix} 2\\ 4\end{pmatrix}, v = \begin{pmatrix} 2\\ 4\end{pmatrix}\]</span>
-so infinitely many linear combinations of <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> that amount to 0 exist.</p>
-<ol start="2" style="list-style-type: decimal">
-<li><span class="math inline">\(u = \begin{pmatrix} 1\\ 2\\ 5 \end{pmatrix}\)</span>, <span class="math inline">\(v = \begin{pmatrix} 3\\ 7\\ 9 \end{pmatrix}\)</span></li>
-</ol>
-<p><span class="math inline">\(\leadsto\)</span> Yes: we cannot find linear combination of these two vectors that would amount to zero.</p>
-<ol start="3" style="list-style-type: decimal">
-<li><span class="math inline">\(a = \begin{pmatrix} 2\\ -1\\ 1 \end{pmatrix}\)</span>, <span class="math inline">\(b = \begin{pmatrix} 3\\ -4\\ -2 \end{pmatrix}\)</span>, <span class="math inline">\(c = \begin{pmatrix} 5\\ -10\\ -8 \end{pmatrix}\)</span></li>
-</ol>
-<p><span class="math inline">\(\leadsto\)</span> No: After playing around with some numbers, we can find that
-<span class="math display">\[-2a = \begin{pmatrix} -4\\ 2\\ -2 \end{pmatrix}, 3b = \begin{pmatrix} 9\\ -12\\ -6 \end{pmatrix}, -1c = \begin{pmatrix} -5\\ 10\\ 8 \end{pmatrix}\]</span></p>
-<p>So
-<span class="math display">\[-2a + 3b - c = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}\]</span></p>
-<p>i.e., a linear combination of these three vectors that would amount to zero exists.</p>
-<p>If you are having trouble with these problems, please review Section <a href="linearalgebra.html#linearindependence">7.2</a>.</p>
 </div>
-<div id="matrices-1" class="section level3 unnumbered">
-<h3>Matrices</h3>
-<p><span class="math display">\[{\bf A}=\begin{pmatrix}
-            7 &amp; 5 &amp; 1 \\
-            11 &amp; 9 &amp; 3 \\ 
-            2 &amp; 14 &amp; 21 \\ 
-            4 &amp; 1 &amp; 5
-        \end{pmatrix}\]</span></p>
-<p>What is the dimensionality of matrix <span class="math inline">\({\bf A}\)</span>? 4 <span class="math inline">\(\times\)</span> 3</p>
-<p>What is the element <span class="math inline">\(a_{23}\)</span> of <span class="math inline">\({\bf A}\)</span>? 3</p>
-<p>Given that</p>
-<p><span class="math display">\[{\bf B}=\begin{pmatrix}
-            1 &amp; 2 &amp; 8 \\
-            3 &amp; 9 &amp; 11 \\ 
-            4 &amp; 7 &amp; 5 \\ 
-            5 &amp; 1 &amp; 9
-        \end{pmatrix}\]</span></p>
-<p><span class="math display">\[\mathbf{A} + \mathbf{B} = \begin{pmatrix}
-            8 &amp; 7 &amp; 9 \\
-            14 &amp; 18 &amp; 14 \\ 
-            6 &amp; 21 &amp; 26 \\ 
-            9 &amp; 2 &amp; 14
-        \end{pmatrix}\]</span></p>
-<p>Given that</p>
-<p><span class="math display">\[{\bf C}=\begin{pmatrix}
-            1 &amp; 2 &amp; 8 \\
-            3 &amp; 9 &amp; 11 \\ 
-            4 &amp; 7 &amp; 5 \\ 
-        \end{pmatrix}\]</span></p>
-<p><span class="math display">\[\mathbf{A} + \mathbf{C} = \text{No solution, matrices non-conformable}\]</span></p>
-<p>Given that</p>
-<p><span class="math display">\[c = 2\]</span></p>
-<p><span class="math display">\[c\textbf{A} = \begin{pmatrix}
-            14 &amp; 10 &amp; 2 \\
-            22 &amp; 18 &amp; 6 \\ 
-            4 &amp; 28 &amp; 42 \\ 
-            8 &amp; 2 &amp; 10
-        \end{pmatrix}\]</span></p>
-<p>If you are having trouble with these problems, please review Section <a href="linearalgebra.html#matrixbasics">7.3</a>.</p>
-</div>
-</div>
-<div id="operations-1" class="section level2 unnumbered">
-<h2>Operations</h2>
-<div id="summation-1" class="section level3 unnumbered">
-<h3>Summation</h3>
-<p>Simplify the following</p>
-<ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(\sum\limits_{i = 1}^3 i = 1 + 2+ 3 = 6\)</span></p></li>
-<li><p><span class="math inline">\(\sum\limits_{k = 1}^3(3k + 2) = 3\sum\limits_{k=1}^3k + \sum\limits_{k=1}^3 2= 3\times 6 + 3\times 2 = 24\)</span></p></li>
-<li><p><span class="math inline">\(\sum\limits_{i= 1}^4 (3k + i + 2) = 3\sum\limits_{i= 1}^4k + \sum\limits_{i= 1}^4i + \sum\limits_{i= 1}^42 = 12k + 10 + 8 = 12k + 18\)</span></p></li>
-</ol>
-</div>
-<div id="products-1" class="section level3 unnumbered">
-<h3>Products</h3>
-<ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(\prod\limits_{i= 1}^3 i = 1\cdot 2\cdot 3 = 6\)</span></p></li>
-<li><p><span class="math inline">\(\prod\limits_{k=1}^3(3k + 2) = (3 + 2)\cdot (6 + 2)\cdot (9 + 2) = 440\)</span></p></li>
-</ol>
-<p>To review this material, please see Section <a href="preliminaries.html#sum-notation">1.1</a>.</p>
-</div>
-<div id="logs-and-exponents-1" class="section level3 unnumbered">
-<h3>Logs and exponents</h3>
-<p>Simplify the following</p>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(4^2 = 16\)</span></li>
-<li><span class="math inline">\(4^2 2^3 = 2^{2\cdot 2}2^{3} = 2^{4 + 3} = 128\)</span></li>
-<li><span class="math inline">\(\log_{10}100 = \log_{10}10^2 = 2\)</span></li>
-<li><span class="math inline">\(\log_{2}4 = \log_{2}2^2 = 2\)</span></li>
-<li>when <span class="math inline">\(\log\)</span> is the natural log, <span class="math inline">\(\log e = \log_{e} e^1 = 1\)</span></li>
-<li>when <span class="math inline">\(a, b, c\)</span> are each constants, <span class="math inline">\(e^a e^b e^c = e^{a + b + c}\)</span>,</li>
-<li><span class="math inline">\(\log 0 = \text{undefined}\)</span> – no exponentiation of anything will result in a 0.</li>
-<li><span class="math inline">\(e^0 = 1\)</span> – any number raised to the 0 is always 1.</li>
-<li><span class="math inline">\(e^1 = e\)</span> – any number raised to the 1 is always itself</li>
-<li><span class="math inline">\(\log e^2 = \log_e e^2 = 2\)</span></li>
-</ol>
-<p>To review this material, please see Section <a href="preliminaries.html#logexponents">1.3</a></p>
-</div>
-</div>
-<div id="limits-1" class="section level2 unnumbered">
-<h2>Limits</h2>
-<p>Find the limit of the following.</p>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(\lim\limits_{x \to 2} (x - 1) = 1\)</span></li>
-<li><span class="math inline">\(\lim\limits_{x \to 2} \frac{(x - 2) (x - 1)}{(x - 2)} = 1\)</span>, though note that the original function <span class="math inline">\(\frac{(x - 2) (x - 1)}{(x - 2)}\)</span> would have been undefined at <span class="math inline">\(x = 2\)</span> because of a divide by zero problem; otherwise it would have been equal to <span class="math inline">\(x - 1\)</span>.</li>
-<li><span class="math inline">\(\lim\limits_{x \to 2}\frac{x^2 - 3x + 2}{x- 2} = 1\)</span>, same as above.</li>
-</ol>
-<p>To review this material please see Section <a href="limits-precalc.html#limitsfun">9.3</a></p>
-</div>
-<div id="calculus-1" class="section level2 unnumbered">
-<h2>Calculus</h2>
-<p>For each of the following functions <span class="math inline">\(f(x)\)</span>, find the derivative <span class="math inline">\(f&#39;(x)\)</span> or <span class="math inline">\(\frac{d}{dx}f(x)\)</span></p>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(f(x)=c\)</span>, <span class="math inline">\(f&#39;(x) = 0\)</span></li>
-<li><span class="math inline">\(f(x)=x\)</span>, <span class="math inline">\(f&#39;(x) = 1\)</span></li>
-<li><span class="math inline">\(f(x)=x^2\)</span>, <span class="math inline">\(f&#39;(x) = 2x\)</span></li>
-<li><span class="math inline">\(f(x)=x^3\)</span>, <span class="math inline">\(f&#39;(x) = 3x^2\)</span></li>
-<li><span class="math inline">\(f(x)=3x^2+2x^{1/3}\)</span>, <span class="math inline">\(f&#39;(x) = 6x + \frac{2}{3}x^{-2/3}\)</span></li>
-<li><span class="math inline">\(f(x)=(x^3)(2x^4)\)</span>, <span class="math inline">\(f&#39;(x) = \frac{d}{dx}2x^7 = 14x^6\)</span></li>
-</ol>
-<p>For a review, please see Section <a href="derivatives.html#derivintro">10.1</a> - <a href="derivatives.html#derivpoly">10.2</a></p>
-</div>
-<div id="optimization-1" class="section level2 unnumbered">
-<h2>Optimization</h2>
-<p>For each of the followng functions <span class="math inline">\(f(x)\)</span>, does a maximum and minimum exist in the domain <span class="math inline">\(x \in \mathbf{R}\)</span>? If so, for what are those values and for which values of <span class="math inline">\(x\)</span>?</p>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(f(x) = x\)</span> <span class="math inline">\(\leadsto\)</span> neither exists.</li>
-<li><span class="math inline">\(f(x) = x^2\)</span> <span class="math inline">\(\leadsto\)</span> a minimum <span class="math inline">\(f(x) = 0\)</span> exists at <span class="math inline">\(x = 0\)</span>, but not a maximum.</li>
-<li><span class="math inline">\(f(x) = -(x - 2)^2\)</span> <span class="math inline">\(\leadsto\)</span> a maximum <span class="math inline">\(f(x) = 0\)</span> exists at <span class="math inline">\(x = 2\)</span>, but not a minimum.</li>
-</ol>
-<p>If you are stuck, please try sketching out a picture of each of the functions.</p>
-</div>
-<div id="probability-1" class="section level2 unnumbered">
-<h2>Probability</h2>
-<ol style="list-style-type: decimal">
-<li><p>If there are 12 cards, numbered 1 to 12, and 4 cards are chosen, <span class="math inline">\(\binom{12}{4} = \frac{12\cdot 11\cdot 10\cdot 9}{4!} = 495\)</span> possible hands exist (unordered, without replacement) .</p></li>
-<li><p>Let <span class="math inline">\(A = \{1,3,5,7,8\}\)</span> and <span class="math inline">\(B = \{2,4,7,8,12,13\}\)</span>. Then <span class="math inline">\(A \cup B = \{1, 2, 3, 4, 5, 7, 8, 12, 13\}\)</span>, <span class="math inline">\(A \cap B = \{7, 8\}\)</span>? If <span class="math inline">\(A\)</span> is a subset of the Sample Space <span class="math inline">\(S = \{1,2,3,4,5,6,7,8,9,10\}\)</span>, then the complement <span class="math inline">\(A^C = \{2, 4, 6, 9, 10\}\)</span></p></li>
-<li><p>If we roll two fair dice, what is the probability that their sum would be 11? <span class="math inline">\(\leadsto \frac{1}{18}\)</span></p></li>
-<li><p>If we roll two fair dice, what is the probability that their sum would be 12? <span class="math inline">\(\leadsto \frac{1}{36}\)</span>. There are two independent dice, so <span class="math inline">\(6^2 = 36\)</span> options in total. While the previous question had two possibilities for a sum of 11 (5,6 and 6,5), there is only one possibility out of 36 for a sum of 12 (6,6).</p></li>
-</ol>
-<p>For a review, please see Sections <a href="probability-theory.html#setoper">12.2</a> - <a href="probability-theory.html#probdef">12.3</a></p>
-
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="probability-theory.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="preliminaries.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="robjloops.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -631,7 +779,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/UCSDPoliSci/MathCamp/edit/main/41_solutions-warmup.Rmd",
+"link": "https://github.com/UCSDPoliSci/MathCamp/edit/main/11_data-handling_counting.Rmd",
 "text": "Edit"
 },
 "history": {
