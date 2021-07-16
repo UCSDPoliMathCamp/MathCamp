@@ -141,16 +141,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contributing"><i class="fa fa-check"></i>Contributing</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="pre-math-camp-exercises.html"><a href="pre-math-camp-exercises.html"><i class="fa fa-check"></i>Pre-Math Camp Exercises</a><ul>
-<li class="chapter" data-level="" data-path="pre-math-camp-exercises.html"><a href="pre-math-camp-exercises.html#linear-algebra"><i class="fa fa-check"></i>Linear Algebra</a><ul>
-<li class="chapter" data-level="" data-path="pre-math-camp-exercises.html"><a href="pre-math-camp-exercises.html#vectors"><i class="fa fa-check"></i>Vectors</a></li>
-<li class="chapter" data-level="" data-path="pre-math-camp-exercises.html"><a href="pre-math-camp-exercises.html#matrices"><i class="fa fa-check"></i>Matrices</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="pre-math-camp-exercises.html"><a href="pre-math-camp-exercises.html#operations"><i class="fa fa-check"></i>Operations</a><ul>
 <li class="chapter" data-level="" data-path="pre-math-camp-exercises.html"><a href="pre-math-camp-exercises.html#summation"><i class="fa fa-check"></i>Summation</a></li>
 <li class="chapter" data-level="" data-path="pre-math-camp-exercises.html"><a href="pre-math-camp-exercises.html#products"><i class="fa fa-check"></i>Products</a></li>
 <li class="chapter" data-level="" data-path="pre-math-camp-exercises.html"><a href="pre-math-camp-exercises.html#logs-and-exponents"><i class="fa fa-check"></i>Logs and exponents</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="pre-math-camp-exercises.html"><a href="pre-math-camp-exercises.html#limits"><i class="fa fa-check"></i>Limits</a></li>
+<li class="chapter" data-level="" data-path="pre-math-camp-exercises.html"><a href="pre-math-camp-exercises.html#linear-algebra"><i class="fa fa-check"></i>Linear Algebra</a><ul>
+<li class="chapter" data-level="" data-path="pre-math-camp-exercises.html"><a href="pre-math-camp-exercises.html#vectors"><i class="fa fa-check"></i>Vectors</a></li>
+<li class="chapter" data-level="" data-path="pre-math-camp-exercises.html"><a href="pre-math-camp-exercises.html#matrices"><i class="fa fa-check"></i>Matrices</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="pre-math-camp-exercises.html"><a href="pre-math-camp-exercises.html#calculus"><i class="fa fa-check"></i>Calculus</a></li>
 <li class="chapter" data-level="" data-path="pre-math-camp-exercises.html"><a href="pre-math-camp-exercises.html#optimization"><i class="fa fa-check"></i>Optimization</a></li>
 <li class="chapter" data-level="" data-path="pre-math-camp-exercises.html"><a href="pre-math-camp-exercises.html#probability"><i class="fa fa-check"></i>Probability</a></li>
@@ -469,30 +469,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The core functions for coding up stochastic data revolves around several key functions, so we will simply review them here.</p>
 <p>Suppose you have a vector of values <code>x</code> and from it you want to randomly sample a sample of length <code>size</code>. For this, use the <code>sample</code> function</p>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="simulation.html#cb145-1"></a><span class="kw">sample</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1] 8 4 5 6 7</code></pre>
+<pre><code>## [1]  4 10  7  5  3</code></pre>
 <p>There are two subtypes of sampling – with and without replacement.</p>
 <ol style="list-style-type: decimal">
 <li>Sampling without replacement (<code>replace = FALSE</code>) means once an element of <code>x</code> is chosen, it will not be considered again:</li>
 </ol>
 <div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="simulation.html#cb147-1"></a><span class="kw">sample</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>) <span class="co">## no number appears more than once</span></span></code></pre></div>
-<pre><code>##  [1]  9  5  3  4  2 10  6  1  8  7</code></pre>
+<pre><code>##  [1]  4  8  5  9  6  2  7 10  3  1</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Sampling with replacement (<code>replace = TRUE</code>) means that even if an element of <code>x</code> is chosen, it is put back in the pool and may be chosen again.</li>
 </ol>
 <div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="simulation.html#cb149-1"></a><span class="kw">sample</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>) <span class="co">## any number can appear more than once</span></span></code></pre></div>
-<pre><code>##  [1]  6  8  9  6  5  5  2  2  7 10</code></pre>
+<pre><code>##  [1] 3 3 2 8 9 7 1 2 6 4</code></pre>
 <p>It follows then that you cannot sample without replacement a sample that is larger than the pool.</p>
 <div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="simulation.html#cb151-1"></a><span class="kw">sample</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <pre><code>## Error in sample.int(length(x), size, replace, prob): cannot take a sample larger than the population when &#39;replace = FALSE&#39;</code></pre>
 <p>So far, every element in <code>x</code> has had an equal probability of being chosen. In some application, we want a sampling scheme where some elements are more likely to be chosen than others. The argument <code>prob</code> handles this.</p>
 <p>For example, this simulates 20 fair coin tosses (each outcome is equally likely to happen)</p>
 <div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="simulation.html#cb153-1"></a><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;Head&quot;</span>, <span class="st">&quot;Tail&quot;</span>), <span class="dt">size =</span> <span class="dv">20</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<pre><code>##  [1] &quot;Head&quot; &quot;Tail&quot; &quot;Head&quot; &quot;Head&quot; &quot;Head&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Head&quot; &quot;Tail&quot;
-## [11] &quot;Head&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Head&quot; &quot;Head&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Head&quot;</code></pre>
+<pre><code>##  [1] &quot;Tail&quot; &quot;Head&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Head&quot; &quot;Tail&quot; &quot;Head&quot; &quot;Head&quot; &quot;Tail&quot; &quot;Head&quot;
+## [11] &quot;Head&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Head&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Head&quot; &quot;Tail&quot;</code></pre>
 <p>But this simulates 20 biased coin tosses, where say the probability of Tails is 4 times more likely than the number of Heads</p>
 <div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="simulation.html#cb155-1"></a><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;Head&quot;</span>, <span class="st">&quot;Tail&quot;</span>), <span class="dt">size =</span> <span class="dv">20</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>), <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<pre><code>##  [1] &quot;Head&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Head&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Head&quot;
-## [11] &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Head&quot;</code></pre>
+<pre><code>##  [1] &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot;
+## [11] &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot; &quot;Tail&quot;</code></pre>
 <div id="sampling-rows-from-a-dataframe" class="section level3">
 <h3><span class="header-section-number">5.2.1</span> Sampling rows from a dataframe</h3>
 <p>In tidyverse, there is a convenience function to sample rows randomly: <code>sample_n()</code> and <code>sample_frac()</code>.</p>
@@ -533,16 +533,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
 <p>sample_n picks a user-specified number of rows from the dataset:</p>
 <div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="simulation.html#cb159-1"></a><span class="kw">sample_n</span>(mtcars, <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>##                    mpg cyl  disp  hp drat    wt  qsec vs am gear carb
-## Merc 280C         17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
-## Hornet 4 Drive    21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
-## Hornet Sportabout 18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2</code></pre>
+<pre><code>##                   mpg cyl disp  hp drat   wt  qsec vs am gear carb
+## Dodge Challenger 15.5   8  318 150 2.76 3.52 16.87  0  0    3    2
+## Ferrari Dino     19.7   6  145 175 3.62 2.77 15.50  0  1    5    6
+## Duster 360       14.3   8  360 245 3.21 3.57 15.84  0  0    3    4</code></pre>
 <p>Sometimes you want a X percent sample of your dataset. In this case use <code>sample_frac()</code></p>
 <div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="simulation.html#cb161-1"></a><span class="kw">sample_frac</span>(mtcars, <span class="fl">0.10</span>)</span></code></pre></div>
-<pre><code>##              mpg cyl  disp  hp drat    wt  qsec vs am gear carb
-## Volvo 142E  21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
-## Fiat X1-9   27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
-## Honda Civic 30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2</code></pre>
+<pre><code>##                    mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Honda Civic       30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Hornet Sportabout 18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Ford Pantera L    15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4</code></pre>
 <p>As a side-note, these functions have very practical uses for any type of data analysis:</p>
 <ul>
 <li>Inspecting your dataset: using <code>head()</code> all the same time and looking over the first few rows might lead you to ignore any issues that end up in the bottom for whatever reason.</li>
@@ -557,23 +557,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>rbinom</code> builds upon <code>sample</code> as a tool to help you answer the question – what is the <em>total number of successes</em> I would get if I sampled a binary (Bernoulli) result from a test with <code>size</code> number of trials each, with a event-wise probability of <code>prob</code>. The first argument <code>n</code> asks me how many such numbers I want.</p>
 <p>For example, I want to know how many Heads I would get if I flipped a fair coin 100 times.</p>
 <div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="simulation.html#cb163-1"></a><span class="kw">rbinom</span>(<span class="dt">n =</span> <span class="dv">1</span>, <span class="dt">size =</span> <span class="dv">100</span>, <span class="dt">prob =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<pre><code>## [1] 45</code></pre>
+<pre><code>## [1] 57</code></pre>
 <p>Now imagine this I wanted to do this experiment 10 times, which would require I flip the coin 10 x 100 = 1000 times! Helpfully, we can do this in one line</p>
 <div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="simulation.html#cb165-1"></a><span class="kw">rbinom</span>(<span class="dt">n =</span> <span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">100</span>, <span class="dt">prob =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<pre><code>##  [1] 53 48 45 42 44 48 54 55 50 57</code></pre>
+<pre><code>##  [1] 56 52 59 51 58 56 48 48 46 52</code></pre>
 </div>
 <div id="runif" class="section level3 unnumbered">
 <h3><code>runif()</code></h3>
 <p><code>runif</code> also simulates a stochastic scheme where each event has equal probability of getting chosen like <code>sample</code>, but is a continuous rather than discrete system. We will cover this more in the next math module.</p>
 <p>The intuition to emphasize here is that one can generate potentially infinite amounts (size <code>n</code>) of noise that is a essentially random</p>
 <div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="simulation.html#cb167-1"></a><span class="kw">runif</span>(<span class="dt">n =</span> <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1] 0.1873009 0.2357576 0.9306613 0.4345023 0.4216585</code></pre>
+<pre><code>## [1] 0.4586307 0.7448867 0.9109383 0.5294187 0.8893954</code></pre>
 </div>
 <div id="rnorm" class="section level3 unnumbered">
 <h3><code>rnorm()</code></h3>
 <p><code>rnorm</code> is also a continuous distribution, but draws from a Normal distribution – perhaps the most important distribution in statistics. It runs the same way as <code>runif</code></p>
 <div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="simulation.html#cb169-1"></a><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">5</span>)</span></code></pre></div>
-<pre><code>## [1]  0.008640949 -1.178232523 -1.043863706  0.060213380  0.959785376</code></pre>
+<pre><code>## [1]  0.6630242  0.5091572  0.6447578  1.2455697 -1.0465819</code></pre>
 <p>To better visualize the difference between the output of <code>runif</code> and <code>rnorm</code>, let’s generate lots of each and plot a histogram.</p>
 <div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="simulation.html#cb171-1"></a>from_runif &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dt">n =</span> <span class="dv">1000</span>)</span>
 <span id="cb171-2"><a href="simulation.html#cb171-2"></a>from_rnorm &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">1000</span>)</span>
