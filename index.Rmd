@@ -1,7 +1,7 @@
 --- 
 title: "UCSD Political Science Math Camp"
 author: ""
-date: "Under Construction"
+date: "`r format(Sys.Date(), '%B %Y')`"
 description: "Text for UCSD Department of Political Science Math Camp"
 github-repo: "UCSDPoliSci/MathCamp"
 site: bookdown::bookdown_site
@@ -14,8 +14,7 @@ cover-image: "./images/logo.png"
 # About this Booklet {-}
 The UC San Diego Math camp is held each year in September. The 2021 Math Camp instructors are Keng-Chi Chang and Rachel Schoner. The faculty coordinator is Molly Roberts.
 
-This booklet serves as the text for the Math Camp, available as a webpage updated automatically. Is it the product of generations of Math Camp instructors and is adapted from the [Harvard Gov Prefresher](https://github.com/IQSS/prefresher). 
-
+This booklet serves as the text for the Math Camp, available as a webpage updated automatically. It is the product of generations of Math Camp instructors and also built heavily from the [Harvard Gov Prefresher](https://github.com/IQSS/prefresher), maintained by [Shiro Kuriwaki](https://www.shirokuriwaki.com). 
 
 For information about the role of this math camp as an introduction to graduate school, you may be interested in ["The Math Prefresher and The Collective Future of Political Science Graduate Training](https://gking.harvard.edu/prefresher), in PS: Political Science & Politics, by Gary King, Shiro Kuriwaki, and Yon Soo Park.
 
@@ -23,8 +22,9 @@ For information about the role of this math camp as an introduction to graduate 
 
 This material is adapted from previous instructors of the class at UCSD and [Harvard Gov Prefresher](https://github.com/IQSS/prefresher). 
 
-- Past Authors and Instructors:  
-- Repository Maintainer: 
+- Current Instructors: Rachel Schoner, Keng-Chi Chang
+- Past Instructors: Luke Sanford (2019-2020), Kathryn Baragwanath (2019-2020), Brandon Merrell (2018), Inbok Rhee (2018)
+- Repository Maintainer: Keng-Chi Chang
 
 
 ### Contributing {-}

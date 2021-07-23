@@ -1,4 +1,4 @@
-# (PART) MATH {-}
+# (PART) Calculus {-}
 
 # Limits {#limits-precalc}
 
