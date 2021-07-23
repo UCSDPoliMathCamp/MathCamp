@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 LaTeX and markdown | UCSD Political Science Math Camp</title>
+  <title>Chapter 11 Integral Calculus | UCSD Political Science Math Camp</title>
   <meta name="description" content="Text for UCSD Department of Political Science Math Camp" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 LaTeX and markdown | UCSD Political Science Math Camp" />
+  <meta property="og:title" content="Chapter 11 Integral Calculus | UCSD Political Science Math Camp" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="/./images/logo.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="UCSDPoliSci/MathCamp" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 LaTeX and markdown | UCSD Political Science Math Camp" />
+  <meta name="twitter:title" content="Chapter 11 Integral Calculus | UCSD Political Science Math Camp" />
   
   <meta name="twitter:description" content="Text for UCSD Department of Political Science Math Camp" />
   <meta name="twitter:image" content="/./images/logo.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="simulation.html"/>
-<link rel="next" href="linearalgebra.html"/>
+<link rel="prev" href="derivatives.html"/>
+<link rel="next" href="optim.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -413,220 +413,351 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="nonwysiwyg" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> LaTeX and markdown</h1>
-<div id="where-are-we-where-are-we-headed-3" class="section level3 unnumbered">
-<h3>Where are we? Where are we headed?</h3>
-<p>Up till now, you should have covered:</p>
-<ul>
-<li>Statistical Programming in <code>R</code></li>
-</ul>
-<p>This is only the beginning of <code>R</code> – programming is like learning a language, so learn more as we use it. And yet <code>R</code> is of likely not the only programming language you will want to use. While we cannot introduce everything, we’ll pick out a few that we think are particularly helpful.</p>
-<p>Here will cover</p>
-<ul>
-<li>Markdown</li>
-<li>LaTeX (and BibTeX)</li>
-</ul>
-<p>as examples of a non-WYSIWYG editor</p>
-<p>command-line are a basic set of tools that you may have to use from time to time. It also clarifies what more complicated programs are doing. Markdown is an example of compiling a plain text file. LaTeX is a typesetting program and git is a version control program – both are useful for non-quantitative work as well.</p>
-<p>Please familiarize yourself closing with Markdown, and be sure you know how to open an .Rmd file as described below. In class, we will walk through an Rmd file together. LaTeX is included here for your future reference as this is a popular typesetting program among political scientists. This is not needed for Math Camp and is never required for any course. In fact, many prefer R Markdown’s integration rather than a separate typesetting program. This depends on your background and interests but exposure to the range of popular programs and techniques will be helpful moving forward.</p>
+<div id="integrals" class="section level1">
+<h1><span class="header-section-number">Chapter 11</span> Integral Calculus</h1>
+<div id="the-indefinite-integral" class="section level2">
+<h2><span class="header-section-number">11.1</span> The Indefinite Integral</h2>
+<p>So far, we’ve been interested in finding the derivative <span class="math inline">\(f=F&#39;\)</span> of a function <span class="math inline">\(F\)</span>. However, sometimes we’re interested in exactly the reverse: finding the function <span class="math inline">\(F\)</span> for which <span class="math inline">\(f\)</span> is its derivative. We refer to <span class="math inline">\(F\)</span> as the antiderivative of <span class="math inline">\(f\)</span>.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-183" class="definition"><strong>Definition 11.1  (Antiderivative)  </strong></span>The antiverivative of a function <span class="math inline">\(f(x)\)</span> is a differentiable function <span class="math inline">\(F\)</span> whose derivative is <span class="math inline">\(f\)</span>.</p>
+<p><span class="math display">\[F^\prime = f.\]</span></p>
 </div>
-<div id="check-your-understanding-3" class="section level3 unnumbered">
-<h3>Check your understanding</h3>
-<p>Check if you have an idea of how you might code the following tasks:</p>
-<ul>
-<li>What does “WYSIWYG” stand for? How would a non-WYSIWYG format text?</li>
-<li>How do you start a header in markdown?</li>
-<li>What are some “plain text” editors?</li>
-<li>How do you start a document in <code>.tex</code>?</li>
-<li>How do you start a environment in <code>.tex</code>?</li>
-<li>How do you insert a figure in <code>.tex</code>?</li>
-<li>How do you reference a figure in <code>.tex</code>?</li>
-<li>What is a <code>.bib</code> file?</li>
-<li>Say you came across a interesting journal article. How would you want to maintain this reference so that you can refer to its citation in all your subsequent papers?</li>
-</ul>
-</div>
-<div id="motivation" class="section level2">
-<h2><span class="header-section-number">6.1</span> Motivation</h2>
-<p>Statistical programming is a fast-moving field. The beta version of <code>R</code> was released in 2000, <code>ggplot2</code> was released on 2005, and <code>RStudio</code> started around 2010. Of course, some programming technologies are quite “old”: (<code>C</code> in 1969, <code>C++</code> around 1989, <code>TeX</code> in 1978, <code>Linux</code> in 1991, Mac OS in 1984). But it is easy to feel you are falling behind in the recent developments of programming. Today we will do a <strong>brief</strong> and rough overview of some fundamental and new tools other than <code>R</code>, with the general aim of having you break out of your comfort zone so you won’t be shut out from learning these tools in the future.</p>
-</div>
-<div id="markdown" class="section level2">
-<h2><span class="header-section-number">6.2</span> Markdown</h2>
-<p>At its core markdown is just plain text. Plain text does not have any formatting embedded in it. Instead, the formatting is coded up as text. Markdown is <em>not</em> a WYSIWYG (What you see is what you get) text editor like Microsoft Word or Google Docs. This will mean that you need to explicitly code for <code>bold{text}</code> rather than hitting Command+B and making your text look <strong>bold</strong> on your own computer.</p>
-<p>Markdown is known as a “light-weight” editor, which means that it is relatively easy to write code that will compile. It is quick and easy and satisfies most presentation purposes; you might want to try <code>LaTeX</code> for more involved papers.</p>
-<div id="markdown-commands" class="section level3">
-<h3><span class="header-section-number">6.2.1</span> markdown commands</h3>
-<p>For italic and bold, use either the asterisks or the underlines,</p>
-<pre><code>*italic*   **bold**
-_italic_   __bold__</code></pre>
-<p>And for headers use the hash symbols,</p>
-<pre><code># Main Header
-## Sub-headers</code></pre>
-</div>
-<div id="your-own-markdown" class="section level3">
-<h3><span class="header-section-number">6.2.2</span> your own markdown</h3>
-<p>RStudio makes it easy to compile your very first markdown file by giving you templates. Got to <code>New &gt; R Markdown</code>, pick a document and click Ok. This will give you a skeleton of a document you can compile – or “knit”.</p>
-<p>Rmd is actually a slight modification of real markdown. It is a type of file that R reads and turns into a proper <code>md</code> file. Then, it uses a document-conversion called pandoc to compile your <code>md</code> into documents like PDF or HTML.</p>
-<div class="figure">
-<img src="images/RMarkdownFlow.png" alt="" />
-<p class="caption">How Rmds become PDFs or HTMLs</p>
-</div>
-</div>
-<div id="a-note-on-plain-text-editors" class="section level3">
-<h3><span class="header-section-number">6.2.3</span> A note on plain-text editors</h3>
-<p>Multiple software exist where you can edit plain-text (roughly speaking, text that is not WYSIWYG).</p>
-<ul>
-<li>RStudio (especially for R-related links)</li>
-<li>TeXMaker, TeXShop (especially for TeX)</li>
-<li><a href="https://www.gnu.org/software/emacs/">emacs</a>, aquamacs (general)</li>
-<li><a href="http://www.vim.org/download.php">vim</a> (general)</li>
-<li><a href="https://www.sublimetext.com">Sublime Text</a> (general)</li>
-<li><a href="https://atom.io/">Atom</a> (general)</li>
-</ul>
-<p>Each has their own keyboard shortcuts and special features. You can browse a couple and see which one(s) you like.</p>
-</div>
-</div>
-<div id="latex" class="section level2">
-<h2><span class="header-section-number">6.3</span> LaTeX</h2>
-<p>LaTeX is a typesetting program. You’d engage with LaTeX much like you engage with your <code>R</code> code. You will interact with LaTeX in a text editor, and will writing code which will be interpreted by the LaTeX compiler and which will finally be parsed to form your final PDF.</p>
-<div id="compile-online" class="section level3">
-<h3><span class="header-section-number">6.3.1</span> compile online</h3>
+
+<p>Another way to describe is through the inverse formula. Let <span class="math inline">\(DF\)</span> be the derivative of <span class="math inline">\(F\)</span>. And let <span class="math inline">\(DF(x)\)</span> be the derivative of <span class="math inline">\(F\)</span> evaluated at <span class="math inline">\(x\)</span>. Then the antiderivative is denoted by <span class="math inline">\(D^{-1}\)</span> (i.e., the inverse derivative). If <span class="math inline">\(DF=f\)</span>, then <span class="math inline">\(F=D^{-1}f\)</span>.</p>
+<p>This definition bolsters the main takeaway about integrals and derivatives: They are inverses of each other.</p>
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-184" class="exercise"><strong>Exercise 11.1  (Antiderivative)  </strong></span>Find the antiderivative of the following:</p>
 <ol style="list-style-type: decimal">
-<li>Go to <a href="https://www.overleaf.com" class="uri">https://www.overleaf.com</a></li>
-<li>Scroll down and go to “CREATE A NEW PAPER” if you don’t have an account.</li>
-<li>Let’s discuss the default template.</li>
-<li>Make a new document, and set it as your main document. Then type in the Minimal Working Example (MWE):</li>
+<li><span class="math inline">\(f(x) = \frac{1}{x^2}\)</span></li>
+<li><span class="math inline">\(f(x) = 3e^{3x}\)</span></li>
 </ol>
-<div class="sourceCode" id="cb184"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb184-1"><a href="nonwysiwyg.html#cb184-1"></a>\<span class="ex">documentclass</span><span class="dt">{article}</span></span>
-<span id="cb184-2"><a href="nonwysiwyg.html#cb184-2"></a>\<span class="ex">begin</span><span class="dt">{document}</span></span>
-<span id="cb184-3"><a href="nonwysiwyg.html#cb184-3"></a><span class="ex">Hello</span> World</span>
-<span id="cb184-4"><a href="nonwysiwyg.html#cb184-4"></a>\<span class="ex">end</span><span class="dt">{document}</span></span></code></pre></div>
 </div>
-<div id="compile-your-first-latex-document-locally" class="section level3">
-<h3><span class="header-section-number">6.3.2</span> compile your first LaTeX document locally</h3>
-<p>LaTeX is a very stable system, and few changes to it have been made since the 1990s. The main benefit: better control over how your papers will look; better methods for writing equations or making tables; overall pleasing aesthetic.</p>
+
+<p>We know from derivatives how to manipulate <span class="math inline">\(F\)</span> to get <span class="math inline">\(f\)</span>. But how do you express the procedure to manipulate <span class="math inline">\(f\)</span> to get <span class="math inline">\(F\)</span>? For that, we need a new symbol, which we will call indefinite integration.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-185" class="definition"><strong>Definition 11.2  (Indefinite Integral)  </strong></span>The indefinite integral of <span class="math inline">\(f(x)\)</span> is written</p>
+<p><span class="math display">\[\int f(x) dx \]</span></p>
+<p>and is equal to the antiderivative of <span class="math inline">\(f\)</span>.</p>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-186" class="example"><strong>Example 11.1  </strong></span>Draw the function <span class="math inline">\(f(x)\)</span> and its indefinite integral, <span class="math inline">\(\int\limits f(x) dx\)</span></p>
+<p><span class="math display">\[f(x) = (x^2-4)\]</span></p>
+</div>
+
+
+<div class="solution">
+ <span class="solution"><em>Solution. </em></span> The Indefinite Integral of the function <span class="math inline">\(f(x) = (x^2-4)\)</span> can, for example, be <span class="math inline">\(F(x) = \frac{1}{3}x^3 - 4x.\)</span> But it can also be <span class="math inline">\(F(x) = \frac{1}{3}x^3 - 4x + 1\)</span>, because the constant 1 disappears when taking the derivative.
+</div>
+
+<p>Some of these functions are plotted in the bottom panel of Figure <a href="integrals.html#fig:integralc">11.1</a> as dotted lines.</p>
+<div class="figure"><span id="fig:integralc"></span>
+<img src="MathCamp_files/figure-html/integralc-1.png" alt="The Many Indefinite Integrals of a Function" width="672" />
+<p class="caption">
+Figure 11.1: The Many Indefinite Integrals of a Function
+</p>
+</div>
+<p>Notice from these examples that while there is only a single derivative for any function, there are multiple antiderivatives: one for any arbitrary constant <span class="math inline">\(c\)</span>. <span class="math inline">\(c\)</span> just shifts the curve up or down on the <span class="math inline">\(y\)</span>-axis. If more information is present about the antiderivative — e.g., that it passes through a particular point — then we can solve for a specific value of <span class="math inline">\(c\)</span>.</p>
+<div id="properties-of-integration" class="section level3 unnumbered">
+<h3>Properties of Integration</h3>
+<p>Some useful properties of integrals follow by virtue of being the inverse of a derivative.</p>
 <ol style="list-style-type: decimal">
-<li>Open a plain text editor. Then type in the MWE</li>
+<li>Constants are allowed to slip out: <span class="math inline">\(\int a f(x)dx = a\int f(x)dx\)</span></li>
+<li>Integration of the sum is sum of integrations: <span class="math inline">\(\int [f(x)+g(x)]dx=\int f(x)dx + \int g(x)dx\)</span></li>
+<li>Reverse Power-rule: <span class="math inline">\(\int x^n dx = \frac{1}{n+1} x^{n+1} + c\)</span></li>
+<li>Exponents are still exponents: <span class="math inline">\(\int e^x dx = e^x +c\)</span></li>
+<li>Recall the derivative of <span class="math inline">\(\log(x)\)</span> is one over <span class="math inline">\(x\)</span>, and so: <span class="math inline">\(\int \frac{1}{x} dx = \log x + c\)</span></li>
+<li>Reverse chain-rule: <span class="math inline">\(\int e^{f(x)}f^\prime(x)dx = e^{f(x)}+c\)</span></li>
+<li>More generally: <span class="math inline">\(\int [f(x)]^n f&#39;(x)dx = \frac{1}{n+1}[f(x)]^{n+1}+c\)</span></li>
+<li>Remember the derivative of a log of a function: <span class="math inline">\(\int \frac{f^\prime(x)}{f(x)}dx=\log f(x) + c\)</span></li>
 </ol>
-<div class="sourceCode" id="cb185"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb185-1"><a href="nonwysiwyg.html#cb185-1"></a>\<span class="ex">documentclass</span><span class="dt">{article}</span></span>
-<span id="cb185-2"><a href="nonwysiwyg.html#cb185-2"></a>\<span class="ex">begin</span><span class="dt">{document}</span></span>
-<span id="cb185-3"><a href="nonwysiwyg.html#cb185-3"></a><span class="ex">Hello</span> World</span>
-<span id="cb185-4"><a href="nonwysiwyg.html#cb185-4"></a>\<span class="ex">end</span><span class="dt">{document}</span></span></code></pre></div>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-188" class="example"><strong>Example 11.2  (Common Integration)  </strong></span>Simplify the following indefinite integrals:</p>
+<ul>
+<li><span class="math inline">\(\int 3x^2 dx\)</span></li>
+<li><span class="math inline">\(\int (2x+1)dx\)</span></li>
+<li><span class="math inline">\(\int e^x e^{e^x} dx\)</span></li>
+</ul>
+</div>
+
+</div>
+</div>
+<div id="the-definite-integral" class="section level2">
+<h2><span class="header-section-number">11.2</span> The Definite Integral</h2>
+<p>If there is a indefinite integral, there <em>must</em> be a definite integral. Indeed there is, but the notion of definite integrals comes from a different objective: finding the are a under a function. We will find, perhaps remarkably, that the formula we find to get the sum turns out to be expressible by the anti-derivative.</p>
+<p>Suppose we want to determine the area <span class="math inline">\(A(R)\)</span> of a region <span class="math inline">\(R\)</span> defined by a curve <span class="math inline">\(f(x)\)</span> and some interval <span class="math inline">\(a\le x \le b\)</span>.</p>
+<div class="figure"><span id="fig:defintfig"></span>
+<img src="MathCamp_files/figure-html/defintfig-1.png" alt="The Riemann Integral as a Sum of Evaluations" width="672" />
+<p class="caption">
+Figure 11.2: The Riemann Integral as a Sum of Evaluations
+</p>
+</div>
+<p>One way to calculate the area would be to divide the interval <span class="math inline">\(a\le x\le b\)</span> into <span class="math inline">\(n\)</span> subintervals of length <span class="math inline">\(\Delta x\)</span> and then approximate the region with a series of rectangles, where the base of each rectangle is <span class="math inline">\(\Delta x\)</span> and the height is <span class="math inline">\(f(x)\)</span> at the midpoint of that interval. <span class="math inline">\(A(R)\)</span> would then be approximated by the area of the union of the rectangles, which is given by <span class="math display">\[S(f,\Delta x)=\sum\limits_{i=1}^n f(x_i)\Delta x\]</span> and is called a <strong>Riemann sum</strong>.</p>
+<p>As we decrease the size of the subintervals <span class="math inline">\(\Delta x\)</span>, making the rectangles “thinner,” we would expect our approximation of the area of the region to become closer to the true area. This allows us to express the area as a limit of a series:
+<span class="math display">\[A(R)=\lim\limits_{\Delta x\to 0}\sum\limits_{i=1}^n f(x_i)\Delta x\]</span></p>
+<p>Figure <a href="integrals.html#fig:defintfig">11.2</a> shows that illustration. The curve depicted is <span class="math inline">\(f(x) = -15(x - 5) + (x - 5)^3 + 50.\)</span> We want approximate the area under the curve between the <span class="math inline">\(x\)</span> values of 0 and 10. We can do this in blocks of arbitrary width, where the sum of rectangles (the area of which is width times <span class="math inline">\(f(x)\)</span> evaluated at the midpoint of the bar) shows the Riemann Sum. As the width of the bars <span class="math inline">\(\Delta x\)</span> becomes smaller, the better the estimate of <span class="math inline">\(A(R)\)</span>.</p>
+<p>This is how we define the “Definite” Integral:</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-189" class="definition"><strong>Definition 11.3  (The Definite Integral (Riemann))  </strong></span>If for a given function <span class="math inline">\(f\)</span> the Riemann sum approaches a limit as <span class="math inline">\(\Delta x \to 0\)</span>, then that limit is called the Riemann integral of <span class="math inline">\(f\)</span> from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span>. We express this with the <span class="math inline">\(\int\)</span>, symbol, and write <span class="math display">\[\int\limits_a^b f(x) dx= \lim\limits_{\Delta x\to 0} \sum\limits_{i=1}^n f(x_i)\Delta x\]</span></p>
+The most straightforward of a definite integral is the definite integral. That is, we read
+<span class="math display">\[\int\limits_a^b f(x) dx\]</span> as the definite integral of <span class="math inline">\(f\)</span> from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span> and we defined as the area under the “curve” <span class="math inline">\(f(x)\)</span> from point <span class="math inline">\(x=a\)</span> to <span class="math inline">\(x=b\)</span>.
+</div>
+
+<p>The fundamental theorem of calculus shows us that this sum is, in fact, the antiderivative.</p>
+
+<div class="theorem">
+<p><span id="thm:unnamed-chunk-190" class="theorem"><strong>Theorem 11.1  (First Fundamental Theorem of Calculus)  </strong></span>Let the function <span class="math inline">\(f\)</span> be bounded on <span class="math inline">\([a,b]\)</span> and continuous on <span class="math inline">\((a,b)\)</span>. Then, suggestively, use the symbol <span class="math inline">\(F(x)\)</span> to denote the definite integral from <span class="math inline">\(a\)</span> to <span class="math inline">\(x\)</span>:
+<span class="math display">\[F(x)=\int\limits_a^x f(t)dt, \quad a\le x\le b\]</span></p>
+<p>Then <span class="math inline">\(F(x)\)</span> has a derivative at each point in <span class="math inline">\((a,b)\)</span> and <span class="math display">\[F^\prime(x)=f(x), \quad a&lt;x&lt;b\]</span>
+That is, the definite integral function of <span class="math inline">\(f\)</span> <em>is</em> the one of the antiderivatives of some <span class="math inline">\(f\)</span>.</p>
+</div>
+
+<p>This is again a long way of saying that that differentiation is the inverse of integration. But now, we’ve covered definite integrals.</p>
+<p>The second theorem gives us a simple way of computing a definite integral as a function of indefinite integrals.</p>
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-191" class="theorem"><strong>Theorem 11.2  (Second Fundamental Theorem of Calculus)  </strong></span>Let the function <span class="math inline">\(f\)</span> be bounded on <span class="math inline">\([a,b]\)</span> and continuous on <span class="math inline">\((a,b)\)</span>. Let <span class="math inline">\(F\)</span> be any function that is continuous on <span class="math inline">\([a,b]\)</span> such that <span class="math inline">\(F^\prime(x)=f(x)\)</span> on <span class="math inline">\((a,b)\)</span>. Then <span class="math display">\[\int\limits_a^bf(x)dx = F(b)-F(a)\]</span>
+</div>
+
+<p>So the procedure to calculate a simple definite integral <span class="math inline">\(\int\limits_a^b f(x)dx\)</span> is then</p>
+<ol style="list-style-type: decimal">
+<li>Find the indefinite integral <span class="math inline">\(F(x)\)</span>.</li>
+<li>Evaluate <span class="math inline">\(F(b)-F(a)\)</span>.</li>
+</ol>
+
+<div class="example">
+<p><span id="exm:defintmon" class="example"><strong>Example 11.3  (Definite Integral of a monomial)  </strong></span>Solve <span class="math inline">\(\int\limits_1^3 3x^2 dx.\)</span></p>
+<p>Let <span class="math inline">\(f(x) = 3x^2\)</span>.</p>
+</div>
+
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-192" class="exercise"><strong>Exercise 11.2  </strong></span>What is the value of <span class="math inline">\(\int\limits_{-2}^2 e^x e^{e^x} dx\)</span>?
+</div>
+
+<div id="properties-for-definite-integrals" class="section level3 unnumbered">
+<h3>Properties for Definite Integrals</h3>
+<p>The area-interpretation of the definite integral provides some useful properties for definite integrals</p>
+<ol style="list-style-type: decimal">
+<li>There is no area below a point: <span class="math display">\[\int\limits_a^a f(x)dx=0\]</span></li>
+<li>Reversing the limits changes the sign of the integral: <span class="math display">\[\int\limits_a^b f(x)dx=-\int\limits_b^a f(x)dx\]</span></li>
+<li>Sums can be separated into their own integrals: <span class="math display">\[\int\limits_a^b [\alpha f(x)+\beta g(x)]dx = \alpha \int\limits_a^b f(x)dx + \beta \int\limits_a^b g(x)dx\]</span></li>
+<li>Areas can be combined as long as limits are linked: <span class="math display">\[\int\limits_a^b f(x) dx +\int\limits_b^c f(x)dx = \int\limits_a^c f(x)dx\]</span></li>
+</ol>
+
+<div class="exercise">
+<p><span id="exr:unnamed-chunk-193" class="exercise"><strong>Exercise 11.3  (Definite integral shortcuts)  </strong></span>Simplify the following definite intergrals.</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\int\limits_1^1 3x^2 dx =\)</span></li>
+<li><span class="math inline">\(\int\limits_0^4 (2x+1)dx=\)</span></li>
+<li><span class="math inline">\(\int\limits_{-2}^0 e^x e^{e^x} dx + \int\limits_0^2 e^x e^{e^x} dx =\)</span></li>
+</ol>
+</div>
+
+</div>
+</div>
+<div id="integration-by-substitution" class="section level2">
+<h2><span class="header-section-number">11.3</span> Integration by Substitution</h2>
+<p>From the second fundamental theorem of calculus, we now that a quick way to get a definite integral is to first find the indefinite integral, and then just plug in the bounds.</p>
+<p>Sometimes the integrand (the thing that we are trying to take an integral of) doesn’t appear integrable using common rules and antiderivatives. A method one might try is <strong>integration by substitution</strong>, which is related to the Chain Rule.</p>
+<p>Suppose we want to find the indefinite integral <span class="math display">\[\int g(x)dx\]</span> but <span class="math inline">\(g(x)\)</span> is complex and none of the formulas we have seen so far seem to apply immediately. The trick is to come up with a <em>new</em> function <span class="math inline">\(u(x)\)</span> such that <span class="math display">\[g(x)=f[u(x)]u&#39;(x).\]</span></p>
+<p>Why does an introduction of yet another function end of simplifying things? Let’s refer to the antiderivative of <span class="math inline">\(f\)</span> as <span class="math inline">\(F\)</span>. Then the chain rule tells us that <span class="math display">\[\frac{d}{dx} F[u(x)]=f[u(x)]u&#39;(x)\]</span>. So, <span class="math inline">\(F[u(x)]\)</span> is the antiderivative of <span class="math inline">\(g\)</span>. We can then write <span class="math display">\[\int g(x) dx= \int f[u(x)]u&#39;(x)dx = \int \frac{d}{dx} F[u(x)]dx = F[u(x)]+c\]</span></p>
+<p>To summarize, the procedure to determine the indefinite integral <span class="math inline">\(\int g(x)dx\)</span> by the method of substitution:</p>
+<ol style="list-style-type: decimal">
+<li>Identify some part of <span class="math inline">\(g(x)\)</span> that might be simplified by substituting in a single variable <span class="math inline">\(u\)</span> (which will then be a function of <span class="math inline">\(x\)</span>).</li>
+<li>Determine if <span class="math inline">\(g(x)dx\)</span> can be reformulated in terms of <span class="math inline">\(u\)</span> and <span class="math inline">\(du\)</span>.</li>
+<li>Solve the indefinite integral.</li>
+<li>Substitute back in for <span class="math inline">\(x\)</span></li>
+</ol>
+<p>Substitution can also be used to calculate a definite integral. Using the same procedure as above, <span class="math display">\[\int\limits_a^b g(x)dx=\int\limits_c^d f(u)du = F(d)-F(c)\]</span>
+where <span class="math inline">\(c=u(a)\)</span> and <span class="math inline">\(d=u(b)\)</span>.</p>
+
+<div class="example">
+<p><span id="exm:intsub1" class="example"><strong>Example 11.4  (Integration by Substitution I)  </strong></span>
+Solve the indefinite integral <span class="math display">\[\int x^2 \sqrt{x+1}dx.\]</span></p>
+</div>
+
+<p>For the above problem, we could have also used the substitution <span class="math inline">\(u=\sqrt{x+1}\)</span>. Then <span class="math inline">\(x=u^2-1\)</span> and <span class="math inline">\(dx=2u du\)</span>. Substituting these in, we get <span class="math display">\[\int x^2\sqrt{x+1}dx=\int (u^2-1)^2 u 2u du\]</span> which when expanded is again a polynomial and gives the same result as above.</p>
+<p>Another case in which integration by substitution is is useful is with a fraction.</p>
+
+<div class="example">
+<span id="exm:intsub2" class="example"><strong>Example 11.5  (Integration by Substitutiton II)  </strong></span>Simplify <span class="math display">\[\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx.\]</span>
+</div>
+
+</div>
+<div id="integration-by-parts" class="section level2">
+<h2><span class="header-section-number">11.4</span> Integration by Parts</h2>
+<p>Another useful integration technique is <strong>integration by parts</strong>, which is related to the Product Rule of differentiation. The product rule states that <span class="math display">\[\frac{d}{dx}(uv)=u\frac{dv}{dx}+v\frac{du}{dx}\]</span> Integrating this and rearranging, we get <span class="math display">\[\int u\frac{dv}{dx}dx= u v - \int v \frac{du}{dx}dx\]</span> or <span class="math display">\[\int u(x) v&#39;(x)dx=u(x)v(x) - \int v(x)u&#39;(x)dx\]</span></p>
+<p>More easily remembered with the mnemonic “Ultraviolet Voodoo”: <span class="math display">\[\int u dv = u v - \int v du\]</span> where <span class="math inline">\(du=u&#39;(x)dx\)</span> and <span class="math inline">\(dv=v&#39;(x)dx\)</span>.</p>
+<p>For definite integrals, this is simply
+<span class="math display">\[\int\limits_a^b u\frac{dv}{dx}dx = \left. u v \right|_a^b - \int\limits_a^b v \frac{du}{dx}dx\]</span></p>
+<p>Our goal here is to find expressions for <span class="math inline">\(u\)</span> and <span class="math inline">\(dv\)</span> that, when substituted into the above equation, yield an expression that’s more easily evaluated.</p>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-194" class="example"><strong>Example 11.6  (Integration by Parts)  </strong></span>Simplify the following integrals. These seemingly obscure forms of integrals come up often when integrating distributions.</p>
+<span class="math display">\[\int x e^{ax} dx\]</span>
+</div>
+
+
+<div class="solution">
+ <span class="solution"><em>Solution. </em></span> 
+Let <span class="math inline">\(u=x\)</span> and <span class="math inline">\(\frac{dv}{dx} = e^{ax}\)</span>. Then <span class="math inline">\(du=dx\)</span> and <span class="math inline">\(v=(1/a)e^{ax}\)</span>. Substituting this into the integration by parts formula, we obtain<br />
+<span class="math display">\[\begin{eqnarray}
+\int x e^{ax} dx &amp;=&amp; u v - \int v du\nonumber\\
+                &amp;=&amp;x\left( \frac{1}{a}e^{ax}\right) -\int\frac{1}{a}e^{ax}dx\nonumber\\
+                &amp;=&amp;\frac{1}{a}xe^{ax}-\frac{1}{a^2}e^{ax}+c\nonumber
+\end{eqnarray}\]</span>
+</div>
+
+
+<div class="exercise">
+<p><span id="exr:intparts-adv" class="exercise"><strong>Exercise 11.4  (Integration by Parts II)  </strong></span>
+1. Integrate
+<span class="math display">\[\int x^n e^{ax} dx\]</span></p>
 <ol start="2" style="list-style-type: decimal">
-<li>Save this as <code>hello_world.tex</code>. Make sure you get the file extension right.</li>
-<li>Open this in your “LaTeX” editor. This can be <code>TeXMaker</code>, <code>Aqumacs</code>, etc..</li>
-<li>Go through the click/dropdown interface and click compile.</li>
+<li>Integrate
+<span class="math display">\[\int x^3 e^{-x^2} dx\]</span></li>
 </ol>
 </div>
-<div id="main-latex-commands" class="section level3">
-<h3><span class="header-section-number">6.3.3</span> main LaTeX commands</h3>
-<p>LaTeX can cover most of your typesetting needs, to clean equations and intricate diagrams.</p>
-<p>Some main commands you’ll be using are below, and a very concise cheat sheet here: <a href="https://wch.github.io/latexsheet/latexsheet.pdf" class="uri">https://wch.github.io/latexsheet/latexsheet.pdf</a></p>
-<p>Most involved features require that you begin a specific “environment” for that feature, clearly demarcating them by the notation <code>\begin{figure}</code> and then <code>\end{figure}</code>, e.g. in the case of figures.</p>
-<pre><code>\begin{figure}
-\includegraphics{histogram.pdf}
-\end{figure}</code></pre>
-<p>where <code>histogram.pdf</code> is a path to one of your files.</p>
-<p>Notice that each line starts with a backslash <code>\</code> – in LaTeX this is the symbol to run a command.</p>
-<p>The following syntax at the endpoints are shorthand for math equations.</p>
-<pre><code>\[\int x^2 dx\]</code></pre>
-<p>these compile math symbols: <span class="math inline">\(\displaystyle \int x^2 dx.\)</span><a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a></p>
-<p>The <code>align</code> environment is useful to align your multi-line math, for example.</p>
-<pre><code>\begin{align}
-P(A \mid B) &amp;= \frac{P(A \cap B)}{P(B)}\\
-&amp;= \frac{P(B \mid A)P(A)}{P(B)}
-\end{align}</code></pre>
-<p><span class="math display">\[\begin{align}
-P(A \mid B) &amp;= \frac{P(A \cap B)}{P(B)}\\
-&amp;= \frac{P(B \mid A)P(A)}{P(B)}
-\end{align}\]</span></p>
-<p>Regression tables should be outputted as <code>.tex</code> files with packages like <code>xtable</code> and <code>stargazer</code>, and then called into LaTeX by <code>\input{regression_table.tex}</code> where <code>regression_table.tex</code> is the path to your regression output.</p>
-<p>Figures and equations should be labelled with the tag (e.g. <code>label{tab:regression}</code> so that you can refer to them later with their tag <code>Table \ref{tab:regression}</code>, instead of hard-coding <code>Table 2</code>).</p>
-<p>For some LaTeX commands you might need to load a separate package that someone else has written. Do this in your preamble (i.e. before <code>\begin{document}</code>):</p>
-<pre><code>\usepackage[options]{package}</code></pre>
-<p>where <code>package</code> is the name of the package and <code>options</code> are options specific to the package.</p>
-</div>
-<div id="further-guides" class="section level3 unnumbered">
-<h3>Further Guides</h3>
-<p>For a more comprehensive listing of LaTeX commands, Mayya Komisarchik has a great tutorial set of folders: <a href="https://scholar.harvard.edu/mkomisarchik/tutorials-0" class="uri">https://scholar.harvard.edu/mkomisarchik/tutorials-0</a></p>
-<p>There is a version of LaTeX called Beamer, which is a popular way of making a slideshow. Slides in markdown is also a competitor. The language of Beamer is the same as LaTeX but has some special functions for slides.</p>
-</div>
-</div>
-<div id="bibtex" class="section level2">
-<h2><span class="header-section-number">6.4</span> BibTeX</h2>
-<p>BibTeX is a reference system for bibliographical tests. We have a <code>.bib</code> file separately on our computer. This is also a plain text file, but it encodes bibliographical resources with special syntax so that a program can rearrange parts accordingly for different citation systems.</p>
-<div id="what-is-a-.bib-file" class="section level3">
-<h3><span class="header-section-number">6.4.1</span> what is a <code>.bib</code> file?</h3>
-<p>For example, here is the Nunn and Wantchekon article entry in <code>.bib</code> form.</p>
-<pre><code>@article{nunn2011slave,
-  title={The Slave Trade and the Origins of Mistrust in Africa},
-  author={Nunn, Nathan and Wantchekon, Leonard},
-  journal={American Economic Review},
-  volume={101},
-  number={7},
-  pages={3221--3252},
-  year={2011}
-}</code></pre>
-<p>The first entry, <code>nunn2011slave</code>, is “pick your favorite” – pick your own name for your reference system. The other slots in this <code>@article</code> entry are entries that refer to specific bibliographical text.</p>
-</div>
-<div id="what-does-latex-do-with-.bib-files" class="section level3">
-<h3><span class="header-section-number">6.4.2</span> what does LaTeX do with .bib files?</h3>
-<p>Now, in LaTeX, if you type</p>
-<pre><code>  \textcite{nunn2011slave} argue that current variation in the trust among citizens of African countries has historical roots in the European slave trade in the 1600s.
-  </code></pre>
-<p>as part of your text, then when the <code>.tex</code> file is compiled the PDF shows something like</p>
-<p><img src="images/biblatex_inline.png" /></p>
-<p>in whatever citation style (APSA, APA, Chicago) you pre-specified!</p>
-<p>Also at the end of your paper you will have a bibliography with entries ordered and formatted in the appropriate citation.</p>
-<p><img src="images/biblatex_bibliography.png" /></p>
-<p>This is a much less frustrating way of keeping track of your references – no need to hand-edit formatting the bibliography to conform to citation rules (which biblatex already knows) and no need to update your bibliography as you add and drop references (biblatex will only show entries that are used in the main text).</p>
-</div>
-<div id="stocking-up-on-your-.bib-files" class="section level3">
-<h3><span class="header-section-number">6.4.3</span> stocking up on your .bib files</h3>
-<p>You should keep your own <code>.bib</code> file that has all your bibliographical resources. Storing entries is cheap (does not take much memory), so it is fine to keep all your references in one place (but you’ll want to make a new one for collaborative projects where multiple people will compile a <code>.tex</code> file).</p>
-<p>For example, Gary’s BibTeX file is here: <a href="https://github.com/iqss-research/gkbibtex/blob/master/gk.bib" class="uri">https://github.com/iqss-research/gkbibtex/blob/master/gk.bib</a></p>
-<p>Citation management software (Mendeley or Zotero) automatically generates .bib entries from your library of PDFs for you, provided you have the bibliography attributes right.</p>
-</div>
-</div>
-<div id="extension-optional-exercise" class="section level2 unnumbered">
-<h2>Extension: Optional Exercise</h2>
-<p>Create a LaTeX document for a hypothetical research paper on your laptop and, once you’ve verified it compiles into a PDF, come show it to either one of the instructors.</p>
-<p>You can also use overleaf if you have preference for a cloud-based system. But don’t swallow the built-in templates without understanding or testing them.</p>
-<p>Each student will have slightly different substantive interests, so we won’t impose much of a standard. But at a minimum, the LaTeX document should have:</p>
-<ul>
-<li>A title, author, date, and abstract</li>
-<li>Sections</li>
-<li>Italics and boldface</li>
-<li>A figure with a caption and in-text reference to it.</li>
-</ul>
-<p>Depending on your subfield or interests, try to implement some of the following:</p>
-<ul>
-<li>A bibliographical reference drawing from a separate <code>.bib</code> file</li>
-<li>A table</li>
-<li>A math expression</li>
-<li>A different font</li>
-<li>Different page margins</li>
-<li>Different line spacing</li>
-</ul>
 
 </div>
-</div>
+<div id="answers-to-examples-and-exercises-2" class="section level2 unnumbered">
+<h2>Answers to Examples and Exercises</h2>
+<p>Exercise <a href="derivatives.html#exr:introderivatives">10.1</a></p>
 
-
-
-<div class="footnotes">
-<hr />
-<ol start="20">
-<li id="fn20"><p>Enclosing with <code>$$</code> instead of <code>\[</code> also has the same effect, so you may see it too. But this is now discouraged due to its inflexibility.<a href="nonwysiwyg.html#fnref20" class="footnote-back">↩︎</a></p></li>
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span> </p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(f^\prime(x)= 0\)</span></li>
+<li><span class="math inline">\(f^\prime(x)= 1\)</span></li>
+<li><span class="math inline">\(f^\prime(x)= 2x^3\)</span></li>
+<li><span class="math inline">\(f\prime(x)= 3x^2\)</span></li>
+<li><span class="math inline">\(f\prime(x)= -2x^{-3}\)</span></li>
+<li><span class="math inline">\(f\prime(x)= 14x^6\)</span></li>
+<li><span class="math inline">\(f\prime(x) = 4x^3 - 3x^2 + 2x -1\)</span></li>
+<li><span class="math inline">\(f\prime(x) = 5x^4 + 3x^2 - 2x\)</span></li>
+<li><span class="math inline">\(f\prime(x) = 6x + \frac{2}{3}x^{\frac{-2}{3}}\)</span></li>
+<li><span class="math inline">\(f\prime(x)= \frac{-4x}{x^4 - 2x^2 + 1}\)</span></li>
 </ol>
+</div>
+
+<p>Example <a href="derivatives.html#exm:tothesix">10.3</a></p>
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span> For convenience, define <span class="math inline">\(f(z) = z^6\)</span> and <span class="math inline">\(z = g(x) = 3x^2+5x-7\)</span>. Then, <span class="math inline">\(y=f[g(x)]\)</span> and</p>
+<span class="math display">\[\begin{align*}
+\frac{d}{dx}y&amp;= f^\prime(z) g^\prime(x) \\
+&amp;= 6(3x^2+5x-7)^5 (6x + 5)
+\end{align*}\]</span>
+</div>
+
+<p>Example <a href="derivatives.html#exm:exmderivexp">10.4</a></p>
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span> </p>
+<ol style="list-style-type: decimal">
+<li>Let <span class="math inline">\(u(x)=-3x\)</span>. Then <span class="math inline">\(u^\prime(x)=-3\)</span> and <span class="math inline">\(f^\prime(x)=-3e^{-3x}\)</span>.</li>
+<li>Let <span class="math inline">\(u(x)=x^2\)</span>. Then <span class="math inline">\(u^\prime(x)=2x\)</span> and <span class="math inline">\(f^\prime(x)=2xe^{x^2}\)</span>.</li>
+</ol>
+</div>
+
+<p>Example <a href="derivatives.html#exm:exmderivlog">10.5</a></p>
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span> </p>
+<ol style="list-style-type: decimal">
+<li>Let <span class="math inline">\(u(x)=x^2+9\)</span>. Then <span class="math inline">\(u^\prime(x)=2x\)</span> and <span class="math display">\[\frac{dy}{dx}= \frac{u^\prime(x)}{u(x)} = \frac{2x}{(x^2+9)}\]</span></li>
+<li>Let <span class="math inline">\(u(x)=\log x\)</span>. Then <span class="math inline">\(u^\prime(x)=1/x\)</span> and <span class="math inline">\(\frac{dy}{dx} = \frac{1}{(x\log x)}\)</span>.</li>
+<li>Use the generalized power rule. <span class="math display">\[\frac{dy}{dx} = \frac{(2 \log x)}{x}\]</span></li>
+<li>We know that <span class="math inline">\(\log e^x=x\)</span> and that <span class="math inline">\(dx/dx=1\)</span>, but we can double check. Let <span class="math inline">\(u(x)=e^x\)</span>. Then <span class="math inline">\(u^\prime(x)=e^x\)</span> and <span class="math inline">\(\frac{dy}{dx} = \frac{u^\prime(x)}{u(x)} = \frac{e^x}{e^x} = 1.\)</span></li>
+</ol>
+</div>
+
+<p>Example <a href="integrals.html#exm:defintmon">11.3</a></p>
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span> What is <span class="math inline">\(F(x)\)</span>? From the power rule, recognize <span class="math inline">\(\frac{d}{dx}x^3 = 3x^2\)</span> so</p>
+<span class="math display">\[\begin{align*}
+F(x) &amp;= x^3\\
+\int\limits_1^3 f(x) dx &amp;= F(x = 3) - F(x  - 1)\\
+&amp;= 3^3 - 1^3\\
+&amp;=26
+\end{align*}\]</span>
+</div>
+
+Example <a href="integrals.html#exm:intsub1">11.4</a>
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span> The problem here is the <span class="math inline">\(\sqrt{x+1}\)</span> term. However, if the integrand had <span class="math inline">\(\sqrt{x}\)</span> times some polynomial, then we’d be in business. Let’s try <span class="math inline">\(u=x+1\)</span>. Then <span class="math inline">\(x=u-1\)</span> and <span class="math inline">\(dx=du\)</span>. Substituting these into the above equation, we get</p>
+<p><span class="math display">\[\begin{align*}
+            \int x^2\sqrt{x+1}dx&amp;= \int (u-1)^2\sqrt{u}du\\
+            &amp;= \int (u^2-2u+1)u^{1/2}du\\
+            &amp;= \int (u^{5/2}-2u^{3/2}+u^{1/2})du
+\end{align*}\]</span></p>
+<p>We can easily integrate this, since it is just a polynomial. Doing so and substituting <span class="math inline">\(u=x+1\)</span> back in, we get <span class="math display">\[\int x^2\sqrt{x+1}dx=2(x+1)^{3/2}\left[\frac{1}{7}(x+1)^2 -
+\frac{2}{5}(x+1)+\frac{1}{3}\right]+c\]</span></p>
+</div>
+
+Example <a href="integrals.html#exm:intsub2">11.5</a>
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span> When an expression is raised to a power, it is often helpful to use this expression as the basis for a substitution. So, let <span class="math inline">\(u=1+e^{2x}\)</span>. Then <span class="math inline">\(du=2e^{2x}dx\)</span> and we can set <span class="math inline">\(5e^{2x}dx=5du/2\)</span>. Additionally, <span class="math inline">\(u=2\)</span> when <span class="math inline">\(x=0\)</span> and <span class="math inline">\(u=1+e^2\)</span> when <span class="math inline">\(x=1\)</span>. Substituting all of this in, we get</p>
+<p><span class="math display">\[\begin{align*}
+\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx
+            &amp;= \frac{5}{2}\int\limits_2^{1+e^2}\frac{du}{u^{1/3}}\\
+            &amp;= \frac{5}{2}\int\limits_2^{1+e^2} u^{-1/3}du\\
+            &amp;= \left. \frac{15}{4} u^{2/3} \right|_2^{1+e^2}\\
+            &amp;= 9.53
+\end{align*}\]</span></p>
+</div>
+
+<p>Exercise <a href="integrals.html#exr:intparts-adv">11.4</a></p>
+1. <span class="math display">\[\int x^n e^{ax} dx\]</span>
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span> 
+As in the first problem, let
+<span class="math display">\[u=x^n, dv=e^{ax}dx\]</span>
+Then <span class="math inline">\(du=n x^{n-1}dx\)</span> and <span class="math inline">\(v=(1/a)e^{ax}\)</span>.</p>
+<p>Substituting these into the integration by parts formula gives
+<span class="math display">\[\begin{eqnarray}
+            \int x^n e^{ax} dx &amp;=&amp; u v - \int v du\nonumber\\
+            &amp;=&amp;x^n\left( \frac{1}{a}e^{ax}\right) - \int\frac{1}{a}e^{ax} n x^{n-1} dx\nonumber\\
+            &amp;=&amp;\frac{1}{a}x^n e^{ax} - \frac{n}{a}\int x^{n-1}e^{ax}dx\nonumber
+\end{eqnarray}\]</span></p>
+<p>Notice that we now have an integral similar to the previous one, but with <span class="math inline">\(x^{n-1}\)</span> instead of <span class="math inline">\(x^n\)</span>.</p>
+For a given <span class="math inline">\(n\)</span>, we would repeat the integration by parts procedure until the integrand was directly integratable — e.g., when the integral became <span class="math inline">\(\int e^{ax}dx\)</span>.
+</div>
+
+<p>2. <span class="math display">\[\int x^3 e^{-x^2} dx\]</span></p>
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span> We could, as before, choose <span class="math inline">\(u=x^3\)</span> and <span class="math inline">\(dv=e^{-x^2}dx\)</span>. But we can’t then find <span class="math inline">\(v\)</span> — i.e., integrating <span class="math inline">\(e^{-x^2}dx\)</span> isn’t possible. Instead, notice that <span class="math display">\[\frac{d}{dx}e^{-x^2} = -2xe^{-x^2},\]</span> which can be factored out of the original integrand <span class="math display">\[\int x^3 e^{-x^2} dx = \int x^2 (xe^{-x^2})dx.\]</span></p>
+<p>We can then let <span class="math inline">\(u=x^2\)</span> and <span class="math inline">\(dv=x e^{-x^2}dx\)</span>. The<span class="math inline">\(du=2x dx\)</span> and <span class="math inline">\(v=-\frac{1}{2}e^{-x^2}\)</span>. Substituting these in, we have
+<span class="math display">\[\begin{eqnarray}
+                \int x^3 e^{-x^2} dx &amp;=&amp; u v - \int v du\nonumber\\
+                &amp;=&amp; x^2 \left( -\frac{1}{2}e^{-x^2}\right) -\int \left(-\frac{1}{2}e^{-x^2}\right)2x dx\nonumber\\
+                &amp;=&amp; -\frac{1}{2}x^2 e^{-x^2}+\int x e^{-x^2}dx\nonumber\\
+                &amp;=&amp; -\frac{1}{2}x^2 e^{-x^2}-\frac{1}{2}e^{-x^2}+c\nonumber
+\end{eqnarray}\]</span></p>
+</div>
+
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="simulation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="linearalgebra.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="derivatives.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="optim.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -648,7 +779,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/UCSDPoliSci/MathCamp/edit/main/15_non-wysiwyg.Rmd",
+"link": "https://github.com/UCSDPoliSci/MathCamp/edit/main/33_intergrals.Rmd",
 "text": "Edit"
 },
 "history": {
