@@ -13,7 +13,7 @@
   
   <meta property="og:image" content="/./images/logo.png" />
   <meta property="og:description" content="Text for UCSD Department of Political Science Math Camp" />
-  <meta name="github-repo" content="UCSDPoliSci/MathCamp" />
+  <meta name="github-repo" content="UCSDPoliMathCamp/MathCamp" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 8 Manipulating Vectors and Matrices | UCSD Political Science Math Camp" />
@@ -443,32 +443,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Nunn and Wantchekon’s main dataset has more than 20,000 observations. Each observation is a respondent from the Afrobarometer survey.</p>
 <div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="rmatrices.html#cb193-1"></a><span class="kw">head</span>(nunn_full)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 59
-##   respno  ethnicity murdock_name isocode region   district townvill  location_id
-##   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;           &lt;dbl&gt;
-## 1 BEN0001 fon       FON          BEN     atlnati… KPOMASSE TOKPA-DO…          30
-## 2 BEN0002 fon       FON          BEN     atlnati… KPOMASSE TOKPA-DO…          30
-## 3 BEN0003 fon       FON          BEN     atlnati… OUIDAH   3ARROND            31
-## 4 BEN0004 fon       FON          BEN     atlnati… OUIDAH   3ARROND            31
-## 5 BEN0005 fon       FON          BEN     atlnati… OUIDAH   PAHOU              32
-## 6 BEN0006 fon       FON          BEN     atlnati… OUIDAH   PAHOU              32
+##   respno  ethnicity murdock_name isocode region     district townvill   location_id
+##   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;            &lt;dbl&gt;
+## 1 BEN0001 fon       FON          BEN     atlnatique KPOMASSE TOKPA-DOME          30
+## 2 BEN0002 fon       FON          BEN     atlnatique KPOMASSE TOKPA-DOME          30
+## 3 BEN0003 fon       FON          BEN     atlnatique OUIDAH   3ARROND             31
+## 4 BEN0004 fon       FON          BEN     atlnatique OUIDAH   3ARROND             31
+## 5 BEN0005 fon       FON          BEN     atlnatique OUIDAH   PAHOU               32
+## 6 BEN0006 fon       FON          BEN     atlnatique OUIDAH   PAHOU               32
 ## # … with 51 more variables: trust_relatives &lt;dbl&gt;, trust_neighbors &lt;dbl&gt;,
 ## #   intra_group_trust &lt;dbl&gt;, inter_group_trust &lt;dbl&gt;,
 ## #   trust_local_council &lt;dbl&gt;, ln_export_area &lt;dbl&gt;, export_area &lt;dbl&gt;,
 ## #   export_pop &lt;dbl&gt;, ln_export_pop &lt;dbl&gt;, age &lt;dbl&gt;, age2 &lt;dbl&gt;, male &lt;dbl&gt;,
 ## #   urban_dum &lt;dbl&gt;, occupation &lt;dbl&gt;, religion &lt;dbl&gt;, living_conditions &lt;dbl&gt;,
 ## #   education &lt;dbl&gt;, near_dist &lt;dbl&gt;, distsea &lt;dbl&gt;, loc_murdock_name &lt;chr&gt;,
-## #   loc_ln_export_area &lt;dbl&gt;, local_council_performance &lt;dbl&gt;,
-## #   council_listen &lt;dbl&gt;, corrupt_local_council &lt;dbl&gt;, school_present &lt;dbl&gt;,
-## #   electricity_present &lt;dbl&gt;, piped_water_present &lt;dbl&gt;, sewage_present &lt;dbl&gt;,
-## #   health_clinic_present &lt;dbl&gt;, district_ethnic_frac &lt;dbl&gt;,
-## #   frac_ethnicity_in_district &lt;dbl&gt;, townvill_nonethnic_mean_exports &lt;dbl&gt;,
-## #   district_nonethnic_mean_exports &lt;dbl&gt;, region_nonethnic_mean_exports &lt;dbl&gt;,
-## #   country_nonethnic_mean_exports &lt;dbl&gt;, murdock_centr_dist_coast &lt;dbl&gt;,
-## #   centroid_lat &lt;dbl&gt;, centroid_long &lt;dbl&gt;, explorer_contact &lt;dbl&gt;,
-## #   railway_contact &lt;dbl&gt;, dist_Saharan_node &lt;dbl&gt;, dist_Saharan_line &lt;dbl&gt;,
-## #   malaria_ecology &lt;dbl&gt;, v30 &lt;dbl+lbl&gt;, v33 &lt;dbl+lbl&gt;, fishing &lt;dbl&gt;,
-## #   exports &lt;dbl&gt;, ln_exports &lt;dbl&gt;, total_missions_area &lt;dbl&gt;,
-## #   ln_init_pop_density &lt;dbl&gt;, cities_1400_dum &lt;dbl&gt;</code></pre>
+## #   loc_ln_export_area &lt;dbl&gt;, local_council_performance &lt;dbl&gt;, …</code></pre>
 <div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="rmatrices.html#cb195-1"></a><span class="kw">colnames</span>(nunn_full)</span></code></pre></div>
 <pre><code>##  [1] &quot;respno&quot;                          &quot;ethnicity&quot;                      
 ##  [3] &quot;murdock_name&quot;                    &quot;isocode&quot;                        
@@ -986,7 +975,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/UCSDPoliSci/MathCamp/edit/main/22_matrices.Rmd",
+"link": "https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/22_matrices.Rmd",
 "text": "Edit"
 },
 "history": {
