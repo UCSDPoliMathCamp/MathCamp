@@ -1,11 +1,6 @@
 # UCSD Political Science Math Camp
 [![build](https://github.com/UCSDPoliMathCamp/MathCamp/actions/workflows/deploy_bookdown.yml/badge.svg)](https://github.com/UCSDPoliMathCamp/MathCamp/actions/workflows/deploy_bookdown.yml)
 
-
-
-## Contributing
-
-This material is adapted from previous instructors of the class at UCSD and [Harvard Gov Prefresher](https://github.com/IQSS/prefresher). 
-It is maintained under a GPL License, and other insturctors are welcome to fork, clone, or make copies of the material. 
-Comments and suggestions are also always welcome. 
-
+This booklet is adapted from the [Harvard Gov Prefresher booklet](https://iqss.github.io/prefresher/), maintained by [Shiro Kuriwaki](https://www.shirokuriwaki.com). 
+It will serve as as the text for the UCSD Math Camp. 
+We have reordered and adapted it to fit the structure of our course.
