@@ -1,5 +1,5 @@
 book_filename: "MathCamp"
-repo: https://github.com/UCSDPoliSci/MathCamp/
+repo: https://github.com/UCSDPoliMathCamp/MathCamp/
 output_dir: _book
 delete_merged_file: true
 language:

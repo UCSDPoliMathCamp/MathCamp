@@ -1,5 +1,5 @@
 # UCSD Political Science Math Camp
-[![build](https://github.com/UCSDPoliSci/MathCamp/actions/workflows/deploy_bookdown.yml/badge.svg)](https://github.com/UCSDPoliSci/MathCamp/actions/workflows/deploy_bookdown.yml)
+[![build](https://github.com/UCSDPoliMathCamp/MathCamp/actions/workflows/deploy_bookdown.yml/badge.svg)](https://github.com/UCSDPoliMathCamp/MathCamp/actions/workflows/deploy_bookdown.yml)
 
 
 
