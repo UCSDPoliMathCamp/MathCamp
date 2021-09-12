@@ -70,8 +70,8 @@ fx + fprimex + plot_annotation(expression(f(x)==x^3+2))
 
 The second derivative $f''(x)$ identifies whether the function $f(x)$ at the point $x$ is
 
-1. Concave down: $f''(x)<0$
-1. Concave up: $f''(x)>0$
+1. Concave / concave down: $f''(x)<0$
+1. Convex / Concave up: $f''(x)>0$
 
 __Maximum (Minimum)__: $x_0$ is a __local maximum (minimum)__ if $f(x_0)>f(x)$ ($f(x_0)<f(x))$ for all $x$ within some open interval containing $x_0$.  $x_0$ is a __global maximum (minimum)__ if $f(x_0)>f(x)$ ($f(x_0)<f(x))$ for all $x$ in the domain of $f$.
 
@@ -146,27 +146,6 @@ Convex: A function f is strictly convex over the set S \underline{if} $\forall x
   \parbox{2in}{\includegraphics[scale=.4]{Convex.pdf}}
 \end{comment}
 
-Sometimes, concavity and convexity are strict of a requirement. For most purposes of getting solutions, what we call quasi-concavity is enough.
-
-```{definition, name = "Quasiconcave Function"}
-A function f is quasiconcave over the set S if $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) \ge \min(f(x_1),f(x_2))$$
-
-  No matter what two points you select, the \textit{lowest} valued point will always be an end point.
-
-```
-
-\begin{comment}
-  \parbox{2in}{\includegraphics[scale=.4]{Quasiconcave.pdf}}
-\end{comment}
-
-```{definition, name = "Quasiconvex"}
-A function f is quasiconvex over the set $S$ if $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) \le \max(f(x_1),f(x_2))$$
-No matter what two points you select, the \textit{highest} valued point will always be an end point.
-```
-
-\begin{comment}
-  \parbox{1.8in}{\includegraphics[scale=.4]{Quasiconvex.pdf}}
-\end{comment}
 
 
 **Second Derivative Test of Concavity**: The second derivative can be used to understand concavity. 
@@ -235,23 +214,27 @@ zero, or sometimes both over all $\mathbf{x}\ne 0$.
 
 
 
-## FOC and SOC
+## Gradient and FOC
 
 We can see from a graphical representation that if a point is a local maxima or minima, it must meet certain conditions regarding its derivative. These are so commonly used that we refer these to "First Order Conditions" (FOCs) and "Second Order Conditions" (SOCs) in the economic tradition.
-
-### First Order Conditions {-}
 
 When we examined functions of one variable $x$, we found critical points by taking the first derivative,  setting it to zero, and solving for $x$.  For functions of $n$ variables, the critical points are found in much the same way, except now we set the partial derivatives equal to zero. Note: We will only consider critical points on the interior of a function's domain. 
 
 In a derivative, we only took the derivative with respect to one variable at a time. When we take the derivative separately with respect to all variables in the elements of $\mathbf{x}$ and then express the result as a vector, we use the term Gradient and Hessian. 
 
+
 ```{definition, name = "Gradient"}
 
-Given a function $f(\textbf{x})$ in $n$ variables, the gradient $\nabla f(\mathbf{x})$ (the greek letter nabla ) is a column vector, where the $i$th element is the partial derivative of $f(\textbf{x})$ with respect to $x_i$: 
+Given a function $f(\textbf{x})$ in $n$ variables, the gradient $\nabla f(\mathbf{x})$ (the greek letter nabla ) is a row vector, where the $i$th element is the partial derivative of $f(\textbf{x})$ with respect to $x_i$: 
 
-\[\nabla f(\mathbf{x}) = \begin{pmatrix}
-\frac{\partial f(\mathbf{x})}{\partial x_1}\\ \frac{\partial f(\mathbf{x})}{\partial x_2}\\
-  \vdots \\ \frac{\partial f(\mathbf{x})}{\partial x_n} \end{pmatrix}\]
+\[\nabla f(\mathbf{x}) = 
+    \begin{pmatrix}
+    \frac{\partial f(\mathbf{x})}{\partial x_1} & 
+      \frac{\partial f(\mathbf{x})}{\partial x_2} &
+      \cdots &
+      \frac{\partial f(\mathbf{x})}{\partial x_n} 
+    \end{pmatrix}
+\]
 
 ```
 
@@ -259,7 +242,7 @@ Before we know whether a point is a maxima or minima, if it meets the FOC it is 
 
 ```{definition, name = "Critical Point"}
 
-$\mathbf{x}^*$ is a critical point if and only if $\nabla f(\mathbf{x}^*)=0$. If the partial derivative of f(x) with respect to $x^*$ is 0, then $\mathbf{x}^*$ is a critical point. To solve for $\mathbf{x}^*$, find the gradient, set each element equal to 0, and solve the system of equations. $$\mathbf{x}^* = \begin{pmatrix} x_1^*\\x_2^*\\ \vdots \\ x_n^*\end{pmatrix}$$
+$\mathbf{x}^*$ is a critical point if and only if $\nabla f(\mathbf{x}^*)=\mathbf{0}$ (the vector of zeros). If the partial derivative of f(x) with respect to $x^*$ is 0, then $\mathbf{x}^*$ is a critical point. To solve for $\mathbf{x}^*$, find the gradient, set each element equal to 0, and solve the system of equations. $$\mathbf{x}^* = \begin{pmatrix} x_1^*\\x_2^*\\ \vdots \\ x_n^*\end{pmatrix}$$
   
 ```
 
@@ -277,18 +260,23 @@ Example: Given a function $f(\mathbf{x})=(x_1-1)^2+x_2^2+1$, find the (1) Gradie
 Gradient 
 
 \begin{align*}
-\nabla f(\mathbf{x}) &= \begin{pmatrix}\frac{\partial f(\mathbf{x})}{\partial x_1}\\ \frac{\partial f(\mathbf{x})}{\partial x_2} \end{pmatrix}\\
-&= \begin{pmatrix} 2(x_1-1)\\ 2x_2 \end{pmatrix}
+\nabla f(\mathbf{x}) &= 
+  \begin{pmatrix}
+  \frac{\partial f(\mathbf{x})}{\partial x_1} & 
+  \frac{\partial f(\mathbf{x})}{\partial x_2} 
+  \end{pmatrix}
+  &= 
+  \begin{pmatrix} 2(x_1-1) &
+  2x_2 
+  \end{pmatrix}
 \end{align*}
 
 
-Critical Point $\mathbf{x}^* =$
+Critical Point $\mathbf{x}^*$:
   
 \begin{align*}
-&\frac{\partial f(\mathbf{x})}{\partial x_1} = 2(x_1-1) = 0\\
-&\Rightarrow x_1^* = 1\\
-&\frac{\partial f(\mathbf{x})}{\partial x_2} = 2x_2 = 0\\
-&\Rightarrow   x_2^* = 0\\
+&\frac{\partial f(\mathbf{x})}{\partial x_1} = 2(x_1-1) = 0 & \Rightarrow x_1^* = 1\\
+&\frac{\partial f(\mathbf{x})}{\partial x_2} = 2x_2 = 0 & \Rightarrow   x_2^* = 0\\
 \end{align*}
 
 
@@ -300,7 +288,8 @@ So \[\mathbf{x}^* = (1,0)\]
 
 
 
-### Second Order Conditions {-}
+## Hessian and SOC
+
 When we found a critical point for a function of one variable, we used the second derivative as a indicator of the curvature at the point in order to determine whether the point was a min, max, or saddle (second derivative test of concavity).  For functions of $n$ variables, we use _second order partial derivatives_ as an indicator of curvature.
 
 ```{definition, name = "Hessian"}
@@ -332,11 +321,18 @@ These definitions will be employed when we determine the __Second Order Conditio
 
 Given a function $f(\mathbf{x})$ and a point $\mathbf{x}^*$ such that $\nabla f(\mathbf{x}^*)=0$,
 
-1. Hessian is Positive Definite  $\quad \Longrightarrow \quad$ Strict Local Min
-2. Hessian is Positive Semidefinite  $\forall \mathbf{x}\in B(\mathbf{x}^*,\epsilon)$} $\quad \Longrightarrow \quad$ Local Min
-3. Hessian is Negative Definite $\quad \Longrightarrow \quad$ Strict Local Max
-4. Hessian is Negative Semidefinite  $\forall \mathbf{x}\in B(\mathbf{x}^*,\epsilon)$} $\quad \Longrightarrow \quad$  Local Max
-5. Hessian is Indefinite $\quad \Longrightarrow \quad$ Saddle Point
+1. Hessian is Positive Definite around $\mathbf{x}^*$ $\quad \Longrightarrow \quad$ Local Min
+2. Hessian is Negative Definite around $\mathbf{x}^*$ $\quad \Longrightarrow \quad$ Local Max
+3. Hessian is Indefinite around $\mathbf{x}^*$ $\quad \Longrightarrow \quad$ Saddle Point
+
+
+Furthermore, there's an easier way to check whether a $2\times 2$ matrix is positive or negative definite.
+
+__Definiteness of 2 $\times$ 2 Matrix__:  For a $2 \times 2$ matrix $\mathbf{A}$:
+
+1. If $\mathrm{det}(\mathbf{A}) > 0$ and $A_{11}>0$, then $\mathbf{A}$ is positive definite
+1. If $\mathrm{det}(\mathbf{A}) > 0$ and $A_{11}<0$, then $\mathbf{A}$ is negative definite
+1. If $\mathrm{det}(\mathbf{A}) < 0$, then $\mathbf{A}$ is indefinite
 
 
 
@@ -355,9 +351,9 @@ The Hessian is
 \begin{align*}
 \mathbf{H(x)} &= \begin{pmatrix} 2&0\\0&2 \end{pmatrix}
 \end{align*}
-The Leading principal minors of the Hessian are $M_1=2; M_2=4$. Now we consider Definiteness. Since both leading principal minors are positive, the  Hessian is positive definite.
+Since $\mathrm{det}(\mathbf{H}(x)) = 4 > 0$ and $H_{11}=2>0$, the  Hessian is positive definite.
 
-Maxima, Minima, or Saddle Point? Since the Hessian is positive definite and the gradient equals 0, $x^\star = (1,0)$ is a strict local minimum.
+Maxima, Minima, or Saddle Point? Since the Hessian is positive definite and the gradient equals 0, $x^\star = (1,0)$ is a local minimum.
 
 
 Note: Alternate check of definiteness. Is $\mathbf{H(x^*)} \geq \leq 0 \quad \forall \quad \mathbf{x}\ne 0$
@@ -381,8 +377,8 @@ Although definiteness helps us to understand the curvature of an n-dimensional f
 
 We need to know whether a function is globally concave or convex to determine whether a critical point is a global min or max.  We can use the definiteness of the Hessian to determine whether a function is globally concave or convex:
 
-1. Hessian is Positive Semidefinite $\forall \mathbf{x}$} $\quad \Longrightarrow \quad$ Globally Convex
-2. Hessian is Negative Semidefinite  $\forall \mathbf{x}$} $\quad \Longrightarrow \quad$ Globally Concave
+1. Hessian is Positive Semidefinite $\forall \mathbf{x}$ $\quad \Longrightarrow \quad$ Globally Convex
+2. Hessian is Negative Semidefinite  $\forall \mathbf{x}$ $\quad \Longrightarrow \quad$ Globally Concave
 
 
 Notice that the definiteness conditions must be satisfied over the entire domain.
@@ -402,7 +398,7 @@ __Global Max/Min Conditions__: Given a function $f(\mathbf{x})$ and a point $\ma
 Note that showing that $\mathbf{H(x^*)}$ is negative semidefinite is
 not enough to guarantee $\mathbf{x}^*$ is a local max.  However, showing that
 $\mathbf{H(x)}$ is negative semidefinite for all $\mathbf{x}$ guarantees that $x^*$
-is a global max.  (The same goes for positive semidefinite and minima.)\\
+is a global max.  (The same goes for positive semidefinite and minima.)
 
 
 Example: Take $f_1(x)=x^4$ and $f_2(x)=-x^4$.  Both have $x=0$ as

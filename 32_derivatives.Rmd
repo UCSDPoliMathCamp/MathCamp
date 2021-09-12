@@ -180,13 +180,13 @@ As useful as the above rules are, many functions you'll see won't fit neatly in 
 __Composite functions__ are formed by substituting one function into another and are denoted by \[(f\circ g)(x)=f[g(x)].\]  To form $f[g(x)]$, the range of $g$ must be contained (at least in part) within the domain of $f$. The domain of $f\circ g$ consists of all the points in the domain of $g$ for which $g(x)$ is in the domain of $f$.
 
 ```{example}
-Let $f(x)=\log x$ for  $0<x<\infty$ and  $g(x)=x^2$ for $-\infty<x<\infty$.
+Let $f(x)=\ln x$ for  $0<x<\infty$ and  $g(x)=x^2$ for $-\infty<x<\infty$.
 
 Then 
-\[(f\circ g)(x)=\log x^2, -\infty<x<\infty - \{0\}\]
+\[(f\circ g)(x)=\ln x^2, -\infty<x<\infty - \{0\}\]
 
 Also 
-\[(g\circ f)(x)=[\log x]^2, 0<x<\infty\]
+\[(g\circ f)(x)=[\ln x]^2, 0<x<\infty\]
 
 Notice that $f\circ g$ and $g\circ f$ are not the same functions.
 ```
@@ -228,14 +228,14 @@ Natural logs and exponents (they are inverses of each other; see Section \@ref(l
 
 ```{theorem, derivexplog}
 
-The functions $e^x$ and the natural logarithm $\log(x)$ are continuous and differentiable in their domains, and their first derivate is
+The functions $e^x$ and the natural logarithm $\ln(x)$ are continuous and differentiable in their domains, and their first derivate is
   \[(e^x)^\prime = e^x\]
-  \[\log(x)^\prime = \frac{1}{x}\]
+  \[\ln(x)^\prime = \frac{1}{x}\]
 
 Also, when these are composite functions, it follows by the generalized power rule that
 
 \[\left(e^{g(x)}\right)^\prime = e^{g(x)} \cdot g^\prime(x)\]
-\[\left(\log g(x)\right)^\prime = \frac{g^\prime(x)}{g(x)}, ~~\text{if}~~ g(x) > 0\]
+\[\left(\ln g(x)\right)^\prime = \frac{g^\prime(x)}{g(x)}, ~~\text{if}~~ g(x) > 0\]
 
 
 ```
@@ -290,10 +290,10 @@ Find the derivative for the following.
 
 The natural log  is the mirror image of the natural exponent and has mirroring properties, again, to repeat the theorem, 
 
-1. log prime x is one over x: $\frac{d}{dx} \log x = \frac{1}{x}$ (Figure \@ref(fig:fig-derivlog))
-2. Exponents become multiplicative constants: $\frac{d}{dx} \log x^k = \frac{d}{dx} k \log x = \frac{k}{x}$
-3. Chain rule again: $\frac{d}{dx} \log u(x) = \frac{u'(x)}{u(x)}\quad$
-4. For any positive base $b$, $\frac{d}{dx} b^x = (\log b)\left(b^x\right)$.
+1. log prime x is one over x: $\frac{d}{dx} \ln x = \frac{1}{x}$ (Figure \@ref(fig:fig-derivlog))
+2. Exponents become multiplicative constants: $\frac{d}{dx} \ln x^k = \frac{d}{dx} k \ln x = \frac{k}{x}$
+3. Chain rule again: $\frac{d}{dx} \ln u(x) = \frac{u'(x)}{u(x)}\quad$
+4. For any positive base $b$, $\frac{d}{dx} b^x = (\ln b)\left(b^x\right)$.
 
 
 
@@ -317,10 +317,10 @@ fx + fprimex + plot_layout(nrow = 1)
 ```{example, exmderivlog, name="Derivative of logs"}
 Find $dy/dx$ for the following.
 
-1. $f(x)=\log(x^2+9)$
-2. $f(x)=\log(\log x)$
-3. $f(x)=(\log x)^2$
-4. $f(x)=\log e^x$ 
+1. $f(x)=\ln(x^2+9)$
+2. $f(x)=\ln(\ln x)$
+3. $f(x)=(\ln x)^2$
+4. $f(x)=\ln e^x$ 
 
 ```
 
@@ -334,24 +334,24 @@ We actually show the derivative of the log first, and then the derivative of the
 The general derivative of the log at any base $a$ is solvable by the definition of derivatives.
 
 \begin{align*}
-(\log_a x)^\prime = \lim\limits_{h\to 0} \frac{1}{h}\log_{a}\left(1 + \frac{h}{x}\right)
+(\ln_a x)^\prime = \lim\limits_{h\to 0} \frac{1}{h}\ln_{a}\left(1 + \frac{h}{x}\right)
 \end{align*}
 
 Re-express $g = \frac{h}{x}$ and get 
 \begin{align*}
-(\log_a x)^\prime &= \frac{1}{x}\lim_{g\to 0}\log_{a} (1 + g)^{\frac{1}{g}}\\
-&= \frac{1}{x}\log_a e
+(\ln_a x)^\prime &= \frac{1}{x}\lim_{g\to 0}\ln_{a} (1 + g)^{\frac{1}{g}}\\
+&= \frac{1}{x}\ln_a e
 \end{align*}
 
-By definition of $e$. As a special case, when $a = e$, then $(\log x)^\prime = \frac{1}{x}$. 
+By definition of $e$. As a special case, when $a = e$, then $(\ln x)^\prime = \frac{1}{x}$. 
 
 Now let's think about the inverse, taking the derivative of $y = a^x$.
 
 \begin{align*}
 y &= a^x \\
-\Rightarrow \log y &= x \log a\\
-\Rightarrow \frac{y^\prime}{y} &= \log a\\
-\Rightarrow  y^\prime = y \log a\\
+\Rightarrow \ln y &= x \ln a\\
+\Rightarrow \frac{y^\prime}{y} &= \ln a\\
+\Rightarrow  y^\prime = y \ln a\\
 \end{align*}
 
 Then  in the special case where $a = e$, 
@@ -393,7 +393,7 @@ Suppose $f(x,y)=x^2+y^2$. Then
 
 
 ```{exercise}
-Let $f(x,y)=x^3 y^4 +e^x -\log y$. What are the following partial derivaitves?
+Let $f(x,y)=x^3 y^4 +e^x -\ln y$. What are the following partial derivaitves?
 
 \begin{align*}
 \frac{\partial f}{\partial x}(x,y) &=\\

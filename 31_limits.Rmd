@@ -392,9 +392,16 @@ Exercise \@ref(exr:discontdraw)
 
 ```{solution}
 
-See Figure \@ref(fig:fig-hole-0).
-
-Divide each part by $x$, and we get $x + \frac{2}{x}$ on the numerator, $1$ on the denominator. So, without worrying about a function being not defined, we can say $\lim_{x\to 0}f(x) = 0$.
+See Figure \@ref(fig:fig-hole-0). We can say $\lim_{x\to 0}f(x) = 2$.
+Note that we can express 
+$$f(x) = 
+  \left\{
+  \begin{array}{ll}
+      x+2 & x \neq 2; \\
+      \mbox{undefined} & x = 2 \\
+  \end{array} 
+  \right.
+$$
 
 ```
 
@@ -404,7 +411,7 @@ range0 <- tibble(x = c(-4, 2))
 
 ggplot(range0, aes(x = x)) +
   stat_function(fun = function(x) ifelse(x == 0, NA, (x^2 + 2*x)/(x)), size = 0.5) +
-  labs(y = expression(f(x)), title = expression(f(x)==frac(x^2+2*x, x^2))) +
+  labs(y = expression(f(x)), title = expression(f(x)==frac(x^2+2*x, x))) +
     geom_point(data = tibble(x = 0, y = 2), aes(y = y), pch = 21, fill = "white")
 ```
 

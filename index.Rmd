@@ -1,7 +1,7 @@
 --- 
 title: "UCSD Political Science Math Camp"
 author: ""
-date: "*Under Construction*"
+date: "`r format(Sys.Date(), '%B %Y')`"
 description: "Text for UCSD Department of Political Science Math Camp"
 github-repo: "UCSDPoliMathCamp/MathCamp"
 site: bookdown::bookdown_site
