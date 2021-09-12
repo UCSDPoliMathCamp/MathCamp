@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 9 Limits | UCSD Political Science Math Camp</title>
   <meta name="description" content="Text for UCSD Department of Political Science Math Camp" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 Limits | UCSD Political Science Math Camp" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,8 @@
   
 <link rel="prev" href="rmatrices.html"/>
 <link rel="next" href="derivatives.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -40,7 +41,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -324,29 +324,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5" data-path="derivatives.html"><a href="derivatives.html#partial-derivatives"><i class="fa fa-check"></i><b>10.5</b> Partial Derivatives</a></li>
 <li class="chapter" data-level="10.6" data-path="derivatives.html"><a href="derivatives.html#taylorapprox"><i class="fa fa-check"></i><b>10.6</b> Taylor Approximation</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="integrals.html"><a href="integrals.html"><i class="fa fa-check"></i><b>11</b> Integral Calculus</a><ul>
-<li class="chapter" data-level="11.1" data-path="integrals.html"><a href="integrals.html#the-indefinite-integral"><i class="fa fa-check"></i><b>11.1</b> The Indefinite Integral</a><ul>
-<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#properties-of-integration"><i class="fa fa-check"></i>Properties of Integration</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="integrals.html"><a href="integrals.html#the-definite-integral"><i class="fa fa-check"></i><b>11.2</b> The Definite Integral</a><ul>
-<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#properties-for-definite-integrals"><i class="fa fa-check"></i>Properties for Definite Integrals</a></li>
-</ul></li>
-<li class="chapter" data-level="11.3" data-path="integrals.html"><a href="integrals.html#integration-by-substitution"><i class="fa fa-check"></i><b>11.3</b> Integration by Substitution</a></li>
-<li class="chapter" data-level="11.4" data-path="integrals.html"><a href="integrals.html#integration-by-parts"><i class="fa fa-check"></i><b>11.4</b> Integration by Parts</a></li>
-<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#answers-to-examples-and-exercises-2"><i class="fa fa-check"></i>Answers to Examples and Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="optim.html"><a href="optim.html"><i class="fa fa-check"></i><b>12</b> Optimization</a><ul>
-<li class="chapter" data-level="12.1" data-path="optim.html"><a href="optim.html#maxima-and-minima"><i class="fa fa-check"></i><b>12.1</b> Maxima and Minima</a></li>
-<li class="chapter" data-level="12.2" data-path="optim.html"><a href="optim.html#concavity-of-a-function"><i class="fa fa-check"></i><b>12.2</b> Concavity of a Function</a><ul>
+<li class="chapter" data-level="11" data-path="optim.html"><a href="optim.html"><i class="fa fa-check"></i><b>11</b> Optimization</a><ul>
+<li class="chapter" data-level="11.1" data-path="optim.html"><a href="optim.html#maxima-and-minima"><i class="fa fa-check"></i><b>11.1</b> Maxima and Minima</a></li>
+<li class="chapter" data-level="11.2" data-path="optim.html"><a href="optim.html#concavity-of-a-function"><i class="fa fa-check"></i><b>11.2</b> Concavity of a Function</a><ul>
 <li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#quadratic-forms"><i class="fa fa-check"></i>Quadratic Forms</a></li>
 <li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#definiteness-of-quadratic-forms"><i class="fa fa-check"></i>Definiteness of Quadratic Forms</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="optim.html"><a href="optim.html#foc-and-soc"><i class="fa fa-check"></i><b>12.3</b> FOC and SOC</a><ul>
-<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#first-order-conditions"><i class="fa fa-check"></i>First Order Conditions</a></li>
-<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#second-order-conditions"><i class="fa fa-check"></i>Second Order Conditions</a></li>
+<li class="chapter" data-level="11.3" data-path="optim.html"><a href="optim.html#gradient-and-foc"><i class="fa fa-check"></i><b>11.3</b> Gradient and FOC</a></li>
+<li class="chapter" data-level="11.4" data-path="optim.html"><a href="optim.html#hessian-and-soc"><i class="fa fa-check"></i><b>11.4</b> Hessian and SOC</a><ul>
 <li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#definiteness-and-concavity"><i class="fa fa-check"></i>Definiteness and Concavity</a></li>
 </ul></li>
-<li class="chapter" data-level="12.4" data-path="optim.html"><a href="optim.html#global-maxima-and-minima"><i class="fa fa-check"></i><b>12.4</b> Global Maxima and Minima</a></li>
+<li class="chapter" data-level="11.5" data-path="optim.html"><a href="optim.html#global-maxima-and-minima"><i class="fa fa-check"></i><b>11.5</b> Global Maxima and Minima</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="integrals.html"><a href="integrals.html"><i class="fa fa-check"></i><b>12</b> Integral Calculus</a><ul>
+<li class="chapter" data-level="12.1" data-path="integrals.html"><a href="integrals.html#the-indefinite-integral"><i class="fa fa-check"></i><b>12.1</b> The Indefinite Integral</a><ul>
+<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#properties-of-integration"><i class="fa fa-check"></i>Properties of Integration</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="integrals.html"><a href="integrals.html#the-definite-integral"><i class="fa fa-check"></i><b>12.2</b> The Definite Integral</a><ul>
+<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#properties-for-definite-integrals"><i class="fa fa-check"></i>Properties for Definite Integrals</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="integrals.html"><a href="integrals.html#integration-by-substitution"><i class="fa fa-check"></i><b>12.3</b> Integration by Substitution</a></li>
+<li class="chapter" data-level="12.4" data-path="integrals.html"><a href="integrals.html#integration-by-parts"><i class="fa fa-check"></i><b>12.4</b> Integration by Parts</a></li>
+<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#answers-to-examples-and-exercises-2"><i class="fa fa-check"></i>Answers to Examples and Exercises</a></li>
 </ul></li>
 <li class="part"><span><b>IV Probability</b></span></li>
 <li class="chapter" data-level="13" data-path="probability-theory.html"><a href="probability-theory.html"><i class="fa fa-check"></i><b>13</b> Probability Theory</a><ul>
@@ -440,7 +439,7 @@ A shorthand of which is <span class="math inline">\(\bar{X}_n \xrightarrow{p} \m
 </div>
 
 <p>Intuitively, the more data, the more accurate is your guess. For example, the Figure <a href="limits-precalc.html#fig:llnsim">9.1</a> shows how the sample average from many coin tosses converges to the true value : 0.5.</p>
-<div class="figure"><span id="fig:llnsim"></span>
+<div class="figure"><span style="display:block;" id="fig:llnsim"></span>
 <img src="MathCamp_files/figure-html/llnsim-1.png" alt="As the number of coin tosses goes to infinity, the average probabiity of heads converges to 0.5" width="672" />
 <p class="caption">
 Figure 9.1: As the number of coin tosses goes to infinity, the average probabiity of heads converges to 0.5
@@ -464,7 +463,7 @@ How do these sequences behave?</p>
 </div>
 
 <p>We find the sequence by simply “plugging in” the integers into each <span class="math inline">\(n\)</span>. The important thing is to get a sense of how these numbers are going to change. Example 1’s numbers seem to come closer and closer to 2, but will it ever surpass 2? Example 2’s numbers are also increasing each time, but will it hit a limit? What is the pattern in Example 3? Graphing helps you make this point more clearly. See the sequence of <span class="math inline">\(n = 1, ...20\)</span> for each of the three examples in Figure <a href="limits-precalc.html#fig:seqabc">9.2</a>.</p>
-<div class="figure"><span id="fig:seqabc"></span>
+<div class="figure"><span style="display:block;" id="fig:seqabc"></span>
 <img src="MathCamp_files/figure-html/seqabc-1.png" alt="Behavior of Some Sequences" width="672" />
 <p class="caption">
 Figure 9.2: Behavior of Some Sequences
@@ -580,7 +579,7 @@ Find the limit of</p>
 <li>Negative infinity: The value approached by <span class="math inline">\(f(x)\)</span> as x grows infinitely negative. Sometimes this may be a number; sometimes it might be <span class="math inline">\(\infty\)</span> or <span class="math inline">\(-\infty\)</span>.</li>
 </ol>
 <p>The distinction between left and right becomes important when the function is not determined for some values of <span class="math inline">\(x\)</span>. What are those cases in the examples below?</p>
-<div class="figure"><span id="fig:unnamed-chunk-169"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-169"></span>
 <img src="MathCamp_files/figure-html/unnamed-chunk-169-1.png" alt="Functions which are not defined in some areas" width="672" />
 <p class="caption">
 Figure 9.3: Functions which are not defined in some areas
@@ -614,7 +613,7 @@ The floor is the smaller of the two integers bounding a number. So <span class="
  <span class="solution"><em>Solution. </em></span> In Figure <a href="limits-precalc.html#fig:fig-contdiscont">9.4</a>, we can see that the first two functions are continuous, and the next two are discontinuous. <span class="math inline">\(f(x) = 1 + \frac{1}{x^2}\)</span> is discontinuous at <span class="math inline">\(x= 0\)</span>, and <span class="math inline">\(f(x) = \text{floor}(x)\)</span> is discontinuous at each whole number.
 </div>
 
-<div class="figure"><span id="fig:fig-contdiscont"></span>
+<div class="figure"><span style="display:block;" id="fig:fig-contdiscont"></span>
 <img src="MathCamp_files/figure-html/fig-contdiscont-1.png" alt="Continuous and Discontinuous Functions" width="672" />
 <p class="caption">
 Figure 9.4: Continuous and Discontinuous Functions
@@ -678,11 +677,19 @@ Let <span class="math display">\[f(x) = \frac{x^2 + 2x}{x}.\]</span></p>
 
 <div class="solution">
 <p> <span class="solution"><em>Solution. </em></span> 
-See Figure <a href="limits-precalc.html#fig:fig-hole-0">9.5</a>.</p>
-<p>Divide each part by <span class="math inline">\(x\)</span>, and we get <span class="math inline">\(x + \frac{2}{x}\)</span> on the numerator, <span class="math inline">\(1\)</span> on the denominator. So, without worrying about a function being not defined, we can say <span class="math inline">\(\lim_{x\to 0}f(x) = 0\)</span>.</p>
+See Figure <a href="limits-precalc.html#fig:fig-hole-0">9.5</a>. We can say <span class="math inline">\(\lim_{x\to 0}f(x) = 2\)</span>.
+Note that we can express
+<span class="math display">\[f(x) = 
+  \left\{
+  \begin{array}{ll}
+      x+2 &amp; x \neq 2; \\
+      \mbox{undefined} &amp; x = 2 \\
+  \end{array} 
+  \right.
+\]</span></p>
 </div>
 
-<div class="figure"><span id="fig:fig-hole-0"></span>
+<div class="figure"><span style="display:block;" id="fig:fig-hole-0"></span>
 <img src="MathCamp_files/figure-html/fig-hole-0-1.png" alt="A function undedefined at x = 0" width="672" />
 <p class="caption">
 Figure 9.5: A function undedefined at x = 0
@@ -701,7 +708,6 @@ Figure 9.5: A function undedefined at x = 0
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -731,6 +737,10 @@ gitbook.start({
 "text": null
 },
 "download": ["MathCamp.pdf", "MathCamp.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 10 Differential Calculus | UCSD Political Science Math Camp</title>
   <meta name="description" content="Text for UCSD Department of Political Science Math Camp" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 10 Differential Calculus | UCSD Political Science Math Camp" />
   <meta property="og:type" content="book" />
@@ -31,8 +31,9 @@
   
   
 <link rel="prev" href="limits-precalc.html"/>
-<link rel="next" href="integrals.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="next" href="optim.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -40,7 +41,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -324,29 +324,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5" data-path="derivatives.html"><a href="derivatives.html#partial-derivatives"><i class="fa fa-check"></i><b>10.5</b> Partial Derivatives</a></li>
 <li class="chapter" data-level="10.6" data-path="derivatives.html"><a href="derivatives.html#taylorapprox"><i class="fa fa-check"></i><b>10.6</b> Taylor Approximation</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="integrals.html"><a href="integrals.html"><i class="fa fa-check"></i><b>11</b> Integral Calculus</a><ul>
-<li class="chapter" data-level="11.1" data-path="integrals.html"><a href="integrals.html#the-indefinite-integral"><i class="fa fa-check"></i><b>11.1</b> The Indefinite Integral</a><ul>
-<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#properties-of-integration"><i class="fa fa-check"></i>Properties of Integration</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="integrals.html"><a href="integrals.html#the-definite-integral"><i class="fa fa-check"></i><b>11.2</b> The Definite Integral</a><ul>
-<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#properties-for-definite-integrals"><i class="fa fa-check"></i>Properties for Definite Integrals</a></li>
-</ul></li>
-<li class="chapter" data-level="11.3" data-path="integrals.html"><a href="integrals.html#integration-by-substitution"><i class="fa fa-check"></i><b>11.3</b> Integration by Substitution</a></li>
-<li class="chapter" data-level="11.4" data-path="integrals.html"><a href="integrals.html#integration-by-parts"><i class="fa fa-check"></i><b>11.4</b> Integration by Parts</a></li>
-<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#answers-to-examples-and-exercises-2"><i class="fa fa-check"></i>Answers to Examples and Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="optim.html"><a href="optim.html"><i class="fa fa-check"></i><b>12</b> Optimization</a><ul>
-<li class="chapter" data-level="12.1" data-path="optim.html"><a href="optim.html#maxima-and-minima"><i class="fa fa-check"></i><b>12.1</b> Maxima and Minima</a></li>
-<li class="chapter" data-level="12.2" data-path="optim.html"><a href="optim.html#concavity-of-a-function"><i class="fa fa-check"></i><b>12.2</b> Concavity of a Function</a><ul>
+<li class="chapter" data-level="11" data-path="optim.html"><a href="optim.html"><i class="fa fa-check"></i><b>11</b> Optimization</a><ul>
+<li class="chapter" data-level="11.1" data-path="optim.html"><a href="optim.html#maxima-and-minima"><i class="fa fa-check"></i><b>11.1</b> Maxima and Minima</a></li>
+<li class="chapter" data-level="11.2" data-path="optim.html"><a href="optim.html#concavity-of-a-function"><i class="fa fa-check"></i><b>11.2</b> Concavity of a Function</a><ul>
 <li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#quadratic-forms"><i class="fa fa-check"></i>Quadratic Forms</a></li>
 <li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#definiteness-of-quadratic-forms"><i class="fa fa-check"></i>Definiteness of Quadratic Forms</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="optim.html"><a href="optim.html#foc-and-soc"><i class="fa fa-check"></i><b>12.3</b> FOC and SOC</a><ul>
-<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#first-order-conditions"><i class="fa fa-check"></i>First Order Conditions</a></li>
-<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#second-order-conditions"><i class="fa fa-check"></i>Second Order Conditions</a></li>
+<li class="chapter" data-level="11.3" data-path="optim.html"><a href="optim.html#gradient-and-foc"><i class="fa fa-check"></i><b>11.3</b> Gradient and FOC</a></li>
+<li class="chapter" data-level="11.4" data-path="optim.html"><a href="optim.html#hessian-and-soc"><i class="fa fa-check"></i><b>11.4</b> Hessian and SOC</a><ul>
 <li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#definiteness-and-concavity"><i class="fa fa-check"></i>Definiteness and Concavity</a></li>
 </ul></li>
-<li class="chapter" data-level="12.4" data-path="optim.html"><a href="optim.html#global-maxima-and-minima"><i class="fa fa-check"></i><b>12.4</b> Global Maxima and Minima</a></li>
+<li class="chapter" data-level="11.5" data-path="optim.html"><a href="optim.html#global-maxima-and-minima"><i class="fa fa-check"></i><b>11.5</b> Global Maxima and Minima</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="integrals.html"><a href="integrals.html"><i class="fa fa-check"></i><b>12</b> Integral Calculus</a><ul>
+<li class="chapter" data-level="12.1" data-path="integrals.html"><a href="integrals.html#the-indefinite-integral"><i class="fa fa-check"></i><b>12.1</b> The Indefinite Integral</a><ul>
+<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#properties-of-integration"><i class="fa fa-check"></i>Properties of Integration</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="integrals.html"><a href="integrals.html#the-definite-integral"><i class="fa fa-check"></i><b>12.2</b> The Definite Integral</a><ul>
+<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#properties-for-definite-integrals"><i class="fa fa-check"></i>Properties for Definite Integrals</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="integrals.html"><a href="integrals.html#integration-by-substitution"><i class="fa fa-check"></i><b>12.3</b> Integration by Substitution</a></li>
+<li class="chapter" data-level="12.4" data-path="integrals.html"><a href="integrals.html#integration-by-parts"><i class="fa fa-check"></i><b>12.4</b> Integration by Parts</a></li>
+<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#answers-to-examples-and-exercises-2"><i class="fa fa-check"></i>Answers to Examples and Exercises</a></li>
 </ul></li>
 <li class="part"><span><b>IV Probability</b></span></li>
 <li class="chapter" data-level="13" data-path="probability-theory.html"><a href="probability-theory.html"><i class="fa fa-check"></i><b>13</b> Probability Theory</a><ul>
@@ -432,7 +431,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 
 <p>If <span class="math inline">\(f(x)\)</span> is a straight line, the derivative is the slope. For a curve, the slope changes by the values of <span class="math inline">\(x\)</span>, so the derivative is the slope of the line tangent to the curve at <span class="math inline">\(x\)</span>. See, For example, Figure <a href="derivatives.html#fig:derivsimple">10.1</a>.</p>
-<div class="figure"><span id="fig:derivsimple"></span>
+<div class="figure"><span style="display:block;" id="fig:derivsimple"></span>
 <img src="MathCamp_files/figure-html/derivsimple-1.png" alt="The Derivative as a Slope" width="672" />
 <p class="caption">
 Figure 10.1: The Derivative as a Slope
@@ -513,7 +512,7 @@ f^{\prime\prime\prime\prime}(x) &amp;=0\\
 \end{align*}\]</span>
 </div>
 
-<p>Earlier, in Section <a href="derivatives.html#derivintro">10.1</a>, we said that if a function differentiable at a given point, then it must be continuous. Further, if <span class="math inline">\(f&#39;(x)\)</span> is itself continuous, then <span class="math inline">\(f(x)\)</span> is called continuously differentiable. All of this matters because many of our findings about optimization (Section <a href="optim.html#optim">12</a>) rely on differentiation, and so we want our function to be differentiable in as many layers. A function that is continuously differentiable infinitly is called “smooth”. Some examples: <span class="math inline">\(f(x) = x^2\)</span>, <span class="math inline">\(f(x) = e^x\)</span>.</p>
+<p>Earlier, in Section <a href="derivatives.html#derivintro">10.1</a>, we said that if a function differentiable at a given point, then it must be continuous. Further, if <span class="math inline">\(f&#39;(x)\)</span> is itself continuous, then <span class="math inline">\(f(x)\)</span> is called continuously differentiable. All of this matters because many of our findings about optimization (Section <a href="optim.html#optim">11</a>) rely on differentiation, and so we want our function to be differentiable in as many layers. A function that is continuously differentiable infinitly is called “smooth”. Some examples: <span class="math inline">\(f(x) = x^2\)</span>, <span class="math inline">\(f(x) = e^x\)</span>.</p>
 </div>
 <div id="the-chain-rule" class="section level2">
 <h2><span class="header-section-number">10.3</span> The Chain Rule</h2>
@@ -521,11 +520,11 @@ f^{\prime\prime\prime\prime}(x) &amp;=0\\
 <p><strong>Composite functions</strong> are formed by substituting one function into another and are denoted by <span class="math display">\[(f\circ g)(x)=f[g(x)].\]</span> To form <span class="math inline">\(f[g(x)]\)</span>, the range of <span class="math inline">\(g\)</span> must be contained (at least in part) within the domain of <span class="math inline">\(f\)</span>. The domain of <span class="math inline">\(f\circ g\)</span> consists of all the points in the domain of <span class="math inline">\(g\)</span> for which <span class="math inline">\(g(x)\)</span> is in the domain of <span class="math inline">\(f\)</span>.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-180" class="example"><strong>Example 10.2  </strong></span>Let <span class="math inline">\(f(x)=\log x\)</span> for <span class="math inline">\(0&lt;x&lt;\infty\)</span> and <span class="math inline">\(g(x)=x^2\)</span> for <span class="math inline">\(-\infty&lt;x&lt;\infty\)</span>.</p>
+<p><span id="exm:unnamed-chunk-180" class="example"><strong>Example 10.2  </strong></span>Let <span class="math inline">\(f(x)=\ln x\)</span> for <span class="math inline">\(0&lt;x&lt;\infty\)</span> and <span class="math inline">\(g(x)=x^2\)</span> for <span class="math inline">\(-\infty&lt;x&lt;\infty\)</span>.</p>
 <p>Then
-<span class="math display">\[(f\circ g)(x)=\log x^2, -\infty&lt;x&lt;\infty - \{0\}\]</span></p>
+<span class="math display">\[(f\circ g)(x)=\ln x^2, -\infty&lt;x&lt;\infty - \{0\}\]</span></p>
 <p>Also
-<span class="math display">\[(g\circ f)(x)=[\log x]^2, 0&lt;x&lt;\infty\]</span></p>
+<span class="math display">\[(g\circ f)(x)=[\ln x]^2, 0&lt;x&lt;\infty\]</span></p>
 Notice that <span class="math inline">\(f\circ g\)</span> and <span class="math inline">\(g\circ f\)</span> are not the same functions.
 </div>
 
@@ -552,12 +551,12 @@ Notice that <span class="math inline">\(f\circ g\)</span> and <span class="math 
 
 <div class="theorem">
 <p><span id="thm:derivexplog" class="theorem"><strong>Theorem 10.1  </strong></span>
-The functions <span class="math inline">\(e^x\)</span> and the natural logarithm <span class="math inline">\(\log(x)\)</span> are continuous and differentiable in their domains, and their first derivate is
+The functions <span class="math inline">\(e^x\)</span> and the natural logarithm <span class="math inline">\(\ln(x)\)</span> are continuous and differentiable in their domains, and their first derivate is
 <span class="math display">\[(e^x)^\prime = e^x\]</span>
-<span class="math display">\[\log(x)^\prime = \frac{1}{x}\]</span></p>
+<span class="math display">\[\ln(x)^\prime = \frac{1}{x}\]</span></p>
 <p>Also, when these are composite functions, it follows by the generalized power rule that</p>
 <p><span class="math display">\[\left(e^{g(x)}\right)^\prime = e^{g(x)} \cdot g^\prime(x)\]</span>
-<span class="math display">\[\left(\log g(x)\right)^\prime = \frac{g^\prime(x)}{g(x)}, ~~\text{if}~~ g(x) &gt; 0\]</span></p>
+<span class="math display">\[\left(\ln g(x)\right)^\prime = \frac{g^\prime(x)}{g(x)}, ~~\text{if}~~ g(x) &gt; 0\]</span></p>
 </div>
 
 <p>We will relegate the proofs to small excerpts.</p>
@@ -570,7 +569,7 @@ The functions <span class="math inline">\(e^x\)</span> and the natural logarithm
 <li>Same thing no matter how many derivatives there are in front: <span class="math inline">\(\frac{d^n}{dx^n} \alpha e^x = \alpha e^x\)</span></li>
 <li>Chain Rule: When the exponent is a function of <span class="math inline">\(x\)</span>, remember to take derivative of that function and add to product. <span class="math inline">\(\frac{d}{dx}e^{g(x)}= e^{g(x)} g^\prime(x)\)</span></li>
 </ol>
-<div class="figure"><span id="fig:fig-derivexponent"></span>
+<div class="figure"><span style="display:block;" id="fig:fig-derivexponent"></span>
 <img src="MathCamp_files/figure-html/fig-derivexponent-1.png" alt="Derivative of the Exponential Function" width="672" />
 <p class="caption">
 Figure 10.2: Derivative of the Exponential Function
@@ -591,12 +590,12 @@ Figure 10.2: Derivative of the Exponential Function
 <h3>Derivatives of logs</h3>
 <p>The natural log is the mirror image of the natural exponent and has mirroring properties, again, to repeat the theorem,</p>
 <ol style="list-style-type: decimal">
-<li>log prime x is one over x: <span class="math inline">\(\frac{d}{dx} \log x = \frac{1}{x}\)</span> (Figure <a href="derivatives.html#fig:fig-derivlog">10.3</a>)</li>
-<li>Exponents become multiplicative constants: <span class="math inline">\(\frac{d}{dx} \log x^k = \frac{d}{dx} k \log x = \frac{k}{x}\)</span></li>
-<li>Chain rule again: <span class="math inline">\(\frac{d}{dx} \log u(x) = \frac{u&#39;(x)}{u(x)}\quad\)</span></li>
-<li>For any positive base <span class="math inline">\(b\)</span>, <span class="math inline">\(\frac{d}{dx} b^x = (\log b)\left(b^x\right)\)</span>.</li>
+<li>log prime x is one over x: <span class="math inline">\(\frac{d}{dx} \ln x = \frac{1}{x}\)</span> (Figure <a href="derivatives.html#fig:fig-derivlog">10.3</a>)</li>
+<li>Exponents become multiplicative constants: <span class="math inline">\(\frac{d}{dx} \ln x^k = \frac{d}{dx} k \ln x = \frac{k}{x}\)</span></li>
+<li>Chain rule again: <span class="math inline">\(\frac{d}{dx} \ln u(x) = \frac{u&#39;(x)}{u(x)}\quad\)</span></li>
+<li>For any positive base <span class="math inline">\(b\)</span>, <span class="math inline">\(\frac{d}{dx} b^x = (\ln b)\left(b^x\right)\)</span>.</li>
 </ol>
-<div class="figure"><span id="fig:fig-derivlog"></span>
+<div class="figure"><span style="display:block;" id="fig:fig-derivlog"></span>
 <img src="MathCamp_files/figure-html/fig-derivlog-1.png" alt="Derivative of the Natural Log" width="672" />
 <p class="caption">
 Figure 10.3: Derivative of the Natural Log
@@ -606,10 +605,10 @@ Figure 10.3: Derivative of the Natural Log
 <div class="example">
 <p><span id="exm:exmderivlog" class="example"><strong>Example 10.5  (Derivative of logs)  </strong></span>Find <span class="math inline">\(dy/dx\)</span> for the following.</p>
 <ol style="list-style-type: decimal">
-<li><span class="math inline">\(f(x)=\log(x^2+9)\)</span></li>
-<li><span class="math inline">\(f(x)=\log(\log x)\)</span></li>
-<li><span class="math inline">\(f(x)=(\log x)^2\)</span></li>
-<li><span class="math inline">\(f(x)=\log e^x\)</span></li>
+<li><span class="math inline">\(f(x)=\ln(x^2+9)\)</span></li>
+<li><span class="math inline">\(f(x)=\ln(\ln x)\)</span></li>
+<li><span class="math inline">\(f(x)=(\ln x)^2\)</span></li>
+<li><span class="math inline">\(f(x)=\ln e^x\)</span></li>
 </ol>
 </div>
 
@@ -619,20 +618,20 @@ Figure 10.3: Derivative of the Natural Log
 <p>We actually show the derivative of the log first, and then the derivative of the exponential naturally follows.</p>
 <p>The general derivative of the log at any base <span class="math inline">\(a\)</span> is solvable by the definition of derivatives.</p>
 <p><span class="math display">\[\begin{align*}
-(\log_a x)^\prime = \lim\limits_{h\to 0} \frac{1}{h}\log_{a}\left(1 + \frac{h}{x}\right)
+(\ln_a x)^\prime = \lim\limits_{h\to 0} \frac{1}{h}\ln_{a}\left(1 + \frac{h}{x}\right)
 \end{align*}\]</span></p>
 <p>Re-express <span class="math inline">\(g = \frac{h}{x}\)</span> and get
 <span class="math display">\[\begin{align*}
-(\log_a x)^\prime &amp;= \frac{1}{x}\lim_{g\to 0}\log_{a} (1 + g)^{\frac{1}{g}}\\
-&amp;= \frac{1}{x}\log_a e
+(\ln_a x)^\prime &amp;= \frac{1}{x}\lim_{g\to 0}\ln_{a} (1 + g)^{\frac{1}{g}}\\
+&amp;= \frac{1}{x}\ln_a e
 \end{align*}\]</span></p>
-<p>By definition of <span class="math inline">\(e\)</span>. As a special case, when <span class="math inline">\(a = e\)</span>, then <span class="math inline">\((\log x)^\prime = \frac{1}{x}\)</span>.</p>
+<p>By definition of <span class="math inline">\(e\)</span>. As a special case, when <span class="math inline">\(a = e\)</span>, then <span class="math inline">\((\ln x)^\prime = \frac{1}{x}\)</span>.</p>
 <p>Now let’s think about the inverse, taking the derivative of <span class="math inline">\(y = a^x\)</span>.</p>
 <p><span class="math display">\[\begin{align*}
 y &amp;= a^x \\
-\Rightarrow \log y &amp;= x \log a\\
-\Rightarrow \frac{y^\prime}{y} &amp;= \log a\\
-\Rightarrow  y^\prime = y \log a\\
+\Rightarrow \ln y &amp;= x \ln a\\
+\Rightarrow \frac{y^\prime}{y} &amp;= \ln a\\
+\Rightarrow  y^\prime = y \ln a\\
 \end{align*}\]</span></p>
 <p>Then in the special case where <span class="math inline">\(a = e\)</span>,</p>
 <p><span class="math display">\[(e^x)^\prime = (e^x)\]</span></p>
@@ -663,7 +662,7 @@ y &amp;= a^x \\
 
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-182" class="exercise"><strong>Exercise 10.2  </strong></span>Let <span class="math inline">\(f(x,y)=x^3 y^4 +e^x -\log y\)</span>. What are the following partial derivaitves?</p>
+<p><span id="exr:unnamed-chunk-182" class="exercise"><strong>Exercise 10.2  </strong></span>Let <span class="math inline">\(f(x,y)=x^3 y^4 +e^x -\ln y\)</span>. What are the following partial derivaitves?</p>
 <p><span class="math display">\[\begin{align*}
 \frac{\partial f}{\partial x}(x,y) &amp;=\\
 \frac{\partial f}{\partial y}(x,y) &amp;=\\
@@ -698,11 +697,10 @@ giving us:</p>
         </div>
       </div>
 <a href="limits-precalc.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="integrals.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="optim.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -732,6 +730,10 @@ gitbook.start({
 "text": null
 },
 "download": ["MathCamp.pdf", "MathCamp.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

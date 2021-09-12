@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 13 Probability Theory | UCSD Political Science Math Camp</title>
   <meta name="description" content="Text for UCSD Department of Political Science Math Camp" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 13 Probability Theory | UCSD Political Science Math Camp" />
   <meta property="og:type" content="book" />
@@ -30,9 +30,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="optim.html"/>
+<link rel="prev" href="integrals.html"/>
 <link rel="next" href="distribution.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -40,7 +41,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -324,29 +324,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5" data-path="derivatives.html"><a href="derivatives.html#partial-derivatives"><i class="fa fa-check"></i><b>10.5</b> Partial Derivatives</a></li>
 <li class="chapter" data-level="10.6" data-path="derivatives.html"><a href="derivatives.html#taylorapprox"><i class="fa fa-check"></i><b>10.6</b> Taylor Approximation</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="integrals.html"><a href="integrals.html"><i class="fa fa-check"></i><b>11</b> Integral Calculus</a><ul>
-<li class="chapter" data-level="11.1" data-path="integrals.html"><a href="integrals.html#the-indefinite-integral"><i class="fa fa-check"></i><b>11.1</b> The Indefinite Integral</a><ul>
-<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#properties-of-integration"><i class="fa fa-check"></i>Properties of Integration</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="integrals.html"><a href="integrals.html#the-definite-integral"><i class="fa fa-check"></i><b>11.2</b> The Definite Integral</a><ul>
-<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#properties-for-definite-integrals"><i class="fa fa-check"></i>Properties for Definite Integrals</a></li>
-</ul></li>
-<li class="chapter" data-level="11.3" data-path="integrals.html"><a href="integrals.html#integration-by-substitution"><i class="fa fa-check"></i><b>11.3</b> Integration by Substitution</a></li>
-<li class="chapter" data-level="11.4" data-path="integrals.html"><a href="integrals.html#integration-by-parts"><i class="fa fa-check"></i><b>11.4</b> Integration by Parts</a></li>
-<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#answers-to-examples-and-exercises-2"><i class="fa fa-check"></i>Answers to Examples and Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="optim.html"><a href="optim.html"><i class="fa fa-check"></i><b>12</b> Optimization</a><ul>
-<li class="chapter" data-level="12.1" data-path="optim.html"><a href="optim.html#maxima-and-minima"><i class="fa fa-check"></i><b>12.1</b> Maxima and Minima</a></li>
-<li class="chapter" data-level="12.2" data-path="optim.html"><a href="optim.html#concavity-of-a-function"><i class="fa fa-check"></i><b>12.2</b> Concavity of a Function</a><ul>
+<li class="chapter" data-level="11" data-path="optim.html"><a href="optim.html"><i class="fa fa-check"></i><b>11</b> Optimization</a><ul>
+<li class="chapter" data-level="11.1" data-path="optim.html"><a href="optim.html#maxima-and-minima"><i class="fa fa-check"></i><b>11.1</b> Maxima and Minima</a></li>
+<li class="chapter" data-level="11.2" data-path="optim.html"><a href="optim.html#concavity-of-a-function"><i class="fa fa-check"></i><b>11.2</b> Concavity of a Function</a><ul>
 <li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#quadratic-forms"><i class="fa fa-check"></i>Quadratic Forms</a></li>
 <li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#definiteness-of-quadratic-forms"><i class="fa fa-check"></i>Definiteness of Quadratic Forms</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="optim.html"><a href="optim.html#foc-and-soc"><i class="fa fa-check"></i><b>12.3</b> FOC and SOC</a><ul>
-<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#first-order-conditions"><i class="fa fa-check"></i>First Order Conditions</a></li>
-<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#second-order-conditions"><i class="fa fa-check"></i>Second Order Conditions</a></li>
+<li class="chapter" data-level="11.3" data-path="optim.html"><a href="optim.html#gradient-and-foc"><i class="fa fa-check"></i><b>11.3</b> Gradient and FOC</a></li>
+<li class="chapter" data-level="11.4" data-path="optim.html"><a href="optim.html#hessian-and-soc"><i class="fa fa-check"></i><b>11.4</b> Hessian and SOC</a><ul>
 <li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#definiteness-and-concavity"><i class="fa fa-check"></i>Definiteness and Concavity</a></li>
 </ul></li>
-<li class="chapter" data-level="12.4" data-path="optim.html"><a href="optim.html#global-maxima-and-minima"><i class="fa fa-check"></i><b>12.4</b> Global Maxima and Minima</a></li>
+<li class="chapter" data-level="11.5" data-path="optim.html"><a href="optim.html#global-maxima-and-minima"><i class="fa fa-check"></i><b>11.5</b> Global Maxima and Minima</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="integrals.html"><a href="integrals.html"><i class="fa fa-check"></i><b>12</b> Integral Calculus</a><ul>
+<li class="chapter" data-level="12.1" data-path="integrals.html"><a href="integrals.html#the-indefinite-integral"><i class="fa fa-check"></i><b>12.1</b> The Indefinite Integral</a><ul>
+<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#properties-of-integration"><i class="fa fa-check"></i>Properties of Integration</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="integrals.html"><a href="integrals.html#the-definite-integral"><i class="fa fa-check"></i><b>12.2</b> The Definite Integral</a><ul>
+<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#properties-for-definite-integrals"><i class="fa fa-check"></i>Properties for Definite Integrals</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="integrals.html"><a href="integrals.html#integration-by-substitution"><i class="fa fa-check"></i><b>12.3</b> Integration by Substitution</a></li>
+<li class="chapter" data-level="12.4" data-path="integrals.html"><a href="integrals.html#integration-by-parts"><i class="fa fa-check"></i><b>12.4</b> Integration by Parts</a></li>
+<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#answers-to-examples-and-exercises-2"><i class="fa fa-check"></i>Answers to Examples and Exercises</a></li>
 </ul></li>
 <li class="part"><span><b>IV Probability</b></span></li>
 <li class="chapter" data-level="13" data-path="probability-theory.html"><a href="probability-theory.html"><i class="fa fa-check"></i><b>13</b> Probability Theory</a><ul>
@@ -514,7 +513,7 @@ Let set <span class="math inline">\(A\)</span> be {1, 2, 3, 4}, <span class="mat
 </div>
 <div id="probdef" class="section level2">
 <h2><span class="header-section-number">13.3</span> Probability</h2>
-<div class="figure"><span id="fig:prob-image"></span>
+<div class="figure"><span style="display:block;" id="fig:prob-image"></span>
 <img src="images/probability.png" alt="Probablity as a Measure^[Images of Probability and Random Variables drawn by Shiro Kuriwaki and inspired by Blitzstein and Morris]"  />
 <p class="caption">
 Figure 13.1: Probablity as a Measure<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a>
@@ -527,14 +526,14 @@ Figure 13.1: Probablity as a Measure<a href="#fn22" class="footnote-ref" id="fnr
 <p>Formally,</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-224" class="definition"><strong>Definition 13.1  (Probability)  </strong></span>
+<p><span id="def:unnamed-chunk-222" class="definition"><strong>Definition 13.1  (Probability)  </strong></span>
 Probability is a function that maps events to a real number, obeying the axioms of probability.</p>
 </div>
 
 <p>The axioms of probability make sure that the separate events add up in terms of probability, and – for standardization purposes – that they add up to 1.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-225" class="definition"><strong>Definition 13.2  (Axioms of Probability)  </strong></span></p>
+<p><span id="def:unnamed-chunk-223" class="definition"><strong>Definition 13.2  (Axioms of Probability)  </strong></span></p>
 <ol style="list-style-type: decimal">
 <li>For any event <span class="math inline">\(A\)</span>, <span class="math inline">\(P(A)\ge 0\)</span>.</li>
 <li><span class="math inline">\(P(S)=1\)</span></li>
@@ -636,7 +635,7 @@ A six-sided die is rolled. What is the probability of a 1, given the outcome is 
 <p>You could rearrange the fraction to highlight how a joint probability could be expressed as the product of a conditional probability.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-226" class="definition"><strong>Definition 13.3  (Multiplicative Law of Probability)  </strong></span>
+<p><span id="def:unnamed-chunk-224" class="definition"><strong>Definition 13.3  (Multiplicative Law of Probability)  </strong></span>
 The probability of the intersection of two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is <span class="math inline">\(P(A\cap B)=P(A)P(B|A)=P(B)P(A|B)\)</span> which follows directly from the definition of conditional probability. More generally,</p>
 <p><span class="math display">\[P(A_1\cap \cdots\cap A_k) = P(A_k| A_{k-1}\cap \cdots \cap A_1)\times P(A_{k-1}|A_{k-2}\cap \cdots A_1) \times \ldots \times P(A_2|A_1)\times P(A_1)\]</span></p>
 <p>Sometimes it is easier to calculate these conditional probabilities and sum them than it is to calculate <span class="math inline">\(P(A)\)</span> directly.</p>
@@ -644,7 +643,7 @@ The probability of the intersection of two events <span class="math inline">\(A\
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-227" class="definition"><strong>Definition 13.4  (Law of Total Probability)  </strong></span>Let <span class="math inline">\(S\)</span> be the sample space of some experiment and let the disjoint <span class="math inline">\(k\)</span> events <span class="math inline">\(B_1,\ldots,B_k\)</span> partition <span class="math inline">\(S\)</span>, such that <span class="math inline">\(P(B_1\cup ... \cup B_k) = P(S) = 1\)</span>. If <span class="math inline">\(A\)</span> is some other event in <span class="math inline">\(S\)</span>, then the events <span class="math inline">\(A\cap B_1, A\cap B_2, \ldots, A\cap B_k\)</span> will form a partition of <span class="math inline">\(A\)</span> and we can write <span class="math inline">\(A\)</span> as <span class="math display">\[A=(A\cap B_1)\cup\cdots\cup (A\cap B_k)\]</span>.</p>
+<p><span id="def:unnamed-chunk-225" class="definition"><strong>Definition 13.4  (Law of Total Probability)  </strong></span>Let <span class="math inline">\(S\)</span> be the sample space of some experiment and let the disjoint <span class="math inline">\(k\)</span> events <span class="math inline">\(B_1,\ldots,B_k\)</span> partition <span class="math inline">\(S\)</span>, such that <span class="math inline">\(P(B_1\cup ... \cup B_k) = P(S) = 1\)</span>. If <span class="math inline">\(A\)</span> is some other event in <span class="math inline">\(S\)</span>, then the events <span class="math inline">\(A\cap B_1, A\cap B_2, \ldots, A\cap B_k\)</span> will form a partition of <span class="math inline">\(A\)</span> and we can write <span class="math inline">\(A\)</span> as <span class="math display">\[A=(A\cap B_1)\cup\cdots\cup (A\cap B_k)\]</span>.</p>
 <p>Since the <span class="math inline">\(k\)</span> events are disjoint,</p>
 <p><span class="math display">\[\begin{eqnarray*}
 P(A)&amp;=&amp;\sum\limits_{i=1}^k P(A \cap B_i)\\
@@ -678,7 +677,7 @@ In a given town, 40% of the voters are Democrat and 60% are Republican. The pres
 <h2><span class="header-section-number">13.6</span> Independence</h2>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-228" class="definition"><strong>Definition 13.5  (Independence)  </strong></span> If the occurrence or nonoccurrence of either events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> have no effect on the occurrence or nonoccurrence of the other, then <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent.</p>
+<p><span id="def:unnamed-chunk-226" class="definition"><strong>Definition 13.5  (Independence)  </strong></span> If the occurrence or nonoccurrence of either events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> have no effect on the occurrence or nonoccurrence of the other, then <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent.</p>
 </div>
 
 <p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent, then</p>
@@ -703,7 +702,7 @@ In a given town, 40% of the voters are Democrat and 60% are Republican. The pres
 <div id="random-variables" class="section level2">
 <h2><span class="header-section-number">13.7</span> Random Variables</h2>
 <p>Most questions in the social sciences involve events, rather than numbers per se. To analyze and reason about events quantitatively, we need a way of mapping events to numbers. A random variable does exactly that.</p>
-<div class="figure"><span id="fig:rv-image"></span>
+<div class="figure"><span style="display:block;" id="fig:rv-image"></span>
 <img src="images/rv.png" alt="The Random Variable as a Real-Valued Function"  />
 <p class="caption">
 Figure 13.2: The Random Variable as a Real-Valued Function
@@ -711,7 +710,7 @@ Figure 13.2: The Random Variable as a Real-Valued Function
 </div>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-229" class="definition"><strong>Definition 13.6  (Random Variable)  </strong></span>
+<p><span id="def:unnamed-chunk-227" class="definition"><strong>Definition 13.6  (Random Variable)  </strong></span>
 A random variable is a measurable function <span class="math inline">\(X\)</span> that maps from the sample space <span class="math inline">\(S\)</span> to the set of real numbers <span class="math inline">\(R.\)</span> It assigns a real number to every outcome <span class="math inline">\(s \in S\)</span>.</p>
 </div>
 
@@ -728,13 +727,13 @@ A random variable is a measurable function <span class="math inline">\(X\)</span
 <p>The concept of distributions is the natural bridge between these two concepts.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-230" class="definition"><strong>Definition 13.7  (Distribution of a random variable)  </strong></span>A distribution of a random variable is a function that specifies the probabilities of all events associated with that random variable. There are several types of distributions: A probability mass function for a discrete random variable and probability density function for a continuous random variable.
+<span id="def:unnamed-chunk-228" class="definition"><strong>Definition 13.7  (Distribution of a random variable)  </strong></span>A distribution of a random variable is a function that specifies the probabilities of all events associated with that random variable. There are several types of distributions: A probability mass function for a discrete random variable and probability density function for a continuous random variable.
 </div>
 
 <p>Notice how the definition of distributions combines two ideas of random variables and probabilities of events. First, the distribution considers a random variable, call it <span class="math inline">\(X\)</span>. <span class="math inline">\(X\)</span> can take a number of possible numeric values.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-231" class="example"><strong>Example 13.8  (Total Number of Occurrences)  </strong></span>
+<p><span id="exm:unnamed-chunk-229" class="example"><strong>Example 13.8  (Total Number of Occurrences)  </strong></span>
 Consider three binary outcomes, one for each patient recovering from a disease: <span class="math inline">\(R_i\)</span> denotes the event in which patient <span class="math inline">\(i\)</span> (<span class="math inline">\(i = 1, 2, 3\)</span>) recovers from a disease. <span class="math inline">\(R_1\)</span>, <span class="math inline">\(R_2\)</span>, and <span class="math inline">\(R_3\)</span>. How would we represent the total number of people who end up recovering from the disease?</p>
 </div>
 
@@ -750,13 +749,13 @@ Consider three binary outcomes, one for each patient recovering from a disease: 
 <p>The formal definition of a random variable is easier to given by separating out two cases: discrete random variables when the numeric summaries of the events are discrete, and continuous random variables when they are continuous.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-233" class="definition"><strong>Definition 13.8  (Discrete Random Variable)  </strong></span><span class="math inline">\(X\)</span> is a discrete random variable if it can assume only a finite or countably infinite number of distinct values. Examples: number of wars per year, heads or tails.</p>
+<p><span id="def:unnamed-chunk-231" class="definition"><strong>Definition 13.8  (Discrete Random Variable)  </strong></span><span class="math inline">\(X\)</span> is a discrete random variable if it can assume only a finite or countably infinite number of distinct values. Examples: number of wars per year, heads or tails.</p>
 </div>
 
 <p>The distribution of a discrete r.v. is a PMF:</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-234" class="definition"><strong>Definition 13.9  (Probability Mass Function)  </strong></span>
+<p><span id="def:unnamed-chunk-232" class="definition"><strong>Definition 13.9  (Probability Mass Function)  </strong></span>
 For a discrete random variable <span class="math inline">\(X\)</span>, the probability mass function (Also referred to simply as the “probability distribution.”) (PMF), <span class="math inline">\(p(x)=P(X=x)\)</span>, assigns probabilities to a countable number of distinct <span class="math inline">\(x\)</span> values such that</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(0\le p(x)\le 1\)</span></li>
@@ -776,7 +775,7 @@ For a discrete random variable <span class="math inline">\(X\)</span>, the proba
 <p>Note that <span class="math inline">\(P(X &gt; x) = 1 - P(X \le x)\)</span>.</p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-235" class="example"><strong>Example 13.9  </strong></span>For a fair die with its value as <span class="math inline">\(Y\)</span>, What are the following?</p>
+<p><span id="exm:unnamed-chunk-233" class="example"><strong>Example 13.9  </strong></span>For a fair die with its value as <span class="math inline">\(Y\)</span>, What are the following?</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(P(Y\le 1)\)</span></li>
 <li><span class="math inline">\(P(Y\le 3)\)</span></li>
@@ -790,13 +789,13 @@ For a discrete random variable <span class="math inline">\(X\)</span>, the proba
 <p>We also have a similar definition for <em>continuous</em> random variables.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-236" class="definition"><strong>Definition 13.10  (Continuous Random Variable)  </strong></span>
+<p><span id="def:unnamed-chunk-234" class="definition"><strong>Definition 13.10  (Continuous Random Variable)  </strong></span>
 <span class="math inline">\(X\)</span> is a continuous random variable if there exists a nonnegative function <span class="math inline">\(f(x)\)</span> defined for all real <span class="math inline">\(x\in (-\infty,\infty)\)</span>, such that for any interval <span class="math inline">\(A\)</span>, <span class="math inline">\(P(X\in A)=\int\limits_A f(x)dx\)</span>. Examples: age, income, GNP, temperature.</p>
 </div>
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-237" class="definition"><strong>Definition 13.11  (Probability Density Function)  </strong></span>
+<p><span id="def:unnamed-chunk-235" class="definition"><strong>Definition 13.11  (Probability Density Function)  </strong></span>
 The function <span class="math inline">\(f\)</span> above is called the probability density function (pdf) of <span class="math inline">\(X\)</span> and must satisfy
 <span class="math display">\[f(x)\ge 0\]</span>
 <span class="math display">\[\int\limits_{-\infty}^\infty f(x)dx=1\]</span></p>
@@ -807,7 +806,7 @@ Note also that <span class="math inline">\(P(X = x)=0\)</span> — i.e., the pro
 <p>For both discrete and continuous random variables, we have a unifying concept of another measure: the cumulative distribution:</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-238" class="definition"><strong>Definition 13.12  (Cumulative Density Function)  </strong></span>Because the probability that a continuous random variable will assume any particular value is zero, we can only make statements about the probability of a continuous random variable being within an interval. The cumulative distribution gives the probability that <span class="math inline">\(Y\)</span> lies on the interval <span class="math inline">\((-\infty,y)\)</span> and is defined as <span class="math display">\[F(x)=P(X\le x)=\int\limits_{-\infty}^x f(s)ds\]</span> Note that <span class="math inline">\(F(x)\)</span> has similar properties with continuous distributions as it does with discrete - non-decreasing, continuous (not just right-continuous), and <span class="math inline">\(\lim\limits_{x \to -\infty} F(x) = 0\)</span> and <span class="math inline">\(\lim\limits_{x \to \infty} F(x) = 1\)</span>.</p>
+<p><span id="def:unnamed-chunk-236" class="definition"><strong>Definition 13.12  (Cumulative Density Function)  </strong></span>Because the probability that a continuous random variable will assume any particular value is zero, we can only make statements about the probability of a continuous random variable being within an interval. The cumulative distribution gives the probability that <span class="math inline">\(Y\)</span> lies on the interval <span class="math inline">\((-\infty,y)\)</span> and is defined as <span class="math display">\[F(x)=P(X\le x)=\int\limits_{-\infty}^x f(s)ds\]</span> Note that <span class="math inline">\(F(x)\)</span> has similar properties with continuous distributions as it does with discrete - non-decreasing, continuous (not just right-continuous), and <span class="math inline">\(\lim\limits_{x \to -\infty} F(x) = 0\)</span> and <span class="math inline">\(\lim\limits_{x \to \infty} F(x) = 1\)</span>.</p>
 </div>
 
 <p>We can also make statements about the probability of <span class="math inline">\(Y\)</span> falling in an interval <span class="math inline">\(a\le y\le b\)</span>.
@@ -815,7 +814,7 @@ Note also that <span class="math inline">\(P(X = x)=0\)</span> — i.e., the pro
 <p>The PDF and CDF are linked by the integral: The CDF of the integral of the PDF: <span class="math display">\[f(x) = F&#39;(x)=\frac{dF(x)}{dx}\]</span></p>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-239" class="example"><strong>Example 13.10  </strong></span>
+<p><span id="exm:unnamed-chunk-237" class="example"><strong>Example 13.10  </strong></span>
 For <span class="math inline">\(f(y)=1, \quad 0&lt;y&lt;1\)</span>, find: (1) The CDF <span class="math inline">\(F(y)\)</span> and (2) The probability <span class="math inline">\(P(0.5&lt;y&lt;0.75)\)</span>.</p>
 </div>
 
@@ -835,12 +834,11 @@ For <span class="math inline">\(f(y)=1, \quad 0&lt;y&lt;1\)</span>, find: (1) Th
           </div>
         </div>
       </div>
-<a href="optim.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="integrals.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="distribution.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -858,7 +856,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/35_probability.Rmd",
+"link": "https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/41_probability.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -870,6 +868,10 @@ gitbook.start({
 "text": null
 },
 "download": ["MathCamp.pdf", "MathCamp.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

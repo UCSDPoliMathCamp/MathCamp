@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 14 Summarizing Distributions | UCSD Political Science Math Camp</title>
   <meta name="description" content="Text for UCSD Department of Political Science Math Camp" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 14 Summarizing Distributions | UCSD Political Science Math Camp" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,8 @@
   
 <link rel="prev" href="probability-theory.html"/>
 <link rel="next" href="statistics.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -40,7 +41,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -324,29 +324,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5" data-path="derivatives.html"><a href="derivatives.html#partial-derivatives"><i class="fa fa-check"></i><b>10.5</b> Partial Derivatives</a></li>
 <li class="chapter" data-level="10.6" data-path="derivatives.html"><a href="derivatives.html#taylorapprox"><i class="fa fa-check"></i><b>10.6</b> Taylor Approximation</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="integrals.html"><a href="integrals.html"><i class="fa fa-check"></i><b>11</b> Integral Calculus</a><ul>
-<li class="chapter" data-level="11.1" data-path="integrals.html"><a href="integrals.html#the-indefinite-integral"><i class="fa fa-check"></i><b>11.1</b> The Indefinite Integral</a><ul>
-<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#properties-of-integration"><i class="fa fa-check"></i>Properties of Integration</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="integrals.html"><a href="integrals.html#the-definite-integral"><i class="fa fa-check"></i><b>11.2</b> The Definite Integral</a><ul>
-<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#properties-for-definite-integrals"><i class="fa fa-check"></i>Properties for Definite Integrals</a></li>
-</ul></li>
-<li class="chapter" data-level="11.3" data-path="integrals.html"><a href="integrals.html#integration-by-substitution"><i class="fa fa-check"></i><b>11.3</b> Integration by Substitution</a></li>
-<li class="chapter" data-level="11.4" data-path="integrals.html"><a href="integrals.html#integration-by-parts"><i class="fa fa-check"></i><b>11.4</b> Integration by Parts</a></li>
-<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#answers-to-examples-and-exercises-2"><i class="fa fa-check"></i>Answers to Examples and Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="optim.html"><a href="optim.html"><i class="fa fa-check"></i><b>12</b> Optimization</a><ul>
-<li class="chapter" data-level="12.1" data-path="optim.html"><a href="optim.html#maxima-and-minima"><i class="fa fa-check"></i><b>12.1</b> Maxima and Minima</a></li>
-<li class="chapter" data-level="12.2" data-path="optim.html"><a href="optim.html#concavity-of-a-function"><i class="fa fa-check"></i><b>12.2</b> Concavity of a Function</a><ul>
+<li class="chapter" data-level="11" data-path="optim.html"><a href="optim.html"><i class="fa fa-check"></i><b>11</b> Optimization</a><ul>
+<li class="chapter" data-level="11.1" data-path="optim.html"><a href="optim.html#maxima-and-minima"><i class="fa fa-check"></i><b>11.1</b> Maxima and Minima</a></li>
+<li class="chapter" data-level="11.2" data-path="optim.html"><a href="optim.html#concavity-of-a-function"><i class="fa fa-check"></i><b>11.2</b> Concavity of a Function</a><ul>
 <li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#quadratic-forms"><i class="fa fa-check"></i>Quadratic Forms</a></li>
 <li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#definiteness-of-quadratic-forms"><i class="fa fa-check"></i>Definiteness of Quadratic Forms</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="optim.html"><a href="optim.html#foc-and-soc"><i class="fa fa-check"></i><b>12.3</b> FOC and SOC</a><ul>
-<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#first-order-conditions"><i class="fa fa-check"></i>First Order Conditions</a></li>
-<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#second-order-conditions"><i class="fa fa-check"></i>Second Order Conditions</a></li>
+<li class="chapter" data-level="11.3" data-path="optim.html"><a href="optim.html#gradient-and-foc"><i class="fa fa-check"></i><b>11.3</b> Gradient and FOC</a></li>
+<li class="chapter" data-level="11.4" data-path="optim.html"><a href="optim.html#hessian-and-soc"><i class="fa fa-check"></i><b>11.4</b> Hessian and SOC</a><ul>
 <li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#definiteness-and-concavity"><i class="fa fa-check"></i>Definiteness and Concavity</a></li>
 </ul></li>
-<li class="chapter" data-level="12.4" data-path="optim.html"><a href="optim.html#global-maxima-and-minima"><i class="fa fa-check"></i><b>12.4</b> Global Maxima and Minima</a></li>
+<li class="chapter" data-level="11.5" data-path="optim.html"><a href="optim.html#global-maxima-and-minima"><i class="fa fa-check"></i><b>11.5</b> Global Maxima and Minima</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="integrals.html"><a href="integrals.html"><i class="fa fa-check"></i><b>12</b> Integral Calculus</a><ul>
+<li class="chapter" data-level="12.1" data-path="integrals.html"><a href="integrals.html#the-indefinite-integral"><i class="fa fa-check"></i><b>12.1</b> The Indefinite Integral</a><ul>
+<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#properties-of-integration"><i class="fa fa-check"></i>Properties of Integration</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="integrals.html"><a href="integrals.html#the-definite-integral"><i class="fa fa-check"></i><b>12.2</b> The Definite Integral</a><ul>
+<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#properties-for-definite-integrals"><i class="fa fa-check"></i>Properties for Definite Integrals</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="integrals.html"><a href="integrals.html#integration-by-substitution"><i class="fa fa-check"></i><b>12.3</b> Integration by Substitution</a></li>
+<li class="chapter" data-level="12.4" data-path="integrals.html"><a href="integrals.html#integration-by-parts"><i class="fa fa-check"></i><b>12.4</b> Integration by Parts</a></li>
+<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#answers-to-examples-and-exercises-2"><i class="fa fa-check"></i>Answers to Examples and Exercises</a></li>
 </ul></li>
 <li class="part"><span><b>IV Probability</b></span></li>
 <li class="chapter" data-level="13" data-path="probability-theory.html"><a href="probability-theory.html"><i class="fa fa-check"></i><b>13</b> Probability Theory</a><ul>
@@ -420,7 +419,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We often want to summarize some characteristics of the distribution of a random variable. The most important summary is the expectation (or expected value, or mean), in which the possible values of a random variable are weighted by their probabilities.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-240" class="definition"><strong>Definition 14.1  (Expectation of a Discrete Random Variable)  </strong></span>The expected value of a discrete random variable <span class="math inline">\(Y\)</span> is <span class="math display">\[E(Y)=\sum\limits_{y} y P(Y=y)= \sum\limits_{y} y p(y)\]</span><br />
+<p><span id="def:unnamed-chunk-238" class="definition"><strong>Definition 14.1  (Expectation of a Discrete Random Variable)  </strong></span>The expected value of a discrete random variable <span class="math inline">\(Y\)</span> is <span class="math display">\[E(Y)=\sum\limits_{y} y P(Y=y)= \sum\limits_{y} y p(y)\]</span><br />
 In words, it is the weighted average of all possible values of <span class="math inline">\(Y\)</span>, weighted by the probability that <span class="math inline">\(y\)</span> occurs. It is not necessarily the number we would expect <span class="math inline">\(Y\)</span> to take on, but the average value of <span class="math inline">\(Y\)</span> after a large number of repetitions of an experiment.</p>
 </div>
 
@@ -474,7 +473,7 @@ Hence, the expected value of the continuous variable <span class="math inline">\
 <p>We can also look at other summaries of the distribution, which build on the idea of taking expectations. Variance tells us about the “spread” of the distribution; it is the expected value of the squared deviations from the mean of the distribution. The standard deviation is simply the square root of the variance.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-241" class="definition"><strong>Definition 14.2  (Variance)  </strong></span>The Variance of a Random Variable <span class="math inline">\(Y\)</span> is</p>
+<p><span id="def:unnamed-chunk-239" class="definition"><strong>Definition 14.2  (Variance)  </strong></span>The Variance of a Random Variable <span class="math inline">\(Y\)</span> is</p>
 <p><span class="math display">\[\text{Var}(Y) = E[(Y - E(Y))^2] =  E(Y^2)-[E(Y)]^2\]</span></p>
 <p>The Standard Deviation is the square root of the variance : <span class="math display">\[SD(Y) = \sigma_Y= \sqrt{\text{Var}(Y)}\]</span></p>
 </div>
@@ -494,7 +493,7 @@ Hence, the expected value of the continuous variable <span class="math inline">\
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-242" class="definition"><strong>Definition 14.3  (Covariance and Correlation)  </strong></span>
+<p><span id="def:unnamed-chunk-240" class="definition"><strong>Definition 14.3  (Covariance and Correlation)  </strong></span>
 The covariance measures the degree to which two random variables vary together; if the covariance between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is positive, X tends to be larger than its mean when Y is larger than its mean.</p>
 <p><span class="math display">\[\text{Cov}(X,Y) = E[(X - E(X))(Y - E(Y))] \]</span>
 We can also write this as</p>
@@ -509,7 +508,7 @@ We can also write this as</p>
 <p>The Covariance is unfortunately hard to interpret in magnitude. The correlation is a standardized version of the covariance, and always ranges from -1 to 1.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-243" class="definition"><strong>Definition 14.4  (Correlation)  </strong></span>The correlation coefficient is the covariance divided by the standard deviations of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. It is a unitless measure and always takes on values in the interval <span class="math inline">\([-1,1]\)</span>.</p>
+<p><span id="def:unnamed-chunk-241" class="definition"><strong>Definition 14.4  (Correlation)  </strong></span>The correlation coefficient is the covariance divided by the standard deviations of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. It is a unitless measure and always takes on values in the interval <span class="math inline">\([-1,1]\)</span>.</p>
 <p><span class="math display">\[\text{Corr}(X, Y) = \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}} = \frac{\text{Cov}(X,Y)}{SD(X)SD(Y)}\]</span></p>
 </div>
 
@@ -582,13 +581,13 @@ Suppose we have a PMF with the following characteristics:
 <p>Two <em>discrete</em> distributions used often are:</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-244" class="definition"><strong>Definition 14.5  (Binomial Distribution)  </strong></span><span class="math inline">\(Y\)</span> is distributed binomial if it represents the number of “successes” observed in <span class="math inline">\(n\)</span> independent, identical “trials,” where the probability of success in any trial is <span class="math inline">\(p\)</span> and the probability of failure is <span class="math inline">\(q=1-p\)</span>.
+<span id="def:unnamed-chunk-242" class="definition"><strong>Definition 14.5  (Binomial Distribution)  </strong></span><span class="math inline">\(Y\)</span> is distributed binomial if it represents the number of “successes” observed in <span class="math inline">\(n\)</span> independent, identical “trials,” where the probability of success in any trial is <span class="math inline">\(p\)</span> and the probability of failure is <span class="math inline">\(q=1-p\)</span>.
 </div>
 
 <p>For any particular sequence of <span class="math inline">\(y\)</span> successes and <span class="math inline">\(n-y\)</span> failures, the probability of obtaining that sequence is <span class="math inline">\(p^y q^{n-y}\)</span> (by the multiplicative law and independence). However, there are <span class="math inline">\(\binom{n}{y}=\frac{n!}{(n-y)!y!}\)</span> ways of obtaining a sequence with <span class="math inline">\(y\)</span> successes and <span class="math inline">\(n-y\)</span> failures. So the binomial distribution is given by <span class="math display">\[p(y)=\binom{n}{y}p^y q^{n-y}, \quad y=0,1,2,\ldots,n\]</span> with mean <span class="math inline">\(\mu=E(Y)=np\)</span> and variance <span class="math inline">\(\sigma^2=\text{Var}(Y)=npq\)</span>.</p>
 
 <div class="example">
-<span id="exm:unnamed-chunk-245" class="example"><strong>Example 14.4  </strong></span>Republicans vote for Democrat-sponsored bills 2% of the time. What is the probability that out of 10 Republicans questioned, half voted for a particular Democrat-sponsored bill? What is the mean number of Republicans voting for Democrat-sponsored bills? The variance?
+<span id="exm:unnamed-chunk-243" class="example"><strong>Example 14.4  </strong></span>Republicans vote for Democrat-sponsored bills 2% of the time. What is the probability that out of 10 Republicans questioned, half voted for a particular Democrat-sponsored bill? What is the mean number of Republicans voting for Democrat-sponsored bills? The variance?
 1. <span class="math inline">\(P(Y=5)=\)</span>
 1. <span class="math inline">\(E(Y)=\)</span>
 1. <span class="math inline">\(\text{Var}(Y)=6\)</span>
@@ -597,26 +596,26 @@ Suppose we have a PMF with the following characteristics:
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-246" class="definition"><strong>Definition 14.6  (Poisson Distribution)  </strong></span>A random variable <span class="math inline">\(Y\)</span> has a Poisson distribution if</p>
+<p><span id="def:unnamed-chunk-244" class="definition"><strong>Definition 14.6  (Poisson Distribution)  </strong></span>A random variable <span class="math inline">\(Y\)</span> has a Poisson distribution if</p>
 <p><span class="math display">\[P(Y = y)=\frac{\lambda^y}{y!}e^{-\lambda}, \quad y=0,1,2,\ldots, \quad \lambda&gt;0\]</span></p>
 <p>The Poisson has the unusual feature that its expectation equals its variance: <span class="math inline">\(E(Y)=\text{Var}(Y)=\lambda\)</span>. The Poisson distribution is often used to model rare event counts: counts of the number of events that occur during some unit of time. <span class="math inline">\(\lambda\)</span> is often called the “arrival rate.”</p>
 </div>
 
 
 <div class="example">
-<span id="exm:unnamed-chunk-247" class="example"><strong>Example 14.5  </strong></span>Border disputes occur between two countries through a Poisson Distribution, at a rate of 2 per month. What is the probability of 0, 2, and less than 5 disputes occurring in a month?
+<span id="exm:unnamed-chunk-245" class="example"><strong>Example 14.5  </strong></span>Border disputes occur between two countries through a Poisson Distribution, at a rate of 2 per month. What is the probability of 0, 2, and less than 5 disputes occurring in a month?
 </div>
 
 
 <p>Two <em>continuous</em> distributions used often are:</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-248" class="definition"><strong>Definition 14.7  (Uniform Distribution)  </strong></span>A random variable <span class="math inline">\(Y\)</span> has a continuous uniform distribution on the interval <span class="math inline">\((\alpha,\beta)\)</span> if its density is given by <span class="math display">\[f(y)=\frac{1}{\beta-\alpha}, \quad \alpha\le y\le \beta\]</span> The mean and variance of <span class="math inline">\(Y\)</span> are <span class="math inline">\(E(Y)=\frac{\alpha+\beta}{2}\)</span> and <span class="math inline">\(\text{Var}(Y)=\frac{(\beta-\alpha)^2}{12}\)</span>.
+<span id="def:unnamed-chunk-246" class="definition"><strong>Definition 14.7  (Uniform Distribution)  </strong></span>A random variable <span class="math inline">\(Y\)</span> has a continuous uniform distribution on the interval <span class="math inline">\((\alpha,\beta)\)</span> if its density is given by <span class="math display">\[f(y)=\frac{1}{\beta-\alpha}, \quad \alpha\le y\le \beta\]</span> The mean and variance of <span class="math inline">\(Y\)</span> are <span class="math inline">\(E(Y)=\frac{\alpha+\beta}{2}\)</span> and <span class="math inline">\(\text{Var}(Y)=\frac{(\beta-\alpha)^2}{12}\)</span>.
 </div>
 
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-249" class="example"><strong>Example 14.6  </strong></span>For <span class="math inline">\(Y\)</span> uniformly distributed over <span class="math inline">\((1,3)\)</span>, what are the following probabilities?</p>
+<p><span id="exm:unnamed-chunk-247" class="example"><strong>Example 14.6  </strong></span>For <span class="math inline">\(Y\)</span> uniformly distributed over <span class="math inline">\((1,3)\)</span>, what are the following probabilities?</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(P(Y=2)\)</span></li>
 <li>Its density evaluated at 2, or <span class="math inline">\(f(2)\)</span></li>
@@ -628,13 +627,13 @@ Suppose we have a PMF with the following characteristics:
 
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-250" class="definition"><strong>Definition 14.8  (Normal Distribution)  </strong></span>
+<p><span id="def:unnamed-chunk-248" class="definition"><strong>Definition 14.8  (Normal Distribution)  </strong></span>
 A random variable <span class="math inline">\(Y\)</span> is normally distributed with mean <span class="math inline">\(E(Y)=\mu\)</span> and variance <span class="math inline">\(\text{Var}(Y)=\sigma^2\)</span> if its density is</p>
 <p><span class="math display">\[f(y)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(y-\mu)^2}{2\sigma^2}}\]</span></p>
 </div>
 
 <p>See Figure <a href="distribution.html#fig:normaldens">14.1</a> are various Normal Distributions with the same <span class="math inline">\(\mu = 1\)</span> and two versions of the variance.</p>
-<div class="figure"><span id="fig:normaldens"></span>
+<div class="figure"><span style="display:block;" id="fig:normaldens"></span>
 <img src="MathCamp_files/figure-html/normaldens-1.png" alt="Normal Distribution Density" width="672" />
 <p class="caption">
 Figure 14.1: Normal Distribution Density
@@ -665,7 +664,7 @@ Figure 14.1: Normal Distribution Density
 </ul>
 
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-251" class="exercise"><strong>Exercise 14.4  (Discrete Outcomes)  </strong></span>Suppose we are interested in the outcomes of flipping a coin and rolling a 6-sided die at the same time. The sample space for this process contains 12 elements: <span class="math display">\[\{(H, 1), (H, 2), (H, 3), (H, 4), (H, 5), (H, 6), (T, 1), (T, 2), (T, 3), (T, 4), (T, 5), (T, 6)\}\]</span> We can define two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> such that <span class="math inline">\(X = 1\)</span> if heads and <span class="math inline">\(X = 0\)</span> if tails, while <span class="math inline">\(Y\)</span> equals the number on the die.</p>
+<p><span id="exr:unnamed-chunk-249" class="exercise"><strong>Exercise 14.4  (Discrete Outcomes)  </strong></span>Suppose we are interested in the outcomes of flipping a coin and rolling a 6-sided die at the same time. The sample space for this process contains 12 elements: <span class="math display">\[\{(H, 1), (H, 2), (H, 3), (H, 4), (H, 5), (H, 6), (T, 1), (T, 2), (T, 3), (T, 4), (T, 5), (T, 6)\}\]</span> We can define two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> such that <span class="math inline">\(X = 1\)</span> if heads and <span class="math inline">\(X = 0\)</span> if tails, while <span class="math inline">\(Y\)</span> equals the number on the die.</p>
 <p>We can then make statements about the joint distribution of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. What are the following?</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(P(X=x)\)</span></li>
@@ -689,7 +688,6 @@ Figure 14.1: Normal Distribution Density
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -707,7 +705,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/36_distribution.Rmd",
+"link": "https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/42_distribution.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -719,6 +717,10 @@ gitbook.start({
 "text": null
 },
 "download": ["MathCamp.pdf", "MathCamp.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true

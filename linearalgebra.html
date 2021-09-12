@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 Linear Algebra | UCSD Political Science Math Camp</title>
   <meta name="description" content="Text for UCSD Department of Political Science Math Camp" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 Linear Algebra | UCSD Political Science Math Camp" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,8 @@
   
 <link rel="prev" href="nonwysiwyg.html"/>
 <link rel="next" href="rmatrices.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -40,7 +41,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -324,29 +324,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5" data-path="derivatives.html"><a href="derivatives.html#partial-derivatives"><i class="fa fa-check"></i><b>10.5</b> Partial Derivatives</a></li>
 <li class="chapter" data-level="10.6" data-path="derivatives.html"><a href="derivatives.html#taylorapprox"><i class="fa fa-check"></i><b>10.6</b> Taylor Approximation</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="integrals.html"><a href="integrals.html"><i class="fa fa-check"></i><b>11</b> Integral Calculus</a><ul>
-<li class="chapter" data-level="11.1" data-path="integrals.html"><a href="integrals.html#the-indefinite-integral"><i class="fa fa-check"></i><b>11.1</b> The Indefinite Integral</a><ul>
-<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#properties-of-integration"><i class="fa fa-check"></i>Properties of Integration</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="integrals.html"><a href="integrals.html#the-definite-integral"><i class="fa fa-check"></i><b>11.2</b> The Definite Integral</a><ul>
-<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#properties-for-definite-integrals"><i class="fa fa-check"></i>Properties for Definite Integrals</a></li>
-</ul></li>
-<li class="chapter" data-level="11.3" data-path="integrals.html"><a href="integrals.html#integration-by-substitution"><i class="fa fa-check"></i><b>11.3</b> Integration by Substitution</a></li>
-<li class="chapter" data-level="11.4" data-path="integrals.html"><a href="integrals.html#integration-by-parts"><i class="fa fa-check"></i><b>11.4</b> Integration by Parts</a></li>
-<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#answers-to-examples-and-exercises-2"><i class="fa fa-check"></i>Answers to Examples and Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="optim.html"><a href="optim.html"><i class="fa fa-check"></i><b>12</b> Optimization</a><ul>
-<li class="chapter" data-level="12.1" data-path="optim.html"><a href="optim.html#maxima-and-minima"><i class="fa fa-check"></i><b>12.1</b> Maxima and Minima</a></li>
-<li class="chapter" data-level="12.2" data-path="optim.html"><a href="optim.html#concavity-of-a-function"><i class="fa fa-check"></i><b>12.2</b> Concavity of a Function</a><ul>
+<li class="chapter" data-level="11" data-path="optim.html"><a href="optim.html"><i class="fa fa-check"></i><b>11</b> Optimization</a><ul>
+<li class="chapter" data-level="11.1" data-path="optim.html"><a href="optim.html#maxima-and-minima"><i class="fa fa-check"></i><b>11.1</b> Maxima and Minima</a></li>
+<li class="chapter" data-level="11.2" data-path="optim.html"><a href="optim.html#concavity-of-a-function"><i class="fa fa-check"></i><b>11.2</b> Concavity of a Function</a><ul>
 <li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#quadratic-forms"><i class="fa fa-check"></i>Quadratic Forms</a></li>
 <li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#definiteness-of-quadratic-forms"><i class="fa fa-check"></i>Definiteness of Quadratic Forms</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="optim.html"><a href="optim.html#foc-and-soc"><i class="fa fa-check"></i><b>12.3</b> FOC and SOC</a><ul>
-<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#first-order-conditions"><i class="fa fa-check"></i>First Order Conditions</a></li>
-<li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#second-order-conditions"><i class="fa fa-check"></i>Second Order Conditions</a></li>
+<li class="chapter" data-level="11.3" data-path="optim.html"><a href="optim.html#gradient-and-foc"><i class="fa fa-check"></i><b>11.3</b> Gradient and FOC</a></li>
+<li class="chapter" data-level="11.4" data-path="optim.html"><a href="optim.html#hessian-and-soc"><i class="fa fa-check"></i><b>11.4</b> Hessian and SOC</a><ul>
 <li class="chapter" data-level="" data-path="optim.html"><a href="optim.html#definiteness-and-concavity"><i class="fa fa-check"></i>Definiteness and Concavity</a></li>
 </ul></li>
-<li class="chapter" data-level="12.4" data-path="optim.html"><a href="optim.html#global-maxima-and-minima"><i class="fa fa-check"></i><b>12.4</b> Global Maxima and Minima</a></li>
+<li class="chapter" data-level="11.5" data-path="optim.html"><a href="optim.html#global-maxima-and-minima"><i class="fa fa-check"></i><b>11.5</b> Global Maxima and Minima</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="integrals.html"><a href="integrals.html"><i class="fa fa-check"></i><b>12</b> Integral Calculus</a><ul>
+<li class="chapter" data-level="12.1" data-path="integrals.html"><a href="integrals.html#the-indefinite-integral"><i class="fa fa-check"></i><b>12.1</b> The Indefinite Integral</a><ul>
+<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#properties-of-integration"><i class="fa fa-check"></i>Properties of Integration</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="integrals.html"><a href="integrals.html#the-definite-integral"><i class="fa fa-check"></i><b>12.2</b> The Definite Integral</a><ul>
+<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#properties-for-definite-integrals"><i class="fa fa-check"></i>Properties for Definite Integrals</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="integrals.html"><a href="integrals.html#integration-by-substitution"><i class="fa fa-check"></i><b>12.3</b> Integration by Substitution</a></li>
+<li class="chapter" data-level="12.4" data-path="integrals.html"><a href="integrals.html#integration-by-parts"><i class="fa fa-check"></i><b>12.4</b> Integration by Parts</a></li>
+<li class="chapter" data-level="" data-path="integrals.html"><a href="integrals.html#answers-to-examples-and-exercises-2"><i class="fa fa-check"></i>Answers to Examples and Exercises</a></li>
 </ul></li>
 <li class="part"><span><b>IV Probability</b></span></li>
 <li class="chapter" data-level="13" data-path="probability-theory.html"><a href="probability-theory.html"><i class="fa fa-check"></i><b>13</b> Probability Theory</a><ul>
@@ -1061,7 +1060,6 @@ therefore provide an explicit formula for the solution of an <span class="math i
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1091,6 +1089,10 @@ gitbook.start({
 "text": null
 },
 "download": ["MathCamp.pdf", "MathCamp.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
