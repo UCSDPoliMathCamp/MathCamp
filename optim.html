@@ -561,6 +561,7 @@ Given a function <span class="math inline">\(f(\textbf{x})\)</span> in <span cla
 \]</span></p>
 </div>
 
+<p>The gradient points in the direction of the steepest rate of increase at each point <span class="math inline">\(\mathbf{x}\)</span>.</p>
 <p>Before we know whether a point is a maxima or minima, if it meets the FOC it is a “Critical Point”.</p>
 
 <div class="definition">
@@ -583,7 +584,7 @@ Example: Given a function <span class="math inline">\(f(\mathbf{x})=(x_1-1)^2+x_
   \frac{\partial f(\mathbf{x})}{\partial x_1} &amp; 
   \frac{\partial f(\mathbf{x})}{\partial x_2} 
   \end{pmatrix}
-  &amp;= 
+  = 
   \begin{pmatrix} 2(x_1-1) &amp;
   2x_2 
   \end{pmatrix}
@@ -626,7 +627,12 @@ partial derivative of <span class="math inline">\(f(\mathbf{x})\)</span> with re
 <li>Hessian is Indefinite around <span class="math inline">\(\mathbf{x}^*\)</span> <span class="math inline">\(\quad \Longrightarrow \quad\)</span> Saddle Point</li>
 </ol>
 <p>Furthermore, there’s an easier way to check whether a <span class="math inline">\(2\times 2\)</span> matrix is positive or negative definite.</p>
-<p><strong>Definiteness of 2 <span class="math inline">\(\times\)</span> 2 Matrix</strong>: For a <span class="math inline">\(2 \times 2\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span>:</p>
+<p><strong>Definiteness of 2 <span class="math inline">\(\times\)</span> 2 Matrix</strong>: For a <span class="math inline">\(2 \times 2\)</span> matrix
+<span class="math display">\[\mathbf{A}=
+\begin{bmatrix}
+A_{11} &amp; A_{12}\\
+A_{21} &amp; A_{22}
+\end{bmatrix}\]</span></p>
 <ol style="list-style-type: decimal">
 <li>If <span class="math inline">\(\mathrm{det}(\mathbf{A}) &gt; 0\)</span> and <span class="math inline">\(A_{11}&gt;0\)</span>, then <span class="math inline">\(\mathbf{A}\)</span> is positive definite</li>
 <li>If <span class="math inline">\(\mathrm{det}(\mathbf{A}) &gt; 0\)</span> and <span class="math inline">\(A_{11}&lt;0\)</span>, then <span class="math inline">\(\mathbf{A}\)</span> is negative definite</li>
