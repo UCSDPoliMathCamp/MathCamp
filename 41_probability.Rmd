@@ -470,7 +470,7 @@ Example: For a fair six-sided die, there is an equal probability of rolling any 
 
 
 
-In a discrete random variable,  __cumulative density function__ (Also referred to simply as the "cumulative distribution" or previously as the "density function"), $F(x)$ or $P(X\le x)$, is the probability that $X$ is less than or equal to some value $x$, or \[P(X\le x)=\sum\limits_{i\le x} p(i)\]
+In a discrete random variable,  __cumulative distribution function__ (Also referred to simply as the "cumulative distribution" or previously as the "distribution function"), $F(x)$ or $P(X\le x)$, is the probability that $X$ is less than or equal to some value $x$, or \[P(X\le x)=\sum\limits_{i\le x} p(i)\]
 
 
 Properties a CDF must satisfy:
@@ -524,7 +524,7 @@ The function $f$ above is called the probability density function (pdf) of $X$ a
 
 For both discrete and continuous random variables, we have a unifying concept of another measure: the cumulative distribution: 
 
-```{definition, name = "Cumulative Density Function"}
+```{definition, name = "Cumulative Distribution Function"}
 Because the probability that a continuous random variable will assume any particular value is zero, we can only make statements about the probability of a continuous random variable being within an interval.  The cumulative distribution gives the probability that $Y$ lies on the interval $(-\infty,y)$ and is defined as $$F(x)=P(X\le x)=\int\limits_{-\infty}^x f(s)ds$$  Note that $F(x)$ has similar  properties with continuous distributions as it does with discrete - non-decreasing, continuous (not just right-continuous), and $\lim\limits_{x \to -\infty} F(x) = 0$ and $\lim\limits_{x \to \infty} F(x) = 1$.
 
 ```
