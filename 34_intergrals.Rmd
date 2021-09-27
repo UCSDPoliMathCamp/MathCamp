@@ -87,10 +87,10 @@ Some useful properties of integrals follow by virtue of being the inverse of a d
 1. Integration of the sum is sum of integrations:  $\int [f(x)+g(x)]dx=\int f(x)dx + \int g(x)dx$
 1. Reverse Power-rule:  $\int x^n dx = \frac{1}{n+1} x^{n+1} + c$
 1. Exponents are still exponents:  $\int e^x dx = e^x +c$
-1. Recall the derivative of $\log(x)$ is one over $x$, and so:   $\int \frac{1}{x} dx = \log x + c$
+1. Recall the derivative of $\ln(x)$ is one over $x$, and so:   $\int \frac{1}{x} dx = \ln x + c$
 1. Reverse chain-rule:  $\int e^{f(x)}f^\prime(x)dx = e^{f(x)}+c$
 1. More generally:  $\int [f(x)]^n f'(x)dx = \frac{1}{n+1}[f(x)]^{n+1}+c$
-1. Remember the derivative of a log of a function:  $\int \frac{f^\prime(x)}{f(x)}dx=\log f(x) + c$
+1. Remember the derivative of a log of a function:  $\int \frac{f^\prime(x)}{f(x)}dx=\ln f(x) + c$
 
 
 ```{example, name="Common Integration"}
@@ -360,9 +360,9 @@ Example \@ref(exm:exmderivlog)
 
 
 1. Let $u(x)=x^2+9$.  Then $u^\prime(x)=2x$ and \[\frac{dy}{dx}= \frac{u^\prime(x)}{u(x)} = \frac{2x}{(x^2+9)}\]
-2. Let $u(x)=\log x$.  Then $u^\prime(x)=1/x$ and $\frac{dy}{dx} = \frac{1}{(x\log x)}$.
-3. Use the generalized power rule. \[\frac{dy}{dx} = \frac{(2 \log x)}{x}\]
-4. We know that $\log e^x=x$ and that $dx/dx=1$, but we can double check.  Let $u(x)=e^x$.  Then $u^\prime(x)=e^x$ and $\frac{dy}{dx} = \frac{u^\prime(x)}{u(x)} = \frac{e^x}{e^x} = 1.$
+2. Let $u(x)=\ln x$.  Then $u^\prime(x)=1/x$ and $\frac{dy}{dx} = \frac{1}{(x\ln x)}$.
+3. Use the generalized power rule. \[\frac{dy}{dx} = \frac{(2 \ln x)}{x}\]
+4. We know that $\ln e^x=x$ and that $dx/dx=1$, but we can double check.  Let $u(x)=e^x$.  Then $u^\prime(x)=e^x$ and $\frac{dy}{dx} = \frac{u^\prime(x)}{u(x)} = \frac{e^x}{e^x} = 1.$
 
   
   
