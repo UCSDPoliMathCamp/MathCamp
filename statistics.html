@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 15 Learning from Data | UCSD Political Science Math Camp</title>
   <meta name="description" content="Text for UCSD Department of Political Science Math Camp" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 15 Learning from Data | UCSD Political Science Math Camp" />
   <meta property="og:type" content="book" />
-  
   <meta property="og:image" content="/./images/logo.png" />
   <meta property="og:description" content="Text for UCSD Department of Political Science Math Camp" />
   <meta name="github-repo" content="UCSDPoliMathCamp/MathCamp" />
@@ -50,8 +49,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -241,9 +241,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.1" data-path="simulation.html"><a href="simulation.html#sampling-rows-from-a-dataframe"><i class="fa fa-check"></i><b>5.2.1</b> Sampling rows from a dataframe</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="simulation.html"><a href="simulation.html#random-numbers-from-specific-distributions"><i class="fa fa-check"></i><b>5.3</b> Random numbers from specific distributions</a><ul>
-<li><a href="simulation.html#rbinom"><code>rbinom()</code></a></li>
-<li><a href="simulation.html#runif"><code>runif()</code></a></li>
-<li><a href="simulation.html#rnorm"><code>rnorm()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#rbinom"><i class="fa fa-check"></i><code>rbinom()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#runif"><i class="fa fa-check"></i><code>runif()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#rnorm"><i class="fa fa-check"></i><code>rnorm()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="simulation.html"><a href="simulation.html#r-p-and-d"><i class="fa fa-check"></i><b>5.4</b> r, p, and d</a></li>
 <li class="chapter" data-level="5.5" data-path="simulation.html"><a href="simulation.html#set.seed"><i class="fa fa-check"></i><b>5.5</b> <code>set.seed()</code></a></li>
@@ -412,10 +412,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="statistics" class="section level1">
-<h1><span class="header-section-number">Chapter 15</span> Learning from Data</h1>
-<div id="summarizing-data" class="section level2">
-<h2><span class="header-section-number">15.1</span> Summarizing Data</h2>
+<div id="statistics" class="section level1 hasAnchor">
+<h1><span class="header-section-number">Chapter 15</span> Learning from Data<a href="statistics.html#statistics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="summarizing-data" class="section level2 hasAnchor">
+<h2><span class="header-section-number">15.1</span> Summarizing Data<a href="statistics.html#summarizing-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>So far, we’ve talked about distributions in a theoretical sense, looking at different properties of random variables. We don’t observe random variables; we observe realizations of the random variable. These realizations of events are roughly equivalent to what we mean by “data”.</p>
 <p><strong>Sample mean</strong>: This is the most common measure of central tendency, calculated by summing across the observations and dividing by the number of observations.
 <span class="math display">\[\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i\]</span>
@@ -433,7 +433,6 @@ The sample mean is an <em>estimate</em> of the expected value of a distribution.
 <li><strong>Sample covariance</strong>: <span class="math inline">\(\hat{\text{Cov}}(X,Y) = \frac{1}{n-1}\sum_{i = 1}^n(x_i - \bar{x})(y_i - \bar{y})\)</span></li>
 <li><strong>Sample correlation</strong>: <span class="math inline">\(\hat{\text{Corr}} = \frac{\hat{\text{Cov}}(X,Y)}{\sqrt{\hat{\text{Var}}(X)\hat{\text{Var}}(Y)}}\)</span></li>
 </ol>
-
 <div class="example">
 <p><span id="exm:unnamed-chunk-250" class="example"><strong>Example 15.1  </strong></span>Example: Using the above table, calculate the sample versions of:</p>
 <ol style="list-style-type: decimal">
@@ -441,32 +440,27 @@ The sample mean is an <em>estimate</em> of the expected value of a distribution.
 <li><span class="math inline">\(\text{Corr}(X, Y)\)</span></li>
 </ol>
 </div>
-
 </div>
-<div id="law-of-large-numbers" class="section level2">
-<h2><span class="header-section-number">15.2</span> Law of Large Numbers</h2>
+<div id="law-of-large-numbers" class="section level2 hasAnchor">
+<h2><span class="header-section-number">15.2</span> Law of Large Numbers<a href="statistics.html#law-of-large-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In probability theory, asymptotic analysis is the study of limiting behavior. By limiting behavior, we mean the behavior of some random process as the number of observations gets larger and larger.</p>
 <p>Why is this important? We rarely know the true process governing the events we see in the social world. It is helpful to understand how such unknown processes theoretically must behave and asymptotic theory helps us do this.</p>
-
 <div class="theorem">
-<p><span id="thm:lln" class="theorem"><strong>Theorem 15.1  (Law of Large Numbers (LLN))  </strong></span>For any draw of independent random variables with the same mean <span class="math inline">\(\mu\)</span>, the sample average after <span class="math inline">\(n\)</span> draws, <span class="math inline">\(\bar{X}_n = \frac{1}{n}(X_1 + X_2 + \ldots + X_n)\)</span>, converges in probability to the expected value of <span class="math inline">\(X\)</span>, <span class="math inline">\(\mu\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span>:</p>
-<span class="math display">\[\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | &gt; \varepsilon) = 0\]</span>
+<p><span id="thm:lln" class="theorem"><strong>Theorem 15.1  (Law of Large Numbers (LLN)) </strong></span>For any draw of independent random variables with the same mean <span class="math inline">\(\mu\)</span>, the sample average after <span class="math inline">\(n\)</span> draws, <span class="math inline">\(\bar{X}_n = \frac{1}{n}(X_1 + X_2 + \ldots + X_n)\)</span>, converges in probability to the expected value of <span class="math inline">\(X\)</span>, <span class="math inline">\(\mu\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span>:</p>
+<p><span class="math display">\[\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | &gt; \varepsilon) = 0\]</span></p>
 </div>
-
 <p>A shorthand of which is <span class="math inline">\(\bar{X}_n \xrightarrow{p} \mu\)</span>, where the arrow is read as “converges in probability to”.</p>
 <p>as <span class="math inline">\(n\to \infty\)</span>. In other words, <span class="math inline">\(P( \lim_{n\to\infty}\bar{X}_n = \mu) = 1\)</span>. This is an important motivation for the widespread use of the sample mean, as well as the intuition link between averages and expected values.</p>
 <p>More precisely this version of the LLN is called the <em>weak</em> law of large numbers because it leaves open the possibility that <span class="math inline">\(|\bar{X}_n - \mu | &gt; \varepsilon\)</span> occurs many times. The <em>strong</em> law of large numbers states that, under a few more conditions, the probability that the limit of the sample average is the true mean is 1 (and other possibilities occur with probability 0), but the difference is rarely consequential in practice.</p>
 <p>The Strong Law of Large Numbers holds so long as the expected value exists; no other assumptions are needed. However, the rate of convergence will differ greatly depending on the distribution underlying the observed data. When extreme observations occur often (i.e. kurtosis is large), the rate of convergence is much slower. Cf. The distribution of financial returns.</p>
 </div>
-<div id="central-limit-theorem" class="section level2">
-<h2><span class="header-section-number">15.3</span> Central Limit Theorem</h2>
+<div id="central-limit-theorem" class="section level2 hasAnchor">
+<h2><span class="header-section-number">15.3</span> Central Limit Theorem<a href="statistics.html#central-limit-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We are now finally ready to revisit, with a bit more precise terms, the two pillars of statistical theory we motivated Section <a href="limits-precalc.html#limitsfun">9.3</a> with.</p>
-
 <div class="theorem">
-<p><span id="thm:clt" class="theorem"><strong>Theorem 15.2  (Central Limit Theorem (i.i.d. case))  </strong></span>Let <span class="math inline">\(\{X_n\} = \{X_1, X_2, \ldots\}\)</span> be a sequence of i.i.d. random variables with finite mean (<span class="math inline">\(\mu\)</span>) and variance (<span class="math inline">\(\sigma^2\)</span>). Then, the sample mean <span class="math inline">\(\bar{X}_n = \frac{X_1 + X_2 + \cdots + X_n}{n}\)</span> increasingly converges into a Normal distribution.</p>
-<span class="math display">\[\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} \text{Normal}(0, 1),\]</span>
+<p><span id="thm:clt" class="theorem"><strong>Theorem 15.2  (Central Limit Theorem (i.i.d. case)) </strong></span>Let <span class="math inline">\(\{X_n\} = \{X_1, X_2, \ldots\}\)</span> be a sequence of i.i.d. random variables with finite mean (<span class="math inline">\(\mu\)</span>) and variance (<span class="math inline">\(\sigma^2\)</span>). Then, the sample mean <span class="math inline">\(\bar{X}_n = \frac{X_1 + X_2 + \cdots + X_n}{n}\)</span> increasingly converges into a Normal distribution.</p>
+<p><span class="math display">\[\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} \text{Normal}(0, 1),\]</span></p>
 </div>
-
 <p>Another way to write this as a probability statement is that for all real numbers <span class="math inline">\(a\)</span>,</p>
 <p><span class="math display">\[P\left(\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \le a\right) \rightarrow \Phi(a)\]</span>
 as <span class="math inline">\(n\to \infty\)</span>, where <span class="math display">\[\Phi(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} \, dx\]</span> is the CDF of a Normal distribution with mean 0 and variance 1.</p>
@@ -474,8 +468,8 @@ as <span class="math inline">\(n\to \infty\)</span>, where <span class="math dis
 <span class="math display">\[\bar{X}_n \approx \mathcal{N}\bigg(\mu, \frac{\sigma^2}{n}\bigg).\]</span> The standard deviation of <span class="math inline">\(\bar X_n\)</span> (which is roughly a measure of the precision of <span class="math inline">\(\bar X_n\)</span> as an estimator of <span class="math inline">\(\mu\)</span>) decreases at the rate <span class="math inline">\(1/\sqrt{n}\)</span>, so, for example, to increase its precision by <span class="math inline">\(10\)</span> (i.e., to get one more digit right), one needs to collect <span class="math inline">\(10^2=100\)</span> times more units of data.</p>
 <p>Intuitively, this result also justifies that whenever a lot of small, independent processes somehow combine together to form the realized observations, practitioners often feel comfortable assuming Normality.</p>
 </div>
-<div id="answers-to-examples-and-exercises-3" class="section level2 unnumbered">
-<h2>Answers to Examples and Exercises</h2>
+<div id="answers-to-examples-and-exercises-3" class="section level2 unnumbered hasAnchor">
+<h2>Answers to Examples and Exercises<a href="statistics.html#answers-to-examples-and-exercises-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Answer to Example <a href="probability-theory.html#exm:counting">13.2</a>:</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(5 \times 5 \times 5 = 125\)</span></p></li>
@@ -561,11 +555,11 @@ Using this, Bayes’ Law and the Law of Total Probability, we know:</p>
 &amp;= E(Y) - E(X)^2\\
 &amp;= \frac{5}{2} - \frac{7}{30}^2 \approx 2.45
 \end{align*}\]</span></p>
-<p>Answer to Exercise <a href="distribution.html#exr:expvar2">14.2</a>:</p>
+<p>Answer to Exercise <a href="#exr:expvar2"><strong>??</strong></a>:</p>
 <ol style="list-style-type: decimal">
 <li>expectation = <span class="math inline">\(\frac{6}{5}\)</span>, variance = <span class="math inline">\(\frac{6}{25}\)</span></li>
 </ol>
-<p>Answer to Exercise <a href="distribution.html#exr:expvar3">14.3</a>:</p>
+<p>Answer to Exercise <a href="#exr:expvar3"><strong>??</strong></a>:</p>
 <ol style="list-style-type: decimal">
 <li><p>mean = 2, standard deviation = <span class="math inline">\(\sqrt(\frac{2}{3})\)</span></p></li>
 <li><p><span class="math inline">\(\frac{1}{8}(2 - \sqrt(\frac{2}{3}))^2\)</span></p></li>

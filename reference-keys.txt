@@ -1,4 +1,3 @@
-exm:operators
 exr:operators1
 exm:functions
 exr:functions1
@@ -12,7 +11,6 @@ exm:linearindep
 exr:linearindep1
 exm:matrixaddition
 exm:scalarmulti
-exm:matrixmulti
 exr:matrixmulti1
 exr:lineareq
 exr:augmatrix
@@ -82,7 +80,6 @@ exr:unnamed-chunk-209
 exm:intsub1
 exm:intsub2
 exm:unnamed-chunk-210
-exr:intparts-adv
 exm:countingrules
 exm:counting
 exr:counting1
@@ -90,7 +87,6 @@ exm:sets
 exr:sets1
 fig:prob-image
 def:unnamed-chunk-222
-def:unnamed-chunk-223
 exm:prob
 exr:prob1
 exm:condprobexm1
@@ -119,8 +115,6 @@ exm:var
 def:unnamed-chunk-240
 def:unnamed-chunk-241
 exr:expvar
-exr:expvar2
-exr:expvar3
 def:unnamed-chunk-242
 exm:unnamed-chunk-243
 def:unnamed-chunk-244

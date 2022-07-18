@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 12 Integral Calculus | UCSD Political Science Math Camp</title>
   <meta name="description" content="Text for UCSD Department of Political Science Math Camp" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 12 Integral Calculus | UCSD Political Science Math Camp" />
   <meta property="og:type" content="book" />
-  
   <meta property="og:image" content="/./images/logo.png" />
   <meta property="og:description" content="Text for UCSD Department of Political Science Math Camp" />
   <meta name="github-repo" content="UCSDPoliMathCamp/MathCamp" />
@@ -50,8 +49,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -241,9 +241,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.1" data-path="simulation.html"><a href="simulation.html#sampling-rows-from-a-dataframe"><i class="fa fa-check"></i><b>5.2.1</b> Sampling rows from a dataframe</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="simulation.html"><a href="simulation.html#random-numbers-from-specific-distributions"><i class="fa fa-check"></i><b>5.3</b> Random numbers from specific distributions</a><ul>
-<li><a href="simulation.html#rbinom"><code>rbinom()</code></a></li>
-<li><a href="simulation.html#runif"><code>runif()</code></a></li>
-<li><a href="simulation.html#rnorm"><code>rnorm()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#rbinom"><i class="fa fa-check"></i><code>rbinom()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#runif"><i class="fa fa-check"></i><code>runif()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#rnorm"><i class="fa fa-check"></i><code>rnorm()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="simulation.html"><a href="simulation.html#r-p-and-d"><i class="fa fa-check"></i><b>5.4</b> r, p, and d</a></li>
 <li class="chapter" data-level="5.5" data-path="simulation.html"><a href="simulation.html#set.seed"><i class="fa fa-check"></i><b>5.5</b> <code>set.seed()</code></a></li>
@@ -412,47 +412,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="integrals" class="section level1">
-<h1><span class="header-section-number">Chapter 12</span> Integral Calculus</h1>
-<div id="the-indefinite-integral" class="section level2">
-<h2><span class="header-section-number">12.1</span> The Indefinite Integral</h2>
+<div id="integrals" class="section level1 hasAnchor">
+<h1><span class="header-section-number">Chapter 12</span> Integral Calculus<a href="integrals.html#integrals" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="the-indefinite-integral" class="section level2 hasAnchor">
+<h2><span class="header-section-number">12.1</span> The Indefinite Integral<a href="integrals.html#the-indefinite-integral" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>So far, we’ve been interested in finding the derivative <span class="math inline">\(f=F&#39;\)</span> of a function <span class="math inline">\(F\)</span>. However, sometimes we’re interested in exactly the reverse: finding the function <span class="math inline">\(F\)</span> for which <span class="math inline">\(f\)</span> is its derivative. We refer to <span class="math inline">\(F\)</span> as the antiderivative of <span class="math inline">\(f\)</span>.</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-199" class="definition"><strong>Definition 12.1  (Antiderivative)  </strong></span>The antiverivative of a function <span class="math inline">\(f(x)\)</span> is a differentiable function <span class="math inline">\(F\)</span> whose derivative is <span class="math inline">\(f\)</span>.</p>
+<p><span id="def:unnamed-chunk-199" class="definition"><strong>Definition 12.1  (Antiderivative) </strong></span>The antiverivative of a function <span class="math inline">\(f(x)\)</span> is a differentiable function <span class="math inline">\(F\)</span> whose derivative is <span class="math inline">\(f\)</span>.</p>
 <p><span class="math display">\[F^\prime = f.\]</span></p>
 </div>
-
 <p>Another way to describe is through the inverse formula. Let <span class="math inline">\(DF\)</span> be the derivative of <span class="math inline">\(F\)</span>. And let <span class="math inline">\(DF(x)\)</span> be the derivative of <span class="math inline">\(F\)</span> evaluated at <span class="math inline">\(x\)</span>. Then the antiderivative is denoted by <span class="math inline">\(D^{-1}\)</span> (i.e., the inverse derivative). If <span class="math inline">\(DF=f\)</span>, then <span class="math inline">\(F=D^{-1}f\)</span>.</p>
 <p>This definition bolsters the main takeaway about integrals and derivatives: They are inverses of each other.</p>
-
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-200" class="exercise"><strong>Exercise 12.1  (Antiderivative)  </strong></span>Find the antiderivative of the following:</p>
+<p><span id="exr:unnamed-chunk-200" class="exercise"><strong>Exercise 12.1  (Antiderivative) </strong></span>Find the antiderivative of the following:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(f(x) = \frac{1}{x^2}\)</span></li>
 <li><span class="math inline">\(f(x) = 3e^{3x}\)</span></li>
 </ol>
 </div>
-
 <p>We know from derivatives how to manipulate <span class="math inline">\(F\)</span> to get <span class="math inline">\(f\)</span>. But how do you express the procedure to manipulate <span class="math inline">\(f\)</span> to get <span class="math inline">\(F\)</span>? For that, we need a new symbol, which we will call indefinite integration.</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-201" class="definition"><strong>Definition 12.2  (Indefinite Integral)  </strong></span>The indefinite integral of <span class="math inline">\(f(x)\)</span> is written</p>
+<p><span id="def:unnamed-chunk-201" class="definition"><strong>Definition 12.2  (Indefinite Integral) </strong></span>The indefinite integral of <span class="math inline">\(f(x)\)</span> is written</p>
 <p><span class="math display">\[\int f(x) dx \]</span></p>
 <p>and is equal to the antiderivative of <span class="math inline">\(f\)</span>.</p>
 </div>
-
-
 <div class="example">
 <p><span id="exm:unnamed-chunk-202" class="example"><strong>Example 12.1  </strong></span>Draw the function <span class="math inline">\(f(x)\)</span> and its indefinite integral, <span class="math inline">\(\int\limits f(x) dx\)</span></p>
 <p><span class="math display">\[f(x) = (x^2-4)\]</span></p>
 </div>
-
-
 <div class="solution">
- <span class="solution"><em>Solution. </em></span> The Indefinite Integral of the function <span class="math inline">\(f(x) = (x^2-4)\)</span> can, for example, be <span class="math inline">\(F(x) = \frac{1}{3}x^3 - 4x.\)</span> But it can also be <span class="math inline">\(F(x) = \frac{1}{3}x^3 - 4x + 1\)</span>, because the constant 1 disappears when taking the derivative.
+<p><span id="unlabeled-div-10" class="solution"><em>Solution</em>. </span>The Indefinite Integral of the function <span class="math inline">\(f(x) = (x^2-4)\)</span> can, for example, be <span class="math inline">\(F(x) = \frac{1}{3}x^3 - 4x.\)</span> But it can also be <span class="math inline">\(F(x) = \frac{1}{3}x^3 - 4x + 1\)</span>, because the constant 1 disappears when taking the derivative.</p>
 </div>
-
 <p>Some of these functions are plotted in the bottom panel of Figure <a href="integrals.html#fig:integralc">12.1</a> as dotted lines.</p>
 <div class="figure"><span style="display:block;" id="fig:integralc"></span>
 <img src="MathCamp_files/figure-html/integralc-1.png" alt="The Many Indefinite Integrals of a Function" width="672" />
@@ -461,33 +451,31 @@ Figure 12.1: The Many Indefinite Integrals of a Function
 </p>
 </div>
 <p>Notice from these examples that while there is only a single derivative for any function, there are multiple antiderivatives: one for any arbitrary constant <span class="math inline">\(c\)</span>. <span class="math inline">\(c\)</span> just shifts the curve up or down on the <span class="math inline">\(y\)</span>-axis. If more information is present about the antiderivative — e.g., that it passes through a particular point — then we can solve for a specific value of <span class="math inline">\(c\)</span>.</p>
-<div id="properties-of-integration" class="section level3 unnumbered">
-<h3>Properties of Integration</h3>
+<div id="properties-of-integration" class="section level3 unnumbered hasAnchor">
+<h3>Properties of Integration<a href="integrals.html#properties-of-integration" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Some useful properties of integrals follow by virtue of being the inverse of a derivative.</p>
 <ol style="list-style-type: decimal">
 <li>Constants are allowed to slip out: <span class="math inline">\(\int a f(x)dx = a\int f(x)dx\)</span></li>
 <li>Integration of the sum is sum of integrations: <span class="math inline">\(\int [f(x)+g(x)]dx=\int f(x)dx + \int g(x)dx\)</span></li>
 <li>Reverse Power-rule: <span class="math inline">\(\int x^n dx = \frac{1}{n+1} x^{n+1} + c\)</span></li>
 <li>Exponents are still exponents: <span class="math inline">\(\int e^x dx = e^x +c\)</span></li>
-<li>Recall the derivative of <span class="math inline">\(\log(x)\)</span> is one over <span class="math inline">\(x\)</span>, and so: <span class="math inline">\(\int \frac{1}{x} dx = \log x + c\)</span></li>
+<li>Recall the derivative of <span class="math inline">\(\ln(x)\)</span> is one over <span class="math inline">\(x\)</span>, and so: <span class="math inline">\(\int \frac{1}{x} dx = \ln x + c\)</span></li>
 <li>Reverse chain-rule: <span class="math inline">\(\int e^{f(x)}f^\prime(x)dx = e^{f(x)}+c\)</span></li>
 <li>More generally: <span class="math inline">\(\int [f(x)]^n f&#39;(x)dx = \frac{1}{n+1}[f(x)]^{n+1}+c\)</span></li>
-<li>Remember the derivative of a log of a function: <span class="math inline">\(\int \frac{f^\prime(x)}{f(x)}dx=\log f(x) + c\)</span></li>
+<li>Remember the derivative of a log of a function: <span class="math inline">\(\int \frac{f^\prime(x)}{f(x)}dx=\ln f(x) + c\)</span></li>
 </ol>
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-204" class="example"><strong>Example 12.2  (Common Integration)  </strong></span>Simplify the following indefinite integrals:</p>
+<p><span id="exm:unnamed-chunk-204" class="example"><strong>Example 12.2  (Common Integration) </strong></span>Simplify the following indefinite integrals:</p>
 <ul>
 <li><span class="math inline">\(\int 3x^2 dx\)</span></li>
 <li><span class="math inline">\(\int (2x+1)dx\)</span></li>
 <li><span class="math inline">\(\int e^x e^{e^x} dx\)</span></li>
 </ul>
 </div>
-
 </div>
 </div>
-<div id="the-definite-integral" class="section level2">
-<h2><span class="header-section-number">12.2</span> The Definite Integral</h2>
+<div id="the-definite-integral" class="section level2 hasAnchor">
+<h2><span class="header-section-number">12.2</span> The Definite Integral<a href="integrals.html#the-definite-integral" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If there is a indefinite integral, there <em>must</em> be a definite integral. Indeed there is, but the notion of definite integrals comes from a different objective: finding the are a under a function. We will find, perhaps remarkably, that the formula we find to get the sum turns out to be expressible by the anti-derivative.</p>
 <p>Suppose we want to determine the area <span class="math inline">\(A(R)\)</span> of a region <span class="math inline">\(R\)</span> defined by a curve <span class="math inline">\(f(x)\)</span> and some interval <span class="math inline">\(a\le x \le b\)</span>.</p>
 <div class="figure"><span style="display:block;" id="fig:defintfig"></span>
@@ -501,47 +489,37 @@ Figure 12.2: The Riemann Integral as a Sum of Evaluations
 <span class="math display">\[A(R)=\lim\limits_{\Delta x\to 0}\sum\limits_{i=1}^n f(x_i)\Delta x\]</span></p>
 <p>Figure <a href="integrals.html#fig:defintfig">12.2</a> shows that illustration. The curve depicted is <span class="math inline">\(f(x) = -15(x - 5) + (x - 5)^3 + 50.\)</span> We want approximate the area under the curve between the <span class="math inline">\(x\)</span> values of 0 and 10. We can do this in blocks of arbitrary width, where the sum of rectangles (the area of which is width times <span class="math inline">\(f(x)\)</span> evaluated at the midpoint of the bar) shows the Riemann Sum. As the width of the bars <span class="math inline">\(\Delta x\)</span> becomes smaller, the better the estimate of <span class="math inline">\(A(R)\)</span>.</p>
 <p>This is how we define the “Definite” Integral:</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-205" class="definition"><strong>Definition 12.3  (The Definite Integral (Riemann))  </strong></span>If for a given function <span class="math inline">\(f\)</span> the Riemann sum approaches a limit as <span class="math inline">\(\Delta x \to 0\)</span>, then that limit is called the Riemann integral of <span class="math inline">\(f\)</span> from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span>. We express this with the <span class="math inline">\(\int\)</span>, symbol, and write <span class="math display">\[\int\limits_a^b f(x) dx= \lim\limits_{\Delta x\to 0} \sum\limits_{i=1}^n f(x_i)\Delta x\]</span></p>
-The most straightforward of a definite integral is the definite integral. That is, we read
-<span class="math display">\[\int\limits_a^b f(x) dx\]</span> as the definite integral of <span class="math inline">\(f\)</span> from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span> and we defined as the area under the “curve” <span class="math inline">\(f(x)\)</span> from point <span class="math inline">\(x=a\)</span> to <span class="math inline">\(x=b\)</span>.
+<p><span id="def:unnamed-chunk-205" class="definition"><strong>Definition 12.3  (The Definite Integral (Riemann)) </strong></span>If for a given function <span class="math inline">\(f\)</span> the Riemann sum approaches a limit as <span class="math inline">\(\Delta x \to 0\)</span>, then that limit is called the Riemann integral of <span class="math inline">\(f\)</span> from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span>. We express this with the <span class="math inline">\(\int\)</span>, symbol, and write <span class="math display">\[\int\limits_a^b f(x) dx= \lim\limits_{\Delta x\to 0} \sum\limits_{i=1}^n f(x_i)\Delta x\]</span></p>
+<p>The most straightforward of a definite integral is the definite integral. That is, we read
+<span class="math display">\[\int\limits_a^b f(x) dx\]</span> as the definite integral of <span class="math inline">\(f\)</span> from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span> and we defined as the area under the “curve” <span class="math inline">\(f(x)\)</span> from point <span class="math inline">\(x=a\)</span> to <span class="math inline">\(x=b\)</span>.</p>
 </div>
-
 <p>The fundamental theorem of calculus shows us that this sum is, in fact, the antiderivative.</p>
-
 <div class="theorem">
-<p><span id="thm:unnamed-chunk-206" class="theorem"><strong>Theorem 12.1  (First Fundamental Theorem of Calculus)  </strong></span>Let the function <span class="math inline">\(f\)</span> be bounded on <span class="math inline">\([a,b]\)</span> and continuous on <span class="math inline">\((a,b)\)</span>. Then, suggestively, use the symbol <span class="math inline">\(F(x)\)</span> to denote the definite integral from <span class="math inline">\(a\)</span> to <span class="math inline">\(x\)</span>:
+<p><span id="thm:unnamed-chunk-206" class="theorem"><strong>Theorem 12.1  (First Fundamental Theorem of Calculus) </strong></span>Let the function <span class="math inline">\(f\)</span> be bounded on <span class="math inline">\([a,b]\)</span> and continuous on <span class="math inline">\((a,b)\)</span>. Then, suggestively, use the symbol <span class="math inline">\(F(x)\)</span> to denote the definite integral from <span class="math inline">\(a\)</span> to <span class="math inline">\(x\)</span>:
 <span class="math display">\[F(x)=\int\limits_a^x f(t)dt, \quad a\le x\le b\]</span></p>
 <p>Then <span class="math inline">\(F(x)\)</span> has a derivative at each point in <span class="math inline">\((a,b)\)</span> and <span class="math display">\[F^\prime(x)=f(x), \quad a&lt;x&lt;b\]</span>
 That is, the definite integral function of <span class="math inline">\(f\)</span> <em>is</em> the one of the antiderivatives of some <span class="math inline">\(f\)</span>.</p>
 </div>
-
 <p>This is again a long way of saying that that differentiation is the inverse of integration. But now, we’ve covered definite integrals.</p>
 <p>The second theorem gives us a simple way of computing a definite integral as a function of indefinite integrals.</p>
-
 <div class="theorem">
-<span id="thm:unnamed-chunk-207" class="theorem"><strong>Theorem 12.2  (Second Fundamental Theorem of Calculus)  </strong></span>Let the function <span class="math inline">\(f\)</span> be bounded on <span class="math inline">\([a,b]\)</span> and continuous on <span class="math inline">\((a,b)\)</span>. Let <span class="math inline">\(F\)</span> be any function that is continuous on <span class="math inline">\([a,b]\)</span> such that <span class="math inline">\(F^\prime(x)=f(x)\)</span> on <span class="math inline">\((a,b)\)</span>. Then <span class="math display">\[\int\limits_a^bf(x)dx = F(b)-F(a)\]</span>
+<p><span id="thm:unnamed-chunk-207" class="theorem"><strong>Theorem 12.2  (Second Fundamental Theorem of Calculus) </strong></span>Let the function <span class="math inline">\(f\)</span> be bounded on <span class="math inline">\([a,b]\)</span> and continuous on <span class="math inline">\((a,b)\)</span>. Let <span class="math inline">\(F\)</span> be any function that is continuous on <span class="math inline">\([a,b]\)</span> such that <span class="math inline">\(F^\prime(x)=f(x)\)</span> on <span class="math inline">\((a,b)\)</span>. Then <span class="math display">\[\int\limits_a^bf(x)dx = F(b)-F(a)\]</span></p>
 </div>
-
 <p>So the procedure to calculate a simple definite integral <span class="math inline">\(\int\limits_a^b f(x)dx\)</span> is then</p>
 <ol style="list-style-type: decimal">
 <li>Find the indefinite integral <span class="math inline">\(F(x)\)</span>.</li>
 <li>Evaluate <span class="math inline">\(F(b)-F(a)\)</span>.</li>
 </ol>
-
 <div class="example">
-<p><span id="exm:defintmon" class="example"><strong>Example 12.3  (Definite Integral of a monomial)  </strong></span>Solve <span class="math inline">\(\int\limits_1^3 3x^2 dx.\)</span></p>
+<p><span id="exm:defintmon" class="example"><strong>Example 12.3  (Definite Integral of a monomial) </strong></span>Solve <span class="math inline">\(\int\limits_1^3 3x^2 dx.\)</span></p>
 <p>Let <span class="math inline">\(f(x) = 3x^2\)</span>.</p>
 </div>
-
-
 <div class="exercise">
-<span id="exr:unnamed-chunk-208" class="exercise"><strong>Exercise 12.2  </strong></span>What is the value of <span class="math inline">\(\int\limits_{-2}^2 e^x e^{e^x} dx\)</span>?
+<p><span id="exr:unnamed-chunk-208" class="exercise"><strong>Exercise 12.2  </strong></span>What is the value of <span class="math inline">\(\int\limits_{-2}^2 e^x e^{e^x} dx\)</span>?</p>
 </div>
-
-<div id="properties-for-definite-integrals" class="section level3 unnumbered">
-<h3>Properties for Definite Integrals</h3>
+<div id="properties-for-definite-integrals" class="section level3 unnumbered hasAnchor">
+<h3>Properties for Definite Integrals<a href="integrals.html#properties-for-definite-integrals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The area-interpretation of the definite integral provides some useful properties for definite integrals</p>
 <ol style="list-style-type: decimal">
 <li>There is no area below a point: <span class="math display">\[\int\limits_a^a f(x)dx=0\]</span></li>
@@ -549,20 +527,18 @@ That is, the definite integral function of <span class="math inline">\(f\)</span
 <li>Sums can be separated into their own integrals: <span class="math display">\[\int\limits_a^b [\alpha f(x)+\beta g(x)]dx = \alpha \int\limits_a^b f(x)dx + \beta \int\limits_a^b g(x)dx\]</span></li>
 <li>Areas can be combined as long as limits are linked: <span class="math display">\[\int\limits_a^b f(x) dx +\int\limits_b^c f(x)dx = \int\limits_a^c f(x)dx\]</span></li>
 </ol>
-
 <div class="exercise">
-<p><span id="exr:unnamed-chunk-209" class="exercise"><strong>Exercise 12.3  (Definite integral shortcuts)  </strong></span>Simplify the following definite intergrals.</p>
+<p><span id="exr:unnamed-chunk-209" class="exercise"><strong>Exercise 12.3  (Definite integral shortcuts) </strong></span>Simplify the following definite intergrals.</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\int\limits_1^1 3x^2 dx =\)</span></li>
 <li><span class="math inline">\(\int\limits_0^4 (2x+1)dx=\)</span></li>
 <li><span class="math inline">\(\int\limits_{-2}^0 e^x e^{e^x} dx + \int\limits_0^2 e^x e^{e^x} dx =\)</span></li>
 </ol>
 </div>
-
 </div>
 </div>
-<div id="integration-by-substitution" class="section level2">
-<h2><span class="header-section-number">12.3</span> Integration by Substitution</h2>
+<div id="integration-by-substitution" class="section level2 hasAnchor">
+<h2><span class="header-section-number">12.3</span> Integration by Substitution<a href="integrals.html#integration-by-substitution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>From the second fundamental theorem of calculus, we now that a quick way to get a definite integral is to first find the indefinite integral, and then just plug in the bounds.</p>
 <p>Sometimes the integrand (the thing that we are trying to take an integral of) doesn’t appear integrable using common rules and antiderivatives. A method one might try is <strong>integration by substitution</strong>, which is related to the Chain Rule.</p>
 <p>Suppose we want to find the indefinite integral <span class="math display">\[\int g(x)dx\]</span> but <span class="math inline">\(g(x)\)</span> is complex and none of the formulas we have seen so far seem to apply immediately. The trick is to come up with a <em>new</em> function <span class="math inline">\(u(x)\)</span> such that <span class="math display">\[g(x)=f[u(x)]u&#39;(x).\]</span></p>
@@ -576,63 +552,50 @@ That is, the definite integral function of <span class="math inline">\(f\)</span
 </ol>
 <p>Substitution can also be used to calculate a definite integral. Using the same procedure as above, <span class="math display">\[\int\limits_a^b g(x)dx=\int\limits_c^d f(u)du = F(d)-F(c)\]</span>
 where <span class="math inline">\(c=u(a)\)</span> and <span class="math inline">\(d=u(b)\)</span>.</p>
-
 <div class="example">
-<p><span id="exm:intsub1" class="example"><strong>Example 12.4  (Integration by Substitution I)  </strong></span>
-Solve the indefinite integral <span class="math display">\[\int x^2 \sqrt{x+1}dx.\]</span></p>
+<p><span id="exm:intsub1" class="example"><strong>Example 12.4  (Integration by Substitution I) </strong></span>Solve the indefinite integral <span class="math display">\[\int x^2 \sqrt{x+1}dx.\]</span></p>
 </div>
-
 <p>For the above problem, we could have also used the substitution <span class="math inline">\(u=\sqrt{x+1}\)</span>. Then <span class="math inline">\(x=u^2-1\)</span> and <span class="math inline">\(dx=2u du\)</span>. Substituting these in, we get <span class="math display">\[\int x^2\sqrt{x+1}dx=\int (u^2-1)^2 u 2u du\]</span> which when expanded is again a polynomial and gives the same result as above.</p>
 <p>Another case in which integration by substitution is is useful is with a fraction.</p>
-
 <div class="example">
-<span id="exm:intsub2" class="example"><strong>Example 12.5  (Integration by Substitutiton II)  </strong></span>Simplify <span class="math display">\[\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx.\]</span>
+<p><span id="exm:intsub2" class="example"><strong>Example 12.5  (Integration by Substitutiton II) </strong></span>Simplify <span class="math display">\[\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx.\]</span></p>
 </div>
-
 </div>
-<div id="integration-by-parts" class="section level2">
-<h2><span class="header-section-number">12.4</span> Integration by Parts</h2>
+<div id="integration-by-parts" class="section level2 hasAnchor">
+<h2><span class="header-section-number">12.4</span> Integration by Parts<a href="integrals.html#integration-by-parts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Another useful integration technique is <strong>integration by parts</strong>, which is related to the Product Rule of differentiation. The product rule states that <span class="math display">\[\frac{d}{dx}(uv)=u\frac{dv}{dx}+v\frac{du}{dx}\]</span> Integrating this and rearranging, we get <span class="math display">\[\int u\frac{dv}{dx}dx= u v - \int v \frac{du}{dx}dx\]</span> or <span class="math display">\[\int u(x) v&#39;(x)dx=u(x)v(x) - \int v(x)u&#39;(x)dx\]</span></p>
 <p>More easily remembered with the mnemonic “Ultraviolet Voodoo”: <span class="math display">\[\int u dv = u v - \int v du\]</span> where <span class="math inline">\(du=u&#39;(x)dx\)</span> and <span class="math inline">\(dv=v&#39;(x)dx\)</span>.</p>
 <p>For definite integrals, this is simply
 <span class="math display">\[\int\limits_a^b u\frac{dv}{dx}dx = \left. u v \right|_a^b - \int\limits_a^b v \frac{du}{dx}dx\]</span></p>
 <p>Our goal here is to find expressions for <span class="math inline">\(u\)</span> and <span class="math inline">\(dv\)</span> that, when substituted into the above equation, yield an expression that’s more easily evaluated.</p>
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-210" class="example"><strong>Example 12.6  (Integration by Parts)  </strong></span>Simplify the following integrals. These seemingly obscure forms of integrals come up often when integrating distributions.</p>
-<span class="math display">\[\int x e^{ax} dx\]</span>
+<p><span id="exm:unnamed-chunk-210" class="example"><strong>Example 12.6  (Integration by Parts) </strong></span>Simplify the following integrals. These seemingly obscure forms of integrals come up often when integrating distributions.</p>
+<p><span class="math display">\[\int x e^{ax} dx\]</span></p>
 </div>
-
-
 <div class="solution">
- <span class="solution"><em>Solution. </em></span> 
-Let <span class="math inline">\(u=x\)</span> and <span class="math inline">\(\frac{dv}{dx} = e^{ax}\)</span>. Then <span class="math inline">\(du=dx\)</span> and <span class="math inline">\(v=(1/a)e^{ax}\)</span>. Substituting this into the integration by parts formula, we obtain<br />
+<p><span id="unlabeled-div-11" class="solution"><em>Solution</em>. </span>Let <span class="math inline">\(u=x\)</span> and <span class="math inline">\(\frac{dv}{dx} = e^{ax}\)</span>. Then <span class="math inline">\(du=dx\)</span> and <span class="math inline">\(v=(1/a)e^{ax}\)</span>. Substituting this into the integration by parts formula, we obtain<br />
 <span class="math display">\[\begin{eqnarray}
 \int x e^{ax} dx &amp;=&amp; u v - \int v du\nonumber\\
                 &amp;=&amp;x\left( \frac{1}{a}e^{ax}\right) -\int\frac{1}{a}e^{ax}dx\nonumber\\
                 &amp;=&amp;\frac{1}{a}xe^{ax}-\frac{1}{a^2}e^{ax}+c\nonumber
-\end{eqnarray}\]</span>
+\end{eqnarray}\]</span></p>
 </div>
-
-
 <div class="exercise">
-<p><span id="exr:intparts-adv" class="exercise"><strong>Exercise 12.4  (Integration by Parts II)  </strong></span>
-1. Integrate
-<span class="math display">\[\int x^n e^{ax} dx\]</span></p>
-<ol start="2" style="list-style-type: decimal">
-<li>Integrate
-<span class="math display">\[\int x^3 e^{-x^2} dx\]</span></li>
+<ol style="list-style-type: decimal">
+<li></li>
+<li><p>Integrate
+<span class="math display">\[\int x^n e^{ax} dx\]</span></p></li>
+<li><p>Integrate
+<span class="math display">\[\int x^3 e^{-x^2} dx\]</span></p></li>
 </ol>
 </div>
-
 </div>
-<div id="answers-to-examples-and-exercises-2" class="section level2 unnumbered">
-<h2>Answers to Examples and Exercises</h2>
+<div id="answers-to-examples-and-exercises-2" class="section level2 unnumbered hasAnchor">
+<h2>Answers to Examples and Exercises<a href="integrals.html#answers-to-examples-and-exercises-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Exercise <a href="derivatives.html#exr:introderivatives">10.1</a></p>
-
 <div class="solution">
-<p> <span class="solution"><em>Solution. </em></span> </p>
 <ol style="list-style-type: decimal">
+<li></li>
 <li><span class="math inline">\(f^\prime(x)= 0\)</span></li>
 <li><span class="math inline">\(f^\prime(x)= 1\)</span></li>
 <li><span class="math inline">\(f^\prime(x)= 2x^3\)</span></li>
@@ -645,55 +608,45 @@ Let <span class="math inline">\(u=x\)</span> and <span class="math inline">\(\fr
 <li><span class="math inline">\(f\prime(x)= \frac{-4x}{x^4 - 2x^2 + 1}\)</span></li>
 </ol>
 </div>
-
 <p>Example <a href="derivatives.html#exm:tothesix">10.3</a></p>
-
 <div class="solution">
-<p> <span class="solution"><em>Solution. </em></span> For convenience, define <span class="math inline">\(f(z) = z^6\)</span> and <span class="math inline">\(z = g(x) = 3x^2+5x-7\)</span>. Then, <span class="math inline">\(y=f[g(x)]\)</span> and</p>
-<span class="math display">\[\begin{align*}
+<p><span id="unlabeled-div-13" class="solution"><em>Solution</em>. </span>For convenience, define <span class="math inline">\(f(z) = z^6\)</span> and <span class="math inline">\(z = g(x) = 3x^2+5x-7\)</span>. Then, <span class="math inline">\(y=f[g(x)]\)</span> and</p>
+<p><span class="math display">\[\begin{align*}
 \frac{d}{dx}y&amp;= f^\prime(z) g^\prime(x) \\
 &amp;= 6(3x^2+5x-7)^5 (6x + 5)
-\end{align*}\]</span>
+\end{align*}\]</span></p>
 </div>
-
 <p>Example <a href="derivatives.html#exm:exmderivexp">10.4</a></p>
-
 <div class="solution">
-<p> <span class="solution"><em>Solution. </em></span> </p>
 <ol style="list-style-type: decimal">
+<li></li>
 <li>Let <span class="math inline">\(u(x)=-3x\)</span>. Then <span class="math inline">\(u^\prime(x)=-3\)</span> and <span class="math inline">\(f^\prime(x)=-3e^{-3x}\)</span>.</li>
 <li>Let <span class="math inline">\(u(x)=x^2\)</span>. Then <span class="math inline">\(u^\prime(x)=2x\)</span> and <span class="math inline">\(f^\prime(x)=2xe^{x^2}\)</span>.</li>
 </ol>
 </div>
-
 <p>Example <a href="derivatives.html#exm:exmderivlog">10.5</a></p>
-
 <div class="solution">
-<p> <span class="solution"><em>Solution. </em></span> </p>
 <ol style="list-style-type: decimal">
+<li></li>
 <li>Let <span class="math inline">\(u(x)=x^2+9\)</span>. Then <span class="math inline">\(u^\prime(x)=2x\)</span> and <span class="math display">\[\frac{dy}{dx}= \frac{u^\prime(x)}{u(x)} = \frac{2x}{(x^2+9)}\]</span></li>
-<li>Let <span class="math inline">\(u(x)=\log x\)</span>. Then <span class="math inline">\(u^\prime(x)=1/x\)</span> and <span class="math inline">\(\frac{dy}{dx} = \frac{1}{(x\log x)}\)</span>.</li>
-<li>Use the generalized power rule. <span class="math display">\[\frac{dy}{dx} = \frac{(2 \log x)}{x}\]</span></li>
-<li>We know that <span class="math inline">\(\log e^x=x\)</span> and that <span class="math inline">\(dx/dx=1\)</span>, but we can double check. Let <span class="math inline">\(u(x)=e^x\)</span>. Then <span class="math inline">\(u^\prime(x)=e^x\)</span> and <span class="math inline">\(\frac{dy}{dx} = \frac{u^\prime(x)}{u(x)} = \frac{e^x}{e^x} = 1.\)</span></li>
+<li>Let <span class="math inline">\(u(x)=\ln x\)</span>. Then <span class="math inline">\(u^\prime(x)=1/x\)</span> and <span class="math inline">\(\frac{dy}{dx} = \frac{1}{(x\ln x)}\)</span>.</li>
+<li>Use the generalized power rule. <span class="math display">\[\frac{dy}{dx} = \frac{(2 \ln x)}{x}\]</span></li>
+<li>We know that <span class="math inline">\(\ln e^x=x\)</span> and that <span class="math inline">\(dx/dx=1\)</span>, but we can double check. Let <span class="math inline">\(u(x)=e^x\)</span>. Then <span class="math inline">\(u^\prime(x)=e^x\)</span> and <span class="math inline">\(\frac{dy}{dx} = \frac{u^\prime(x)}{u(x)} = \frac{e^x}{e^x} = 1.\)</span></li>
 </ol>
 </div>
-
 <p>Example <a href="integrals.html#exm:defintmon">12.3</a></p>
-
 <div class="solution">
-<p> <span class="solution"><em>Solution. </em></span> What is <span class="math inline">\(F(x)\)</span>? From the power rule, recognize <span class="math inline">\(\frac{d}{dx}x^3 = 3x^2\)</span> so</p>
-<span class="math display">\[\begin{align*}
+<p><span id="unlabeled-div-16" class="solution"><em>Solution</em>. </span>What is <span class="math inline">\(F(x)\)</span>? From the power rule, recognize <span class="math inline">\(\frac{d}{dx}x^3 = 3x^2\)</span> so</p>
+<p><span class="math display">\[\begin{align*}
 F(x) &amp;= x^3\\
 \int\limits_1^3 f(x) dx &amp;= F(x = 3) - F(x  - 1)\\
 &amp;= 3^3 - 1^3\\
 &amp;=26
-\end{align*}\]</span>
+\end{align*}\]</span></p>
 </div>
-
-Example <a href="integrals.html#exm:intsub1">12.4</a>
-
-<div class="solution">
-<p> <span class="solution"><em>Solution. </em></span> The problem here is the <span class="math inline">\(\sqrt{x+1}\)</span> term. However, if the integrand had <span class="math inline">\(\sqrt{x}\)</span> times some polynomial, then we’d be in business. Let’s try <span class="math inline">\(u=x+1\)</span>. Then <span class="math inline">\(x=u-1\)</span> and <span class="math inline">\(dx=du\)</span>. Substituting these into the above equation, we get</p>
+<p>Example <a href="integrals.html#exm:intsub1">12.4</a>
+::: {.solution}
+The problem here is the <span class="math inline">\(\sqrt{x+1}\)</span> term. However, if the integrand had <span class="math inline">\(\sqrt{x}\)</span> times some polynomial, then we’d be in business. Let’s try <span class="math inline">\(u=x+1\)</span>. Then <span class="math inline">\(x=u-1\)</span> and <span class="math inline">\(dx=du\)</span>. Substituting these into the above equation, we get</p>
 <p><span class="math display">\[\begin{align*}
             \int x^2\sqrt{x+1}dx&amp;= \int (u-1)^2\sqrt{u}du\\
             &amp;= \int (u^2-2u+1)u^{1/2}du\\
@@ -701,12 +654,10 @@ Example <a href="integrals.html#exm:intsub1">12.4</a>
 \end{align*}\]</span></p>
 <p>We can easily integrate this, since it is just a polynomial. Doing so and substituting <span class="math inline">\(u=x+1\)</span> back in, we get <span class="math display">\[\int x^2\sqrt{x+1}dx=2(x+1)^{3/2}\left[\frac{1}{7}(x+1)^2 -
 \frac{2}{5}(x+1)+\frac{1}{3}\right]+c\]</span></p>
-</div>
-
-Example <a href="integrals.html#exm:intsub2">12.5</a>
-
-<div class="solution">
-<p> <span class="solution"><em>Solution. </em></span> When an expression is raised to a power, it is often helpful to use this expression as the basis for a substitution. So, let <span class="math inline">\(u=1+e^{2x}\)</span>. Then <span class="math inline">\(du=2e^{2x}dx\)</span> and we can set <span class="math inline">\(5e^{2x}dx=5du/2\)</span>. Additionally, <span class="math inline">\(u=2\)</span> when <span class="math inline">\(x=0\)</span> and <span class="math inline">\(u=1+e^2\)</span> when <span class="math inline">\(x=1\)</span>. Substituting all of this in, we get</p>
+<p>:::</p>
+<p>Example <a href="integrals.html#exm:intsub2">12.5</a>
+::: {.solution}
+When an expression is raised to a power, it is often helpful to use this expression as the basis for a substitution. So, let <span class="math inline">\(u=1+e^{2x}\)</span>. Then <span class="math inline">\(du=2e^{2x}dx\)</span> and we can set <span class="math inline">\(5e^{2x}dx=5du/2\)</span>. Additionally, <span class="math inline">\(u=2\)</span> when <span class="math inline">\(x=0\)</span> and <span class="math inline">\(u=1+e^2\)</span> when <span class="math inline">\(x=1\)</span>. Substituting all of this in, we get</p>
 <p><span class="math display">\[\begin{align*}
 \int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx
             &amp;= \frac{5}{2}\int\limits_2^{1+e^2}\frac{du}{u^{1/3}}\\
@@ -714,14 +665,11 @@ Example <a href="integrals.html#exm:intsub2">12.5</a>
             &amp;= \left. \frac{15}{4} u^{2/3} \right|_2^{1+e^2}\\
             &amp;= 9.53
 \end{align*}\]</span></p>
-</div>
-
-<p>Exercise <a href="integrals.html#exr:intparts-adv">12.4</a></p>
-1. <span class="math display">\[\int x^n e^{ax} dx\]</span>
-
-<div class="solution">
-<p> <span class="solution"><em>Solution. </em></span> 
-As in the first problem, let
+<p>:::</p>
+<p>Exercise <a href="#exr:intparts-adv"><strong>??</strong></a></p>
+<p>1. <span class="math display">\[\int x^n e^{ax} dx\]</span>
+::: {.solution}</p>
+<p>As in the first problem, let
 <span class="math display">\[u=x^n, dv=e^{ax}dx\]</span>
 Then <span class="math inline">\(du=n x^{n-1}dx\)</span> and <span class="math inline">\(v=(1/a)e^{ax}\)</span>.</p>
 <p>Substituting these into the integration by parts formula gives
@@ -731,13 +679,11 @@ Then <span class="math inline">\(du=n x^{n-1}dx\)</span> and <span class="math i
             &amp;=&amp;\frac{1}{a}x^n e^{ax} - \frac{n}{a}\int x^{n-1}e^{ax}dx\nonumber
 \end{eqnarray}\]</span></p>
 <p>Notice that we now have an integral similar to the previous one, but with <span class="math inline">\(x^{n-1}\)</span> instead of <span class="math inline">\(x^n\)</span>.</p>
-For a given <span class="math inline">\(n\)</span>, we would repeat the integration by parts procedure until the integrand was directly integratable — e.g., when the integral became <span class="math inline">\(\int e^{ax}dx\)</span>.
-</div>
-
+<p>For a given <span class="math inline">\(n\)</span>, we would repeat the integration by parts procedure until the integrand was directly integratable — e.g., when the integral became <span class="math inline">\(\int e^{ax}dx\)</span>.
+:::</p>
 <p>2. <span class="math display">\[\int x^3 e^{-x^2} dx\]</span></p>
-
 <div class="solution">
-<p> <span class="solution"><em>Solution. </em></span> We could, as before, choose <span class="math inline">\(u=x^3\)</span> and <span class="math inline">\(dv=e^{-x^2}dx\)</span>. But we can’t then find <span class="math inline">\(v\)</span> — i.e., integrating <span class="math inline">\(e^{-x^2}dx\)</span> isn’t possible. Instead, notice that <span class="math display">\[\frac{d}{dx}e^{-x^2} = -2xe^{-x^2},\]</span> which can be factored out of the original integrand <span class="math display">\[\int x^3 e^{-x^2} dx = \int x^2 (xe^{-x^2})dx.\]</span></p>
+<p><span id="unlabeled-div-17" class="solution"><em>Solution</em>. </span>We could, as before, choose <span class="math inline">\(u=x^3\)</span> and <span class="math inline">\(dv=e^{-x^2}dx\)</span>. But we can’t then find <span class="math inline">\(v\)</span> — i.e., integrating <span class="math inline">\(e^{-x^2}dx\)</span> isn’t possible. Instead, notice that <span class="math display">\[\frac{d}{dx}e^{-x^2} = -2xe^{-x^2},\]</span> which can be factored out of the original integrand <span class="math display">\[\int x^3 e^{-x^2} dx = \int x^2 (xe^{-x^2})dx.\]</span></p>
 <p>We can then let <span class="math inline">\(u=x^2\)</span> and <span class="math inline">\(dv=x e^{-x^2}dx\)</span>. The<span class="math inline">\(du=2x dx\)</span> and <span class="math inline">\(v=-\frac{1}{2}e^{-x^2}\)</span>. Substituting these in, we have
 <span class="math display">\[\begin{eqnarray}
                 \int x^3 e^{-x^2} dx &amp;=&amp; u v - \int v du\nonumber\\
@@ -746,7 +692,6 @@ For a given <span class="math inline">\(n\)</span>, we would repeat the integrat
                 &amp;=&amp; -\frac{1}{2}x^2 e^{-x^2}-\frac{1}{2}e^{-x^2}+c\nonumber
 \end{eqnarray}\]</span></p>
 </div>
-
 
 </div>
 </div>

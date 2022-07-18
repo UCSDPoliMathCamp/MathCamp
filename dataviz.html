@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 Visualization | UCSD Political Science Math Camp</title>
   <meta name="description" content="Text for UCSD Department of Political Science Math Camp" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Visualization | UCSD Political Science Math Camp" />
   <meta property="og:type" content="book" />
-  
   <meta property="og:image" content="/./images/logo.png" />
   <meta property="og:description" content="Text for UCSD Department of Political Science Math Camp" />
   <meta name="github-repo" content="UCSDPoliMathCamp/MathCamp" />
@@ -50,8 +49,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -241,9 +241,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.1" data-path="simulation.html"><a href="simulation.html#sampling-rows-from-a-dataframe"><i class="fa fa-check"></i><b>5.2.1</b> Sampling rows from a dataframe</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="simulation.html"><a href="simulation.html#random-numbers-from-specific-distributions"><i class="fa fa-check"></i><b>5.3</b> Random numbers from specific distributions</a><ul>
-<li><a href="simulation.html#rbinom"><code>rbinom()</code></a></li>
-<li><a href="simulation.html#runif"><code>runif()</code></a></li>
-<li><a href="simulation.html#rnorm"><code>rnorm()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#rbinom"><i class="fa fa-check"></i><code>rbinom()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#runif"><i class="fa fa-check"></i><code>runif()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#rnorm"><i class="fa fa-check"></i><code>rnorm()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="simulation.html"><a href="simulation.html#r-p-and-d"><i class="fa fa-check"></i><b>5.4</b> r, p, and d</a></li>
 <li class="chapter" data-level="5.5" data-path="simulation.html"><a href="simulation.html#set.seed"><i class="fa fa-check"></i><b>5.5</b> <code>set.seed()</code></a></li>
@@ -412,17 +412,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="dataviz" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Visualization</h1>
+<div id="dataviz" class="section level1 hasAnchor">
+<h1><span class="header-section-number">Chapter 4</span> Visualization<a href="dataviz.html#dataviz" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Please complete the R visualization primers at: <a href="https://rstudio.cloud/learn/primers" class="uri">https://rstudio.cloud/learn/primers</a></p>
-<div id="motivation-the-law-of-the-census" class="section level3 unnumbered">
-<h3>Motivation: The Law of the Census</h3>
+<div id="motivation-the-law-of-the-census" class="section level3 unnumbered hasAnchor">
+<h3>Motivation: The Law of the Census<a href="dataviz.html#motivation-the-law-of-the-census" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In this module, let’s visualize some cross-sectional stats with an actual Census. Then, we’ll do an example on time trends with Supreme Court ideal points.</p>
 <p>Why care about the Census? The Census is one of the fundamental acts of a government. See the Law Review article by <a href="http://cardozolawreview.com/Joomla1.5/content/32-3/Persily.32-3.pdf">Persily (2011)</a>, “The Law of the Census.”<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> The Census is government’s primary tool for apportionment (allocating seats to districts), appropriations (allocating federal funding), and tracking demographic change. See for example <a href="https://dash.harvard.edu/bitstream/handle/1/3153295/hoschschild_racialreorganization.pdf?sequence=2">Hochschild and Powell (2008)</a> on how the categorizations of race in the Census during 1850-1930.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> Notice also that both of these pieces are not inherently “quantitative” — the Persily article is a Law Review and the Hochschild and Powell article is on American Historical Development — but data analysis would be certainly relevant.</p>
 <p>Time series data is a common form of data in social science data, and there is growing methodological work on making causal inferences with time series.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> We will use the the ideological estimates of the Supreme court.</p>
 </div>
-<div id="where-are-we-where-are-we-headed-1" class="section level3 unnumbered">
-<h3>Where are we? Where are we headed?</h3>
+<div id="where-are-we-where-are-we-headed-1" class="section level3 unnumbered hasAnchor">
+<h3>Where are we? Where are we headed?<a href="dataviz.html#where-are-we-where-are-we-headed-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Up till now, you should have covered:</p>
 <ul>
 <li>The R Visualization and Programming primers at <a href="https://rstudio.cloud/primers/" class="uri">https://rstudio.cloud/primers/</a></li>
@@ -439,8 +439,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>A bit of data wrangling</li>
 </ul>
 </div>
-<div id="check-your-understanding-1" class="section level3 unnumbered">
-<h3>Check your understanding</h3>
+<div id="check-your-understanding-1" class="section level3 unnumbered hasAnchor">
+<h3>Check your understanding<a href="dataviz.html#check-your-understanding-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>How do you make a barplot, in base-R and in ggplot?</li>
 <li>How do you add layers to a ggplot?</li>
@@ -453,14 +453,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="caption">By Randy Schutt - Own work, CC BY-SA 3.0, <a href="https://commons.wikimedia.org/w/index.php?curid=29585342">Wikimedia.</a></p>
 </div>
 </div>
-<div id="read-data-1" class="section level2">
-<h2><span class="header-section-number">4.1</span> Read data</h2>
+<div id="read-data-1" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.1</span> Read data<a href="dataviz.html#read-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>First, the census. Read in a subset of the 2010 Census that we looked at earlier. This time, it is in Rds form.</p>
 <div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="dataviz.html#cb117-1"></a>cen10 &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;data/input/usc2010_001percent.Rds&quot;</span>)</span></code></pre></div>
 <p>The data comes from IPUMS<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>, a great source to extract and analyze Census and Census-conducted survey (ACS, CPS) data.</p>
 </div>
-<div id="counting" class="section level2">
-<h2><span class="header-section-number">4.2</span> Counting</h2>
+<div id="counting" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.2</span> Counting<a href="dataviz.html#counting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>How many people are in your sample?</p>
 <div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="dataviz.html#cb118-1"></a><span class="kw">nrow</span>(cen10)</span></code></pre></div>
 <pre><code>## [1] 30871</code></pre>
@@ -474,8 +474,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>In this visualization section, we’ll make use of the pair of functions <code>group_by()</code> and <code>summarize()</code>.</p>
 </div>
-<div id="tabulating" class="section level2">
-<h2><span class="header-section-number">4.3</span> Tabulating</h2>
+<div id="tabulating" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.3</span> Tabulating<a href="dataviz.html#tabulating" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Summarizing data is the key part of communication; good data viz gets the point across.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> Summaries of data come in two forms: tables and figures.</p>
 <p>Here are two ways to count by group, or to tabulate.</p>
 <p>In base-R Use the <code>table</code> function, that provides how many rows exist for an unique value of the vector (remember <code>unique</code> from yesterday?)</p>
@@ -538,18 +538,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If you are new to tidyverse, what would you <em>think</em> each row did? Reading the function help page, verify if your intuition was correct.</p>
 <p>where <code>n()</code> is a function that counts rows.</p>
 </div>
-<div id="base-r-graphics-and-ggplot" class="section level2">
-<h2><span class="header-section-number">4.4</span> base R graphics and ggplot</h2>
+<div id="base-r-graphics-and-ggplot" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.4</span> base R graphics and ggplot<a href="dataviz.html#base-r-graphics-and-ggplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Two prevalent ways of making graphing are referred to as “base-R” and “ggplot”.</p>
-<div id="base-r" class="section level3">
-<h3><span class="header-section-number">4.4.1</span> base R</h3>
+<div id="base-r" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.4.1</span> base R<a href="dataviz.html#base-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>“Base-R” graphics are graphics that are made with R’s default graphics commands. First, let’s assign our tabulation to an object,
 then put it in the <code>barplot()</code> function.</p>
 <div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="dataviz.html#cb128-1"></a><span class="kw">barplot</span>(<span class="kw">table</span>(cen10<span class="op">$</span>race))</span></code></pre></div>
 <p><img src="MathCamp_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
 </div>
-<div id="ggplot" class="section level3">
-<h3><span class="header-section-number">4.4.2</span> ggplot</h3>
+<div id="ggplot" class="section level3 hasAnchor">
+<h3><span class="header-section-number">4.4.2</span> ggplot<a href="dataviz.html#ggplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A popular alternative a <code>ggplot</code> graphics, that you were introduced to in the tutorial. <code>gg</code> stands for grammar of graphics by Hadley Wickham, and it has a new semantics of explaining graphics in R. Again, first let’s set up the data.</p>
 <p>Although the tutorial covered making scatter plots as the first cut, often data requires summaries before they made into graphs.</p>
 <p>For this example, let’s group and count first like we just did. But assign it to a new object.</p>
@@ -565,8 +565,8 @@ then put it in the <code>barplot()</code> function.</p>
 <p><img src="MathCamp_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
 </div>
 </div>
-<div id="improving-your-graphics" class="section level2">
-<h2><span class="header-section-number">4.5</span> Improving your graphics</h2>
+<div id="improving-your-graphics" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.5</span> Improving your graphics<a href="dataviz.html#improving-your-graphics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Adjusting your graphics to make the point clear is an important skill. Here is a base-R example of showing the same numbers but with a different design, in a way that aims to maximize the “data-to-ink ratio”.</p>
 <div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="dataviz.html#cb131-1"></a><span class="kw">par</span>(<span class="dt">oma =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">11</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
 <span id="cb131-2"><a href="dataviz.html#cb131-2"></a><span class="kw">barplot</span>(<span class="kw">sort</span>(<span class="kw">table</span>(cen10<span class="op">$</span>race)), <span class="co"># sort numbers</span></span>
@@ -592,8 +592,8 @@ then put it in the <code>barplot()</code> function.</p>
 <p><img src="MathCamp_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
 <p>The data ink ratio was popularized by Ed Tufte (originally a political economy scholar who has recently become well known for his data visualization work). See Tufte (2001), <em>The Visual Display of Quantitative Information</em> and his website <a href="https://www.edwardtufte.com/tufte/" class="uri">https://www.edwardtufte.com/tufte/</a>. For a R and ggplot focused example using social science examples, check out Healy (2018), <em>Data Visualization: A Practical Introduction</em> with a draft at <a href="https://socviz.co/" class="uri">https://socviz.co/</a><a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>. There are a growing number of excellent books on data visualization.</p>
 </div>
-<div id="cross-tabs" class="section level2">
-<h2><span class="header-section-number">4.6</span> Cross-tabs</h2>
+<div id="cross-tabs" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.6</span> Cross-tabs<a href="dataviz.html#cross-tabs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Visualizations and Tables each have their strengths. A rule of thumb is that more than a dozen numbers on a table is too much to digest, but less than a dozen is too few for a figure to be worth it. Let’s look at a table first.</p>
 <p>A cross-tab is counting with two types of variables, and is a simple and powerful tool to show the relationship between multiple variables.</p>
 <div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="dataviz.html#cb133-1"></a>xtab_race_state &lt;-<span class="st"> </span><span class="kw">table</span>(cen10<span class="op">$</span>state, cen10<span class="op">$</span>race)</span>
@@ -764,8 +764,8 @@ then put it in the <code>barplot()</code> function.</p>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="dataviz.html#cb136-1"></a>ptab_race_state &lt;-<span class="st"> </span><span class="kw">prop.table</span>(xtab_race_state, <span class="dt">margin =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p>Check out each of these table objects in your console and familiarize yourself with the difference.</p>
 </div>
-<div id="composition-plots" class="section level2">
-<h2><span class="header-section-number">4.7</span> Composition Plots</h2>
+<div id="composition-plots" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.7</span> Composition Plots<a href="dataviz.html#composition-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>How would you make the same figure with <code>ggplot()</code>? First, we want a count for each state <span class="math inline">\(\times\)</span> race combination. So group by those two factors and count how many observations are in each two-way categorization. <code>group_by()</code> can take any number of variables, separated by commas.</p>
 <div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="dataviz.html#cb137-1"></a>grp_race_state &lt;-<span class="st"> </span>cen10 <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb137-2"><a href="dataviz.html#cb137-2"></a><span class="st">  </span><span class="kw">count</span>(race, state)</span></code></pre></div>
@@ -784,8 +784,8 @@ then put it in the <code>barplot()</code> function.</p>
 <span id="cb139-9"><a href="dataviz.html#cb139-9"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
 <p><img src="MathCamp_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
 </div>
-<div id="line-graphs" class="section level2">
-<h2><span class="header-section-number">4.8</span> Line graphs</h2>
+<div id="line-graphs" class="section level2 hasAnchor">
+<h2><span class="header-section-number">4.8</span> Line graphs<a href="dataviz.html#line-graphs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Line graphs are useful for plotting time trends.</p>
 <p>The Census does not track individuals over time. So let’s take up another example: The U.S. Supreme Court. Take the dataset <code>justices_court-median.csv</code>.</p>
 <p>This data is adapted from the estimates of Martin and Quinn on their website <a href="http://mqscores.lsa.umich.edu/" class="uri">http://mqscores.lsa.umich.edu/</a>.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></p>
@@ -805,7 +805,8 @@ then put it in the <code>barplot()</code> function.</p>
 ##  8  1937         77 Cardozo     -1.59       0.634         -0.568 Brandeis      
 ##  9  1937         78 Black       -2.90       0.334         -0.568 Brandeis      
 ## 10  1937         79 Reed        -1.06       0.342         -0.568 Brandeis      
-## # … with 736 more rows</code></pre>
+## # … with 736 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <p>As you might have guessed, these data can be shown in a time trend from the range of the <code>term</code> variable. As there are only nine justices at any given time and justices have life tenure, there times on the court are staggered. With a common measure of “preference”, we can plot time trends of these justices ideal points on the same y-axis scale.</p>
 <div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="dataviz.html#cb143-1"></a><span class="kw">ggplot</span>(justice, <span class="kw">aes</span>(<span class="dt">x =</span> term, <span class="dt">y =</span> idealpt)) <span class="op">+</span></span>
 <span id="cb143-2"><a href="dataviz.html#cb143-2"></a><span class="st">  </span><span class="kw">geom_line</span>()</span></code></pre></div>

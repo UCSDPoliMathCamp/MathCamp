@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 13 Probability Theory | UCSD Political Science Math Camp</title>
   <meta name="description" content="Text for UCSD Department of Political Science Math Camp" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 13 Probability Theory | UCSD Political Science Math Camp" />
   <meta property="og:type" content="book" />
-  
   <meta property="og:image" content="/./images/logo.png" />
   <meta property="og:description" content="Text for UCSD Department of Political Science Math Camp" />
   <meta name="github-repo" content="UCSDPoliMathCamp/MathCamp" />
@@ -50,8 +49,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -241,9 +241,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.1" data-path="simulation.html"><a href="simulation.html#sampling-rows-from-a-dataframe"><i class="fa fa-check"></i><b>5.2.1</b> Sampling rows from a dataframe</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="simulation.html"><a href="simulation.html#random-numbers-from-specific-distributions"><i class="fa fa-check"></i><b>5.3</b> Random numbers from specific distributions</a><ul>
-<li><a href="simulation.html#rbinom"><code>rbinom()</code></a></li>
-<li><a href="simulation.html#runif"><code>runif()</code></a></li>
-<li><a href="simulation.html#rnorm"><code>rnorm()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#rbinom"><i class="fa fa-check"></i><code>rbinom()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#runif"><i class="fa fa-check"></i><code>runif()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#rnorm"><i class="fa fa-check"></i><code>rnorm()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="simulation.html"><a href="simulation.html#r-p-and-d"><i class="fa fa-check"></i><b>5.4</b> r, p, and d</a></li>
 <li class="chapter" data-level="5.5" data-path="simulation.html"><a href="simulation.html#set.seed"><i class="fa fa-check"></i><b>5.5</b> <code>set.seed()</code></a></li>
@@ -412,17 +412,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="probability-theory" class="section level1">
-<h1><span class="header-section-number">Chapter 13</span> Probability Theory</h1>
+<div id="probability-theory" class="section level1 hasAnchor">
+<h1><span class="header-section-number">Chapter 13</span> Probability Theory<a href="probability-theory.html#probability-theory" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Probability and Inferences are mirror images of each other, and both are integral to social science. Probability quantifies uncertainty, which is important because many things in the social world are at first uncertain. Inference is then the study of how to learn about facts you don’t observe from facts you do observe.</p>
-<div id="counting-rules" class="section level2">
-<h2><span class="header-section-number">13.1</span> Counting Rules</h2>
+<div id="counting-rules" class="section level2 hasAnchor">
+<h2><span class="header-section-number">13.1</span> Counting Rules<a href="probability-theory.html#counting-rules" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Probability in high school is usually really about combinatorics: the probability of event <em>A</em> is the number of ways in which <em>A</em> can occur divided by the number of all other possibilities. This is a very simplified version of probability, which we can call the “counting definition of probability”, essentially because each possible event to count is often equally likely and discrete. But it is still good to review the underlying rules here.</p>
 <p><strong>Fundamental Theorem of Counting</strong>: If an object has <span class="math inline">\(j\)</span> different characteristics that are independent of each other, and each characteristic <span class="math inline">\(i\)</span> has <span class="math inline">\(n_i\)</span> ways of being expressed, then there are <span class="math inline">\(\prod_{i = 1}^j n_i\)</span> possible unique objects.</p>
-
 <div class="example">
-<p><span id="exm:countingrules" class="example"><strong>Example 13.1  (Counting Possibilities)  </strong></span>
-Suppose we are given a stack of cards. Cards can be either red or black and can take on any of 13 values. There is only one of each color-number combination. In this case,</p>
+<p><span id="exm:countingrules" class="example"><strong>Example 13.1  (Counting Possibilities) </strong></span>Suppose we are given a stack of cards. Cards can be either red or black and can take on any of 13 values. There is only one of each color-number combination. In this case,</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(j =\)</span></p></li>
 <li><p><span class="math inline">\(n_{\text{color}} =\)</span></p></li>
@@ -430,7 +428,6 @@ Suppose we are given a stack of cards. Cards can be either red or black and can 
 <li><p>Number of Outcomes <span class="math inline">\(=\)</span></p></li>
 </ol>
 </div>
-
 <p>We often need to count the number of ways to choose a subset from some set of possibilities. The number of outcomes depends on two characteristics of the process: does the order matter and is replacement allowed?</p>
 <p>It is useful to think of any problem concretely, e.g. through a <strong>sampling table</strong>: If there are <span class="math inline">\(n\)</span> objects which are numbered 1 to <span class="math inline">\(n\)</span> and we select <span class="math inline">\(k &lt; n\)</span> of them, how many different outcomes are possible?</p>
 <p>If the order in which a given object is selected matters, selecting 4 numbered objects in the following order (1, 3, 7, 2) and selecting the same four objects but in a different order such as (7, 2, 1, 3) will be counted as different outcomes.</p>
@@ -441,26 +438,20 @@ Suppose we are given a stack of cards. Cards can be either red or black and can 
 <li><p>If <strong><em>order doesn’t matter</em></strong> AND we are sampling <strong><em>without replacement</em></strong>, the number of different outcomes is <span class="math inline">\(\binom{n}{k} = \frac{n!}{(n-k)!k!}\)</span>.</p></li>
 </ol>
 <p>Expression <span class="math inline">\(\binom{n}{k}\)</span> is read as “n choose k” and denotes <span class="math inline">\(\frac{n!}{(n-k)!k!}\)</span>. Also, note that <span class="math inline">\(0! = 1\)</span>.</p>
-
 <div class="example">
-<p><span id="exm:counting" class="example"><strong>Example 13.2  (Counting)  </strong></span>
-There are five balls numbered from 1 through 5 in a jar. Three balls are chosen. How many possible choices are there?</p>
+<p><span id="exm:counting" class="example"><strong>Example 13.2  (Counting) </strong></span>There are five balls numbered from 1 through 5 in a jar. Three balls are chosen. How many possible choices are there?</p>
 <ol style="list-style-type: decimal">
 <li><p>Ordered, with replacement <span class="math inline">\(=\)</span></p></li>
 <li><p>Ordered, without replacement <span class="math inline">\(=\)</span></p></li>
 <li><p>Unordered, without replacement <span class="math inline">\(=\)</span></p></li>
 </ol>
 </div>
-
-
 <div class="exercise">
-<p><span id="exr:counting1" class="exercise"><strong>Exercise 13.1  (Counting)  </strong></span>
-Four cards are selected from a deck of 52 cards. Once a card has been drawn, it is not reshuffled back into the deck. Moreover, we care only about the complete hand that we get (i.e. we care about the set of selected cards, not the sequence in which it was drawn). How many possible outcomes are there?</p>
+<p><span id="exr:counting1" class="exercise"><strong>Exercise 13.1  (Counting) </strong></span>Four cards are selected from a deck of 52 cards. Once a card has been drawn, it is not reshuffled back into the deck. Moreover, we care only about the complete hand that we get (i.e. we care about the set of selected cards, not the sequence in which it was drawn). How many possible outcomes are there?</p>
 </div>
-
 </div>
-<div id="setoper" class="section level2">
-<h2><span class="header-section-number">13.2</span> Sets</h2>
+<div id="setoper" class="section level2 hasAnchor">
+<h2><span class="header-section-number">13.2</span> Sets<a href="probability-theory.html#setoper" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Probability is about quantifying the uncertainty of events. <em>Sets</em> (set theory) are the mathematical way we choose to formalize those events. Events are not inherently numerical: the onset of war or the stock market crashing is not inherently a number. Sets can define such events, and we wrap math around so that we have a transparent language to communicate about those events. <em>Measure theory</em> might sound mysterious or hard, but it is also just a mathematical way to quantify things like length, volume, and mass. Probability can be thought of as a particular application of measure theory where we want to quantify the measure of a set.</p>
 <p><strong>Set</strong> : A set is any well defined collection of elements. If <span class="math inline">\(x\)</span> is an element of <span class="math inline">\(S\)</span>, <span class="math inline">\(x \in S\)</span>.</p>
 <p><strong>Sample Space (S)</strong>: A set or collection of all possible outcomes from some process. Outcomes in the set can be discrete elements (countable) or points along a continuous interval (uncountable).</p>
@@ -485,10 +476,8 @@ Four cards are selected from a deck of 52 cards. Once a card has been drawn, it 
 <li><strong>de Morgan’s laws</strong>: <span class="math inline">\((A \cup B)^C = A^C \cap B^C\)</span>; <span class="math inline">\((A \cap B)^C = A^C \cup B^C\)</span></li>
 <li><strong>Disjointness</strong>: Sets are disjoint when they do not intersect, such that <span class="math inline">\(A \cap B = \emptyset\)</span>. A collection of sets is pairwise disjoint (<strong>mutually exclusive</strong>) if, for all <span class="math inline">\(i \neq j\)</span>, <span class="math inline">\(A_i \cap A_j = \emptyset\)</span>. A collection of sets form a partition of set <span class="math inline">\(S\)</span> if they are pairwise disjoint and they cover set <span class="math inline">\(S\)</span>, such that <span class="math inline">\(\bigcup_{i = 1}^k A_i = S\)</span>.</li>
 </ul>
-
 <div class="example">
-<p><span id="exm:sets" class="example"><strong>Example 13.3  (Sets)  </strong></span>
-Let set <span class="math inline">\(A\)</span> be {1, 2, 3, 4}, <span class="math inline">\(B\)</span> be {3, 4, 5, 6}, and <span class="math inline">\(C\)</span> be {5, 6, 7, 8}. Sets <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> are all subsets of the sample space <span class="math inline">\(S\)</span> which is {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}</p>
+<p><span id="exm:sets" class="example"><strong>Example 13.3  (Sets) </strong></span>Let set <span class="math inline">\(A\)</span> be {1, 2, 3, 4}, <span class="math inline">\(B\)</span> be {3, 4, 5, 6}, and <span class="math inline">\(C\)</span> be {5, 6, 7, 8}. Sets <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> are all subsets of the sample space <span class="math inline">\(S\)</span> which is {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}</p>
 <p>Write out the following sets:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(A \cup B\)</span></li>
@@ -497,11 +486,8 @@ Let set <span class="math inline">\(A\)</span> be {1, 2, 3, 4}, <span class="mat
 <li><span class="math inline">\(A \cap (B \cup C)\)</span></li>
 </ol>
 </div>
-
-
 <div class="exercise">
-<p><span id="exr:sets1" class="exercise"><strong>Exercise 13.2  (Sets)  </strong></span></p>
-<p>Suppose you had a pair of four-sided dice. You sum the results from a single toss.</p>
+<p><span id="exr:sets1" class="exercise"><strong>Exercise 13.2  (Sets) </strong></span>Suppose you had a pair of four-sided dice. You sum the results from a single toss.</p>
 <p>What is the set of possible outcomes (i.e. the sample space)?</p>
 <p>Consider subsets A {2, 8} and B {2,3,7} of the sample space you found. What is</p>
 <ol style="list-style-type: decimal">
@@ -509,32 +495,27 @@ Let set <span class="math inline">\(A\)</span> be {1, 2, 3, 4}, <span class="mat
 <li><span class="math inline">\((A \cup B)^c\)</span></li>
 </ol>
 </div>
-
 </div>
-<div id="probdef" class="section level2">
-<h2><span class="header-section-number">13.3</span> Probability</h2>
+<div id="probdef" class="section level2 hasAnchor">
+<h2><span class="header-section-number">13.3</span> Probability<a href="probability-theory.html#probdef" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="figure"><span style="display:block;" id="fig:prob-image"></span>
 <img src="images/probability.png" alt="Probablity as a Measure^[Images of Probability and Random Variables drawn by Shiro Kuriwaki and inspired by Blitzstein and Morris]"  />
 <p class="caption">
 Figure 13.1: Probablity as a Measure<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a>
 </p>
 </div>
-<div id="probability-definitions-formal-and-informal" class="section level3 unnumbered">
-<h3>Probability Definitions: Formal and Informal</h3>
+<div id="probability-definitions-formal-and-informal" class="section level3 unnumbered hasAnchor">
+<h3>Probability Definitions: Formal and Informal<a href="probability-theory.html#probability-definitions-formal-and-informal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Many things in the world are uncertain. In everyday speech, we say that we are <em>uncertain</em> about the outcome of random events. Probability is a formal model of uncertainty which provides a measure of uncertainty governed by a particular set of rules (Figure <a href="probability-theory.html#fig:prob-image">13.1</a>). A different model of uncertainty would, of course, have a set of rules different from anything we discuss here. Our focus on probability is justified because it has proven to be a particularly useful model of uncertainty.</p>
 <p><strong>Probability Distribution Function</strong>: a mapping of each event in the sample space <span class="math inline">\(S\)</span> to the real numbers that satisfy the following three axioms (also called Kolmogorov’s Axioms).</p>
 <p>Formally,</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-222" class="definition"><strong>Definition 13.1  (Probability)  </strong></span>
-Probability is a function that maps events to a real number, obeying the axioms of probability.</p>
+<p><span id="def:unnamed-chunk-222" class="definition"><strong>Definition 13.1  (Probability) </strong></span>Probability is a function that maps events to a real number, obeying the axioms of probability.</p>
 </div>
-
 <p>The axioms of probability make sure that the separate events add up in terms of probability, and – for standardization purposes – that they add up to 1.</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-223" class="definition"><strong>Definition 13.2  (Axioms of Probability)  </strong></span></p>
 <ol style="list-style-type: decimal">
+<li></li>
 <li>For any event <span class="math inline">\(A\)</span>, <span class="math inline">\(P(A)\ge 0\)</span>.</li>
 <li><span class="math inline">\(P(S)=1\)</span></li>
 <li>The Countable Additivity Axiom: For any sequence of <em>disjoint</em> (mutually exclusive) events <span class="math inline">\(A_1,A_2,\ldots\)</span> (of which there may be infinitely many), <span class="math display">\[P\left( \bigcup\limits_{i=1}^k
@@ -545,10 +526,9 @@ A_i\right)=\sum\limits_{i=1}^k P(A_i)\]</span></li>
 P(A_1 \cup A_2) = P(A_1) + P(A_2) \quad\text{for disjoint } A_1, A_2
 \end{align*}\]</span></p>
 </div>
-
 </div>
-<div id="probability-operations" class="section level3 unnumbered">
-<h3>Probability Operations</h3>
+<div id="probability-operations" class="section level3 unnumbered hasAnchor">
+<h3>Probability Operations<a href="probability-theory.html#probability-operations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Using these three axioms, we can define all of the common rules of probability.</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(P(\emptyset)=0\)</span></li>
@@ -558,10 +538,8 @@ P(A_1 \cup A_2) = P(A_1) + P(A_2) \quad\text{for disjoint } A_1, A_2
 <li>For <em>any</em> two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, <span class="math inline">\(P(A\cup B)=P(A)+P(B)-P(A\cap B)\)</span></li>
 <li>Boole’s Inequality: For any sequence of <span class="math inline">\(n\)</span> events (which need not be disjoint) <span class="math inline">\(A_1,A_2,\ldots,A_n\)</span>, then <span class="math inline">\(P\left( \bigcup\limits_{i=1}^n A_i\right) \leq \sum\limits_{i=1}^n P(A_i)\)</span>.</li>
 </ol>
-
 <div class="example">
-<p><span id="exm:prob" class="example"><strong>Example 13.4  (Probability)  </strong></span>
-Assume we have an evenly-balanced, six-sided die.</p>
+<p><span id="exm:prob" class="example"><strong>Example 13.4  (Probability) </strong></span>Assume we have an evenly-balanced, six-sided die.</p>
 <p>Then,</p>
 <ol style="list-style-type: decimal">
 <li>Sample space S =</li>
@@ -573,28 +551,22 @@ Assume we have an evenly-balanced, six-sided die.</p>
 <li>Let <span class="math inline">\(A=\{ 1, 2, 3 \}\)</span> and <span class="math inline">\(B=\{ 2, 4, 6 \}\)</span>. Then <span class="math inline">\(A\cup B\)</span>? <span class="math inline">\(A\cap B\)</span>? <span class="math inline">\(P(A \cup B)\)</span>?</li>
 </ol>
 </div>
-
-
 <div class="exercise">
-<p><span id="exr:prob1" class="exercise"><strong>Exercise 13.3  (Probability)  </strong></span>
-Suppose you had a pair of four-sided dice. You sum the results from a single toss. Let us call this sum, or the outcome, X.</p>
+<p><span id="exr:prob1" class="exercise"><strong>Exercise 13.3  (Probability) </strong></span>Suppose you had a pair of four-sided dice. You sum the results from a single toss. Let us call this sum, or the outcome, X.</p>
 <ol style="list-style-type: decimal">
 <li><p>What is <span class="math inline">\(P(X = 5)\)</span>, <span class="math inline">\(P(X = 3)\)</span>, <span class="math inline">\(P(X = 6)\)</span>?</p></li>
 <li><p>What is <span class="math inline">\(P(X=5 \cup X = 3)^C\)</span>?</p></li>
 </ol>
 </div>
-
 </div>
 </div>
-<div id="conditional-probability" class="section level2">
-<h2><span class="header-section-number">13.4</span> Conditional Probability</h2>
+<div id="conditional-probability" class="section level2 hasAnchor">
+<h2><span class="header-section-number">13.4</span> Conditional Probability<a href="probability-theory.html#conditional-probability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Conditional Probability</strong>: The conditional probability <span class="math inline">\(P(A|B)\)</span> of an event <span class="math inline">\(A\)</span> is the probability of <span class="math inline">\(A\)</span>, given that another event <span class="math inline">\(B\)</span> has occurred. Conditional probability allows for the inclusion of other information into the calculation of the probability of an event. It is calculated as</p>
 <p><span class="math display">\[P(A|B)=\frac{P(A\cap B)}{P(B)}\]</span></p>
 <p>Note that conditional probabilities are probabilities and must also follow the Kolmagorov axioms of probability.</p>
-
 <div class="example">
-<p><span id="exm:condprobexm1" class="example"><strong>Example 13.5  (Conditional Probability 1)  </strong></span>
-Assume <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> occur with the following frequencies: <span class="math inline">\(\quad\)</span></p>
+<p><span id="exm:condprobexm1" class="example"><strong>Example 13.5  (Conditional Probability 1) </strong></span>Assume <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> occur with the following frequencies: <span class="math inline">\(\quad\)</span></p>
 <table>
 <thead>
 <tr class="header">
@@ -625,61 +597,44 @@ Assume <span class="math inline">\(A\)</span> and <span class="math inline">\(B\
 <li><span class="math inline">\(P(B|A)= \frac{P(A\cap B)}{P(A)}=\)</span></li>
 </ol>
 </div>
-
-
 <div class="example">
-<span id="exm:condprobexm2" class="example"><strong>Example 13.6  (Conditional Probability 2)  </strong></span>
-A six-sided die is rolled. What is the probability of a 1, given the outcome is an odd number?
+<p><span id="exm:condprobexm2" class="example"><strong>Example 13.6  (Conditional Probability 2) </strong></span>A six-sided die is rolled. What is the probability of a 1, given the outcome is an odd number?</p>
 </div>
-
 <p>You could rearrange the fraction to highlight how a joint probability could be expressed as the product of a conditional probability.</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-224" class="definition"><strong>Definition 13.3  (Multiplicative Law of Probability)  </strong></span>
-The probability of the intersection of two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is <span class="math inline">\(P(A\cap B)=P(A)P(B|A)=P(B)P(A|B)\)</span> which follows directly from the definition of conditional probability. More generally,</p>
+<p><span id="def:unnamed-chunk-224" class="definition"><strong>Definition 13.2  (Multiplicative Law of Probability) </strong></span>The probability of the intersection of two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is <span class="math inline">\(P(A\cap B)=P(A)P(B|A)=P(B)P(A|B)\)</span> which follows directly from the definition of conditional probability. More generally,</p>
 <p><span class="math display">\[P(A_1\cap \cdots\cap A_k) = P(A_k| A_{k-1}\cap \cdots \cap A_1)\times P(A_{k-1}|A_{k-2}\cap \cdots A_1) \times \ldots \times P(A_2|A_1)\times P(A_1)\]</span></p>
 <p>Sometimes it is easier to calculate these conditional probabilities and sum them than it is to calculate <span class="math inline">\(P(A)\)</span> directly.</p>
 </div>
-
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-225" class="definition"><strong>Definition 13.4  (Law of Total Probability)  </strong></span>Let <span class="math inline">\(S\)</span> be the sample space of some experiment and let the disjoint <span class="math inline">\(k\)</span> events <span class="math inline">\(B_1,\ldots,B_k\)</span> partition <span class="math inline">\(S\)</span>, such that <span class="math inline">\(P(B_1\cup ... \cup B_k) = P(S) = 1\)</span>. If <span class="math inline">\(A\)</span> is some other event in <span class="math inline">\(S\)</span>, then the events <span class="math inline">\(A\cap B_1, A\cap B_2, \ldots, A\cap B_k\)</span> will form a partition of <span class="math inline">\(A\)</span> and we can write <span class="math inline">\(A\)</span> as <span class="math display">\[A=(A\cap B_1)\cup\cdots\cup (A\cap B_k)\]</span>.</p>
+<p><span id="def:unnamed-chunk-225" class="definition"><strong>Definition 13.3  (Law of Total Probability) </strong></span>Let <span class="math inline">\(S\)</span> be the sample space of some experiment and let the disjoint <span class="math inline">\(k\)</span> events <span class="math inline">\(B_1,\ldots,B_k\)</span> partition <span class="math inline">\(S\)</span>, such that <span class="math inline">\(P(B_1\cup ... \cup B_k) = P(S) = 1\)</span>. If <span class="math inline">\(A\)</span> is some other event in <span class="math inline">\(S\)</span>, then the events <span class="math inline">\(A\cap B_1, A\cap B_2, \ldots, A\cap B_k\)</span> will form a partition of <span class="math inline">\(A\)</span> and we can write <span class="math inline">\(A\)</span> as <span class="math display">\[A=(A\cap B_1)\cup\cdots\cup (A\cap B_k)\]</span>.</p>
 <p>Since the <span class="math inline">\(k\)</span> events are disjoint,</p>
 <p><span class="math display">\[\begin{eqnarray*}
 P(A)&amp;=&amp;\sum\limits_{i=1}^k P(A \cap B_i)\\
       &amp;=&amp;\sum\limits_{i=1}^k P(B_i)P(A|B_i)
 \end{eqnarray*}\]</span></p>
 </div>
-
 </div>
-<div id="bayes-rule" class="section level2">
-<h2><span class="header-section-number">13.5</span> Bayes Rule</h2>
+<div id="bayes-rule" class="section level2 hasAnchor">
+<h2><span class="header-section-number">13.5</span> Bayes Rule<a href="probability-theory.html#bayes-rule" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Bayes Rule</strong>: Assume that events <span class="math inline">\(B_1,\ldots,B_k\)</span> form a partition of the space <span class="math inline">\(S\)</span>. Then by the Law of Total Probability</p>
 <p><span class="math display">\[P(B_j|A)= \frac{P(A \cap B_j)} {P(A)} = \frac{P(B_j) P(A|B_j)}{\sum\limits_{i=1}^k P(B_i)P(A|B_i)}\]</span></p>
 <p>If there are only two states of <span class="math inline">\(B\)</span>, then this is just
 <span class="math display">\[P(B_1|A)=\frac{P(B_1)P(A|B_1)} {P(B_1)P(A|B_1)+P(B_2)P(A|B_2)}\]</span></p>
 <p>Bayes’ rule determines the posterior probability of a state <span class="math inline">\(P(B_j|A)\)</span> by calculating the probability <span class="math inline">\(P(A \cap B_j)\)</span> that both the event <span class="math inline">\(A\)</span> and the state <span class="math inline">\(B_j\)</span> will occur and dividing it by the probability that the event will occur regardless of the state (by summing across all <span class="math inline">\(B_i\)</span>). The states could be something like Normal/Defective, Healthy/Diseased, Republican/Democrat/Independent, etc. The event on which one conditions could be something like a sampling from a batch of components, a test for a disease, or a question about a policy position.</p>
 <p><strong>Prior and Posterior Probabilities</strong>: Above, <span class="math inline">\(P(B_1)\)</span> is often called the prior probability, since it’s the probability of <span class="math inline">\(B_1\)</span> before anything else is known. <span class="math inline">\(P(B_1|A)\)</span> is called the posterior probability, since it’s the probability after other information is taken into account.</p>
-
 <div class="example">
-<p><span id="exm:bayesrule" class="example"><strong>Example 13.7  (Bayes’ Rule)  </strong></span>
-In a given town, 40% of the voters are Democrat and 60% are Republican. The president’s budget is supported by 50% of the Democrats and 90% of the Republicans. If a randomly (equally likely) selected voter is found to support the president’s budget, what is the probability that they are a Democrat?</p>
+<p><span id="exm:bayesrule" class="example"><strong>Example 13.7  (Bayes' Rule) </strong></span>In a given town, 40% of the voters are Democrat and 60% are Republican. The president’s budget is supported by 50% of the Democrats and 90% of the Republicans. If a randomly (equally likely) selected voter is found to support the president’s budget, what is the probability that they are a Democrat?</p>
 </div>
-
-
 <div class="exercise">
-<p><span id="exr:condprobexr" class="exercise"><strong>Exercise 13.4  (Conditional Probability)  </strong></span></p>
-<p>Assume that 2% of the population of the U.S. are members of some extremist militia group. We develop a survey that positively classifies someone as being a member of a militia group given that they are a member 95% of the time and negatively classifies someone as not being a member of a militia group given that they are not a member 97% of the time. What is the probability that someone positively classified as being a member of a militia group is actually a militia member?</p>
+<p><span id="exr:condprobexr" class="exercise"><strong>Exercise 13.4  (Conditional Probability) </strong></span>Assume that 2% of the population of the U.S. are members of some extremist militia group. We develop a survey that positively classifies someone as being a member of a militia group given that they are a member 95% of the time and negatively classifies someone as not being a member of a militia group given that they are not a member 97% of the time. What is the probability that someone positively classified as being a member of a militia group is actually a militia member?</p>
 </div>
-
 </div>
-<div id="independence" class="section level2">
-<h2><span class="header-section-number">13.6</span> Independence</h2>
-
+<div id="independence" class="section level2 hasAnchor">
+<h2><span class="header-section-number">13.6</span> Independence<a href="probability-theory.html#independence" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unnamed-chunk-226" class="definition"><strong>Definition 13.5  (Independence)  </strong></span> If the occurrence or nonoccurrence of either events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> have no effect on the occurrence or nonoccurrence of the other, then <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent.</p>
+<p><span id="def:unnamed-chunk-226" class="definition"><strong>Definition 13.4  (Independence) </strong></span>If the occurrence or nonoccurrence of either events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> have no effect on the occurrence or nonoccurrence of the other, then <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent.</p>
 </div>
-
 <p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent, then</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(P(A|B)=P(A)\)</span></li>
@@ -699,8 +654,8 @@ In a given town, 40% of the voters are Democrat and 60% are Republican. The pres
 <p>Just because two events are conditionally independent does not mean that they are independent. Actually it is hard to think of real-world things that are “unconditionally” independent. That’s why it’s always important to ask about a finding: What was it conditioned on? For example, suppose that a graduate school admission decisions are done by only one professor, who picks a group of 50 bright students and flips a coin for each student to generate a class of about 25 students. Then the the probability that two students get accepted are conditionally independent, because they are determined by two separate coin tosses. However, this does not mean that their admittance is not completely independent. Knowing that student <span class="math inline">\(A\)</span> got in gives us information about whether student <span class="math inline">\(B\)</span> got in, if we think that the professor originally picked her pool of 50 students by merit.</p>
 <p>Perhaps more counter-intuitively: If two events are already independent, then it might seem that no amount of “conditioning” will make them dependent. But this is not always so. For example<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a>, suppose I only get a call from two people, Alice and Bob. Let <span class="math inline">\(A\)</span> be the event that Alice calls, and <span class="math inline">\(B\)</span> be the event that Bob calls. Alice and Bob do not communicate, so <span class="math inline">\(P(A \mid B) = P(A).\)</span> But now let <span class="math inline">\(C\)</span> be the event that your phone rings. For conditional independence to hold here, then <span class="math inline">\(P(A \mid C)\)</span> must be equal to <span class="math inline">\(P(A \mid B \cap C).\)</span> But this is not true – <span class="math inline">\(A \mid C\)</span> may or may not be true, but <span class="math inline">\(P(A \mid B \cap C)\)</span> certainly is true.</p>
 </div>
-<div id="random-variables" class="section level2">
-<h2><span class="header-section-number">13.7</span> Random Variables</h2>
+<div id="random-variables" class="section level2 hasAnchor">
+<h2><span class="header-section-number">13.7</span> Random Variables<a href="probability-theory.html#random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Most questions in the social sciences involve events, rather than numbers per se. To analyze and reason about events quantitatively, we need a way of mapping events to numbers. A random variable does exactly that.</p>
 <div class="figure"><span style="display:block;" id="fig:rv-image"></span>
 <img src="images/rv.png" alt="The Random Variable as a Real-Valued Function"  />
@@ -708,12 +663,9 @@ In a given town, 40% of the voters are Democrat and 60% are Republican. The pres
 Figure 13.2: The Random Variable as a Real-Valued Function
 </p>
 </div>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-227" class="definition"><strong>Definition 13.6  (Random Variable)  </strong></span>
-A random variable is a measurable function <span class="math inline">\(X\)</span> that maps from the sample space <span class="math inline">\(S\)</span> to the set of real numbers <span class="math inline">\(R.\)</span> It assigns a real number to every outcome <span class="math inline">\(s \in S\)</span>.</p>
+<p><span id="def:unnamed-chunk-227" class="definition"><strong>Definition 13.5  (Random Variable) </strong></span>A random variable is a measurable function <span class="math inline">\(X\)</span> that maps from the sample space <span class="math inline">\(S\)</span> to the set of real numbers <span class="math inline">\(R.\)</span> It assigns a real number to every outcome <span class="math inline">\(s \in S\)</span>.</p>
 </div>
-
 <p>Figure <a href="probability-theory.html#fig:rv-image">13.2</a> shows a image of the function. It might seem strange to define a random variable as a function – which is neither random nor variable. The randomness comes from the realization of an event from the sample space <span class="math inline">\(s\)</span>.</p>
 <p><strong>Randomness</strong> means that the outcome of some experiment is not deterministic, i.e. there is some probability (<span class="math inline">\(0 &lt; P(A) &lt; 1\)</span>) that the event will occur.</p>
 <p>The support of a random variable is all values for which there is a positive probability of occurrence.</p>
@@ -721,51 +673,39 @@ A random variable is a measurable function <span class="math inline">\(X\)</span
 <p>A random variable must map events to the real line. For example, let a random variable <span class="math inline">\(X\)</span> be the number of heads. The event <span class="math inline">\((H, H)\)</span> gets mapped to 2 <span class="math inline">\(X(s) = 2\)</span>, and the events <span class="math inline">\(\{(H, T), (T, H)\}\)</span> gets mapped to 1 <span class="math inline">\((X(s) = 1)\)</span>, the event <span class="math inline">\((T, T)\)</span> gets mapped to 0 <span class="math inline">\((X(s) = 0)\)</span>.</p>
 <p>What are other possible random variables?</p>
 </div>
-<div id="distributions" class="section level2">
-<h2><span class="header-section-number">13.8</span> Distributions</h2>
+<div id="distributions" class="section level2 hasAnchor">
+<h2><span class="header-section-number">13.8</span> Distributions<a href="probability-theory.html#distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We now have two main concepts in this section – probability and random variables. Given a sample space <span class="math inline">\(S\)</span> and the same experiment, both probability and random variables take events as their inputs. But they output different things (probabilities measure the “size” of events, random variables give a number in a way that the analyst chose to define the random variable). How do the two concepts relate?</p>
 <p>The concept of distributions is the natural bridge between these two concepts.</p>
-
 <div class="definition">
-<span id="def:unnamed-chunk-228" class="definition"><strong>Definition 13.7  (Distribution of a random variable)  </strong></span>A distribution of a random variable is a function that specifies the probabilities of all events associated with that random variable. There are several types of distributions: A probability mass function for a discrete random variable and probability density function for a continuous random variable.
+<p><span id="def:unnamed-chunk-228" class="definition"><strong>Definition 13.6  (Distribution of a random variable) </strong></span>A distribution of a random variable is a function that specifies the probabilities of all events associated with that random variable. There are several types of distributions: A probability mass function for a discrete random variable and probability density function for a continuous random variable.</p>
 </div>
-
 <p>Notice how the definition of distributions combines two ideas of random variables and probabilities of events. First, the distribution considers a random variable, call it <span class="math inline">\(X\)</span>. <span class="math inline">\(X\)</span> can take a number of possible numeric values.</p>
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-229" class="example"><strong>Example 13.8  (Total Number of Occurrences)  </strong></span>
-Consider three binary outcomes, one for each patient recovering from a disease: <span class="math inline">\(R_i\)</span> denotes the event in which patient <span class="math inline">\(i\)</span> (<span class="math inline">\(i = 1, 2, 3\)</span>) recovers from a disease. <span class="math inline">\(R_1\)</span>, <span class="math inline">\(R_2\)</span>, and <span class="math inline">\(R_3\)</span>. How would we represent the total number of people who end up recovering from the disease?</p>
+<p><span id="exm:unnamed-chunk-229" class="example"><strong>Example 13.8  (Total Number of Occurrences) </strong></span>Consider three binary outcomes, one for each patient recovering from a disease: <span class="math inline">\(R_i\)</span> denotes the event in which patient <span class="math inline">\(i\)</span> (<span class="math inline">\(i = 1, 2, 3\)</span>) recovers from a disease. <span class="math inline">\(R_1\)</span>, <span class="math inline">\(R_2\)</span>, and <span class="math inline">\(R_3\)</span>. How would we represent the total number of people who end up recovering from the disease?</p>
 </div>
-
-
 <div class="solution">
-<p> <span class="solution"><em>Solution. </em></span> Define the random variable <span class="math inline">\(X\)</span> be the total number of people (out of three) who recover from the disease. Random variables are functions, that take as an input a set of events (in the sample space <span class="math inline">\(S\)</span>) and deterministically assigns them to a number of the analyst’s choice.</p>
+<p><span id="unlabeled-div-18" class="solution"><em>Solution</em>. </span>Define the random variable <span class="math inline">\(X\)</span> be the total number of people (out of three) who recover from the disease. Random variables are functions, that take as an input a set of events (in the sample space <span class="math inline">\(S\)</span>) and deterministically assigns them to a number of the analyst’s choice.</p>
 </div>
-
 <p>Recall that with each of these numerical values there is a class of <em>events</em>. In the previous example, for <span class="math inline">\(X = 3\)</span> there is one outcome (<span class="math inline">\(R_1, R_2, R_3\)</span>) and for <span class="math inline">\(X = 1\)</span> there are multiple (<span class="math inline">\(\{(R_1, R_2^c, R_3^c), (R_1^c, R_2, R_3^c), (R_1^c, R_2^c, R_3), \}\)</span>). Now, the thing to notice here is that each of these events naturally come with a probability associated with them. That is, <span class="math inline">\(P(R_1, R_2, R_3)\)</span> is a number from 0 to 1, as is <span class="math inline">\(P(R_1, R_2^c, R_3^c)\)</span>. These all have probabilities because they are in the sample space <span class="math inline">\(S\)</span>. The function that tells us these probabilities that are associated with a numerical value of a random variable is called a distribution.</p>
 <p>In other words, a random variable <span class="math inline">\(X\)</span> <em>induces a probability distribution</em> <span class="math inline">\(P\)</span> (sometimes written <span class="math inline">\(P_X\)</span> to emphasize that the probability density is about the r.v. <span class="math inline">\(X\)</span>)</p>
-<div id="discrete-random-variables" class="section level3 unnumbered">
-<h3>Discrete Random Variables</h3>
+<div id="discrete-random-variables" class="section level3 unnumbered hasAnchor">
+<h3>Discrete Random Variables<a href="probability-theory.html#discrete-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The formal definition of a random variable is easier to given by separating out two cases: discrete random variables when the numeric summaries of the events are discrete, and continuous random variables when they are continuous.</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-231" class="definition"><strong>Definition 13.8  (Discrete Random Variable)  </strong></span><span class="math inline">\(X\)</span> is a discrete random variable if it can assume only a finite or countably infinite number of distinct values. Examples: number of wars per year, heads or tails.</p>
+<p><span id="def:unnamed-chunk-231" class="definition"><strong>Definition 13.7  (Discrete Random Variable) </strong></span><span class="math inline">\(X\)</span> is a discrete random variable if it can assume only a finite or countably infinite number of distinct values. Examples: number of wars per year, heads or tails.</p>
 </div>
-
 <p>The distribution of a discrete r.v. is a PMF:</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-232" class="definition"><strong>Definition 13.9  (Probability Mass Function)  </strong></span>
-For a discrete random variable <span class="math inline">\(X\)</span>, the probability mass function (Also referred to simply as the “probability distribution.”) (PMF), <span class="math inline">\(p(x)=P(X=x)\)</span>, assigns probabilities to a countable number of distinct <span class="math inline">\(x\)</span> values such that</p>
+<p><span id="def:unnamed-chunk-232" class="definition"><strong>Definition 13.8  (Probability Mass Function) </strong></span>For a discrete random variable <span class="math inline">\(X\)</span>, the probability mass function (Also referred to simply as the “probability distribution.”) (PMF), <span class="math inline">\(p(x)=P(X=x)\)</span>, assigns probabilities to a countable number of distinct <span class="math inline">\(x\)</span> values such that</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(0\le p(x)\le 1\)</span></li>
 <li><span class="math inline">\(\sum\limits_y p(x)=1\)</span></li>
 </ol>
 </div>
-
 <p>Example: For a fair six-sided die, there is an equal probability of rolling any number. Since there are six sides, the probability mass function is then <span class="math inline">\(p(y)=1/6\)</span> for <span class="math inline">\(y=1,\ldots,6\)</span>, 0 otherwise.}</p>
 
-<p>In a discrete random variable, <strong>cumulative density function</strong> (Also referred to simply as the “cumulative distribution” or previously as the “density function”), <span class="math inline">\(F(x)\)</span> or <span class="math inline">\(P(X\le x)\)</span>, is the probability that <span class="math inline">\(X\)</span> is less than or equal to some value <span class="math inline">\(x\)</span>, or <span class="math display">\[P(X\le x)=\sum\limits_{i\le x} p(i)\]</span></p>
+<p>In a discrete random variable, <strong>cumulative distribution function</strong> (Also referred to simply as the “cumulative distribution” or previously as the “distribution function”), <span class="math inline">\(F(x)\)</span> or <span class="math inline">\(P(X\le x)\)</span>, is the probability that <span class="math inline">\(X\)</span> is less than or equal to some value <span class="math inline">\(x\)</span>, or <span class="math display">\[P(X\le x)=\sum\limits_{i\le x} p(i)\]</span></p>
 <p>Properties a CDF must satisfy:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(F(x)\)</span> is non-decreasing in <span class="math inline">\(x\)</span>.</li>
@@ -773,7 +713,6 @@ For a discrete random variable <span class="math inline">\(X\)</span>, the proba
 <li><span class="math inline">\(F(x)\)</span> is right-continuous.</li>
 </ol>
 <p>Note that <span class="math inline">\(P(X &gt; x) = 1 - P(X \le x)\)</span>.</p>
-
 <div class="example">
 <p><span id="exm:unnamed-chunk-233" class="example"><strong>Example 13.9  </strong></span>For a fair die with its value as <span class="math inline">\(Y\)</span>, What are the following?</p>
 <ol style="list-style-type: decimal">
@@ -782,42 +721,30 @@ For a discrete random variable <span class="math inline">\(X\)</span>, the proba
 <li><span class="math inline">\(P(Y\le 6)\)</span></li>
 </ol>
 </div>
-
 </div>
-<div id="continuous-random-variables" class="section level3 unnumbered">
-<h3>Continuous Random Variables</h3>
+<div id="continuous-random-variables" class="section level3 unnumbered hasAnchor">
+<h3>Continuous Random Variables<a href="probability-theory.html#continuous-random-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We also have a similar definition for <em>continuous</em> random variables.</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-234" class="definition"><strong>Definition 13.10  (Continuous Random Variable)  </strong></span>
-<span class="math inline">\(X\)</span> is a continuous random variable if there exists a nonnegative function <span class="math inline">\(f(x)\)</span> defined for all real <span class="math inline">\(x\in (-\infty,\infty)\)</span>, such that for any interval <span class="math inline">\(A\)</span>, <span class="math inline">\(P(X\in A)=\int\limits_A f(x)dx\)</span>. Examples: age, income, GNP, temperature.</p>
+<p><span id="def:unnamed-chunk-234" class="definition"><strong>Definition 13.9  (Continuous Random Variable) </strong></span><span class="math inline">\(X\)</span> is a continuous random variable if there exists a nonnegative function <span class="math inline">\(f(x)\)</span> defined for all real <span class="math inline">\(x\in (-\infty,\infty)\)</span>, such that for any interval <span class="math inline">\(A\)</span>, <span class="math inline">\(P(X\in A)=\int\limits_A f(x)dx\)</span>. Examples: age, income, GNP, temperature.</p>
 </div>
-
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-235" class="definition"><strong>Definition 13.11  (Probability Density Function)  </strong></span>
-The function <span class="math inline">\(f\)</span> above is called the probability density function (pdf) of <span class="math inline">\(X\)</span> and must satisfy
+<p><span id="def:unnamed-chunk-235" class="definition"><strong>Definition 13.10  (Probability Density Function) </strong></span>The function <span class="math inline">\(f\)</span> above is called the probability density function (pdf) of <span class="math inline">\(X\)</span> and must satisfy
 <span class="math display">\[f(x)\ge 0\]</span>
 <span class="math display">\[\int\limits_{-\infty}^\infty f(x)dx=1\]</span></p>
-Note also that <span class="math inline">\(P(X = x)=0\)</span> — i.e., the probability of any point <span class="math inline">\(y\)</span> is zero.
+<p>Note also that <span class="math inline">\(P(X = x)=0\)</span> — i.e., the probability of any point <span class="math inline">\(y\)</span> is zero.</p>
 </div>
-
 
 <p>For both discrete and continuous random variables, we have a unifying concept of another measure: the cumulative distribution:</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-236" class="definition"><strong>Definition 13.12  (Cumulative Density Function)  </strong></span>Because the probability that a continuous random variable will assume any particular value is zero, we can only make statements about the probability of a continuous random variable being within an interval. The cumulative distribution gives the probability that <span class="math inline">\(Y\)</span> lies on the interval <span class="math inline">\((-\infty,y)\)</span> and is defined as <span class="math display">\[F(x)=P(X\le x)=\int\limits_{-\infty}^x f(s)ds\]</span> Note that <span class="math inline">\(F(x)\)</span> has similar properties with continuous distributions as it does with discrete - non-decreasing, continuous (not just right-continuous), and <span class="math inline">\(\lim\limits_{x \to -\infty} F(x) = 0\)</span> and <span class="math inline">\(\lim\limits_{x \to \infty} F(x) = 1\)</span>.</p>
+<p><span id="def:unnamed-chunk-236" class="definition"><strong>Definition 13.11  (Cumulative Distribution Function) </strong></span>Because the probability that a continuous random variable will assume any particular value is zero, we can only make statements about the probability of a continuous random variable being within an interval. The cumulative distribution gives the probability that <span class="math inline">\(Y\)</span> lies on the interval <span class="math inline">\((-\infty,y)\)</span> and is defined as <span class="math display">\[F(x)=P(X\le x)=\int\limits_{-\infty}^x f(s)ds\]</span> Note that <span class="math inline">\(F(x)\)</span> has similar properties with continuous distributions as it does with discrete - non-decreasing, continuous (not just right-continuous), and <span class="math inline">\(\lim\limits_{x \to -\infty} F(x) = 0\)</span> and <span class="math inline">\(\lim\limits_{x \to \infty} F(x) = 1\)</span>.</p>
 </div>
-
 <p>We can also make statements about the probability of <span class="math inline">\(Y\)</span> falling in an interval <span class="math inline">\(a\le y\le b\)</span>.
 <span class="math display">\[P(a\le x\le b)=\int\limits_a^b f(x)dx\]</span></p>
 <p>The PDF and CDF are linked by the integral: The CDF of the integral of the PDF: <span class="math display">\[f(x) = F&#39;(x)=\frac{dF(x)}{dx}\]</span></p>
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-237" class="example"><strong>Example 13.10  </strong></span>
-For <span class="math inline">\(f(y)=1, \quad 0&lt;y&lt;1\)</span>, find: (1) The CDF <span class="math inline">\(F(y)\)</span> and (2) The probability <span class="math inline">\(P(0.5&lt;y&lt;0.75)\)</span>.</p>
+<p><span id="exm:unnamed-chunk-237" class="example"><strong>Example 13.10  </strong></span>For <span class="math inline">\(f(y)=1, \quad 0&lt;y&lt;1\)</span>, find: (1) The CDF <span class="math inline">\(F(y)\)</span> and (2) The probability <span class="math inline">\(P(0.5&lt;y&lt;0.75)\)</span>.</p>
 </div>
-
 
 </div>
 </div>

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Orientation and Reading in Data | UCSD Political Science Math Camp</title>
   <meta name="description" content="Text for UCSD Department of Political Science Math Camp" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Orientation and Reading in Data | UCSD Political Science Math Camp" />
   <meta property="og:type" content="book" />
-  
   <meta property="og:image" content="/./images/logo.png" />
   <meta property="og:description" content="Text for UCSD Department of Political Science Math Camp" />
   <meta name="github-repo" content="UCSDPoliMathCamp/MathCamp" />
@@ -50,8 +49,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -241,9 +241,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.1" data-path="simulation.html"><a href="simulation.html#sampling-rows-from-a-dataframe"><i class="fa fa-check"></i><b>5.2.1</b> Sampling rows from a dataframe</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="simulation.html"><a href="simulation.html#random-numbers-from-specific-distributions"><i class="fa fa-check"></i><b>5.3</b> Random numbers from specific distributions</a><ul>
-<li><a href="simulation.html#rbinom"><code>rbinom()</code></a></li>
-<li><a href="simulation.html#runif"><code>runif()</code></a></li>
-<li><a href="simulation.html#rnorm"><code>rnorm()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#rbinom"><i class="fa fa-check"></i><code>rbinom()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#runif"><i class="fa fa-check"></i><code>runif()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#rnorm"><i class="fa fa-check"></i><code>rnorm()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="simulation.html"><a href="simulation.html#r-p-and-d"><i class="fa fa-check"></i><b>5.4</b> r, p, and d</a></li>
 <li class="chapter" data-level="5.5" data-path="simulation.html"><a href="simulation.html#set.seed"><i class="fa fa-check"></i><b>5.5</b> <code>set.seed()</code></a></li>
@@ -412,18 +412,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="orientation-and-reading-in-data" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Orientation and Reading in Data</h1>
+<div id="orientation-and-reading-in-data" class="section level1 hasAnchor">
+<h1><span class="header-section-number">Chapter 2</span> Orientation and Reading in Data<a href="orientation-and-reading-in-data.html#orientation-and-reading-in-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Welcome to Math Camp! The first day we will get to know each other and get acquainted with R. We will be working with R throughout this course, and today is the beginning, where you will learn about this program. It can be overwhelming to learn any programming language, but we will spend a lot of time and practice with it. Please work through the following tutorials and exercises. There is a lot of information here, and it will take time to understand everything. In fact, programming is a continual learning experience. Please come to class with areas of confusion and questions; we will walk through more examples together.</p>
 <p>You should downloaded <a href="https://cran.r-project.org/">R</a> and <a href="https://www.rstudio.com/products/rstudio/">R Studio</a>. <a href="https://www.youtube.com/watch?v=iffR3fWv4xw&amp;list=PLOU2XLYxmsIK9qQfztXeybpHvru-TrqAP&amp;index=3">This video</a> has a nice brief introduction.</p>
 <p><a href="https://rstudio.cloud/learn/primers/">R Studio Cloud</a> has great resources we will be using throughout this course. Please complete the following primer tutorial for the first session:
 <a href="https://rstudio.cloud/learn/primers/1.2">The Basics: Programming Basics</a></p>
-<div id="motivation-data-and-you" class="section level2 unnumbered">
-<h2>Motivation: Data and You</h2>
+<div id="motivation-data-and-you" class="section level2 unnumbered hasAnchor">
+<h2>Motivation: Data and You<a href="orientation-and-reading-in-data.html#motivation-data-and-you" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The modal social science project starts by importing existing datasets. Datasets come in all shapes and sizes. As you search for new data you may encounter dozens of file extensions – csv, xlsx, dta, sav, por, Rdata, Rds, txt, xml, json, shp … the list continues. Although these files can often be cumbersome, its a good to be able to find a way to encounter any file that your research may call for.</p>
 <p>Reviewing data import will allow us to get on the same page on how computer systems work.</p>
-<div id="where-are-we-starting" class="section level3 unnumbered">
-<h3>Where are we starting?</h3>
+<div id="where-are-we-starting" class="section level3 unnumbered hasAnchor">
+<h3>Where are we starting?<a href="orientation-and-reading-in-data.html#where-are-we-starting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Today we’ll cover:</p>
 <ul>
 <li>What’s what in RStudio</li>
@@ -432,8 +432,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Comment on coding style on the way</li>
 </ul>
 </div>
-<div id="check-your-understanding" class="section level3 unnumbered">
-<h3>Check your understanding</h3>
+<div id="check-your-understanding" class="section level3 unnumbered hasAnchor">
+<h3>Check your understanding<a href="orientation-and-reading-in-data.html#check-your-understanding" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>What is the difference between a file and a folder?</li>
 <li>In the RStudio windows, what is the difference between the “Source” Pane and the “Console”? What is a “code chunk”?</li>
@@ -445,8 +445,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 </div>
-<div id="orienting" class="section level2">
-<h2><span class="header-section-number">2.1</span> Orienting</h2>
+<div id="orienting" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.1</span> Orienting<a href="orientation-and-reading-in-data.html#orienting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li><p>RStudio is a <strong>GUI</strong> and an IDE for the programming language R. A Graphical User Interface allows users to interface with the software (in this case R) using graphical aids like buttons and tabs. Often we don’t think of GUIs because to most computer users, everything is a GUI (like Microsoft Word or your “Control Panel”), but it’s always there! A Integrated Development Environment just says that the software to interface with R comes with useful useful bells and whistles to give you shortcuts.</p>
 <p>The <strong>Console</strong> is kind of a the core window through which you see your GUI actually operating through R. It’s not graphical so might not be as intuitive. But all your results, commands, errors, warnings.. you see them in here. A console tells you what’s going on now.</p></li>
@@ -474,8 +474,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="but-what-is-r" class="section level2">
-<h2><span class="header-section-number">2.2</span> But what is R?</h2>
+<div id="but-what-is-r" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.2</span> But what is R?<a href="orientation-and-reading-in-data.html#but-what-is-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R is an object oriented programming language primarily used for statistical computing. An object oriented language is a programming language built around manipulating objects.</p>
 <ul>
 <li>In R, objects can be matrices, vectors, scalars, strings, and data frames, for example</li>
@@ -506,8 +506,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>It is helpful to think in terms of object manipulation at a high level while programming in R, particularly at the beginning of tackling a new problem. Think about what objects you want to manipulate, what types they are, and how they fit together. Once you have the logic of your solution ready then you can write it in R.</p>
 </div>
-<div id="base-r-vs.-tidyverse" class="section level2">
-<h2><span class="header-section-number">2.3</span> Base-R vs. tidyverse</h2>
+<div id="base-r-vs.-tidyverse" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.3</span> Base-R vs. tidyverse<a href="orientation-and-reading-in-data.html#base-r-vs.-tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>One last thing before we jump into data. Many things in R and other open source packages have competing standards. A lecture on a technique inevitably biases one standard over another. Right now among R users in this area, there are two families of functions: base-R and tidyverse. R instructors thus face a dilemma about which to teach primarily.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <p>In this math camp, we try our best to choose the one that is most useful to the modal task of social science researchers, and make use of the tidyverse functions in most applications. However, feel free to suggest changes to us or to the booklet.</p>
 <p>Although you do not need to choose one over the other, for beginners it is confusing what is a tidyverse function and what is not. Many of the tidyverse <em>packages</em> are covered in this 2017 graphic below, and the cheat-sheets that other programmers have written: <a href="https://www.rstudio.com/resources/cheatsheets/" class="uri">https://www.rstudio.com/resources/cheatsheets/</a></p>
@@ -516,8 +516,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="caption">Names of Packages in the tidyverse Family</p>
 </div>
 <p>The following side-by-side comparison of commands for a particular function compares some tidyverse and non-tidyverse functions (which we refer to loosely as base-R). This list is not meant to be comprehensive and more to give you a quick rule of thumb.</p>
-<div id="dataframe-subsetting" class="section level3 unnumbered">
-<h3>Dataframe subsetting</h3>
+<div id="dataframe-subsetting" class="section level3 unnumbered hasAnchor">
+<h3>Dataframe subsetting<a href="orientation-and-reading-in-data.html#dataframe-subsetting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <table>
 <colgroup>
 <col width="31%" />
@@ -576,8 +576,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 <p>Remember that tidyverse applies to <em>dataframes</em> only, not vectors. For subsetting vectors, use the base-R functions with the square brackets.</p>
 </div>
-<div id="read-data" class="section level3 unnumbered">
-<h3>Read data</h3>
+<div id="read-data" class="section level3 unnumbered hasAnchor">
+<h3>Read data<a href="orientation-and-reading-in-data.html#read-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Some non-tidyverse functions are not quite “base-R” but have similar relationships to tidyverse. For these, we recommend using the <em>tidyverse</em> functions as a general rule due to their common format, simplicity, and scalability.</p>
 <table>
 <colgroup>
@@ -626,8 +626,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </div>
-<div id="visualization" class="section level3 unnumbered">
-<h3>Visualization</h3>
+<div id="visualization" class="section level3 unnumbered hasAnchor">
+<h3>Visualization<a href="orientation-and-reading-in-data.html#visualization" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Plotting by ggplot2 (from your tutorials) is also a tidyverse family.</p>
 <table>
 <colgroup>
@@ -667,12 +667,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </div>
 </div>
-<div id="a-is-for-athens" class="section level2">
-<h2><span class="header-section-number">2.4</span> A is for Athens</h2>
+<div id="a-is-for-athens" class="section level2 hasAnchor">
+<h2><span class="header-section-number">2.4</span> A is for Athens<a href="orientation-and-reading-in-data.html#a-is-for-athens" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>For our first dataset, let’s try reading in a dataset on the Ancient Greek world. Political Theorists and Political Historians study the domestic systems, international wars, cultures and writing of this era to understand the first instance of democracy, the rise and overturning of tyranny, and the legacies of political institutions.</p>
 <p>This POLIS dataset was generously provided by Professor Josiah Ober of Stanford University. This dataset includes information on city states in the Ancient Greek world, parts of it collected by careful work by historians and archaeologists. It is part of his recent books on Greece (Ober 2015), “The Rise and Fall of Classical Greece”<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> and Institutions in Ancient Athens (Ober 2010) , “Democracy and Knowledge: Innovation and Learning in Classical Athens.”<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
-<div id="locating-the-data" class="section level3">
-<h3><span class="header-section-number">2.4.1</span> Locating the Data</h3>
+<div id="locating-the-data" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.4.1</span> Locating the Data<a href="orientation-and-reading-in-data.html#locating-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>What files do we have in the <code>data/input</code> folder?</p>
 <pre><code>## data/input/Nunn_Wantchekon_AER_2011.dta data/input/Nunn_Wantchekon_sample.dta   
 ## data/input/acs2015_1percent.csv         data/input/gapminder_wide.Rds           
@@ -683,8 +683,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## data/input/usc2010_001percent.csv</code></pre>
 <p>A typical file format is Microsoft Excel. Although this is not usually the best format for R because of its highly formatted structure as opposed to plain text (more on this in Section (sec:nonwysiwyg)), recent packages have made this fairly easy.</p>
 </div>
-<div id="reading-in-data" class="section level3">
-<h3><span class="header-section-number">2.4.2</span> Reading in Data</h3>
+<div id="reading-in-data" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.4.2</span> Reading in Data<a href="orientation-and-reading-in-data.html#reading-in-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In Rstudio, a good way to start is to use the GUI and the Import tool. Once you click a file, an option to “Import Dataset” comes up. RStudio picks the right function for you, and you can copy that code, but it’s important to eventually be able to write that code yourself.</p>
 <p>For the first time using an outside package, you first need to install it.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="orientation-and-reading-in-data.html#cb11-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span></code></pre></div>
@@ -698,24 +698,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb14-2"><a href="orientation-and-reading-in-data.html#cb14-2"></a>ober &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;data/input/ober_2018.xlsx&quot;</span>)</span></code></pre></div>
 <p>Review: what does the <code>/</code> mean? Why do we need the <code>data</code> term first? Does the argument need to be in quotes?</p>
 </div>
-<div id="inspecting" class="section level3">
-<h3><span class="header-section-number">2.4.3</span> Inspecting</h3>
+<div id="inspecting" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.4.3</span> Inspecting<a href="orientation-and-reading-in-data.html#inspecting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For almost any dataset, you usually want to do a couple of standard checks first to understand what you loaded.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="orientation-and-reading-in-data.html#cb15-1"></a>ober</span></code></pre></div>
 <pre><code>## # A tibble: 1,035 × 10
-##    polis_number Name  Latitude Longitude Hellenicity  Fame Size  Colonies Regime
-##           &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; 
-##  1            1 Alal…     42.1      9.51 most Greek   1.12 100-…        0 &lt;NA&gt;  
-##  2            2 Empo…     42.1      3.11 most barba…  2.12 25-1…        0 &lt;NA&gt;  
-##  3            3 Mass…     43.3      5.38 most Greek   4    25-1…        2 no ev…
-##  4            4 Rhode     42.3      3.17 most Greek   0.87 &lt;NA&gt;         0 &lt;NA&gt;  
-##  5            5 Abak…     38.1     15.1  most barba…  1    &lt;NA&gt;         0 &lt;NA&gt;  
-##  6            6 Adra…     37.7     14.8  most Greek   1    &lt;NA&gt;         0 &lt;NA&gt;  
-##  7            7 Agyr…     37.7     14.5  most Greek   1.25 &lt;NA&gt;         0 no ev…
-##  8            8 Aitna     38.2     15.6  most Greek   3.25 200-…        1 no ev…
-##  9            9 Akra…     37.3     13.6  most Greek   6.37 500 …        0 evide…
-## 10           10 Akrai     37.1     14.9  most Greek   1.25 &lt;NA&gt;         0 &lt;NA&gt;  
-## # … with 1,025 more rows, and 1 more variable: Delian &lt;chr&gt;</code></pre>
+##    polis_number Name   Latit…¹ Longi…² Helle…³  Fame Size  Colon…⁴ Regime Delian
+##           &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; 
+##  1            1 Alalie    42.1    9.51 most G…  1.12 100-…       0 &lt;NA&gt;   not i…
+##  2            2 Empor…    42.1    3.11 most b…  2.12 25-1…       0 &lt;NA&gt;   not i…
+##  3            3 Massa…    43.3    5.38 most G…  4    25-1…       2 no ev… not i…
+##  4            4 Rhode     42.3    3.17 most G…  0.87 &lt;NA&gt;        0 &lt;NA&gt;   not i…
+##  5            5 Abaka…    38.1   15.1  most b…  1    &lt;NA&gt;        0 &lt;NA&gt;   not i…
+##  6            6 Adran…    37.7   14.8  most G…  1    &lt;NA&gt;        0 &lt;NA&gt;   not i…
+##  7            7 Agyri…    37.7   14.5  most G…  1.25 &lt;NA&gt;        0 no ev… not i…
+##  8            8 Aitna     38.2   15.6  most G…  3.25 200-…       1 no ev… not i…
+##  9            9 Akrag…    37.3   13.6  most G…  6.37 500 …       0 evide… not i…
+## 10           10 Akrai     37.1   14.9  most G…  1.25 &lt;NA&gt;        0 &lt;NA&gt;   not i…
+## # … with 1,025 more rows, and abbreviated variable names ¹​Latitude, ²​Longitude,
+## #   ³​Hellenicity, ⁴​Colonies
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="orientation-and-reading-in-data.html#cb17-1"></a><span class="kw">dim</span>(ober)</span></code></pre></div>
 <pre><code>## [1] 1035   10</code></pre>
 <p>From your tutorials, you also know how to do graphics! Graphics are useful for grasping your data, but we will cover them more deeply in Chapter <a href="dataviz.html#dataviz">4</a>.</p>
@@ -728,8 +730,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="MathCamp_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>What do the 1’s, 2’s, and 3’s stand for?</p>
 </div>
-<div id="finding-observations" class="section level3">
-<h3><span class="header-section-number">2.4.4</span> Finding observations</h3>
+<div id="finding-observations" class="section level3 hasAnchor">
+<h3><span class="header-section-number">2.4.4</span> Finding observations<a href="orientation-and-reading-in-data.html#finding-observations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>These <code>tidyverse</code> commands from the <code>dplyr</code> package are newer and not built-in, but they are one of the increasingly more popular ways to wrangle data.</p>
 <ul>
 <li>80 percent of your data wrangling needs might be doable with these basic <code>dplyr</code> functions: <code>select</code>, <code>mutate</code>, <code>group_by</code>, <code>summarize</code>, and <code>arrange</code>.</li>

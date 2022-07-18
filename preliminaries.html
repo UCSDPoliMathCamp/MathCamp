@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Preliminaries | UCSD Political Science Math Camp</title>
   <meta name="description" content="Text for UCSD Department of Political Science Math Camp" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 Preliminaries | UCSD Political Science Math Camp" />
   <meta property="og:type" content="book" />
-  
   <meta property="og:image" content="/./images/logo.png" />
   <meta property="og:description" content="Text for UCSD Department of Political Science Math Camp" />
   <meta name="github-repo" content="UCSDPoliMathCamp/MathCamp" />
@@ -50,8 +49,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -241,9 +241,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.1" data-path="simulation.html"><a href="simulation.html#sampling-rows-from-a-dataframe"><i class="fa fa-check"></i><b>5.2.1</b> Sampling rows from a dataframe</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="simulation.html"><a href="simulation.html#random-numbers-from-specific-distributions"><i class="fa fa-check"></i><b>5.3</b> Random numbers from specific distributions</a><ul>
-<li><a href="simulation.html#rbinom"><code>rbinom()</code></a></li>
-<li><a href="simulation.html#runif"><code>runif()</code></a></li>
-<li><a href="simulation.html#rnorm"><code>rnorm()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#rbinom"><i class="fa fa-check"></i><code>rbinom()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#runif"><i class="fa fa-check"></i><code>runif()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#rnorm"><i class="fa fa-check"></i><code>rnorm()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="simulation.html"><a href="simulation.html#r-p-and-d"><i class="fa fa-check"></i><b>5.4</b> r, p, and d</a></li>
 <li class="chapter" data-level="5.5" data-path="simulation.html"><a href="simulation.html#set.seed"><i class="fa fa-check"></i><b>5.5</b> <code>set.seed()</code></a></li>
@@ -412,8 +412,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="preliminaries" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Preliminaries</h1>
+<div id="preliminaries" class="section level1 hasAnchor">
+<h1><span class="header-section-number">Chapter 1</span> Preliminaries<a href="preliminaries.html#preliminaries" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>The syllabus lists the assumed knowledge for Math Camp (Chapters 1-4 of Moore and Siegel). Below, you will find additional review material, examples, and sample exercises.</p>
 <p><strong>Topics</strong>
 Dimensionality;
@@ -428,8 +428,8 @@ Solving for Variables;
 Finding Roots;
 Limit of a Function;
 Continuity; Sets, Sets, and More Sets.</p>
-<div id="sum-notation" class="section level2">
-<h2><span class="header-section-number">1.1</span> Summation Operators</h2>
+<div id="sum-notation" class="section level2 hasAnchor">
+<h2><span class="header-section-number">1.1</span> Summation Operators<a href="preliminaries.html#sum-notation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Addition (+), Subtraction (-), multiplication and division are basic operations of arithmetic – combining numbers. In statistics and calculus, we want to add a <em>sequence</em> of numbers that can be expressed as a pattern without needing to write down all its components. For example, how would we express the sum of all numbers from 1 to 100 without writing a hundred numbers?</p>
 <p>For this we use the summation operator <span class="math inline">\(\sum\)</span> and the product operator <span class="math inline">\(\prod\)</span>.</p>
 <p><strong>Summation:</strong></p>
@@ -457,30 +457,26 @@ Continuity; Sets, Sets, and More Sets.</p>
 <li><span class="math inline">\(17 \mod 3 = 2\)</span></li>
 <li><span class="math inline">\(100 \ \% \ 30 = 10\)</span></li>
 </ul>
-
 <div class="example">
-<p><span id="exm:operators" class="example"><strong>Example 1.1  (Operators)  </strong></span></p>
 <ol style="list-style-type: decimal">
+<li></li>
 <li><p><span class="math inline">\(\sum\limits_{i=1}^{5} i =\)</span></p></li>
 <li><p><span class="math inline">\(\prod\limits_{i=1}^{5} i =\)</span></p></li>
 <li><p><span class="math inline">\(14 \mod 4 =\)</span></p></li>
 <li><p><span class="math inline">\(4! =\)</span></p></li>
 </ol>
 </div>
-
-
 <div class="exercise">
-<p><span id="exr:operators1" class="exercise"><strong>Exercise 1.1  (Operators)  </strong></span>Let <span class="math inline">\(x_1 = 4, x_2 = 3, x_3 = 7, x_4 = 11, x_5 = 2\)</span></p>
+<p><span id="exr:operators1" class="exercise"><strong>Exercise 1.1  (Operators) </strong></span>Let <span class="math inline">\(x_1 = 4, x_2 = 3, x_3 = 7, x_4 = 11, x_5 = 2\)</span></p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(\sum\limits_{i=1}^{3} (7)x_i\)</span></p></li>
 <li><p><span class="math inline">\(\sum\limits_{i=1}^{5} 2\)</span></p></li>
 <li><p><span class="math inline">\(\prod\limits_{i=3}^{5} (2)x_i\)</span></p></li>
 </ol>
 </div>
-
 </div>
-<div id="introduction-to-functions" class="section level2">
-<h2><span class="header-section-number">1.2</span> Introduction to Functions</h2>
+<div id="introduction-to-functions" class="section level2 hasAnchor">
+<h2><span class="header-section-number">1.2</span> Introduction to Functions<a href="preliminaries.html#introduction-to-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A <strong>function</strong> (in <span class="math inline">\({\bf R}^1\)</span>) is a mapping, or transformation, that relates members of one set to members of another set. For instance, if you have two sets: set <span class="math inline">\(A\)</span> and set <span class="math inline">\(B\)</span>, a function from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span> maps every value <span class="math inline">\(a\)</span> in set <span class="math inline">\(A\)</span> such that <span class="math inline">\(f(a) \in B\)</span>. Functions can be “many-to-one”, where many values or combinations of values from set <span class="math inline">\(A\)</span> produce a single output in set <span class="math inline">\(B\)</span>, or they can be “one-to-one”, where each value in set <span class="math inline">\(A\)</span> corresponds to a single value in set <span class="math inline">\(B\)</span>. A function by definition has a single function value for each element of its domain. This means, there cannot be “one-to-many” mapping.</p>
 <p><strong>Dimensionality</strong>: <span class="math inline">\({\bf R}^1\)</span> is the set of all real numbers extending from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(+\infty\)</span> — i.e., the real number line. <span class="math inline">\({\bf R}^n\)</span> is an <span class="math inline">\(n\)</span>-dimensional space, where each of the <span class="math inline">\(n\)</span> axes extends from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(+\infty\)</span>.</p>
 <ul>
@@ -505,26 +501,20 @@ Continuity; Sets, Sets, and More Sets.</p>
 <li><span class="math inline">\(f(x,y)=x^2+y^2\)</span>. For each ordered pair <span class="math inline">\((x,y)\)</span> in <span class="math inline">\({\bf R}^2\)</span>, <span class="math inline">\(f(x,y)\)</span> assigns the number <span class="math inline">\(x^2+y^2\)</span>.</li>
 </ul>
 <p>We often use variable <span class="math inline">\(x\)</span> as input and another <span class="math inline">\(y\)</span> as output, e.g. <span class="math inline">\(y=x+1\)</span></p>
-
 <div class="example">
-<p><span id="exm:functions" class="example"><strong>Example 1.2  (Functions)  </strong></span>
-For each of the following, state whether they are one-to-one or many-to-one functions.</p>
+<p><span id="exm:functions" class="example"><strong>Example 1.1  (Functions) </strong></span>For each of the following, state whether they are one-to-one or many-to-one functions.</p>
 <ol style="list-style-type: decimal">
 <li><p>For <span class="math inline">\(x \in [0,\infty]\)</span>, <span class="math inline">\(f : x \rightarrow x^2\)</span> (this could also be written as <span class="math inline">\(f(x) = x^2\)</span>).</p></li>
 <li><p>For <span class="math inline">\(x \in [-\infty, \infty]\)</span>, <span class="math inline">\(f: x \rightarrow x^2\)</span>.</p></li>
 </ol>
 </div>
-
-
 <div class="exercise">
-<p><span id="exr:functions1" class="exercise"><strong>Exercise 1.2  (Functions)  </strong></span>
-For each of the following, state whether they are one-to-one or many-to-one functions.</p>
+<p><span id="exr:functions1" class="exercise"><strong>Exercise 1.2  (Functions) </strong></span>For each of the following, state whether they are one-to-one or many-to-one functions.</p>
 <ol style="list-style-type: decimal">
 <li><p>For <span class="math inline">\(x \in [-3, \infty]\)</span>, <span class="math inline">\(f: x \rightarrow x^2\)</span>.</p></li>
 <li><p>For <span class="math inline">\(x \in [0, \infty]\)</span>, <span class="math inline">\(f: x \rightarrow \sqrt{x}\)</span></p></li>
 </ol>
 </div>
-
 <p>Some functions are defined only on proper subsets of <span class="math inline">\({\bf R}^n\)</span>.</p>
 <ul>
 <li><strong>Domain</strong>: the set of numbers in <span class="math inline">\(X\)</span> at which <span class="math inline">\(f(x)\)</span> is defined.</li>
@@ -541,8 +531,8 @@ Most often used when talking about a function <span class="math inline">\(f:{\bf
 <p>The degree of a polynomial is the highest degree of its monomial terms. Also, it’s often a good idea to write polynomials with terms in decreasing degree.</p>
 <p><strong>Exponential Functions</strong>: Example: <span class="math inline">\(y=2^x\)</span></p>
 </div>
-<div id="logexponents" class="section level2">
-<h2><span class="header-section-number">1.3</span> logs and exponents</h2>
+<div id="logexponents" class="section level2 hasAnchor">
+<h2><span class="header-section-number">1.3</span> logs and exponents<a href="preliminaries.html#logexponents" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Relationship of logarithmic and exponential functions</strong>:
 <span class="math display">\[y=\log_a(x) \iff a^y=x\]</span></p>
 <p>The log function can be thought of as an inverse for exponential functions. <span class="math inline">\(a\)</span> is referred to as the “base” of the logarithm.</p>
@@ -587,10 +577,8 @@ Most often used when talking about a function <span class="math inline">\(f:{\bf
             &amp;=&amp; \log(c^n) + \log(x_1) + \log(x_2) + \cdots + \log(x_n)\\\\
             &amp;=&amp; n \log(c) +  \sum\limits_{i=1}^n \log (x_i)\\
 \end{eqnarray*}\]</span></p>
-
 <div class="example">
-<p><span id="exm:log" class="example"><strong>Example 1.3  (Logarithmic Functions)  </strong></span>
-Evaluate each of the following logarithms</p>
+<p><span id="exm:log" class="example"><strong>Example 1.2  (Logarithmic Functions) </strong></span>Evaluate each of the following logarithms</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(\log_4(16)\)</span></p></li>
 <li><p><span class="math inline">\(\log_2(16)\)</span></p></li>
@@ -600,11 +588,8 @@ Evaluate each of the following logarithms</p>
 <li><span class="math inline">\(\log_4(x^3y^5)\)</span></li>
 </ol>
 </div>
-
-
 <div class="exercise">
-<p><span id="exr:log1" class="exercise"><strong>Exercise 1.3  (Logarithmic Functions)  </strong></span></p>
-<p>Evaluate each of the following logarithms</p>
+<p><span id="exr:log1" class="exercise"><strong>Exercise 1.3  (Logarithmic Functions) </strong></span>Evaluate each of the following logarithms</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\log_\frac{3}{2}(\frac{27}{8})\)</span></li>
 </ol>
@@ -614,10 +599,9 @@ Evaluate each of the following logarithms</p>
 <li><p><span class="math inline">\(\ln{\sqrt{xy}}\)</span></p></li>
 </ol>
 </div>
-
 </div>
-<div id="graphing-functions" class="section level2">
-<h2><span class="header-section-number">1.4</span> Graphing Functions</h2>
+<div id="graphing-functions" class="section level2 hasAnchor">
+<h2><span class="header-section-number">1.4</span> Graphing Functions<a href="preliminaries.html#graphing-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>What can a graph tell you about a function?</p>
 <ul>
 <li>Is the function increasing or decreasing? Over what part of the domain?</li>
@@ -630,38 +614,32 @@ Evaluate each of the following logarithms</p>
 <li>Other questions related to the substance of the problem at hand.</li>
 </ul>
 </div>
-<div id="solving-for-variables-and-finding-roots" class="section level2">
-<h2><span class="header-section-number">1.5</span> Solving for Variables and Finding Roots</h2>
+<div id="solving-for-variables-and-finding-roots" class="section level2 hasAnchor">
+<h2><span class="header-section-number">1.5</span> Solving for Variables and Finding Roots<a href="preliminaries.html#solving-for-variables-and-finding-roots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Sometimes we’re given a function <span class="math inline">\(y=f(x)\)</span> and we want to find how <span class="math inline">\(x\)</span> varies as a function of <span class="math inline">\(y\)</span>. Use algebra to move <span class="math inline">\(x\)</span> to the left hand side (LHS) of the equation and so that the right hand side (RHS) is only a function of <span class="math inline">\(y\)</span>.</p>
-
 <div class="example">
-<p><span id="exm:solvevar" class="example"><strong>Example 1.4  (Solving for Variables)  </strong></span></p>
-<p>Solve for x:</p>
+<p><span id="exm:solvevar" class="example"><strong>Example 1.3  (Solving for Variables) </strong></span>Solve for x:</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(y=3x+2\)</span></p></li>
 <li><p><span class="math inline">\(y=e^x\)</span></p></li>
 </ol>
 </div>
-
 <p>Solving for variables is especially important when we want to find the <strong>roots</strong> of an equation: those values of variables that cause an equation to equal zero. Especially important in finding equilibria and in doing maximum likelihood estimation.</p>
 <p>Procedure: Given <span class="math inline">\(y=f(x)\)</span>, set <span class="math inline">\(f(x)=0\)</span>. Solve for <span class="math inline">\(x\)</span>.</p>
 <p>Multiple Roots:
 <span class="math display">\[f(x)=x^2 - 9 \quad\Longrightarrow\quad 0=x^2 - 9 \quad\Longrightarrow\quad 9=x^2 \quad\Longrightarrow\quad \pm \sqrt{9}=\sqrt{x^2} \quad\Longrightarrow\quad \pm 3=x\]</span></p>
 <p><strong>Quadratic Formula:</strong> For quadratic equations <span class="math inline">\(ax^2+bx+c=0\)</span>, use the quadratic formula: <span class="math display">\[x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\]</span></p>
-
 <div class="exercise">
-<p><span id="exr:solvevar1" class="exercise"><strong>Exercise 1.4  (Finding Roots)  </strong></span>
-Solve for x:</p>
+<p><span id="exr:solvevar1" class="exercise"><strong>Exercise 1.4  (Finding Roots) </strong></span>Solve for x:</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(f(x)=3x+2 = 0\)</span></p></li>
 <li><p><span class="math inline">\(f(x)=x^2+3x-4=0\)</span></p></li>
 <li><p><span class="math inline">\(f(x)=e^{-x}-10 = 0\)</span></p></li>
 </ol>
 </div>
-
 </div>
-<div id="sets" class="section level2">
-<h2><span class="header-section-number">1.6</span> Sets</h2>
+<div id="sets" class="section level2 hasAnchor">
+<h2><span class="header-section-number">1.6</span> Sets<a href="preliminaries.html#sets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Interior Point</strong>: The point <span class="math inline">\(\bf x\)</span> is an interior point of the set <span class="math inline">\(S\)</span> if <span class="math inline">\(\bf x\)</span> is in <span class="math inline">\(S\)</span> and if there is some <span class="math inline">\(\epsilon\)</span>-ball around <span class="math inline">\(\bf x\)</span> that contains only points in <span class="math inline">\(S\)</span>. The <strong>interior</strong> of <span class="math inline">\(S\)</span> is the collection of all interior points in <span class="math inline">\(S\)</span>. The interior can also be defined as the union of all open sets in <span class="math inline">\(S\)</span>.</p>
 <ul>
 <li>If the set <span class="math inline">\(S\)</span> is circular, the interior points are everything inside of the circle, but not on the circle’s rim.</li>
@@ -695,9 +673,9 @@ Solve for x:</p>
 <li>Examples: The set of squares with 5 sides; the set of countries south of the South Pole.</li>
 </ul>
 </div>
-<div id="answers-to-examples-and-exercises" class="section level2 unnumbered">
-<h2>Answers to Examples and Exercises</h2>
-<p>Answer to Example <a href="preliminaries.html#exm:operators">1.1</a>:</p>
+<div id="answers-to-examples-and-exercises" class="section level2 unnumbered hasAnchor">
+<h2>Answers to Examples and Exercises<a href="preliminaries.html#answers-to-examples-and-exercises" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Answer to Example <a href="#exm:operators"><strong>??</strong></a>:</p>
 <ol style="list-style-type: decimal">
 <li><p>1 + 2 + 3 + 4 + 5 = 15</p></li>
 <li><p>1 * 2 * 3 * 4 * 5 = 120</p></li>
@@ -710,7 +688,7 @@ Solve for x:</p>
 <li><p>2 + 2 + 2 + 2 + 2 = 10</p></li>
 <li><p><span class="math inline">\(2^3(7)(11)(2)\)</span> = 1232</p></li>
 </ol>
-<p>Answer to Example <a href="preliminaries.html#exm:functions">1.2</a>:</p>
+<p>Answer to Example <a href="preliminaries.html#exm:functions">1.1</a>:</p>
 <ol style="list-style-type: decimal">
 <li><p>one-to-one</p></li>
 <li><p>many-to-one</p></li>
@@ -720,7 +698,7 @@ Solve for x:</p>
 <li><p>many-to-one</p></li>
 <li><p>one-to-one</p></li>
 </ol>
-<p>Answer to Example <a href="preliminaries.html#exm:log">1.3</a>:</p>
+<p>Answer to Example <a href="preliminaries.html#exm:log">1.2</a>:</p>
 <ol style="list-style-type: decimal">
 <li><p>2</p></li>
 <li><p>4</p></li>
@@ -732,7 +710,7 @@ Solve for x:</p>
 <li><p><span class="math inline">\(9\log(x) + 5\log(y) - 3\log(z)\)</span></p></li>
 <li><p><span class="math inline">\(\frac{1}{2}(\ln{x} + \ln{y})\)</span></p></li>
 </ol>
-<p>Answer to Example <a href="preliminaries.html#exm:solvevar">1.4</a>:</p>
+<p>Answer to Example <a href="preliminaries.html#exm:solvevar">1.3</a>:</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(y=3x+2 \quad\Longrightarrow\quad -3x=2-y \quad\Longrightarrow\quad 3x=y-2 \quad\Longrightarrow\quad x=\frac{1}{3}(y-2)\)</span></p></li>
 <li><p><span class="math inline">\(x = \ln{y}\)</span></p></li>

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 LaTeX and markdown | UCSD Political Science Math Camp</title>
   <meta name="description" content="Text for UCSD Department of Political Science Math Camp" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 LaTeX and markdown | UCSD Political Science Math Camp" />
   <meta property="og:type" content="book" />
-  
   <meta property="og:image" content="/./images/logo.png" />
   <meta property="og:description" content="Text for UCSD Department of Political Science Math Camp" />
   <meta name="github-repo" content="UCSDPoliMathCamp/MathCamp" />
@@ -50,8 +49,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -241,9 +241,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.1" data-path="simulation.html"><a href="simulation.html#sampling-rows-from-a-dataframe"><i class="fa fa-check"></i><b>5.2.1</b> Sampling rows from a dataframe</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="simulation.html"><a href="simulation.html#random-numbers-from-specific-distributions"><i class="fa fa-check"></i><b>5.3</b> Random numbers from specific distributions</a><ul>
-<li><a href="simulation.html#rbinom"><code>rbinom()</code></a></li>
-<li><a href="simulation.html#runif"><code>runif()</code></a></li>
-<li><a href="simulation.html#rnorm"><code>rnorm()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#rbinom"><i class="fa fa-check"></i><code>rbinom()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#runif"><i class="fa fa-check"></i><code>runif()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#rnorm"><i class="fa fa-check"></i><code>rnorm()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="simulation.html"><a href="simulation.html#r-p-and-d"><i class="fa fa-check"></i><b>5.4</b> r, p, and d</a></li>
 <li class="chapter" data-level="5.5" data-path="simulation.html"><a href="simulation.html#set.seed"><i class="fa fa-check"></i><b>5.5</b> <code>set.seed()</code></a></li>
@@ -412,10 +412,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="nonwysiwyg" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> LaTeX and markdown</h1>
-<div id="where-are-we-where-are-we-headed-3" class="section level3 unnumbered">
-<h3>Where are we? Where are we headed?</h3>
+<div id="nonwysiwyg" class="section level1 hasAnchor">
+<h1><span class="header-section-number">Chapter 6</span> LaTeX and markdown<a href="nonwysiwyg.html#nonwysiwyg" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="where-are-we-where-are-we-headed-3" class="section level3 unnumbered hasAnchor">
+<h3>Where are we? Where are we headed?<a href="nonwysiwyg.html#where-are-we-where-are-we-headed-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Up till now, you should have covered:</p>
 <ul>
 <li>Statistical Programming in <code>R</code></li>
@@ -430,8 +430,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>command-line are a basic set of tools that you may have to use from time to time. It also clarifies what more complicated programs are doing. Markdown is an example of compiling a plain text file. LaTeX is a typesetting program and git is a version control program – both are useful for non-quantitative work as well.</p>
 <p>Please familiarize yourself closing with Markdown, and be sure you know how to open an .Rmd file as described below. In class, we will walk through an Rmd file together. LaTeX is included here for your future reference as this is a popular typesetting program among political scientists. This is not needed for Math Camp and is never required for any course. In fact, many prefer R Markdown’s integration rather than a separate typesetting program. This depends on your background and interests but exposure to the range of popular programs and techniques will be helpful moving forward.</p>
 </div>
-<div id="check-your-understanding-3" class="section level3 unnumbered">
-<h3>Check your understanding</h3>
+<div id="check-your-understanding-3" class="section level3 unnumbered hasAnchor">
+<h3>Check your understanding<a href="nonwysiwyg.html#check-your-understanding-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Check if you have an idea of how you might code the following tasks:</p>
 <ul>
 <li>What does “WYSIWYG” stand for? How would a non-WYSIWYG format text?</li>
@@ -445,16 +445,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Say you came across a interesting journal article. How would you want to maintain this reference so that you can refer to its citation in all your subsequent papers?</li>
 </ul>
 </div>
-<div id="motivation" class="section level2">
-<h2><span class="header-section-number">6.1</span> Motivation</h2>
+<div id="motivation" class="section level2 hasAnchor">
+<h2><span class="header-section-number">6.1</span> Motivation<a href="nonwysiwyg.html#motivation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Statistical programming is a fast-moving field. The beta version of <code>R</code> was released in 2000, <code>ggplot2</code> was released on 2005, and <code>RStudio</code> started around 2010. Of course, some programming technologies are quite “old”: (<code>C</code> in 1969, <code>C++</code> around 1989, <code>TeX</code> in 1978, <code>Linux</code> in 1991, Mac OS in 1984). But it is easy to feel you are falling behind in the recent developments of programming. Today we will do a <strong>brief</strong> and rough overview of some fundamental and new tools other than <code>R</code>, with the general aim of having you break out of your comfort zone so you won’t be shut out from learning these tools in the future.</p>
 </div>
-<div id="markdown" class="section level2">
-<h2><span class="header-section-number">6.2</span> Markdown</h2>
+<div id="markdown" class="section level2 hasAnchor">
+<h2><span class="header-section-number">6.2</span> Markdown<a href="nonwysiwyg.html#markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>At its core markdown is just plain text. Plain text does not have any formatting embedded in it. Instead, the formatting is coded up as text. Markdown is <em>not</em> a WYSIWYG (What you see is what you get) text editor like Microsoft Word or Google Docs. This will mean that you need to explicitly code for <code>bold{text}</code> rather than hitting Command+B and making your text look <strong>bold</strong> on your own computer.</p>
 <p>Markdown is known as a “light-weight” editor, which means that it is relatively easy to write code that will compile. It is quick and easy and satisfies most presentation purposes; you might want to try <code>LaTeX</code> for more involved papers.</p>
-<div id="markdown-commands" class="section level3">
-<h3><span class="header-section-number">6.2.1</span> markdown commands</h3>
+<div id="markdown-commands" class="section level3 hasAnchor">
+<h3><span class="header-section-number">6.2.1</span> markdown commands<a href="nonwysiwyg.html#markdown-commands" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For italic and bold, use either the asterisks or the underlines,</p>
 <pre><code>*italic*   **bold**
 _italic_   __bold__</code></pre>
@@ -462,8 +462,8 @@ _italic_   __bold__</code></pre>
 <pre><code># Main Header
 ## Sub-headers</code></pre>
 </div>
-<div id="your-own-markdown" class="section level3">
-<h3><span class="header-section-number">6.2.2</span> your own markdown</h3>
+<div id="your-own-markdown" class="section level3 hasAnchor">
+<h3><span class="header-section-number">6.2.2</span> your own markdown<a href="nonwysiwyg.html#your-own-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>RStudio makes it easy to compile your very first markdown file by giving you templates. Got to <code>New &gt; R Markdown</code>, pick a document and click Ok. This will give you a skeleton of a document you can compile – or “knit”.</p>
 <p>Rmd is actually a slight modification of real markdown. It is a type of file that R reads and turns into a proper <code>md</code> file. Then, it uses a document-conversion called pandoc to compile your <code>md</code> into documents like PDF or HTML.</p>
 <div class="figure">
@@ -471,8 +471,8 @@ _italic_   __bold__</code></pre>
 <p class="caption">How Rmds become PDFs or HTMLs</p>
 </div>
 </div>
-<div id="a-note-on-plain-text-editors" class="section level3">
-<h3><span class="header-section-number">6.2.3</span> A note on plain-text editors</h3>
+<div id="a-note-on-plain-text-editors" class="section level3 hasAnchor">
+<h3><span class="header-section-number">6.2.3</span> A note on plain-text editors<a href="nonwysiwyg.html#a-note-on-plain-text-editors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Multiple software exist where you can edit plain-text (roughly speaking, text that is not WYSIWYG).</p>
 <ul>
 <li>RStudio (especially for R-related links)</li>
@@ -485,11 +485,11 @@ _italic_   __bold__</code></pre>
 <p>Each has their own keyboard shortcuts and special features. You can browse a couple and see which one(s) you like.</p>
 </div>
 </div>
-<div id="latex" class="section level2">
-<h2><span class="header-section-number">6.3</span> LaTeX</h2>
+<div id="latex" class="section level2 hasAnchor">
+<h2><span class="header-section-number">6.3</span> LaTeX<a href="nonwysiwyg.html#latex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>LaTeX is a typesetting program. You’d engage with LaTeX much like you engage with your <code>R</code> code. You will interact with LaTeX in a text editor, and will writing code which will be interpreted by the LaTeX compiler and which will finally be parsed to form your final PDF.</p>
-<div id="compile-online" class="section level3">
-<h3><span class="header-section-number">6.3.1</span> compile online</h3>
+<div id="compile-online" class="section level3 hasAnchor">
+<h3><span class="header-section-number">6.3.1</span> compile online<a href="nonwysiwyg.html#compile-online" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Go to <a href="https://www.overleaf.com" class="uri">https://www.overleaf.com</a></li>
 <li>Scroll down and go to “CREATE A NEW PAPER” if you don’t have an account.</li>
@@ -501,8 +501,8 @@ _italic_   __bold__</code></pre>
 <span id="cb184-3"><a href="nonwysiwyg.html#cb184-3"></a><span class="ex">Hello</span> World</span>
 <span id="cb184-4"><a href="nonwysiwyg.html#cb184-4"></a>\<span class="ex">end</span><span class="dt">{document}</span></span></code></pre></div>
 </div>
-<div id="compile-your-first-latex-document-locally" class="section level3">
-<h3><span class="header-section-number">6.3.2</span> compile your first LaTeX document locally</h3>
+<div id="compile-your-first-latex-document-locally" class="section level3 hasAnchor">
+<h3><span class="header-section-number">6.3.2</span> compile your first LaTeX document locally<a href="nonwysiwyg.html#compile-your-first-latex-document-locally" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>LaTeX is a very stable system, and few changes to it have been made since the 1990s. The main benefit: better control over how your papers will look; better methods for writing equations or making tables; overall pleasing aesthetic.</p>
 <ol style="list-style-type: decimal">
 <li>Open a plain text editor. Then type in the MWE</li>
@@ -517,8 +517,8 @@ _italic_   __bold__</code></pre>
 <li>Go through the click/dropdown interface and click compile.</li>
 </ol>
 </div>
-<div id="main-latex-commands" class="section level3">
-<h3><span class="header-section-number">6.3.3</span> main LaTeX commands</h3>
+<div id="main-latex-commands" class="section level3 hasAnchor">
+<h3><span class="header-section-number">6.3.3</span> main LaTeX commands<a href="nonwysiwyg.html#main-latex-commands" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>LaTeX can cover most of your typesetting needs, to clean equations and intricate diagrams.</p>
 <p>Some main commands you’ll be using are below, and a very concise cheat sheet here: <a href="https://wch.github.io/latexsheet/latexsheet.pdf" class="uri">https://wch.github.io/latexsheet/latexsheet.pdf</a></p>
 <p>Most involved features require that you begin a specific “environment” for that feature, clearly demarcating them by the notation <code>\begin{figure}</code> and then <code>\end{figure}</code>, e.g. in the case of figures.</p>
@@ -545,17 +545,17 @@ P(A \mid B) &amp;= \frac{P(A \cap B)}{P(B)}\\
 <pre><code>\usepackage[options]{package}</code></pre>
 <p>where <code>package</code> is the name of the package and <code>options</code> are options specific to the package.</p>
 </div>
-<div id="further-guides" class="section level3 unnumbered">
-<h3>Further Guides</h3>
+<div id="further-guides" class="section level3 unnumbered hasAnchor">
+<h3>Further Guides<a href="nonwysiwyg.html#further-guides" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For a more comprehensive listing of LaTeX commands, Mayya Komisarchik has a great tutorial set of folders: <a href="https://scholar.harvard.edu/mkomisarchik/tutorials-0" class="uri">https://scholar.harvard.edu/mkomisarchik/tutorials-0</a></p>
 <p>There is a version of LaTeX called Beamer, which is a popular way of making a slideshow. Slides in markdown is also a competitor. The language of Beamer is the same as LaTeX but has some special functions for slides.</p>
 </div>
 </div>
-<div id="bibtex" class="section level2">
-<h2><span class="header-section-number">6.4</span> BibTeX</h2>
+<div id="bibtex" class="section level2 hasAnchor">
+<h2><span class="header-section-number">6.4</span> BibTeX<a href="nonwysiwyg.html#bibtex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>BibTeX is a reference system for bibliographical tests. We have a <code>.bib</code> file separately on our computer. This is also a plain text file, but it encodes bibliographical resources with special syntax so that a program can rearrange parts accordingly for different citation systems.</p>
-<div id="what-is-a-.bib-file" class="section level3">
-<h3><span class="header-section-number">6.4.1</span> what is a <code>.bib</code> file?</h3>
+<div id="what-is-a-.bib-file" class="section level3 hasAnchor">
+<h3><span class="header-section-number">6.4.1</span> what is a <code>.bib</code> file?<a href="nonwysiwyg.html#what-is-a-.bib-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For example, here is the Nunn and Wantchekon article entry in <code>.bib</code> form.</p>
 <pre><code>@article{nunn2011slave,
   title={The Slave Trade and the Origins of Mistrust in Africa},
@@ -568,8 +568,8 @@ P(A \mid B) &amp;= \frac{P(A \cap B)}{P(B)}\\
 }</code></pre>
 <p>The first entry, <code>nunn2011slave</code>, is “pick your favorite” – pick your own name for your reference system. The other slots in this <code>@article</code> entry are entries that refer to specific bibliographical text.</p>
 </div>
-<div id="what-does-latex-do-with-.bib-files" class="section level3">
-<h3><span class="header-section-number">6.4.2</span> what does LaTeX do with .bib files?</h3>
+<div id="what-does-latex-do-with-.bib-files" class="section level3 hasAnchor">
+<h3><span class="header-section-number">6.4.2</span> what does LaTeX do with .bib files?<a href="nonwysiwyg.html#what-does-latex-do-with-.bib-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now, in LaTeX, if you type</p>
 <pre><code>  \textcite{nunn2011slave} argue that current variation in the trust among citizens of African countries has historical roots in the European slave trade in the 1600s.
   </code></pre>
@@ -580,15 +580,15 @@ P(A \mid B) &amp;= \frac{P(A \cap B)}{P(B)}\\
 <p><img src="images/biblatex_bibliography.png" /></p>
 <p>This is a much less frustrating way of keeping track of your references – no need to hand-edit formatting the bibliography to conform to citation rules (which biblatex already knows) and no need to update your bibliography as you add and drop references (biblatex will only show entries that are used in the main text).</p>
 </div>
-<div id="stocking-up-on-your-.bib-files" class="section level3">
-<h3><span class="header-section-number">6.4.3</span> stocking up on your .bib files</h3>
+<div id="stocking-up-on-your-.bib-files" class="section level3 hasAnchor">
+<h3><span class="header-section-number">6.4.3</span> stocking up on your .bib files<a href="nonwysiwyg.html#stocking-up-on-your-.bib-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You should keep your own <code>.bib</code> file that has all your bibliographical resources. Storing entries is cheap (does not take much memory), so it is fine to keep all your references in one place (but you’ll want to make a new one for collaborative projects where multiple people will compile a <code>.tex</code> file).</p>
 <p>For example, Gary’s BibTeX file is here: <a href="https://github.com/iqss-research/gkbibtex/blob/master/gk.bib" class="uri">https://github.com/iqss-research/gkbibtex/blob/master/gk.bib</a></p>
 <p>Citation management software (Mendeley or Zotero) automatically generates .bib entries from your library of PDFs for you, provided you have the bibliography attributes right.</p>
 </div>
 </div>
-<div id="extension-optional-exercise" class="section level2 unnumbered">
-<h2>Extension: Optional Exercise</h2>
+<div id="extension-optional-exercise" class="section level2 unnumbered hasAnchor">
+<h2>Extension: Optional Exercise<a href="nonwysiwyg.html#extension-optional-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Create a LaTeX document for a hypothetical research paper on your laptop and, once you’ve verified it compiles into a PDF, come show it to either one of the instructors.</p>
 <p>You can also use overleaf if you have preference for a cloud-based system. But don’t swallow the built-in templates without understanding or testing them.</p>
 <p>Each student will have slightly different substantive interests, so we won’t impose much of a standard. But at a minimum, the LaTeX document should have:</p>

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Objects, Functions, Loops | UCSD Political Science Math Camp</title>
   <meta name="description" content="Text for UCSD Department of Political Science Math Camp" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Objects, Functions, Loops | UCSD Political Science Math Camp" />
   <meta property="og:type" content="book" />
-  
   <meta property="og:image" content="/./images/logo.png" />
   <meta property="og:description" content="Text for UCSD Department of Political Science Math Camp" />
   <meta name="github-repo" content="UCSDPoliMathCamp/MathCamp" />
@@ -50,8 +49,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -241,9 +241,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.1" data-path="simulation.html"><a href="simulation.html#sampling-rows-from-a-dataframe"><i class="fa fa-check"></i><b>5.2.1</b> Sampling rows from a dataframe</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="simulation.html"><a href="simulation.html#random-numbers-from-specific-distributions"><i class="fa fa-check"></i><b>5.3</b> Random numbers from specific distributions</a><ul>
-<li><a href="simulation.html#rbinom"><code>rbinom()</code></a></li>
-<li><a href="simulation.html#runif"><code>runif()</code></a></li>
-<li><a href="simulation.html#rnorm"><code>rnorm()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#rbinom"><i class="fa fa-check"></i><code>rbinom()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#runif"><i class="fa fa-check"></i><code>runif()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#rnorm"><i class="fa fa-check"></i><code>rnorm()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="simulation.html"><a href="simulation.html#r-p-and-d"><i class="fa fa-check"></i><b>5.4</b> r, p, and d</a></li>
 <li class="chapter" data-level="5.5" data-path="simulation.html"><a href="simulation.html#set.seed"><i class="fa fa-check"></i><b>5.5</b> <code>set.seed()</code></a></li>
@@ -412,10 +412,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="robjloops" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> Objects, Functions, Loops</h1>
-<div id="where-are-we-where-are-we-headed" class="section level3 unnumbered">
-<h3>Where are we? Where are we headed?</h3>
+<div id="robjloops" class="section level1 hasAnchor">
+<h1><span class="header-section-number">Chapter 3</span> Objects, Functions, Loops<a href="robjloops.html#robjloops" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="where-are-we-where-are-we-headed" class="section level3 unnumbered hasAnchor">
+<h3>Where are we? Where are we headed?<a href="robjloops.html#where-are-we-where-are-we-headed" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Up till now, you should have covered:</p>
 <ul>
 <li>R basic programming</li>
@@ -428,8 +428,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Loops</li>
 </ul>
 </div>
-<div id="what-is-an-object" class="section level2">
-<h2><span class="header-section-number">3.1</span> What is an object?</h2>
+<div id="what-is-an-object" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.1</span> What is an object?<a href="robjloops.html#what-is-an-object" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now that we have covered how to load in data and some basic information about R, let’s dive into some fundamentals of the R language.</p>
 <p>Let’s first set up</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="robjloops.html#cb22-1"></a><span class="kw">library</span>(dplyr)</span>
@@ -454,14 +454,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 Missouri      Female    41 White      
 ##  9 New Jersey    Male      62 White      
 ## 10 California    Male      25 White      
-## # … with 30,861 more rows</code></pre>
+## # … with 30,861 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <p>What happens if you do this next?</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="robjloops.html#cb27-1"></a>copy &lt;-<span class="st"> &quot;&quot;</span></span></code></pre></div>
 <p>It got reassigned:</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="robjloops.html#cb28-1"></a>copy</span></code></pre></div>
 <pre><code>## [1] &quot;&quot;</code></pre>
-<div id="lists" class="section level3">
-<h3><span class="header-section-number">3.1.1</span> lists</h3>
+<div id="lists" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.1.1</span> lists<a href="robjloops.html#lists" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Lists are one of the most generic and flexible type of object. You can make an empty list by the function <code>list()</code></p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="robjloops.html#cb30-1"></a>my_list &lt;-<span class="st"> </span><span class="kw">list</span>()</span>
 <span id="cb30-2"><a href="robjloops.html#cb30-2"></a>my_list</span></code></pre></div>
@@ -498,8 +499,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1] &quot;contents of slot named slot 2&quot;</code></pre>
 </div>
 </div>
-<div id="making-your-own-objects" class="section level2">
-<h2><span class="header-section-number">3.2</span> Making your own objects</h2>
+<div id="making-your-own-objects" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.2</span> Making your own objects<a href="robjloops.html#making-your-own-objects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We’ve covered one type of object, which is a list. You saw it was quite flexible. How many types of objects are there?</p>
 <p>There are an infinite number of objects, because people make their own class of object. You can detect the type of the object (the class) by the function <code>class</code></p>
 <p>Object can be said to be an instance of a class.</p>
@@ -531,8 +532,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  - attr(*, &quot;class&quot;)= chr &quot;Pokemon&quot;</code></pre>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="robjloops.html#cb45-1"></a>pikachu<span class="op">$</span>type</span></code></pre></div>
 <pre><code>## [1] &quot;Electric&quot;</code></pre>
-<div id="seeing-r-through-objects" class="section level3">
-<h3><span class="header-section-number">3.2.1</span> Seeing R through objects</h3>
+<div id="seeing-r-through-objects" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.2.1</span> Seeing R through objects<a href="robjloops.html#seeing-r-through-objects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Most of the R objects that you will see as you advance are their own objects. For example, here’s a linear regression object (which you will learn more about in 204B):</p>
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="robjloops.html#cb47-1"></a>ols &lt;-<span class="st"> </span><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>wt <span class="op">+</span><span class="st"> </span>vs <span class="op">+</span><span class="st"> </span>gear <span class="op">+</span><span class="st"> </span>carb, mtcars)</span>
 <span id="cb47-2"><a href="robjloops.html#cb47-2"></a><span class="kw">class</span>(ols)</span></code></pre></div>
@@ -554,8 +555,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You can change the orientation</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="robjloops.html#cb50-1"></a>gg_tab&lt;-<span class="st"> </span>gg_tab <span class="op">+</span><span class="st"> </span><span class="kw">coord_flip</span>()</span></code></pre></div>
 </div>
-<div id="parsing-an-object-by-strs" class="section level3">
-<h3><span class="header-section-number">3.2.2</span> Parsing an object by <code>str()s</code></h3>
+<div id="parsing-an-object-by-strs" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.2.2</span> Parsing an object by <code>str()s</code><a href="robjloops.html#parsing-an-object-by-strs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It can be hard to understand an <code>R</code> object because its contents are unknown. The function <code>str</code>, short for structure, is a quick way to look into the innards of an object</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="robjloops.html#cb51-1"></a><span class="kw">str</span>(my_list)</span></code></pre></div>
 <pre><code>## List of 2
@@ -576,12 +577,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb57-2"><a href="robjloops.html#cb57-2"></a><span class="kw">str</span>(gg_tab)</span></code></pre></div>
 </div>
 </div>
-<div id="types-of-variables" class="section level2">
-<h2><span class="header-section-number">3.3</span> Types of variables</h2>
+<div id="types-of-variables" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.3</span> Types of variables<a href="robjloops.html#types-of-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In the social science we often analyze variables. As you saw in the tutorial, different types of variables require different care.</p>
 <p>A key link with what we just learned is that variables are also types of R objects.</p>
-<div id="scalars" class="section level3">
-<h3><span class="header-section-number">3.3.1</span> scalars</h3>
+<div id="scalars" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.3.1</span> scalars<a href="robjloops.html#scalars" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>One number. How many people did we count in our Census sample?</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="robjloops.html#cb58-1"></a><span class="kw">nrow</span>(cen10)</span></code></pre></div>
 <pre><code>## [1] 30871</code></pre>
@@ -597,8 +598,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] 0.009555894</code></pre>
 <p>Hint: you can use the function <code>mean()</code> to calcualte the sample mean. The sample proportion is the mean of a sequence of number, where your event of interest is a 1 (or <code>TRUE</code>) and others are 0 (or <code>FALSE</code>).</p>
 </div>
-<div id="numeric-vectors" class="section level3">
-<h3><span class="header-section-number">3.3.2</span> numeric vectors</h3>
+<div id="numeric-vectors" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.3.2</span> numeric vectors<a href="robjloops.html#numeric-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A sequence of numbers.</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="robjloops.html#cb64-1"></a>grp_race_ordered<span class="op">$</span>count</span></code></pre></div>
 <pre><code>## [1]    77    88   295   354   869  1129  1839  4013 22207</code></pre>
@@ -608,8 +609,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="robjloops.html#cb68-1"></a><span class="kw">head</span>(cen10<span class="op">$</span>age)</span></code></pre></div>
 <pre><code>## [1]  8 24 37 12 18 50</code></pre>
 </div>
-<div id="characters-aka-strings" class="section level3">
-<h3><span class="header-section-number">3.3.3</span> characters (aka strings)</h3>
+<div id="characters-aka-strings" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.3.3</span> characters (aka strings)<a href="robjloops.html#characters-aka-strings" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This can be just one stretch of characters</p>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="robjloops.html#cb70-1"></a>my_name &lt;-<span class="st"> &quot;Meg&quot;</span></span>
 <span id="cb70-2"><a href="robjloops.html#cb70-2"></a>my_name</span></code></pre></div>
@@ -628,8 +629,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] FALSE</code></pre>
 </div>
 </div>
-<div id="what-is-a-function" class="section level2">
-<h2><span class="header-section-number">3.4</span> What is a function?</h2>
+<div id="what-is-a-function" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.4</span> What is a function?<a href="robjloops.html#what-is-a-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Most of what we do in R is executing a function. <code>read_csv()</code>, <code>nrow()</code>, <code>ggplot()</code> .. pretty much anything with a parentheses is a function. And even things like <code>&lt;-</code> and <code>[</code> are functions as well.</p>
 <p>A function is a set of instructions with specified ingredients. It takes an <strong>input</strong>, then <strong>manipulates</strong> it – changes it in some way – and then returns the manipulated product.</p>
 <p>One way to see what a function actually does is to enter it without parentheses.</p>
@@ -637,8 +638,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb80-2"><a href="robjloops.html#cb80-2"></a>table</span></code></pre></div>
 <p>You’ll see below that the most basic functions are quite complicated internally.</p>
 <p>You’ll notice that functions contain other functions. <em>wrapper</em> functions are functions that “wrap around” existing functions. This sounds redundant, but it’s an important feature of programming. If you find yourself repeating a command more than two times, you should make your own function, rather than writing the same type of code.</p>
-<div id="write-your-own-function" class="section level3">
-<h3><span class="header-section-number">3.4.1</span> Write your own function</h3>
+<div id="write-your-own-function" class="section level3 hasAnchor">
+<h3><span class="header-section-number">3.4.1</span> Write your own function<a href="robjloops.html#write-your-own-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It’s worth remembering the basic structure of a function. You create a new function, call it <code>my_fun</code> by this:</p>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="robjloops.html#cb81-1"></a>my_fun &lt;-<span class="st"> </span><span class="cf">function</span>() {</span>
 <span id="cb81-2"><a href="robjloops.html#cb81-2"></a>  </span>
@@ -671,26 +672,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## [1] 0.2040185</code></pre>
 </div>
 </div>
-<div id="checkpoint" class="section level2 unnumbered">
-<h2>Checkpoint</h2>
-<div id="section" class="section level3 unnumbered">
-<h3>1</h3>
+<div id="checkpoint" class="section level2 unnumbered hasAnchor">
+<h2>Checkpoint<a href="robjloops.html#checkpoint" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="section" class="section level3 unnumbered hasAnchor">
+<h3>1<a href="robjloops.html#section" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Try making your own function, <code>average_age_in_state</code>, that will give you the average age of people in a given state.</p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="robjloops.html#cb90-1"></a><span class="co"># Enter on your own</span></span></code></pre></div>
 </div>
-<div id="section-1" class="section level3 unnumbered">
-<h3>2</h3>
+<div id="section-1" class="section level3 unnumbered hasAnchor">
+<h3>2<a href="robjloops.html#section-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Try making your own function, <code>asians_in_state</code>, that will give you the number of <code>Chinese</code>, <code>Japanese</code>, and <code>Other Asian or Pacific Islander</code> people in a given state.</p>
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="robjloops.html#cb91-1"></a><span class="co"># Enter on your own</span></span></code></pre></div>
 </div>
-<div id="section-2" class="section level3 unnumbered">
-<h3>3</h3>
+<div id="section-2" class="section level3 unnumbered hasAnchor">
+<h3>3<a href="robjloops.html#section-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Try making your own function, ‘top_10_oldest_cities’, that will give you the names of cities whose population’s average age is top 10 oldest.</p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="robjloops.html#cb92-1"></a><span class="co"># Enter on your own</span></span></code></pre></div>
 </div>
 </div>
-<div id="what-is-a-package" class="section level2">
-<h2><span class="header-section-number">3.5</span> What is a package?</h2>
+<div id="what-is-a-package" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.5</span> What is a package?<a href="robjloops.html#what-is-a-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You can think of a package as a suite of functions that other people have already built for you to make your life easier.</p>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="robjloops.html#cb93-1"></a><span class="kw">help</span>(<span class="dt">package =</span> <span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
 <p>To use a package, you need to do two things: (1) install it, and then (2) load it.</p>
@@ -700,8 +701,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="robjloops.html#cb95-1"></a><span class="kw">library</span>(ggplot2)</span></code></pre></div>
 <p>In <code>rstudio.cloud</code>, we already installed a set of packages for you. But when you start your own R instance, you need to have installed the package at some point.</p>
 </div>
-<div id="conditionals" class="section level2">
-<h2><span class="header-section-number">3.6</span> Conditionals</h2>
+<div id="conditionals" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.6</span> Conditionals<a href="robjloops.html#conditionals" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Sometimes, you want to execute a command only under certain conditions. This is done through the almost universal function, <code>if()</code>. Inside the <code>if</code> function we enter a logical statement. The line that is adjacent to, or follows, the <code>if()</code> statement only gets executed if the statement returns <code>TRUE</code>.</p>
 <p>For example,</p>
 <p>For example,</p>
@@ -730,8 +731,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="robjloops.html#cb100-1"></a><span class="kw">is_positive</span>(<span class="op">-</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;negative number&quot;</code></pre>
 </div>
-<div id="for-loops" class="section level2">
-<h2><span class="header-section-number">3.7</span> For-loops</h2>
+<div id="for-loops" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.7</span> For-loops<a href="robjloops.html#for-loops" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Loops repeat the same statement, although the statement can be “the same” only in an abstract sense. Use the <code>for(x in X)</code> syntax to repeat the subsequent command as many times as there are elements in the right-hand object <code>X</code>. Each of these elements will be referred to the left-hand index <code>x</code></p>
 <p>First, come up with a vector.</p>
 <div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="robjloops.html#cb102-1"></a>fruits &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;apples&quot;</span>, <span class="st">&quot;oranges&quot;</span>, <span class="st">&quot;grapes&quot;</span>)</span></code></pre></div>
@@ -784,8 +785,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>##    California Massachusetts New Hampshire    Washington 
 ##         49.85         47.60         48.55         48.19</code></pre>
 </div>
-<div id="nested-loops" class="section level2">
-<h2><span class="header-section-number">3.8</span> Nested Loops</h2>
+<div id="nested-loops" class="section level2 hasAnchor">
+<h2><span class="header-section-number">3.8</span> Nested Loops<a href="robjloops.html#nested-loops" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>What if I want to calculate the population percentage of a race group for all race groups in states of interest?
 You could probably use tidyverse functions to do this, but let’s try using loops!</p>
 <div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="robjloops.html#cb111-1"></a>states_of_interest &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;California&quot;</span>, <span class="st">&quot;Massachusetts&quot;</span>, <span class="st">&quot;New Hampshire&quot;</span>, <span class="st">&quot;Washington&quot;</span>)</span>
@@ -834,21 +835,21 @@ You could probably use tidyverse functions to do this, but let’s try using loo
 ## [1] &quot;Percentage of  Three or more major races in Washington is 0.29&quot;
 ## [1] &quot;Percentage of  Japanese in Washington is 0.58&quot;</code></pre>
 </div>
-<div id="exercises" class="section level2 unnumbered">
-<h2>Exercises</h2>
-<div id="exercise-1-write-your-own-function" class="section level3 unnumbered">
-<h3>Exercise 1: Write your own function</h3>
+<div id="exercises" class="section level2 unnumbered hasAnchor">
+<h2>Exercises<a href="robjloops.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercise-1-write-your-own-function" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 1: Write your own function<a href="robjloops.html#exercise-1-write-your-own-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Write your own function that makes some task of data analysis simpler. Ideally, it would be a function that helps you do either of the previous tasks in fewer lines of code. You can use the three lines of code that was provided in exercise 1 to wrap that into another function too!</p>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="robjloops.html#cb113-1"></a><span class="co"># Enter yourself</span></span></code></pre></div>
 </div>
-<div id="exercise-2-using-loops" class="section level3 unnumbered">
-<h3>Exercise 2: Using Loops</h3>
+<div id="exercise-2-using-loops" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 2: Using Loops<a href="robjloops.html#exercise-2-using-loops" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Using a loop, create a crosstab of sex and race for each state in the set “states_of_interest”</p>
 <div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="robjloops.html#cb114-1"></a>states_of_interest &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;California&quot;</span>, <span class="st">&quot;Massachusetts&quot;</span>, <span class="st">&quot;New Hampshire&quot;</span>, <span class="st">&quot;Washington&quot;</span>)</span>
 <span id="cb114-2"><a href="robjloops.html#cb114-2"></a><span class="co"># Enter yourself</span></span></code></pre></div>
 </div>
-<div id="exercise-3-storing-information-derived-within-loops-in-a-global-dataframe" class="section level3 unnumbered">
-<h3>Exercise 3: Storing information derived within loops in a global dataframe</h3>
+<div id="exercise-3-storing-information-derived-within-loops-in-a-global-dataframe" class="section level3 unnumbered hasAnchor">
+<h3>Exercise 3: Storing information derived within loops in a global dataframe<a href="robjloops.html#exercise-3-storing-information-derived-within-loops-in-a-global-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Recall the following nested loop</p>
 <div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="robjloops.html#cb115-1"></a>states_of_interest &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;California&quot;</span>, <span class="st">&quot;Massachusetts&quot;</span>, <span class="st">&quot;New Hampshire&quot;</span>, <span class="st">&quot;Washington&quot;</span>)</span>
 <span id="cb115-2"><a href="robjloops.html#cb115-2"></a><span class="cf">for</span> (state <span class="cf">in</span> states_of_interest) {</span>

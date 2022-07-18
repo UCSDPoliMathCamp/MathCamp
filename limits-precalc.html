@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 9 Limits | UCSD Political Science Math Camp</title>
   <meta name="description" content="Text for UCSD Department of Political Science Math Camp" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 Limits | UCSD Political Science Math Camp" />
   <meta property="og:type" content="book" />
-  
   <meta property="og:image" content="/./images/logo.png" />
   <meta property="og:description" content="Text for UCSD Department of Political Science Math Camp" />
   <meta name="github-repo" content="UCSDPoliMathCamp/MathCamp" />
@@ -50,8 +49,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -241,9 +241,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.1" data-path="simulation.html"><a href="simulation.html#sampling-rows-from-a-dataframe"><i class="fa fa-check"></i><b>5.2.1</b> Sampling rows from a dataframe</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="simulation.html"><a href="simulation.html#random-numbers-from-specific-distributions"><i class="fa fa-check"></i><b>5.3</b> Random numbers from specific distributions</a><ul>
-<li><a href="simulation.html#rbinom"><code>rbinom()</code></a></li>
-<li><a href="simulation.html#runif"><code>runif()</code></a></li>
-<li><a href="simulation.html#rnorm"><code>rnorm()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#rbinom"><i class="fa fa-check"></i><code>rbinom()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#runif"><i class="fa fa-check"></i><code>runif()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#rnorm"><i class="fa fa-check"></i><code>rnorm()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="simulation.html"><a href="simulation.html#r-p-and-d"><i class="fa fa-check"></i><b>5.4</b> r, p, and d</a></li>
 <li class="chapter" data-level="5.5" data-path="simulation.html"><a href="simulation.html#set.seed"><i class="fa fa-check"></i><b>5.5</b> <code>set.seed()</code></a></li>
@@ -412,32 +412,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="limits-precalc" class="section level1">
-<h1><span class="header-section-number">Chapter 9</span> Limits</h1>
+<div id="limits-precalc" class="section level1 hasAnchor">
+<h1><span class="header-section-number">Chapter 9</span> Limits<a href="limits-precalc.html#limits-precalc" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Solving limits, i.e. finding out the value of functions as its input moves closer to some value, is important for the social scientist’s mathematical toolkit for two related tasks. The first is for the study of calculus, which will be in turn useful to show where certain functions are maximized or minimized. The second is for the study of statistical inference, which is the study of inferring things about things you cannot see by using things you can see.</p>
-<div id="example-the-central-limit-theorem" class="section level2 unnumbered">
-<h2>Example: The Central Limit Theorem</h2>
+<div id="example-the-central-limit-theorem" class="section level2 unnumbered hasAnchor">
+<h2>Example: The Central Limit Theorem<a href="limits-precalc.html#example-the-central-limit-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Perhaps the most important theorem in statistics is the Central Limit Theorem,</p>
-
 <div class="theorem">
-<p><span id="thm:clt-lim" class="theorem"><strong>Theorem 9.1  (Central Limit Theorem (i.i.d. case))  </strong></span>For any series of independent and identically distributed random variables <span class="math inline">\(X_1, X_2, \cdots\)</span>, we know the distribution of its sum even if we do not know the distribution of <span class="math inline">\(X\)</span>. The distribution of the sum is a Normal distribution.</p>
+<p><span id="thm:clt-lim" class="theorem"><strong>Theorem 9.1  (Central Limit Theorem (i.i.d. case)) </strong></span>For any series of independent and identically distributed random variables <span class="math inline">\(X_1, X_2, \cdots\)</span>, we know the distribution of its sum even if we do not know the distribution of <span class="math inline">\(X\)</span>. The distribution of the sum is a Normal distribution.</p>
 <p><span class="math display">\[\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} \text{Normal}(0, 1),\]</span></p>
 <p>where <span class="math inline">\(\mu\)</span> is the mean of <span class="math inline">\(X\)</span> and <span class="math inline">\(\sigma\)</span> is the standard deviation of <span class="math inline">\(X\)</span>. The arrow is read as “converges in distribution to”. <span class="math inline">\(\text{Normal}(0, 1)\)</span> indicates a Normal Distribution with mean 0 and variance 1.</p>
-That is, the limit of the distribution of the lefthand side is the distribution of the righthand side.
+<p>That is, the limit of the distribution of the lefthand side is the distribution of the righthand side.</p>
 </div>
-
 <p>The sign of a limit is the arrow “<span class="math inline">\(\rightarrow\)</span>”. Although we have not yet covered probability (in Section <a href="probability-theory.html#probability-theory">13</a>) so we have not described what distributions and random variables are, it is worth foreshadowing the Central Limit Theorem. The Central Limit Theorem is powerful because it gives us a <em>guarantee</em> of what would happen if <span class="math inline">\(n \rightarrow \infty\)</span>, which in this case means we collected more data.</p>
 </div>
-<div id="example-the-law-of-large-numbers" class="section level2 unnumbered">
-<h2>Example: The Law of Large Numbers</h2>
+<div id="example-the-law-of-large-numbers" class="section level2 unnumbered hasAnchor">
+<h2>Example: The Law of Large Numbers<a href="limits-precalc.html#example-the-law-of-large-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A finding that perhaps rivals the Central Limit Theorem is the Law of Large Numbers:</p>
-
 <div class="theorem">
-<p><span id="thm:lln-lim" class="theorem"><strong>Theorem 9.2  ((Weak) Law of Large Numbers)  </strong></span>For any draw of identically distributed independent variables with mean <span class="math inline">\(\mu\)</span>, the sample average after <span class="math inline">\(n\)</span> draws, <span class="math inline">\(\bar{X}_n\)</span>, converges in probability to the true mean as <span class="math inline">\(n \rightarrow \infty\)</span>:</p>
+<p><span id="thm:lln-lim" class="theorem"><strong>Theorem 9.2  ((Weak) Law of Large Numbers) </strong></span>For any draw of identically distributed independent variables with mean <span class="math inline">\(\mu\)</span>, the sample average after <span class="math inline">\(n\)</span> draws, <span class="math inline">\(\bar{X}_n\)</span>, converges in probability to the true mean as <span class="math inline">\(n \rightarrow \infty\)</span>:</p>
 <p><span class="math display">\[\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | &gt; \varepsilon) = 0\]</span></p>
-A shorthand of which is <span class="math inline">\(\bar{X}_n \xrightarrow{p} \mu\)</span>, where the arrow is read as “converges in probability to”.
+<p>A shorthand of which is <span class="math inline">\(\bar{X}_n \xrightarrow{p} \mu\)</span>, where the arrow is read as “converges in probability to”.</p>
 </div>
-
 <p>Intuitively, the more data, the more accurate is your guess. For example, the Figure <a href="limits-precalc.html#fig:llnsim">9.1</a> shows how the sample average from many coin tosses converges to the true value : 0.5.</p>
 <div class="figure"><span style="display:block;" id="fig:llnsim"></span>
 <img src="MathCamp_files/figure-html/llnsim-1.png" alt="As the number of coin tosses goes to infinity, the average probabiity of heads converges to 0.5" width="672" />
@@ -446,22 +442,19 @@ Figure 9.1: As the number of coin tosses goes to infinity, the average probabiit
 </p>
 </div>
 </div>
-<div id="sequences" class="section level2">
-<h2><span class="header-section-number">9.1</span> Sequences</h2>
+<div id="sequences" class="section level2 hasAnchor">
+<h2><span class="header-section-number">9.1</span> Sequences<a href="limits-precalc.html#sequences" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We need a couple of steps until we get to limit theorems in probability. First we will introduce a “sequence”, then we will think about the limit of a sequence, then we will think about the limit of a <em>function</em>.</p>
 <p>A <strong>sequence</strong> <span class="math display">\[\{x_n\}=\{x_1, x_2, x_3, \ldots, x_n\}\]</span> is an ordered set of real numbers, where <span class="math inline">\(x_1\)</span> is the first term in the sequence and <span class="math inline">\(y_n\)</span> is the <span class="math inline">\(n\)</span>th term. Generally, a sequence is infinite, that is it extends to <span class="math inline">\(n=\infty\)</span>. We can also write the sequence as <span class="math display">\[\{x_n\}^\infty_{n=1}\]</span></p>
 <p>where the subscript and superscript are read together as “from 1 to infinity.”</p>
-
 <div class="example">
-<p><span id="exm:seqbehav" class="example"><strong>Example 9.1  (Sequences)  </strong></span>
-How do these sequences behave?</p>
+<p><span id="exm:seqbehav" class="example"><strong>Example 9.1  (Sequences) </strong></span>How do these sequences behave?</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\{A_n\}=\left\{ 2-\frac{1}{n^2} \right\}\)</span></li>
 <li><span class="math inline">\(\{B_n\}=\left\{\frac{n^2+1}{n} \right\}\)</span></li>
 <li><span class="math inline">\(\{C_n\}=\left\{(-1)^n \left(1-\frac{1}{n}\right) \right\}\)</span></li>
 </ol>
 </div>
-
 <p>We find the sequence by simply “plugging in” the integers into each <span class="math inline">\(n\)</span>. The important thing is to get a sense of how these numbers are going to change. Example 1’s numbers seem to come closer and closer to 2, but will it ever surpass 2? Example 2’s numbers are also increasing each time, but will it hit a limit? What is the pattern in Example 3? Graphing helps you make this point more clearly. See the sequence of <span class="math inline">\(n = 1, ...20\)</span> for each of the three examples in Figure <a href="limits-precalc.html#fig:seqabc">9.2</a>.</p>
 <div class="figure"><span style="display:block;" id="fig:seqabc"></span>
 <img src="MathCamp_files/figure-html/seqabc-1.png" alt="Behavior of Some Sequences" width="672" />
@@ -470,19 +463,17 @@ Figure 9.2: Behavior of Some Sequences
 </p>
 </div>
 </div>
-<div id="the-limit-of-a-sequence" class="section level2">
-<h2><span class="header-section-number">9.2</span> The Limit of a Sequence</h2>
+<div id="the-limit-of-a-sequence" class="section level2 hasAnchor">
+<h2><span class="header-section-number">9.2</span> The Limit of a Sequence<a href="limits-precalc.html#the-limit-of-a-sequence" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The notion of “converging to a limit” is the behavior of the points in Example <a href="limits-precalc.html#exm:seqbehav">9.1</a>. In some sense, that’s the counterfactual we want to know. What happens as <span class="math inline">\(n\rightarrow \infty\)</span>?</p>
 <ol style="list-style-type: decimal">
 <li>Sequences like 1 above that converge to a limit.</li>
 <li>Sequences like 2 above that increase without bound.</li>
 <li>Sequences like 3 above that neither converge nor increase without bound — alternating over the number line.</li>
 </ol>
-
 <div class="definition">
-<span id="def:unnamed-chunk-165" class="definition"><strong>Definition 9.1  </strong></span>The sequence <span class="math inline">\(\{y_n\}\)</span> has the limit <span class="math inline">\(L\)</span>, which we write as <span class="math display">\[\lim\limits_{n \to \infty} y_n =L\]</span>, if for any <span class="math inline">\(\epsilon&gt;0\)</span> there is an integer <span class="math inline">\(N\)</span> (which depends on <span class="math inline">\(\epsilon\)</span>) with the property that <span class="math inline">\(|y_n -L|&lt;\epsilon\)</span> for each <span class="math inline">\(n&gt;N\)</span>. <span class="math inline">\(\{y_n\}\)</span> is said to converge to <span class="math inline">\(L\)</span>. If the above does not hold, then <span class="math inline">\(\{y_n\}\)</span> diverges.
+<p><span id="def:unnamed-chunk-165" class="definition"><strong>Definition 9.1  </strong></span>The sequence <span class="math inline">\(\{y_n\}\)</span> has the limit <span class="math inline">\(L\)</span>, which we write as <span class="math display">\[\lim\limits_{n \to \infty} y_n =L\]</span>, if for any <span class="math inline">\(\epsilon&gt;0\)</span> there is an integer <span class="math inline">\(N\)</span> (which depends on <span class="math inline">\(\epsilon\)</span>) with the property that <span class="math inline">\(|y_n -L|&lt;\epsilon\)</span> for each <span class="math inline">\(n&gt;N\)</span>. <span class="math inline">\(\{y_n\}\)</span> is said to converge to <span class="math inline">\(L\)</span>. If the above does not hold, then <span class="math inline">\(\{y_n\}\)</span> diverges.</p>
 </div>
-
 <p>We can also express the behavior of a sequence as bounded or not:</p>
 <ol style="list-style-type: decimal">
 <li>Bounded: if <span class="math inline">\(|y_n|\le K\)</span> for all <span class="math inline">\(n\)</span></li>
@@ -498,21 +489,16 @@ Figure 9.2: Behavior of Some Sequences
 </ol>
 <p>This looks reasonable enough. The harder question, obviously is when the parts of the fraction <em>don’t</em> converge. If <span class="math inline">\(\lim_{n\to\infty} y_n = \infty\)</span> and <span class="math inline">\(\lim_{n\to\infty} z_n = \infty\)</span>, What is <span class="math inline">\(\lim_{n\to\infty} y_n - z_n\)</span>? What is <span class="math inline">\(\lim_{n\to\infty} \frac{y_n}{z_n}\)</span>?</p>
 <p>It is nice for a sequence to converge in limit. We want to know if complex-looking sequences converge or not. The name of the game here is to break that complex sequence up into sums of simple fractions where <span class="math inline">\(n\)</span> only appears in the denominator: <span class="math inline">\(\frac{1}{n}, \frac{1}{n^2}\)</span>, and so on. Each of these will converge to 0, because the denominator gets larger and larger. Then, because of the properties above, we can then find the final sequence.</p>
-
 <div class="example">
-<span id="exm:unnamed-chunk-166" class="example"><strong>Example 9.2  (Simplifying a Fraction into Sums)  </strong></span>Find the limit of
-<span class="math display">\[\lim_{n\to \infty} \frac{n + 3}{n},\]</span>
+<p><span id="exm:unnamed-chunk-166" class="example"><strong>Example 9.2  (Simplifying a Fraction into Sums) </strong></span>Find the limit of
+<span class="math display">\[\lim_{n\to \infty} \frac{n + 3}{n},\]</span></p>
 </div>
-
-
 <div class="solution">
-<p> <span class="solution"><em>Solution. </em></span> At first glance, <span class="math inline">\(n + 3\)</span> and <span class="math inline">\(n\)</span> both grow to <span class="math inline">\(\infty\)</span>, so it looks like we need to divide infinity by infinity. However, we can express this fraction as a sum, then the limits apply separately:</p>
+<p><span id="unlabeled-div-1" class="solution"><em>Solution</em>. </span>At first glance, <span class="math inline">\(n + 3\)</span> and <span class="math inline">\(n\)</span> both grow to <span class="math inline">\(\infty\)</span>, so it looks like we need to divide infinity by infinity. However, we can express this fraction as a sum, then the limits apply separately:</p>
 <p><span class="math display">\[\lim_{n\to \infty} \frac{n + 3}{n} = \lim_{n\to \infty} \left(1 + \frac{3}{n}\right) =  \underbrace{\lim_{n\to \infty}1}_{1} +  \underbrace{\lim_{n\to \infty}\left(\frac{3}{n}\right)}_{0}\]</span></p>
-so, the limit is actually 1.
+<p>so, the limit is actually 1.</p>
 </div>
-
 <p>After some practice, the key to intuition is whether one part of the fraction grows “faster” than another. If the denominator grows faster to infinity than the numerator, then the fraction will converge to 0, even if the numerator will also increase to infinity. In a sense, limits show how not all infinities are the same.</p>
-
 <div class="exercise">
 <p><span id="exr:limseq2" class="exercise"><strong>Exercise 9.1  </strong></span>Find the following limits of sequences, then explain in English the intuition for why that is the case.</p>
 <ol style="list-style-type: decimal">
@@ -520,18 +506,15 @@ so, the limit is actually 1.
 <li><span class="math inline">\(\lim\limits_{n\to\infty} (n^3 - 100n^2)\)</span></li>
 </ol>
 </div>
-
 </div>
-<div id="limitsfun" class="section level2">
-<h2><span class="header-section-number">9.3</span> Limits of a Function</h2>
+<div id="limitsfun" class="section level2 hasAnchor">
+<h2><span class="header-section-number">9.3</span> Limits of a Function<a href="limits-precalc.html#limitsfun" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We’ve now covered functions and just covered limits of sequences, so now is the time to combine the two.</p>
 <p>A function <span class="math inline">\(f\)</span> is a compact representation of some behavior we care about. Like for sequences, we often want to know if <span class="math inline">\(f(x)\)</span> approaches some number <span class="math inline">\(L\)</span> as its independent variable <span class="math inline">\(x\)</span> moves to some number <span class="math inline">\(c\)</span> (which is usually 0 or <span class="math inline">\(\pm\infty\)</span>). If it does, we say that the limit of <span class="math inline">\(f(x)\)</span>, as <span class="math inline">\(x\)</span> approaches <span class="math inline">\(c\)</span>, is <span class="math inline">\(L\)</span>: <span class="math inline">\(\lim\limits_{x \to c} f(x)=L\)</span>. Unlike a sequence, <span class="math inline">\(x\)</span> is a continuous number, and we can move in decreasing order as well as increasing.</p>
 <p>For a limit <span class="math inline">\(L\)</span> to exist, the function <span class="math inline">\(f(x)\)</span> must approach <span class="math inline">\(L\)</span> from both the left (increasing) and the right (decreasing).</p>
-
 <div class="definition">
-<span id="def:unnamed-chunk-168" class="definition"><strong>Definition 9.2  (Limit of a function)  </strong></span>Let <span class="math inline">\(f(x)\)</span> be defined at each point in some open interval containing the point <span class="math inline">\(c\)</span>. Then <span class="math inline">\(L\)</span> equals <span class="math inline">\(\lim\limits_{x \to c} f(x)\)</span> if for any (small positive) number <span class="math inline">\(\epsilon\)</span>, there exists a corresponding number <span class="math inline">\(\delta&gt;0\)</span> such that if <span class="math inline">\(0&lt;|x-c|&lt;\delta\)</span>, then <span class="math inline">\(|f(x)-L|&lt;\epsilon\)</span>.
+<p><span id="def:unnamed-chunk-168" class="definition"><strong>Definition 9.2  (Limit of a function) </strong></span>Let <span class="math inline">\(f(x)\)</span> be defined at each point in some open interval containing the point <span class="math inline">\(c\)</span>. Then <span class="math inline">\(L\)</span> equals <span class="math inline">\(\lim\limits_{x \to c} f(x)\)</span> if for any (small positive) number <span class="math inline">\(\epsilon\)</span>, there exists a corresponding number <span class="math inline">\(\delta&gt;0\)</span> such that if <span class="math inline">\(0&lt;|x-c|&lt;\delta\)</span>, then <span class="math inline">\(|f(x)-L|&lt;\epsilon\)</span>.</p>
 </div>
-
 <p>A neat, if subtle result is that <span class="math inline">\(f(x)\)</span> does not necessarily have to be defined at <span class="math inline">\(c\)</span> for <span class="math inline">\(\lim\limits_{x \to c}\)</span> to exist.</p>
 <p>Properties: Let <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> be functions with <span class="math inline">\(\lim\limits_{x \to c} f(x)=k\)</span> and <span class="math inline">\(\lim\limits_{x \to c} g(x)=\ell\)</span>.</p>
 <ol style="list-style-type: decimal">
@@ -541,9 +524,8 @@ so, the limit is actually 1.
 <li><span class="math inline">\(\lim\limits_{x \to c} \frac{f(x)}{g(x)} = \frac{\lim\limits_{x \to c} f(x)}{\lim\limits_{x \to c} g(x)}\)</span>, provided <span class="math inline">\(\lim\limits_{x \to c} g(x)\ne 0\)</span>.</li>
 </ol>
 <p>Simple limits of functions can be solved as we did limits of sequences. Just be careful which part of the function is changing.</p>
-
 <div class="example">
-<p><span id="exm:limfun1" class="example"><strong>Example 9.3  (Limits of Functions)  </strong></span>Find the limit of the following functions.</p>
+<p><span id="exm:limfun1" class="example"><strong>Example 9.3  (Limits of Functions) </strong></span>Find the limit of the following functions.</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\lim_{x \to c} k\)</span></li>
 <li><span class="math inline">\(\lim_{x \to c} x\)</span></li>
@@ -551,18 +533,13 @@ so, the limit is actually 1.
 <li><span class="math inline">\(\lim_{x \to c} x^n\)</span></li>
 </ol>
 </div>
-
 <p>Limits can get more complex in roughly two ways. First, the functions may become large polynomials with many moving pieces. Second,the functions may become discontinuous.</p>
 <p>The function can be thought of as a more general or “smooth” version of sequences. For example,</p>
-
 <div class="exercise">
-<p><span id="exr:limfunmax" class="exercise"><strong>Exercise 9.2  (Limits of a Fraction of Functions)  </strong></span>
-Find the limit of</p>
-<span class="math display">\[\lim_{x\to\infty} \frac{(x^4 +3x−99)(2−x^5)}{(18x^7 +9x^6 −3x^2 −1)(x+1)}\]</span>
+<p><span id="exr:limfunmax" class="exercise"><strong>Exercise 9.2  (Limits of a Fraction of Functions) </strong></span>Find the limit of</p>
+<p><span class="math display">\[\lim_{x\to\infty} \frac{(x^4 +3x−99)(2−x^5)}{(18x^7 +9x^6 −3x^2 −1)(x+1)}\]</span></p>
 </div>
-
 <p>Now, the functions will become a bit more complex:</p>
-
 <div class="exercise">
 <p><span id="exr:discontlim" class="exercise"><strong>Exercise 9.3  </strong></span>Solve the following limits of functions</p>
 <ol style="list-style-type: decimal">
@@ -570,7 +547,6 @@ Find the limit of</p>
 <li><span class="math inline">\(\lim\limits_{x\to 0} \left(1+\frac{1}{x^2}\right)\)</span></li>
 </ol>
 </div>
-
 <p>So there are a few more alternatives about what a limit of a function could be:</p>
 <ol style="list-style-type: decimal">
 <li>Right-hand limit: The value approached by <span class="math inline">\(f(x)\)</span> when you move from right to left.</li>
@@ -586,33 +562,26 @@ Figure 9.3: Functions which are not defined in some areas
 </p>
 </div>
 </div>
-<div id="continuity" class="section level2">
-<h2><span class="header-section-number">9.4</span> Continuity</h2>
+<div id="continuity" class="section level2 hasAnchor">
+<h2><span class="header-section-number">9.4</span> Continuity<a href="limits-precalc.html#continuity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To repeat a finding from the limits of functions: <span class="math inline">\(f(x)\)</span> does not necessarily have to be defined at <span class="math inline">\(c\)</span> for <span class="math inline">\(\lim\limits_{x \to c}\)</span> to exist. Functions that have breaks in their lines are called discontinuous. Functions that have no breaks are called continuous. Continuity is a concept that is more fundamental to, but related to that of “differentiability”, which we will cover next in calculus.</p>
-
 <div class="definition">
-<span id="def:unnamed-chunk-170" class="definition"><strong>Definition 9.3  (Continuity)  </strong></span>Suppose that the domain of the function <span class="math inline">\(f\)</span> includes an open interval containing the point <span class="math inline">\(c\)</span>. Then <span class="math inline">\(f\)</span> is continuous at <span class="math inline">\(c\)</span> if <span class="math inline">\(\lim\limits_{x \to c} f(x)\)</span> exists and if <span class="math inline">\(\lim\limits_{x \to c} f(x)=f(c)\)</span>. Further, <span class="math inline">\(f\)</span> is continuous on an open interval <span class="math inline">\((a,b)\)</span> if it is continuous at each point in the interval.
+<p><span id="def:unnamed-chunk-170" class="definition"><strong>Definition 9.3  (Continuity) </strong></span>Suppose that the domain of the function <span class="math inline">\(f\)</span> includes an open interval containing the point <span class="math inline">\(c\)</span>. Then <span class="math inline">\(f\)</span> is continuous at <span class="math inline">\(c\)</span> if <span class="math inline">\(\lim\limits_{x \to c} f(x)\)</span> exists and if <span class="math inline">\(\lim\limits_{x \to c} f(x)=f(c)\)</span>. Further, <span class="math inline">\(f\)</span> is continuous on an open interval <span class="math inline">\((a,b)\)</span> if it is continuous at each point in the interval.</p>
 </div>
-
 <p>To prove that a function is continuous for all points is beyond this practical introduction to math, but the general intuition can be grasped by graphing.</p>
-
 <div class="example">
-<p><span id="exm:contdiscont" class="example"><strong>Example 9.4  (Continuous and Discontinuous Functions)  </strong></span>
-For each function, determine if it is continuous or discontinuous.</p>
+<p><span id="exm:contdiscont" class="example"><strong>Example 9.4  (Continuous and Discontinuous Functions) </strong></span>For each function, determine if it is continuous or discontinuous.</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(f(x) = \sqrt{x}\)</span></li>
 <li><span class="math inline">\(f(x) = e^x\)</span></li>
 <li><span class="math inline">\(f(x) = 1 + \frac{1}{x^2}\)</span></li>
 <li><span class="math inline">\(f(x) = \text{floor}(x)\)</span>.</li>
 </ol>
-The floor is the smaller of the two integers bounding a number. So <span class="math inline">\(\text{floor}(x = 2.999) = 2\)</span>, <span class="math inline">\(\text{floor}(x = 2.0001) = 2\)</span>, and <span class="math inline">\(\text{floor}(x = 2) = 2.\)</span>
+<p>The floor is the smaller of the two integers bounding a number. So <span class="math inline">\(\text{floor}(x = 2.999) = 2\)</span>, <span class="math inline">\(\text{floor}(x = 2.0001) = 2\)</span>, and <span class="math inline">\(\text{floor}(x = 2) = 2.\)</span></p>
 </div>
-
-
 <div class="solution">
- <span class="solution"><em>Solution. </em></span> In Figure <a href="limits-precalc.html#fig:fig-contdiscont">9.4</a>, we can see that the first two functions are continuous, and the next two are discontinuous. <span class="math inline">\(f(x) = 1 + \frac{1}{x^2}\)</span> is discontinuous at <span class="math inline">\(x= 0\)</span>, and <span class="math inline">\(f(x) = \text{floor}(x)\)</span> is discontinuous at each whole number.
+<p><span id="unlabeled-div-2" class="solution"><em>Solution</em>. </span>In Figure <a href="limits-precalc.html#fig:fig-contdiscont">9.4</a>, we can see that the first two functions are continuous, and the next two are discontinuous. <span class="math inline">\(f(x) = 1 + \frac{1}{x^2}\)</span> is discontinuous at <span class="math inline">\(x= 0\)</span>, and <span class="math inline">\(f(x) = \text{floor}(x)\)</span> is discontinuous at each whole number.</p>
 </div>
-
 <div class="figure"><span style="display:block;" id="fig:fig-contdiscont"></span>
 <img src="MathCamp_files/figure-html/fig-contdiscont-1.png" alt="Continuous and Discontinuous Functions" width="672" />
 <p class="caption">
@@ -625,59 +594,48 @@ Figure 9.4: Continuous and Discontinuous Functions
 <li>Boundedness: If <span class="math inline">\(f\)</span> is continuous on the closed bounded interval <span class="math inline">\([a,b]\)</span>, then there is a number <span class="math inline">\(K\)</span> such that <span class="math inline">\(|f(x)|\le K\)</span> for each <span class="math inline">\(x\)</span> in <span class="math inline">\([a,b]\)</span>.</li>
 <li>Max/Min: If <span class="math inline">\(f\)</span> is continuous on the closed bounded interval <span class="math inline">\([a,b]\)</span>, then <span class="math inline">\(f\)</span> has a maximum and a minimum on <span class="math inline">\([a,b]\)</span>. They may be located at the end points.</li>
 </ol>
-
 <div class="exercise">
-<p><span id="exr:discontdraw" class="exercise"><strong>Exercise 9.4  (Limit when Denominator converges to 0)  </strong></span>
-Let <span class="math display">\[f(x) = \frac{x^2 + 2x}{x}.\]</span></p>
+<p><span id="exr:discontdraw" class="exercise"><strong>Exercise 9.4  (Limit when Denominator converges to 0) </strong></span>Let <span class="math display">\[f(x) = \frac{x^2 + 2x}{x}.\]</span></p>
 <ol style="list-style-type: decimal">
 <li>Graph the function. Is it defined everywhere?</li>
 <li>What is the functions limit at <span class="math inline">\(x \rightarrow 0\)</span>?</li>
 </ol>
 </div>
-
 </div>
-<div id="answers-to-examples" class="section level2 unnumbered">
-<h2>Answers to Examples</h2>
+<div id="answers-to-examples" class="section level2 unnumbered hasAnchor">
+<h2>Answers to Examples<a href="limits-precalc.html#answers-to-examples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Example <a href="limits-precalc.html#exm:seqbehav">9.1</a></p>
-
 <div class="solution">
-<p> <span class="solution"><em>Solution. </em></span> </p>
 <ol style="list-style-type: decimal">
+<li></li>
 <li><span class="math inline">\(\{A_n\}=\left\{ 2-\frac{1}{n^2} \right\} = \left\{1, \frac{7}{4}, \frac{17}{9}, \frac{31}{16}, \frac{49}{25}, \ldots\right\} = 2\)</span></li>
 <li><span class="math inline">\(\{B_n\}=\left\{\frac{n^2+1}{n} \right\} = \left\{2, \frac{5}{2}, \frac{10}{3}, \frac{17}{4}..., \right\}\)</span></li>
 <li><span class="math inline">\(\{C_n\}=\left\{(-1)^n \left(1-\frac{1}{n}\right) \right\} = \left\{0, \frac{1}{2}, -\frac{2}{3}, \frac{3}{4}, -\frac{4}{5}\right\}\)</span></li>
 </ol>
 </div>
-
 <p>Exercise <a href="limits-precalc.html#exr:limseq2">9.1</a></p>
 <p>Example <a href="limits-precalc.html#exm:limfun1">9.3</a></p>
-
 <div class="solution">
-<p> <span class="solution"><em>Solution. </em></span> </p>
 <ol style="list-style-type: decimal">
+<li></li>
 <li><span class="math inline">\(k\)</span></li>
 <li><span class="math inline">\(c\)</span></li>
 <li><span class="math inline">\(\lim_{x\to 2} (2x-3) = 2\lim\limits_{x\to 2} x - 3\lim\limits_{x\to 2} 1 = 1\)</span></li>
 <li><span class="math inline">\(\lim_{x \to c} x^n = \lim\limits_{x \to c} x \cdots[\lim\limits_{x \to c} x] = c\cdots c =c^n\)</span></li>
 </ol>
 </div>
-
 <p>Exercise <a href="limits-precalc.html#exr:limfunmax">9.2</a></p>
-
 <div class="solution">
-<p> <span class="solution"><em>Solution. </em></span> Although this function seems large, the thing our eyes should focus on is where the highest order polynomial remains. That will grow the fastest, so if the highest order term is on the denominator, the fraction will converge to 0, if it is on the numerator it will converge to negative infinity. Previewing the multiplication by hand, we can see that the <span class="math inline">\(-x^9\)</span> on the numerator will be the largest power. So the answer will be <span class="math inline">\(-\infty\)</span>. We can also confirm this by writing out fractions:</p>
+<p><span id="unlabeled-div-5" class="solution"><em>Solution</em>. </span>Although this function seems large, the thing our eyes should focus on is where the highest order polynomial remains. That will grow the fastest, so if the highest order term is on the denominator, the fraction will converge to 0, if it is on the numerator it will converge to negative infinity. Previewing the multiplication by hand, we can see that the <span class="math inline">\(-x^9\)</span> on the numerator will be the largest power. So the answer will be <span class="math inline">\(-\infty\)</span>. We can also confirm this by writing out fractions:</p>
 <p><span class="math display">\[\begin{align*}  
 &amp; \lim_{x\to\infty}\frac{\left(1 + \frac{3}{x^3} - \frac{99}{4x^4}\right)\left(-\frac{2}{x^5} + 1\right)}{\left(1 + \frac{9}{18x} - \frac{3}{18x^5} - \frac{1}{18x^7} \right)\left(1 + \frac{1}{x}\right)} \\
 &amp;\times \frac{x^4}{1} \times -\frac{x^5}{1} \times \frac{1}{18x^7}\times \frac{1}{x}\\
 =&amp; 1 \times \lim_{-x\to\infty} \frac{x}{18}
 \end{align*}\]</span></p>
 </div>
-
 <p>Exercise <a href="limits-precalc.html#exr:discontdraw">9.4</a></p>
-
 <div class="solution">
-<p> <span class="solution"><em>Solution. </em></span> 
-See Figure <a href="limits-precalc.html#fig:fig-hole-0">9.5</a>. We can say <span class="math inline">\(\lim_{x\to 0}f(x) = 2\)</span>.
+<p><span id="unlabeled-div-6" class="solution"><em>Solution</em>. </span>See Figure <a href="limits-precalc.html#fig:fig-hole-0">9.5</a>. We can say <span class="math inline">\(\lim_{x\to 0}f(x) = 2\)</span>.
 Note that we can express
 <span class="math display">\[f(x) = 
   \left\{
@@ -688,7 +646,6 @@ Note that we can express
   \right.
 \]</span></p>
 </div>
-
 <div class="figure"><span style="display:block;" id="fig:fig-hole-0"></span>
 <img src="MathCamp_files/figure-html/fig-hole-0-1.png" alt="A function undedefined at x = 0" width="672" />
 <p class="caption">

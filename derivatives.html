@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 10 Differential Calculus | UCSD Political Science Math Camp</title>
   <meta name="description" content="Text for UCSD Department of Political Science Math Camp" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 10 Differential Calculus | UCSD Political Science Math Camp" />
   <meta property="og:type" content="book" />
-  
   <meta property="og:image" content="/./images/logo.png" />
   <meta property="og:description" content="Text for UCSD Department of Political Science Math Camp" />
   <meta name="github-repo" content="UCSDPoliMathCamp/MathCamp" />
@@ -50,8 +49,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -241,9 +241,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.1" data-path="simulation.html"><a href="simulation.html#sampling-rows-from-a-dataframe"><i class="fa fa-check"></i><b>5.2.1</b> Sampling rows from a dataframe</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="simulation.html"><a href="simulation.html#random-numbers-from-specific-distributions"><i class="fa fa-check"></i><b>5.3</b> Random numbers from specific distributions</a><ul>
-<li><a href="simulation.html#rbinom"><code>rbinom()</code></a></li>
-<li><a href="simulation.html#runif"><code>runif()</code></a></li>
-<li><a href="simulation.html#rnorm"><code>rnorm()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#rbinom"><i class="fa fa-check"></i><code>rbinom()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#runif"><i class="fa fa-check"></i><code>runif()</code></a></li>
+<li class="chapter" data-level="" data-path="simulation.html"><a href="simulation.html#rnorm"><i class="fa fa-check"></i><code>rnorm()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="simulation.html"><a href="simulation.html#r-p-and-d"><i class="fa fa-check"></i><b>5.4</b> r, p, and d</a></li>
 <li class="chapter" data-level="5.5" data-path="simulation.html"><a href="simulation.html#set.seed"><i class="fa fa-check"></i><b>5.5</b> <code>set.seed()</code></a></li>
@@ -412,15 +412,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="derivatives" class="section level1">
-<h1><span class="header-section-number">Chapter 10</span> Differential Calculus</h1>
+<div id="derivatives" class="section level1 hasAnchor">
+<h1><span class="header-section-number">Chapter 10</span> Differential Calculus<a href="derivatives.html#derivatives" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Calculus is a fundamental part of any type of statistics exercise. Although you may not be taking derivatives and integral in your daily work as an analyst, calculus undergirds many concepts we use: maximization, expectation, and cumulative probability.</p>
-<div id="derivintro" class="section level2">
-<h2><span class="header-section-number">10.1</span> Derivatives</h2>
+<div id="derivintro" class="section level2 hasAnchor">
+<h2><span class="header-section-number">10.1</span> Derivatives<a href="derivatives.html#derivintro" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The derivative of <span class="math inline">\(f\)</span> at <span class="math inline">\(x\)</span> is its rate of change at <span class="math inline">\(x\)</span>: how much <span class="math inline">\(f(x)\)</span> changes with a change in <span class="math inline">\(x\)</span>. The rate of change is a fraction — rise over run — but because not all lines are straight and the rise over run formula will give us different values depending on the range we examine, we need to take a limit (Section <a href="limits-precalc.html#limits-precalc">9</a>).</p>
-
 <div class="definition">
-<p><span id="def:unnamed-chunk-178" class="definition"><strong>Definition 10.1  (Derivative)  </strong></span>Let <span class="math inline">\(f\)</span> be a function whose domain includes an open interval containing the point <span class="math inline">\(x\)</span>. The derivative of <span class="math inline">\(f\)</span> at <span class="math inline">\(x\)</span> is given by</p>
+<p><span id="def:unnamed-chunk-178" class="definition"><strong>Definition 10.1  (Derivative) </strong></span>Let <span class="math inline">\(f\)</span> be a function whose domain includes an open interval containing the point <span class="math inline">\(x\)</span>. The derivative of <span class="math inline">\(f\)</span> at <span class="math inline">\(x\)</span> is given by</p>
 <p><span class="math display">\[\frac{d}{dx}f(x) =\lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{(x+h)-x} = \lim\limits_{h\to 0} \frac{f(x+h)-f(x)}{h}
 \]</span></p>
 <p>There are a two main ways to denote a derivate:</p>
@@ -429,7 +428,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Prime or Lagrange Notation: <span class="math inline">\(f&#39;(x)\)</span></li>
 </ul>
 </div>
-
 <p>If <span class="math inline">\(f(x)\)</span> is a straight line, the derivative is the slope. For a curve, the slope changes by the values of <span class="math inline">\(x\)</span>, so the derivative is the slope of the line tangent to the curve at <span class="math inline">\(x\)</span>. See, For example, Figure <a href="derivatives.html#fig:derivsimple">10.1</a>.</p>
 <div class="figure"><span style="display:block;" id="fig:derivsimple"></span>
 <img src="MathCamp_files/figure-html/derivsimple-1.png" alt="The Derivative as a Slope" width="672" />
@@ -438,8 +436,8 @@ Figure 10.1: The Derivative as a Slope
 </p>
 </div>
 <p>If <span class="math inline">\(f&#39;(x)\)</span> exists at a point <span class="math inline">\(x_0\)</span>, then <span class="math inline">\(f\)</span> is said to be <strong>differentiable</strong> at <span class="math inline">\(x_0\)</span>. That also implies that <span class="math inline">\(f(x)\)</span> is continuous at <span class="math inline">\(x_0\)</span>.</p>
-<div id="properties-of-derivatives" class="section level3 unnumbered">
-<h3>Properties of derivatives</h3>
+<div id="properties-of-derivatives" class="section level3 unnumbered hasAnchor">
+<h3>Properties of derivatives<a href="derivatives.html#properties-of-derivatives" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suppose that <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> are differentiable at <span class="math inline">\(x\)</span> and that <span class="math inline">\(\alpha\)</span> is a constant. Then the functions <span class="math inline">\(f\pm g\)</span>, <span class="math inline">\(\alpha f\)</span>, <span class="math inline">\(f g\)</span>, and <span class="math inline">\(f/g\)</span> (provided <span class="math inline">\(g(x)\ne 0\)</span>) are also differentiable at <span class="math inline">\(x\)</span>. Additionally,</p>
 <p><strong>Constant rule:</strong> <span class="math display">\[\left[k f(x)\right]&#39; = k f&#39;(x)\]</span></p>
 <p><strong>Sum rule:</strong> <span class="math display">\[\left[f(x)\pm g(x)\right]&#39; = f&#39;(x)\pm g&#39;(x)\]</span></p>
@@ -449,10 +447,8 @@ Figure 10.1: The Derivative as a Slope
 <p>Finally, one way to think of the power of derivatives is that it takes a function a notch down in complexity. The power rule applies to any higher-order function:</p>
 <p><strong>Power rule:</strong> <span class="math display">\[\left[x^k\right]^\prime = k x^{k-1}\]</span></p>
 <p>For any real number <span class="math inline">\(k\)</span> (that is, both whole numbers and fractions). The power rule is proved <strong>by induction</strong>, a neat method of proof used in many fundamental applications to prove that a general statement holds for every possible case, even if there are countably infinite cases. We’ll show a simple case where <span class="math inline">\(k\)</span> is an integer here.</p>
-
 <div class="proof">
-<p> <span class="proof"><em>Proof</em> (Proof of Power Rule by Induction). </span> 
-We would like to prove that</p>
+<p><span id="unlabeled-div-7" class="proof"><em>Proof</em> (Proof of Power Rule by Induction). </span>We would like to prove that</p>
 <p><span class="math display">\[\left[x^k\right]^\prime = k x^{k-1}\]</span>
 for any integer <span class="math inline">\(k\)</span>.</p>
 <p>First, consider the first case (the base case) of <span class="math inline">\(k = 1\)</span>. We can show by the definition of derivatives (setting <span class="math inline">\(f(x) = x^1 = 1\)</span>) that</p>
@@ -472,12 +468,9 @@ for any integer <span class="math inline">\(k\)</span>.</p>
 <p>Therefore, the rule holds for the case <span class="math inline">\(k = m + 1\)</span> once we have assumed it holds for <span class="math inline">\(k = m\)</span>. Combined with the first case, this completes proof by induction – we have now proved that the statement holds for all integers <span class="math inline">\(k = 1, 2, 3, \cdots\)</span>.</p>
 <p>To show that it holds for real fractions as well, we can prove expressing that exponent by a fraction of two integers.</p>
 </div>
-
 <p>These “rules” become apparent by applying the definition of the derivative above to each of the things to be “derived”, but these come up so frequently that it is best to repeat until it is muscle memory.</p>
-
 <div class="exercise">
-<p><span id="exr:introderivatives" class="exercise"><strong>Exercise 10.1  (Derivative of Polynomials)  </strong></span>
-For each of the following functions, find the first-order derivative <span class="math inline">\(f^\prime(x)\)</span>.</p>
+<p><span id="exr:introderivatives" class="exercise"><strong>Exercise 10.1  (Derivative of Polynomials) </strong></span>For each of the following functions, find the first-order derivative <span class="math inline">\(f^\prime(x)\)</span>.</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(f(x)=c\)</span></li>
 <li><span class="math inline">\(f(x)=x\)</span></li>
@@ -491,43 +484,38 @@ For each of the following functions, find the first-order derivative <span class
 <li><span class="math inline">\(f(x)=\frac{x^2+1}{x^2-1}\)</span></li>
 </ol>
 </div>
-
 </div>
 </div>
-<div id="derivpoly" class="section level2">
-<h2><span class="header-section-number">10.2</span> Higher-Order Derivatives</h2>
+<div id="derivpoly" class="section level2 hasAnchor">
+<h2><span class="header-section-number">10.2</span> Higher-Order Derivatives<a href="derivatives.html#derivpoly" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The first derivative is applying the definition of derivatives on the function, and it can be expressed as</p>
 <p><span class="math display">\[f&#39;(x),  ~~ y&#39;,  ~~ \frac{d}{dx}f(x), ~~ \frac{dy}{dx}\]</span></p>
 <p>We can keep applying the differentiation process to functions that are themselves derivatives. The derivative of <span class="math inline">\(f&#39;(x)\)</span> with respect to <span class="math inline">\(x\)</span>, would then be <span class="math display">\[f&#39;&#39;(x)=\lim\limits_{h\to 0}\frac{f&#39;(x+h)-f&#39;(x)}{h}\]</span> and we can therefore call it the <strong>Second derivative:</strong></p>
 <p><span class="math display">\[f&#39;&#39;(x), ~~ y&#39;&#39;, ~~ \frac{d^2}{dx^2}f(x), ~~ \frac{d^2y}{dx^2}\]</span></p>
 <p>Similarly, the derivative of <span class="math inline">\(f&#39;&#39;(x)\)</span> would be called the third derivative and is denoted <span class="math inline">\(f&#39;&#39;&#39;(x)\)</span>. And by extension, the <strong>nth derivative</strong> is expressed as <span class="math inline">\(\frac{d^n}{dx^n}f(x)\)</span>, <span class="math inline">\(\frac{d^ny}{dx^n}\)</span>.</p>
-
 <div class="example">
-<span id="exm:unnamed-chunk-179" class="example"><strong>Example 10.1  (Succession of Derivatives)  </strong></span><span class="math display">\[\begin{align*}
+<p><span id="exm:unnamed-chunk-179" class="example"><strong>Example 10.1  (Succession of Derivatives) </strong></span><span class="math display">\[\begin{align*}
 f(x) &amp;=x^3\\
 f^{\prime}(x) &amp;=3x^2\\
 f^{\prime\prime}(x) &amp;=6x \\
 f^{\prime\prime\prime}(x) &amp;=6\\
 f^{\prime\prime\prime\prime}(x) &amp;=0\\
-\end{align*}\]</span>
+\end{align*}\]</span></p>
 </div>
-
 <p>Earlier, in Section <a href="derivatives.html#derivintro">10.1</a>, we said that if a function differentiable at a given point, then it must be continuous. Further, if <span class="math inline">\(f&#39;(x)\)</span> is itself continuous, then <span class="math inline">\(f(x)\)</span> is called continuously differentiable. All of this matters because many of our findings about optimization (Section <a href="optim.html#optim">11</a>) rely on differentiation, and so we want our function to be differentiable in as many layers. A function that is continuously differentiable infinitly is called “smooth”. Some examples: <span class="math inline">\(f(x) = x^2\)</span>, <span class="math inline">\(f(x) = e^x\)</span>.</p>
 </div>
-<div id="the-chain-rule" class="section level2">
-<h2><span class="header-section-number">10.3</span> The Chain Rule</h2>
+<div id="the-chain-rule" class="section level2 hasAnchor">
+<h2><span class="header-section-number">10.3</span> The Chain Rule<a href="derivatives.html#the-chain-rule" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As useful as the above rules are, many functions you’ll see won’t fit neatly in each case immediately. Instead, they will be functions of functions. For example, the difference between <span class="math inline">\(x^2 + 1^2\)</span> and <span class="math inline">\((x^2 + 1)^2\)</span> may look trivial, but the sum rule can be easily applied to the former, while it’s actually not obvious what do with the latter.</p>
 <p><strong>Composite functions</strong> are formed by substituting one function into another and are denoted by <span class="math display">\[(f\circ g)(x)=f[g(x)].\]</span> To form <span class="math inline">\(f[g(x)]\)</span>, the range of <span class="math inline">\(g\)</span> must be contained (at least in part) within the domain of <span class="math inline">\(f\)</span>. The domain of <span class="math inline">\(f\circ g\)</span> consists of all the points in the domain of <span class="math inline">\(g\)</span> for which <span class="math inline">\(g(x)\)</span> is in the domain of <span class="math inline">\(f\)</span>.</p>
-
 <div class="example">
 <p><span id="exm:unnamed-chunk-180" class="example"><strong>Example 10.2  </strong></span>Let <span class="math inline">\(f(x)=\ln x\)</span> for <span class="math inline">\(0&lt;x&lt;\infty\)</span> and <span class="math inline">\(g(x)=x^2\)</span> for <span class="math inline">\(-\infty&lt;x&lt;\infty\)</span>.</p>
 <p>Then
 <span class="math display">\[(f\circ g)(x)=\ln x^2, -\infty&lt;x&lt;\infty - \{0\}\]</span></p>
 <p>Also
 <span class="math display">\[(g\circ f)(x)=[\ln x]^2, 0&lt;x&lt;\infty\]</span></p>
-Notice that <span class="math inline">\(f\circ g\)</span> and <span class="math inline">\(g\circ f\)</span> are not the same functions.
+<p>Notice that <span class="math inline">\(f\circ g\)</span> and <span class="math inline">\(g\circ f\)</span> are not the same functions.</p>
 </div>
-
 <p>With the notation of composite functions in place, now we can introduce a helpful additional rule that will deal with a derivative of composite functions as a chain of concentric derivatives.</p>
 <p><strong>Chain Rule</strong>:</p>
 <p>Let <span class="math inline">\(y=(f\circ g)(x)= f[g(x)]\)</span>. The derivative of <span class="math inline">\(y\)</span> with respect to <span class="math inline">\(x\)</span> is <span class="math display">\[\frac{d}{dx} \{ f[g(x)] \} = f&#39;[g(x)] g&#39;(x)\]</span></p>
@@ -536,32 +524,27 @@ Notice that <span class="math inline">\(f\circ g\)</span> and <span class="math 
 <ul>
 <li>The chain rule can also be written as <span class="math display">\[\frac{dy}{dx}=\frac{dy}{dg(x)} \frac{dg(x)}{dx}\]</span> This expression does not imply that the <span class="math inline">\(dg(x)\)</span>’s cancel out, as in fractions. They are part of the derivative notation and you can’t separate them out or cancel them.)</li>
 </ul>
-
 <div class="example">
-<span id="exm:tothesix" class="example"><strong>Example 10.3  (Composite Exponent)  </strong></span>Find <span class="math inline">\(f^\prime(x)\)</span> for <span class="math inline">\(f(x) = (3x^2+5x-7)^6\)</span>.
+<p><span id="exm:tothesix" class="example"><strong>Example 10.3  (Composite Exponent) </strong></span>Find <span class="math inline">\(f^\prime(x)\)</span> for <span class="math inline">\(f(x) = (3x^2+5x-7)^6\)</span>.</p>
 </div>
-
 <p>The direct use of a chain rule is when the exponent of is itself a function, so the power rule could not have applied generaly:</p>
 <p><strong>Generalized Power Rule</strong>:</p>
 <p>If <span class="math inline">\(f(x)=[g(x)]^p\)</span> for any rational number <span class="math inline">\(p\)</span>, <span class="math display">\[f^\prime(x) =p[g(x)]^{p-1}g^\prime(x)\]</span></p>
 </div>
-<div id="derivatives-of-logs-and-exponents" class="section level2">
-<h2><span class="header-section-number">10.4</span> Derivatives of logs and exponents</h2>
+<div id="derivatives-of-logs-and-exponents" class="section level2 hasAnchor">
+<h2><span class="header-section-number">10.4</span> Derivatives of logs and exponents<a href="derivatives.html#derivatives-of-logs-and-exponents" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Natural logs and exponents (they are inverses of each other; see Section <a href="preliminaries.html#logexponents">1.3</a>) crop up everywhere in statistics. Their derivative is a special case from the above, but quite elegant.</p>
-
 <div class="theorem">
-<p><span id="thm:derivexplog" class="theorem"><strong>Theorem 10.1  </strong></span>
-The functions <span class="math inline">\(e^x\)</span> and the natural logarithm <span class="math inline">\(\ln(x)\)</span> are continuous and differentiable in their domains, and their first derivate is
+<p><span id="thm:derivexplog" class="theorem"><strong>Theorem 10.1  </strong></span>The functions <span class="math inline">\(e^x\)</span> and the natural logarithm <span class="math inline">\(\ln(x)\)</span> are continuous and differentiable in their domains, and their first derivate is
 <span class="math display">\[(e^x)^\prime = e^x\]</span>
 <span class="math display">\[\ln(x)^\prime = \frac{1}{x}\]</span></p>
 <p>Also, when these are composite functions, it follows by the generalized power rule that</p>
 <p><span class="math display">\[\left(e^{g(x)}\right)^\prime = e^{g(x)} \cdot g^\prime(x)\]</span>
 <span class="math display">\[\left(\ln g(x)\right)^\prime = \frac{g^\prime(x)}{g(x)}, ~~\text{if}~~ g(x) &gt; 0\]</span></p>
 </div>
-
 <p>We will relegate the proofs to small excerpts.</p>
-<div id="derivatives-of-exponents" class="section level3 unnumbered">
-<h3>Derivatives of exponents</h3>
+<div id="derivatives-of-exponents" class="section level3 unnumbered hasAnchor">
+<h3>Derivatives of exponents<a href="derivatives.html#derivatives-of-exponents" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To repeat the main rule in Theorem <a href="derivatives.html#thm:derivexplog">10.1</a>, the intuition is that</p>
 <ol style="list-style-type: decimal">
 <li>Derivative of <span class="math inline">\(e^x\)</span> is itself: <span class="math inline">\(\frac{d}{dx}e^x = e^x\)</span> (See Figure <a href="derivatives.html#fig:fig-derivexponent">10.2</a>)</li>
@@ -575,19 +558,17 @@ The functions <span class="math inline">\(e^x\)</span> and the natural logarithm
 Figure 10.2: Derivative of the Exponential Function
 </p>
 </div>
-
 <div class="example">
-<p><span id="exm:exmderivexp" class="example"><strong>Example 10.4  (Derivative of exponents)  </strong></span>Find the derivative for the following.</p>
+<p><span id="exm:exmderivexp" class="example"><strong>Example 10.4  (Derivative of exponents) </strong></span>Find the derivative for the following.</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(f(x)=e^{-3x}\)</span></li>
 <li><span class="math inline">\(f(x)=e^{x^2}\)</span></li>
 <li><span class="math inline">\(f(x)=(x-1)e^x\)</span></li>
 </ol>
 </div>
-
 </div>
-<div id="derivatives-of-logs" class="section level3 unnumbered">
-<h3>Derivatives of logs</h3>
+<div id="derivatives-of-logs" class="section level3 unnumbered hasAnchor">
+<h3>Derivatives of logs<a href="derivatives.html#derivatives-of-logs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The natural log is the mirror image of the natural exponent and has mirroring properties, again, to repeat the theorem,</p>
 <ol style="list-style-type: decimal">
 <li>log prime x is one over x: <span class="math inline">\(\frac{d}{dx} \ln x = \frac{1}{x}\)</span> (Figure <a href="derivatives.html#fig:fig-derivlog">10.3</a>)</li>
@@ -601,9 +582,8 @@ Figure 10.2: Derivative of the Exponential Function
 Figure 10.3: Derivative of the Natural Log
 </p>
 </div>
-
 <div class="example">
-<p><span id="exm:exmderivlog" class="example"><strong>Example 10.5  (Derivative of logs)  </strong></span>Find <span class="math inline">\(dy/dx\)</span> for the following.</p>
+<p><span id="exm:exmderivlog" class="example"><strong>Example 10.5  (Derivative of logs) </strong></span>Find <span class="math inline">\(dy/dx\)</span> for the following.</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(f(x)=\ln(x^2+9)\)</span></li>
 <li><span class="math inline">\(f(x)=\ln(\ln x)\)</span></li>
@@ -611,10 +591,9 @@ Figure 10.3: Derivative of the Natural Log
 <li><span class="math inline">\(f(x)=\ln e^x\)</span></li>
 </ol>
 </div>
-
 </div>
-<div id="outline-of-proof" class="section level3 unnumbered">
-<h3>Outline of Proof</h3>
+<div id="outline-of-proof" class="section level3 unnumbered hasAnchor">
+<h3>Outline of Proof<a href="derivatives.html#outline-of-proof" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We actually show the derivative of the log first, and then the derivative of the exponential naturally follows.</p>
 <p>The general derivative of the log at any base <span class="math inline">\(a\)</span> is solvable by the definition of derivatives.</p>
 <p><span class="math display">\[\begin{align*}
@@ -637,8 +616,8 @@ y &amp;= a^x \\
 <p><span class="math display">\[(e^x)^\prime = (e^x)\]</span></p>
 </div>
 </div>
-<div id="partial-derivatives" class="section level2">
-<h2><span class="header-section-number">10.5</span> Partial Derivatives</h2>
+<div id="partial-derivatives" class="section level2 hasAnchor">
+<h2><span class="header-section-number">10.5</span> Partial Derivatives<a href="derivatives.html#partial-derivatives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>What happens when there’s more than variable that is changing?</p>
 <blockquote>
 <p>If you can do ordinary derivatives, you can do partial derivatives: just hold all the other input variables constant except for the one you’re differentiating with respect to. (Joe Blitzstein’s Math Notes)</p>
@@ -648,19 +627,16 @@ y &amp;= a^x \\
 <p><span class="math display">\[\frac{\partial f}{\partial x_i} (x_1,\ldots,x_n) = \lim\limits_{h\to 0} \frac{f(x_1,\ldots,x_i+h,\ldots,x_n)-f(x_1,\ldots,x_i,\ldots,x_n)}{h}\]</span></p>
 <p>Only the <span class="math inline">\(i\)</span>th variable changes — the others are treated as constants.</p>
 <p>We can take higher-order partial derivatives, like we did with functions of a single variable, except now the higher-order partials can be with respect to multiple variables.</p>
-
 <div class="example">
-<p><span id="exm:unnamed-chunk-181" class="example"><strong>Example 10.6  (More than one type of partial)  </strong></span>Notice that you can take partials with regard to different variables.</p>
+<p><span id="exm:unnamed-chunk-181" class="example"><strong>Example 10.6  (More than one type of partial) </strong></span>Notice that you can take partials with regard to different variables.</p>
 <p>Suppose <span class="math inline">\(f(x,y)=x^2+y^2\)</span>. Then</p>
-<span class="math display">\[\begin{align*}
+<p><span class="math display">\[\begin{align*}
 \frac{\partial f}{\partial x}(x,y) &amp;=\\
 \frac{\partial f}{\partial y}(x,y) &amp;=\\
 \frac{\partial^2 f}{\partial x^2}(x,y) &amp;=\\
 \frac{\partial^2 f}{\partial x \partial y}(x,y) &amp;=
-\end{align*}\]</span>
+\end{align*}\]</span></p>
 </div>
-
-
 <div class="exercise">
 <p><span id="exr:unnamed-chunk-182" class="exercise"><strong>Exercise 10.2  </strong></span>Let <span class="math inline">\(f(x,y)=x^3 y^4 +e^x -\ln y\)</span>. What are the following partial derivaitves?</p>
 <p><span class="math display">\[\begin{align*}
@@ -670,10 +646,9 @@ y &amp;= a^x \\
 \frac{\partial^2 f}{\partial x \partial y}(x,y) &amp;= 
 \end{align*}\]</span></p>
 </div>
-
 </div>
-<div id="taylorapprox" class="section level2">
-<h2><span class="header-section-number">10.6</span> Taylor Approximation</h2>
+<div id="taylorapprox" class="section level2 hasAnchor">
+<h2><span class="header-section-number">10.6</span> Taylor Approximation<a href="derivatives.html#taylorapprox" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A common form of approximation used in statistics involves derivatives. A Taylor series is a way to represent common functions as infinite series (a sum of infinite elements) of the function’s derivatives at some point <span class="math inline">\(a\)</span>.</p>
 <p>For example, Taylor series are very helpful in representing nonlinear (read: difficult) functions as linear (read: manageable) functions. One can thus <strong>approximate</strong> functions by using lower-order, finite series known as <strong>Taylor polynomials</strong>. If <span class="math inline">\(a=0\)</span>, the series is called a Maclaurin series.</p>
 <p>Specifically, a Taylor series of a real or complex function <span class="math inline">\(f(x)\)</span> that is infinitely differentiable in the neighborhood of point <span class="math inline">\(a\)</span> is:</p>
