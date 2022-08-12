@@ -64,23 +64,29 @@ Placeholder
 
 Placeholder
 
-
-## Motivation: Data and You {-}
-### Where are we starting? {-}
-### Check your understanding  {-}
+## Where are we starting? {-}
 ## Orienting
-## But what is R?
-## Base-R vs. tidyverse 
-### Dataframe subsetting {-}
-### Read data {-}
-### Visualization {-}
-## A is for Athens
-### Locating the Data 
-### Reading in Data
-### Inspecting 
-### Finding observations
+### Getting to know RStudio
+### RStudio Projects
+### Installing Packages
+## Reading in Data
 
-<!--chapter:end:11_data-handling_counting.Rmd-->
+<!--chapter:end:11_orientation.Rmd-->
+
+
+# Visualization {#dataviz}
+
+Placeholder
+
+
+## Univariate Graphs
+## Bivariate Graphs
+## Trivariate(!) Graphs
+### Using Colors and Shapes
+### Using Facets to Graph Comparisons
+## Choropleth Maps
+
+<!--chapter:end:12_visualization.Rmd-->
 
 
 # Objects, Functions, Loops {#robjloops}
@@ -116,26 +122,7 @@ Placeholder
 <!--chapter:end:12_functions_obj_loops.Rmd-->
 
 
-# Visualization {#dataviz}
 
-Placeholder
-
-
-### Motivation: The Law of the Census {-}
-### Where are we? Where are we headed? {-}
-### Check your understanding  {-}
-## Read data
-## Counting
-## Tabulating
-## base R graphics and ggplot
-### base R
-### ggplot
-## Improving your graphics
-## Cross-tabs
-## Composition Plots
-## Line graphs
-
-<!--chapter:end:13_visualization.Rmd-->
 
 
 # Simulation^[Module originally written by Connor Jerzak and Shiro Kuriwaki] {#simulation}
