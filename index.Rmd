@@ -21,7 +21,7 @@ For information about the role of this math camp as an introduction to graduate 
 ### Authors and Contributors {-}
 
 For information about the authors of the Harvard Gov Prefresher booklet, see [here](https://iqss.github.io/prefresher/index.html#authors-and-contributors).  
-We have also updated it to include some material from previous instructors of the class at UCSD, including Luke Sanford (2019-2020), Kathryn Baragwanath (2019-2020), Brandon Merrell (2018), Inbok Rhee (2018).
+We have also updated it to include some material from previous instructors of the class at UCSD, including Rachel Schoner (2021), Luke Sanford (2019-2020), Kathryn Baragwanath (2019-2020), Brandon Merrell (2018), Inbok Rhee (2018).
 
 ### Contributing {-}
 
