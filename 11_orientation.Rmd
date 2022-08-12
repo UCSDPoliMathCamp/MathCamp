@@ -106,14 +106,14 @@ This approach is usually contrasted against "base R" functions, which do not req
 
 Install the Tidyverse using:
 
-```{r, eval=FALSE}
+```{r}
 # This might take a couple minutes to download all packages
 install.packages("tidyverse")
 ```
 
 I also highly recommend using the "here" package for file path management as explained earlier.
 
-```{r, eval=FALSE}
+```{r}
 install.packages("here")
 ```
 
