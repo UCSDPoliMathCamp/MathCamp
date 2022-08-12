@@ -249,7 +249,7 @@ ggplot(county_elections) +
 
 Making maps in ggplot is relatively straightforward---and a much better idea than copying and pasting your data back and forth between R and a specialized program like ArcGIS. Choropleth maps show data broken down by geographic unit (in this case US counties). We will need to install an additional package [urbnmapr](https://urban-institute.medium.com/how-to-create-state-and-county-maps-easily-in-r-577d29300bb2) to help ggplot make this type of graph. To install urbnmapr, run the following command in your Console.
 
-```{r, eval=FALSE}
+```{r}
 devtools::install_github("UrbanInstitute/urbnmapr")
 ```
 
