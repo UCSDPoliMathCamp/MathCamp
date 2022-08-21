@@ -15,6 +15,7 @@ Imports:
     devtools,
     tidyverse,
     here,
-    urbnmapr (>= 0.0.0.9002)
+    urbnmapr (>= 0.0.0.9002),
+    sf
 Remotes:  
     UrbanInstitute/urbnmapr
