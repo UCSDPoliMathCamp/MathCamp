@@ -74,6 +74,20 @@ Placeholder
 
 <!--chapter:end:11_orientation.Rmd-->
 
+# Visualization {#dataviz}
+
+Placeholder
+
+## Univariate Graphs
+## Bivariate Graphs
+## Trivariate(!) Graphs
+### Using Colors and Shapes
+### Using Facets to Graph Comparisons
+## Choropleth Maps
+
+
+
+<!--chapter:end:12_visualization.Rmd-->
 
 # Objects, Functions, Loops {#robjloops}
 
@@ -108,19 +122,7 @@ Placeholder
 <!--chapter:end:12_functions_obj_loops.Rmd-->
 
 
-# Visualization {#dataviz}
 
-Placeholder
-
-
-## Univariate Graphs
-## Bivariate Graphs
-## Trivariate(!) Graphs
-### Using Colors and Shapes
-### Using Facets to Graph Comparisons
-## Choropleth Maps
-
-<!--chapter:end:12_visualization.Rmd-->
 
 
 # Simulation^[Module originally written by Connor Jerzak and Shiro Kuriwaki] {#simulation}
