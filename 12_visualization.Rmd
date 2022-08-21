@@ -257,26 +257,26 @@ We use the command `devtools::install_github()` because the developers of urbnma
 
 Once you have the urbnmapr package installed, you can load it into R using:
 
-```{r}
+```{r, eval=FALSE}
 library(urbnmapr)
 ```
 
 We need to perform a couple data cleaning steps before the data is ready to map in ggplot. The first step is making our `countyCode` variable match the format of the corresponding US county code in the urbnmapr data. US counties are each given a unique 5-digit number called a [FIPS code](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/home/?cid=nrcs143_013697). However, at some point the "county_elections.csv" file was opened in Excel, which read the FIPS codes as numeric values thereby removing any 0's from the start of each code. Never open your data in Excel! Now a bunch of the FIPS codes in our data are only 4-digits long instead of 5, which means they will not match the FIPS codes in the urbnmapr data. Luckily we can fix this using the Tidyverse. The function `str_pad` from the [stringr](https://stringr.tidyverse.org/) package can be used to "pad" out a variable with a specific character until it becomes a specific size.
 
-```{r}
+```{r, eval=FALSE}
 county_elections <- county_elections |> 
   mutate(county_fips = str_pad(countyCode, width = 5, pad = "0"))
 ```
 
 Next we need to join our `county_elections` data with the mapping data from urbnmapr. We will do this using a `left_join` command, which, if you are not familiar with, we will cover in much greater detail in a future lesson. The big idea here is that we have one data set with county-level variables, such as median household income, that we need to merge with a data set containing the geographic coordinate information for each US county.
 
-```{r}
+```{r, eval=FALSE}
 map_data <- left_join(county_elections, counties)
 ```
 
 Awesome! Now we are ready to make a map! Let's check out the geographic distribution of population percentage without a high school diploma.
 
-```{r}
+```{r, eval=FALSE}
 ggplot(map_data) +
   aes(x = long, y = lat, 
       group = group, fill = lesshs_pct) +
@@ -292,7 +292,7 @@ ggplot(map_data) +
 
 Don't worry if you are not yet able to understand every aspect of the ggplot code that produced this map. Try playing around with some of the arguments and see what happens to the map!
 
-```{r}
+```{r, eval=FALSE}
 ggplot(map_data) +
   aes(x = long, y = lat, 
       group = group, fill = lesshs_pct) +

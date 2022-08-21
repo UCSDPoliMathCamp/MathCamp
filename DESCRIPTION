@@ -14,9 +14,4 @@ Imports:
     patchwork,
     devtools,
     tidyverse,
-    here,
-    urbnmapr (>= 0.0.0.9002),
-    sf,
-    rgdal
-Remotes:  
-    UrbanInstitute/urbnmapr
+    here
