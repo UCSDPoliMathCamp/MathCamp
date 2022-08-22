@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 LaTeX and markdown | UCSD Political Science Math Camp</title>
+  <title>Chapter 5 Data Wrangling and Cleaning | UCSD Political Science Math Camp</title>
   <meta name="description" content="Text for UCSD Department of Political Science Math Camp" />
   <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 LaTeX and markdown | UCSD Political Science Math Camp" />
+  <meta property="og:title" content="Chapter 5 Data Wrangling and Cleaning | UCSD Political Science Math Camp" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="/./images/logo.png" />
   <meta property="og:description" content="Text for UCSD Department of Political Science Math Camp" />
   <meta name="github-repo" content="UCSDPoliMathCamp/MathCamp" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 LaTeX and markdown | UCSD Political Science Math Camp" />
+  <meta name="twitter:title" content="Chapter 5 Data Wrangling and Cleaning | UCSD Political Science Math Camp" />
   
   <meta name="twitter:description" content="Text for UCSD Department of Political Science Math Camp" />
   <meta name="twitter:image" content="/./images/logo.png" />
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="simulation.html"/>
-<link rel="next" href="linearalgebra.html"/>
+<link rel="prev" href="dataviz.html"/>
+<link rel="next" href="simulation.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -412,220 +412,211 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="nonwysiwyg" class="section level1 hasAnchor">
-<h1><span class="header-section-number">Chapter 7</span> LaTeX and markdown<a href="nonwysiwyg.html#nonwysiwyg" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="where-are-we-where-are-we-headed-2" class="section level3 unnumbered hasAnchor">
-<h3>Where are we? Where are we headed?<a href="nonwysiwyg.html#where-are-we-where-are-we-headed-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Up till now, you should have covered:</p>
+<div id="datawrangling" class="section level1 hasAnchor">
+<h1><span class="header-section-number">Chapter 5</span> Data Wrangling and Cleaning<a href="datawrangling.html#datawrangling" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="clean-data" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.1</span> Clean Data<a href="datawrangling.html#clean-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The raw data used in much of political science research rarely comes to us in a format that is immediately accessible for analysis. Instead, we frequently need to write an R script to “clean” the data first. Only after cleaning the data will it be usable for visualization or statistical modeling. This process (also known as “data wrangling”) can be extremely arduous and time-consuming—depending on how messy the raw data is in the first place. According to the common aphorism, the time you spend writing R code to clean your data sets will far exceed the time you spend subsequently running any sort of statistical analysis on the cleaned data.</p>
+<p>Although data cleaning has a reputation as a dull, menial task (compared to the “fun” of statistical modeling), try to avoid treating the process like it is merely a roadblock—something to be overcome before you can begin the <em>real</em> analysis. In fact, each decision you make when wrangling your raw data into its final state <a href="https://counting.substack.com/p/data-cleaning-is-analysis-not-grunt#:~:text=The%20act%20of%20cleaning%20data%20is%20the%20act%20of%20preferentially,the%20act%20of%20data%20analysis.">is a crucial part of the final research product</a>. Whether or not to drop certain observations, or using different levels of data aggregation are some examples of choices which can have massive downstream effects. You should be thoughtful and transparent about your decision-making process the whole time you spend cleaning data.</p>
+</div>
+<div id="cleaning-data-using-dplyr" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.2</span> Cleaning Data Using dplyr<a href="datawrangling.html#cleaning-data-using-dplyr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As in the other sections of this book, we will be using the Tidyverse approach to data cleaning here. The Tidyverse package for data cleaning is <a href="https://dplyr.tidyverse.org/">dplyr</a> and it contains most of the functions we will be using in this chapter.</p>
+<p>Rather than downloading a .csv file and using the <code>read_csv()</code> function to load in our data for this chapter, we will be using a package which contains multiple data sets. The data come from the <a href="https://github.com/dgrtwo/unvotes">United Nations General Assembly</a>. First install the unvotes package by running the following command in your Console.</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="datawrangling.html#cb126-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;unvotes&quot;</span>)</span></code></pre></div>
+<p>Then run</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="datawrangling.html#cb127-1"></a><span class="kw">library</span>(unvotes)</span></code></pre></div>
+<p>When you use the <code>library()</code> function, many packages automatically load small data sets that immediately become available for use. However, accessing these data can be a bit confusing because they do not automatically show up as objects in your Environment tab. Let’s add the unvotes data sets to our Environment with the following chunk of code:</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="datawrangling.html#cb128-1"></a>un_votes &lt;-<span class="st"> </span>un_votes</span>
+<span id="cb128-2"><a href="datawrangling.html#cb128-2"></a>un_roll_calls &lt;-<span class="st"> </span>un_roll_calls</span>
+<span id="cb128-3"><a href="datawrangling.html#cb128-3"></a>un_roll_call_issues &lt;-<span class="st"> </span>un_roll_call_issues</span></code></pre></div>
 <ul>
-<li>Statistical Programming in <code>R</code></li>
+<li><code>un_votes</code>, country-vote level data. Each row is a country’s vote on a particular UN Assembly resolution.</li>
+<li><code>un_roll_calls</code>, resolution level data. Contains information about each resolution.</li>
+<li><code>un_roll_call_issues</code>, resolution level data. Contains the issue-area for each resolution.</li>
 </ul>
-<p>This is only the beginning of <code>R</code> – programming is like learning a language, so learn more as we use it. And yet <code>R</code> is of likely not the only programming language you will want to use. While we cannot introduce everything, we’ll pick out a few that we think are particularly helpful.</p>
-<p>Here will cover</p>
-<ul>
-<li>Markdown</li>
-<li>LaTeX (and BibTeX)</li>
-</ul>
-<p>as examples of a non-WYSIWYG editor</p>
-<p>command-line are a basic set of tools that you may have to use from time to time. It also clarifies what more complicated programs are doing. Markdown is an example of compiling a plain text file. LaTeX is a typesetting program and git is a version control program – both are useful for non-quantitative work as well.</p>
-<p>Please familiarize yourself closing with Markdown, and be sure you know how to open an .Rmd file as described below. In class, we will walk through an Rmd file together. LaTeX is included here for your future reference as this is a popular typesetting program among political scientists. This is not needed for Math Camp and is never required for any course. In fact, many prefer R Markdown’s integration rather than a separate typesetting program. This depends on your background and interests but exposure to the range of popular programs and techniques will be helpful moving forward.</p>
-</div>
-<div id="check-your-understanding-1" class="section level3 unnumbered hasAnchor">
-<h3>Check your understanding<a href="nonwysiwyg.html#check-your-understanding-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Check if you have an idea of how you might code the following tasks:</p>
-<ul>
-<li>What does “WYSIWYG” stand for? How would a non-WYSIWYG format text?</li>
-<li>How do you start a header in markdown?</li>
-<li>What are some “plain text” editors?</li>
-<li>How do you start a document in <code>.tex</code>?</li>
-<li>How do you start a environment in <code>.tex</code>?</li>
-<li>How do you insert a figure in <code>.tex</code>?</li>
-<li>How do you reference a figure in <code>.tex</code>?</li>
-<li>What is a <code>.bib</code> file?</li>
-<li>Say you came across a interesting journal article. How would you want to maintain this reference so that you can refer to its citation in all your subsequent papers?</li>
-</ul>
-</div>
-<div id="motivation" class="section level2 hasAnchor">
-<h2><span class="header-section-number">7.1</span> Motivation<a href="nonwysiwyg.html#motivation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Statistical programming is a fast-moving field. The beta version of <code>R</code> was released in 2000, <code>ggplot2</code> was released on 2005, and <code>RStudio</code> started around 2010. Of course, some programming technologies are quite “old”: (<code>C</code> in 1969, <code>C++</code> around 1989, <code>TeX</code> in 1978, <code>Linux</code> in 1991, Mac OS in 1984). But it is easy to feel you are falling behind in the recent developments of programming. Today we will do a <strong>brief</strong> and rough overview of some fundamental and new tools other than <code>R</code>, with the general aim of having you break out of your comfort zone so you won’t be shut out from learning these tools in the future.</p>
-</div>
-<div id="markdown" class="section level2 hasAnchor">
-<h2><span class="header-section-number">7.2</span> Markdown<a href="nonwysiwyg.html#markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>At its core markdown is just plain text. Plain text does not have any formatting embedded in it. Instead, the formatting is coded up as text. Markdown is <em>not</em> a WYSIWYG (What you see is what you get) text editor like Microsoft Word or Google Docs. This will mean that you need to explicitly code for <code>bold{text}</code> rather than hitting Command+B and making your text look <strong>bold</strong> on your own computer.</p>
-<p>Markdown is known as a “light-weight” editor, which means that it is relatively easy to write code that will compile. It is quick and easy and satisfies most presentation purposes; you might want to try <code>LaTeX</code> for more involved papers.</p>
-<div id="markdown-commands" class="section level3 hasAnchor">
-<h3><span class="header-section-number">7.2.1</span> markdown commands<a href="nonwysiwyg.html#markdown-commands" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>For italic and bold, use either the asterisks or the underlines,</p>
-<pre><code>*italic*   **bold**
-_italic_   __bold__</code></pre>
-<p>And for headers use the hash symbols,</p>
-<pre><code># Main Header
-## Sub-headers</code></pre>
-</div>
-<div id="your-own-markdown" class="section level3 hasAnchor">
-<h3><span class="header-section-number">7.2.2</span> your own markdown<a href="nonwysiwyg.html#your-own-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>RStudio makes it easy to compile your very first markdown file by giving you templates. Got to <code>New &gt; R Markdown</code>, pick a document and click Ok. This will give you a skeleton of a document you can compile – or “knit”.</p>
-<p>Rmd is actually a slight modification of real markdown. It is a type of file that R reads and turns into a proper <code>md</code> file. Then, it uses a document-conversion called pandoc to compile your <code>md</code> into documents like PDF or HTML.</p>
-<div class="figure">
-<img src="images/RMarkdownFlow.png" alt="" />
-<p class="caption">How Rmds become PDFs or HTMLs</p>
+<div id="the-pipe-operator" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.2.1</span> The Pipe Operator<a href="datawrangling.html#the-pipe-operator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Before we get started using dplyr we need to first introduce the “pipe” operator <code>|&gt;</code>. Pipes are an extremely convenient tool for linking sequences of functions together. They work by passing the object on the left hand side of the pipe into the function following the pipe. <a href="https://twitter.com/andrewheiss/status/1359583543509348356">Here is an example</a>.</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="datawrangling.html#cb129-1"></a><span class="co"># The pipe way</span></span>
+<span id="cb129-2"><a href="datawrangling.html#cb129-2"></a>me <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb129-3"><a href="datawrangling.html#cb129-3"></a><span class="st">  </span><span class="kw">wake_up</span>(<span class="dt">time =</span> <span class="st">&quot;8:00&quot;</span>) <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb129-4"><a href="datawrangling.html#cb129-4"></a><span class="st">  </span><span class="kw">get_out_of_bed</span>(<span class="dt">side =</span> <span class="st">&quot;correct&quot;</span>) <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb129-5"><a href="datawrangling.html#cb129-5"></a><span class="st">  </span><span class="kw">get_dressed</span>(<span class="dt">pants =</span> <span class="ot">TRUE</span>, <span class="dt">shirt =</span> <span class="ot">TRUE</span>) <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb129-6"><a href="datawrangling.html#cb129-6"></a><span class="st">  </span><span class="kw">leave_house</span>(<span class="dt">car =</span> <span class="ot">FALSE</span>, <span class="dt">bike =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb129-7"><a href="datawrangling.html#cb129-7"></a></span>
+<span id="cb129-8"><a href="datawrangling.html#cb129-8"></a><span class="co"># The non-pipe way</span></span>
+<span id="cb129-9"><a href="datawrangling.html#cb129-9"></a><span class="kw">leave_house</span>(<span class="kw">get_dressed</span>(<span class="kw">get_out_of_bed</span>(<span class="kw">wake_up</span>(me, <span class="dt">time =</span> <span class="st">&quot;8:00&quot;</span>), <span class="dt">side =</span> <span class="st">&quot;correct&quot;</span>), <span class="dt">pants =</span> <span class="ot">TRUE</span>, <span class="dt">shirt =</span> <span class="ot">TRUE</span>), <span class="dt">car =</span> <span class="ot">FALSE</span>, <span class="dt">bike =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<p>Both code chunks above will end up doing the same thing. But the pipe method is much easier to write, and much easier for others to read and understand.</p>
+<p>Before R version 4.1, the pipe operator was only available in the <a href="https://magrittr.tidyverse.org/">magrittr</a> package (which remains part of the Tidyverse). The magrittr pipe is written <code>%&gt;%</code> and many R users continue to use this over the native R <code>|&gt;</code>. There are a few very minor differences between the two pipes, which you should feel free to ignore. We use the native R <code>|&gt;</code> pipe in this book because it is generally a good idea, all else equal, to reduce your dependency on outside packages when writing code.</p>
 </div>
 </div>
-<div id="a-note-on-plain-text-editors" class="section level3 hasAnchor">
-<h3><span class="header-section-number">7.2.3</span> A note on plain-text editors<a href="nonwysiwyg.html#a-note-on-plain-text-editors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Multiple software exist where you can edit plain-text (roughly speaking, text that is not WYSIWYG).</p>
-<ul>
-<li>RStudio (especially for R-related links)</li>
-<li>TeXMaker, TeXShop (especially for TeX)</li>
-<li><a href="https://www.gnu.org/software/emacs/">emacs</a>, aquamacs (general)</li>
-<li><a href="http://www.vim.org/download.php">vim</a> (general)</li>
-<li><a href="https://www.sublimetext.com">Sublime Text</a> (general)</li>
-<li><a href="https://atom.io/">Atom</a> (general)</li>
-</ul>
-<p>Each has their own keyboard shortcuts and special features. You can browse a couple and see which one(s) you like.</p>
+<div id="working-with-columns" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.3</span> Working with Columns<a href="datawrangling.html#working-with-columns" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Each column in a data set typically represents a single variable, or attribute, relating to the observation in a particular row. In this section we will look at some of dplyr’s functions for working with columns.</p>
+<div id="select" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.3.1</span> Select<a href="datawrangling.html#select" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>select()</code> function is primarily used to remove unwanted columns from the data. Here is an example.</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="datawrangling.html#cb130-1"></a>un_roll_calls <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb130-2"><a href="datawrangling.html#cb130-2"></a><span class="st">  </span><span class="kw">select</span>(rcid, date) <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span><span class="co"># Keeping only two variables</span></span>
+<span id="cb130-3"><a href="datawrangling.html#cb130-3"></a><span class="st">  </span><span class="kw">head</span>() <span class="co"># Print out first 6 rows</span></span></code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+##    rcid date      
+##   &lt;int&gt; &lt;date&gt;    
+## 1     3 1946-01-01
+## 2     4 1946-01-02
+## 3     5 1946-01-04
+## 4     6 1946-01-04
+## 5     7 1946-01-02
+## 6     8 1946-01-05</code></pre>
+<p>The <code>head()</code> function prints out the first few rows of a data set, and can be helpful to check if your cleaning function worked in the way you expected.</p>
+<p>Note that the code chunk above did not alter the data set object <code>un_roll_calls</code>. If we wanted to take this smaller data set and use it for something else, we will need to use the assignment operator <code>&lt;-</code> to save our work.</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="datawrangling.html#cb132-1"></a><span class="co"># This creates a new object called &quot;small_un_roll_calls&quot;</span></span>
+<span id="cb132-2"><a href="datawrangling.html#cb132-2"></a><span class="co"># containly only rcid and date columns</span></span>
+<span id="cb132-3"><a href="datawrangling.html#cb132-3"></a>small_un_roll_calls &lt;-<span class="st"> </span>un_roll_calls <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb132-4"><a href="datawrangling.html#cb132-4"></a><span class="st">  </span><span class="kw">select</span>(rcid, date)</span></code></pre></div>
+<p>The <code>select()</code> function can be very versatile. Rather than typing every column name we want to keep, it is often faster to specify the columns we want to drop.</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="datawrangling.html#cb133-1"></a>un_roll_calls <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb133-2"><a href="datawrangling.html#cb133-2"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>session) <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span><span class="co"># Keep everything except session column</span></span>
+<span id="cb133-3"><a href="datawrangling.html#cb133-3"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 8
+##    rcid importantvote date       unres   amend  para short                 descr
+##   &lt;int&gt;         &lt;int&gt; &lt;date&gt;     &lt;chr&gt;   &lt;int&gt; &lt;int&gt; &lt;chr&gt;                 &lt;chr&gt;
+## 1     3             0 1946-01-01 R/1/66      1     0 AMENDMENTS, RULES OF… &quot;TO …
+## 2     4             0 1946-01-02 R/1/79      0     0 SECURITY COUNCIL ELE… &quot;TO …
+## 3     5             0 1946-01-04 R/1/98      0     0 VOTING PROCEDURE      &quot;TO …
+## 4     6             0 1946-01-04 R/1/107     0     0 DECLARATION OF HUMAN… &quot;TO …
+## 5     7             0 1946-01-02 R/1/295     1     0 GENERAL ASSEMBLY ELE… &quot;TO …
+## 6     8             0 1946-01-05 R/1/297     1     0 ECOSOC POWERS         &quot;TO …</code></pre>
+<p>There are many other convenient ways to selection columns (e.g. by common names, by type of data, or by position in the data set). For a full list of ways to use <code>select()</code> see <a href="https://dplyr.tidyverse.org/reference/select.html">this link</a>. Here is one example of selecting every column which is a “character” type.</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="datawrangling.html#cb135-1"></a>un_roll_calls <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb135-2"><a href="datawrangling.html#cb135-2"></a><span class="st">  </span><span class="kw">select</span>(<span class="kw">where</span>(is.character)) <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb135-3"><a href="datawrangling.html#cb135-3"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   unres   short                          descr                                  
+##   &lt;chr&gt;   &lt;chr&gt;                          &lt;chr&gt;                                  
+## 1 R/1/66  AMENDMENTS, RULES OF PROCEDURE &quot;TO ADOPT A CUBAN AMENDMENT TO THE UK …
+## 2 R/1/79  SECURITY COUNCIL ELECTIONS     &quot;TO ADOPT A USSR PROPOSAL ADJOURNING D…
+## 3 R/1/98  VOTING PROCEDURE               &quot;TO ADOPT THE KOREAN PROPOSAL THAT INV…
+## 4 R/1/107 DECLARATION OF HUMAN RIGHTS    &quot;TO ADOPT A CUBAN PROPOSAL (A/3-C) THA…
+## 5 R/1/295 GENERAL ASSEMBLY ELECTIONS     &quot;TO ADOPT A 6TH COMMITTEE AMENDMENT (A…
+## 6 R/1/297 ECOSOC POWERS                  &quot;TO ADOPT A SECOND 6TH COMM. AMENDMENT…</code></pre>
+<p>Lastly, we can use <code>select()</code> to rename columns in our data. The chunk of code below selects the “unres” and date columns, and renames “unres” to “un_resolution” at the same time.</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="datawrangling.html#cb137-1"></a>un_roll_calls <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb137-2"><a href="datawrangling.html#cb137-2"></a><span class="st">  </span><span class="kw">select</span>(<span class="dt">un_resolution =</span> unres, date) <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb137-3"><a href="datawrangling.html#cb137-3"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+##   un_resolution date      
+##   &lt;chr&gt;         &lt;date&gt;    
+## 1 R/1/66        1946-01-01
+## 2 R/1/79        1946-01-02
+## 3 R/1/98        1946-01-04
+## 4 R/1/107       1946-01-04
+## 5 R/1/295       1946-01-02
+## 6 R/1/297       1946-01-05</code></pre>
+<p>If you only want to rename columns—without specifying which to select—dplyr has a function <code>rename()</code> for this purpose. The syntax is similar to the code chunk above <code>new_variable_name = original_variable_name</code>. This code will keep all columns and change the names of the specified variables.</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="datawrangling.html#cb139-1"></a>un_roll_calls <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb139-2"><a href="datawrangling.html#cb139-2"></a><span class="st">  </span><span class="kw">rename</span>(<span class="dt">un_resolution =</span> unres,</span>
+<span id="cb139-3"><a href="datawrangling.html#cb139-3"></a>         <span class="dt">amendment =</span> amend,</span>
+<span id="cb139-4"><a href="datawrangling.html#cb139-4"></a>         <span class="dt">paragraph =</span> para) <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb139-5"><a href="datawrangling.html#cb139-5"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 9
+##    rcid session importantvote date       un_resolu…¹ amend…² parag…³ short descr
+##   &lt;int&gt;   &lt;dbl&gt;         &lt;int&gt; &lt;date&gt;     &lt;chr&gt;         &lt;int&gt;   &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+## 1     3       1             0 1946-01-01 R/1/66            1       0 AMEN… &quot;TO …
+## 2     4       1             0 1946-01-02 R/1/79            0       0 SECU… &quot;TO …
+## 3     5       1             0 1946-01-04 R/1/98            0       0 VOTI… &quot;TO …
+## 4     6       1             0 1946-01-04 R/1/107           0       0 DECL… &quot;TO …
+## 5     7       1             0 1946-01-02 R/1/295           1       0 GENE… &quot;TO …
+## 6     8       1             0 1946-01-05 R/1/297           1       0 ECOS… &quot;TO …
+## # … with abbreviated variable names ¹​un_resolution, ²​amendment, ³​paragraph</code></pre>
+</div>
+<div id="mutate" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.3.2</span> Mutate<a href="datawrangling.html#mutate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>select()</code> and <code>rename()</code> functions are great for tidying up your data sets, but they do not change the underlying variables. To change existing variables or to create new ones we use <code>mutate()</code>.</p>
+<p>Let’s say we discovered that all the roll call IDs in the column “rcid” were supposed to be in multiples of 10. The code chunk below creates a new variable called “rcid_10” which is simply the value of the original “rcid” variable multiplied by 10.</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="datawrangling.html#cb141-1"></a>un_votes <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb141-2"><a href="datawrangling.html#cb141-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">rcid_10 =</span> rcid <span class="op">*</span><span class="st"> </span><span class="dv">10</span>) <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb141-3"><a href="datawrangling.html#cb141-3"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
+##    rcid country            country_code vote  rcid_10
+##   &lt;dbl&gt; &lt;chr&gt;              &lt;chr&gt;        &lt;fct&gt;   &lt;dbl&gt;
+## 1     3 United States      US           yes        30
+## 2     3 Canada             CA           no         30
+## 3     3 Cuba               CU           yes        30
+## 4     3 Haiti              HT           yes        30
+## 5     3 Dominican Republic DO           yes        30
+## 6     3 Mexico             MX           yes        30</code></pre>
+<p>If you didn’t want to create a brand new variable, and instead wanted to overwrite the original variable, you just need to put the original variable to the left of the <code>=</code> in <code>mutate()</code>.</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="datawrangling.html#cb143-1"></a>un_votes <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb143-2"><a href="datawrangling.html#cb143-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">rcid =</span> rcid <span class="op">*</span><span class="st"> </span><span class="dv">10</span>) <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb143-3"><a href="datawrangling.html#cb143-3"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
+##    rcid country            country_code vote 
+##   &lt;dbl&gt; &lt;chr&gt;              &lt;chr&gt;        &lt;fct&gt;
+## 1    30 United States      US           yes  
+## 2    30 Canada             CA           no   
+## 3    30 Cuba               CU           yes  
+## 4    30 Haiti              HT           yes  
+## 5    30 Dominican Republic DO           yes  
+## 6    30 Mexico             MX           yes</code></pre>
+<p>We commonly need to create a new variable whose values depend on the values of one of the original variables. The function <code>case_when()</code> helps us do this inside <code>mutate()</code>.</p>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="datawrangling.html#cb145-1"></a>un_votes <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb145-2"><a href="datawrangling.html#cb145-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">vote_dummy =</span> <span class="kw">case_when</span>(vote <span class="op">==</span><span class="st"> &quot;yes&quot;</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,</span>
+<span id="cb145-3"><a href="datawrangling.html#cb145-3"></a>                                vote <span class="op">==</span><span class="st"> &quot;no&quot;</span> <span class="op">~</span><span class="st"> </span><span class="dv">0</span>)) <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb145-4"><a href="datawrangling.html#cb145-4"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
+##    rcid country            country_code vote  vote_dummy
+##   &lt;dbl&gt; &lt;chr&gt;              &lt;chr&gt;        &lt;fct&gt;      &lt;dbl&gt;
+## 1     3 United States      US           yes            1
+## 2     3 Canada             CA           no             0
+## 3     3 Cuba               CU           yes            1
+## 4     3 Haiti              HT           yes            1
+## 5     3 Dominican Republic DO           yes            1
+## 6     3 Mexico             MX           yes            1</code></pre>
+<p>As you can see, the code chunk above creates a new variable called “vote_dummy” which takes the value <code>1</code> if “vote” equals <code>"yes"</code> and takes the values <code>0</code> if “vote” equals <code>"no"</code>. Like other programming languages, R uses the <code>==</code> logical operator to check whether a value <em>equals</em>, or is equivalent, to some other value. This is different from the single <code>=</code> which is used to create entire new variables inside <code>mutate()</code>.</p>
+<p>Here is one more example using <code>case_when()</code>.</p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="datawrangling.html#cb147-1"></a>un_votes <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb147-2"><a href="datawrangling.html#cb147-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">rcid_era =</span> <span class="kw">case_when</span>(rcid <span class="op">&lt;</span><span class="st"> </span><span class="dv">2000</span> <span class="op">~</span><span class="st"> &quot;old&quot;</span>,</span>
+<span id="cb147-3"><a href="datawrangling.html#cb147-3"></a>                              rcid <span class="op">&gt;=</span><span class="st"> </span><span class="dv">2000</span> <span class="op">&amp;</span><span class="st"> </span>rcid <span class="op">&lt;</span><span class="st"> </span><span class="dv">6000</span> <span class="op">~</span><span class="st"> &quot;middle&quot;</span>,</span>
+<span id="cb147-4"><a href="datawrangling.html#cb147-4"></a>                              rcid <span class="op">&gt;=</span><span class="st"> </span><span class="dv">6000</span> <span class="op">~</span><span class="st"> &quot;recent&quot;</span>)) <span class="op">|</span><span class="er">&gt;</span><span class="st"> </span></span>
+<span id="cb147-5"><a href="datawrangling.html#cb147-5"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
+##    rcid country            country_code vote  rcid_era
+##   &lt;dbl&gt; &lt;chr&gt;              &lt;chr&gt;        &lt;fct&gt; &lt;chr&gt;   
+## 1     3 United States      US           yes   old     
+## 2     3 Canada             CA           no    old     
+## 3     3 Cuba               CU           yes   old     
+## 4     3 Haiti              HT           yes   old     
+## 5     3 Dominican Republic DO           yes   old     
+## 6     3 Mexico             MX           yes   old</code></pre>
+<p>The new variable “rcid_era” takes three values, <code>"old"</code>, <code>"middle"</code>, and <code>"recent"</code> based on what range the “rcid” variable falls under.</p>
 </div>
 </div>
-<div id="latex" class="section level2 hasAnchor">
-<h2><span class="header-section-number">7.3</span> LaTeX<a href="nonwysiwyg.html#latex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>LaTeX is a typesetting program. You’d engage with LaTeX much like you engage with your <code>R</code> code. You will interact with LaTeX in a text editor, and will writing code which will be interpreted by the LaTeX compiler and which will finally be parsed to form your final PDF.</p>
-<div id="compile-online" class="section level3 hasAnchor">
-<h3><span class="header-section-number">7.3.1</span> compile online<a href="nonwysiwyg.html#compile-online" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol style="list-style-type: decimal">
-<li>Go to <a href="https://www.overleaf.com" class="uri">https://www.overleaf.com</a></li>
-<li>Scroll down and go to “CREATE A NEW PAPER” if you don’t have an account.</li>
-<li>Let’s discuss the default template.</li>
-<li>Make a new document, and set it as your main document. Then type in the Minimal Working Example (MWE):</li>
-</ol>
-<div class="sourceCode" id="cb188"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb188-1"><a href="nonwysiwyg.html#cb188-1"></a>\<span class="ex">documentclass</span><span class="dt">{article}</span></span>
-<span id="cb188-2"><a href="nonwysiwyg.html#cb188-2"></a>\<span class="ex">begin</span><span class="dt">{document}</span></span>
-<span id="cb188-3"><a href="nonwysiwyg.html#cb188-3"></a><span class="ex">Hello</span> World</span>
-<span id="cb188-4"><a href="nonwysiwyg.html#cb188-4"></a>\<span class="ex">end</span><span class="dt">{document}</span></span></code></pre></div>
+<div id="working-with-rows" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.4</span> Working with Rows<a href="datawrangling.html#working-with-rows" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="filter" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.4.1</span> Filter<a href="datawrangling.html#filter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="compile-your-first-latex-document-locally" class="section level3 hasAnchor">
-<h3><span class="header-section-number">7.3.2</span> compile your first LaTeX document locally<a href="nonwysiwyg.html#compile-your-first-latex-document-locally" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>LaTeX is a very stable system, and few changes to it have been made since the 1990s. The main benefit: better control over how your papers will look; better methods for writing equations or making tables; overall pleasing aesthetic.</p>
-<ol style="list-style-type: decimal">
-<li>Open a plain text editor. Then type in the MWE</li>
-</ol>
-<div class="sourceCode" id="cb189"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb189-1"><a href="nonwysiwyg.html#cb189-1"></a>\<span class="ex">documentclass</span><span class="dt">{article}</span></span>
-<span id="cb189-2"><a href="nonwysiwyg.html#cb189-2"></a>\<span class="ex">begin</span><span class="dt">{document}</span></span>
-<span id="cb189-3"><a href="nonwysiwyg.html#cb189-3"></a><span class="ex">Hello</span> World</span>
-<span id="cb189-4"><a href="nonwysiwyg.html#cb189-4"></a>\<span class="ex">end</span><span class="dt">{document}</span></span></code></pre></div>
-<ol start="2" style="list-style-type: decimal">
-<li>Save this as <code>hello_world.tex</code>. Make sure you get the file extension right.</li>
-<li>Open this in your “LaTeX” editor. This can be <code>TeXMaker</code>, <code>Aqumacs</code>, etc..</li>
-<li>Go through the click/dropdown interface and click compile.</li>
-</ol>
-</div>
-<div id="main-latex-commands" class="section level3 hasAnchor">
-<h3><span class="header-section-number">7.3.3</span> main LaTeX commands<a href="nonwysiwyg.html#main-latex-commands" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>LaTeX can cover most of your typesetting needs, to clean equations and intricate diagrams.</p>
-<p>Some main commands you’ll be using are below, and a very concise cheat sheet here: <a href="https://wch.github.io/latexsheet/latexsheet.pdf" class="uri">https://wch.github.io/latexsheet/latexsheet.pdf</a></p>
-<p>Most involved features require that you begin a specific “environment” for that feature, clearly demarcating them by the notation <code>\begin{figure}</code> and then <code>\end{figure}</code>, e.g. in the case of figures.</p>
-<pre><code>\begin{figure}
-\includegraphics{histogram.pdf}
-\end{figure}</code></pre>
-<p>where <code>histogram.pdf</code> is a path to one of your files.</p>
-<p>Notice that each line starts with a backslash <code>\</code> – in LaTeX this is the symbol to run a command.</p>
-<p>The following syntax at the endpoints are shorthand for math equations.</p>
-<pre><code>\[\int x^2 dx\]</code></pre>
-<p>these compile math symbols: <span class="math inline">\(\displaystyle \int x^2 dx.\)</span><a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></p>
-<p>The <code>align</code> environment is useful to align your multi-line math, for example.</p>
-<pre><code>\begin{align}
-P(A \mid B) &amp;= \frac{P(A \cap B)}{P(B)}\\
-&amp;= \frac{P(B \mid A)P(A)}{P(B)}
-\end{align}</code></pre>
-<p><span class="math display">\[\begin{align}
-P(A \mid B) &amp;= \frac{P(A \cap B)}{P(B)}\\
-&amp;= \frac{P(B \mid A)P(A)}{P(B)}
-\end{align}\]</span></p>
-<p>Regression tables should be outputted as <code>.tex</code> files with packages like <code>xtable</code> and <code>stargazer</code>, and then called into LaTeX by <code>\input{regression_table.tex}</code> where <code>regression_table.tex</code> is the path to your regression output.</p>
-<p>Figures and equations should be labelled with the tag (e.g. <code>label{tab:regression}</code> so that you can refer to them later with their tag <code>Table \ref{tab:regression}</code>, instead of hard-coding <code>Table 2</code>).</p>
-<p>For some LaTeX commands you might need to load a separate package that someone else has written. Do this in your preamble (i.e. before <code>\begin{document}</code>):</p>
-<pre><code>\usepackage[options]{package}</code></pre>
-<p>where <code>package</code> is the name of the package and <code>options</code> are options specific to the package.</p>
-</div>
-<div id="further-guides" class="section level3 unnumbered hasAnchor">
-<h3>Further Guides<a href="nonwysiwyg.html#further-guides" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>For a more comprehensive listing of LaTeX commands, Mayya Komisarchik has a great tutorial set of folders: <a href="https://scholar.harvard.edu/mkomisarchik/tutorials-0" class="uri">https://scholar.harvard.edu/mkomisarchik/tutorials-0</a></p>
-<p>There is a version of LaTeX called Beamer, which is a popular way of making a slideshow. Slides in markdown is also a competitor. The language of Beamer is the same as LaTeX but has some special functions for slides.</p>
+<div id="aggregation" class="section level3 hasAnchor">
+<h3><span class="header-section-number">5.4.2</span> Aggregation<a href="datawrangling.html#aggregation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="bibtex" class="section level2 hasAnchor">
-<h2><span class="header-section-number">7.4</span> BibTeX<a href="nonwysiwyg.html#bibtex" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>BibTeX is a reference system for bibliographical tests. We have a <code>.bib</code> file separately on our computer. This is also a plain text file, but it encodes bibliographical resources with special syntax so that a program can rearrange parts accordingly for different citation systems.</p>
-<div id="what-is-a-.bib-file" class="section level3 hasAnchor">
-<h3><span class="header-section-number">7.4.1</span> what is a <code>.bib</code> file?<a href="nonwysiwyg.html#what-is-a-.bib-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>For example, here is the Nunn and Wantchekon article entry in <code>.bib</code> form.</p>
-<pre><code>@article{nunn2011slave,
-  title={The Slave Trade and the Origins of Mistrust in Africa},
-  author={Nunn, Nathan and Wantchekon, Leonard},
-  journal={American Economic Review},
-  volume={101},
-  number={7},
-  pages={3221--3252},
-  year={2011}
-}</code></pre>
-<p>The first entry, <code>nunn2011slave</code>, is “pick your favorite” – pick your own name for your reference system. The other slots in this <code>@article</code> entry are entries that refer to specific bibliographical text.</p>
+<div id="merging-data" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.5</span> Merging Data<a href="datawrangling.html#merging-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="what-does-latex-do-with-.bib-files" class="section level3 hasAnchor">
-<h3><span class="header-section-number">7.4.2</span> what does LaTeX do with .bib files?<a href="nonwysiwyg.html#what-does-latex-do-with-.bib-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Now, in LaTeX, if you type</p>
-<pre><code>  \textcite{nunn2011slave} argue that current variation in the trust among citizens of African countries has historical roots in the European slave trade in the 1600s.
-  </code></pre>
-<p>as part of your text, then when the <code>.tex</code> file is compiled the PDF shows something like</p>
-<p><img src="images/biblatex_inline.png" /></p>
-<p>in whatever citation style (APSA, APA, Chicago) you pre-specified!</p>
-<p>Also at the end of your paper you will have a bibliography with entries ordered and formatted in the appropriate citation.</p>
-<p><img src="images/biblatex_bibliography.png" /></p>
-<p>This is a much less frustrating way of keeping track of your references – no need to hand-edit formatting the bibliography to conform to citation rules (which biblatex already knows) and no need to update your bibliography as you add and drop references (biblatex will only show entries that are used in the main text).</p>
-</div>
-<div id="stocking-up-on-your-.bib-files" class="section level3 hasAnchor">
-<h3><span class="header-section-number">7.4.3</span> stocking up on your .bib files<a href="nonwysiwyg.html#stocking-up-on-your-.bib-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You should keep your own <code>.bib</code> file that has all your bibliographical resources. Storing entries is cheap (does not take much memory), so it is fine to keep all your references in one place (but you’ll want to make a new one for collaborative projects where multiple people will compile a <code>.tex</code> file).</p>
-<p>For example, Gary’s BibTeX file is here: <a href="https://github.com/iqss-research/gkbibtex/blob/master/gk.bib" class="uri">https://github.com/iqss-research/gkbibtex/blob/master/gk.bib</a></p>
-<p>Citation management software (Mendeley or Zotero) automatically generates .bib entries from your library of PDFs for you, provided you have the bibliography attributes right.</p>
-</div>
-</div>
-<div id="extension-optional-exercise" class="section level2 unnumbered hasAnchor">
-<h2>Extension: Optional Exercise<a href="nonwysiwyg.html#extension-optional-exercise" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Create a LaTeX document for a hypothetical research paper on your laptop and, once you’ve verified it compiles into a PDF, come show it to either one of the instructors.</p>
-<p>You can also use overleaf if you have preference for a cloud-based system. But don’t swallow the built-in templates without understanding or testing them.</p>
-<p>Each student will have slightly different substantive interests, so we won’t impose much of a standard. But at a minimum, the LaTeX document should have:</p>
-<ul>
-<li>A title, author, date, and abstract</li>
-<li>Sections</li>
-<li>Italics and boldface</li>
-<li>A figure with a caption and in-text reference to it.</li>
-</ul>
-<p>Depending on your subfield or interests, try to implement some of the following:</p>
-<ul>
-<li>A bibliographical reference drawing from a separate <code>.bib</code> file</li>
-<li>A table</li>
-<li>A math expression</li>
-<li>A different font</li>
-<li>Different page margins</li>
-<li>Different line spacing</li>
-</ul>
+<div id="reshaping-data" class="section level2 hasAnchor">
+<h2><span class="header-section-number">5.6</span> Reshaping Data<a href="datawrangling.html#reshaping-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
-</div>
-
-
-
-<div class="footnotes">
-<hr />
-<ol start="10">
-<li id="fn10"><p>Enclosing with <code>$$</code> instead of <code>\[</code> also has the same effect, so you may see it too. But this is now discouraged due to its inflexibility.<a href="nonwysiwyg.html#fnref10" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="simulation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="linearalgebra.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="dataviz.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="simulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -646,7 +637,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/15_non-wysiwyg.Rmd",
+"link": "https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/13_data_wrangling_cleaning.Rmd",
 "text": "Edit"
 },
 "history": {
