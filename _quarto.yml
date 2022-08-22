@@ -1,0 +1,90 @@
+project:
+  type: book
+
+book:
+  title: "UCSD PoliSci Math Camp"
+  repo-url: https://github.com/UCSDPoliMathCamp/MathCamp/
+  repo-actions: [edit, source]
+  favicon: favicon.ico
+  comments:
+    hypothesis:
+      theme: clean
+  downloads: [pdf]
+  sidebar:
+    style: "docked"
+    collapse-level: 2
+    border: true
+    search: true
+  chapters:
+    - index.Rmd
+    - 00_warmup.Rmd
+    - 01_prerequisites.Rmd
+    - part: "I Introduction to R"
+      chapters:
+      - 11_orientation.Rmd
+      - 12_functions_obj_loops.Rmd
+      - 12_visualization.Rmd
+      - 14_simulation.Rmd
+      - 15_non-wysiwyg.Rmd
+    - part: "II Linear Algebra"
+      chapters:
+      - 21_linear-algebra.Rmd
+      - 22_matrices.Rmd
+    - part: "III Calculus"
+      chapters:
+      - 31_limits.Rmd
+      - 32_derivatives.Rmd
+      - 33_optimization.Rmd
+      - 34_intergrals.Rmd
+    - part: "IV Probability"
+      chapters:
+      - 41_probability.Rmd
+      - 42_distribution.Rmd
+      - 43_statistics.Rmd
+    - 51_solutions-warmup.Rmd
+
+format:
+  html:
+    theme:
+      light: [cosmo, custom.scss]
+    css: style.css
+    fontsize: "15px"
+    linestretch: 1.6
+    mainfont: "Roboto"
+    monofont: "JetBrains Mono"
+    smooth-scroll: true
+    toc-depth: 4
+    code-link: true
+    code-overflow: wrap
+    code-tools:
+      toggle: true
+      code-fold: false
+    highlight-style: printing
+    code-block-bg: true
+    html-math-method: katex
+  # see https://pandoc.org/MANUAL.html for all options
+  pdf:
+    documentclass: book
+    lof: true
+    lot: true
+    toc: true
+    # classoption: [onecolumn]
+    geometry:
+      - top=30mm
+      - left=20mm
+      - heightrounded
+    hyperrefoptions:
+      - linktoc=all
+    colorlinks: true
+    linkcolor: "blue"
+    biblio-style: apalike
+    keep-tex: true
+
+latex-auto-install: true
+
+knitr:
+  opts_chunk:
+    cache: true
+    cache.lazy: false
+    R.options:
+      knitr.graphics.auto_pdf: true

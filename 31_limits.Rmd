@@ -1,4 +1,3 @@
-# (PART) Calculus {-}
 
 # Limits {#limits-precalc}
 
@@ -243,12 +242,12 @@ fx1 <- ggplot(range1, aes(x = x)) +
   labs(x = expression(x), y = expression(f(x)), title = expression(f(x)==sqrt(x))) +
   expand_limits(y = max(range1$x))
 
-fx2 <- 
-  ggplot(range2, aes(x = x)) +
+fx2 <- ggplot(range2, aes(x = x)) +
   stat_function(fun = function(x) ifelse(x == 0, NA, 1/x), size = 0.5) +
   labs(x = expression(x), y = expression(f(x)), title = expression(f(x)==frac(1,x)))
 
-fx1 + fx2 + plot_layout(nrow = 1)
+p = fx1 + fx2 + plot_layout(nrow = 1)
+p
 ```
 
 

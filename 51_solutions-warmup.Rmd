@@ -1,7 +1,5 @@
-# (PART) Solutions {-}
 
-# Solutions to Warmup Questions {-}
-
+# Warmup Questions Solutions {-}
 
 
 ## Linear Algebra {-}

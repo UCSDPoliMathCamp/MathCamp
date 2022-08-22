@@ -1,7 +1,0 @@
-book_filename: "MathCamp"
-repo: https://github.com/UCSDPoliMathCamp/MathCamp/
-output_dir: _book
-delete_merged_file: true
-language:
-  ui:
-    chapter_name: "Chapter "

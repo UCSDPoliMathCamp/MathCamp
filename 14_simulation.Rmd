@@ -1,5 +1,6 @@
-# Simulation^[Module originally written by Connor Jerzak and Shiro Kuriwaki] {#simulation}
+# Simulation {#simulation}
 
+Module originally written by Connor Jerzak and Shiro Kuriwaki
 
 ```{r, include=FALSE}
 library(dplyr)

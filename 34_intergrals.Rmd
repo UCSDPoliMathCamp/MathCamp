@@ -1,5 +1,12 @@
 # Integral Calculus {#integrals}
 
+```{r, include = FALSE}
+library(ggplot2)
+library(tibble)
+library(patchwork)
+library(tidyverse)
+```
+
 
 ## The Indefinite Integral
 
@@ -61,7 +68,6 @@ Some of these functions are plotted in the bottom panel of Figure \@ref(fig:inte
 ```{r, integralc, fig.cap="The Many Indefinite Integrals of a Function", echo = FALSE}
 range1 <- tibble(x = c(-4, 4))
 
-
 fx <- ggplot(range1, aes(x = x)) +
   stat_function(fun = function(x) x^2 - 4, size = 0.5) +
   labs(y = expression(f(x)))
@@ -72,7 +78,8 @@ Fx <- ggplot(range1, aes(x = x)) +
   stat_function(fun = function(x) (x^3)/3 - 4*x - 1, size = 0.5, linetype = "dotdash") +
   labs(y = expression(integral(f(x)*dx)))
 
-fx + Fx + plot_layout(ncol = 1)
+p = fx + Fx + plot_layout(ncol = 1)
+p
 ```
 
 	

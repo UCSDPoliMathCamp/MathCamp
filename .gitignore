@@ -3,7 +3,7 @@ _book/
 _bookdown_files/*
 libs/
 **/*.bib
-**/*.html 
+**/*.html
 # ignore all html files except:
 .travis.yml DESCRIPTION Dockerfile _build.sh _deploy.sh now.json .gitignore
 */mathjax_header.html
@@ -12,3 +12,8 @@ libs/
 .Rhistory
 .RData
 .Ruserdata
+
+/.quarto/
+*_files/*
+*_cache/*
+.DS_Store

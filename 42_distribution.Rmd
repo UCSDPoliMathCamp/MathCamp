@@ -1,6 +1,8 @@
 # Summarizing Distributions {#distribution}
 
-
+```{r, include = FALSE}
+library(tidyverse)
+```
 
 
 ## Expectation 

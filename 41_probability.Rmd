@@ -1,4 +1,3 @@
-# (PART) Probability {-}
 
 # Probability Theory {#probability-theory}
 

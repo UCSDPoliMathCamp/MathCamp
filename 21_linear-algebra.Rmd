@@ -1,4 +1,3 @@
-# (PART) Linear Algebra {-}
 
 # Linear Algebra {#linearalgebra}
 
