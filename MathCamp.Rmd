@@ -85,9 +85,26 @@ Placeholder
 ### Using Facets to Graph Comparisons
 ## Choropleth Maps
 
-
-
 <!--chapter:end:12_visualization.Rmd-->
+
+
+# Data Wrangling and Cleaning {#datawrangling}
+
+Placeholder
+
+## Clean Data
+## Cleaning Data Using dplyr
+### The Pipe Operator
+## Working with Columns
+### Select
+### Mutate
+## Working with Rows
+### Filter
+### Aggregation
+## Merging Data
+## Reshaping Data
+
+<!--chapter:end:13_data_wrangling_cleaning.Rmd-->
 
 # Objects, Functions, Loops {#robjloops}
 
