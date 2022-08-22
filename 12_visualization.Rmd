@@ -23,11 +23,12 @@ county_elections <- na.omit(county_elections)
 
 The first graph we will make is a histogram. Histograms are the most common type of graph for continuous variables and make it easy to see the spread and central tendency of the data. Let's plot the distribution of county median household income using the variable `median_hh_inc` in `county_elections`.
 
-```{r, warning=FALSE}
+```{r, warning=FALSE, message=FALSE}
 ggplot(county_elections) +
   aes(x = median_hh_inc) +
   geom_histogram()
 ```
+
 Each graph you create using ggplot will contain the following three elements
 
   1. **Data**. You need to tell ggplot which data set the variables that you want to graph come from. This section is `ggplot(county_elections)` in the code above.
@@ -45,6 +46,7 @@ ggplot(county_elections) +
                  color = "white",
                  fill = "steelblue")
 ```
+
 Wow look at that! Now let's fix the ugly default names on the x and y axes, and add an informative title for our graph. We add custom labels to a ggplot graph by adding another `+` followed by a `labs()` section.
 
 ```{r, warning=FALSE}
