@@ -1,0 +1,172 @@
+
+# Data Wrangling and Cleaning {#datawrangling}
+
+## Clean Data
+
+The raw data used in much of political science research rarely comes to us in a format that is immediately accessible for analysis. Instead, we frequently need to write an R script to "clean" the data first. Only after cleaning the data will it be usable for visualization or statistical modeling. This process (also known as "data wrangling") can be extremely arduous and time-consuming---depending on how messy the raw data is in the first place. According to the common aphorism, the time you spend writing R code to clean your data sets will far exceed the time you spend subsequently running any sort of statistical analysis on the cleaned data.
+
+Although data cleaning has a reputation as a dull, menial task (compared to the "fun" of statistical modeling), try to avoid treating the process like it is merely a roadblock---something to be overcome before you can begin the *real* analysis. In fact, each decision you make when wrangling your raw data into its final state [is a crucial part of the final research product](https://counting.substack.com/p/data-cleaning-is-analysis-not-grunt#:~:text=The%20act%20of%20cleaning%20data%20is%20the%20act%20of%20preferentially,the%20act%20of%20data%20analysis.). Whether or not to drop certain observations, or using different levels of data aggregation are some examples of choices which can have massive downstream effects. You should be thoughtful and transparent about your decision-making process the whole time you spend cleaning data.
+
+## Cleaning Data Using dplyr
+
+As in the other sections of this book, we will be using the Tidyverse approach to data cleaning here. The Tidyverse package for data cleaning is [dplyr](https://dplyr.tidyverse.org/) and it contains most of the functions we will be using in this chapter.
+
+Rather than downloading a .csv file and using the `read_csv()` function to load in our data for this chapter, we will be using a package which contains multiple data sets. The data come from the [United Nations General Assembly](https://github.com/dgrtwo/unvotes). First install the unvotes package by running the following command in your Console.
+
+```{r, eval=FALSE}
+install.packages("unvotes")
+```
+
+Then run
+
+```{r, message=FALSE}
+library(unvotes)
+library(tidyverse)
+```
+
+When you use the `library()` function, many packages automatically load small data sets that immediately become available for use. However, accessing these data can be a bit confusing because they do not automatically show up as objects in your Environment tab. Let's add the unvotes data sets to our Environment with the following chunk of code:
+
+```{r}
+un_votes <- un_votes
+un_roll_calls <- un_roll_calls
+un_roll_call_issues <- un_roll_call_issues
+```
+
+-   `un_votes`, country-vote level data. Each row is a country's vote on a particular UN Assembly resolution.
+-   `un_roll_calls`, resolution level data. Contains information about each resolution.
+-   `un_roll_call_issues`, resolution level data. Contains the issue-area for each resolution.
+
+### The Pipe Operator
+
+Before we get started using dplyr we need to first introduce the "pipe" operator `|>`. Pipes are an extremely convenient tool for linking sequences of functions together. They work by passing the object on the left hand side of the pipe into the function following the pipe. [Here is an example](https://twitter.com/andrewheiss/status/1359583543509348356).
+
+```{r, eval=FALSE}
+# The pipe way
+me |> 
+  wake_up(time = "8:00") |> 
+  get_out_of_bed(side = "correct") |> 
+  get_dressed(pants = TRUE, shirt = TRUE) |> 
+  leave_house(car = FALSE, bike = TRUE)
+
+# The non-pipe way
+leave_house(get_dressed(get_out_of_bed(wake_up(me, time = "8:00"), side = "correct"), pants = TRUE, shirt = TRUE), car = FALSE, bike = TRUE)
+```
+
+Both code chunks above will end up doing the same thing. But the pipe method is much easier to write, and much easier for others to read and understand. 
+
+Before R version 4.1, the pipe operator was only available in the [magrittr](https://magrittr.tidyverse.org/) package (which remains part of the Tidyverse). The magrittr pipe is written `%>%` and many R users continue to use this over the native R `|>`. There are a few very minor differences between the two pipes, which you should feel free to ignore. We use the native R `|>` pipe in this book because it is generally a good idea, all else equal, to reduce your dependency on outside packages when writing code. 
+
+## Working with Columns
+
+Each column in a data set typically represents a single variable, or attribute, relating to the observation in a particular row. In this section we will look at some of dplyr's functions for working with columns.
+
+### Select
+
+The `select()` function is primarily used to remove unwanted columns from the data. Here is an example.
+
+```{r}
+un_roll_calls |> 
+  select(rcid, date) |> # Keeping only two variables
+  head() # Print out first 6 rows
+```
+
+The `head()` function prints out the first few rows of a data set, and can be helpful to check if your cleaning function worked in the way you expected.
+
+Note that the code chunk above did not alter the data set object `un_roll_calls`. If we wanted to take this smaller data set and use it for something else, we will need to use the assignment operator `<-` to save our work.
+
+```{r}
+# This creates a new object called "small_un_roll_calls"
+# containly only rcid and date columns
+small_un_roll_calls <- un_roll_calls |> 
+  select(rcid, date)
+```
+
+The `select()` function can be very versatile. Rather than typing every column name we want to keep, it is often faster to specify the columns we want to drop.
+
+```{r}
+un_roll_calls |> 
+  select(-session) |> # Keep everything except session column
+  head()
+```
+
+There are many other convenient ways to selection columns (e.g. by common names, by type of data, or by position in the data set). For a full list of ways to use `select()` see [this link](https://dplyr.tidyverse.org/reference/select.html). Here is one example of selecting every column which is a "character" type.
+
+```{r}
+un_roll_calls |> 
+  select(where(is.character)) |> 
+  head()
+```
+
+Lastly, we can use `select()` to rename columns in our data. The chunk of code below selects the "unres" and date columns, and renames "unres" to "un_resolution" at the same time.
+
+```{r}
+un_roll_calls |> 
+  select(un_resolution = unres, date) |> 
+  head()
+```
+
+If you only want to rename columns---without specifying which to select---dplyr has a function `rename()` for this purpose. The syntax is similar to the code chunk above `new_variable_name = original_variable_name`. This code will keep all columns and change the names of the specified variables.
+
+```{r}
+un_roll_calls |> 
+  rename(un_resolution = unres,
+         amendment = amend,
+         paragraph = para) |> 
+  head()
+```
+
+### Mutate
+
+The `select()` and `rename()` functions are great for tidying up your data sets, but they do not change the underlying variables. To change existing variables or to create new ones we use `mutate()`.
+
+Let's say we discovered that all the roll call IDs in the column "rcid" were supposed to be in multiples of 10. The code chunk below creates a new variable called "rcid_10" which is simply the value of the original "rcid" variable multiplied by 10.
+
+```{r}
+un_votes |> 
+  mutate(rcid_10 = rcid * 10) |> 
+  head()
+```
+
+If you didn't want to create a brand new variable, and instead wanted to overwrite the original variable, you just need to put the original variable to the left of the `=` in `mutate()`.
+
+```{r}
+un_votes |> 
+  mutate(rcid = rcid * 10) |> 
+  head()
+```
+
+We commonly need to create a new variable whose values depend on the values of one of the original variables. The function `case_when()` helps us do this inside `mutate()`.
+
+```{r}
+un_votes |> 
+  mutate(vote_dummy = case_when(vote == "yes" ~ 1,
+                                vote == "no" ~ 0)) |> 
+  head()
+```
+
+As you can see, the code chunk above creates a new variable called "vote_dummy" which takes the value `1` if "vote" equals `"yes"` and takes the values `0` if "vote" equals `"no"`. Like other programming languages, R uses the `==` logical operator to check whether a value *equals*, or is equivalent, to some other value. This is different from the single `=` which is used to create entire new variables inside `mutate()`. 
+
+Here is one more example using `case_when()`.
+
+```{r}
+un_votes |> 
+  mutate(rcid_era = case_when(rcid < 2000 ~ "old",
+                              rcid >= 2000 & rcid < 6000 ~ "middle",
+                              rcid >= 6000 ~ "recent")) |> 
+  head()
+```
+
+The new variable "rcid_era" takes three values, `"old"`, `"middle"`, and `"recent"` based on what range the "rcid" variable falls under.
+
+## Working with Rows
+
+### Filter
+
+### Aggregation
+
+## Merging Data
+
+## Reshaping Data
+
+
+

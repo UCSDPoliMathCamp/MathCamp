@@ -14,7 +14,7 @@ Imports:
     devtools,
     tidyverse,
     here,
-    urbnmapr,
+    unvotes,
     jsonlite,
     rmarkdown, 
     downlit, 
