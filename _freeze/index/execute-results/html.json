@@ -1,0 +1,14 @@
+{
+  "hash": "fc428a6ae8a3793b29e4a56e466907a4",
+  "result": {
+    "markdown": "## About this Booklet {-}\n\nThis booklet is adapted from the [Harvard Gov Prefresher booklet](https://iqss.github.io/prefresher/), maintained by [Shiro Kuriwaki](https://www.shirokuriwaki.com). \nIt will serve as as the text for the UCSD Math Camp, taught by Bertrand Wilden and Keng-Chi Chang, and we have reordered and adapted it to fit the structure of our course.\nFor information about the role of this math camp as an introduction to graduate school, you may be interested in [\"The Math Prefresher and The Collective Future of Political Science Graduate Training\"](https://gking.harvard.edu/prefresher), in PS: Political Science & Politics, by Gary King, Shiro Kuriwaki, and Yon Soo Park.\n\n### Authors and Contributors {-}\n\nFor information about the authors of the Harvard Gov Prefresher booklet, see [here](https://iqss.github.io/prefresher/index.html#authors-and-contributors).  \nWe have also updated it to include some material from previous instructors of the class at UCSD, including Rachel Schoner (2021), Luke Sanford (2019-2020), Kathryn Baragwanath (2019-2020), Brandon Merrell (2018), Inbok Rhee (2018).\n\n### Contributing {-}\n\nWe transitioned the booklet into a bookdown [github repository](https://github.com/UCSDPoliMathCamp/MathCamp) in 2021. \nAs we update this version, we appreciate any bug reports or fixes appreciated. \n\nAll changes should be made in the `.Rmd` files in the project root. \nTo contribute a change, please make a pull request and set the repository maintainer as the reviewer.\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

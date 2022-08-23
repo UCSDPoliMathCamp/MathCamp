@@ -3,7 +3,6 @@ Type: Book
 Title: Does not matter.
 Version: 0.0.1
 Imports: 
-    bookdown,
     forcats,
     scales,
     haven,
@@ -14,4 +13,5 @@ Imports:
     patchwork,
     devtools,
     tidyverse,
-    here
+    here,
+    urbnmapr
