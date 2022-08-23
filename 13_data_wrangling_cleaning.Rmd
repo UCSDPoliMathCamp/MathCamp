@@ -21,10 +21,7 @@ Then run
 
 ```{r, message=FALSE}
 library(unvotes)
-<<<<<<< HEAD
-=======
 library(tidyverse)
->>>>>>> b0dd4868983e079dbeca49787a0708b6abb2b7f1
 ```
 
 When you use the `library()` function, many packages automatically load small data sets that immediately become available for use. However, accessing these data can be a bit confusing because they do not automatically show up as objects in your Environment tab. Let's add the unvotes data sets to our Environment with the following chunk of code:
@@ -79,11 +76,7 @@ Note that the code chunk above did not alter the data set object `un_roll_calls`
 
 ```{r}
 # This creates a new object called "small_un_roll_calls"
-<<<<<<< HEAD
 # containing only rcid and date columns
-=======
-# containly only rcid and date columns
->>>>>>> b0dd4868983e079dbeca49787a0708b6abb2b7f1
 small_un_roll_calls <- un_roll_calls |> 
   select(rcid, date)
 ```
@@ -163,7 +156,7 @@ un_votes |>
   head()
 ```
 
-<<<<<<< HEAD
+
 The new variable "rcid_era" takes three values, `"old"`, `"middle"`, and `"recent"` based on what range the "rcid" variable falls within.
 
 To recap, the most commonly used functions for cleaning columns/variables in your data are:
@@ -171,15 +164,13 @@ To recap, the most commonly used functions for cleaning columns/variables in you
   -   `select()` removes and/or renames columns.
   -   `rename()` renames existing columns without removing any.
   -   `mutate()` changes the values of existing columns and creates new columns.
-=======
+  
 The new variable "rcid_era" takes three values, `"old"`, `"middle"`, and `"recent"` based on what range the "rcid" variable falls under.
->>>>>>> b0dd4868983e079dbeca49787a0708b6abb2b7f1
 
 ## Working with Rows
 
 ### Filter
 
-<<<<<<< HEAD
 Dplyr's primary function for removing rows is `filter()`. Like we saw when using `case_when()` inside `mutate()`, using `filter()` requires some practice with logical operators. The function `filter()` works by specifying some variable and only keeping rows in the data for which the logical operation evaluates to `TRUE`. Here is an example.
 
 ```{r}
@@ -312,11 +303,4 @@ long_un_votes <- wide_un_votes |>
 
 long_un_votes
 ```
-=======
-### Aggregation
-
-## Merging Data
-
-## Reshaping Data
-
 
