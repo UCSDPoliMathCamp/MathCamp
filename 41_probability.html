@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.0.38">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>UCSD Political Science Math Camp - 12&nbsp; Probability Theory</title>
+<title>UCSD Political Science Math Camp - 13&nbsp; Probability Theory</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -80,7 +77,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -99,8 +95,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -118,17 +113,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
-<style>html{ scroll-behavior: smooth; }</style>
+}</script><style>html{ scroll-behavior: smooth; }</style>
 <script type="application/json" class="js-hypothesis-config">
 {
   "theme": "clean"
 }
-</script>
-<script async="" src="https://hypothes.is/embed.js"></script>
-
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
+</script><script async="" src="https://hypothes.is/embed.js"></script><script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
  for (var i = 0; i < mathElements.length; i++) {
@@ -141,30 +131,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     fleqn: false
    });
 }}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
-
+  </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Probability Theory</span></h1>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Probability Theory</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">UCSD Political Science Math Camp</a> 
         <div class="sidebar-tools-main">
@@ -180,7 +161,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">About this Booklet</a>
   </div>
@@ -202,8 +183,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11_orientation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Orientation and Reading in Data</span></a>
   </div>
@@ -220,16 +201,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14_simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Simulation</span></a>
+  <a href="./13_data_wrangling_cleaning.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Wrangling and Cleaning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15_non-wysiwyg.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LaTeX and Markdown</span></a>
+  <a href="./14_simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simulation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_non-wysiwyg.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">LaTeX and Markdown</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">II Linear Algebra</a>
@@ -237,19 +223,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21_linear-algebra.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Algebra</span></a>
+  <a href="./21_linear-algebra.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear Algebra</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22_matrices.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Manipulating Vectors and Matrices</span></a>
+  <a href="./22_matrices.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Manipulating Vectors and Matrices</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">III Calculus</a>
@@ -257,29 +243,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./31_limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Limits</span></a>
+  <a href="./31_limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Limits</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./32_derivatives.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Differential Calculus</span></a>
+  <a href="./32_derivatives.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Differential Calculus</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./33_optimization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Optimization</span></a>
+  <a href="./33_optimization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Optimization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./34_intergrals.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Integral Calculus</span></a>
+  <a href="./34_intergrals.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Integral Calculus</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">IV Probability</a>
@@ -287,64 +273,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./41_probability.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Probability Theory</span></a>
+  <a href="./41_probability.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Probability Theory</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./42_distribution.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Summarizing Distributions</span></a>
+  <a href="./42_distribution.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Summarizing Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./43_statistics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Learning from Data</span></a>
+  <a href="./43_statistics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Learning from Data</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./51_solutions-warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions Solutions</a>
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">On this page</h2>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#counting-rules" id="toc-counting-rules" class="nav-link active" data-scroll-target="#counting-rules"> <span class="header-section-number">12.1</span> Counting Rules</a></li>
-  <li><a href="#setoper" id="toc-setoper" class="nav-link" data-scroll-target="#setoper"> <span class="header-section-number">12.2</span> Sets</a></li>
-  <li><a href="#probdef" id="toc-probdef" class="nav-link" data-scroll-target="#probdef"> <span class="header-section-number">12.3</span> Probability</a>
+<li><a href="#counting-rules" id="toc-counting-rules" class="nav-link active" data-scroll-target="#counting-rules"> <span class="header-section-number">13.1</span> Counting Rules</a></li>
+  <li><a href="#setoper" id="toc-setoper" class="nav-link" data-scroll-target="#setoper"> <span class="header-section-number">13.2</span> Sets</a></li>
+  <li>
+<a href="#probdef" id="toc-probdef" class="nav-link" data-scroll-target="#probdef"> <span class="header-section-number">13.3</span> Probability</a>
   <ul class="collapse">
-  <li><a href="#probability-definitions-formal-and-informal" id="toc-probability-definitions-formal-and-informal" class="nav-link" data-scroll-target="#probability-definitions-formal-and-informal">Probability Definitions: Formal and Informal</a></li>
+<li><a href="#probability-definitions-formal-and-informal" id="toc-probability-definitions-formal-and-informal" class="nav-link" data-scroll-target="#probability-definitions-formal-and-informal">Probability Definitions: Formal and Informal</a></li>
   <li><a href="#probability-operations" id="toc-probability-operations" class="nav-link" data-scroll-target="#probability-operations">Probability Operations</a></li>
-  </ul></li>
-  <li><a href="#conditional-probability" id="toc-conditional-probability" class="nav-link" data-scroll-target="#conditional-probability"> <span class="header-section-number">12.4</span> Conditional Probability</a></li>
-  <li><a href="#bayes-rule" id="toc-bayes-rule" class="nav-link" data-scroll-target="#bayes-rule"> <span class="header-section-number">12.5</span> Bayes Rule</a></li>
-  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence"> <span class="header-section-number">12.6</span> Independence</a></li>
-  <li><a href="#random-variables" id="toc-random-variables" class="nav-link" data-scroll-target="#random-variables"> <span class="header-section-number">12.7</span> Random Variables</a></li>
-  <li><a href="#distributions" id="toc-distributions" class="nav-link" data-scroll-target="#distributions"> <span class="header-section-number">12.8</span> Distributions</a>
-  <ul class="collapse">
-  <li><a href="#discrete-random-variables" id="toc-discrete-random-variables" class="nav-link" data-scroll-target="#discrete-random-variables">Discrete Random Variables</a></li>
-  <li><a href="#continuous-random-variables" id="toc-continuous-random-variables" class="nav-link" data-scroll-target="#continuous-random-variables">Continuous Random Variables</a></li>
-  </ul></li>
-  <li><a href="#answers-to-examples-and-exercises" id="toc-answers-to-examples-and-exercises" class="nav-link" data-scroll-target="#answers-to-examples-and-exercises">Answers to Examples and Exercises</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/41_probability.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/blob/main/41_probability.Rmd" class="toc-action">View source</a></p></div></div></nav>
+</li>
+  <li><a href="#conditional-probability" id="toc-conditional-probability" class="nav-link" data-scroll-target="#conditional-probability"> <span class="header-section-number">13.4</span> Conditional Probability</a></li>
+  <li><a href="#bayes-rule" id="toc-bayes-rule" class="nav-link" data-scroll-target="#bayes-rule"> <span class="header-section-number">13.5</span> Bayes Rule</a></li>
+  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence"> <span class="header-section-number">13.6</span> Independence</a></li>
+  <li><a href="#random-variables" id="toc-random-variables" class="nav-link" data-scroll-target="#random-variables"> <span class="header-section-number">13.7</span> Random Variables</a></li>
+  <li>
+<a href="#distributions" id="toc-distributions" class="nav-link" data-scroll-target="#distributions"> <span class="header-section-number">13.8</span> Distributions</a>
+  <ul class="collapse">
+<li><a href="#discrete-random-variables" id="toc-discrete-random-variables" class="nav-link" data-scroll-target="#discrete-random-variables">Discrete Random Variables</a></li>
+  <li><a href="#continuous-random-variables" id="toc-continuous-random-variables" class="nav-link" data-scroll-target="#continuous-random-variables">Continuous Random Variables</a></li>
+  </ul>
+</li>
+  <li><a href="#answers-to-examples-and-exercises" id="toc-answers-to-examples-and-exercises" class="nav-link" data-scroll-target="#answers-to-examples-and-exercises">Answers to Examples and Exercises</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/41_probability.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/blob/main/41_probability.Rmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="probability-theory" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Probability Theory</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="probability-theory" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Probability Theory</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -356,15 +339,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header>
-
-<p>Probability and Inferences are mirror images of each other, and both are integral to social science. Probability quantifies uncertainty, which is important because many things in the social world are at first uncertain. Inference is then the study of how to learn about facts you don’t observe from facts you do observe.</p>
-<section id="counting-rules" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="counting-rules"><span class="header-section-number">12.1</span> Counting Rules</h2>
+</header><p>Probability and Inferences are mirror images of each other, and both are integral to social science. Probability quantifies uncertainty, which is important because many things in the social world are at first uncertain. Inference is then the study of how to learn about facts you don’t observe from facts you do observe.</p>
+<section id="counting-rules" class="level2" data-number="13.1"><h2 data-number="13.1" class="anchored" data-anchor-id="counting-rules">
+<span class="header-section-number">13.1</span> Counting Rules</h2>
 <p>Probability in high school is usually really about combinatorics: the probability of event <em>A</em> is the number of ways in which <em>A</em> can occur divided by the number of all other possibilities. This is a very simplified version of probability, which we can call the “counting definition of probability”, essentially because each possible event to count is often equally likely and discrete. But it is still good to review the underlying rules here.</p>
 <p><strong>Fundamental Theorem of Counting</strong>: If an object has <span class="math inline">j</span> different characteristics that are independent of each other, and each characteristic <span class="math inline">i</span> has <span class="math inline">n_i</span> ways of being expressed, then there are <span class="math inline">\prod_{i = 1}^j n_i</span> possible unique objects.</p>
 <div id="exm-countingrules" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.1 </strong></span>Suppose we are given a stack of cards. Cards can be either red or black and can take on any of 13 values. There is only one of each color-number combination. In this case,</p>
+<p><span class="theorem-title"><strong>Example 13.1 </strong></span>Suppose we are given a stack of cards. Cards can be either red or black and can take on any of 13 values. There is only one of each color-number combination. In this case,</p>
 <ol type="1">
 <li><p><span class="math inline">j =</span></p></li>
 <li><p><span class="math inline">n_{\text{color}} =</span></p></li>
@@ -383,7 +364,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>Expression <span class="math inline">\binom{n}{k}</span> is read as “n choose k” and denotes <span class="math inline">\frac{n!}{(n-k)!k!}</span>. Also, note that <span class="math inline">0! = 1</span>.</p>
 <div id="exm-counting" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.2 (Counting) </strong></span>There are five balls numbered from 1 through 5 in a jar. Three balls are chosen. How many possible choices are there?</p>
+<p><span class="theorem-title"><strong>Example 13.2 (Counting) </strong></span>There are five balls numbered from 1 through 5 in a jar. Three balls are chosen. How many possible choices are there?</p>
 <ol type="1">
 <li><p>Ordered, with replacement <span class="math inline">=</span></p></li>
 <li><p>Ordered, without replacement <span class="math inline">=</span></p></li>
@@ -391,12 +372,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 </div>
 <div id="exr-counting1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 12.1 (Counting) </strong></span></p>
+<p><span class="theorem-title"><strong>Exercise 13.1 (Counting) </strong></span></p>
 <p>Four cards are selected from a deck of 52 cards. Once a card has been drawn, it is not reshuffled back into the deck. Moreover, we care only about the complete hand that we get (i.e.&nbsp;we care about the set of selected cards, not the sequence in which it was drawn). How many possible outcomes are there?</p>
 </div>
-</section>
-<section id="setoper" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="setoper"><span class="header-section-number">12.2</span> Sets</h2>
+</section><section id="setoper" class="level2" data-number="13.2"><h2 data-number="13.2" class="anchored" data-anchor-id="setoper">
+<span class="header-section-number">13.2</span> Sets</h2>
 <p>Probability is about quantifying the uncertainty of events. <em>Sets</em> (set theory) are the mathematical way we choose to formalize those events. Events are not inherently numerical: the onset of war or the stock market crashing is not inherently a number. Sets can define such events, and we wrap math around so that we have a transparent language to communicate about those events. <em>Measure theory</em> might sound mysterious or hard, but it is also just a mathematical way to quantify things like length, volume, and mass. Probability can be thought of as a particular application of measure theory where we want to quantify the measure of a set.</p>
 <p><strong>Set</strong> : A set is any well defined collection of elements. If <span class="math inline">x</span> is an element of <span class="math inline">S</span>, <span class="math inline">x \in S</span>.</p>
 <p><strong>Sample Space (S)</strong>: A set or collection of all possible outcomes from some process. Outcomes in the set can be discrete elements (countable) or points along a continuous interval (uncountable).</p>
@@ -409,20 +389,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Empty Set</strong>: a set with no elements. <span class="math inline">S = \{\}</span>. It is denoted by the symbol <span class="math inline">\emptyset</span>.</p>
 <p>Set operations:</p>
 <ol type="1">
-<li><strong>Union</strong>: The union of two sets <span class="math inline">A</span> and <span class="math inline">B</span>, <span class="math inline">A \cup B</span>, is the set containing all of the elements in <span class="math inline">A</span> or <span class="math inline">B</span>. <span class="math display">A_1 \cup A_2  \cup \cdots \cup A_n = \bigcup_{i=1}^n A_i</span></li>
-<li><strong>Intersection</strong>: The intersection of sets <span class="math inline">A</span> and <span class="math inline">B</span>, <span class="math inline">A \cap B</span>, is the set containing all of the elements in both <span class="math inline">A</span> and <span class="math inline">B</span>. <span class="math display">A_1 \cap A_2  \cap \cdots \cap A_n = \bigcap_{i=1}^n A_i</span></li>
-<li><strong>Complement</strong>: If set <span class="math inline">A</span> is a subset of <span class="math inline">S</span>, then the complement of <span class="math inline">A</span>, denoted <span class="math inline">A^C</span>, is the set containing all of the elements in <span class="math inline">S</span> that are not in <span class="math inline">A</span>.</li>
+<li>
+<strong>Union</strong>: The union of two sets <span class="math inline">A</span> and <span class="math inline">B</span>, <span class="math inline">A \cup B</span>, is the set containing all of the elements in <span class="math inline">A</span> or <span class="math inline">B</span>. <span class="math display">A_1 \cup A_2  \cup \cdots \cup A_n = \bigcup_{i=1}^n A_i</span>
+</li>
+<li>
+<strong>Intersection</strong>: The intersection of sets <span class="math inline">A</span> and <span class="math inline">B</span>, <span class="math inline">A \cap B</span>, is the set containing all of the elements in both <span class="math inline">A</span> and <span class="math inline">B</span>. <span class="math display">A_1 \cap A_2  \cap \cdots \cap A_n = \bigcap_{i=1}^n A_i</span>
+</li>
+<li>
+<strong>Complement</strong>: If set <span class="math inline">A</span> is a subset of <span class="math inline">S</span>, then the complement of <span class="math inline">A</span>, denoted <span class="math inline">A^C</span>, is the set containing all of the elements in <span class="math inline">S</span> that are not in <span class="math inline">A</span>.</li>
 </ol>
 <p>Properties of set operations:</p>
 <ul>
-<li><strong>Commutative</strong>: <span class="math inline">A \cup B = B \cup A</span>; <span class="math inline">A \cap B = B \cap A</span></li>
-<li><strong>Associative</strong>: <span class="math inline">A \cup (B \cup C) = (A \cup B) \cup C</span>; <span class="math inline">A \cap (B \cap C) = (A \cap B) \cap C</span></li>
-<li><strong>Distributive</strong>: <span class="math inline">A \cap (B \cup C) = (A \cap B) \cup (A \cap C)</span>; <span class="math inline">A \cup (B \cap C) = (A \cup B) \cap (A \cup C)</span></li>
-<li><strong>de Morgan’s laws</strong>: <span class="math inline">(A \cup B)^C = A^C \cap B^C</span>; <span class="math inline">(A \cap B)^C = A^C \cup B^C</span></li>
-<li><strong>Disjointness</strong>: Sets are disjoint when they do not intersect, such that <span class="math inline">A \cap B = \emptyset</span>. A collection of sets is pairwise disjoint (<strong>mutually exclusive</strong>) if, for all <span class="math inline">i \neq j</span>, <span class="math inline">A_i \cap A_j = \emptyset</span>. A collection of sets form a partition of set <span class="math inline">S</span> if they are pairwise disjoint and they cover set <span class="math inline">S</span>, such that <span class="math inline">\bigcup_{i = 1}^k A_i = S</span>.</li>
+<li>
+<strong>Commutative</strong>: <span class="math inline">A \cup B = B \cup A</span>; <span class="math inline">A \cap B = B \cap A</span>
+</li>
+<li>
+<strong>Associative</strong>: <span class="math inline">A \cup (B \cup C) = (A \cup B) \cup C</span>; <span class="math inline">A \cap (B \cap C) = (A \cap B) \cap C</span>
+</li>
+<li>
+<strong>Distributive</strong>: <span class="math inline">A \cap (B \cup C) = (A \cap B) \cup (A \cap C)</span>; <span class="math inline">A \cup (B \cap C) = (A \cup B) \cap (A \cup C)</span>
+</li>
+<li>
+<strong>de Morgan’s laws</strong>: <span class="math inline">(A \cup B)^C = A^C \cap B^C</span>; <span class="math inline">(A \cap B)^C = A^C \cup B^C</span>
+</li>
+<li>
+<strong>Disjointness</strong>: Sets are disjoint when they do not intersect, such that <span class="math inline">A \cap B = \emptyset</span>. A collection of sets is pairwise disjoint (<strong>mutually exclusive</strong>) if, for all <span class="math inline">i \neq j</span>, <span class="math inline">A_i \cap A_j = \emptyset</span>. A collection of sets form a partition of set <span class="math inline">S</span> if they are pairwise disjoint and they cover set <span class="math inline">S</span>, such that <span class="math inline">\bigcup_{i = 1}^k A_i = S</span>.</li>
 </ul>
 <div id="exm-sets" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.3 (Sets) </strong></span>Let set <span class="math inline">A</span> be {1, 2, 3, 4}, <span class="math inline">B</span> be {3, 4, 5, 6}, and <span class="math inline">C</span> be {5, 6, 7, 8}. Sets <span class="math inline">A</span>, <span class="math inline">B</span>, and <span class="math inline">C</span> are all subsets of the sample space <span class="math inline">S</span> which is {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}</p>
+<p><span class="theorem-title"><strong>Example 13.3 (Sets) </strong></span>Let set <span class="math inline">A</span> be {1, 2, 3, 4}, <span class="math inline">B</span> be {3, 4, 5, 6}, and <span class="math inline">C</span> be {5, 6, 7, 8}. Sets <span class="math inline">A</span>, <span class="math inline">B</span>, and <span class="math inline">C</span> are all subsets of the sample space <span class="math inline">S</span> which is {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}</p>
 <p>Write out the following sets:</p>
 <ol type="1">
 <li><span class="math inline">A \cup B</span></li>
@@ -432,7 +426,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 </div>
 <div id="exr-sets1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 12.2 </strong></span>Suppose you had a pair of four-sided dice. You sum the results from a single toss.</p>
+<p><span class="theorem-title"><strong>Exercise 13.2 </strong></span>Suppose you had a pair of four-sided dice. You sum the results from a single toss.</p>
 <p>What is the set of possible outcomes (i.e.&nbsp;the sample space)?</p>
 <p>Consider subsets A {2, 8} and B {2,3,7} of the sample space you found. What is</p>
 <ol type="1">
@@ -440,58 +434,58 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math inline">(A \cup B)^c</span></li>
 </ol>
 </div>
-</section>
-<section id="probdef" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="probdef"><span class="header-section-number">12.3</span> Probability</h2>
+</section><section id="probdef" class="level2" data-number="13.3"><h2 data-number="13.3" class="anchored" data-anchor-id="probdef">
+<span class="header-section-number">13.3</span> Probability</h2>
 <div class="cell" data-hash="41_probability_cache/html/fig-prob-image_ea171f1179d6e1d0045f5bb596a1b7c4">
 <div class="cell-output-display">
 <div id="fig-prob-image" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/probability.png" class="img-fluid figure-img" width="1075"></p>
-<p></p><figcaption class="figure-caption">Figure 12.1: Probablity as a Measure<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></figcaption><p></p>
+<figure class="figure"><p><img src="images/probability.png" class="img-fluid figure-img" width="1075"></p>
+<p></p><figcaption class="figure-caption">Figure 13.1: Probablity as a Measure<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<section id="probability-definitions-formal-and-informal" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="probability-definitions-formal-and-informal">Probability Definitions: Formal and Informal</h3>
-<p>Many things in the world are uncertain. In everyday speech, we say that we are <em>uncertain</em> about the outcome of random events. Probability is a formal model of uncertainty which provides a measure of uncertainty governed by a particular set of rules (<a href="#fig-prob-image">Figure&nbsp;<span>12.1</span></a>). A different model of uncertainty would, of course, have a set of rules different from anything we discuss here. Our focus on probability is justified because it has proven to be a particularly useful model of uncertainty.</p>
+<section id="probability-definitions-formal-and-informal" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="probability-definitions-formal-and-informal">Probability Definitions: Formal and Informal</h3>
+<p>Many things in the world are uncertain. In everyday speech, we say that we are <em>uncertain</em> about the outcome of random events. Probability is a formal model of uncertainty which provides a measure of uncertainty governed by a particular set of rules (<a href="#fig-prob-image">Figure&nbsp;<span>13.1</span></a>). A different model of uncertainty would, of course, have a set of rules different from anything we discuss here. Our focus on probability is justified because it has proven to be a particularly useful model of uncertainty.</p>
 <p><strong>Probability Distribution Function</strong>: a mapping of each event in the sample space <span class="math inline">S</span> to the real numbers that satisfy the following three axioms (also called Kolmogorov’s Axioms).</p>
 <p>Formally,</p>
 <div id="def-prob" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12.1 (Probability) </strong></span></p>
+<p><span class="theorem-title"><strong>Definition 13.1 (Probability) </strong></span></p>
 <p>Probability is a function that maps events to a real number, obeying the axioms of probability.</p>
 </div>
 <p>The axioms of probability make sure that the separate events add up in terms of probability, and – for standardization purposes – that they add up to 1.</p>
 <div id="def-" class="theorem definition">
 <ol type="1">
-<li><span class="theorem-title"><strong>Definition 12.2 (Axioms of Probability) </strong></span></li>
+<li><span class="theorem-title"><strong>Definition 13.2 (Axioms of Probability) </strong></span></li>
 <li>For any event <span class="math inline">A</span>, <span class="math inline">P(A)\ge 0</span>.</li>
 <li><span class="math inline">P(S)=1</span></li>
 <li>The Countable Additivity Axiom: For any sequence of <em>disjoint</em> (mutually exclusive) events <span class="math inline">A_1,A_2,\ldots</span> (of which there may be infinitely many), <span class="math display">P\left( \bigcup\limits_{i=1}^k
-A_i\right)=\sum\limits_{i=1}^k P(A_i)</span></li>
+A_i\right)=\sum\limits_{i=1}^k P(A_i)</span>
+</li>
 </ol>
 <p>The last axiom is an extension of a union to infinite sets. When there are only two events in the space, it boils down to:</p>
 <p><span class="math display">\begin{align*}
 P(A_1 \cup A_2) = P(A_1) + P(A_2) \quad\text{for disjoint } A_1, A_2
 \end{align*}</span></p>
 </div>
-</section>
-<section id="probability-operations" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="probability-operations">Probability Operations</h3>
+</section><section id="probability-operations" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="probability-operations">Probability Operations</h3>
 <p>Using these three axioms, we can define all of the common rules of probability.</p>
 <div id="prop-prob">
 <ol type="1">
 <li><span class="math inline">P(\emptyset)=0</span></li>
-<li>For any event <span class="math inline">A</span>, <span class="math inline">0\le P(A) \le 1</span></li>
+<li>For any event <span class="math inline">A</span>, <span class="math inline">0\le P(A) \le 1</span>
+</li>
 <li><span class="math inline">P({A}^C)=1-P(A)</span></li>
-<li>If <span class="math inline">A\subset B</span> (<span class="math inline">A</span> is a subset of <span class="math inline">B</span>), then <span class="math inline">P(A)\le P(B)</span></li>
-<li>For <em>any</em> two events <span class="math inline">A</span> and <span class="math inline">B</span>, <span class="math inline">P(A\cup B)=P(A)+P(B)-P(A\cap B)</span></li>
-<li>Boole’s Inequality: For any sequence of <span class="math inline">n</span> events (which need not be disjoint) <span class="math inline">A_1,A_2,\ldots,A_n</span>, then <span class="math display">P\left( \bigcup\limits_{i=1}^n A_i\right) \leq \sum\limits_{i=1}^n P(A_i)</span></li>
+<li>If <span class="math inline">A\subset B</span> (<span class="math inline">A</span> is a subset of <span class="math inline">B</span>), then <span class="math inline">P(A)\le P(B)</span>
+</li>
+<li>For <em>any</em> two events <span class="math inline">A</span> and <span class="math inline">B</span>, <span class="math inline">P(A\cup B)=P(A)+P(B)-P(A\cap B)</span>
+</li>
+<li>Boole’s Inequality: For any sequence of <span class="math inline">n</span> events (which need not be disjoint) <span class="math inline">A_1,A_2,\ldots,A_n</span>, then <span class="math display">P\left( \bigcup\limits_{i=1}^n A_i\right) \leq \sum\limits_{i=1}^n P(A_i)</span>
+</li>
 </ol>
 </div>
 <div id="exm-prob" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.4 </strong></span>Assume we have an evenly-balanced, six-sided die.</p>
+<p><span class="theorem-title"><strong>Example 13.4 </strong></span>Assume we have an evenly-balanced, six-sided die.</p>
 <p>Then,</p>
 <ol type="1">
 <li>Sample space <span class="math inline">S</span> =</li>
@@ -499,34 +493,31 @@ P(A_1 \cup A_2) = P(A_1) + P(A_2) \quad\text{for disjoint } A_1, A_2
 <li><span class="math inline">P(\emptyset)=P(7)=</span></li>
 <li><span class="math inline">P\left( \{ 1, 3, 5 \} \right)=</span></li>
 <li><span class="math inline">P\left( \{ 1, 2 \}^C \right)= P\left( \{ 3, 4, 5, 6 \}\right)=</span></li>
-<li>Let <span class="math inline">A=\{ 1,2,3,4,5 \}\subset S</span>. Then <span class="math inline">P(A)=5/6&lt;P(S)=</span></li>
+<li>Let <span class="math inline">A=\{ 1,2,3,4,5 \}\subset S</span>. Then <span class="math inline">P(A)=5/6&lt;P(S)=</span>
+</li>
 <li>Let <span class="math inline">A=\{ 1, 2, 3 \}</span> and <span class="math inline">B=\{ 2, 4, 6 \}</span>. Then <span class="math inline">A\cup B</span>? <span class="math inline">A\cap B</span>? <span class="math inline">P(A \cup B)</span>?</li>
 </ol>
 </div>
 <div id="exr-prob1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 12.3 </strong></span>Suppose you had a pair of four-sided dice. You sum the results from a single toss. Let us call this sum, or the outcome, X.</p>
+<p><span class="theorem-title"><strong>Exercise 13.3 </strong></span>Suppose you had a pair of four-sided dice. You sum the results from a single toss. Let us call this sum, or the outcome, X.</p>
 <ol type="1">
 <li>What is <span class="math inline">P(X = 5)</span>, <span class="math inline">P(X = 3)</span>, <span class="math inline">P(X = 6)</span>?</li>
 <li>What is <span class="math inline">P(X=5 \cup X = 3)^C</span>?</li>
 </ol>
 </div>
-</section>
-</section>
-<section id="conditional-probability" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="conditional-probability"><span class="header-section-number">12.4</span> Conditional Probability</h2>
+</section></section><section id="conditional-probability" class="level2" data-number="13.4"><h2 data-number="13.4" class="anchored" data-anchor-id="conditional-probability">
+<span class="header-section-number">13.4</span> Conditional Probability</h2>
 <p><strong>Conditional Probability</strong>: The conditional probability <span class="math inline">P(A|B)</span> of an event <span class="math inline">A</span> is the probability of <span class="math inline">A</span>, given that another event <span class="math inline">B</span> has occurred. Conditional probability allows for the inclusion of other information into the calculation of the probability of an event. It is calculated as</p>
 <p><span class="math display">P(A|B)=\frac{P(A\cap B)}{P(B)}</span></p>
 <p>Note that conditional probabilities are probabilities and must also follow the Kolmagorov axioms of probability.</p>
 <div id="exm-condprobexm1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.5 (Conditional Probability) </strong></span>Assume <span class="math inline">A</span> and <span class="math inline">B</span> occur with the following frequencies: <span class="math inline">\quad</span></p>
+<p><span class="theorem-title"><strong>Example 13.5 (Conditional Probability) </strong></span>Assume <span class="math inline">A</span> and <span class="math inline">B</span> occur with the following frequencies: <span class="math inline">\quad</span></p>
 <table class="table">
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th></th>
 <th style="text-align: center;"><span class="math inline">A</span></th>
 <th style="text-align: center;"><span class="math inline">A^c</span></th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td><span class="math inline">B</span></td>
@@ -550,12 +541,12 @@ P(A_1 \cup A_2) = P(A_1) + P(A_2) \quad\text{for disjoint } A_1, A_2
 </ol>
 </div>
 <div id="exm-condprobexm2" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.6 (Conditional Probability 2) </strong></span></p>
+<p><span class="theorem-title"><strong>Example 13.6 (Conditional Probability 2) </strong></span></p>
 <p>A six-sided die is rolled. What is the probability of a 1, given the outcome is an odd number?</p>
 </div>
 <p>You could rearrange the fraction to highlight how a joint probability could be expressed as the product of a conditional probability.</p>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12.3 (Multiplicative Law of Probability) </strong></span>The probability of the intersection of two events <span class="math inline">A</span> and <span class="math inline">B</span> is</p>
+<p><span class="theorem-title"><strong>Definition 13.3 (Multiplicative Law of Probability) </strong></span>The probability of the intersection of two events <span class="math inline">A</span> and <span class="math inline">B</span> is</p>
 <p><span class="math display">P(A\cap B)=P(A)P(B|A)=P(B)P(A|B)</span></p>
 <p>which follows directly from the definition of conditional probability. More generally,</p>
 <p><span class="math display">\begin{align*}
@@ -568,16 +559,15 @@ P(A_1\cap \cdots\cap A_k) = &amp;P(A_k| A_{k-1}\cap \cdots \cap A_1) \\
 <p>Sometimes it is easier to calculate these conditional probabilities and sum them than it is to calculate <span class="math inline">P(A)</span> directly.</p>
 </div>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12.4 (Law of Total Probability) </strong></span>Let <span class="math inline">S</span> be the sample space of some experiment and let the disjoint <span class="math inline">k</span> events <span class="math inline">B_1,\ldots,B_k</span> partition <span class="math inline">S</span>, such that <span class="math inline">P(B_1\cup ... \cup B_k) = P(S) = 1</span>. If <span class="math inline">A</span> is some other event in <span class="math inline">S</span>, then the events <span class="math inline">A\cap B_1, A\cap B_2, \ldots, A\cap B_k</span> will form a partition of <span class="math inline">A</span> and we can write <span class="math inline">A</span> as <span class="math display">A=(A\cap B_1)\cup\cdots\cup (A\cap B_k)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 13.4 (Law of Total Probability) </strong></span>Let <span class="math inline">S</span> be the sample space of some experiment and let the disjoint <span class="math inline">k</span> events <span class="math inline">B_1,\ldots,B_k</span> partition <span class="math inline">S</span>, such that <span class="math inline">P(B_1\cup ... \cup B_k) = P(S) = 1</span>. If <span class="math inline">A</span> is some other event in <span class="math inline">S</span>, then the events <span class="math inline">A\cap B_1, A\cap B_2, \ldots, A\cap B_k</span> will form a partition of <span class="math inline">A</span> and we can write <span class="math inline">A</span> as <span class="math display">A=(A\cap B_1)\cup\cdots\cup (A\cap B_k)</span>.</p>
 <p>Since the <span class="math inline">k</span> events are disjoint,</p>
 <p><span class="math display">\begin{align*}
 P(A)&amp;=\sum\limits_{i=1}^k P(A \cap B_i)\\
     &amp;=\sum\limits_{i=1}^k P(B_i)P(A|B_i)
 \end{align*}</span></p>
 </div>
-</section>
-<section id="bayes-rule" class="level2" data-number="12.5">
-<h2 data-number="12.5" class="anchored" data-anchor-id="bayes-rule"><span class="header-section-number">12.5</span> Bayes Rule</h2>
+</section><section id="bayes-rule" class="level2" data-number="13.5"><h2 data-number="13.5" class="anchored" data-anchor-id="bayes-rule">
+<span class="header-section-number">13.5</span> Bayes Rule</h2>
 <p><strong>Bayes Rule</strong>: Assume that events <span class="math inline">B_1,\ldots,B_k</span> form a partition of the space <span class="math inline">S</span>. Then by the Law of Total Probability</p>
 <p><span class="math display">P(B_j|A)= \frac{P(A \cap B_j)} {P(A)} = \frac{P(B_j) P(A|B_j)}{\sum\limits_{i=1}^k P(B_i)P(A|B_i)}</span></p>
 <p>If there are only two states of <span class="math inline">B</span>, then this is just</p>
@@ -585,18 +575,17 @@ P(A)&amp;=\sum\limits_{i=1}^k P(A \cap B_i)\\
 <p>Bayes’ rule determines the posterior probability of a state <span class="math inline">P(B_j|A)</span> by calculating the probability <span class="math inline">P(A \cap B_j)</span> that both the event <span class="math inline">A</span> and the state <span class="math inline">B_j</span> will occur and dividing it by the probability that the event will occur regardless of the state (by summing across all <span class="math inline">B_i</span>). The states could be something like Normal/Defective, Healthy/Diseased, Republican/Democrat/Independent, etc. The event on which one conditions could be something like a sampling from a batch of components, a test for a disease, or a question about a policy position.</p>
 <p><strong>Prior and Posterior Probabilities</strong>: Above, <span class="math inline">P(B_1)</span> is often called the prior probability, since it’s the probability of <span class="math inline">B_1</span> before anything else is known. <span class="math inline">P(B_1|A)</span> is called the posterior probability, since it’s the probability after other information is taken into account.</p>
 <div id="exm-bayesrule" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.7 (Bayes’ Rule) </strong></span></p>
+<p><span class="theorem-title"><strong>Example 13.7 (Bayes’ Rule) </strong></span></p>
 <p>In a given town, 40% of the voters are Democrat and 60% are Republican. The president’s budget is supported by 50% of the Democrats and 90% of the Republicans. If a randomly (equally likely) selected voter is found to support the president’s budget, what is the probability that they are a Democrat?</p>
 </div>
 <div id="exr-condprobexr" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 12.4 (Conditional Probability) </strong></span></p>
+<p><span class="theorem-title"><strong>Exercise 13.4 (Conditional Probability) </strong></span></p>
 <p>Assume that 2% of the population of the U.S. are members of some extremist militia group. We develop a survey that positively classifies someone as being a member of a militia group given that they are a member 95% of the time and negatively classifies someone as not being a member of a militia group given that they are not a member 97% of the time. What is the probability that someone positively classified as being a member of a militia group is actually a militia member?</p>
 </div>
-</section>
-<section id="independence" class="level2" data-number="12.6">
-<h2 data-number="12.6" class="anchored" data-anchor-id="independence"><span class="header-section-number">12.6</span> Independence</h2>
+</section><section id="independence" class="level2" data-number="13.6"><h2 data-number="13.6" class="anchored" data-anchor-id="independence">
+<span class="header-section-number">13.6</span> Independence</h2>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12.5 (Independence) </strong></span></p>
+<p><span class="theorem-title"><strong>Definition 13.5 (Independence) </strong></span></p>
 <p>If the occurrence or nonoccurrence of either events <span class="math inline">A</span> and <span class="math inline">B</span> have no effect on the occurrence or nonoccurrence of the other, then <span class="math inline">A</span> and <span class="math inline">B</span> are independent.</p>
 </div>
 <p>If <span class="math inline">A</span> and <span class="math inline">B</span> are independent, then</p>
@@ -605,7 +594,8 @@ P(A)&amp;=\sum\limits_{i=1}^k P(A \cap B_i)\\
 <li><span class="math inline">P(A|B)=P(A)</span></li>
 <li><span class="math inline">P(B|A)=P(B)</span></li>
 <li><span class="math inline">P(A\cap B)=P(A)P(B)</span></li>
-<li>More generally than the above, <span class="math inline">P(\bigcap_{i=1}^k A_i) = \prod_{i = 1}^K P(A_i)</span></li>
+<li>More generally than the above, <span class="math inline">P(\bigcap_{i=1}^k A_i) = \prod_{i = 1}^K P(A_i)</span>
+</li>
 </ol>
 </div>
 <p>Are mutually exclusive events independent of each other?</p>
@@ -619,42 +609,39 @@ P(A)&amp;=\sum\limits_{i=1}^k P(A \cap B_i)\\
 </ol>
 <p>Just because two events are conditionally independent does not mean that they are independent. Actually it is hard to think of real-world things that are “unconditionally” independent. That’s why it’s always important to ask about a finding: What was it conditioned on? For example, suppose that a graduate school admission decisions are done by only one professor, who picks a group of 50 bright students and flips a coin for each student to generate a class of about 25 students. Then the the probability that two students get accepted are conditionally independent, because they are determined by two separate coin tosses. However, this does not mean that their admittance is not completely independent. Knowing that student <span class="math inline">A</span> got in gives us information about whether student <span class="math inline">B</span> got in, if we think that the professor originally picked her pool of 50 students by merit.</p>
 <p>Perhaps more counter-intuitively: If two events are already independent, then it might seem that no amount of “conditioning” will make them dependent. But this is not always so. For example<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, suppose I only get a call from two people, Alice and Bob. Let <span class="math inline">A</span> be the event that Alice calls, and <span class="math inline">B</span> be the event that Bob calls. Alice and Bob do not communicate, so <span class="math inline">P(A \mid B) = P(A).</span> But now let <span class="math inline">C</span> be the event that your phone rings. For conditional independence to hold here, then <span class="math inline">P(A \mid C)</span> must be equal to <span class="math inline">P(A \mid B \cap C).</span> But this is not true – <span class="math inline">A \mid C</span> may or may not be true, but <span class="math inline">P(A \mid B \cap C)</span> certainly is true.</p>
-</section>
-<section id="random-variables" class="level2" data-number="12.7">
-<h2 data-number="12.7" class="anchored" data-anchor-id="random-variables"><span class="header-section-number">12.7</span> Random Variables</h2>
+</section><section id="random-variables" class="level2" data-number="13.7"><h2 data-number="13.7" class="anchored" data-anchor-id="random-variables">
+<span class="header-section-number">13.7</span> Random Variables</h2>
 <p>Most questions in the social sciences involve events, rather than numbers per se. To analyze and reason about events quantitatively, we need a way of mapping events to numbers. A random variable does exactly that.</p>
 <div class="cell" data-hash="41_probability_cache/html/fig-rv-image_c8b8d3b63b786e3b723cc54f2739660c">
 <div class="cell-output-display">
 <div id="fig-rv-image" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/rv.png" class="img-fluid figure-img" width="1070"></p>
-<p></p><figcaption class="figure-caption">Figure 12.2: The Random Variable as a Real-Valued Function</figcaption><p></p>
+<figure class="figure"><p><img src="images/rv.png" class="img-fluid figure-img" width="1070"></p>
+<p></p><figcaption class="figure-caption">Figure 13.2: The Random Variable as a Real-Valued Function</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12.6 (Random Variable) </strong></span></p>
+<p><span class="theorem-title"><strong>Definition 13.6 (Random Variable) </strong></span></p>
 <p>A random variable is a measurable function <span class="math inline">X</span> that maps from the sample space <span class="math inline">S</span> to the set of real numbers <span class="math inline">R.</span> It assigns a real number to every outcome <span class="math inline">s \in S</span>.</p>
 </div>
-<p><a href="#fig-rv-image">Figure&nbsp;<span>12.2</span></a> shows a image of the function. It might seem strange to define a random variable as a function – which is neither random nor variable. The randomness comes from the realization of an event from the sample space <span class="math inline">s</span>.</p>
+<p><a href="#fig-rv-image">Figure&nbsp;<span>13.2</span></a> shows a image of the function. It might seem strange to define a random variable as a function – which is neither random nor variable. The randomness comes from the realization of an event from the sample space <span class="math inline">s</span>.</p>
 <p><strong>Randomness</strong> means that the outcome of some experiment is not deterministic, i.e.&nbsp;there is some probability (<span class="math inline">0 &lt; P(A) &lt; 1</span>) that the event will occur.</p>
 <p>The support of a random variable is all values for which there is a positive probability of occurrence.</p>
 <p>Example: Flip a fair coin two times. What is the sample space?</p>
 <p>A random variable must map events to the real line. For example, let a random variable <span class="math inline">X</span> be the number of heads. The event <span class="math inline">(H, H)</span> gets mapped to 2 <span class="math inline">X(s) = 2</span>, and the events <span class="math inline">\{(H, T), (T, H)\}</span> gets mapped to 1 <span class="math inline">(X(s) = 1)</span>, the event <span class="math inline">(T, T)</span> gets mapped to 0 <span class="math inline">(X(s) = 0)</span>.</p>
 <p>What are other possible random variables?</p>
-</section>
-<section id="distributions" class="level2" data-number="12.8">
-<h2 data-number="12.8" class="anchored" data-anchor-id="distributions"><span class="header-section-number">12.8</span> Distributions</h2>
+</section><section id="distributions" class="level2" data-number="13.8"><h2 data-number="13.8" class="anchored" data-anchor-id="distributions">
+<span class="header-section-number">13.8</span> Distributions</h2>
 <p>We now have two main concepts in this section – probability and random variables. Given a sample space <span class="math inline">S</span> and the same experiment, both probability and random variables take events as their inputs. But they output different things (probabilities measure the “size” of events, random variables give a number in a way that the analyst chose to define the random variable). How do the two concepts relate?</p>
 <p>The concept of distributions is the natural bridge between these two concepts.</p>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12.7 (Distribution of a random variable) </strong></span></p>
+<p><span class="theorem-title"><strong>Definition 13.7 (Distribution of a random variable) </strong></span></p>
 <p>A distribution of a random variable is a function that specifies the probabilities of all events associated with that random variable. There are several types of distributions: A probability mass function for a discrete random variable and probability density function for a continuous random variable.</p>
 </div>
 <p>Notice how the definition of distributions combines two ideas of random variables and probabilities of events. First, the distribution considers a random variable, call it <span class="math inline">X</span>. <span class="math inline">X</span> can take a number of possible numeric values.</p>
 <div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.8 </strong></span></p>
+<p><span class="theorem-title"><strong>Example 13.8 </strong></span></p>
 <p>Consider three binary outcomes, one for each patient recovering from a disease: <span class="math inline">R_i</span> denotes the event in which patient <span class="math inline">i</span> (<span class="math inline">i = 1, 2, 3</span>) recovers from a disease. <span class="math inline">R_1</span>, <span class="math inline">R_2</span>, and <span class="math inline">R_3</span>. How would we represent the total number of people who end up recovering from the disease?</p>
 </div>
 <div class="solution proof">
@@ -662,100 +649,99 @@ P(A)&amp;=\sum\limits_{i=1}^k P(A \cap B_i)\\
 <p>Recall that with each of these numerical values there is a class of <em>events</em>. In the previous example,</p>
 <ul>
 <li>For <span class="math inline">X = 3</span> there is one outcome (<span class="math inline">R_1, R_2, R_3</span>)</li>
-<li>For <span class="math inline">X = 1</span> there are multiple <span class="math inline">\{(R_1, R_2^c, R_3^c), (R_1^c, R_2, R_3^c), (R_1^c, R_2^c, R_3), \}</span></li>
+<li>For <span class="math inline">X = 1</span> there are multiple <span class="math inline">\{(R_1, R_2^c, R_3^c), (R_1^c, R_2, R_3^c), (R_1^c, R_2^c, R_3), \}</span>
+</li>
 </ul>
 <p>Now, the thing to notice here is that each of these events naturally come with a probability associated with them. That is, <span class="math inline">P(R_1, R_2, R_3)</span> is a number from 0 to 1, as is <span class="math inline">P(R_1, R_2^c, R_3^c)</span>. These all have probabilities because they are in the sample space <span class="math inline">S</span>. The function that tells us these probabilities that are associated with a numerical value of a random variable is called a distribution.</p>
 <p>In other words, a random variable <span class="math inline">X</span> <em>induces a probability distribution</em> <span class="math inline">P</span> (sometimes written <span class="math inline">P_X</span> to emphasize that the probability density is about the r.v. <span class="math inline">X</span>)</p>
 </div>
-<section id="discrete-random-variables" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="discrete-random-variables">Discrete Random Variables</h3>
+<section id="discrete-random-variables" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="discrete-random-variables">Discrete Random Variables</h3>
 <p>The formal definition of a random variable is easier to given by separating out two cases: discrete random variables when the numeric summaries of the events are discrete, and continuous random variables when they are continuous.</p>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12.8 (Discrete Random Variable) </strong></span></p>
+<p><span class="theorem-title"><strong>Definition 13.8 (Discrete Random Variable) </strong></span></p>
 <p><span class="math inline">X</span> is a discrete random variable if it can assume only a finite or countably infinite number of distinct values. Examples: number of wars per year, heads or tails.</p>
 </div>
 <p>The distribution of a discrete r.v. is a PMF:</p>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12.9 (Probability Mass Function) </strong></span>For a discrete random variable <span class="math inline">X</span>, the probability mass function (Also referred to simply as the “probability distribution.”) (PMF), <span class="math inline">p(x)=P(X=x)</span>, assigns probabilities to a countable number of distinct <span class="math inline">x</span> values such that</p>
+<p><span class="theorem-title"><strong>Definition 13.9 (Probability Mass Function) </strong></span>For a discrete random variable <span class="math inline">X</span>, the probability mass function (Also referred to simply as the “probability distribution.”) (PMF), <span class="math inline">p(x)=P(X=x)</span>, assigns probabilities to a countable number of distinct <span class="math inline">x</span> values such that</p>
 <ol type="1">
 <li><span class="math inline">0\le p(x)\le 1</span></li>
 <li><span class="math inline">\sum\limits_y p(x)=1</span></li>
 </ol>
 </div>
 <div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.9 </strong></span></p>
+<p><span class="theorem-title"><strong>Example 13.9 </strong></span></p>
 <p>For a fair six-sided die, there is an equal probability of rolling any number. Since there are six sides, the probability mass function is then <span class="math inline">p(y)=1/6</span> for <span class="math inline">y=1,\ldots,6</span>, 0 otherwise.</p>
 </div>
 <p>In a discrete random variable, <strong>cumulative distribution function</strong> (Also referred to simply as the “cumulative distribution” or previously as the “distribution function”), <span class="math inline">F(x)</span> or <span class="math inline">P(X\le x)</span>, is the probability that <span class="math inline">X</span> is less than or equal to some value <span class="math inline">x</span>, or <span class="math display">P(X\le x)=\sum\limits_{i\le x} p(i)</span></p>
 <p>Properties a CDF must satisfy:</p>
 <ol type="1">
-<li><span class="math inline">F(x)</span> is non-decreasing in <span class="math inline">x</span>.</li>
-<li><span class="math inline">\lim\limits_{x \to -\infty} F(x) = 0</span> and <span class="math inline">\lim\limits_{x \to \infty} F(x) = 1</span></li>
-<li><span class="math inline">F(x)</span> is right-continuous.</li>
+<li>
+<span class="math inline">F(x)</span> is non-decreasing in <span class="math inline">x</span>.</li>
+<li>
+<span class="math inline">\lim\limits_{x \to -\infty} F(x) = 0</span> and <span class="math inline">\lim\limits_{x \to \infty} F(x) = 1</span>
+</li>
+<li>
+<span class="math inline">F(x)</span> is right-continuous.</li>
 </ol>
 <p>Note that <span class="math inline">P(X &gt; x) = 1 - P(X \le x)</span>.</p>
 <div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.10 </strong></span>For a fair die with its value as <span class="math inline">Y</span>, What are the following?</p>
+<p><span class="theorem-title"><strong>Example 13.10 </strong></span>For a fair die with its value as <span class="math inline">Y</span>, What are the following?</p>
 <ol type="1">
 <li><span class="math inline">P(Y\le 1)</span></li>
 <li><span class="math inline">P(Y\le 3)</span></li>
 <li><span class="math inline">P(Y\le 6)</span></li>
 </ol>
 </div>
-</section>
-<section id="continuous-random-variables" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="continuous-random-variables">Continuous Random Variables</h3>
+</section><section id="continuous-random-variables" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="continuous-random-variables">Continuous Random Variables</h3>
 <p>We also have a similar definition for <em>continuous</em> random variables.</p>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12.10 (Continuous Random Variable) </strong></span></p>
+<p><span class="theorem-title"><strong>Definition 13.10 (Continuous Random Variable) </strong></span></p>
 <p><span class="math inline">X</span> is a continuous random variable if there exists a nonnegative function <span class="math inline">f(x)</span> defined for all real <span class="math inline">x\in (-\infty,\infty)</span>, such that for any interval <span class="math inline">A</span>, <span class="math inline">P(X\in A)=\int\limits_A f(x)dx</span>. Examples: age, income, GNP, temperature.</p>
 </div>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12.11 (Probability Density Function) </strong></span>The function <span class="math inline">f</span> above is called the probability density function (pdf) of <span class="math inline">X</span> and must satisfy</p>
+<p><span class="theorem-title"><strong>Definition 13.11 (Probability Density Function) </strong></span>The function <span class="math inline">f</span> above is called the probability density function (pdf) of <span class="math inline">X</span> and must satisfy</p>
 <p><span class="math display">f(x)\ge 0</span></p>
 <p><span class="math display">\int\limits_{-\infty}^\infty f(x)dx=1</span></p>
 <p>Note also that <span class="math inline">P(X = x)=0</span> — i.e., the probability of any point <span class="math inline">y</span> is zero.</p>
 </div>
 <p>For both discrete and continuous random variables, we have a unifying concept of another measure: the cumulative distribution:</p>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12.12 (Cumulative Distribution Function) </strong></span></p>
+<p><span class="theorem-title"><strong>Definition 13.12 (Cumulative Distribution Function) </strong></span></p>
 <p>Because the probability that a continuous random variable will assume any particular value is zero, we can only make statements about the probability of a continuous random variable being within an interval. The cumulative distribution gives the probability that <span class="math inline">Y</span> lies on the interval <span class="math inline">(-\infty,y)</span> and is defined as <span class="math display">F(x)=P(X\le x)=\int\limits_{-\infty}^x f(s)ds.</span> Note that <span class="math inline">F(x)</span> has similar properties with continuous distributions as it does with discrete - non-decreasing, continuous (not just right-continuous), and <span class="math inline">\lim\limits_{x \to -\infty} F(x) = 0</span> and <span class="math inline">\lim\limits_{x \to \infty} F(x) = 1</span>.</p>
 </div>
 <p>We can also make statements about the probability of <span class="math inline">Y</span> falling in an interval <span class="math inline">a\le y\le b</span>.</p>
 <p><span class="math display">P(a\le x\le b)=\int\limits_a^b f(x)dx</span></p>
 <p>The PDF and CDF are linked by the integral: The CDF of the integral of the PDF: <span class="math display">f(x) = F'(x)=\frac{dF(x)}{dx}</span></p>
 <div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.11 </strong></span></p>
+<p><span class="theorem-title"><strong>Example 13.11 </strong></span></p>
 <p>For <span class="math inline">f(y)=1, \quad 0&lt;y&lt;1</span>, find: (1) The CDF <span class="math inline">F(y)</span> and (2) The probability <span class="math inline">P(0.5&lt;y&lt;0.75)</span>.</p>
 </div>
-</section>
-</section>
-<section id="answers-to-examples-and-exercises" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="answers-to-examples-and-exercises">Answers to Examples and Exercises</h2>
-<p>Answer to <a href="#exm-counting">Example&nbsp;<span>12.2</span></a>:</p>
+</section></section><section id="answers-to-examples-and-exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="answers-to-examples-and-exercises">Answers to Examples and Exercises</h2>
+<p>Answer to <a href="#exm-counting">Example&nbsp;<span>13.2</span></a>:</p>
 <ol type="1">
 <li><p><span class="math inline">5 \times 5 \times 5 = 125</span></p></li>
 <li><p><span class="math inline">5 \times 4 \times 3 = 60</span></p></li>
 <li><p><span class="math inline">\binom{5}{3} = \frac{5!}{(5-3)!3!} = \frac{5 \times 4}{2 \times 1} = 10</span></p></li>
 </ol>
-<p>Answer to <a href="#exr-counting1">Exercise&nbsp;<span>12.1</span></a>:</p>
+<p>Answer to <a href="#exr-counting1">Exercise&nbsp;<span>13.1</span></a>:</p>
 <ol type="1">
 <li><span class="math inline">\binom{52}{4} = \frac{52!}{(52-4)!4!} = 270725</span></li>
 </ol>
-<p>Answer to <a href="#exm-sets">Example&nbsp;<span>12.3</span></a>:</p>
+<p>Answer to <a href="#exm-sets">Example&nbsp;<span>13.3</span></a>:</p>
 <ol type="1">
 <li>{1, 2, 3, 4, 5, 6}</li>
 <li>{5, 6}</li>
 <li>{1, 2, 7, 8, 9, 10}</li>
 <li>{3, 4}</li>
 </ol>
-<p>Answer to <a href="#exr-sets1">Exercise&nbsp;<span>12.2</span></a>:</p>
+<p>Answer to <a href="#exr-sets1">Exercise&nbsp;<span>13.2</span></a>:</p>
 <p>Sample Space: {2, 3, 4, 5, 6, 7, 8}</p>
 <ol type="1">
 <li>{3, 4, 5, 6, 7}</li>
 <li>{4, 5, 6}</li>
 </ol>
-<p>Answer to <a href="#exm-prob">Example&nbsp;<span>12.4</span></a>:</p>
+<p>Answer to <a href="#exm-prob">Example&nbsp;<span>13.4</span></a>:</p>
 <ol type="1">
 <li><p><span class="math inline">{1, 2, 3, 4, 5, 6}</span></p></li>
 <li><p><span class="math inline">\frac{1}{6}</span></p></li>
@@ -765,12 +751,12 @@ P(A)&amp;=\sum\limits_{i=1}^k P(A \cap B_i)\\
 <li><p><span class="math inline">1</span></p></li>
 <li><p><span class="math inline">A\cup B=\{1, 2, 3, 4, 6\}</span>, <span class="math inline">A\cap B=\{2\}</span>, <span class="math inline">\frac{5}{6}</span></p></li>
 </ol>
-<p>Answer to <a href="#exr-prob1">Exercise&nbsp;<span>12.3</span></a>:</p>
+<p>Answer to <a href="#exr-prob1">Exercise&nbsp;<span>13.3</span></a>:</p>
 <ol type="1">
 <li><p><span class="math inline">P(X = 5) = \frac{4}{16}</span>, <span class="math inline">P(X = 3) = \frac{2}{16}</span>, <span class="math inline">P(X = 6) = \frac{3}{16}</span></p></li>
 <li><p>What is <span class="math inline">P(X=5 \cup X = 3)^C = \frac{10}{16}</span>?</p></li>
 </ol>
-<p>Answer to <a href="#exm-condprobexm1">Example&nbsp;<span>12.5</span></a>:</p>
+<p>Answer to <a href="#exm-condprobexm1">Example&nbsp;<span>13.5</span></a>:</p>
 <ol type="1">
 <li><p><span class="math inline">\frac{n_{ab} + n_{ab^c}}{N}</span></p></li>
 <li><p><span class="math inline">\frac{n_{ab} + n_{a^cb}}{N}</span></p></li>
@@ -778,15 +764,15 @@ P(A)&amp;=\sum\limits_{i=1}^k P(A \cap B_i)\\
 <li><p><span class="math inline">\frac{\frac{n_{ab}}{N}}{\frac{n_{ab} + n_{a^cb}}{N}} = \frac{n_{ab}}{n_{ab} + n_{a^cb}}</span></p></li>
 <li><p><span class="math inline">\frac{\frac{n_{ab}}{N}}{\frac{n_{ab} + n_{ab^c}}{N}} = \frac{n_{ab}}{n_{ab} + n_{ab^c}}</span></p></li>
 </ol>
-<p>Answer to <a href="#exm-condprobexm2">Example&nbsp;<span>12.6</span></a>:</p>
+<p>Answer to <a href="#exm-condprobexm2">Example&nbsp;<span>13.6</span></a>:</p>
 <p><span class="math inline">P(1|Odd) = \frac{P(1 \cap Odd)}{P(Odd)} = \frac{\frac{1}{6}}{\frac{1}{2}} = \frac{1}{3}</span></p>
-<p>Answer to <a href="#exm-bayesrule">Example&nbsp;<span>12.7</span></a>:</p>
+<p>Answer to <a href="#exm-bayesrule">Example&nbsp;<span>13.7</span></a>:</p>
 <p>We are given that</p>
 <p><span class="math display">P(D) = .4, P(D^c) = .6, P(S|D) = .5, P(S|D^c) = .9</span></p>
 <p>Using this, Bayes’ Law and the Law of Total Probability, we know:</p>
 <p><span class="math display">P(D|S) = \frac{P(D)P(S|D)}{P(D)P(S|D) + P(D^c)P(S|D^c)}</span></p>
 <p><span class="math display">P(D|S) = \frac{.4 \times .5}{.4 \times .5 + .6 \times .9 } = .27</span></p>
-<p>Answer to <a href="#exr-condprobexr">Exercise&nbsp;<span>12.4</span></a>:</p>
+<p>Answer to <a href="#exr-condprobexr">Exercise&nbsp;<span>13.4</span></a>:</p>
 <p>We are given that</p>
 <p><span class="math display">P(M) = .02, P(C|M) = .95, P(C^c|M^c) = .97</span></p>
 <p><span class="math display">P(M|C) = \frac{P(C|M)P(M)}{P(C)}</span></p>
@@ -797,17 +783,11 @@ P(A)&amp;=\sum\limits_{i=1}^k P(A \cap B_i)\\
 
 <!-- -->
 
-</section>
-<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
+</section><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
 <ol>
 <li id="fn1" role="doc-endnote"><p>Images of Probability and Random Variables drawn by Shiro Kuriwaki and inspired by Blitzstein and Morris<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2" role="doc-endnote"><p>Example taken from Blitzstein and Hwang, Example 2.5.10<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</ol></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -954,16 +934,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     });
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./34_intergrals.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Integral Calculus</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Integral Calculus</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./42_distribution.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Summarizing Distributions</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Summarizing Distributions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">

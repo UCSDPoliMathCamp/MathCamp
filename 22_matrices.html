@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.0.38">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>UCSD Political Science Math Camp - 7&nbsp; Manipulating Vectors and Matrices</title>
+<title>UCSD Political Science Math Camp - 8&nbsp; Manipulating Vectors and Matrices</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -80,7 +77,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -99,8 +95,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -118,37 +113,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
-<style>html{ scroll-behavior: smooth; }</style>
+}</script><style>html{ scroll-behavior: smooth; }</style>
 <script type="application/json" class="js-hypothesis-config">
 {
   "theme": "clean"
 }
-</script>
-<script async="" src="https://hypothes.is/embed.js"></script>
-
-
-<link rel="stylesheet" href="style.css">
+</script><script async="" src="https://hypothes.is/embed.js"></script><link rel="stylesheet" href="style.css">
 </head>
-
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Manipulating Vectors and Matrices</span></h1>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Manipulating Vectors and Matrices</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">UCSD Political Science Math Camp</a> 
         <div class="sidebar-tools-main">
@@ -164,7 +147,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">About this Booklet</a>
   </div>
@@ -186,8 +169,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11_orientation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Orientation and Reading in Data</span></a>
   </div>
@@ -204,16 +187,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14_simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Simulation</span></a>
+  <a href="./13_data_wrangling_cleaning.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Wrangling and Cleaning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15_non-wysiwyg.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LaTeX and Markdown</span></a>
+  <a href="./14_simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simulation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_non-wysiwyg.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">LaTeX and Markdown</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">II Linear Algebra</a>
@@ -221,19 +209,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21_linear-algebra.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Algebra</span></a>
+  <a href="./21_linear-algebra.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear Algebra</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22_matrices.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Manipulating Vectors and Matrices</span></a>
+  <a href="./22_matrices.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Manipulating Vectors and Matrices</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">III Calculus</a>
@@ -241,29 +229,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./31_limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Limits</span></a>
+  <a href="./31_limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Limits</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./32_derivatives.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Differential Calculus</span></a>
+  <a href="./32_derivatives.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Differential Calculus</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./33_optimization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Optimization</span></a>
+  <a href="./33_optimization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Optimization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./34_intergrals.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Integral Calculus</span></a>
+  <a href="./34_intergrals.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Integral Calculus</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">IV Probability</a>
@@ -271,55 +259,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./41_probability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Probability Theory</span></a>
+  <a href="./41_probability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Probability Theory</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./42_distribution.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Summarizing Distributions</span></a>
+  <a href="./42_distribution.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Summarizing Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./43_statistics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Learning from Data</span></a>
+  <a href="./43_statistics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Learning from Data</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./51_solutions-warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions Solutions</a>
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">On this page</h2>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation">Motivation</a></li>
+<li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation">Motivation</a></li>
   <li><a href="#where-are-we-where-are-we-headed" id="toc-where-are-we-where-are-we-headed" class="nav-link" data-scroll-target="#where-are-we-where-are-we-headed">Where are we? Where are we headed?</a></li>
-  <li><a href="#read-data" id="toc-read-data" class="nav-link" data-scroll-target="#read-data"> <span class="header-section-number">7.1</span> Read Data</a></li>
-  <li><a href="#data.frame-vs.-matricies" id="toc-data.frame-vs.-matricies" class="nav-link" data-scroll-target="#data.frame-vs.-matricies"> <span class="header-section-number">7.2</span> data.frame vs.&nbsp;matricies</a></li>
-  <li><a href="#handling-matricies-in-r" id="toc-handling-matricies-in-r" class="nav-link" data-scroll-target="#handling-matricies-in-r"> <span class="header-section-number">7.3</span> Handling matricies in <code>R</code></a></li>
-  <li><a href="#variable-transformations" id="toc-variable-transformations" class="nav-link" data-scroll-target="#variable-transformations"> <span class="header-section-number">7.4</span> Variable Transformations</a></li>
-  <li><a href="#linear-combinations" id="toc-linear-combinations" class="nav-link" data-scroll-target="#linear-combinations"> <span class="header-section-number">7.5</span> Linear Combinations</a></li>
-  <li><a href="#matrix-basics" id="toc-matrix-basics" class="nav-link" data-scroll-target="#matrix-basics"> <span class="header-section-number">7.6</span> Matrix Basics</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/22_matrices.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/blob/main/22_matrices.Rmd" class="toc-action">View source</a></p></div></div></nav>
+  <li><a href="#read-data" id="toc-read-data" class="nav-link" data-scroll-target="#read-data"> <span class="header-section-number">8.1</span> Read Data</a></li>
+  <li><a href="#data.frame-vs.-matricies" id="toc-data.frame-vs.-matricies" class="nav-link" data-scroll-target="#data.frame-vs.-matricies"> <span class="header-section-number">8.2</span> data.frame vs.&nbsp;matricies</a></li>
+  <li><a href="#handling-matricies-in-r" id="toc-handling-matricies-in-r" class="nav-link" data-scroll-target="#handling-matricies-in-r"> <span class="header-section-number">8.3</span> Handling matricies in <code>R</code></a></li>
+  <li><a href="#variable-transformations" id="toc-variable-transformations" class="nav-link" data-scroll-target="#variable-transformations"> <span class="header-section-number">8.4</span> Variable Transformations</a></li>
+  <li><a href="#linear-combinations" id="toc-linear-combinations" class="nav-link" data-scroll-target="#linear-combinations"> <span class="header-section-number">8.5</span> Linear Combinations</a></li>
+  <li><a href="#matrix-basics" id="toc-matrix-basics" class="nav-link" data-scroll-target="#matrix-basics"> <span class="header-section-number">8.6</span> Matrix Basics</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/22_matrices.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/blob/main/22_matrices.Rmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="rmatrices" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Manipulating Vectors and Matrices</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="rmatrices" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Manipulating Vectors and Matrices</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -331,15 +312,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header>
-
-<section id="motivation" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="motivation">Motivation</h3>
+</header><section id="motivation" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="motivation">Motivation</h3>
 <p><a href="https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf">Nunn and Wantchekon (2011)</a> – “The Slave Trade and the Origins of Mistrust in Africa”<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> – argues that across African countries, the distrust of co-ethnics fueled by the slave trade has had long-lasting effects on modern day trust in these territories. They argued that the slave trade created distrust in these societies in part because as some African groups were employed by European traders to capture their neighbors and bring them to the slave ships.</p>
 <p>Nunn and Wantchekon use a variety of statistical tools to make their case (adding controls, ordered logit, instrumental variables, falsification tests, causal mechanisms), many of which will be covered in future courses. In this module we will only touch on their first set of analysis that use Ordinary Least Squares (OLS). OLS is likely the most common application of linear algebra in the social sciences. We will cover some linear algebra, matrix manipulation, and vector manipulation from this data.</p>
-</section>
-<section id="where-are-we-where-are-we-headed" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="where-are-we-where-are-we-headed">Where are we? Where are we headed?</h3>
+</section><section id="where-are-we-where-are-we-headed" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="where-are-we-where-are-we-headed">Where are we? Where are we headed?</h3>
 <p>Up till now, you should have covered:</p>
 <ul>
 <li>R basic programming</li>
@@ -352,17 +328,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Matrices &amp; Dataframes in R</li>
 <li>Manipulating variables</li>
 <li>And other <code>R</code> tips</li>
-</ul>
-</section>
-<section id="read-data" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="read-data"><span class="header-section-number">7.1</span> Read Data</h2>
+</ul></section><section id="read-data" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="read-data">
+<span class="header-section-number">8.1</span> Read Data</h2>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-2_466393f14e81c7509d80a84e6323bf4a">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>nunn_full <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"data/input/Nunn_Wantchekon_AER_2011.dta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span></span>
+<span><span class="va">nunn_full</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_dta.html">read_dta</a></span><span class="op">(</span><span class="st">"data/input/Nunn_Wantchekon_AER_2011.dta"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Nunn and Wantchekon’s main dataset has more than 20,000 observations. Each observation is a respondent from the Afrobarometer survey.</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-3_964892664b56541a9863461e51d711ea">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(nunn_full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">nunn_full</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 59
   respno  ethni…¹ murdo…² isocode region distr…³ townv…⁴ locat…⁵ trust…⁶ trust…⁷
@@ -382,7 +356,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #   council_listen &lt;dbl&gt;, corrupt_local_council &lt;dbl&gt;, school_present &lt;dbl&gt;, …
 # ℹ Use `colnames()` to see all variable names</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(nunn_full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">nunn_full</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "respno"                          "ethnicity"                      
  [3] "murdock_name"                    "isocode"                        
@@ -418,10 +392,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>First, let’s consider a small subset of this dataset.</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-5_a1c0789cc707d64632f6d1d97f3193e1">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>nunn <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"data/input/Nunn_Wantchekon_sample.dta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">nunn</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_dta.html">read_dta</a></span><span class="op">(</span><span class="st">"data/input/Nunn_Wantchekon_sample.dta"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-6_c39276d5697f7a28d25bdda63c9312d4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>nunn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">nunn</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 5
    trust_neighbors exports ln_exports export_area ln_export_area
@@ -438,40 +412,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 10               3   0          0         0              0      </code></pre>
 </div>
 </div>
-</section>
-<section id="data.frame-vs.-matricies" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="data.frame-vs.-matricies"><span class="header-section-number">7.2</span> data.frame vs.&nbsp;matricies</h2>
+</section><section id="data.frame-vs.-matricies" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="data.frame-vs.-matricies">
+<span class="header-section-number">8.2</span> data.frame vs.&nbsp;matricies</h2>
 <p>This is a <code>data.frame</code> object.</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-7_b2af9b96300269ac8a4a1544add3d6bb">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(nunn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">nunn</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "tbl_df"     "tbl"        "data.frame"</code></pre>
 </div>
 </div>
 <p>But it can be also consider a matrix in the linear algebra sense. What are the dimensions of this matrix?</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-8_9ef3c55665a34c4e6beacdf45d60a5bf">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(nunn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">nunn</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10</code></pre>
 </div>
 </div>
 <p><code>data.frame</code>s and matrices have much overlap in <code>R</code>, but to explicitly treat an object as a matrix, you’d need to coerce its class. Let’s call this matrix <code>X</code>.</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-9_1f3820336c317fd170b324ad8088c172">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(nunn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">X</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">nunn</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>What is the difference between a <code>data.frame</code> and a matrix? A <code>data.frame</code> can have columns that are of different types, whereas — in a matrix — all columns must be of the same type (usually either “numeric” or “character”).</p>
 <p>You can think of data frames maybe as matrices-plus, because a column can take on characters as well as numbers. As we just saw, this is often useful for real data analyses.</p>
-<p>Another way to think about data frames is that it is a type of list. Try the <code>str()</code> code below and notice how it is organized in slots. Each slot is a vector. They can be vectors of numbers or characters.</p>
+<p>Another way to think about data frames is that it is a type of list. Try the <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code> code below and notice how it is organized in slots. Each slot is a vector. They can be vectors of numbers or characters.</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-10_71ef76147c2ee0ed12c4b65cd8ffc178">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># enter this on your console</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(cen10)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># enter this on your console</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="handling-matricies-in-r" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="handling-matricies-in-r"><span class="header-section-number">7.3</span> Handling matricies in <code>R</code></h2>
+</section><section id="handling-matricies-in-r" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="handling-matricies-in-r">
+<span class="header-section-number">8.3</span> Handling matricies in <code>R</code>
+</h2>
 <p>You can easily transpose a matrix</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-11_41cf4b0acc033f821ab9c4ed9c31dca8">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>X</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">X</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      trust_neighbors     exports ln_exports  export_area ln_export_area
  [1,]               3   0.3883497  0.3281158  0.004067405    0.004059155
@@ -485,7 +458,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  [9,]               3   0.4349871  0.3611559  0.038332380    0.037615947
 [10,]               3   0.0000000  0.0000000  0.000000000    0.000000000</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                       [,1]       [,2]       [,3]       [,4] [,5] [,6]
 trust_neighbors 3.000000000 3.00000000 3.00000000   0.000000    3    2
@@ -503,14 +476,14 @@ ln_export_area    2.706420 0.006064130 0.03761595     0</code></pre>
 </div>
 <p>What are the values of all rows in the first column?</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-12_5519d12d025ea613bb74938ff41cab66">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>X[, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">X</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 3 3 3 0 3 2 2 0 3 3</code></pre>
 </div>
 </div>
 <p>What are all the values of “exports”? (i.e.&nbsp;return the whole “exports” column)</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-13_4afa619782dc51bef7f57cd4aa7e472a">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>X[, <span class="st">"exports"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">X</span><span class="op">[</span>, <span class="st">"exports"</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]   0.3883497   0.6311236   0.9941893 182.5891266   0.0000000   0.0000000
  [7] 665.9652100   0.3476418   0.4349871   0.0000000</code></pre>
@@ -518,7 +491,7 @@ ln_export_area    2.706420 0.006064130 0.03761595     0</code></pre>
 </div>
 <p>What is the first observation (i.e.&nbsp;first row)?</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-14_2c5cfb82757b498199051d0f3e1960af">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>X[<span class="dv">1</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">X</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>trust_neighbors         exports      ln_exports     export_area  ln_export_area 
     3.000000000     0.388349682     0.328115761     0.004067405     0.004059155 </code></pre>
@@ -526,7 +499,7 @@ ln_export_area    2.706420 0.006064130 0.03761595     0</code></pre>
 </div>
 <p>What is the value of the first variable of the first observation?</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-15_a049c5c348fb3eb565be1d3928893582">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>X[<span class="dv">1</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">X</span><span class="op">[</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>trust_neighbors 
               3 </code></pre>
@@ -534,21 +507,21 @@ ln_export_area    2.706420 0.006064130 0.03761595     0</code></pre>
 </div>
 <p>Pause and consider the following problem on your own. What is the following code doing?</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-16_9a47d9757df725d5db098e893c78e03b">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>X[X[, <span class="st">"trust_neighbors"</span>] <span class="sc">==</span> <span class="dv">0</span>, <span class="st">"export_area"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">X</span><span class="op">[</span><span class="va">X</span><span class="op">[</span>, <span class="st">"trust_neighbors"</span><span class="op">]</span> <span class="op">==</span> <span class="fl">0</span>, <span class="st">"export_area"</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.824284434 0.006082553</code></pre>
 </div>
 </div>
 <p>Why does it give the same output as the following?</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-17_3610329e585258181cf2150dacec8279">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>X[<span class="fu">which</span>(X[, <span class="st">"trust_neighbors"</span>] <span class="sc">==</span> <span class="dv">0</span>), <span class="st">"export_area"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">X</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">X</span><span class="op">[</span>, <span class="st">"trust_neighbors"</span><span class="op">]</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span>, <span class="st">"export_area"</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.824284434 0.006082553</code></pre>
 </div>
 </div>
 <p>Some more manipulation</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-18_62f6c937a26d6b309633f0e233bd877a">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>X <span class="sc">+</span> X</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">X</span> <span class="op">+</span> <span class="va">X</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      trust_neighbors      exports ln_exports  export_area ln_export_area
  [1,]               6    0.7766994  0.6562315  0.008134809     0.00811831
@@ -564,7 +537,7 @@ ln_export_area    2.706420 0.006064130 0.03761595     0</code></pre>
 </div>
 </div>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-19_1d6c3b15567c82e2db057c7e0cdcb245">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>X <span class="sc">-</span> X</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">X</span> <span class="op">-</span> <span class="va">X</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      trust_neighbors exports ln_exports export_area ln_export_area
  [1,]               0       0          0           0              0
@@ -580,7 +553,7 @@ ln_export_area    2.706420 0.006064130 0.03761595     0</code></pre>
 </div>
 </div>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-20_3715bf6dca9bc0111a5a94dc57287a6e">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(X) <span class="sc">%*%</span> X</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">X</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                trust_neighbors    exports ln_exports export_area
 trust_neighbors       62.000000   1339.276   18.61181    28.40709
@@ -597,7 +570,7 @@ ln_export_area        8.412887</code></pre>
 </div>
 </div>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-21_6de9b4159a67acd3f082b02054f2b343">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(X, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">X</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      trust_neighbors     exports ln_exports  export_area ln_export_area   
  [1,]               3   0.3883497  0.3281158  0.004067405    0.004059155  1
@@ -613,7 +586,7 @@ ln_export_area        8.412887</code></pre>
 </div>
 </div>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-22_67d1adaa0ccbd2870e50bf847e43e3de">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(X, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">X</span>, <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      trust_neighbors     exports ln_exports  export_area ln_export_area  
  [1,]               3   0.3883497  0.3281158  0.004067405    0.004059155 1
@@ -629,19 +602,18 @@ ln_export_area        8.412887</code></pre>
 </div>
 </div>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-23_b534e2bd97c93e6ff43dfbe7e551d882">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "trust_neighbors" "exports"         "ln_exports"      "export_area"    
 [5] "ln_export_area" </code></pre>
 </div>
 </div>
-</section>
-<section id="variable-transformations" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="variable-transformations"><span class="header-section-number">7.4</span> Variable Transformations</h2>
+</section><section id="variable-transformations" class="level2" data-number="8.4"><h2 data-number="8.4" class="anchored" data-anchor-id="variable-transformations">
+<span class="header-section-number">8.4</span> Variable Transformations</h2>
 <p><code>exports</code> is the total number of slaves that were taken from the individual’s ethnic group between Africa’s four slave trades between 1400-1900.</p>
 <p>What is <code>ln_exports</code>? The article describes this as the natural log of one plus the <code>exports</code>. This is a transformation of one column by a particular function</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-24_a8f830ee66cce28aa4019154400884f6">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">1</span> <span class="sc">+</span> X[, <span class="st">"exports"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="fl">1</span> <span class="op">+</span> <span class="va">X</span><span class="op">[</span>, <span class="st">"exports"</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 0.3281158 0.4892691 0.6902376 5.2127003 0.0000000 0.0000000 6.5027379
  [8] 0.2983562 0.3611559 0.0000000</code></pre>
@@ -649,15 +621,14 @@ ln_export_area        8.412887</code></pre>
 </div>
 <p>Question for you: why add the 1?</p>
 <p>Verify that this is the same as <code>X[, "ln_exports"]</code></p>
-</section>
-<section id="linear-combinations" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="linear-combinations"><span class="header-section-number">7.5</span> Linear Combinations</h2>
+</section><section id="linear-combinations" class="level2" data-number="8.5"><h2 data-number="8.5" class="anchored" data-anchor-id="linear-combinations">
+<span class="header-section-number">8.5</span> Linear Combinations</h2>
 <p>In Table 1 we see “OLS Estimates”. These are estimates of OLS coefficients and standard errors. You do not need to know what these are for now, but it doesn’t hurt to getting used to seeing them.</p>
 <p><img src="images/nunn_wantchekon_table1.png" class="img-fluid"></p>
 <p>A very crude way to describe regression is through linear combinations. The simplest linear combination is a one-to-one transformation.</p>
 <p>Take the first number in Table 1, which is -0.00068. Now, multiply this by <code>exports</code></p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-25_c8e602685be1f27877df86faa00b888b">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="fl">0.00068</span> <span class="sc">*</span> X[, <span class="st">"exports"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">-</span><span class="fl">0.00068</span> <span class="op">*</span> <span class="va">X</span><span class="op">[</span>, <span class="st">"exports"</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] -0.0002640778 -0.0004291640 -0.0006760487 -0.1241606061  0.0000000000
  [6]  0.0000000000 -0.4528563428 -0.0002363964 -0.0002957912  0.0000000000</code></pre>
@@ -665,39 +636,39 @@ ln_export_area        8.412887</code></pre>
 </div>
 <p>Now, just one more step. Make a new matrix with just exports and the value 1</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-26_640f6d9076b2d72bd2374a247721d614">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>X2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="dv">1</span>, X[, <span class="st">"exports"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">X2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">X</span><span class="op">[</span>, <span class="st">"exports"</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>name this new column “intercept”</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-27_9c938ae2916c7922f1b683a45daa46f6">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(X2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">X2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>NULL</code></pre>
 </div>
 </div>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-28_b1334bbf8dbbf7a4e9f46bbbdcf529ba">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(X2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"intercept"</span>, <span class="st">"exports"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">X2</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"intercept"</span>, <span class="st">"exports"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>What are the dimensions of the matrix <code>X2</code>?</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-29_d05dffc49b02c018c734b9d2e11e52b3">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(X2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">X2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10  2</code></pre>
 </div>
 </div>
 <p>Now consider a new matrix, called <code>B</code>.</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-30_402b4d4161ebe77b9a76a23228bdc76f">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fl">1.62</span>, <span class="sc">-</span><span class="fl">0.00068</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">B</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1.62</span>, <span class="op">-</span><span class="fl">0.00068</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>What are the dimensions of <code>B</code>?</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-31_2a260f07626f3c3e8f91b4e1bce04c97">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">B</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2 1</code></pre>
 </div>
 </div>
 <p>What is the product of <code>X2</code> and <code>B</code>? From the dimensions, can you tell if it will be conformable?</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-32_5ad0d07c53c9671576b8b71b1b29d368">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>X2 <span class="sc">%*%</span> B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">X2</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">B</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          [,1]
  [1,] 1.619736
@@ -716,13 +687,12 @@ ln_export_area        8.412887</code></pre>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-33_3f0a6972235a9e4643d0b433c2c50a7d">
 
 </div>
-</section>
-<section id="matrix-basics" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="matrix-basics"><span class="header-section-number">7.6</span> Matrix Basics</h2>
+</section><section id="matrix-basics" class="level2" data-number="8.6"><h2 data-number="8.6" class="anchored" data-anchor-id="matrix-basics">
+<span class="header-section-number">8.6</span> Matrix Basics</h2>
 <p>Let’s take a look at Matrices in the context of R</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-34_fd8e27e5840027c1382e44e33e52bca3">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>cen10 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/input/usc2010_001percent.csv"</span>)</span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cen10)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cen10</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"data/input/usc2010_001percent.csv"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   state         sex      age race       
@@ -737,34 +707,34 @@ ln_export_area        8.412887</code></pre>
 </div>
 <p>What is the dimension of this dataframe? What does the number of rows represent? What does the number of columns represent?</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-35_8ceea20237e7eeb66eb97d96bf97c8ec">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(cen10)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 30871     4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(cen10)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 30871</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(cen10)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
 </div>
 <p>What variables does this dataset hold? What kind of information does it have?</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-36_99d344614b2e2869b945ac606153902e">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(cen10)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "state" "sex"   "age"   "race" </code></pre>
 </div>
 </div>
 <p>We can access column vectors, or vectors that contain values of variables by using the $ sign</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-37_5d35e01cc70c74ffe0e275e626182748">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cen10<span class="sc">$</span>state)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">$</span><span class="va">state</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "New York"      "Ohio"          "Nevada"        "Michigan"     
 [5] "Maryland"      "New Hampshire"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cen10<span class="sc">$</span>race)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">$</span><span class="va">race</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "White"       "White"       "White"       "White"       "Black/Negro"
 [6] "White"      </code></pre>
@@ -772,7 +742,7 @@ ln_export_area        8.412887</code></pre>
 </div>
 <p>We can look at a unique set of variable values by calling the unique function</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-38_f272f2b00b29576d1465963b1448ca3f">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(cen10<span class="sc">$</span>state)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">$</span><span class="va">state</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "New York"             "Ohio"                 "Nevada"              
  [4] "Michigan"             "Maryland"             "New Hampshire"       
@@ -795,7 +765,7 @@ ln_export_area        8.412887</code></pre>
 </div>
 <p>How many different states are represented (this dataset includes DC as a state)?</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-39_dbafd558b2c9a8fe86d44578cc0ba298">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(cen10<span class="sc">$</span>state))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">$</span><span class="va">state</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 51</code></pre>
 </div>
@@ -803,7 +773,7 @@ ln_export_area        8.412887</code></pre>
 <p>Matrices are rectangular structures of numbers (they have to be numbers, and they can’t be characters).</p>
 <p>A cross-tab can be considered a matrix:</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-40_3e896e174587300b439af36d4094280d">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(cen10<span class="sc">$</span>race, cen10<span class="sc">$</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">$</span><span class="va">race</span>, <span class="va">cen10</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                  
                                    Female  Male
@@ -819,21 +789,21 @@ ln_export_area        8.412887</code></pre>
 </div>
 </div>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-41_632e6737356ce3ae627de834a2894b48">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>cross_tab <span class="ot">&lt;-</span> <span class="fu">table</span>(cen10<span class="sc">$</span>race, cen10<span class="sc">$</span>sex)</span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(cross_tab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cross_tab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">$</span><span class="va">race</span>, <span class="va">cen10</span><span class="op">$</span><span class="va">sex</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">cross_tab</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 9 2</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>cross_tab[<span class="dv">6</span>, <span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cross_tab</span><span class="op">[</span><span class="fl">6</span>, <span class="fl">2</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 962</code></pre>
 </div>
 </div>
 <p>But a subset of your data – individual values– can be considered a matrix too.</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-42_d31605cd101bc58871ba50b54d0b9ad2">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First 20 rows of the entire data</span></span>
-<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Below two lines of code do the same thing</span></span>
-<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>cen10[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># First 20 rows of the entire data</span></span>
+<span><span class="co"># Below two lines of code do the same thing</span></span>
+<span><span class="va">cen10</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">20</span>, <span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 4
    state         sex      age race           
@@ -859,7 +829,7 @@ ln_export_area        8.412887</code></pre>
 19 West Virginia Male      10 White          
 20 Idaho         Female     9 White          </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>cen10 <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cen10</span> <span class="op">%&gt;%</span> <span class="fu">slice</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">20</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 4
    state         sex      age race           
@@ -885,9 +855,9 @@ ln_export_area        8.412887</code></pre>
 19 West Virginia Male      10 White          
 20 Idaho         Female     9 White          </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Of the first 20 rows of the entire data, look at values of just race and age</span></span>
-<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Below two lines of code do the same thing</span></span>
-<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>cen10[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>, <span class="fu">c</span>(<span class="st">"race"</span>, <span class="st">"age"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Of the first 20 rows of the entire data, look at values of just race and age</span></span>
+<span><span class="co"># Below two lines of code do the same thing</span></span>
+<span><span class="va">cen10</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">20</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"race"</span>, <span class="st">"age"</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 2
    race              age
@@ -913,7 +883,7 @@ ln_export_area        8.412887</code></pre>
 19 White              10
 20 White               9</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>cen10 <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(race, age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cen10</span> <span class="op">%&gt;%</span> <span class="fu">slice</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">20</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">race</span>, <span class="va">age</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 2
    race              age
@@ -942,8 +912,8 @@ ln_export_area        8.412887</code></pre>
 </div>
 <p>A vector is a special type of matrix with only one column or only one row</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-43_b46748c7e73b48f2bbd30b585c21b144">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One column</span></span>
-<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>cen10[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">c</span>(<span class="st">"age"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># One column</span></span>
+<span><span class="va">cen10</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"age"</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 1
      age
@@ -959,7 +929,7 @@ ln_export_area        8.412887</code></pre>
  9    62
 10    25</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>cen10 <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">c</span>(<span class="st">"age"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cen10</span> <span class="op">%&gt;%</span> <span class="fu">slice</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"age"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 1
      age
@@ -975,15 +945,15 @@ ln_export_area        8.412887</code></pre>
  9    62
 10    25</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One row</span></span>
-<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>cen10[<span class="dv">2</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># One row</span></span>
+<span><span class="va">cen10</span><span class="op">[</span><span class="fl">2</span>, <span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 4
   state sex     age race 
   &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;
 1 Ohio  Male     24 White</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>cen10 <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cen10</span> <span class="op">%&gt;%</span> <span class="fu">slice</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 4
   state sex     age race 
@@ -993,52 +963,52 @@ ln_export_area        8.412887</code></pre>
 </div>
 <p>What if we want a special subset of the data? For example, what if I only want the records of individuals in California? What if I just want the age and race of individuals in California?</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-44_c0068b5ee44e5e6165786ce6442a8a3d">
-<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># subset for CA rows</span></span>
-<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>ca_subset <span class="ot">&lt;-</span> cen10[cen10<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"California"</span>, ]</span>
-<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a>ca_subset_tidy <span class="ot">&lt;-</span> cen10 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"California"</span>)</span>
-<span id="cb98-5"><a href="#cb98-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb98-6"><a href="#cb98-6" aria-hidden="true" tabindex="-1"></a><span class="fu">all_equal</span>(ca_subset, ca_subset_tidy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># subset for CA rows</span></span>
+<span><span class="va">ca_subset</span> <span class="op">&lt;-</span> <span class="va">cen10</span><span class="op">[</span><span class="va">cen10</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="st">"California"</span>, <span class="op">]</span></span>
+<span></span>
+<span><span class="va">ca_subset_tidy</span> <span class="op">&lt;-</span> <span class="va">cen10</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">state</span> <span class="op">==</span> <span class="st">"California"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">all_equal</span><span class="op">(</span><span class="va">ca_subset</span>, <span class="va">ca_subset_tidy</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># subset for CA rows and select age and race</span></span>
-<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>ca_subset_age_race <span class="ot">&lt;-</span> cen10[cen10<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"California"</span>, <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"race"</span>)]</span>
-<span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb100-4"><a href="#cb100-4" aria-hidden="true" tabindex="-1"></a>ca_subset_age_race_tidy <span class="ot">&lt;-</span> cen10 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"California"</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(age, race)</span>
-<span id="cb100-5"><a href="#cb100-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb100-6"><a href="#cb100-6" aria-hidden="true" tabindex="-1"></a><span class="fu">all_equal</span>(ca_subset_age_race, ca_subset_age_race_tidy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># subset for CA rows and select age and race</span></span>
+<span><span class="va">ca_subset_age_race</span> <span class="op">&lt;-</span> <span class="va">cen10</span><span class="op">[</span><span class="va">cen10</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="st">"California"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"age"</span>, <span class="st">"race"</span><span class="op">)</span><span class="op">]</span></span>
+<span></span>
+<span><span class="va">ca_subset_age_race_tidy</span> <span class="op">&lt;-</span> <span class="va">cen10</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">state</span> <span class="op">==</span> <span class="st">"California"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">age</span>, <span class="va">race</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">all_equal</span><span class="op">(</span><span class="va">ca_subset_age_race</span>, <span class="va">ca_subset_age_race_tidy</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
 </div>
 <p>Some common operators that can be used to filter or to use as a condition. Remember, you can use the unique function to look at the set of all values a variable holds in the dataset.</p>
 <div class="cell" data-hash="22_matrices_cache/html/unnamed-chunk-45_73b19bdd0029ccff83552fef8a42eb7a">
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all individuals older than 30 and younger than 70</span></span>
-<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a>s1 <span class="ot">&lt;-</span> cen10[cen10<span class="sc">$</span>age <span class="sc">&gt;</span> <span class="dv">30</span> <span class="sc">&amp;</span> cen10<span class="sc">$</span>age <span class="sc">&lt;</span> <span class="dv">70</span>, ]</span>
-<span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a>s2 <span class="ot">&lt;-</span> cen10 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(age <span class="sc">&gt;</span> <span class="dv">30</span> <span class="sc">&amp;</span> age <span class="sc">&lt;</span> <span class="dv">70</span>)</span>
-<span id="cb102-4"><a href="#cb102-4" aria-hidden="true" tabindex="-1"></a><span class="fu">all_equal</span>(s1, s2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># all individuals older than 30 and younger than 70</span></span>
+<span><span class="va">s1</span> <span class="op">&lt;-</span> <span class="va">cen10</span><span class="op">[</span><span class="va">cen10</span><span class="op">$</span><span class="va">age</span> <span class="op">&gt;</span> <span class="fl">30</span> <span class="op">&amp;</span> <span class="va">cen10</span><span class="op">$</span><span class="va">age</span> <span class="op">&lt;</span> <span class="fl">70</span>, <span class="op">]</span></span>
+<span><span class="va">s2</span> <span class="op">&lt;-</span> <span class="va">cen10</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">age</span> <span class="op">&gt;</span> <span class="fl">30</span> <span class="op">&amp;</span> <span class="va">age</span> <span class="op">&lt;</span> <span class="fl">70</span><span class="op">)</span></span>
+<span><span class="fu">all_equal</span><span class="op">(</span><span class="va">s1</span>, <span class="va">s2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all individuals in either New York or California</span></span>
-<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a>s3 <span class="ot">&lt;-</span> cen10[cen10<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"New York"</span> <span class="sc">|</span> cen10<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"California"</span>, ]</span>
-<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a>s4 <span class="ot">&lt;-</span> cen10 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"New York"</span> <span class="sc">|</span> state <span class="sc">==</span> <span class="st">"California"</span>)</span>
-<span id="cb104-4"><a href="#cb104-4" aria-hidden="true" tabindex="-1"></a><span class="fu">all_equal</span>(s3, s4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># all individuals in either New York or California</span></span>
+<span><span class="va">s3</span> <span class="op">&lt;-</span> <span class="va">cen10</span><span class="op">[</span><span class="va">cen10</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="st">"New York"</span> <span class="op">|</span> <span class="va">cen10</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="st">"California"</span>, <span class="op">]</span></span>
+<span><span class="va">s4</span> <span class="op">&lt;-</span> <span class="va">cen10</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">state</span> <span class="op">==</span> <span class="st">"New York"</span> <span class="op">|</span> <span class="va">state</span> <span class="op">==</span> <span class="st">"California"</span><span class="op">)</span></span>
+<span><span class="fu">all_equal</span><span class="op">(</span><span class="va">s3</span>, <span class="va">s4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all individuals in any of the following states: California, Ohio, Nevada, Michigan</span></span>
-<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>s5 <span class="ot">&lt;-</span> cen10[cen10<span class="sc">$</span>state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"California"</span>, <span class="st">"Ohio"</span>, <span class="st">"Nevada"</span>, <span class="st">"Michigan"</span>), ]</span>
-<span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a>s6 <span class="ot">&lt;-</span> cen10 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"California"</span>, <span class="st">"Ohio"</span>, <span class="st">"Nevada"</span>, <span class="st">"Michigan"</span>))</span>
-<span id="cb106-4"><a href="#cb106-4" aria-hidden="true" tabindex="-1"></a><span class="fu">all_equal</span>(s5, s6)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># all individuals in any of the following states: California, Ohio, Nevada, Michigan</span></span>
+<span><span class="va">s5</span> <span class="op">&lt;-</span> <span class="va">cen10</span><span class="op">[</span><span class="va">cen10</span><span class="op">$</span><span class="va">state</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"California"</span>, <span class="st">"Ohio"</span>, <span class="st">"Nevada"</span>, <span class="st">"Michigan"</span><span class="op">)</span>, <span class="op">]</span></span>
+<span><span class="va">s6</span> <span class="op">&lt;-</span> <span class="va">cen10</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">state</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"California"</span>, <span class="st">"Ohio"</span>, <span class="st">"Nevada"</span>, <span class="st">"Michigan"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">all_equal</span><span class="op">(</span><span class="va">s5</span>, <span class="va">s6</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co"># all individuals NOT in any of the following states: California, Ohio, Nevada, Michigan</span></span>
-<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>s7 <span class="ot">&lt;-</span> cen10[<span class="sc">!</span>(cen10<span class="sc">$</span>state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"California"</span>, <span class="st">"Ohio"</span>, <span class="st">"Nevada"</span>, <span class="st">"Michigan"</span>)), ]</span>
-<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a>s8 <span class="ot">&lt;-</span> cen10 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span>state <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"California"</span>, <span class="st">"Ohio"</span>, <span class="st">"Nevada"</span>, <span class="st">"Michigan"</span>))</span>
-<span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a><span class="fu">all_equal</span>(s7, s8)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># all individuals NOT in any of the following states: California, Ohio, Nevada, Michigan</span></span>
+<span><span class="va">s7</span> <span class="op">&lt;-</span> <span class="va">cen10</span><span class="op">[</span><span class="op">!</span><span class="op">(</span><span class="va">cen10</span><span class="op">$</span><span class="va">state</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"California"</span>, <span class="st">"Ohio"</span>, <span class="st">"Nevada"</span>, <span class="st">"Michigan"</span><span class="op">)</span><span class="op">)</span>, <span class="op">]</span></span>
+<span><span class="va">s8</span> <span class="op">&lt;-</span> <span class="va">cen10</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="va">state</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"California"</span>, <span class="st">"Ohio"</span>, <span class="st">"Nevada"</span>, <span class="st">"Michigan"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">all_equal</span><span class="op">(</span><span class="va">s7</span>, <span class="va">s8</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -1047,16 +1017,10 @@ ln_export_area        8.412887</code></pre>
 
 <!-- -->
 
-</section>
-<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
+</section><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
 <ol>
 <li id="fn1" role="doc-endnote"><p><a href="https://dash.harvard.edu/bitstream/handle/1/11986331/nunn-slave-trade.pdf">Nunn, Nathan, and Leonard Wantchekon. 2011. “The Slave Trade and the Origins of Mistrust in Africa.” American Economic Review 101(7): 3221–52.</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</ol></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1203,16 +1167,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     });
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./21_linear-algebra.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Algebra</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear Algebra</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./31_limits.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Limits</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Limits</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">

@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.38">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>UCSD Political Science Math Camp - 4&nbsp; Data Wrangling and Cleaning</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./14_simulation.html" rel="next">
+<link href="./12_visualization.html" rel="prev">
+<link href="./favicon.ico" rel="icon">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script><style>html{ scroll-behavior: smooth; }</style>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean"
+}
+</script><script async="" src="https://hypothes.is/embed.js"></script><link rel="stylesheet" href="style.css">
+</head>
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Wrangling and Cleaning</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">UCSD Political Science Math Camp</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/UCSDPoliMathCamp/MathCamp/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="./UCSD-Political-Science-Math-Camp.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">About this Booklet</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_prerequisites.html" class="sidebar-item-text sidebar-link">Prerequisites</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">I Introduction to R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_orientation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Orientation and Reading in Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_functions_obj_loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Objects, Functions, Loops</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_visualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13_data_wrangling_cleaning.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Wrangling and Cleaning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14_simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simulation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_non-wysiwyg.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">LaTeX and Markdown</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">II Linear Algebra</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21_linear-algebra.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Linear Algebra</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22_matrices.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Manipulating Vectors and Matrices</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">III Calculus</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31_limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Limits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./32_derivatives.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Differential Calculus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./33_optimization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Optimization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./34_intergrals.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Integral Calculus</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">IV Probability</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41_probability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Probability Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./42_distribution.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Summarizing Distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./43_statistics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Learning from Data</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./51_solutions-warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions Solutions</a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#clean-data" id="toc-clean-data" class="nav-link active" data-scroll-target="#clean-data"> <span class="header-section-number">4.1</span> Clean Data</a></li>
+  <li>
+<a href="#cleaning-data-using-dplyr" id="toc-cleaning-data-using-dplyr" class="nav-link" data-scroll-target="#cleaning-data-using-dplyr"> <span class="header-section-number">4.2</span> Cleaning Data Using dplyr</a>
+  <ul class="collapse">
+<li><a href="#the-pipe-operator" id="toc-the-pipe-operator" class="nav-link" data-scroll-target="#the-pipe-operator"> <span class="header-section-number">4.2.1</span> The Pipe Operator</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#working-with-columns" id="toc-working-with-columns" class="nav-link" data-scroll-target="#working-with-columns"> <span class="header-section-number">4.3</span> Working with Columns</a>
+  <ul class="collapse">
+<li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"> <span class="header-section-number">4.3.1</span> Select</a></li>
+  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"> <span class="header-section-number">4.3.2</span> Mutate</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#working-with-rows" id="toc-working-with-rows" class="nav-link" data-scroll-target="#working-with-rows"> <span class="header-section-number">4.4</span> Working with Rows</a>
+  <ul class="collapse">
+<li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"> <span class="header-section-number">4.4.1</span> Filter</a></li>
+  <li><a href="#aggregation" id="toc-aggregation" class="nav-link" data-scroll-target="#aggregation"> <span class="header-section-number">4.4.2</span> Aggregation</a></li>
+  </ul>
+</li>
+  <li><a href="#merging-data" id="toc-merging-data" class="nav-link" data-scroll-target="#merging-data"> <span class="header-section-number">4.5</span> Merging Data</a></li>
+  <li><a href="#reshaping-data" id="toc-reshaping-data" class="nav-link" data-scroll-target="#reshaping-data"> <span class="header-section-number">4.6</span> Reshaping Data</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/13_data_wrangling_cleaning.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/blob/main/13_data_wrangling_cleaning.Rmd" class="toc-action">View source</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="datawrangling" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Wrangling and Cleaning</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header><section id="clean-data" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="clean-data">
+<span class="header-section-number">4.1</span> Clean Data</h2>
+<p>The raw data used in much of political science research rarely comes to us in a format that is immediately accessible for analysis. Instead, we frequently need to write an R script to “clean” the data first. Only after cleaning the data will it be usable for visualization or statistical modeling. This process (also known as “data wrangling”) can be extremely arduous and time-consuming—depending on how messy the raw data is in the first place. According to the common aphorism, the time you spend writing R code to clean your data sets will far exceed the time you spend subsequently running any sort of statistical analysis on the cleaned data.</p>
+<p>Although data cleaning has a reputation as a dull, menial task (compared to the “fun” of statistical modeling), try to avoid treating the process like it is merely a roadblock—something to be overcome before you can begin the <em>real</em> analysis. In fact, each decision you make when wrangling your raw data into its final state <a href="https://counting.substack.com/p/data-cleaning-is-analysis-not-grunt#:~:text=The%20act%20of%20cleaning%20data%20is%20the%20act%20of%20preferentially,the%20act%20of%20data%20analysis.">is a crucial part of the final research product</a>. Whether or not to drop certain observations, or using different levels of data aggregation are some examples of choices which can have massive downstream effects. You should be thoughtful and transparent about your decision-making process the whole time you spend cleaning data.</p>
+</section><section id="cleaning-data-using-dplyr" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="cleaning-data-using-dplyr">
+<span class="header-section-number">4.2</span> Cleaning Data Using dplyr</h2>
+<p>As in the other sections of this book, we will be using the Tidyverse approach to data cleaning here. The Tidyverse package for data cleaning is <a href="https://dplyr.tidyverse.org/">dplyr</a> and it contains most of the functions we will be using in this chapter.</p>
+<p>Rather than downloading a .csv file and using the <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> function to load in our data for this chapter, we will be using a package which contains multiple data sets. The data come from the <a href="https://github.com/dgrtwo/unvotes">United Nations General Assembly</a>. First install the unvotes package by running the following command in your Console.</p>
+<div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-1_db8b492b5dd60ca6c6050e6adccb0d11">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"unvotes"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then run</p>
+<div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-2_a8306d550bae2ca1022ae119d28d49fc">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dgrtwo/unvotes">unvotes</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>When you use the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> function, many packages automatically load small data sets that immediately become available for use. However, accessing these data can be a bit confusing because they do not automatically show up as objects in your Environment tab. Let’s add the unvotes data sets to our Environment with the following chunk of code:</p>
+<div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-3_1f3ff9feaa5c578c8c0bc95ff51484bd">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_votes</span> <span class="op">&lt;-</span> <span class="va">un_votes</span></span>
+<span><span class="va">un_roll_calls</span> <span class="op">&lt;-</span> <span class="va">un_roll_calls</span></span>
+<span><span class="va">un_roll_call_issues</span> <span class="op">&lt;-</span> <span class="va">un_roll_call_issues</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>
+<code>un_votes</code>, country-vote level data. Each row is a country’s vote on a particular UN Assembly resolution.</li>
+<li>
+<code>un_roll_calls</code>, resolution level data. Contains information about each resolution.</li>
+<li>
+<code>un_roll_call_issues</code>, resolution level data. Contains the issue-area for each resolution.</li>
+</ul>
+<section id="the-pipe-operator" class="level3" data-number="4.2.1"><h3 data-number="4.2.1" class="anchored" data-anchor-id="the-pipe-operator">
+<span class="header-section-number">4.2.1</span> The Pipe Operator</h3>
+<p>Before we get started using dplyr we need to first introduce the “pipe” operator <code>|&gt;</code>. Pipes are an extremely convenient tool for linking sequences of functions together. They work by passing the object on the left hand side of the pipe into the function following the pipe. <a href="https://twitter.com/andrewheiss/status/1359583543509348356">Here is an example</a>.</p>
+<div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-4_6f5e551ce2ae2924c20b9cf442092172">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># The pipe way</span></span>
+<span><span class="va">me</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">wake_up</span><span class="op">(</span>time <span class="op">=</span> <span class="st">"8:00"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">get_out_of_bed</span><span class="op">(</span>side <span class="op">=</span> <span class="st">"correct"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">get_dressed</span><span class="op">(</span>pants <span class="op">=</span> <span class="cn">TRUE</span>, shirt <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">leave_house</span><span class="op">(</span>car <span class="op">=</span> <span class="cn">FALSE</span>, bike <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># The non-pipe way</span></span>
+<span><span class="fu">leave_house</span><span class="op">(</span><span class="fu">get_dressed</span><span class="op">(</span><span class="fu">get_out_of_bed</span><span class="op">(</span><span class="fu">wake_up</span><span class="op">(</span><span class="va">me</span>, time <span class="op">=</span> <span class="st">"8:00"</span><span class="op">)</span>, side <span class="op">=</span> <span class="st">"correct"</span><span class="op">)</span>, pants <span class="op">=</span> <span class="cn">TRUE</span>, shirt <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, car <span class="op">=</span> <span class="cn">FALSE</span>, bike <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Both code chunks above will end up doing the same thing. But the pipe method is much easier to write, and much easier for others to read and understand.</p>
+<p>Before R version 4.1, the pipe operator was only available in the <a href="https://magrittr.tidyverse.org/">magrittr</a> package (which remains part of the Tidyverse). The magrittr pipe is written <code>%&gt;%</code> and many R users continue to use this over the native R <code>|&gt;</code>. There are a few very minor differences between the two pipes, which you should feel free to ignore. We use the native R <code>|&gt;</code> pipe in this book because it is generally a good idea, all else equal, to reduce your dependency on outside packages when writing code.</p>
+</section></section><section id="working-with-columns" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="working-with-columns">
+<span class="header-section-number">4.3</span> Working with Columns</h2>
+<p>Each column in a data set typically represents a single variable, or attribute, relating to the observation in a particular row. In this section we will look at some of dplyr’s functions for working with columns.</p>
+<section id="select" class="level3" data-number="4.3.1"><h3 data-number="4.3.1" class="anchored" data-anchor-id="select">
+<span class="header-section-number">4.3.1</span> Select</h3>
+<p>The <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function is primarily used to remove unwanted columns from the data. Here is an example.</p>
+<div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-5_30b70f7fb43694a1b8a2919d6b4f7510">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_roll_calls</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">rcid</span>, <span class="va">date</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="co"># Keeping only two variables</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># Print out first 6 rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+   rcid date      
+  &lt;int&gt; &lt;date&gt;    
+1     3 1946-01-01
+2     4 1946-01-02
+3     5 1946-01-04
+4     6 1946-01-04
+5     7 1946-01-02
+6     8 1946-01-05</code></pre>
+</div>
+</div>
+<p>The <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function prints out the first few rows of a data set, and can be helpful to check if your cleaning function worked in the way you expected.</p>
+<p>Note that the code chunk above did not alter the data set object <code>un_roll_calls</code>. If we wanted to take this smaller data set and use it for something else, we will need to use the assignment operator <code>&lt;-</code> to save our work.</p>
+<div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-6_602d687f5070758202a1a7593f6d69b1">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># This creates a new object called "small_un_roll_calls"</span></span>
+<span><span class="co"># containly only rcid and date columns</span></span>
+<span><span class="va">small_un_roll_calls</span> <span class="op">&lt;-</span> <span class="va">un_roll_calls</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">rcid</span>, <span class="va">date</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function can be very versatile. Rather than typing every column name we want to keep, it is often faster to specify the columns we want to drop.</p>
+<div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-7_6e39f5f3d6098c942b5b65d8296a15f5">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_roll_calls</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">session</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="co"># Keep everything except session column</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+   rcid importantvote date       unres   amend  para short                 descr
+  &lt;int&gt;         &lt;int&gt; &lt;date&gt;     &lt;chr&gt;   &lt;int&gt; &lt;int&gt; &lt;chr&gt;                 &lt;chr&gt;
+1     3             0 1946-01-01 R/1/66      1     0 AMENDMENTS, RULES OF… "TO …
+2     4             0 1946-01-02 R/1/79      0     0 SECURITY COUNCIL ELE… "TO …
+3     5             0 1946-01-04 R/1/98      0     0 VOTING PROCEDURE      "TO …
+4     6             0 1946-01-04 R/1/107     0     0 DECLARATION OF HUMAN… "TO …
+5     7             0 1946-01-02 R/1/295     1     0 GENERAL ASSEMBLY ELE… "TO …
+6     8             0 1946-01-05 R/1/297     1     0 ECOSOC POWERS         "TO …</code></pre>
+</div>
+</div>
+<p>There are many other convenient ways to selection columns (e.g.&nbsp;by common names, by type of data, or by position in the data set). For a full list of ways to use <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> see <a href="https://dplyr.tidyverse.org/reference/select.html">this link</a>. Here is one example of selecting every column which is a “character” type.</p>
+<div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-8_fd693f58df64deb26afa0ff697a6d648">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_roll_calls</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.character</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  unres   short                          descr                                  
+  &lt;chr&gt;   &lt;chr&gt;                          &lt;chr&gt;                                  
+1 R/1/66  AMENDMENTS, RULES OF PROCEDURE "TO ADOPT A CUBAN AMENDMENT TO THE UK …
+2 R/1/79  SECURITY COUNCIL ELECTIONS     "TO ADOPT A USSR PROPOSAL ADJOURNING D…
+3 R/1/98  VOTING PROCEDURE               "TO ADOPT THE KOREAN PROPOSAL THAT INV…
+4 R/1/107 DECLARATION OF HUMAN RIGHTS    "TO ADOPT A CUBAN PROPOSAL (A/3-C) THA…
+5 R/1/295 GENERAL ASSEMBLY ELECTIONS     "TO ADOPT A 6TH COMMITTEE AMENDMENT (A…
+6 R/1/297 ECOSOC POWERS                  "TO ADOPT A SECOND 6TH COMM. AMENDMENT…</code></pre>
+</div>
+</div>
+<p>Lastly, we can use <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> to rename columns in our data. The chunk of code below selects the “unres” and date columns, and renames “unres” to “un_resolution” at the same time.</p>
+<div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-9_c428470736256611c09ee77491524a7f">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_roll_calls</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span>un_resolution <span class="op">=</span> <span class="va">unres</span>, <span class="va">date</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  un_resolution date      
+  &lt;chr&gt;         &lt;date&gt;    
+1 R/1/66        1946-01-01
+2 R/1/79        1946-01-02
+3 R/1/98        1946-01-04
+4 R/1/107       1946-01-04
+5 R/1/295       1946-01-02
+6 R/1/297       1946-01-05</code></pre>
+</div>
+</div>
+<p>If you only want to rename columns—without specifying which to select—dplyr has a function <code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename()</a></code> for this purpose. The syntax is similar to the code chunk above <code>new_variable_name = original_variable_name</code>. This code will keep all columns and change the names of the specified variables.</p>
+<div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-10_61812b01aa8f8290b27183ad554be767">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_roll_calls</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>un_resolution <span class="op">=</span> <span class="va">unres</span>,</span>
+<span>         amendment <span class="op">=</span> <span class="va">amend</span>,</span>
+<span>         paragraph <span class="op">=</span> <span class="va">para</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 9
+   rcid session importantvote date       un_resolu…¹ amend…² parag…³ short descr
+  &lt;int&gt;   &lt;dbl&gt;         &lt;int&gt; &lt;date&gt;     &lt;chr&gt;         &lt;int&gt;   &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+1     3       1             0 1946-01-01 R/1/66            1       0 AMEN… "TO …
+2     4       1             0 1946-01-02 R/1/79            0       0 SECU… "TO …
+3     5       1             0 1946-01-04 R/1/98            0       0 VOTI… "TO …
+4     6       1             0 1946-01-04 R/1/107           0       0 DECL… "TO …
+5     7       1             0 1946-01-02 R/1/295           1       0 GENE… "TO …
+6     8       1             0 1946-01-05 R/1/297           1       0 ECOS… "TO …
+# … with abbreviated variable names ¹​un_resolution, ²​amendment, ³​paragraph</code></pre>
+</div>
+</div>
+</section><section id="mutate" class="level3" data-number="4.3.2"><h3 data-number="4.3.2" class="anchored" data-anchor-id="mutate">
+<span class="header-section-number">4.3.2</span> Mutate</h3>
+<p>The <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename()</a></code> functions are great for tidying up your data sets, but they do not change the underlying variables. To change existing variables or to create new ones we use <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>.</p>
+<p>Let’s say we discovered that all the roll call IDs in the column “rcid” were supposed to be in multiples of 10. The code chunk below creates a new variable called “rcid_10” which is simply the value of the original “rcid” variable multiplied by 10.</p>
+<div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-11_e8f4b6100df9ec2252779bbbfc479f2b">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_votes</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>rcid_10 <span class="op">=</span> <span class="va">rcid</span> <span class="op">*</span> <span class="fl">10</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+   rcid country            country_code vote  rcid_10
+  &lt;dbl&gt; &lt;chr&gt;              &lt;chr&gt;        &lt;fct&gt;   &lt;dbl&gt;
+1     3 United States      US           yes        30
+2     3 Canada             CA           no         30
+3     3 Cuba               CU           yes        30
+4     3 Haiti              HT           yes        30
+5     3 Dominican Republic DO           yes        30
+6     3 Mexico             MX           yes        30</code></pre>
+</div>
+</div>
+<p>If you didn’t want to create a brand new variable, and instead wanted to overwrite the original variable, you just need to put the original variable to the left of the <code>=</code> in <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>.</p>
+<div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-12_d13b0fe9846afb7bae6001c223308fad">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_votes</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>rcid <span class="op">=</span> <span class="va">rcid</span> <span class="op">*</span> <span class="fl">10</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+   rcid country            country_code vote 
+  &lt;dbl&gt; &lt;chr&gt;              &lt;chr&gt;        &lt;fct&gt;
+1    30 United States      US           yes  
+2    30 Canada             CA           no   
+3    30 Cuba               CU           yes  
+4    30 Haiti              HT           yes  
+5    30 Dominican Republic DO           yes  
+6    30 Mexico             MX           yes  </code></pre>
+</div>
+</div>
+<p>We commonly need to create a new variable whose values depend on the values of one of the original variables. The function <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> helps us do this inside <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>.</p>
+<div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-13_584f38c0aa4251238d5141bb9c0c042d">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_votes</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>vote_dummy <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">vote</span> <span class="op">==</span> <span class="st">"yes"</span> <span class="op">~</span> <span class="fl">1</span>,</span>
+<span>                                <span class="va">vote</span> <span class="op">==</span> <span class="st">"no"</span> <span class="op">~</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+   rcid country            country_code vote  vote_dummy
+  &lt;dbl&gt; &lt;chr&gt;              &lt;chr&gt;        &lt;fct&gt;      &lt;dbl&gt;
+1     3 United States      US           yes            1
+2     3 Canada             CA           no             0
+3     3 Cuba               CU           yes            1
+4     3 Haiti              HT           yes            1
+5     3 Dominican Republic DO           yes            1
+6     3 Mexico             MX           yes            1</code></pre>
+</div>
+</div>
+<p>As you can see, the code chunk above creates a new variable called “vote_dummy” which takes the value <code>1</code> if “vote” equals <code>"yes"</code> and takes the values <code>0</code> if “vote” equals <code>"no"</code>. Like other programming languages, R uses the <code>==</code> logical operator to check whether a value <em>equals</em>, or is equivalent, to some other value. This is different from the single <code>=</code> which is used to create entire new variables inside <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>.</p>
+<p>Here is one more example using <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code>.</p>
+<div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-14_219bed2c3573d773e02e2bb514fff316">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_votes</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>rcid_era <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">rcid</span> <span class="op">&lt;</span> <span class="fl">2000</span> <span class="op">~</span> <span class="st">"old"</span>,</span>
+<span>                              <span class="va">rcid</span> <span class="op">&gt;=</span> <span class="fl">2000</span> <span class="op">&amp;</span> <span class="va">rcid</span> <span class="op">&lt;</span> <span class="fl">6000</span> <span class="op">~</span> <span class="st">"middle"</span>,</span>
+<span>                              <span class="va">rcid</span> <span class="op">&gt;=</span> <span class="fl">6000</span> <span class="op">~</span> <span class="st">"recent"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+   rcid country            country_code vote  rcid_era
+  &lt;dbl&gt; &lt;chr&gt;              &lt;chr&gt;        &lt;fct&gt; &lt;chr&gt;   
+1     3 United States      US           yes   old     
+2     3 Canada             CA           no    old     
+3     3 Cuba               CU           yes   old     
+4     3 Haiti              HT           yes   old     
+5     3 Dominican Republic DO           yes   old     
+6     3 Mexico             MX           yes   old     </code></pre>
+</div>
+</div>
+<p>The new variable “rcid_era” takes three values, <code>"old"</code>, <code>"middle"</code>, and <code>"recent"</code> based on what range the “rcid” variable falls under.</p>
+</section></section><section id="working-with-rows" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="working-with-rows">
+<span class="header-section-number">4.4</span> Working with Rows</h2>
+<section id="filter" class="level3" data-number="4.4.1"><h3 data-number="4.4.1" class="anchored" data-anchor-id="filter">
+<span class="header-section-number">4.4.1</span> Filter</h3>
+</section><section id="aggregation" class="level3" data-number="4.4.2"><h3 data-number="4.4.2" class="anchored" data-anchor-id="aggregation">
+<span class="header-section-number">4.4.2</span> Aggregation</h3>
+</section></section><section id="merging-data" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="merging-data">
+<span class="header-section-number">4.5</span> Merging Data</h2>
+</section><section id="reshaping-data" class="level2" data-number="4.6"><h2 data-number="4.6" class="anchored" data-anchor-id="reshaping-data">
+<span class="header-section-number">4.6</span> Reshaping Data</h2>
+
+
+<!-- -->
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./12_visualization.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visualization</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./14_simulation.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Simulation</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb24" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data Wrangling and Cleaning {#datawrangling}</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Clean Data</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>The raw data used in much of political science research rarely comes to us in a format that is immediately accessible for analysis. Instead, we frequently need to write an R script to "clean" the data first. Only after cleaning the data will it be usable for visualization or statistical modeling. This process (also known as "data wrangling") can be extremely arduous and time-consuming---depending on how messy the raw data is in the first place. According to the common aphorism, the time you spend writing R code to clean your data sets will far exceed the time you spend subsequently running any sort of statistical analysis on the cleaned data.</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>Although data cleaning has a reputation as a dull, menial task (compared to the "fun" of statistical modeling), try to avoid treating the process like it is merely a roadblock---something to be overcome before you can begin the *real* analysis. In fact, each decision you make when wrangling your raw data into its final state <span class="co">[</span><span class="ot">is a crucial part of the final research product</span><span class="co">](https://counting.substack.com/p/data-cleaning-is-analysis-not-grunt#:~:text=The%20act%20of%20cleaning%20data%20is%20the%20act%20of%20preferentially,the%20act%20of%20data%20analysis.)</span>. Whether or not to drop certain observations, or using different levels of data aggregation are some examples of choices which can have massive downstream effects. You should be thoughtful and transparent about your decision-making process the whole time you spend cleaning data.</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cleaning Data Using dplyr</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>As in the other sections of this book, we will be using the Tidyverse approach to data cleaning here. The Tidyverse package for data cleaning is <span class="co">[</span><span class="ot">dplyr</span><span class="co">](https://dplyr.tidyverse.org/)</span> and it contains most of the functions we will be using in this chapter.</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>Rather than downloading a .csv file and using the <span class="in">`read_csv()`</span> function to load in our data for this chapter, we will be using a package which contains multiple data sets. The data come from the <span class="co">[</span><span class="ot">United Nations General Assembly</span><span class="co">](https://github.com/dgrtwo/unvotes)</span>. First install the unvotes package by running the following command in your Console.</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"unvotes"</span>)</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>Then run</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, message=FALSE}</span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(unvotes)</span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>When you use the <span class="in">`library()`</span> function, many packages automatically load small data sets that immediately become available for use. However, accessing these data can be a bit confusing because they do not automatically show up as objects in your Environment tab. Let's add the unvotes data sets to our Environment with the following chunk of code:</span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>un_votes <span class="ot">&lt;-</span> un_votes</span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>un_roll_calls <span class="ot">&lt;-</span> un_roll_calls</span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>un_roll_call_issues <span class="ot">&lt;-</span> un_roll_call_issues</span>
+<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`un_votes`</span>, country-vote level data. Each row is a country's vote on a particular UN Assembly resolution.</span>
+<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`un_roll_calls`</span>, resolution level data. Contains information about each resolution.</span>
+<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`un_roll_call_issues`</span>, resolution level data. Contains the issue-area for each resolution.</span>
+<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a><span class="fu">### The Pipe Operator</span></span>
+<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a>Before we get started using dplyr we need to first introduce the "pipe" operator <span class="in">`|&gt;`</span>. Pipes are an extremely convenient tool for linking sequences of functions together. They work by passing the object on the left hand side of the pipe into the function following the pipe. <span class="co">[</span><span class="ot">Here is an example</span><span class="co">](https://twitter.com/andrewheiss/status/1359583543509348356)</span>.</span>
+<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a><span class="co"># The pipe way</span></span>
+<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a>me <span class="sc">|&gt;</span> </span>
+<span id="cb24-47"><a href="#cb24-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">wake_up</span>(<span class="at">time =</span> <span class="st">"8:00"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb24-48"><a href="#cb24-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_out_of_bed</span>(<span class="at">side =</span> <span class="st">"correct"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb24-49"><a href="#cb24-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_dressed</span>(<span class="at">pants =</span> <span class="cn">TRUE</span>, <span class="at">shirt =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb24-50"><a href="#cb24-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">leave_house</span>(<span class="at">car =</span> <span class="cn">FALSE</span>, <span class="at">bike =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb24-51"><a href="#cb24-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-52"><a href="#cb24-52" aria-hidden="true" tabindex="-1"></a><span class="co"># The non-pipe way</span></span>
+<span id="cb24-53"><a href="#cb24-53" aria-hidden="true" tabindex="-1"></a><span class="fu">leave_house</span>(<span class="fu">get_dressed</span>(<span class="fu">get_out_of_bed</span>(<span class="fu">wake_up</span>(me, <span class="at">time =</span> <span class="st">"8:00"</span>), <span class="at">side =</span> <span class="st">"correct"</span>), <span class="at">pants =</span> <span class="cn">TRUE</span>, <span class="at">shirt =</span> <span class="cn">TRUE</span>), <span class="at">car =</span> <span class="cn">FALSE</span>, <span class="at">bike =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb24-54"><a href="#cb24-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-55"><a href="#cb24-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-56"><a href="#cb24-56" aria-hidden="true" tabindex="-1"></a>Both code chunks above will end up doing the same thing. But the pipe method is much easier to write, and much easier for others to read and understand. </span>
+<span id="cb24-57"><a href="#cb24-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-58"><a href="#cb24-58" aria-hidden="true" tabindex="-1"></a>Before R version 4.1, the pipe operator was only available in the <span class="co">[</span><span class="ot">magrittr</span><span class="co">](https://magrittr.tidyverse.org/)</span> package (which remains part of the Tidyverse). The magrittr pipe is written <span class="in">`%&gt;%`</span> and many R users continue to use this over the native R <span class="in">`|&gt;`</span>. There are a few very minor differences between the two pipes, which you should feel free to ignore. We use the native R <span class="in">`|&gt;`</span> pipe in this book because it is generally a good idea, all else equal, to reduce your dependency on outside packages when writing code. </span>
+<span id="cb24-59"><a href="#cb24-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-60"><a href="#cb24-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Working with Columns</span></span>
+<span id="cb24-61"><a href="#cb24-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-62"><a href="#cb24-62" aria-hidden="true" tabindex="-1"></a>Each column in a data set typically represents a single variable, or attribute, relating to the observation in a particular row. In this section we will look at some of dplyr's functions for working with columns.</span>
+<span id="cb24-63"><a href="#cb24-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-64"><a href="#cb24-64" aria-hidden="true" tabindex="-1"></a><span class="fu">### Select</span></span>
+<span id="cb24-65"><a href="#cb24-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-66"><a href="#cb24-66" aria-hidden="true" tabindex="-1"></a>The <span class="in">`select()`</span> function is primarily used to remove unwanted columns from the data. Here is an example.</span>
+<span id="cb24-67"><a href="#cb24-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-70"><a href="#cb24-70" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb24-71"><a href="#cb24-71" aria-hidden="true" tabindex="-1"></a>un_roll_calls <span class="sc">|&gt;</span> </span>
+<span id="cb24-72"><a href="#cb24-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rcid, date) <span class="sc">|&gt;</span> <span class="co"># Keeping only two variables</span></span>
+<span id="cb24-73"><a href="#cb24-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>() <span class="co"># Print out first 6 rows</span></span>
+<span id="cb24-74"><a href="#cb24-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-75"><a href="#cb24-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-76"><a href="#cb24-76" aria-hidden="true" tabindex="-1"></a>The <span class="in">`head()`</span> function prints out the first few rows of a data set, and can be helpful to check if your cleaning function worked in the way you expected.</span>
+<span id="cb24-77"><a href="#cb24-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-78"><a href="#cb24-78" aria-hidden="true" tabindex="-1"></a>Note that the code chunk above did not alter the data set object <span class="in">`un_roll_calls`</span>. If we wanted to take this smaller data set and use it for something else, we will need to use the assignment operator <span class="in">`&lt;-`</span> to save our work.</span>
+<span id="cb24-79"><a href="#cb24-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-82"><a href="#cb24-82" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb24-83"><a href="#cb24-83" aria-hidden="true" tabindex="-1"></a><span class="co"># This creates a new object called "small_un_roll_calls"</span></span>
+<span id="cb24-84"><a href="#cb24-84" aria-hidden="true" tabindex="-1"></a><span class="co"># containly only rcid and date columns</span></span>
+<span id="cb24-85"><a href="#cb24-85" aria-hidden="true" tabindex="-1"></a>small_un_roll_calls <span class="ot">&lt;-</span> un_roll_calls <span class="sc">|&gt;</span> </span>
+<span id="cb24-86"><a href="#cb24-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rcid, date)</span>
+<span id="cb24-87"><a href="#cb24-87" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-88"><a href="#cb24-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-89"><a href="#cb24-89" aria-hidden="true" tabindex="-1"></a>The <span class="in">`select()`</span> function can be very versatile. Rather than typing every column name we want to keep, it is often faster to specify the columns we want to drop.</span>
+<span id="cb24-90"><a href="#cb24-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-93"><a href="#cb24-93" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb24-94"><a href="#cb24-94" aria-hidden="true" tabindex="-1"></a>un_roll_calls <span class="sc">|&gt;</span> </span>
+<span id="cb24-95"><a href="#cb24-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>session) <span class="sc">|&gt;</span> <span class="co"># Keep everything except session column</span></span>
+<span id="cb24-96"><a href="#cb24-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb24-97"><a href="#cb24-97" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-98"><a href="#cb24-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-99"><a href="#cb24-99" aria-hidden="true" tabindex="-1"></a>There are many other convenient ways to selection columns (e.g. by common names, by type of data, or by position in the data set). For a full list of ways to use <span class="in">`select()`</span> see <span class="co">[</span><span class="ot">this link</span><span class="co">](https://dplyr.tidyverse.org/reference/select.html)</span>. Here is one example of selecting every column which is a "character" type.</span>
+<span id="cb24-100"><a href="#cb24-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-103"><a href="#cb24-103" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb24-104"><a href="#cb24-104" aria-hidden="true" tabindex="-1"></a>un_roll_calls <span class="sc">|&gt;</span> </span>
+<span id="cb24-105"><a href="#cb24-105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.character)) <span class="sc">|&gt;</span> </span>
+<span id="cb24-106"><a href="#cb24-106" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb24-107"><a href="#cb24-107" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-108"><a href="#cb24-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-109"><a href="#cb24-109" aria-hidden="true" tabindex="-1"></a>Lastly, we can use <span class="in">`select()`</span> to rename columns in our data. The chunk of code below selects the "unres" and date columns, and renames "unres" to "un_resolution" at the same time.</span>
+<span id="cb24-110"><a href="#cb24-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-113"><a href="#cb24-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb24-114"><a href="#cb24-114" aria-hidden="true" tabindex="-1"></a>un_roll_calls <span class="sc">|&gt;</span> </span>
+<span id="cb24-115"><a href="#cb24-115" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">un_resolution =</span> unres, date) <span class="sc">|&gt;</span> </span>
+<span id="cb24-116"><a href="#cb24-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb24-117"><a href="#cb24-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-118"><a href="#cb24-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-119"><a href="#cb24-119" aria-hidden="true" tabindex="-1"></a>If you only want to rename columns---without specifying which to select---dplyr has a function <span class="in">`rename()`</span> for this purpose. The syntax is similar to the code chunk above <span class="in">`new_variable_name = original_variable_name`</span>. This code will keep all columns and change the names of the specified variables.</span>
+<span id="cb24-120"><a href="#cb24-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-123"><a href="#cb24-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb24-124"><a href="#cb24-124" aria-hidden="true" tabindex="-1"></a>un_roll_calls <span class="sc">|&gt;</span> </span>
+<span id="cb24-125"><a href="#cb24-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">un_resolution =</span> unres,</span>
+<span id="cb24-126"><a href="#cb24-126" aria-hidden="true" tabindex="-1"></a>         <span class="at">amendment =</span> amend,</span>
+<span id="cb24-127"><a href="#cb24-127" aria-hidden="true" tabindex="-1"></a>         <span class="at">paragraph =</span> para) <span class="sc">|&gt;</span> </span>
+<span id="cb24-128"><a href="#cb24-128" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb24-129"><a href="#cb24-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-130"><a href="#cb24-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-131"><a href="#cb24-131" aria-hidden="true" tabindex="-1"></a><span class="fu">### Mutate</span></span>
+<span id="cb24-132"><a href="#cb24-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-133"><a href="#cb24-133" aria-hidden="true" tabindex="-1"></a>The <span class="in">`select()`</span> and <span class="in">`rename()`</span> functions are great for tidying up your data sets, but they do not change the underlying variables. To change existing variables or to create new ones we use <span class="in">`mutate()`</span>.</span>
+<span id="cb24-134"><a href="#cb24-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-135"><a href="#cb24-135" aria-hidden="true" tabindex="-1"></a>Let's say we discovered that all the roll call IDs in the column "rcid" were supposed to be in multiples of 10. The code chunk below creates a new variable called "rcid_10" which is simply the value of the original "rcid" variable multiplied by 10.</span>
+<span id="cb24-136"><a href="#cb24-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-139"><a href="#cb24-139" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb24-140"><a href="#cb24-140" aria-hidden="true" tabindex="-1"></a>un_votes <span class="sc">|&gt;</span> </span>
+<span id="cb24-141"><a href="#cb24-141" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rcid_10 =</span> rcid <span class="sc">*</span> <span class="dv">10</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb24-142"><a href="#cb24-142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb24-143"><a href="#cb24-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-144"><a href="#cb24-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-145"><a href="#cb24-145" aria-hidden="true" tabindex="-1"></a>If you didn't want to create a brand new variable, and instead wanted to overwrite the original variable, you just need to put the original variable to the left of the <span class="in">`=`</span> in <span class="in">`mutate()`</span>.</span>
+<span id="cb24-146"><a href="#cb24-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-149"><a href="#cb24-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb24-150"><a href="#cb24-150" aria-hidden="true" tabindex="-1"></a>un_votes <span class="sc">|&gt;</span> </span>
+<span id="cb24-151"><a href="#cb24-151" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rcid =</span> rcid <span class="sc">*</span> <span class="dv">10</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb24-152"><a href="#cb24-152" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb24-153"><a href="#cb24-153" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-154"><a href="#cb24-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-155"><a href="#cb24-155" aria-hidden="true" tabindex="-1"></a>We commonly need to create a new variable whose values depend on the values of one of the original variables. The function <span class="in">`case_when()`</span> helps us do this inside <span class="in">`mutate()`</span>.</span>
+<span id="cb24-156"><a href="#cb24-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-159"><a href="#cb24-159" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb24-160"><a href="#cb24-160" aria-hidden="true" tabindex="-1"></a>un_votes <span class="sc">|&gt;</span> </span>
+<span id="cb24-161"><a href="#cb24-161" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">vote_dummy =</span> <span class="fu">case_when</span>(vote <span class="sc">==</span> <span class="st">"yes"</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb24-162"><a href="#cb24-162" aria-hidden="true" tabindex="-1"></a>                                vote <span class="sc">==</span> <span class="st">"no"</span> <span class="sc">~</span> <span class="dv">0</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb24-163"><a href="#cb24-163" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb24-164"><a href="#cb24-164" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-165"><a href="#cb24-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-166"><a href="#cb24-166" aria-hidden="true" tabindex="-1"></a>As you can see, the code chunk above creates a new variable called "vote_dummy" which takes the value <span class="in">`1`</span> if "vote" equals <span class="in">`"yes"`</span> and takes the values <span class="in">`0`</span> if "vote" equals <span class="in">`"no"`</span>. Like other programming languages, R uses the <span class="in">`==`</span> logical operator to check whether a value *equals*, or is equivalent, to some other value. This is different from the single <span class="in">`=`</span> which is used to create entire new variables inside <span class="in">`mutate()`</span>. </span>
+<span id="cb24-167"><a href="#cb24-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-168"><a href="#cb24-168" aria-hidden="true" tabindex="-1"></a>Here is one more example using <span class="in">`case_when()`</span>.</span>
+<span id="cb24-169"><a href="#cb24-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-172"><a href="#cb24-172" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb24-173"><a href="#cb24-173" aria-hidden="true" tabindex="-1"></a>un_votes <span class="sc">|&gt;</span> </span>
+<span id="cb24-174"><a href="#cb24-174" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rcid_era =</span> <span class="fu">case_when</span>(rcid <span class="sc">&lt;</span> <span class="dv">2000</span> <span class="sc">~</span> <span class="st">"old"</span>,</span>
+<span id="cb24-175"><a href="#cb24-175" aria-hidden="true" tabindex="-1"></a>                              rcid <span class="sc">&gt;=</span> <span class="dv">2000</span> <span class="sc">&amp;</span> rcid <span class="sc">&lt;</span> <span class="dv">6000</span> <span class="sc">~</span> <span class="st">"middle"</span>,</span>
+<span id="cb24-176"><a href="#cb24-176" aria-hidden="true" tabindex="-1"></a>                              rcid <span class="sc">&gt;=</span> <span class="dv">6000</span> <span class="sc">~</span> <span class="st">"recent"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb24-177"><a href="#cb24-177" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb24-178"><a href="#cb24-178" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-179"><a href="#cb24-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-180"><a href="#cb24-180" aria-hidden="true" tabindex="-1"></a>The new variable "rcid_era" takes three values, <span class="in">`"old"`</span>, <span class="in">`"middle"`</span>, and <span class="in">`"recent"`</span> based on what range the "rcid" variable falls under.</span>
+<span id="cb24-181"><a href="#cb24-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-182"><a href="#cb24-182" aria-hidden="true" tabindex="-1"></a><span class="fu">## Working with Rows</span></span>
+<span id="cb24-183"><a href="#cb24-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-184"><a href="#cb24-184" aria-hidden="true" tabindex="-1"></a><span class="fu">### Filter</span></span>
+<span id="cb24-185"><a href="#cb24-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-186"><a href="#cb24-186" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aggregation</span></span>
+<span id="cb24-187"><a href="#cb24-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-188"><a href="#cb24-188" aria-hidden="true" tabindex="-1"></a><span class="fu">## Merging Data</span></span>
+<span id="cb24-189"><a href="#cb24-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-190"><a href="#cb24-190" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reshaping Data</span></span>
+<span id="cb24-191"><a href="#cb24-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-192"><a href="#cb24-192" aria-hidden="true" tabindex="-1"></a></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
