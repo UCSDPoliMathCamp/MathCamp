@@ -75,7 +75,7 @@ Note that the code chunk above did not alter the data set object `un_roll_calls`
 
 ```{r}
 # This creates a new object called "small_un_roll_calls"
-# containly only rcid and date columns
+# containing only rcid and date columns
 small_un_roll_calls <- un_roll_calls |> 
   select(rcid, date)
 ```
@@ -155,17 +155,148 @@ un_votes |>
   head()
 ```
 
-The new variable "rcid_era" takes three values, `"old"`, `"middle"`, and `"recent"` based on what range the "rcid" variable falls under.
+The new variable "rcid_era" takes three values, `"old"`, `"middle"`, and `"recent"` based on what range the "rcid" variable falls within.
+
+To recap, the most commonly used functions for cleaning columns/variables in your data are:
+
+  -   `select()` removes and/or renames columns.
+  -   `rename()` renames existing columns without removing any.
+  -   `mutate()` changes the values of existing columns and creates new columns.
 
 ## Working with Rows
 
 ### Filter
 
+Dplyr's primary function for removing rows is `filter()`. Like we saw when using `case_when()` inside `mutate()`, using `filter()` requires some practice with logical operators. The function `filter()` works by specifying some variable and only keeping rows in the data for which the logical operation evaluates to `TRUE`. Here is an example.
+
+```{r}
+un_roll_calls |> 
+  filter(importantvote == 1)
+```
+
+The original "un_roll_calls" data set object has 6202 rows, whereas this new data set only has 411 rows. This is because we filtered out any row in which the variable "importantvote" was not equal to `1`. Like `select()`, we can extend the use of `filter()` in many ways.
+
+```{r}
+# & for AND
+un_roll_calls |> 
+  filter(importantvote == 1 & session > 40)
+
+# | for OR
+un_roll_calls |> 
+  filter(importantvote == 1 | session > 40)
+```
+
+The first chunk above filters out all rows in which "importantvote" did not equal `1` *AND* "session" was less than `40`. The second chunk above filters out all rows in which "importantvote" did not equal `1` *OR* "session" was less than `40`.
+
+Removing missing, or `NA`, values is another common job for `filter()`. To do this you can use the function `is.na()` inside `filter()`. The function `is.na()` evaluates to `TRUE` if the variable's value is `NA` and evaluates to `FALSE` otherwise. Because `filter()` only keeps rows where the condition evaluates to `TRUE`, in order to *remove* `NA` values we need to negate `is.na()` with the `!` operator. The `!` operator flips the truthiness of any logical statement it precedes. 
+
+```{r}
+un_roll_calls |> 
+  filter(!is.na(amend)) # Removing rows with NA for amend
+```
+
+It can be confusing to think in terms of logical statements, especially when negation is involved! But you will become more comfortable with `filter()` the more you practice!
+
+Another handy logical operator is `%in%`. This lets you specify several values at once when checking whether to keep rows in `filter()`. 
+
+```{r}
+# Cumbersome way
+un_votes |> 
+  filter(country == "Kenya" |
+         country == "Grenada" |
+         country == "Canada" |
+         country == "Latvia" |
+         country == "Yemen" |
+         country == "Angola")
+
+# Easier way
+country_list <- c("Kenya", "Grenada", "Canada",
+                  "Latvia", "Yemen", "Angola")
+un_votes |> 
+  filter(country %in% country_list)
+```
+
+The two chunks of code above will produce the same filtered data set, but the second chunk requires fewer lines of code and is more flexible if we want to add or remove countries.
+
 ### Aggregation
+
+Filtering is great for removing unwanted rows in your data. However, after using `filter()` the unit of analysis typically remains the same. In the code chunk above, for example, we removed most of the countries from our data, but each row in the resulting data set is still a unique country-vote observation. 
+
+Let's say we want to reduce the data set down to the country level, rather than country-vote level, and examine the proportion of "no" votes taken by each country. We can do this in dplyr using the pair of functions `group_by()` and `summarize()`. Here is an example.
+
+```{r}
+un_votes |> 
+  # Creating a new numeric dummy vote variable
+  mutate(vote_dummy = case_when(vote == "yes" ~ 1,
+                                vote == "no" ~ 0)) |> 
+  # Specify level of aggregation
+  group_by(country) |> 
+  # Perform the aggregation function by group
+  summarize(proportion_yes_vote = mean(vote_dummy, na.rm = TRUE))
+```
+
+The code above uses the function `mean()` to calculate the average value of "vote_dummy" within each country. Because "vote_dummy" takes the values `1` and `0`, this average can be interpreted as a proportion of 1's, or "yes" votes. We need to add `na.rm = TRUE` inside `mean()` to tell R to ignore `NA` values when calculating this average.
+
+If we want to sort our data by the new aggregated column, we can do so using `arrange()` after `summarize()`.
+
+```{r}
+un_votes |> 
+  mutate(vote_dummy = case_when(vote == "yes" ~ 1,
+                                vote == "no" ~ 0)) |> 
+  group_by(country) |> 
+  summarize(proportion_yes_vote = mean(vote_dummy, na.rm = TRUE)) |> 
+  arrange(proportion_yes_vote)
+
+# Use arrange(desc(proportion_yes_vote))
+# to sort in descending order
+```
+
+The United States votes "No" at a much higher rate than other countries!
+
+```{r}
+un_roll_call_issues |> 
+  count(issue)
+```
+
+
 
 ## Merging Data
 
+So far we have only been working with one data set at a time.
+
+```{r}
+un_votes |> 
+  left_join(un_roll_calls, by = "rcid")
+```
+
+```{r}
+un_votes |> 
+  left_join(un_roll_call_issues, by = "rcid")
+```
+
+```{r}
+un_roll_calls |> 
+  left_join(un_roll_call_issues)
+```
+
+
 ## Reshaping Data
 
+```{r}
+wide_un_votes <- un_votes |> 
+  pivot_wider(id_cols = rcid,
+              values_from = vote,
+              names_from = country)
 
+head(wide_un_votes)
+```
+
+```{r}
+long_un_votes <- wide_un_votes |> 
+  pivot_longer(cols = -rcid,
+               names_to = "country",
+               values_to = "vote")
+
+long_un_votes
+```
 
