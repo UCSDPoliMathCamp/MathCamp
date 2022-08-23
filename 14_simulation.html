@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.25">
+<meta name="generator" content="quarto-1.0.38">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
 <title>UCSD Political Science Math Camp - 4&nbsp; Simulation</title>
 <style>
 code{white-space: pre-wrap;}
@@ -77,6 +80,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -95,7 +99,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -113,12 +118,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script><style>html{ scroll-behavior: smooth; }</style>
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
 <script type="application/json" class="js-hypothesis-config">
 {
   "theme": "clean"
 }
-</script><script async="" src="https://hypothes.is/embed.js"></script><script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
  for (var i = 0; i < mathElements.length; i++) {
@@ -131,21 +141,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     fleqn: false
    });
 }}});
-  </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Simulation</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">UCSD Political Science Math Camp</a> 
         <div class="sidebar-tools-main">
@@ -161,7 +180,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">About this Booklet</a>
   </div>
@@ -183,8 +202,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11_orientation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Orientation and Reading in Data</span></a>
   </div>
@@ -210,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">II Linear Algebra</a>
@@ -218,8 +237,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./21_linear-algebra.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Algebra</span></a>
   </div>
@@ -230,7 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">III Calculus</a>
@@ -238,8 +257,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./31_limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Limits</span></a>
   </div>
@@ -260,7 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">IV Probability</a>
@@ -268,8 +287,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./41_probability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Probability Theory</span></a>
   </div>
@@ -285,50 +304,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./51_solutions-warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions Solutions</a>
   </div>
 </li>
     </ul>
-</div>
-</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#motivation-simulation-as-an-analytical-tool" id="toc-motivation-simulation-as-an-analytical-tool" class="nav-link active" data-scroll-target="#motivation-simulation-as-an-analytical-tool">Motivation: Simulation as an Analytical Tool</a></li>
+  <li><a href="#motivation-simulation-as-an-analytical-tool" id="toc-motivation-simulation-as-an-analytical-tool" class="nav-link active" data-scroll-target="#motivation-simulation-as-an-analytical-tool">Motivation: Simulation as an Analytical Tool</a></li>
   <li><a href="#where-are-we-where-are-we-headed" id="toc-where-are-we-where-are-we-headed" class="nav-link" data-scroll-target="#where-are-we-where-are-we-headed">Where are we? Where are we headed?</a></li>
   <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">Check your Understanding</a></li>
   <li><a href="#pick-a-sample-any-sample" id="toc-pick-a-sample-any-sample" class="nav-link" data-scroll-target="#pick-a-sample-any-sample"> <span class="header-section-number">4.1</span> Pick a sample, any sample</a></li>
-  <li>
-<a href="#the-sample-function" id="toc-the-sample-function" class="nav-link" data-scroll-target="#the-sample-function"> <span class="header-section-number">4.2</span> The <code>sample()</code> function</a>
+  <li><a href="#the-sample-function" id="toc-the-sample-function" class="nav-link" data-scroll-target="#the-sample-function"> <span class="header-section-number">4.2</span> The <code>sample()</code> function</a>
   <ul class="collapse">
-<li><a href="#sampling-rows-from-a-dataframe" id="toc-sampling-rows-from-a-dataframe" class="nav-link" data-scroll-target="#sampling-rows-from-a-dataframe"> <span class="header-section-number">4.2.1</span> Sampling rows from a dataframe</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#random-numbers-from-specific-distributions" id="toc-random-numbers-from-specific-distributions" class="nav-link" data-scroll-target="#random-numbers-from-specific-distributions"> <span class="header-section-number">4.3</span> Random numbers from specific distributions</a>
+  <li><a href="#sampling-rows-from-a-dataframe" id="toc-sampling-rows-from-a-dataframe" class="nav-link" data-scroll-target="#sampling-rows-from-a-dataframe"> <span class="header-section-number">4.2.1</span> Sampling rows from a dataframe</a></li>
+  </ul></li>
+  <li><a href="#random-numbers-from-specific-distributions" id="toc-random-numbers-from-specific-distributions" class="nav-link" data-scroll-target="#random-numbers-from-specific-distributions"> <span class="header-section-number">4.3</span> Random numbers from specific distributions</a>
   <ul class="collapse">
-<li><a href="#rbinom" id="toc-rbinom" class="nav-link" data-scroll-target="#rbinom"><code>rbinom()</code></a></li>
+  <li><a href="#rbinom" id="toc-rbinom" class="nav-link" data-scroll-target="#rbinom"><code>rbinom()</code></a></li>
   <li><a href="#runif" id="toc-runif" class="nav-link" data-scroll-target="#runif"><code>runif()</code></a></li>
   <li><a href="#rnorm" id="toc-rnorm" class="nav-link" data-scroll-target="#rnorm"><code>rnorm()</code></a></li>
-  </ul>
-</li>
+  </ul></li>
   <li><a href="#r-p-and-d" id="toc-r-p-and-d" class="nav-link" data-scroll-target="#r-p-and-d"> <span class="header-section-number">4.4</span> r, p, and d</a></li>
   <li><a href="#set.seed" id="toc-set.seed" class="nav-link" data-scroll-target="#set.seed"> <span class="header-section-number">4.5</span> <code>set.seed()</code></a></li>
-  <li>
-<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
-<li><a href="#census-sampling" id="toc-census-sampling" class="nav-link" data-scroll-target="#census-sampling">Census Sampling</a></li>
+  <li><a href="#census-sampling" id="toc-census-sampling" class="nav-link" data-scroll-target="#census-sampling">Census Sampling</a></li>
   <li><a href="#conditional-proportions" id="toc-conditional-proportions" class="nav-link" data-scroll-target="#conditional-proportions">Conditional Proportions</a></li>
   <li><a href="#the-birthday-problem" id="toc-the-birthday-problem" class="nav-link" data-scroll-target="#the-birthday-problem">The Birthday problem</a></li>
+  </ul></li>
   </ul>
-</li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/14_simulation.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/blob/main/14_simulation.Rmd" class="toc-action">View source</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/14_simulation.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/blob/main/14_simulation.Rmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title"><span id="simulation" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Simulation</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
@@ -341,39 +361,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><p>Module originally written by Connor Jerzak and Shiro Kuriwaki</p>
-<section id="motivation-simulation-as-an-analytical-tool" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="motivation-simulation-as-an-analytical-tool">Motivation: Simulation as an Analytical Tool</h3>
+</header>
+
+<p>Module originally written by Connor Jerzak and Shiro Kuriwaki</p>
+<section id="motivation-simulation-as-an-analytical-tool" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="motivation-simulation-as-an-analytical-tool">Motivation: Simulation as an Analytical Tool</h3>
 <p>An increasing amount of political science contributions now include a simulation.</p>
 <ul>
-<li>
-<a href="http://www-personal.umich.edu/~axe/research/Dissemination.pdf">Axelrod (1977)</a> demonstrated via simulation how atomized individuals evolve to be grouped in similar clusters or countries, a model of culture.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
-</li>
-<li>
-<a href="http://www-personal.umich.edu/~jowei/florida.pdf">Chen and Rodden (2013)</a> argued in a 2013 article that the vote-seat inequality in U.S. elections that is often attributed to intentional partisan gerrymandering can actually attributed to simply the reality of “human geography” – Democratic voters tend to be concentrated in smaller area. Put another way, no feasible form of gerrymandering could spread out Democratic voters in such a way to equalize their vote-seat translation effectiveness. After demonstrating the empirical pattern of human geography, they advance their key claim by simulating thousands of redistricting plans and record the vote-seat ratio.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
-</li>
-<li>
-<a href="https://gking.harvard.edu/files/abs/evil-abs.shtml">Gary King, James Honaker, and multiple other authors</a> propose a way to analyze missing data with a method of multiple imputation, which uses a lot of simulation from a researcher’s observed dataset.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> (Software: Amelia<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>)</li>
+<li><a href="http://www-personal.umich.edu/~axe/research/Dissemination.pdf">Axelrod (1977)</a> demonstrated via simulation how atomized individuals evolve to be grouped in similar clusters or countries, a model of culture.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+<li><a href="http://www-personal.umich.edu/~jowei/florida.pdf">Chen and Rodden (2013)</a> argued in a 2013 article that the vote-seat inequality in U.S. elections that is often attributed to intentional partisan gerrymandering can actually attributed to simply the reality of “human geography” – Democratic voters tend to be concentrated in smaller area. Put another way, no feasible form of gerrymandering could spread out Democratic voters in such a way to equalize their vote-seat translation effectiveness. After demonstrating the empirical pattern of human geography, they advance their key claim by simulating thousands of redistricting plans and record the vote-seat ratio.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
+<li><a href="https://gking.harvard.edu/files/abs/evil-abs.shtml">Gary King, James Honaker, and multiple other authors</a> propose a way to analyze missing data with a method of multiple imputation, which uses a lot of simulation from a researcher’s observed dataset.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> (Software: Amelia<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>)</li>
 </ul>
 <p>Statistical methods also incorporate simulation:</p>
 <ul>
 <li>The bootstrap: a statistical method for estimating uncertainty around some parameter by re-sampling observations.</li>
 <li>Bagging: a method for improving machine learning predictions by re-sampling observations, storing the estimate across many re-samples, and averaging these estimates to form the final estimate. A variance reduction technique.</li>
 <li>Statistical reasoning: if you are trying to understand a quantitative problem, a wonderful first-step to understand the problem better is to simulate it! The analytical solution is often very hard (or impossible), but the simulation is often much easier :-)</li>
-</ul></section><section id="where-are-we-where-are-we-headed" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="where-are-we-where-are-we-headed">Where are we? Where are we headed?</h3>
+</ul>
+</section>
+<section id="where-are-we-where-are-we-headed" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="where-are-we-where-are-we-headed">Where are we? Where are we headed?</h3>
 <p>Up till now, you should have covered:</p>
 <ul>
-<li>
-<code>R</code> basics</li>
+<li><code>R</code> basics</li>
 <li>Visualization</li>
 <li>Matrices and vectors</li>
 <li>Functions, objects, loops</li>
 <li>Joining real data</li>
 </ul>
 <p>In this module, we will start to work with generating data within R, from thin air, as it were. Doing simulation also strengthens your understanding of Probability.</p>
-</section><section id="check-your-understanding" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="check-your-understanding">Check your Understanding</h3>
+</section>
+<section id="check-your-understanding" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="check-your-understanding">Check your Understanding</h3>
 <ul>
-<li>What does the <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> function do?</li>
-<li>What does <code><a href="https://rdrr.io/r/stats/Uniform.html">runif()</a></code> stand for?</li>
+<li>What does the <code>sample()</code> function do?</li>
+<li>What does <code>runif()</code> stand for?</li>
 <li>What is a <code>seed</code>?</li>
 <li>What is a Monte Carlo?</li>
 </ul>
@@ -385,14 +407,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Generate a “bootstrap” sample of an existing dataset</li>
 </ul>
 <p>We’re going to learn about this today!</p>
-</section><section id="pick-a-sample-any-sample" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="pick-a-sample-any-sample">
-<span class="header-section-number">4.1</span> Pick a sample, any sample</h2>
-</section><section id="the-sample-function" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="the-sample-function">
-<span class="header-section-number">4.2</span> The <code>sample()</code> function</h2>
+</section>
+<section id="pick-a-sample-any-sample" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="pick-a-sample-any-sample"><span class="header-section-number">4.1</span> Pick a sample, any sample</h2>
+</section>
+<section id="the-sample-function" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="the-sample-function"><span class="header-section-number">4.2</span> The <code>sample()</code> function</h2>
 <p>The core functions for coding up stochastic data revolves around several key functions, so we will simply review them here.</p>
 <p>Suppose you have a vector of values <code>x</code> and from it you want to randomly sample a sample of length <code>size</code>. For this, use the <code>sample</code> function</p>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-2_0ef6133b4cadb7f0491fc444925c15ca">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  5 10  3  9  2</code></pre>
 </div>
@@ -402,7 +426,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Sampling without replacement (<code>replace = FALSE</code>) means once an element of <code>x</code> is chosen, it will not be considered again:</li>
 </ol>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-3_f6d3987b5f456bad1c30e15a6da09b01">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, size <span class="op">=</span> <span class="fl">10</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="co">## no number appears more than once</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>) <span class="do">## no number appears more than once</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  3  6  1  9  7  2  4  8 10  5</code></pre>
 </div>
@@ -411,14 +435,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Sampling with replacement (<code>replace = TRUE</code>) means that even if an element of <code>x</code> is chosen, it is put back in the pool and may be chosen again.</li>
 </ol>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-4_13e7263be281d075c3d4adef77cce0c1">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, size <span class="op">=</span> <span class="fl">10</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co">## any number can appear more than once</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="do">## any number can appear more than once</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  9  9  2 10  2  8  6  3  1 10</code></pre>
 </div>
 </div>
 <p>It follows then that you cannot sample without replacement a sample that is larger than the pool.</p>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-5_ad785b5d986c2024e87a5526da203a93">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, size <span class="op">=</span> <span class="fl">100</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in sample.int(length(x), size, replace, prob): cannot take a sample larger than the population when 'replace = FALSE'</code></pre>
 </div>
@@ -426,7 +450,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>So far, every element in <code>x</code> has had an equal probability of being chosen. In some application, we want a sampling scheme where some elements are more likely to be chosen than others. The argument <code>prob</code> handles this.</p>
 <p>For example, this simulates 20 fair coin tosses (each outcome is equally likely to happen)</p>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-6_b31934e04320b5046d3d426b3cb35d02">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Head"</span>, <span class="st">"Tail"</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">20</span>, prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.5</span><span class="op">)</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Head"</span>, <span class="st">"Tail"</span>), <span class="at">size =</span> <span class="dv">20</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "Head" "Tail" "Head" "Tail" "Head" "Head" "Tail" "Tail" "Tail" "Head"
 [11] "Tail" "Head" "Head" "Head" "Head" "Tail" "Head" "Head" "Head" "Tail"</code></pre>
@@ -434,18 +458,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>But this simulates 20 biased coin tosses, where say the probability of Tails is 4 times more likely than the number of Heads</p>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-7_222b83ee96a36c8c4044cf95f01dbbb9">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Head"</span>, <span class="st">"Tail"</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">20</span>, prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.8</span><span class="op">)</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Head"</span>, <span class="st">"Tail"</span>), <span class="at">size =</span> <span class="dv">20</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.8</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "Head" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail" "Head" "Tail" "Tail"
 [11] "Tail" "Tail" "Tail" "Tail" "Tail" "Tail" "Tail" "Head" "Head" "Tail"</code></pre>
 </div>
 </div>
-<section id="sampling-rows-from-a-dataframe" class="level3" data-number="4.2.1"><h3 data-number="4.2.1" class="anchored" data-anchor-id="sampling-rows-from-a-dataframe">
-<span class="header-section-number">4.2.1</span> Sampling rows from a dataframe</h3>
+<section id="sampling-rows-from-a-dataframe" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="sampling-rows-from-a-dataframe"><span class="header-section-number">4.2.1</span> Sampling rows from a dataframe</h3>
 <p>In tidyverse, there is a convenience function to sample rows randomly: <code>sample_n()</code> and <code>sample_frac()</code>.</p>
 <p>For example, load the dataset on cars, <code>mtcars</code>, which has 32 observations.</p>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-8_157b2ae0a6dab8a01dcb41226a3f71e5">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mtcars</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mtcars</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb
 Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
@@ -484,7 +508,7 @@ Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></
 </div>
 <p>sample_n picks a user-specified number of rows from the dataset:</p>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-9_ca99922bbd13b25c1c3939f2532c8dbe">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">sample_n</span><span class="op">(</span><span class="va">mtcars</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_n</span>(mtcars, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                mpg cyl  disp  hp drat    wt  qsec vs am gear carb
 Merc 450SL     17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
@@ -494,7 +518,7 @@ Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2</code></pre>
 </div>
 <p>Sometimes you want a X percent sample of your dataset. In this case use <code>sample_frac()</code></p>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-10_f129464cc5587f9440da22f8cce0282d">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">sample_frac</span><span class="op">(</span><span class="va">mtcars</span>, <span class="fl">0.10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_frac</span>(mtcars, <span class="fl">0.10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               mpg cyl  disp  hp drat   wt  qsec vs am gear carb
 Merc 280C     17.8   6 167.6 123 3.92 3.44 18.90  1  0    4    4
@@ -504,67 +528,77 @@ Valiant       18.1   6 225.0 105 2.76 3.46 20.22  1  0    3    1</code></pre>
 </div>
 <p>As a side-note, these functions have very practical uses for any type of data analysis:</p>
 <ul>
-<li>Inspecting your dataset: using <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> all the same time and looking over the first few rows might lead you to ignore any issues that end up in the bottom for whatever reason.</li>
+<li>Inspecting your dataset: using <code>head()</code> all the same time and looking over the first few rows might lead you to ignore any issues that end up in the bottom for whatever reason.</li>
 <li>Testing your analysis with a small sample: If running analyses on a dataset takes more than a handful of seconds, change your dataset upstream to a fraction of the size so the rest of the code runs in less than a second. Once verifying your analysis code runs, then re-do it with your full dataset (by simply removing the <code>sample_n</code> / <code>sample_frac</code> line of code in the beginning). While three seconds may not sound like much, they accumulate and eat up time.</li>
-</ul></section></section><section id="random-numbers-from-specific-distributions" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="random-numbers-from-specific-distributions">
-<span class="header-section-number">4.3</span> Random numbers from specific distributions</h2>
-<section id="rbinom" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="rbinom"><code>rbinom()</code></h3>
+</ul>
+</section>
+</section>
+<section id="random-numbers-from-specific-distributions" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="random-numbers-from-specific-distributions"><span class="header-section-number">4.3</span> Random numbers from specific distributions</h2>
+<section id="rbinom" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="rbinom"><code>rbinom()</code></h3>
 <p><code>rbinom</code> builds upon <code>sample</code> as a tool to help you answer the question – what is the <em>total number of successes</em> I would get if I sampled a binary (Bernoulli) result from a test with <code>size</code> number of trials each, with a event-wise probability of <code>prob</code>. The first argument <code>n</code> asks me how many such numbers I want.</p>
 <p>For example, I want to know how many Heads I would get if I flipped a fair coin 100 times.</p>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-11_80c30fcfdfe7642917ab0b4ded69d951">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">100</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 62</code></pre>
 </div>
 </div>
 <p>Now imagine this I wanted to do this experiment 10 times, which would require I flip the coin 10 x 100 = 1000 times! Helpfully, we can do this in one line</p>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-12_7b949dc80801dce675dd778a80449583">
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span>, size <span class="op">=</span> <span class="fl">100</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 48 44 43 55 43 45 53 51 47 47</code></pre>
 </div>
 </div>
-</section><section id="runif" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="runif"><code>runif()</code></h3>
+</section>
+<section id="runif" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="runif"><code>runif()</code></h3>
 <p><code>runif</code> also simulates a stochastic scheme where each event has equal probability of getting chosen like <code>sample</code>, but is a continuous rather than discrete system. We will cover this more in the next math module.</p>
 <p>The intuition to emphasize here is that one can generate potentially infinite amounts (size <code>n</code>) of noise that is a essentially random</p>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-13_d3f5f00f9305ade28845066748f3a06e">
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.89145134 0.55938334 0.81210151 0.16814926 0.05935487</code></pre>
 </div>
 </div>
-</section><section id="rnorm" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="rnorm"><code>rnorm()</code></h3>
+</section>
+<section id="rnorm" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="rnorm"><code>rnorm()</code></h3>
 <p><code>rnorm</code> is also a continuous distribution, but draws from a Normal distribution – perhaps the most important distribution in statistics. It runs the same way as <code>runif</code></p>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-14_66c6de76987b3143af4e951029b1acc4">
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -0.3604897  0.4750575  0.3720823 -0.4473629 -1.6970241</code></pre>
 </div>
 </div>
 <p>To better visualize the difference between the output of <code>runif</code> and <code>rnorm</code>, let’s generate lots of each and plot a histogram.</p>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-15_660a519cdb769c14df088c015c8aee4e">
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">from_runif</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
-<span><span class="va">from_rnorm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co">## base-R parameter for two plots at once</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">from_runif</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">from_rnorm</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>from_runif <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">1000</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>from_rnorm <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">1000</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)) <span class="do">## base-R parameter for two plots at once</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(from_runif)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(from_rnorm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="14_simulation_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section></section><section id="r-p-and-d" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="r-p-and-d">
-<span class="header-section-number">4.4</span> r, p, and d</h2>
-<p>Each distribution can do more than generate random numbers (the prefix <code>r</code>). We can compute the cumulative probability by the function <code><a href="https://rdrr.io/r/stats/Binomial.html">pbinom()</a></code>, <code><a href="https://rdrr.io/r/stats/Uniform.html">punif()</a></code>, and <code><a href="https://rdrr.io/r/stats/Normal.html">pnorm()</a></code>. Also the density – the value of the PDF – by <code><a href="https://rdrr.io/r/stats/Binomial.html">dbinom()</a></code>, <code><a href="https://rdrr.io/r/stats/Uniform.html">dunif()</a></code> and <code><a href="https://rdrr.io/r/stats/Normal.html">dnorm()</a></code>.</p>
-</section><section id="set.seed" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="set.seed">
-<span class="header-section-number">4.5</span> <code>set.seed()</code>
-</h2>
+</section>
+</section>
+<section id="r-p-and-d" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="r-p-and-d"><span class="header-section-number">4.4</span> r, p, and d</h2>
+<p>Each distribution can do more than generate random numbers (the prefix <code>r</code>). We can compute the cumulative probability by the function <code>pbinom()</code>, <code>punif()</code>, and <code>pnorm()</code>. Also the density – the value of the PDF – by <code>dbinom()</code>, <code>dunif()</code> and <code>dnorm()</code>.</p>
+</section>
+<section id="set.seed" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="set.seed"><span class="header-section-number">4.5</span> <code>set.seed()</code></h2>
 <p><code>R</code> doesn’t have the ability to generate truly random numbers! Random numbers are actually very hard to generate. (Think: flipping a coin –&gt; can be perfectly predicted if I know wind speed, the angle the coin is flipped, etc.). Some people use random noise in the atmosphere or random behavior in quantum systems to generate “truly” (?) random numbers. Conversely, R uses deterministic algorithms which take as an input a “seed” and which then perform a series of operations to generate a sequence of random-seeming numbers (that is, numbers whose sequence is sufficiently hard to predict).</p>
-<p>Let’s think about this another way. Sampling is a stochastic process, so every time you run <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> or <code><a href="https://rdrr.io/r/stats/Uniform.html">runif()</a></code> you are bound to get a different output (because different random seeds are used). This is intentional in some cases but you might want to avoid it in others. For example, you might want to diagnose a coding discrepancy by setting the random number generator to give the same number each time. To do this, use the function <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code>.</p>
-<p>In the function goes any number. When you run a sample function in the same command as a preceding <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code>, the sampling function will always give you the same sequence of numbers. In a sense, the sampler is no longer random (in the sense of unpredictable to use; remember: it never was “truly” random in the first place)</p>
+<p>Let’s think about this another way. Sampling is a stochastic process, so every time you run <code>sample()</code> or <code>runif()</code> you are bound to get a different output (because different random seeds are used). This is intentional in some cases but you might want to avoid it in others. For example, you might want to diagnose a coding discrepancy by setting the random number generator to give the same number each time. To do this, use the function <code>set.seed()</code>.</p>
+<p>In the function goes any number. When you run a sample function in the same command as a preceding <code>set.seed()</code>, the sampling function will always give you the same sequence of numbers. In a sense, the sampler is no longer random (in the sense of unpredictable to use; remember: it never was “truly” random in the first place)</p>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-16_25a3e4aa2853778ce848a6f38f1120d6">
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">02138</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">02138</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 0.51236144 0.61530551 0.37451441 0.43541258 0.21166530 0.17812129
  [7] 0.04420775 0.45567854 0.88718264 0.06970056</code></pre>
@@ -572,18 +606,21 @@ Valiant       18.1   6 225.0 105 2.76 3.46 20.22  1  0    3    1</code></pre>
 </div>
 <p>The random number generator should give you the exact same sequence of numbers if you precede the function by the same seed,</p>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-17_2271e69c9ae9d1e55c96ebf5a068458a">
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">02138</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">02138</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 0.51236144 0.61530551 0.37451441 0.43541258 0.21166530 0.17812129
  [7] 0.04420775 0.45567854 0.88718264 0.06970056</code></pre>
 </div>
 </div>
-</section><section id="exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
-<section id="census-sampling" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="census-sampling">Census Sampling</h3>
+</section>
+<section id="exercises" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<section id="census-sampling" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="census-sampling">Census Sampling</h3>
 <p>What can we learn from surveys of populations, and how wrong do we get if our sampling is biased?<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> Suppose we want to estimate the proportion of U.S. residents who are non-white (<code>race != "White"</code>). In reality, we do not have any population dataset to utilize and so we <em>only see the sample survey</em>. Here, however, to understand how sampling works, let’s conveniently use the Census extract in some cases and pretend we didn’t in others.</p>
 <ol type="a">
-<li>First, load <code>usc2010_001percent.csv</code> into your R session. After loading the <code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code>, browse it. Although this is only a 0.01 percent extract, treat this as your population for pedagogical purposes. What is the population proportion of non-White residents?</li>
+<li>First, load <code>usc2010_001percent.csv</code> into your R session. After loading the <code>library(tidyverse)</code>, browse it. Although this is only a 0.01 percent extract, treat this as your population for pedagogical purposes. What is the population proportion of non-White residents?</li>
 </ol>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-18_0a6302abe409cb54a8ee6ed0d386cdc5">
 
@@ -621,7 +658,9 @@ Valiant       18.1   6 225.0 105 2.76 3.46 20.22  1  0    3    1</code></pre>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-23_8bd4acbf2d1a86843bee60ce65e0066b">
 
 </div>
-</section><section id="conditional-proportions" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="conditional-proportions">Conditional Proportions</h3>
+</section>
+<section id="conditional-proportions" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="conditional-proportions">Conditional Proportions</h3>
 <p>This example is not on simulation, but is meant to reinforce some of the probability discussion from math lecture.</p>
 <p>Read in the Upshot Siena poll from Fall 2016, <code>data/input/upshot-siena-polls.csv</code>.</p>
 <p>In addition to some standard demographic questions, we will focus on one called <code>vt_pres_2</code> in the csv. This is a two-way presidential vote question, asking respondents who they plan to vote for President if the election were held today – Donald Trump, the Republican, or Hilary Clinton, the Democrat, with options for Other candidates as well. For this problem, use the two-way vote question rather than the 4-way vote question.</p>
@@ -642,39 +681,45 @@ Valiant       18.1   6 225.0 105 2.76 3.46 20.22  1  0    3    1</code></pre>
 <li><p>Among those who did not support Donald Trump (i.e.&nbsp;including supporters of Hilary Clinton, another candidate, or those who refused to answer the question), what proportion of them has a Bachelor’s degree or higher?</p></li>
 <li><p>Express the numbers in the previous parts as probabilities of specified events. Define your own symbols: For example, we can let <span class="math inline">T</span> be the event that a randomly selected respondent in the poll supports Donald Trump, then the proportion in part (b) is the probability <span class="math inline">P(T).</span></p></li>
 <li><p>Suppose we randomly sampled a person who participated in the survey and found that he/she had a Bachelor’s degree or higher. Given this evidence, what is the probability that the same person supports Donald Trump? Use Bayes Rule and show your work – that is, do not use data or R to compute the quantity directly. Then, verify this is the case via R.</p></li>
-</ol></section><section id="the-birthday-problem" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="the-birthday-problem">The Birthday problem</h3>
+</ol>
+</section>
+<section id="the-birthday-problem" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="the-birthday-problem">The Birthday problem</h3>
 <p>Write code that will answer the well-known birthday problem via simulation.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
 <p>The problem is fairly simple: Suppose <span class="math inline">k</span> people gather together in a room. What is the probability at least two people share the same birthday?</p>
 <p>To simplify reality a bit, assume that (1) there are no leap years, and so there are always 365 days in a year, and (2) a given individual’s birthday is randomly assigned and independent from each other.</p>
 <p><em>Step 1</em>: Set <code>k</code> to a concrete number. Pick a number from 1 to 365 randomly, <code>k</code> times to simulate birthdays (would this be with replacement or without?).</p>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-26_b9c460dbcbc0401113adb2ee96b05ad6">
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>Step 2</em>: Write a line (or two) of code that gives a <code>TRUE</code> or <code>FALSE</code> statement of whether or not at least two people share the same birth date.</p>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-27_3a01bef86dcb952d89bb337345bab7c2">
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>Step 3</em>: The above steps will generate a <code>TRUE</code> or <code>FALSE</code> answer for your event of interest, but only for one realization of an event in the sample space. In order to estimate the <em>probability</em> of your event happening, we need a “stochastic”, as opposed to “deterministic”, method. To do this, write a loop that does Steps 1 and 2 repeatedly for many times, call that number of times <code>sims</code>. For each of <code>sims</code> iteration, your code should give you a <code>TRUE</code> or <code>FALSE</code> answer. Code up a way to store these estimates.</p>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-28_3b20364b6d3ec6225e7fe05b1c53d573">
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>Step 4</em>: Finally, generalize the function further by letting <code>k</code> be a user-defined number. You have now created a <em>Monte Carlo simulation</em>!</p>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-29_196ff7d3908e57ce64e3247ebdda245f">
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>Step 5</em>: Generate a table or plot that shows how the probability of sharing a birthday changes by <code>k</code> (fixing <code>sims</code> at a large number like <code>1000</code>). Also generate a similar plot that shows how the probability of sharing a birthday changes by <code>sims</code> (fixing <code>k</code> at some arbitrary number like <code>10</code>).</p>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-30_27deb3464632d6ae4a85e5b9290e39e1">
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>Extra credit</em>: Give an “analytical” answer to this problem, that is an answer through deriving the mathematical expressions of the probability.</p>
 <div class="cell" data-hash="14_simulation_cache/html/unnamed-chunk-31_55a837c70b5ebb59eacf31578eb158a3">
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Your equations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Your equations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
 <!-- -->
 
-</section></section><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
+</section>
+</section>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
 <ol>
 <li id="fn1" role="doc-endnote"><p><a href="http://www-personal.umich.edu/~axe/research/Dissemination.pdf">Axelrod, Robert. 1997. “The Dissemination of Culture.” <em>Journal of Conflict Resolution</em> 41(2): 203–26.</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2" role="doc-endnote"><p><a href="http://www-personal.umich.edu/~jowei/florida.pdf">Chen, Jowei, and Jonathan Rodden. “Unintentional Gerrymandering: Political Geography and Electoral Bias in Legislatures. <em>Quarterly Journal of Political Science</em>, 8:239-269”</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
@@ -682,7 +727,11 @@ Valiant       18.1   6 225.0 105 2.76 3.46 20.22  1  0    3    1</code></pre>
 <li id="fn4" role="doc-endnote"><p><a href="http://www.jstatsoft.org/v45/i07/">James Honaker, Gary King, Matthew Blackwell (2011). Amelia II: A Program for Missing Data. Journal of Statistical Software, 45(7), 1-47.</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5" role="doc-endnote"><p>This example is inspired from <a href="https://statistics.fas.harvard.edu/files/statistics-2/files/statistical_paradises_and_paradoxes.pdf">Meng, Xiao-Li (2018). Statistical paradises and paradoxes in big data (I): Law of large populations, big data paradox, and the 2016 US presidential election. <em>Annals of Applied Statistics</em> 12:2, 685–726. doi:10.1214/18-AOAS1161SF.</a><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn6" role="doc-endnote"><p>This exercise draws from Imai (2017)<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -829,7 +878,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     });
   }
 });
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
       <a href="./12_visualization.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visualization</span></span>
       </a>          

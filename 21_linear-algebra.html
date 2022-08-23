@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.25">
+<meta name="generator" content="quarto-1.0.38">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
 <title>UCSD Political Science Math Camp - 6&nbsp; Linear Algebra</title>
 <style>
 code{white-space: pre-wrap;}
@@ -77,6 +80,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -95,7 +99,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -113,12 +118,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script><style>html{ scroll-behavior: smooth; }</style>
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
 <script type="application/json" class="js-hypothesis-config">
 {
   "theme": "clean"
 }
-</script><script async="" src="https://hypothes.is/embed.js"></script><script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
  for (var i = 0; i < mathElements.length; i++) {
@@ -131,21 +141,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     fleqn: false
    });
 }}});
-  </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Algebra</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">UCSD Political Science Math Camp</a> 
         <div class="sidebar-tools-main">
@@ -161,7 +180,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">About this Booklet</a>
   </div>
@@ -183,8 +202,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11_orientation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Orientation and Reading in Data</span></a>
   </div>
@@ -210,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">II Linear Algebra</a>
@@ -218,8 +237,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./21_linear-algebra.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Algebra</span></a>
   </div>
@@ -230,7 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">III Calculus</a>
@@ -238,8 +257,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./31_limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Limits</span></a>
   </div>
@@ -260,7 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">IV Probability</a>
@@ -268,8 +287,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./41_probability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Probability Theory</span></a>
   </div>
@@ -285,32 +304,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./51_solutions-warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions Solutions</a>
   </div>
 </li>
     </ul>
-</div>
-</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#vector-def" id="toc-vector-def" class="nav-link active" data-scroll-target="#vector-def"> <span class="header-section-number">6.1</span> Working with Vectors</a></li>
+  <li><a href="#vector-def" id="toc-vector-def" class="nav-link active" data-scroll-target="#vector-def"> <span class="header-section-number">6.1</span> Working with Vectors</a></li>
   <li><a href="#linearindependence" id="toc-linearindependence" class="nav-link" data-scroll-target="#linearindependence"> <span class="header-section-number">6.2</span> Linear Independence</a></li>
-  <li>
-<a href="#matrixbasics" id="toc-matrixbasics" class="nav-link" data-scroll-target="#matrixbasics"> <span class="header-section-number">6.3</span> Basics of Matrix Algebra</a>
+  <li><a href="#matrixbasics" id="toc-matrixbasics" class="nav-link" data-scroll-target="#matrixbasics"> <span class="header-section-number">6.3</span> Basics of Matrix Algebra</a>
   <ul class="collapse">
-<li><a href="#laws-of-matrix-algebra" id="toc-laws-of-matrix-algebra" class="nav-link" data-scroll-target="#laws-of-matrix-algebra"> <span class="header-section-number">6.3.1</span> Laws of Matrix Algebra</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#systems-of-linear-equations" id="toc-systems-of-linear-equations" class="nav-link" data-scroll-target="#systems-of-linear-equations"> <span class="header-section-number">6.4</span> Systems of Linear Equations</a>
+  <li><a href="#laws-of-matrix-algebra" id="toc-laws-of-matrix-algebra" class="nav-link" data-scroll-target="#laws-of-matrix-algebra"> <span class="header-section-number">6.3.1</span> Laws of Matrix Algebra</a></li>
+  </ul></li>
+  <li><a href="#systems-of-linear-equations" id="toc-systems-of-linear-equations" class="nav-link" data-scroll-target="#systems-of-linear-equations"> <span class="header-section-number">6.4</span> Systems of Linear Equations</a>
   <ul class="collapse">
-<li><a href="#linear-equation" id="toc-linear-equation" class="nav-link" data-scroll-target="#linear-equation"> <span class="header-section-number">6.4.1</span> Linear Equation</a></li>
-  </ul>
-</li>
+  <li><a href="#linear-equation" id="toc-linear-equation" class="nav-link" data-scroll-target="#linear-equation"> <span class="header-section-number">6.4.1</span> Linear Equation</a></li>
+  </ul></li>
   <li><a href="#systems-of-equations-as-matrices" id="toc-systems-of-equations-as-matrices" class="nav-link" data-scroll-target="#systems-of-equations-as-matrices"> <span class="header-section-number">6.5</span> Systems of Equations as Matrices</a></li>
   <li><a href="#finding-solutions-to-augmented-matrices-and-systems-of-equations" id="toc-finding-solutions-to-augmented-matrices-and-systems-of-equations" class="nav-link" data-scroll-target="#finding-solutions-to-augmented-matrices-and-systems-of-equations"> <span class="header-section-number">6.6</span> Finding Solutions to Augmented Matrices and Systems of Equations</a></li>
   <li><a href="#rank-of-a-matrix" id="toc-rank-of-a-matrix" class="nav-link" data-scroll-target="#rank-of-a-matrix"> <span class="header-section-number">6.7</span> Rank of a Matrix</a></li>
@@ -319,10 +337,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#determinants" id="toc-determinants" class="nav-link" data-scroll-target="#determinants"> <span class="header-section-number">6.10</span> Determinants</a></li>
   <li><a href="#getting-inverse-of-a-matrix-using-its-determinant" id="toc-getting-inverse-of-a-matrix-using-its-determinant" class="nav-link" data-scroll-target="#getting-inverse-of-a-matrix-using-its-determinant"> <span class="header-section-number">6.11</span> Getting Inverse of a Matrix using its Determinant</a></li>
   <li><a href="#answers-to-examples-and-exercises" id="toc-answers-to-examples-and-exercises" class="nav-link" data-scroll-target="#answers-to-examples-and-exercises">Answers to Examples and Exercises</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/21_linear-algebra.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/blob/main/21_linear-algebra.Rmd" class="toc-action">View source</a></p></div></div></nav>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/21_linear-algebra.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/blob/main/21_linear-algebra.Rmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title"><span id="linearalgebra" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Algebra</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
@@ -335,8 +357,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><section id="vector-def" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="vector-def">
-<span class="header-section-number">6.1</span> Working with Vectors</h2>
+</header>
+
+<section id="vector-def" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="vector-def"><span class="header-section-number">6.1</span> Working with Vectors</h2>
 <p><strong>Vector</strong>: A vector in <span class="math inline">n</span>-space is an ordered list of <span class="math inline">n</span> numbers. These numbers can be represented as either a row vector or a column vector:</p>
 <p><span class="math display">{\bf v} = \begin{bmatrix} v_1 &amp; v_2 &amp; \dots &amp; v_n\end{bmatrix}</span></p>
 <p><span class="math display">{\bf v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix}</span></p>
@@ -344,7 +368,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Vector Addition and Subtraction</strong>: If two vectors, <span class="math inline">{\bf u}</span> and <span class="math inline">{\bf v}</span>, have the same length (i.e.&nbsp;have the same number of elements), they can be added (subtracted) together:</p>
 <p><span class="math display">{\bf u} + {\bf v} = \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \\ \vdots \\ u_k + v_n \end{bmatrix}</span></p>
 <p><span class="math display">{\bf u} - {\bf v} = \begin{bmatrix} u_1 - v_1 \\ u_2 - v_2 \\ \vdots \\ u_k - v_n \end{bmatrix}</span></p>
-<p><strong>Scalar Multiplication</strong>: The product of a scalar <span class="math inline">c</span> (i.e.&nbsp;a constant) and vector <span class="math inline">{\bf v}</span> is:<br></p>
+<p><strong>Scalar Multiplication</strong>: The product of a scalar <span class="math inline">c</span> (i.e.&nbsp;a constant) and vector <span class="math inline">{\bf v}</span> is:<br>
+</p>
 <p><span class="math display"> c{\bf v} =  \begin{bmatrix} cv_1 \\ cv_2 \\ \dots \\ cv_n \end{bmatrix} </span></p>
 <p><strong>Vector Inner Product</strong>: The inner product (also called the dot product or scalar product) of two vectors <span class="math inline">{\bf u}</span> and <span class="math inline">{\bf v}</span> is again defined if and only if they have the same number of elements</p>
 <p><span class="math display"> {\bf u} \cdot {\bf v} = u_1v_1 + u_2v_2 + \cdots + u_nv_n = \sum_{i = 1}^n u_iv_i</span></p>
@@ -367,8 +392,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><span class="math inline">w \cdot v</span></p></li>
 </ol>
 </div>
-</section><section id="linearindependence" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="linearindependence">
-<span class="header-section-number">6.2</span> Linear Independence</h2>
+</section>
+<section id="linearindependence" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="linearindependence"><span class="header-section-number">6.2</span> Linear Independence</h2>
 <p><strong>Linear combinations</strong>: The vector <span class="math inline">{\bf u}</span> is a linear combination of the vectors <span class="math inline">{\bf v}_1, {\bf v}_2, \cdots , {\bf v}_k</span> if</p>
 <p><span class="math display">{\bf u} = c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k</span></p>
 <p>For example, <span class="math inline">\begin{bmatrix}9 \\ 13 \\ 17 \end{bmatrix}</span> is a linear combination of the following three vectors: <span class="math inline">\begin{bmatrix}1 \\ 2 \\ 3 \end{bmatrix}</span>, <span class="math inline">\begin{bmatrix} 2 \\ 3\\ 4\end{bmatrix}</span>, and <span class="math inline">\begin{bmatrix} 3 \\ 4 \\ 5 \end{bmatrix}</span>. This is because <span class="math inline">\begin{bmatrix}9 \\ 13 \\ 17 \end{bmatrix}</span> = <span class="math inline">(2)\begin{bmatrix}1 \\ 2 \\ 3 \end{bmatrix}</span> <span class="math inline">+ (-1)\begin{bmatrix} 2 \\ 3\\ 4\end{bmatrix}</span> + <span class="math inline">3\begin{bmatrix} 3 \\ 4 \\ 5 \end{bmatrix}</span></p>
@@ -381,12 +407,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="exm-linearindep" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6.2 </strong></span>Are the following sets of vectors linearly independent?</p>
 <ol type="1">
-<li>
-<span class="math inline">\begin{bmatrix}2 \\ 3 \\ 1 \end{bmatrix}</span> and <span class="math inline">\begin{bmatrix}4 \\ 6 \\ 1 \end{bmatrix}</span>
-</li>
-<li>
-<span class="math inline">\begin{bmatrix}1 \\ 0 \\ 0 \end{bmatrix}</span>, <span class="math inline">\begin{bmatrix}0 \\ 5 \\ 0 \end{bmatrix}</span>, and <span class="math inline">\begin{bmatrix}10 \\ 10 \\ 0 \end{bmatrix}</span>
-</li>
+<li><span class="math inline">\begin{bmatrix}2 \\ 3 \\ 1 \end{bmatrix}</span> and <span class="math inline">\begin{bmatrix}4 \\ 6 \\ 1 \end{bmatrix}</span></li>
+<li><span class="math inline">\begin{bmatrix}1 \\ 0 \\ 0 \end{bmatrix}</span>, <span class="math inline">\begin{bmatrix}0 \\ 5 \\ 0 \end{bmatrix}</span>, and <span class="math inline">\begin{bmatrix}10 \\ 10 \\ 0 \end{bmatrix}</span></li>
 </ol>
 </div>
 <div id="exr-linearindep1" class="theorem exercise">
@@ -396,8 +418,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><span class="math display">{\bf v}_1 = \begin{bmatrix} 2 \\ 2 \\ 1 \end{bmatrix} , {\bf v}_2 = \begin{bmatrix} -4 \\ 6 \\ 5 \end{bmatrix} , {\bf v}_3 = \begin{bmatrix} -2 \\ 8 \\ 6 \end{bmatrix} </span></p></li>
 </ol>
 </div>
-</section><section id="matrixbasics" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="matrixbasics">
-<span class="header-section-number">6.3</span> Basics of Matrix Algebra</h2>
+</section>
+<section id="matrixbasics" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="matrixbasics"><span class="header-section-number">6.3</span> Basics of Matrix Algebra</h2>
 <p><strong>Matrix</strong>: A matrix is an array of real numbers arranged in <span class="math inline">m</span> rows by <span class="math inline">n</span> columns. The dimensionality of the matrix is defined as the number of rows by the number of columns, <span class="math inline">m \times n</span>.</p>
 <p><span class="math display">{\bf A}=\begin{bmatrix}
     a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
@@ -434,16 +457,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Note that the number of columns of the first matrix must equal the number of rows of the second matrix, in which case they are <strong>conformable for multiplication</strong>. The sizes of the matrices (including the resulting product) must be <span class="math display">(m\times k)(k\times n)=(m\times n)</span></p>
 <p>Also note that if <strong>AB</strong> exists, <strong>BA</strong> exists only if <span class="math inline">\dim({\bf A}) = m \times n</span> and <span class="math inline">\dim({\bf B}) = n \times m</span>.</p>
 <p>This does not mean that <strong>AB</strong> = <strong>BA</strong>. <strong>AB</strong> = <strong>BA</strong> is true only in special circumstances, like when <span class="math inline">{\bf A}</span> or <span class="math inline">{\bf B}</span> is an identity matrix or <span class="math inline">{\bf A} = {\bf B}^{-1}</span>.</p>
-<section id="laws-of-matrix-algebra" class="level3" data-number="6.3.1"><h3 data-number="6.3.1" class="anchored" data-anchor-id="laws-of-matrix-algebra">
-<span class="header-section-number">6.3.1</span> Laws of Matrix Algebra</h3>
+<section id="laws-of-matrix-algebra" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="laws-of-matrix-algebra"><span class="header-section-number">6.3.1</span> Laws of Matrix Algebra</h3>
 <ol type="1">
-<li>Associative: <span class="math inline">\bf (A+B)+C = A+(B+C)</span>
-</li>
+<li>Associative: <span class="math inline">\bf (A+B)+C = A+(B+C)</span></li>
 <li><span class="math inline">\bf (AB)C = A(BC)</span></li>
-<li>Commutative: <span class="math inline">\bf A+B=B+A</span>
-</li>
-<li>Distributive: <span class="math inline">\bf A(B+C)=AB+AC</span>
-</li>
+<li>Commutative: <span class="math inline">\bf A+B=B+A</span></li>
+<li>Distributive: <span class="math inline">\bf A(B+C)=AB+AC</span></li>
 <li><span class="math inline">\bf (A+B)C=AC+BC</span></li>
 </ol>
 <p>Commutative law for multiplication does not hold – the order of multiplication matters:</p>
@@ -460,9 +480,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math inline">({\bf A+B})^\top = {\bf A}^\top+{\bf B}^\top</span></li>
 <li><span class="math inline">({\bf A}^\top)^\top={\bf A}</span></li>
 <li><span class="math inline">(s{\bf A})^\top = s{\bf A}^\top</span></li>
-<li>
-<span class="math inline">({\bf AB})^\top = {\bf B}^\top{\bf A}^\top</span>; and by induction <span class="math inline">({\bf ABC})^\top = {\bf C}^\top{\bf B}^\top{\bf A}^\top</span>
-</li>
+<li><span class="math inline">({\bf AB})^\top = {\bf B}^\top{\bf A}^\top</span>; and by induction <span class="math inline">({\bf ABC})^\top = {\bf C}^\top{\bf B}^\top{\bf A}^\top</span></li>
 </ol>
 <p>Example of <span class="math inline">({\bf AB})^\top = {\bf B}^\top{\bf A}^\top</span>:</p>
 <p><span class="math display">{\bf A}=\begin{bmatrix} 1&amp;3&amp;2\\2&amp;-1&amp;3\end{bmatrix}, \qquad {\bf B}=\begin{bmatrix} 0&amp;1\\2&amp;2\\3&amp;-1\end{bmatrix}</span></p>
@@ -481,10 +499,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math display">BC^\top</span></li>
 </ol>
 </div>
-</section></section><section id="systems-of-linear-equations" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="systems-of-linear-equations">
-<span class="header-section-number">6.4</span> Systems of Linear Equations</h2>
-<section id="linear-equation" class="level3" data-number="6.4.1"><h3 data-number="6.4.1" class="anchored" data-anchor-id="linear-equation">
-<span class="header-section-number">6.4.1</span> Linear Equation</h3>
+</section>
+</section>
+<section id="systems-of-linear-equations" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="systems-of-linear-equations"><span class="header-section-number">6.4</span> Systems of Linear Equations</h2>
+<section id="linear-equation" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="linear-equation"><span class="header-section-number">6.4.1</span> Linear Equation</h3>
 <p>Linear equations take form of <span class="math inline">a_1 x_1 + a_2 x_2 + \cdots + a_n x_n = b</span></p>
 <p><span class="math inline">a_i</span> are parameters or coefficients. <span class="math inline">x_i</span> are variables or unknowns.</p>
 <p>Linear because only one variable per term and degree is at most 1.</p>
@@ -500,12 +520,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Example: <span class="math inline">x=3</span> and <span class="math inline">y=2</span> is the solution to the above <span class="math inline">2\times 2</span> linear system. If you graph the two lines, you will find that they intersect at <span class="math inline">(3,2)</span>.</p>
 <p>Does a linear system have one, no, or multiple solutions? For a system of 2 equations with 2 unknowns (i.e., two lines):</p>
 <ul>
-<li>
-<strong>One solution:</strong> The lines intersect at exactly one point.</li>
-<li>
-<strong>No solution:</strong> The lines are parallel.</li>
-<li>
-<strong>Infinite solutions:</strong> The lines coincide.</li>
+<li><strong>One solution:</strong> The lines intersect at exactly one point.</li>
+<li><strong>No solution:</strong> The lines are parallel.</li>
+<li><strong>Infinite solutions:</strong> The lines coincide.</li>
 </ul>
 <p>Methods to solve linear systems:</p>
 <ol type="1">
@@ -521,8 +538,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>infinite solutions</li>
 </ol>
 </div>
-</section></section><section id="systems-of-equations-as-matrices" class="level2" data-number="6.5"><h2 data-number="6.5" class="anchored" data-anchor-id="systems-of-equations-as-matrices">
-<span class="header-section-number">6.5</span> Systems of Equations as Matrices</h2>
+</section>
+</section>
+<section id="systems-of-equations-as-matrices" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="systems-of-equations-as-matrices"><span class="header-section-number">6.5</span> Systems of Equations as Matrices</h2>
 <p>Matrices provide an easy and efficient way to represent linear systems such as <span class="math display">\begin{matrix}
         a_{11}x_1  &amp; + &amp; a_{12}x_2 &amp; + &amp; \cdots &amp; + &amp; a_{1n}x_n &amp; = &amp; b_1\\
         a_{21}x_1  &amp; + &amp; a_{22}x_2 &amp; + &amp; \cdots &amp; + &amp; a_{2n}x_n &amp; = &amp; b_2\\
@@ -550,8 +569,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">41x_2 + 9x_3 -5x_6 = 11</span></p>
 <p><span class="math display">x_1 -15x_2 -11x_5 = 9</span></p>
 </div>
-</section><section id="finding-solutions-to-augmented-matrices-and-systems-of-equations" class="level2" data-number="6.6"><h2 data-number="6.6" class="anchored" data-anchor-id="finding-solutions-to-augmented-matrices-and-systems-of-equations">
-<span class="header-section-number">6.6</span> Finding Solutions to Augmented Matrices and Systems of Equations</h2>
+</section>
+<section id="finding-solutions-to-augmented-matrices-and-systems-of-equations" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="finding-solutions-to-augmented-matrices-and-systems-of-equations"><span class="header-section-number">6.6</span> Finding Solutions to Augmented Matrices and Systems of Equations</h2>
 <p><strong>Row Echelon Form</strong>: Our goal is to translate our augmented matrix or system of equations into row echelon form. This will provide us with the values of the vector <strong>x</strong> which solve the system. We use the row operations to change coefficients in the lower triangle of the augmented matrix to 0. An augmented matrix of the form <span class="math display">\begin{bmatrix}
     \fbox{$a'_{11}$}&amp; a'_{12} &amp; a'_{13}&amp; \cdots &amp; a'_{1n} &amp; | &amp; b'_1\\
     0 &amp; \fbox{$a'_{22}$} &amp; a'_{23}&amp; \cdots &amp; a'_{2n} &amp; | &amp; b'_2\\
@@ -606,8 +626,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \end{cases}</span></li>
 </ol>
 </div>
-</section><section id="rank-of-a-matrix" class="level2" data-number="6.7"><h2 data-number="6.7" class="anchored" data-anchor-id="rank-of-a-matrix">
-<span class="header-section-number">6.7</span> Rank of a Matrix</h2>
+</section>
+<section id="rank-of-a-matrix" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="rank-of-a-matrix"><span class="header-section-number">6.7</span> Rank of a Matrix</h2>
 <p>To determine how many solutions exist, we can use information about (1) the number of equations <span class="math inline">m</span>, (2) the number of unknowns <span class="math inline">n</span>, and (3) the <strong>rank</strong> of the matrix representing the linear system.</p>
 <p><strong>Rank</strong>: The maximum number of linearly independent row or column vectors in the matrix. This is equivalent to the number of nonzero rows of a matrix in row echelon form. For any matrix <strong>A</strong>, the row rank always equals column rank, and we refer to this number as the rank of <strong>A</strong>.</p>
 <p>For example <span class="math display">\begin{bmatrix} 1 &amp; 2 &amp; 3 \\
@@ -635,8 +656,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>rank is 2</li>
 <li>rank is 3</li>
-</ol></section><section id="the-inverse-of-a-matrix" class="level2" data-number="6.8"><h2 data-number="6.8" class="anchored" data-anchor-id="the-inverse-of-a-matrix">
-<span class="header-section-number">6.8</span> The Inverse of a Matrix</h2>
+</ol>
+</section>
+<section id="the-inverse-of-a-matrix" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="the-inverse-of-a-matrix"><span class="header-section-number">6.8</span> The Inverse of a Matrix</h2>
 <p><strong>Identity Matrix</strong>: The <span class="math inline">n\times n</span> identity matrix <span class="math inline">{\bf I}_n</span> is the matrix whose diagonal elements are 1 and all off-diagonal elements are 0. Examples: <span class="math display"> {\bf I}_2=\begin{bmatrix} 1&amp;0\\0&amp;1 \end{bmatrix}, \qquad {\bf I}_3=\begin{bmatrix} 1&amp;0&amp;0\\ 0&amp;1&amp;0\\
             0&amp;0&amp;1 \end{bmatrix}</span></p>
 <p><strong>Inverse Matrix</strong>: An <span class="math inline">n\times n</span> matrix <span class="math inline">{\bf A}</span> is <strong>nonsingular</strong> or <strong>invertible</strong> if there exists an <span class="math inline">n\times n</span> matrix <span class="math inline">{\bf A}^{-1}</span> such that <span class="math display">{\bf A} {\bf A}^{-1} = {\bf A}^{-1} {\bf A} = {\bf I}_n</span> where <span class="math inline">{\bf A}^{-1}</span> is the inverse of <span class="math inline">{\bf A}</span>. If there is no such <span class="math inline">{\bf A}^{-1}</span>, then <span class="math inline">{\bf A}</span> is singular or not invertible.</p>
@@ -656,13 +679,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li><p>Form the augmented matrix <span class="math inline">[ {\bf A} | {\bf I}_n]</span></p></li>
 <li><p>Using elementary row operations, transform the augmented matrix to reduced row echelon form.</p></li>
-<li>
-<p>The result of step 2 is an augmented matrix <span class="math inline">[ {\bf C} | {\bf B} ]</span>.</p>
+<li><p>The result of step 2 is an augmented matrix <span class="math inline">[ {\bf C} | {\bf B} ]</span>.</p>
 <ol type="a">
 <li><p>If <span class="math inline">{\bf C}={\bf I}_n</span>, then <span class="math inline">{\bf B}={\bf A}^{-1}</span>.</p></li>
 <li><p>If <span class="math inline">{\bf C}\ne{\bf I}_n</span>, then <span class="math inline">\bf C</span> has a row of zeros. This means <span class="math inline">{\bf A}</span> is singular and <span class="math inline">{\bf A}^{-1}</span> does not exist.</p></li>
-</ol>
-</li>
+</ol></li>
 </ol>
 <div id="exm-inverse" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6.7 </strong></span>Find the inverse of the following matrix:</p>
@@ -672,8 +693,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="theorem-title"><strong>Exercise 6.8 </strong></span>Find the inverse of the following matrix:</p>
 <p><span class="math display">{\bf A}=\begin{bmatrix} 1&amp;0&amp;4\\0&amp;2&amp;0\\0&amp;0&amp;1 \end{bmatrix}</span></p>
 </div>
-</section><section id="linear-systems-and-inverses" class="level2" data-number="6.9"><h2 data-number="6.9" class="anchored" data-anchor-id="linear-systems-and-inverses">
-<span class="header-section-number">6.9</span> Linear Systems and Inverses</h2>
+</section>
+<section id="linear-systems-and-inverses" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="linear-systems-and-inverses"><span class="header-section-number">6.9</span> Linear Systems and Inverses</h2>
 <p>Let’s return to the matrix representation of a linear system</p>
 <p><span class="math display">\bf{Ax} = \bf{b}</span></p>
 <p>If <span class="math inline">\bf{A}</span> is an <span class="math inline">n\times n</span> matrix,then <span class="math inline">\bf{Ax}=\bf{b}</span> is a system of <span class="math inline">n</span> equations in <span class="math inline">n</span> unknowns. Suppose <span class="math inline">\bf{A}</span> is nonsingular. Then <span class="math inline">\bf{A}^{-1}</span> exists. To solve this system, we can multiply each side by <span class="math inline">\bf{A}^{-1}</span> and reduce it as follows:</p>
@@ -693,8 +715,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>and</p>
 <p><span class="math display">\textbf{b} = \begin{bmatrix} 5\\-10 \end{bmatrix}</span></p>
 </div>
-</section><section id="determinants" class="level2" data-number="6.10"><h2 data-number="6.10" class="anchored" data-anchor-id="determinants">
-<span class="header-section-number">6.10</span> Determinants</h2>
+</section>
+<section id="determinants" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="determinants"><span class="header-section-number">6.10</span> Determinants</h2>
 <p><strong>Singularity</strong>: Determinants can be used to determine whether a square matrix is nonsingular.</p>
 <p>A square matrix is nonsingular if and only if its determinant is not zero.</p>
 <p>Determinant of a <span class="math inline">1 \times 1</span> matrix, equals <span class="math inline">|\mathbf{A}|=|a_{11}|=a_{11}</span></p>
@@ -742,8 +765,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \end{bmatrix}</span></p></li>
 </ol>
 </div>
-</section><section id="getting-inverse-of-a-matrix-using-its-determinant" class="level2" data-number="6.11"><h2 data-number="6.11" class="anchored" data-anchor-id="getting-inverse-of-a-matrix-using-its-determinant">
-<span class="header-section-number">6.11</span> Getting Inverse of a Matrix using its Determinant</h2>
+</section>
+<section id="getting-inverse-of-a-matrix-using-its-determinant" class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="getting-inverse-of-a-matrix-using-its-determinant"><span class="header-section-number">6.11</span> Getting Inverse of a Matrix using its Determinant</h2>
 <p>Thus far, we have a number of algorithms to</p>
 <ol type="1">
 <li>Find the solution of a linear system,</li>
@@ -783,7 +807,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             -7 &amp; 2\\
         \end{bmatrix}</span></p>
 </div>
-</section><section id="answers-to-examples-and-exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="answers-to-examples-and-exercises">Answers to Examples and Exercises</h2>
+</section>
+<section id="answers-to-examples-and-exercises" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="answers-to-examples-and-exercises">Answers to Examples and Exercises</h2>
 <p>Answer to <a href="#exm-vectors">Example&nbsp;<span>6.1</span></a>:</p>
 <ol type="1">
 <li><span class="math inline">\begin{bmatrix} -1 &amp;-3&amp;-3 \end{bmatrix}</span></li>
@@ -892,7 +918,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <!-- -->
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1039,7 +1068,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     });
   }
 });
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
       <a href="./15_non-wysiwyg.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LaTeX and Markdown</span></span>
       </a>          

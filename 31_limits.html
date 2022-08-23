@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.25">
+<meta name="generator" content="quarto-1.0.38">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
 <title>UCSD Political Science Math Camp - 8&nbsp; Limits</title>
 <style>
 code{white-space: pre-wrap;}
@@ -77,6 +80,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -95,7 +99,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -113,12 +118,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script><style>html{ scroll-behavior: smooth; }</style>
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
 <script type="application/json" class="js-hypothesis-config">
 {
   "theme": "clean"
 }
-</script><script async="" src="https://hypothes.is/embed.js"></script><script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
  for (var i = 0; i < mathElements.length; i++) {
@@ -131,21 +141,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     fleqn: false
    });
 }}});
-  </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
       <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Limits</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">UCSD Political Science Math Camp</a> 
         <div class="sidebar-tools-main">
@@ -161,7 +180,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">About this Booklet</a>
   </div>
@@ -183,8 +202,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11_orientation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Orientation and Reading in Data</span></a>
   </div>
@@ -210,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">II Linear Algebra</a>
@@ -218,8 +237,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./21_linear-algebra.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Algebra</span></a>
   </div>
@@ -230,7 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">III Calculus</a>
@@ -238,8 +257,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./31_limits.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Limits</span></a>
   </div>
@@ -260,7 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">IV Probability</a>
@@ -268,8 +287,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./41_probability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Probability Theory</span></a>
   </div>
@@ -285,29 +304,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./51_solutions-warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions Solutions</a>
   </div>
 </li>
     </ul>
-</div>
-</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#example-the-central-limit-theorem" id="toc-example-the-central-limit-theorem" class="nav-link active" data-scroll-target="#example-the-central-limit-theorem">Example: The Central Limit Theorem</a></li>
+  <li><a href="#example-the-central-limit-theorem" id="toc-example-the-central-limit-theorem" class="nav-link active" data-scroll-target="#example-the-central-limit-theorem">Example: The Central Limit Theorem</a></li>
   <li><a href="#example-the-law-of-large-numbers" id="toc-example-the-law-of-large-numbers" class="nav-link" data-scroll-target="#example-the-law-of-large-numbers">Example: The Law of Large Numbers</a></li>
   <li><a href="#sequences" id="toc-sequences" class="nav-link" data-scroll-target="#sequences"> <span class="header-section-number">8.1</span> Sequences</a></li>
   <li><a href="#the-limit-of-a-sequence" id="toc-the-limit-of-a-sequence" class="nav-link" data-scroll-target="#the-limit-of-a-sequence"> <span class="header-section-number">8.2</span> The Limit of a Sequence</a></li>
   <li><a href="#limitsfun" id="toc-limitsfun" class="nav-link" data-scroll-target="#limitsfun"> <span class="header-section-number">8.3</span> Limits of a Function</a></li>
   <li><a href="#continuity" id="toc-continuity" class="nav-link" data-scroll-target="#continuity"> <span class="header-section-number">8.4</span> Continuity</a></li>
   <li><a href="#answers-to-examples" id="toc-answers-to-examples" class="nav-link" data-scroll-target="#answers-to-examples">Answers to Examples</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/31_limits.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/blob/main/31_limits.Rmd" class="toc-action">View source</a></p></div></div></nav>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/31_limits.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/blob/main/31_limits.Rmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title"><span id="limits-precalc" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Limits</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
@@ -320,8 +346,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><p>Solving limits, i.e.&nbsp;finding out the value of functions as its input moves closer to some value, is important for the social scientist’s mathematical toolkit for two related tasks. The first is for the study of calculus, which will be in turn useful to show where certain functions are maximized or minimized. The second is for the study of statistical inference, which is the study of inferring things about things you cannot see by using things you can see.</p>
-<section id="example-the-central-limit-theorem" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="example-the-central-limit-theorem">Example: The Central Limit Theorem</h2>
+</header>
+
+<p>Solving limits, i.e.&nbsp;finding out the value of functions as its input moves closer to some value, is important for the social scientist’s mathematical toolkit for two related tasks. The first is for the study of calculus, which will be in turn useful to show where certain functions are maximized or minimized. The second is for the study of statistical inference, which is the study of inferring things about things you cannot see by using things you can see.</p>
+<section id="example-the-central-limit-theorem" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="example-the-central-limit-theorem">Example: The Central Limit Theorem</h2>
 <p>Perhaps the most important theorem in statistics is the Central Limit Theorem,</p>
 <div id="thm-clt-lim" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 8.1 (Central Limit Theorem (i.i.d. case)) </strong></span>For any series of independent and identically distributed random variables <span class="math inline">X_1, X_2, \cdots</span>, we know the distribution of its sum even if we do not know the distribution of <span class="math inline">X</span>. The distribution of the sum is a Normal distribution.</p>
@@ -330,7 +359,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>That is, the limit of the distribution of the lefthand side is the distribution of the righthand side.</p>
 </div>
 <p>The sign of a limit is the arrow “<span class="math inline">\rightarrow</span>”. Although we have not yet covered probability so we have not described what distributions and random variables are, it is worth foreshadowing the Central Limit Theorem. The Central Limit Theorem is powerful because it gives us a <em>guarantee</em> of what would happen if <span class="math inline">n \rightarrow \infty</span>, which in this case means we collected more data.</p>
-</section><section id="example-the-law-of-large-numbers" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="example-the-law-of-large-numbers">Example: The Law of Large Numbers</h2>
+</section>
+<section id="example-the-law-of-large-numbers" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="example-the-law-of-large-numbers">Example: The Law of Large Numbers</h2>
 <p>A finding that perhaps rivals the Central Limit Theorem is the Law of Large Numbers:</p>
 <div id="thm-lln-lim" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 8.2 ((Weak) Law of Large Numbers) </strong></span>For any draw of identically distributed independent variables with mean <span class="math inline">\mu</span>, the sample average after <span class="math inline">n</span> draws, <span class="math inline">\bar{X}_n</span>, converges in probability to the true mean as <span class="math inline">n \rightarrow \infty</span>:</p>
@@ -341,14 +372,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-hash="31_limits_cache/html/fig-llnsim_915e43ab6735ec87c8c59da68d43e928">
 <div class="cell-output-display">
 <div id="fig-llnsim" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="31_limits_files/figure-html/fig-llnsim-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure">
+<p><img src="31_limits_files/figure-html/fig-llnsim-1.png" class="img-fluid figure-img" width="672"></p>
 <p></p><figcaption class="figure-caption">Figure 8.1: As the number of coin tosses goes to infinity, the average probabiity of heads converges to 0.5</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="sequences" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="sequences">
-<span class="header-section-number">8.1</span> Sequences</h2>
+</section>
+<section id="sequences" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="sequences"><span class="header-section-number">8.1</span> Sequences</h2>
 <p>We need a couple of steps until we get to limit theorems in probability. First we will introduce a “sequence”, then we will think about the limit of a sequence, then we will think about the limit of a <em>function</em>.</p>
 <p>A <strong>sequence</strong> <span class="math display">\{x_n\}=\{x_1, x_2, x_3, \ldots, x_n\}</span> is an ordered set of real numbers, where <span class="math inline">x_1</span> is the first term in the sequence and <span class="math inline">y_n</span> is the <span class="math inline">n</span>th term. Generally, a sequence is infinite, that is it extends to <span class="math inline">n=\infty</span>. We can also write the sequence as <span class="math display">\{x_n\}^\infty_{n=1}</span></p>
 <p>where the subscript and superscript are read together as “from 1 to infinity.”</p>
@@ -364,14 +397,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-hash="31_limits_cache/html/fig-seqabc_29ad4304fd3bd74e8886485e27c8f284">
 <div class="cell-output-display">
 <div id="fig-seqabc" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="31_limits_files/figure-html/fig-seqabc-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure">
+<p><img src="31_limits_files/figure-html/fig-seqabc-1.png" class="img-fluid figure-img" width="672"></p>
 <p></p><figcaption class="figure-caption">Figure 8.2: Behavior of Some Sequences</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="the-limit-of-a-sequence" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="the-limit-of-a-sequence">
-<span class="header-section-number">8.2</span> The Limit of a Sequence</h2>
+</section>
+<section id="the-limit-of-a-sequence" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="the-limit-of-a-sequence"><span class="header-section-number">8.2</span> The Limit of a Sequence</h2>
 <p>The notion of “converging to a limit” is the behavior of the points in <a href="#exm-seqbehav">Example&nbsp;<span>8.1</span></a>. In some sense, that’s the counterfactual we want to know. What happens as <span class="math inline">n\rightarrow \infty</span>?</p>
 <ol type="1">
 <li>Sequences like 1 above that converge to a limit.</li>
@@ -384,21 +419,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>We can also express the behavior of a sequence as bounded or not:</p>
 <ol type="1">
-<li>Bounded: if <span class="math inline">|y_n|\le K</span> for all <span class="math inline">n</span>
-</li>
-<li>Monotonically Increasing: <span class="math inline">y_{n+1}&gt;y_n</span> for all <span class="math inline">n</span>
-</li>
-<li>Monotonically Decreasing: <span class="math inline">y_{n+1}&lt;y_n</span> for all <span class="math inline">n</span>
-</li>
+<li>Bounded: if <span class="math inline">|y_n|\le K</span> for all <span class="math inline">n</span></li>
+<li>Monotonically Increasing: <span class="math inline">y_{n+1}&gt;y_n</span> for all <span class="math inline">n</span></li>
+<li>Monotonically Decreasing: <span class="math inline">y_{n+1}&lt;y_n</span> for all <span class="math inline">n</span></li>
 </ol>
 <p>A limit is <em>unique</em>: If <span class="math inline">\{y_n\}</span> converges, then the limit <span class="math inline">L</span> is unique.</p>
 <p>If a sequence converges, then the sum of such sequences also converges. Let <span class="math inline">\lim\limits_{n \to \infty} y_n = y</span> and <span class="math inline">\lim\limits_{n \to \infty} z_n =z</span>. Then</p>
 <ol type="1">
 <li><span class="math inline">\lim\limits_{n \to \infty} [k y_n + \ell z_n]= k y + \ell z</span></li>
 <li><span class="math inline">\lim\limits_{n \to \infty} y_n z_n = yz</span></li>
-<li>
-<span class="math inline">\lim\limits_{n \to \infty} \frac{y_n}{z_n} = \frac{y}{z}</span>, provided <span class="math inline">z\neq 0</span>
-</li>
+<li><span class="math inline">\lim\limits_{n \to \infty} \frac{y_n}{z_n} = \frac{y}{z}</span>, provided <span class="math inline">z\neq 0</span></li>
 </ol>
 <p>This looks reasonable enough. The harder question, obviously is when the parts of the fraction <em>don’t</em> converge. If <span class="math inline">\lim_{n\to\infty} y_n = \infty</span> and <span class="math inline">\lim_{n\to\infty} z_n = \infty</span>, What is <span class="math inline">\lim_{n\to\infty} y_n - z_n</span>? What is <span class="math inline">\lim_{n\to\infty} \frac{y_n}{z_n}</span>?</p>
 <p>It is nice for a sequence to converge in limit. We want to know if complex-looking sequences converge or not. The name of the game here is to break that complex sequence up into sums of simple fractions where <span class="math inline">n</span> only appears in the denominator: <span class="math inline">\frac{1}{n}, \frac{1}{n^2}</span>, and so on. Each of these will converge to 0, because the denominator gets larger and larger. Then, because of the properties above, we can then find the final sequence.</p>
@@ -417,8 +447,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math inline">\lim\limits_{n\to\infty} (n^3 - 100n^2)</span></li>
 </ol>
 </div>
-</section><section id="limitsfun" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="limitsfun">
-<span class="header-section-number">8.3</span> Limits of a Function</h2>
+</section>
+<section id="limitsfun" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="limitsfun"><span class="header-section-number">8.3</span> Limits of a Function</h2>
 <p>We’ve now covered functions and just covered limits of sequences, so now is the time to combine the two.</p>
 <p>A function <span class="math inline">f</span> is a compact representation of some behavior we care about. Like for sequences, we often want to know if <span class="math inline">f(x)</span> approaches some number <span class="math inline">L</span> as its independent variable <span class="math inline">x</span> moves to some number <span class="math inline">c</span> (which is usually 0 or <span class="math inline">\pm\infty</span>). If it does, we say that the limit of <span class="math inline">f(x)</span>, as <span class="math inline">x</span> approaches <span class="math inline">c</span>, is <span class="math inline">L</span>: <span class="math inline">\lim\limits_{x \to c} f(x)=L</span>. Unlike a sequence, <span class="math inline">x</span> is a continuous number, and we can move in decreasing order as well as increasing.</p>
 <p>For a limit <span class="math inline">L</span> to exist, the function <span class="math inline">f(x)</span> must approach <span class="math inline">L</span> from both the left (increasing) and the right (decreasing).</p>
@@ -433,8 +464,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math inline">\lim\limits_{x \to c}[f(x)+g(x)]=\lim\limits_{x \to c} f(x)+ \lim\limits_{x \to c} g(x)</span></li>
 <li><span class="math inline">\lim\limits_{x \to c} kf(x) = k\lim\limits_{x \to c} f(x)</span></li>
 <li><span class="math inline">\lim\limits_{x \to c} f(x) g(x) = \left[\lim\limits_{x \to c} f(x)\right]\cdot \left[\lim\limits_{x \to c} g(x)\right]</span></li>
-<li>
-<span class="math inline">\lim\limits_{x \to c} \frac{f(x)}{g(x)} = \frac{\lim\limits_{x \to c} f(x)}{\lim\limits_{x \to c} g(x)}</span>, provided <span class="math inline">\lim\limits_{x \to c} g(x)\ne 0</span>.</li>
+<li><span class="math inline">\lim\limits_{x \to c} \frac{f(x)}{g(x)} = \frac{\lim\limits_{x \to c} f(x)}{\lim\limits_{x \to c} g(x)}</span>, provided <span class="math inline">\lim\limits_{x \to c} g(x)\ne 0</span>.</li>
 </ol>
 </div>
 <p>Simple limits of functions can be solved as we did limits of sequences. Just be careful which part of the function is changing.</p>
@@ -472,14 +502,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-hash="31_limits_cache/html/unnamed-chunk-2_16ca40a1214e154204e29ebc9fde853b">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="31_limits_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure">
+<p><img src="31_limits_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 <p></p><figcaption class="figure-caption">Functions which are not defined in some areas</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="continuity" class="level2" data-number="8.4"><h2 data-number="8.4" class="anchored" data-anchor-id="continuity">
-<span class="header-section-number">8.4</span> Continuity</h2>
+</section>
+<section id="continuity" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="continuity"><span class="header-section-number">8.4</span> Continuity</h2>
 <p>To repeat a finding from the limits of functions: <span class="math inline">f(x)</span> does not necessarily have to be defined at <span class="math inline">c</span> for <span class="math inline">\lim\limits_{x \to c}</span> to exist. Functions that have breaks in their lines are called discontinuous. Functions that have no breaks are called continuous. Continuity is a concept that is more fundamental to, but related to that of “differentiability”, which we will cover next in calculus.</p>
 <div id="def-conti" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 8.3 (Continuity”) </strong></span></p>
@@ -492,8 +524,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math inline">f(x) = \sqrt{x}</span></li>
 <li><span class="math inline">f(x) = e^x</span></li>
 <li><span class="math inline">f(x) = 1 + \frac{1}{x^2}</span></li>
-<li>
-<span class="math inline">f(x) = \text{floor}(x)</span>.</li>
+<li><span class="math inline">f(x) = \text{floor}(x)</span>.</li>
 </ol>
 <p>The floor is the smaller of the two integers bounding a number. So <span class="math inline">\text{floor}(x = 2.999) = 2</span>, <span class="math inline">\text{floor}(x = 2.0001) = 2</span>, and <span class="math inline">\text{floor}(x = 2) = 2.</span></p>
 </div>
@@ -503,7 +534,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-hash="31_limits_cache/html/fig-contdiscont_22f75024aaa5a0d4e58df76c4da0f7b4">
 <div class="cell-output-display">
 <div id="fig-contdiscont" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="31_limits_files/figure-html/fig-contdiscont-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure">
+<p><img src="31_limits_files/figure-html/fig-contdiscont-1.png" class="img-fluid figure-img" width="672"></p>
 <p></p><figcaption class="figure-caption">Figure 8.3: Continuous and Discontinuous Functions</figcaption><p></p>
 </figure>
 </div>
@@ -524,7 +556,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>What is the functions limit at <span class="math inline">x \rightarrow 0</span>?</li>
 </ol>
 </div>
-</section><section id="answers-to-examples" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="answers-to-examples">Answers to Examples</h2>
+</section>
+<section id="answers-to-examples" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="answers-to-examples">Answers to Examples</h2>
 <p><a href="#exm-seqbehav">Example&nbsp;<span>8.1</span></a></p>
 <p><em>Solution.</em></p>
 <ol type="1">
@@ -570,7 +604,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-hash="31_limits_cache/html/fig-hole-0_214fea863c0ac476deca8061accbe4ba">
 <div class="cell-output-display">
 <div id="fig-hole-0" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="31_limits_files/figure-html/fig-hole-0-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure">
+<p><img src="31_limits_files/figure-html/fig-hole-0-1.png" class="img-fluid figure-img" width="672"></p>
 <p></p><figcaption class="figure-caption">Figure 8.4: A function undedefined at x = 0</figcaption><p></p>
 </figure>
 </div>
@@ -580,7 +615,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <!-- -->
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -727,7 +765,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     });
   }
 });
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
       <a href="./22_matrices.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Manipulating Vectors and Matrices</span></span>
       </a>          
