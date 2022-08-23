@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.25">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>UCSD Political Science Math Camp - 2&nbsp; Objects, Functions, Loops</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./12_visualization.html" rel="next">
+<link href="./11_orientation.html" rel="prev">
+<link href="./favicon.ico" rel="icon">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script><style>html{ scroll-behavior: smooth; }</style>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean"
+}
+</script><script async="" src="https://hypothes.is/embed.js"></script><script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Objects, Functions, Loops</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">UCSD Political Science Math Camp</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/UCSDPoliMathCamp/MathCamp/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="./UCSD-Political-Science-Math-Camp.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">About this Booklet</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_prerequisites.html" class="sidebar-item-text sidebar-link">Prerequisites</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">I Introduction to R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_orientation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Orientation and Reading in Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_functions_obj_loops.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Objects, Functions, Loops</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_visualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14_simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Simulation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_non-wysiwyg.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LaTeX and Markdown</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">II Linear Algebra</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21_linear-algebra.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Algebra</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22_matrices.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Manipulating Vectors and Matrices</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">III Calculus</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31_limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Limits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./32_derivatives.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Differential Calculus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./33_optimization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Optimization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./34_intergrals.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Integral Calculus</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">IV Probability</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41_probability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Probability Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./42_distribution.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Summarizing Distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./43_statistics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Learning from Data</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./51_solutions-warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions Solutions</a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#where-are-we-where-are-we-headed" id="toc-where-are-we-where-are-we-headed" class="nav-link active" data-scroll-target="#where-are-we-where-are-we-headed">Where are we? Where are we headed?</a></li>
+  <li>
+<a href="#what-is-an-object" id="toc-what-is-an-object" class="nav-link" data-scroll-target="#what-is-an-object"> <span class="header-section-number">2.1</span> What is an object?</a>
+  <ul class="collapse">
+<li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists"> <span class="header-section-number">2.1.1</span> lists</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#making-your-own-objects" id="toc-making-your-own-objects" class="nav-link" data-scroll-target="#making-your-own-objects"> <span class="header-section-number">2.2</span> Making your own objects</a>
+  <ul class="collapse">
+<li><a href="#seeing-r-through-objects" id="toc-seeing-r-through-objects" class="nav-link" data-scroll-target="#seeing-r-through-objects"> <span class="header-section-number">2.2.1</span> Seeing R through objects</a></li>
+  <li><a href="#parsing-an-object-by-strs" id="toc-parsing-an-object-by-strs" class="nav-link" data-scroll-target="#parsing-an-object-by-strs"> <span class="header-section-number">2.2.2</span> Parsing an object by <code>str()s</code></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#types-of-variables" id="toc-types-of-variables" class="nav-link" data-scroll-target="#types-of-variables"> <span class="header-section-number">2.3</span> Types of variables</a>
+  <ul class="collapse">
+<li><a href="#scalars" id="toc-scalars" class="nav-link" data-scroll-target="#scalars"> <span class="header-section-number">2.3.1</span> scalars</a></li>
+  <li><a href="#numeric-vectors" id="toc-numeric-vectors" class="nav-link" data-scroll-target="#numeric-vectors"> <span class="header-section-number">2.3.2</span> numeric vectors</a></li>
+  <li><a href="#characters-aka-strings" id="toc-characters-aka-strings" class="nav-link" data-scroll-target="#characters-aka-strings"> <span class="header-section-number">2.3.3</span> characters (aka strings)</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#what-is-a-function" id="toc-what-is-a-function" class="nav-link" data-scroll-target="#what-is-a-function"> <span class="header-section-number">2.4</span> What is a function?</a>
+  <ul class="collapse">
+<li><a href="#write-your-own-function" id="toc-write-your-own-function" class="nav-link" data-scroll-target="#write-your-own-function"> <span class="header-section-number">2.4.1</span> Write your own function</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#checkpoint" id="toc-checkpoint" class="nav-link" data-scroll-target="#checkpoint">Checkpoint</a>
+  <ul class="collapse">
+<li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">1</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">3</a></li>
+  </ul>
+</li>
+  <li><a href="#what-is-a-package" id="toc-what-is-a-package" class="nav-link" data-scroll-target="#what-is-a-package"> <span class="header-section-number">2.5</span> What is a package?</a></li>
+  <li><a href="#conditionals" id="toc-conditionals" class="nav-link" data-scroll-target="#conditionals"> <span class="header-section-number">2.6</span> Conditionals</a></li>
+  <li><a href="#for-loops" id="toc-for-loops" class="nav-link" data-scroll-target="#for-loops"> <span class="header-section-number">2.7</span> For-loops</a></li>
+  <li><a href="#nested-loops" id="toc-nested-loops" class="nav-link" data-scroll-target="#nested-loops"> <span class="header-section-number">2.8</span> Nested Loops</a></li>
+  <li>
+<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
+<li><a href="#exercise-1-write-your-own-function" id="toc-exercise-1-write-your-own-function" class="nav-link" data-scroll-target="#exercise-1-write-your-own-function">Exercise 1: Write your own function</a></li>
+  <li><a href="#exercise-2-using-loops" id="toc-exercise-2-using-loops" class="nav-link" data-scroll-target="#exercise-2-using-loops">Exercise 2: Using Loops</a></li>
+  <li><a href="#exercise-3-storing-information-derived-within-loops-in-a-global-dataframe" id="toc-exercise-3-storing-information-derived-within-loops-in-a-global-dataframe" class="nav-link" data-scroll-target="#exercise-3-storing-information-derived-within-loops-in-a-global-dataframe">Exercise 3: Storing information derived within loops in a global dataframe</a></li>
+  </ul>
+</li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/12_functions_obj_loops.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/blob/main/12_functions_obj_loops.Rmd" class="toc-action">View source</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="robjloops" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Objects, Functions, Loops</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header><section id="where-are-we-where-are-we-headed" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="where-are-we-where-are-we-headed">Where are we? Where are we headed?</h3>
+<p>Up till now, you should have covered:</p>
+<ul>
+<li>R basic programming</li>
+<li>Data Import</li>
+</ul>
+<p>Today we’ll cover</p>
+<ul>
+<li>Objects</li>
+<li>Functions</li>
+<li>Loops</li>
+</ul></section><section id="what-is-an-object" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="what-is-an-object">
+<span class="header-section-number">2.1</span> What is an object?</h2>
+<p>Now that we have covered how to load in data and some basic information about R, let’s dive into some fundamentals of the R language.</p>
+<p>Let’s first set up</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-1_45588699b68ca6f99553a2d7769fd823">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-2_a11121550b9892b4ab6f9c82359211cf">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cen10</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data/input/usc2010_001percent.csv"</span>, col_types <span class="op">=</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/cols.html">cols</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Objects are abstract symbols in which you store data. Here we will create an object from <code>copy</code>, and assign <code>cen10</code> to it.</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-3_c18f3157a372125bf980fbfce37d4e01">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">copy</span> <span class="op">&lt;-</span> <span class="va">cen10</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This looks the same as the original dataset:</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-4_b971e90c7aac6584f35bd4457444b40d">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">copy</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 30,871 × 4
+   state         sex      age race       
+   &lt;chr&gt;         &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;      
+ 1 New York      Female     8 White      
+ 2 Ohio          Male      24 White      
+ 3 Nevada        Male      37 White      
+ 4 Michigan      Female    12 White      
+ 5 Maryland      Female    18 Black/Negro
+ 6 New Hampshire Male      50 White      
+ 7 Iowa          Female    51 White      
+ 8 Missouri      Female    41 White      
+ 9 New Jersey    Male      62 White      
+10 California    Male      25 White      
+# … with 30,861 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
+</div>
+</div>
+<p>What happens if you do this next?</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-5_58d3a5268bcc1a958f1211b2eb9fe41b">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">copy</span> <span class="op">&lt;-</span> <span class="st">""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>It got reassigned:</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-6_7271ae65f1ace83958cc64cd551d7a37">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">copy</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] ""</code></pre>
+</div>
+</div>
+<section id="lists" class="level3" data-number="2.1.1"><h3 data-number="2.1.1" class="anchored" data-anchor-id="lists">
+<span class="header-section-number">2.1.1</span> lists</h3>
+<p>Lists are one of the most generic and flexible type of object. You can make an empty list by the function <code><a href="https://rdrr.io/r/base/list.html">list()</a></code></p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-7_c36978d5608be45a12ae9d6b15d3401a">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">my_list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code><a href="https://rdrr.io/r/base/list.html">list()</a></code></pre>
+</div>
+</div>
+<p>And start filling it in. Slots on the list are invoked by double square brackets <code>[[]]</code></p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-8_b98db1f7c0862f9c4b62d0ad5f2d437d">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_list</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"contents of the first slot -- this is a string"</span></span>
+<span><span class="va">my_list</span><span class="op">[[</span><span class="st">"slot 2"</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"contents of slot named slot 2"</span></span>
+<span><span class="va">my_list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] "contents of the first slot -- this is a string"
+
+$`slot 2`
+[1] "contents of slot named slot 2"</code></pre>
+</div>
+</div>
+<p>each slot can be anything. What are we doing here? We are defining the 1st slot of the list <code>my_list</code> to be a vector <code>c(1, 2, 3, 4, 5)</code></p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-9_9c18f638b028458f0fec80a90c792d9f">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_list</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="va">my_list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] 1 2 3 4 5
+
+$`slot 2`
+[1] "contents of slot named slot 2"</code></pre>
+</div>
+</div>
+<p>You can even make nested lists. Let’s say we want the 1st slot of the list to be another list of three elements.</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-10_62f774467217458cb6c3cb11c480d562">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_list</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"subitem 1 in slot 1 of my_list"</span></span>
+<span><span class="va">my_list</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"subitem 1 in slot 2 of my_list"</span></span>
+<span><span class="va">my_list</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"subitem 1 in slot 3 of my_list"</span></span>
+<span></span>
+<span><span class="va">my_list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] "subitem 1 in slot 1 of my_list" "subitem 1 in slot 2 of my_list"
+[3] "subitem 1 in slot 3 of my_list" "4"                             
+[5] "5"                             
+
+$`slot 2`
+[1] "contents of slot named slot 2"</code></pre>
+</div>
+</div>
+</section></section><section id="making-your-own-objects" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="making-your-own-objects">
+<span class="header-section-number">2.2</span> Making your own objects</h2>
+<p>We’ve covered one type of object, which is a list. You saw it was quite flexible. How many types of objects are there?</p>
+<p>There are an infinite number of objects, because people make their own class of object. You can detect the type of the object (the class) by the function <code>class</code></p>
+<p>Object can be said to be an instance of a class.</p>
+<p><strong><em>Analogies</em></strong>:</p>
+<p><strong>class</strong> - Pokemon, <strong>object</strong> - Pikachu</p>
+<p><strong>class</strong> - Book, <strong>object</strong> - To Kill a Mockingbird</p>
+<p><strong>class</strong> - DataFrame, <strong>object</strong> - 2010 census data</p>
+<p><strong>class</strong> - Character, <strong>object</strong> - “Programming is Fun”</p>
+<p>What is type (class) of object is <code>cen10</code>?</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-11_e38be3c574336057a84cff112d72a783">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "spec_tbl_df" "tbl_df"      "tbl"         "data.frame" </code></pre>
+</div>
+</div>
+<p>What about this text?</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-12_d08ed8a4bf3badea3a8a80f9b3cc1256">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="st">"some random text"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+<p>To change or create the class of any object, you can <em>assign</em> it. To do this, assign the name of your class to character to an object’s <code><a href="https://rdrr.io/r/base/class.html">class()</a></code>.</p>
+<p>We can start from a simple list. For example, say we wanted to store data about pokemon. Because there is no pre-made package for this, we decide to make our own class.</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-13_2a1abb1ce34bf033c83084875e22c046">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pikachu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Pikachu"</span>,</span>
+<span>                number <span class="op">=</span> <span class="fl">25</span>,</span>
+<span>                type <span class="op">=</span> <span class="st">"Electric"</span>,</span>
+<span>                color <span class="op">=</span> <span class="st">"Yellow"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>and we can give it any class name we want.</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-14_edf53a3a24c5840aa14020a0e4fb5c89">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">pikachu</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"Pokemon"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">pikachu</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 4
+ $ name  : chr "Pikachu"
+ $ number: num 25
+ $ type  : chr "Electric"
+ $ color : chr "Yellow"
+ - attr(*, "class")= chr "Pokemon"</code></pre>
+</div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pikachu</span><span class="op">$</span><span class="va">type</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Electric"</code></pre>
+</div>
+</div>
+<section id="seeing-r-through-objects" class="level3" data-number="2.2.1"><h3 data-number="2.2.1" class="anchored" data-anchor-id="seeing-r-through-objects">
+<span class="header-section-number">2.2.1</span> Seeing R through objects</h3>
+<p>Most of the R objects that you will see as you advance are their own objects. For example, here’s a linear regression object (which you will learn more about in 204B):</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-15_666462925ac418c54d7af2d77e31de3f">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">wt</span> <span class="op">+</span> <span class="va">vs</span> <span class="op">+</span> <span class="va">gear</span> <span class="op">+</span> <span class="va">carb</span>, <span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">ols</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "lm"</code></pre>
+</div>
+</div>
+<p>Anything can be an object! Even graphs (in <code>ggplot</code>) can be assigned, re-assigned, and edited.</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-16_301f85a69faaea59b036ddbd402f1313">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">grp_race</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">cen10</span>, <span class="va">race</span><span class="op">)</span><span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>count <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">grp_race_ordered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">grp_race</span>, <span class="va">count</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>race <span class="op">=</span> <span class="fu">forcats</span><span class="fu">::</span><span class="fu"><a href="https://forcats.tidyverse.org/reference/as_factor.html">as_factor</a></span><span class="op">(</span><span class="va">race</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">gg_tab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">grp_race_ordered</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">race</span>, y <span class="op">=</span> <span class="va">count</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>caption <span class="op">=</span> <span class="st">"Source: U.S. Census 2010"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">gg_tab</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="12_functions_obj_loops_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>You can change the orientation</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-17_1c7293b8015b41f1aaa610aef3d7de02">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gg_tab</span><span class="op">&lt;-</span> <span class="va">gg_tab</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="parsing-an-object-by-strs" class="level3" data-number="2.2.2"><h3 data-number="2.2.2" class="anchored" data-anchor-id="parsing-an-object-by-strs">
+<span class="header-section-number">2.2.2</span> Parsing an object by <code>str()s</code>
+</h3>
+<p>It can be hard to understand an <code>R</code> object because its contents are unknown. The function <code>str</code>, short for structure, is a quick way to look into the innards of an object</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-18_afa046e7f7be0be64a7eb46c5b055a76">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">my_list</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 2
+ $       : chr [1:5] "subitem 1 in slot 1 of my_list" "subitem 1 in slot 2 of my_list" "subitem 1 in slot 3 of my_list" "4" ...
+ $ slot 2: chr "contents of slot named slot 2"</code></pre>
+</div>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">my_list</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "list"</code></pre>
+</div>
+</div>
+<p>Same for the object we just made</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-19_f671dab78769e76380ca06b21b681708">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">pikachu</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 4
+ $ name  : chr "Pikachu"
+ $ number: num 25
+ $ type  : chr "Electric"
+ $ color : chr "Yellow"
+ - attr(*, "class")= chr "Pokemon"</code></pre>
+</div>
+</div>
+<p>What does a <code>ggplot</code> object look like? Very complicated, but at least you can see it:</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-20_7817252de03dfdc862ae7a480557573d">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># enter this on your console</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">gg_tab</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="types-of-variables" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="types-of-variables">
+<span class="header-section-number">2.3</span> Types of variables</h2>
+<p>In the social science we often analyze variables. As you saw in the tutorial, different types of variables require different care.</p>
+<p>A key link with what we just learned is that variables are also types of R objects.</p>
+<section id="scalars" class="level3" data-number="2.3.1"><h3 data-number="2.3.1" class="anchored" data-anchor-id="scalars">
+<span class="header-section-number">2.3.1</span> scalars</h3>
+<p>One number. How many people did we count in our Census sample?</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-21_530e13755a3744eb80874992f8f3b846">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30871</code></pre>
+</div>
+</div>
+<p>Question: What proportion of our census sample is Native American? This number is also a scalar</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-22_9d3308dc1ce49a40a0b760bd2083a4ab">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Enter yourself</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">$</span><span class="va">race</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "White"                            "Black/Negro"                     
+[3] "Other race, nec"                  "American Indian or Alaska Native"
+[5] "Chinese"                          "Other Asian or Pacific Islander" 
+[7] "Two major races"                  "Three or more major races"       
+[9] "Japanese"                        </code></pre>
+</div>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">$</span><span class="va">race</span> <span class="op">==</span> <span class="st">"American Indian or Alaska Native"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.009555894</code></pre>
+</div>
+</div>
+<p>Hint: you can use the function <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> to calcualte the sample mean. The sample proportion is the mean of a sequence of number, where your event of interest is a 1 (or <code>TRUE</code>) and others are 0 (or <code>FALSE</code>).</p>
+</section><section id="numeric-vectors" class="level3" data-number="2.3.2"><h3 data-number="2.3.2" class="anchored" data-anchor-id="numeric-vectors">
+<span class="header-section-number">2.3.2</span> numeric vectors</h3>
+<p>A sequence of numbers.</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-23_9c368649ddef3ed9012ea67f9bc80741">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">grp_race_ordered</span><span class="op">$</span><span class="va">count</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]    77    88   295   354   869  1129  1839  4013 22207</code></pre>
+</div>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">grp_race_ordered</span><span class="op">$</span><span class="va">count</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "integer"</code></pre>
+</div>
+</div>
+<p>Or even, all the ages of the millions of people in our Census. Here are just the first few numbers of the list.</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-24_f6ded4fcbe15f1b72af409112eacb5aa">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">$</span><span class="va">age</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  8 24 37 12 18 50</code></pre>
+</div>
+</div>
+</section><section id="characters-aka-strings" class="level3" data-number="2.3.3"><h3 data-number="2.3.3" class="anchored" data-anchor-id="characters-aka-strings">
+<span class="header-section-number">2.3.3</span> characters (aka strings)</h3>
+<p>This can be just one stretch of characters</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-25_dae1d2e095a7ea5f8f9294c5041d9975">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_name</span> <span class="op">&lt;-</span> <span class="st">"Meg"</span></span>
+<span><span class="va">my_name</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Meg"</code></pre>
+</div>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">my_name</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+<p>or more characters. Notice here that there’s a difference between a vector of individual characters and a length-one object of characters.</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-26_ba973b8954494cf4ab4f2949a2577db5">
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_name_letters</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"M"</span>,<span class="st">"e"</span>,<span class="st">"g"</span><span class="op">)</span></span>
+<span><span class="va">my_name_letters</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "M" "e" "g"</code></pre>
+</div>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">my_name_letters</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+<p>Finally, remember that lower vs.&nbsp;upper case matters in R!</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-27_f56295f607ad063e65414b38da1ec591">
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_name2</span> <span class="op">&lt;-</span> <span class="st">"shiro"</span></span>
+<span><span class="va">my_name</span> <span class="op">==</span> <span class="va">my_name2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+</section></section><section id="what-is-a-function" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="what-is-a-function">
+<span class="header-section-number">2.4</span> What is a function?</h2>
+<p>Most of what we do in R is executing a function. <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>, <code><a href="https://rdrr.io/r/base/nrow.html">nrow()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> .. pretty much anything with a parentheses is a function. And even things like <code>&lt;-</code> and <code>[</code> are functions as well.</p>
+<p>A function is a set of instructions with specified ingredients. It takes an <strong>input</strong>, then <strong>manipulates</strong> it – changes it in some way – and then returns the manipulated product.</p>
+<p>One way to see what a function actually does is to enter it without parentheses.</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-28_7809eaf1b2c66aa2bc7d1349f8996a53">
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># enter this on your console</span></span>
+<span><span class="va">table</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You’ll see below that the most basic functions are quite complicated internally.</p>
+<p>You’ll notice that functions contain other functions. <em>wrapper</em> functions are functions that “wrap around” existing functions. This sounds redundant, but it’s an important feature of programming. If you find yourself repeating a command more than two times, you should make your own function, rather than writing the same type of code.</p>
+<section id="write-your-own-function" class="level3" data-number="2.4.1"><h3 data-number="2.4.1" class="anchored" data-anchor-id="write-your-own-function">
+<span class="header-section-number">2.4.1</span> Write your own function</h3>
+<p>It’s worth remembering the basic structure of a function. You create a new function, call it <code>my_fun</code> by this:</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-29_216c922430a84412956ae2767457813d">
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_fun</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  </span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If we wanted to generate a function that computed the number of men in your data, what would that look like?</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-30_0de8776a5d094993aba8f22f5651a26a">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">count_men</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  </span>
+<span>  <span class="va">nmen</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">sex</span> <span class="op">==</span> <span class="st">"Male"</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">nmen</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then all we need to do is feed this function a dataset</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-31_1ed95129f53b59a31837992cabd79acd">
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">count_men</span><span class="op">(</span><span class="va">cen10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 15220</code></pre>
+</div>
+</div>
+<p>The point of a function is that you can use it again and again without typing up the set of constituent manipulations. So, what if we wanted to figure out the number of men in California?</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-32_ce08696f0f33b95e3f116509ea33ee93">
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">count_men</span><span class="op">(</span><span class="va">cen10</span><span class="op">[</span><span class="va">cen10</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="st">"California"</span>,<span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1876</code></pre>
+</div>
+</div>
+<p>Let’s go one step further. What if we want to know the proportion of non-whites in a state, just by entering the name of the state? There’s multiple ways to do it, but it could look something like this</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-33_08e2c3c254d7abd56af19d45b56ad380">
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">nw_in_state</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">state</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  </span>
+<span>  <span class="va">s.subset</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span><span class="va">data</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="va">state</span>,<span class="op">]</span></span>
+<span>  <span class="va">total.s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">s.subset</span><span class="op">)</span></span>
+<span>  <span class="va">nw.s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">s.subset</span><span class="op">$</span><span class="va">race</span> <span class="op">!=</span> <span class="st">"White"</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">nw.s</span> <span class="op">/</span> <span class="va">total.s</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The last line is what gets generated from the function. To be more explicit you can wrap the last line around <code><a href="https://rdrr.io/r/base/function.html">return()</a></code>. (as in <code>return(nw.s/total.s</code>). <code><a href="https://rdrr.io/r/base/function.html">return()</a></code> is used when you want to break out of a function in the middle of it and not wait till the last line.</p>
+<p>Try it on your favorite state!</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-34_1a2a58fcd5f58efc1ff5525f78aa70d5">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">nw_in_state</span><span class="op">(</span><span class="va">cen10</span>, <span class="st">"Massachusetts"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2040185</code></pre>
+</div>
+</div>
+</section></section><section id="checkpoint" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="checkpoint">Checkpoint</h2>
+<section id="section" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="section">1</h3>
+<p>Try making your own function, <code>average_age_in_state</code>, that will give you the average age of people in a given state.</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-35_71d1de1327e9988cdef25752684efe29">
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Enter on your own</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="section-1" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="section-1">2</h3>
+<p>Try making your own function, <code>asians_in_state</code>, that will give you the number of <code>Chinese</code>, <code>Japanese</code>, and <code>Other Asian or Pacific Islander</code> people in a given state.</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-36_d9a08626b16eedb8ec150aa630b37abd">
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Enter on your own</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="section-2" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="section-2">3</h3>
+<p>Try making your own function, ‘top_10_oldest_cities’, that will give you the names of cities whose population’s average age is top 10 oldest.</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-37_26a164a24bdf7ee7d267b0aaac84946d">
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Enter on your own</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section><section id="what-is-a-package" class="level2" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="what-is-a-package">
+<span class="header-section-number">2.5</span> What is a package?</h2>
+<p>You can think of a package as a suite of functions that other people have already built for you to make your life easier.</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-38_2c87750a93689afb2aad1e4c1655eeee">
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/help.html">help</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"ggplot2"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To use a package, you need to do two things: (1) install it, and then (2) load it.</p>
+<p>Installing is a one-time thing</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-39_a00a9b411812016db8ff500d2f95091e">
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"ggplot2"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>But you need to load each time you start a R instance. So always keep these commands on a script.</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-40_9a7f57ca2b0dd1d7509580b05be0bac2">
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In <code>rstudio.cloud</code>, we already installed a set of packages for you. But when you start your own R instance, you need to have installed the package at some point.</p>
+</section><section id="conditionals" class="level2" data-number="2.6"><h2 data-number="2.6" class="anchored" data-anchor-id="conditionals">
+<span class="header-section-number">2.6</span> Conditionals</h2>
+<p>Sometimes, you want to execute a command only under certain conditions. This is done through the almost universal function, <code>if()</code>. Inside the <code>if</code> function we enter a logical statement. The line that is adjacent to, or follows, the <code>if()</code> statement only gets executed if the statement returns <code>TRUE</code>.</p>
+<p>For example,</p>
+<p>For example,</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-41_28d36a65f50f181a967b41d922d1dc73">
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">5</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span><span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"positive number"</span><span class="op">)</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span>  <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span> <span class="op">(</span><span class="st">"zero"</span><span class="op">)</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"negative number"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "positive number"</code></pre>
+</div>
+</div>
+<p>You can wrap that whole things in a function</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-42_e3cb92c9ac9cfda0eda80f080a84f476">
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">is_positive</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">number</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">number</span> <span class="op">&gt;</span><span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"positive number"</span><span class="op">)</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">number</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span>  <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span> <span class="op">(</span><span class="st">"zero"</span><span class="op">)</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"negative number"</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu">is_positive</span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "positive number"</code></pre>
+</div>
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">is_positive</span><span class="op">(</span><span class="op">-</span><span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "negative number"</code></pre>
+</div>
+</div>
+</section><section id="for-loops" class="level2" data-number="2.7"><h2 data-number="2.7" class="anchored" data-anchor-id="for-loops">
+<span class="header-section-number">2.7</span> For-loops</h2>
+<p>Loops repeat the same statement, although the statement can be “the same” only in an abstract sense. Use the <code>for(x in X)</code> syntax to repeat the subsequent command as many times as there are elements in the right-hand object <code>X</code>. Each of these elements will be referred to the left-hand index <code>x</code></p>
+<p>First, come up with a vector.</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-43_fa2420b0d17b002c14b539709c89123a">
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fruits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apples"</span>, <span class="st">"oranges"</span>, <span class="st">"grapes"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we use the <code>fruits</code> vector in a <code>for</code> loop.</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-44_4534a6d8629714e92d1e308b375305f7">
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">fruit</span> <span class="kw">in</span> <span class="va">fruits</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"I love"</span>, <span class="va">fruit</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "I love apples"
+[1] "I love oranges"
+[1] "I love grapes"</code></pre>
+</div>
+</div>
+<p>Here <code>for()</code> and <code>in</code> must be part of any for loop. The right hand side <code>fruits</code> must be a thing that exists. Finally the <code>left-hand</code> side object is “Pick your favor name.” It is analogous to how we can index a sum with any letter. <span class="math inline">\sum_{i=1}^{10}i</span> and <code>sum_{j = 1}^{10}j</code> are in fact the same thing.</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-45_e39ad52587e08291773df8f812cf483d">
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">fruits</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"I love"</span>, <span class="va">fruits</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "I love apples"
+[1] "I love oranges"
+[1] "I love grapes"</code></pre>
+</div>
+</div>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-46_c89072ba4d8107b30fe48c5c59de2c82">
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">states_of_interest</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"California"</span>, <span class="st">"Massachusetts"</span>, <span class="st">"New Hampshire"</span>, <span class="st">"Washington"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw">for</span><span class="op">(</span> <span class="va">state</span> <span class="kw">in</span> <span class="va">states_of_interest</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="va">state_data</span> <span class="op">&lt;-</span> <span class="va">cen10</span><span class="op">[</span><span class="va">cen10</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="va">state</span>,<span class="op">]</span></span>
+<span>  <span class="va">nmen</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">state_data</span><span class="op">$</span><span class="va">sex</span> <span class="op">==</span> <span class="st">"Male"</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">state_data</span><span class="op">)</span></span>
+<span>  <span class="va">men_perc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">100</span><span class="op">*</span><span class="op">(</span><span class="va">nmen</span><span class="op">/</span><span class="va">n</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Percentage of men in"</span>,<span class="va">state</span>, <span class="st">"is"</span>, <span class="va">men_perc</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Percentage of men in California is 49.85"
+[1] "Percentage of men in Massachusetts is 47.6"
+[1] "Percentage of men in New Hampshire is 48.55"
+[1] "Percentage of men in Washington is 48.19"</code></pre>
+</div>
+</div>
+<p>Instead of printing, you can store the information in a vector</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-47_e8bdb95f110302ec7e2bc3a6f2992dec">
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">states_of_interest</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"California"</span>, <span class="st">"Massachusetts"</span>, <span class="st">"New Hampshire"</span>, <span class="st">"Washington"</span><span class="op">)</span></span>
+<span><span class="va">male_percentages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">iter</span> <span class="op">&lt;-</span><span class="fl">1</span> </span>
+<span></span>
+<span><span class="kw">for</span><span class="op">(</span> <span class="va">state</span> <span class="kw">in</span> <span class="va">states_of_interest</span><span class="op">)</span><span class="op">{</span></span>
+<span>  <span class="va">state_data</span> <span class="op">&lt;-</span> <span class="va">cen10</span><span class="op">[</span><span class="va">cen10</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="va">state</span>,<span class="op">]</span></span>
+<span>  <span class="va">nmen</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">state_data</span><span class="op">$</span><span class="va">sex</span> <span class="op">==</span> <span class="st">"Male"</span><span class="op">)</span></span>
+<span>  <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">state_data</span><span class="op">)</span></span>
+<span>  <span class="va">men_perc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">100</span><span class="op">*</span><span class="op">(</span><span class="va">nmen</span><span class="op">/</span><span class="va">n</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">male_percentages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">male_percentages</span>, <span class="va">men_perc</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">male_percentages</span><span class="op">)</span><span class="op">[</span><span class="va">iter</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">state</span></span>
+<span>  <span class="va">iter</span> <span class="op">&lt;-</span> <span class="va">iter</span> <span class="op">+</span> <span class="fl">1</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">male_percentages</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   California Massachusetts New Hampshire    Washington 
+        49.85         47.60         48.55         48.19 </code></pre>
+</div>
+</div>
+</section><section id="nested-loops" class="level2" data-number="2.8"><h2 data-number="2.8" class="anchored" data-anchor-id="nested-loops">
+<span class="header-section-number">2.8</span> Nested Loops</h2>
+<p>What if I want to calculate the population percentage of a race group for all race groups in states of interest? You could probably use tidyverse functions to do this, but let’s try using loops!</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-48_7657d05d92039d2636a0593c40823652">
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">states_of_interest</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"California"</span>, <span class="st">"Massachusetts"</span>, <span class="st">"New Hampshire"</span>, <span class="st">"Washington"</span><span class="op">)</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">state</span> <span class="kw">in</span> <span class="va">states_of_interest</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">race</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">$</span><span class="va">race</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">race_state_num</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">[</span><span class="va">cen10</span><span class="op">$</span><span class="va">race</span> <span class="op">==</span> <span class="va">race</span> <span class="op">&amp;</span> <span class="va">cen10</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="va">state</span>, <span class="op">]</span><span class="op">)</span></span>
+<span>    <span class="va">state_pop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">[</span><span class="va">cen10</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="va">state</span>, <span class="op">]</span><span class="op">)</span></span>
+<span>    <span class="va">race_perc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">100</span><span class="op">*</span><span class="op">(</span><span class="va">race_state_num</span><span class="op">/</span><span class="op">(</span><span class="va">state_pop</span><span class="op">)</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Percentage of "</span>, <span class="va">race</span> , <span class="st">"in"</span>, <span class="va">state</span>, <span class="st">"is"</span>, <span class="va">race_perc</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Percentage of  White in California is 57.61"
+[1] "Percentage of  Black/Negro in California is 6.72"
+[1] "Percentage of  Other race, nec in California is 15.55"
+[1] "Percentage of  American Indian or Alaska Native in California is 1.12"
+[1] "Percentage of  Chinese in California is 3.75"
+[1] "Percentage of  Other Asian or Pacific Islander in California is 9.54"
+[1] "Percentage of  Two major races in California is 4.62"
+[1] "Percentage of  Three or more major races in California is 0.37"
+[1] "Percentage of  Japanese in California is 0.72"
+[1] "Percentage of  White in Massachusetts is 79.6"
+[1] "Percentage of  Black/Negro in Massachusetts is 5.87"
+[1] "Percentage of  Other race, nec in Massachusetts is 4.02"
+[1] "Percentage of  American Indian or Alaska Native in Massachusetts is 0.77"
+[1] "Percentage of  Chinese in Massachusetts is 2.32"
+[1] "Percentage of  Other Asian or Pacific Islander in Massachusetts is 4.33"
+[1] "Percentage of  Two major races in Massachusetts is 2.78"
+[1] "Percentage of  Three or more major races in Massachusetts is 0"
+[1] "Percentage of  Japanese in Massachusetts is 0.31"
+[1] "Percentage of  White in New Hampshire is 93.48"
+[1] "Percentage of  Black/Negro in New Hampshire is 0.72"
+[1] "Percentage of  Other race, nec in New Hampshire is 0.72"
+[1] "Percentage of  American Indian or Alaska Native in New Hampshire is 0.72"
+[1] "Percentage of  Chinese in New Hampshire is 0.72"
+[1] "Percentage of  Other Asian or Pacific Islander in New Hampshire is 2.17"
+[1] "Percentage of  Two major races in New Hampshire is 0.72"
+[1] "Percentage of  Three or more major races in New Hampshire is 0"
+[1] "Percentage of  Japanese in New Hampshire is 0.72"
+[1] "Percentage of  White in Washington is 76.05"
+[1] "Percentage of  Black/Negro in Washington is 2.9"
+[1] "Percentage of  Other race, nec in Washington is 5.37"
+[1] "Percentage of  American Indian or Alaska Native in Washington is 2.03"
+[1] "Percentage of  Chinese in Washington is 1.31"
+[1] "Percentage of  Other Asian or Pacific Islander in Washington is 6.68"
+[1] "Percentage of  Two major races in Washington is 4.79"
+[1] "Percentage of  Three or more major races in Washington is 0.29"
+[1] "Percentage of  Japanese in Washington is 0.58"</code></pre>
+</div>
+</div>
+</section><section id="exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h2>
+<section id="exercise-1-write-your-own-function" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="exercise-1-write-your-own-function">Exercise 1: Write your own function</h3>
+<p>Write your own function that makes some task of data analysis simpler. Ideally, it would be a function that helps you do either of the previous tasks in fewer lines of code. You can use the three lines of code that was provided in exercise 1 to wrap that into another function too!</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-49_060a56b8b66a62a0809ffb661cf8de60">
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Enter yourself</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="exercise-2-using-loops" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="exercise-2-using-loops">Exercise 2: Using Loops</h3>
+<p>Using a loop, create a crosstab of sex and race for each state in the set “states_of_interest”</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-50_6b05a890b9f0bb7191cfbc4bd5a5ff9b">
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">states_of_interest</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"California"</span>, <span class="st">"Massachusetts"</span>, <span class="st">"New Hampshire"</span>, <span class="st">"Washington"</span><span class="op">)</span></span>
+<span><span class="co"># Enter yourself</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="exercise-3-storing-information-derived-within-loops-in-a-global-dataframe" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="exercise-3-storing-information-derived-within-loops-in-a-global-dataframe">Exercise 3: Storing information derived within loops in a global dataframe</h3>
+<p>Recall the following nested loop</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-51_760f11d7c5014a095ff052db728698e9">
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">states_of_interest</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"California"</span>, <span class="st">"Massachusetts"</span>, <span class="st">"New Hampshire"</span>, <span class="st">"Washington"</span><span class="op">)</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">state</span> <span class="kw">in</span> <span class="va">states_of_interest</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">race</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">$</span><span class="va">race</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">race_state_num</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">[</span><span class="va">cen10</span><span class="op">$</span><span class="va">race</span> <span class="op">==</span> <span class="va">race</span> <span class="op">&amp;</span> <span class="va">cen10</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="va">state</span>, <span class="op">]</span><span class="op">)</span></span>
+<span>    <span class="va">state_pop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">cen10</span><span class="op">[</span><span class="va">cen10</span><span class="op">$</span><span class="va">state</span> <span class="op">==</span> <span class="va">state</span>, <span class="op">]</span><span class="op">)</span></span>
+<span>    <span class="va">race_perc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">100</span><span class="op">*</span><span class="op">(</span><span class="va">race_state_num</span><span class="op">/</span><span class="op">(</span><span class="va">state_pop</span><span class="op">)</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Percentage of "</span>, <span class="va">race</span> , <span class="st">"in"</span>, <span class="va">state</span>, <span class="st">"is"</span>, <span class="va">race_perc</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Percentage of  White in California is 57.61"
+[1] "Percentage of  Black/Negro in California is 6.72"
+[1] "Percentage of  Other race, nec in California is 15.55"
+[1] "Percentage of  American Indian or Alaska Native in California is 1.12"
+[1] "Percentage of  Chinese in California is 3.75"
+[1] "Percentage of  Other Asian or Pacific Islander in California is 9.54"
+[1] "Percentage of  Two major races in California is 4.62"
+[1] "Percentage of  Three or more major races in California is 0.37"
+[1] "Percentage of  Japanese in California is 0.72"
+[1] "Percentage of  White in Massachusetts is 79.6"
+[1] "Percentage of  Black/Negro in Massachusetts is 5.87"
+[1] "Percentage of  Other race, nec in Massachusetts is 4.02"
+[1] "Percentage of  American Indian or Alaska Native in Massachusetts is 0.77"
+[1] "Percentage of  Chinese in Massachusetts is 2.32"
+[1] "Percentage of  Other Asian or Pacific Islander in Massachusetts is 4.33"
+[1] "Percentage of  Two major races in Massachusetts is 2.78"
+[1] "Percentage of  Three or more major races in Massachusetts is 0"
+[1] "Percentage of  Japanese in Massachusetts is 0.31"
+[1] "Percentage of  White in New Hampshire is 93.48"
+[1] "Percentage of  Black/Negro in New Hampshire is 0.72"
+[1] "Percentage of  Other race, nec in New Hampshire is 0.72"
+[1] "Percentage of  American Indian or Alaska Native in New Hampshire is 0.72"
+[1] "Percentage of  Chinese in New Hampshire is 0.72"
+[1] "Percentage of  Other Asian or Pacific Islander in New Hampshire is 2.17"
+[1] "Percentage of  Two major races in New Hampshire is 0.72"
+[1] "Percentage of  Three or more major races in New Hampshire is 0"
+[1] "Percentage of  Japanese in New Hampshire is 0.72"
+[1] "Percentage of  White in Washington is 76.05"
+[1] "Percentage of  Black/Negro in Washington is 2.9"
+[1] "Percentage of  Other race, nec in Washington is 5.37"
+[1] "Percentage of  American Indian or Alaska Native in Washington is 2.03"
+[1] "Percentage of  Chinese in Washington is 1.31"
+[1] "Percentage of  Other Asian or Pacific Islander in Washington is 6.68"
+[1] "Percentage of  Two major races in Washington is 4.79"
+[1] "Percentage of  Three or more major races in Washington is 0.29"
+[1] "Percentage of  Japanese in Washington is 0.58"</code></pre>
+</div>
+</div>
+<p>Instead of printing the percentage of each race in each state, create a dataframe, and store all that information in that dataframe. (Hint: look at how I stored information about male percentage in each state of interest in a vector.)</p>
+<div class="cell" data-hash="12_functions_obj_loops_cache/html/unnamed-chunk-52_6c96edde47b3c0f55e770de8b75a27cc">
+
+</div>
+
+
+<!-- -->
+
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./11_orientation.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Orientation and Reading in Data</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./12_visualization.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visualization</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb96" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Objects, Functions, Loops {#robjloops}</span></span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a><span class="fu">### Where are we? Where are we headed? {-}</span></span>
+<span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-6"><a href="#cb96-6" aria-hidden="true" tabindex="-1"></a>Up till now, you should have covered:</span>
+<span id="cb96-7"><a href="#cb96-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-8"><a href="#cb96-8" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>R basic programming</span>
+<span id="cb96-9"><a href="#cb96-9" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Data Import</span>
+<span id="cb96-10"><a href="#cb96-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-11"><a href="#cb96-11" aria-hidden="true" tabindex="-1"></a>Today we'll cover</span>
+<span id="cb96-12"><a href="#cb96-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-13"><a href="#cb96-13" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Objects</span>
+<span id="cb96-14"><a href="#cb96-14" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Functions</span>
+<span id="cb96-15"><a href="#cb96-15" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Loops</span>
+<span id="cb96-16"><a href="#cb96-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-17"><a href="#cb96-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-18"><a href="#cb96-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-19"><a href="#cb96-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## What is an object?</span></span>
+<span id="cb96-20"><a href="#cb96-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-21"><a href="#cb96-21" aria-hidden="true" tabindex="-1"></a>Now that we have covered how to load in data and some basic information about R, let's dive into some fundamentals of the R language. </span>
+<span id="cb96-22"><a href="#cb96-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-23"><a href="#cb96-23" aria-hidden="true" tabindex="-1"></a>Let's first set up </span>
+<span id="cb96-24"><a href="#cb96-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-25"><a href="#cb96-25" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, message=FALSE, warning=FALSE}</span></span>
+<span id="cb96-26"><a href="#cb96-26" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb96-27"><a href="#cb96-27" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb96-28"><a href="#cb96-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb96-29"><a href="#cb96-29" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb96-30"><a href="#cb96-30" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-31"><a href="#cb96-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-32"><a href="#cb96-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-35"><a href="#cb96-35" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-36"><a href="#cb96-36" aria-hidden="true" tabindex="-1"></a>cen10 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/input/usc2010_001percent.csv"</span>, <span class="at">col_types =</span> <span class="fu">cols</span>())</span>
+<span id="cb96-37"><a href="#cb96-37" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-38"><a href="#cb96-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-39"><a href="#cb96-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-40"><a href="#cb96-40" aria-hidden="true" tabindex="-1"></a>Objects are abstract symbols in which you store data. Here we will create an object from <span class="in">`copy`</span>, and assign <span class="in">`cen10`</span> to it. </span>
+<span id="cb96-41"><a href="#cb96-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-44"><a href="#cb96-44" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-45"><a href="#cb96-45" aria-hidden="true" tabindex="-1"></a>copy <span class="ot">&lt;-</span> cen10 </span>
+<span id="cb96-46"><a href="#cb96-46" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-47"><a href="#cb96-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-48"><a href="#cb96-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-49"><a href="#cb96-49" aria-hidden="true" tabindex="-1"></a>This looks the same as the original dataset:</span>
+<span id="cb96-52"><a href="#cb96-52" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-53"><a href="#cb96-53" aria-hidden="true" tabindex="-1"></a>copy</span>
+<span id="cb96-54"><a href="#cb96-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-55"><a href="#cb96-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-56"><a href="#cb96-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-57"><a href="#cb96-57" aria-hidden="true" tabindex="-1"></a>What happens if you do this next?</span>
+<span id="cb96-60"><a href="#cb96-60" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-61"><a href="#cb96-61" aria-hidden="true" tabindex="-1"></a>copy <span class="ot">&lt;-</span> <span class="st">""</span></span>
+<span id="cb96-62"><a href="#cb96-62" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-63"><a href="#cb96-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-64"><a href="#cb96-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-65"><a href="#cb96-65" aria-hidden="true" tabindex="-1"></a>It got reassigned:</span>
+<span id="cb96-68"><a href="#cb96-68" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-69"><a href="#cb96-69" aria-hidden="true" tabindex="-1"></a>copy</span>
+<span id="cb96-70"><a href="#cb96-70" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-71"><a href="#cb96-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-72"><a href="#cb96-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-73"><a href="#cb96-73" aria-hidden="true" tabindex="-1"></a><span class="fu">### lists</span></span>
+<span id="cb96-74"><a href="#cb96-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-75"><a href="#cb96-75" aria-hidden="true" tabindex="-1"></a>Lists are one of the most generic and flexible type of object. You can make an empty list by the function <span class="in">`list()`</span></span>
+<span id="cb96-76"><a href="#cb96-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-79"><a href="#cb96-79" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-80"><a href="#cb96-80" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb96-81"><a href="#cb96-81" aria-hidden="true" tabindex="-1"></a>my_list</span>
+<span id="cb96-82"><a href="#cb96-82" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-83"><a href="#cb96-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-84"><a href="#cb96-84" aria-hidden="true" tabindex="-1"></a>And start filling it in. Slots on the list are invoked by double square brackets <span class="in">`[[]]`</span></span>
+<span id="cb96-85"><a href="#cb96-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-88"><a href="#cb96-88" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-89"><a href="#cb96-89" aria-hidden="true" tabindex="-1"></a>my_list[[<span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="st">"contents of the first slot -- this is a string"</span></span>
+<span id="cb96-90"><a href="#cb96-90" aria-hidden="true" tabindex="-1"></a>my_list[[<span class="st">"slot 2"</span>]] <span class="ot">&lt;-</span> <span class="st">"contents of slot named slot 2"</span></span>
+<span id="cb96-91"><a href="#cb96-91" aria-hidden="true" tabindex="-1"></a>my_list</span>
+<span id="cb96-92"><a href="#cb96-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-93"><a href="#cb96-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-94"><a href="#cb96-94" aria-hidden="true" tabindex="-1"></a>each slot can be anything. What are we doing here? We are defining the 1st slot of the list <span class="in">`my_list`</span> to be a vector <span class="in">`c(1, 2, 3, 4, 5)`</span></span>
+<span id="cb96-97"><a href="#cb96-97" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-98"><a href="#cb96-98" aria-hidden="true" tabindex="-1"></a>my_list[[<span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb96-99"><a href="#cb96-99" aria-hidden="true" tabindex="-1"></a>my_list</span>
+<span id="cb96-100"><a href="#cb96-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-101"><a href="#cb96-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-102"><a href="#cb96-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-103"><a href="#cb96-103" aria-hidden="true" tabindex="-1"></a>You can even make nested lists. Let's say we want the 1st slot of the list to be another list of three elements. </span>
+<span id="cb96-104"><a href="#cb96-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-107"><a href="#cb96-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-108"><a href="#cb96-108" aria-hidden="true" tabindex="-1"></a>my_list[[<span class="dv">1</span>]][[<span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="st">"subitem 1 in slot 1 of my_list"</span></span>
+<span id="cb96-109"><a href="#cb96-109" aria-hidden="true" tabindex="-1"></a>my_list[[<span class="dv">1</span>]][[<span class="dv">2</span>]] <span class="ot">&lt;-</span> <span class="st">"subitem 1 in slot 2 of my_list"</span></span>
+<span id="cb96-110"><a href="#cb96-110" aria-hidden="true" tabindex="-1"></a>my_list[[<span class="dv">1</span>]][[<span class="dv">3</span>]] <span class="ot">&lt;-</span> <span class="st">"subitem 1 in slot 3 of my_list"</span></span>
+<span id="cb96-111"><a href="#cb96-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-112"><a href="#cb96-112" aria-hidden="true" tabindex="-1"></a>my_list</span>
+<span id="cb96-113"><a href="#cb96-113" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-114"><a href="#cb96-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-115"><a href="#cb96-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-116"><a href="#cb96-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-117"><a href="#cb96-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## Making your own objects</span></span>
+<span id="cb96-118"><a href="#cb96-118" aria-hidden="true" tabindex="-1"></a>We've covered one type of object, which is a list. You saw it was quite flexible. How many types of objects are there? </span>
+<span id="cb96-119"><a href="#cb96-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-120"><a href="#cb96-120" aria-hidden="true" tabindex="-1"></a>There are an infinite number of objects, because people make their own class of object. You can detect the type of the object (the class) by the function <span class="in">`class`</span></span>
+<span id="cb96-121"><a href="#cb96-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-122"><a href="#cb96-122" aria-hidden="true" tabindex="-1"></a>Object can be said to be an instance of a class.</span>
+<span id="cb96-123"><a href="#cb96-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-124"><a href="#cb96-124" aria-hidden="true" tabindex="-1"></a>___Analogies___: </span>
+<span id="cb96-125"><a href="#cb96-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-126"><a href="#cb96-126" aria-hidden="true" tabindex="-1"></a>__class__ - Pokemon, __object__ - Pikachu</span>
+<span id="cb96-127"><a href="#cb96-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-128"><a href="#cb96-128" aria-hidden="true" tabindex="-1"></a>__class__ - Book, __object__ - To Kill a Mockingbird</span>
+<span id="cb96-129"><a href="#cb96-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-130"><a href="#cb96-130" aria-hidden="true" tabindex="-1"></a>__class__ - DataFrame, __object__ - 2010 census data</span>
+<span id="cb96-131"><a href="#cb96-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-132"><a href="#cb96-132" aria-hidden="true" tabindex="-1"></a>__class__ - Character, __object__ - "Programming is Fun"</span>
+<span id="cb96-133"><a href="#cb96-133" aria-hidden="true" tabindex="-1"></a>           </span>
+<span id="cb96-134"><a href="#cb96-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-135"><a href="#cb96-135" aria-hidden="true" tabindex="-1"></a>What is type (class) of object is <span class="in">`cen10`</span>?</span>
+<span id="cb96-138"><a href="#cb96-138" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-139"><a href="#cb96-139" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(cen10)</span>
+<span id="cb96-140"><a href="#cb96-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-141"><a href="#cb96-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-142"><a href="#cb96-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-143"><a href="#cb96-143" aria-hidden="true" tabindex="-1"></a>What about this text? </span>
+<span id="cb96-146"><a href="#cb96-146" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-147"><a href="#cb96-147" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="st">"some random text"</span>)</span>
+<span id="cb96-148"><a href="#cb96-148" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-149"><a href="#cb96-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-150"><a href="#cb96-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-151"><a href="#cb96-151" aria-hidden="true" tabindex="-1"></a>To change or create the class of any object, you can _assign_ it. To do this, assign the name of your class to character to an object's <span class="in">`class()`</span>. </span>
+<span id="cb96-152"><a href="#cb96-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-153"><a href="#cb96-153" aria-hidden="true" tabindex="-1"></a>We can start from a simple list. For example, say we wanted to store data about pokemon. Because there is no pre-made package for this, we decide to make our own class. </span>
+<span id="cb96-154"><a href="#cb96-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-157"><a href="#cb96-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-158"><a href="#cb96-158" aria-hidden="true" tabindex="-1"></a>pikachu <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">name =</span> <span class="st">"Pikachu"</span>,</span>
+<span id="cb96-159"><a href="#cb96-159" aria-hidden="true" tabindex="-1"></a>                <span class="at">number =</span> <span class="dv">25</span>,</span>
+<span id="cb96-160"><a href="#cb96-160" aria-hidden="true" tabindex="-1"></a>                <span class="at">type =</span> <span class="st">"Electric"</span>,</span>
+<span id="cb96-161"><a href="#cb96-161" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> <span class="st">"Yellow"</span>)</span>
+<span id="cb96-162"><a href="#cb96-162" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-163"><a href="#cb96-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-164"><a href="#cb96-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-165"><a href="#cb96-165" aria-hidden="true" tabindex="-1"></a>and we can give it any class name we want. </span>
+<span id="cb96-168"><a href="#cb96-168" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-169"><a href="#cb96-169" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(pikachu) <span class="ot">&lt;-</span> <span class="st">"Pokemon"</span></span>
+<span id="cb96-170"><a href="#cb96-170" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(pikachu)</span>
+<span id="cb96-171"><a href="#cb96-171" aria-hidden="true" tabindex="-1"></a>pikachu<span class="sc">$</span>type</span>
+<span id="cb96-172"><a href="#cb96-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-173"><a href="#cb96-173" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-174"><a href="#cb96-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-175"><a href="#cb96-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-176"><a href="#cb96-176" aria-hidden="true" tabindex="-1"></a><span class="fu">### Seeing R through objects</span></span>
+<span id="cb96-177"><a href="#cb96-177" aria-hidden="true" tabindex="-1"></a>Most of the R objects that you will see as you advance are their own objects. For example, here's a linear regression object (which you will learn more about in 204B):</span>
+<span id="cb96-180"><a href="#cb96-180" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-181"><a href="#cb96-181" aria-hidden="true" tabindex="-1"></a>ols <span class="ot">&lt;-</span> <span class="fu">lm</span>(mpg <span class="sc">~</span> wt <span class="sc">+</span> vs <span class="sc">+</span> gear <span class="sc">+</span> carb, mtcars)</span>
+<span id="cb96-182"><a href="#cb96-182" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(ols)</span>
+<span id="cb96-183"><a href="#cb96-183" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-184"><a href="#cb96-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-185"><a href="#cb96-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-186"><a href="#cb96-186" aria-hidden="true" tabindex="-1"></a>Anything can be an object! Even graphs (in <span class="in">`ggplot`</span>) can be assigned, re-assigned, and edited. </span>
+<span id="cb96-187"><a href="#cb96-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-188"><a href="#cb96-188" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning=FALSE}</span></span>
+<span id="cb96-189"><a href="#cb96-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-190"><a href="#cb96-190" aria-hidden="true" tabindex="-1"></a>grp_race <span class="ot">&lt;-</span> <span class="fu">group_by</span>(cen10, race)<span class="sc">%&gt;%</span></span>
+<span id="cb96-191"><a href="#cb96-191" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span>
+<span id="cb96-192"><a href="#cb96-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-193"><a href="#cb96-193" aria-hidden="true" tabindex="-1"></a>grp_race_ordered <span class="ot">&lt;-</span> <span class="fu">arrange</span>(grp_race, count) <span class="sc">%&gt;%</span> </span>
+<span id="cb96-194"><a href="#cb96-194" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">race =</span> forcats<span class="sc">::</span><span class="fu">as_factor</span>(race))</span>
+<span id="cb96-195"><a href="#cb96-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-196"><a href="#cb96-196" aria-hidden="true" tabindex="-1"></a>gg_tab <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> grp_race_ordered) <span class="sc">+</span></span>
+<span id="cb96-197"><a href="#cb96-197" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> race, <span class="at">y =</span> count) <span class="sc">+</span></span>
+<span id="cb96-198"><a href="#cb96-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb96-199"><a href="#cb96-199" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">caption =</span> <span class="st">"Source: U.S. Census 2010"</span>)</span>
+<span id="cb96-200"><a href="#cb96-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-201"><a href="#cb96-201" aria-hidden="true" tabindex="-1"></a>gg_tab</span>
+<span id="cb96-202"><a href="#cb96-202" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-203"><a href="#cb96-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-204"><a href="#cb96-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-205"><a href="#cb96-205" aria-hidden="true" tabindex="-1"></a>You can change the orientation</span>
+<span id="cb96-208"><a href="#cb96-208" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-209"><a href="#cb96-209" aria-hidden="true" tabindex="-1"></a>gg_tab<span class="ot">&lt;-</span> gg_tab <span class="sc">+</span> <span class="fu">coord_flip</span>()</span>
+<span id="cb96-210"><a href="#cb96-210" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-211"><a href="#cb96-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-212"><a href="#cb96-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-213"><a href="#cb96-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-214"><a href="#cb96-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-215"><a href="#cb96-215" aria-hidden="true" tabindex="-1"></a><span class="fu">### Parsing an object by `str()s`</span></span>
+<span id="cb96-216"><a href="#cb96-216" aria-hidden="true" tabindex="-1"></a>It can be hard to understand an <span class="in">`R`</span> object because its contents are unknown. The function <span class="in">`str`</span>, short for structure, is a quick way to look into the innards of an object</span>
+<span id="cb96-217"><a href="#cb96-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-220"><a href="#cb96-220" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-221"><a href="#cb96-221" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(my_list)</span>
+<span id="cb96-222"><a href="#cb96-222" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(my_list)</span>
+<span id="cb96-223"><a href="#cb96-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-224"><a href="#cb96-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-225"><a href="#cb96-225" aria-hidden="true" tabindex="-1"></a>Same for the object we just made</span>
+<span id="cb96-228"><a href="#cb96-228" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-229"><a href="#cb96-229" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(pikachu)</span>
+<span id="cb96-230"><a href="#cb96-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-231"><a href="#cb96-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-232"><a href="#cb96-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-233"><a href="#cb96-233" aria-hidden="true" tabindex="-1"></a>What does a <span class="in">`ggplot`</span> object look like? Very complicated, but at least you can see it:</span>
+<span id="cb96-234"><a href="#cb96-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-235"><a href="#cb96-235" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb96-236"><a href="#cb96-236" aria-hidden="true" tabindex="-1"></a><span class="co"># enter this on your console</span></span>
+<span id="cb96-237"><a href="#cb96-237" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(gg_tab)</span>
+<span id="cb96-238"><a href="#cb96-238" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-239"><a href="#cb96-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-240"><a href="#cb96-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-241"><a href="#cb96-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-242"><a href="#cb96-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-243"><a href="#cb96-243" aria-hidden="true" tabindex="-1"></a><span class="fu">## Types of variables</span></span>
+<span id="cb96-244"><a href="#cb96-244" aria-hidden="true" tabindex="-1"></a>In the social science we often analyze variables. As you saw in the tutorial, different types of variables require different care. </span>
+<span id="cb96-245"><a href="#cb96-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-246"><a href="#cb96-246" aria-hidden="true" tabindex="-1"></a>A key link with what we just learned is that variables are also types of R objects. </span>
+<span id="cb96-247"><a href="#cb96-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-248"><a href="#cb96-248" aria-hidden="true" tabindex="-1"></a><span class="fu">### scalars</span></span>
+<span id="cb96-249"><a href="#cb96-249" aria-hidden="true" tabindex="-1"></a>One number. How many people did we count in our Census sample?</span>
+<span id="cb96-252"><a href="#cb96-252" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-253"><a href="#cb96-253" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(cen10)</span>
+<span id="cb96-254"><a href="#cb96-254" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-255"><a href="#cb96-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-256"><a href="#cb96-256" aria-hidden="true" tabindex="-1"></a>Question: What proportion of our census sample is Native American? This number is also a scalar</span>
+<span id="cb96-259"><a href="#cb96-259" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-260"><a href="#cb96-260" aria-hidden="true" tabindex="-1"></a><span class="co"># Enter yourself</span></span>
+<span id="cb96-261"><a href="#cb96-261" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(cen10<span class="sc">$</span>race)</span>
+<span id="cb96-262"><a href="#cb96-262" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(cen10<span class="sc">$</span>race <span class="sc">==</span> <span class="st">"American Indian or Alaska Native"</span>)</span>
+<span id="cb96-263"><a href="#cb96-263" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-264"><a href="#cb96-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-265"><a href="#cb96-265" aria-hidden="true" tabindex="-1"></a>Hint: you can use the function <span class="in">`mean()`</span> to calcualte the sample mean. The sample proportion is the mean of a sequence of number, where your event of interest is a 1 (or <span class="in">`TRUE`</span>) and others are 0 (or <span class="in">`FALSE`</span>).</span>
+<span id="cb96-266"><a href="#cb96-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-267"><a href="#cb96-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-268"><a href="#cb96-268" aria-hidden="true" tabindex="-1"></a><span class="fu">### numeric vectors</span></span>
+<span id="cb96-269"><a href="#cb96-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-270"><a href="#cb96-270" aria-hidden="true" tabindex="-1"></a>A sequence of numbers. </span>
+<span id="cb96-271"><a href="#cb96-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-274"><a href="#cb96-274" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-275"><a href="#cb96-275" aria-hidden="true" tabindex="-1"></a>grp_race_ordered<span class="sc">$</span>count</span>
+<span id="cb96-276"><a href="#cb96-276" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(grp_race_ordered<span class="sc">$</span>count)</span>
+<span id="cb96-277"><a href="#cb96-277" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-278"><a href="#cb96-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-279"><a href="#cb96-279" aria-hidden="true" tabindex="-1"></a>Or even, all the ages of the millions of people in our Census. Here are just the first few numbers of the list. </span>
+<span id="cb96-282"><a href="#cb96-282" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-283"><a href="#cb96-283" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cen10<span class="sc">$</span>age)</span>
+<span id="cb96-284"><a href="#cb96-284" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-285"><a href="#cb96-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-286"><a href="#cb96-286" aria-hidden="true" tabindex="-1"></a><span class="fu">### characters (aka strings)</span></span>
+<span id="cb96-287"><a href="#cb96-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-288"><a href="#cb96-288" aria-hidden="true" tabindex="-1"></a>This can be just one stretch of characters </span>
+<span id="cb96-291"><a href="#cb96-291" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-292"><a href="#cb96-292" aria-hidden="true" tabindex="-1"></a>my_name <span class="ot">&lt;-</span> <span class="st">"Meg"</span></span>
+<span id="cb96-293"><a href="#cb96-293" aria-hidden="true" tabindex="-1"></a>my_name</span>
+<span id="cb96-294"><a href="#cb96-294" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(my_name)</span>
+<span id="cb96-295"><a href="#cb96-295" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-296"><a href="#cb96-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-297"><a href="#cb96-297" aria-hidden="true" tabindex="-1"></a>or more characters. Notice here that there's a difference between a vector of individual characters and a length-one object of characters.</span>
+<span id="cb96-300"><a href="#cb96-300" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-301"><a href="#cb96-301" aria-hidden="true" tabindex="-1"></a>my_name_letters <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">"M"</span>,<span class="st">"e"</span>,<span class="st">"g"</span>)</span>
+<span id="cb96-302"><a href="#cb96-302" aria-hidden="true" tabindex="-1"></a>my_name_letters</span>
+<span id="cb96-303"><a href="#cb96-303" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(my_name_letters)</span>
+<span id="cb96-304"><a href="#cb96-304" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-305"><a href="#cb96-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-306"><a href="#cb96-306" aria-hidden="true" tabindex="-1"></a>Finally, remember that lower vs. upper case matters in R!</span>
+<span id="cb96-309"><a href="#cb96-309" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-310"><a href="#cb96-310" aria-hidden="true" tabindex="-1"></a>my_name2 <span class="ot">&lt;-</span> <span class="st">"shiro"</span></span>
+<span id="cb96-311"><a href="#cb96-311" aria-hidden="true" tabindex="-1"></a>my_name <span class="sc">==</span> my_name2</span>
+<span id="cb96-312"><a href="#cb96-312" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-313"><a href="#cb96-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-314"><a href="#cb96-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-315"><a href="#cb96-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-316"><a href="#cb96-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-317"><a href="#cb96-317" aria-hidden="true" tabindex="-1"></a><span class="fu">## What is a function?</span></span>
+<span id="cb96-318"><a href="#cb96-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-319"><a href="#cb96-319" aria-hidden="true" tabindex="-1"></a>Most of what we do in R is executing a function. <span class="in">`read_csv()`</span>, <span class="in">`nrow()`</span>, <span class="in">`ggplot()`</span> .. pretty much anything with a parentheses is a function. And even things like <span class="in">`&lt;-`</span> and <span class="in">`[`</span> are functions as well.</span>
+<span id="cb96-320"><a href="#cb96-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-321"><a href="#cb96-321" aria-hidden="true" tabindex="-1"></a>A function is a set of instructions with specified ingredients. It takes an __input__, then __manipulates__ it -- changes it in some way -- and then returns the manipulated product. </span>
+<span id="cb96-322"><a href="#cb96-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-323"><a href="#cb96-323" aria-hidden="true" tabindex="-1"></a>One way to see what a function actually does is to enter it without parentheses. </span>
+<span id="cb96-324"><a href="#cb96-324" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb96-325"><a href="#cb96-325" aria-hidden="true" tabindex="-1"></a><span class="co"># enter this on your console</span></span>
+<span id="cb96-326"><a href="#cb96-326" aria-hidden="true" tabindex="-1"></a>table</span>
+<span id="cb96-327"><a href="#cb96-327" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-328"><a href="#cb96-328" aria-hidden="true" tabindex="-1"></a>You'll see below that the most basic functions are quite complicated internally. </span>
+<span id="cb96-329"><a href="#cb96-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-330"><a href="#cb96-330" aria-hidden="true" tabindex="-1"></a>You'll notice that functions contain other functions. _wrapper_ functions are functions that "wrap around" existing functions. This sounds redundant, but it's an important feature of programming. If you find yourself repeating a command more than two times, you should make your own function, rather than writing the same type of code. </span>
+<span id="cb96-331"><a href="#cb96-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-332"><a href="#cb96-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-333"><a href="#cb96-333" aria-hidden="true" tabindex="-1"></a><span class="fu">### Write your own function</span></span>
+<span id="cb96-334"><a href="#cb96-334" aria-hidden="true" tabindex="-1"></a>It's worth remembering the basic structure of a function. You create a new function, call it <span class="in">`my_fun`</span> by this:</span>
+<span id="cb96-335"><a href="#cb96-335" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = F}</span></span>
+<span id="cb96-336"><a href="#cb96-336" aria-hidden="true" tabindex="-1"></a>my_fun <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb96-337"><a href="#cb96-337" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb96-338"><a href="#cb96-338" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb96-339"><a href="#cb96-339" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-340"><a href="#cb96-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-341"><a href="#cb96-341" aria-hidden="true" tabindex="-1"></a>If we wanted to generate a function that computed the number of men in your data, what would that look like?</span>
+<span id="cb96-342"><a href="#cb96-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-345"><a href="#cb96-345" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-346"><a href="#cb96-346" aria-hidden="true" tabindex="-1"></a>count_men <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb96-347"><a href="#cb96-347" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb96-348"><a href="#cb96-348" aria-hidden="true" tabindex="-1"></a>  nmen <span class="ot">&lt;-</span> <span class="fu">sum</span>(data<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"Male"</span>)</span>
+<span id="cb96-349"><a href="#cb96-349" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb96-350"><a href="#cb96-350" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(nmen)</span>
+<span id="cb96-351"><a href="#cb96-351" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb96-352"><a href="#cb96-352" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-353"><a href="#cb96-353" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-354"><a href="#cb96-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-355"><a href="#cb96-355" aria-hidden="true" tabindex="-1"></a>Then all we need to do is feed this function a dataset</span>
+<span id="cb96-358"><a href="#cb96-358" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-359"><a href="#cb96-359" aria-hidden="true" tabindex="-1"></a><span class="fu">count_men</span>(cen10)</span>
+<span id="cb96-360"><a href="#cb96-360" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-361"><a href="#cb96-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-362"><a href="#cb96-362" aria-hidden="true" tabindex="-1"></a>The point of a function is that you can use it again and again without typing up the set of constituent manipulations. So, what if we wanted to figure out the number of men in California?</span>
+<span id="cb96-363"><a href="#cb96-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-366"><a href="#cb96-366" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-367"><a href="#cb96-367" aria-hidden="true" tabindex="-1"></a><span class="fu">count_men</span>(cen10[cen10<span class="sc">$</span>state <span class="sc">==</span> <span class="st">"California"</span>,])</span>
+<span id="cb96-368"><a href="#cb96-368" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-369"><a href="#cb96-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-370"><a href="#cb96-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-371"><a href="#cb96-371" aria-hidden="true" tabindex="-1"></a>Let's go one step further. What if we want to know the proportion of non-whites in a state, just by entering the name of the state? There's multiple ways to do it, but it could look something like this</span>
+<span id="cb96-372"><a href="#cb96-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-375"><a href="#cb96-375" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-376"><a href="#cb96-376" aria-hidden="true" tabindex="-1"></a>nw_in_state <span class="ot">&lt;-</span> <span class="cf">function</span>(data, state) {</span>
+<span id="cb96-377"><a href="#cb96-377" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb96-378"><a href="#cb96-378" aria-hidden="true" tabindex="-1"></a>  s.subset <span class="ot">&lt;-</span> data[data<span class="sc">$</span>state <span class="sc">==</span> state,]</span>
+<span id="cb96-379"><a href="#cb96-379" aria-hidden="true" tabindex="-1"></a>  total.s <span class="ot">&lt;-</span> <span class="fu">nrow</span>(s.subset)</span>
+<span id="cb96-380"><a href="#cb96-380" aria-hidden="true" tabindex="-1"></a>  nw.s <span class="ot">&lt;-</span> <span class="fu">sum</span>(s.subset<span class="sc">$</span>race <span class="sc">!=</span> <span class="st">"White"</span>)</span>
+<span id="cb96-381"><a href="#cb96-381" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb96-382"><a href="#cb96-382" aria-hidden="true" tabindex="-1"></a>  nw.s <span class="sc">/</span> total.s</span>
+<span id="cb96-383"><a href="#cb96-383" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb96-384"><a href="#cb96-384" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-385"><a href="#cb96-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-386"><a href="#cb96-386" aria-hidden="true" tabindex="-1"></a>The last line is what gets generated from the function. To be more explicit you can wrap the last line around <span class="in">`return()`</span>. (as in <span class="in">`return(nw.s/total.s`</span>). <span class="in">`return()`</span> is used when you want to break out of a function in the middle of it and not wait till the last line.</span>
+<span id="cb96-387"><a href="#cb96-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-388"><a href="#cb96-388" aria-hidden="true" tabindex="-1"></a>Try it on your favorite state!</span>
+<span id="cb96-391"><a href="#cb96-391" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-392"><a href="#cb96-392" aria-hidden="true" tabindex="-1"></a><span class="fu">nw_in_state</span>(cen10, <span class="st">"Massachusetts"</span>)</span>
+<span id="cb96-393"><a href="#cb96-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-394"><a href="#cb96-394" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-395"><a href="#cb96-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-396"><a href="#cb96-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-397"><a href="#cb96-397" aria-hidden="true" tabindex="-1"></a><span class="fu">## Checkpoint {-}</span></span>
+<span id="cb96-398"><a href="#cb96-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-399"><a href="#cb96-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-400"><a href="#cb96-400" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1 {-}</span></span>
+<span id="cb96-401"><a href="#cb96-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-402"><a href="#cb96-402" aria-hidden="true" tabindex="-1"></a>Try making your own function, <span class="in">`average_age_in_state`</span>, that will give you the average age of people in a given state.</span>
+<span id="cb96-405"><a href="#cb96-405" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-406"><a href="#cb96-406" aria-hidden="true" tabindex="-1"></a><span class="co"># Enter on your own</span></span>
+<span id="cb96-407"><a href="#cb96-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-408"><a href="#cb96-408" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-409"><a href="#cb96-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-410"><a href="#cb96-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-411"><a href="#cb96-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-412"><a href="#cb96-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-413"><a href="#cb96-413" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2 {-}</span></span>
+<span id="cb96-414"><a href="#cb96-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-415"><a href="#cb96-415" aria-hidden="true" tabindex="-1"></a>Try making your own function, <span class="in">`asians_in_state`</span>, that will give you the number of <span class="in">`Chinese`</span>, <span class="in">`Japanese`</span>, and <span class="in">`Other Asian or Pacific Islander`</span> people in a given state.</span>
+<span id="cb96-418"><a href="#cb96-418" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-419"><a href="#cb96-419" aria-hidden="true" tabindex="-1"></a><span class="co"># Enter on your own</span></span>
+<span id="cb96-420"><a href="#cb96-420" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-421"><a href="#cb96-421" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-422"><a href="#cb96-422" aria-hidden="true" tabindex="-1"></a><span class="fu">### 3 {-}</span></span>
+<span id="cb96-423"><a href="#cb96-423" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-424"><a href="#cb96-424" aria-hidden="true" tabindex="-1"></a>Try making your own function, 'top_10_oldest_cities', that will give you the names of cities whose population's average age is top 10 oldest. </span>
+<span id="cb96-425"><a href="#cb96-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-428"><a href="#cb96-428" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-429"><a href="#cb96-429" aria-hidden="true" tabindex="-1"></a><span class="co"># Enter on your own</span></span>
+<span id="cb96-430"><a href="#cb96-430" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-431"><a href="#cb96-431" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-432"><a href="#cb96-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-433"><a href="#cb96-433" aria-hidden="true" tabindex="-1"></a><span class="fu">## What is a package?</span></span>
+<span id="cb96-434"><a href="#cb96-434" aria-hidden="true" tabindex="-1"></a>You can think of a package as a suite of functions that other people have already built for you to make your life easier. </span>
+<span id="cb96-435"><a href="#cb96-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-438"><a href="#cb96-438" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-439"><a href="#cb96-439" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="at">package =</span> <span class="st">"ggplot2"</span>)</span>
+<span id="cb96-440"><a href="#cb96-440" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-441"><a href="#cb96-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-442"><a href="#cb96-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-443"><a href="#cb96-443" aria-hidden="true" tabindex="-1"></a>To use a package, you need to do two things: (1) install it, and then (2) load it. </span>
+<span id="cb96-444"><a href="#cb96-444" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-445"><a href="#cb96-445" aria-hidden="true" tabindex="-1"></a>Installing is a one-time thing</span>
+<span id="cb96-446"><a href="#cb96-446" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb96-447"><a href="#cb96-447" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span>
+<span id="cb96-448"><a href="#cb96-448" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-449"><a href="#cb96-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-450"><a href="#cb96-450" aria-hidden="true" tabindex="-1"></a>But you need to load each time you start a  R instance. So always keep these commands on a script.</span>
+<span id="cb96-453"><a href="#cb96-453" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-454"><a href="#cb96-454" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb96-455"><a href="#cb96-455" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-456"><a href="#cb96-456" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-457"><a href="#cb96-457" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-458"><a href="#cb96-458" aria-hidden="true" tabindex="-1"></a>In <span class="in">`rstudio.cloud`</span>, we already installed a set of packages for you. But when you start your own R instance, you need to have installed the package at some point. </span>
+<span id="cb96-459"><a href="#cb96-459" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-460"><a href="#cb96-460" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conditionals</span></span>
+<span id="cb96-461"><a href="#cb96-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-462"><a href="#cb96-462" aria-hidden="true" tabindex="-1"></a>Sometimes, you want to execute a command only under certain conditions. This is done through the almost universal function, <span class="in">`if()`</span>. Inside the <span class="in">`if`</span> function we enter a logical statement. The line that is adjacent to, or follows, the <span class="in">`if()`</span> statement only gets executed if the statement returns <span class="in">`TRUE`</span>. </span>
+<span id="cb96-463"><a href="#cb96-463" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-464"><a href="#cb96-464" aria-hidden="true" tabindex="-1"></a>For example, </span>
+<span id="cb96-465"><a href="#cb96-465" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-466"><a href="#cb96-466" aria-hidden="true" tabindex="-1"></a>For example, </span>
+<span id="cb96-467"><a href="#cb96-467" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-470"><a href="#cb96-470" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-471"><a href="#cb96-471" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb96-472"><a href="#cb96-472" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span><span class="dv">0</span>) {</span>
+<span id="cb96-473"><a href="#cb96-473" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"positive number"</span>)</span>
+<span id="cb96-474"><a href="#cb96-474" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">0</span>)  {</span>
+<span id="cb96-475"><a href="#cb96-475" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span> (<span class="st">"zero"</span>)</span>
+<span id="cb96-476"><a href="#cb96-476" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb96-477"><a href="#cb96-477" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"negative number"</span>)</span>
+<span id="cb96-478"><a href="#cb96-478" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb96-479"><a href="#cb96-479" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-480"><a href="#cb96-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-481"><a href="#cb96-481" aria-hidden="true" tabindex="-1"></a>You can wrap that whole things in a function </span>
+<span id="cb96-482"><a href="#cb96-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-483"><a href="#cb96-483" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, warning = FALSE}</span></span>
+<span id="cb96-484"><a href="#cb96-484" aria-hidden="true" tabindex="-1"></a>is_positive <span class="ot">&lt;-</span> <span class="cf">function</span>(number) {</span>
+<span id="cb96-485"><a href="#cb96-485" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (number <span class="sc">&gt;</span><span class="dv">0</span>) {</span>
+<span id="cb96-486"><a href="#cb96-486" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"positive number"</span>)</span>
+<span id="cb96-487"><a href="#cb96-487" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (number <span class="sc">==</span> <span class="dv">0</span>)  {</span>
+<span id="cb96-488"><a href="#cb96-488" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span> (<span class="st">"zero"</span>)</span>
+<span id="cb96-489"><a href="#cb96-489" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb96-490"><a href="#cb96-490" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"negative number"</span>)</span>
+<span id="cb96-491"><a href="#cb96-491" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb96-492"><a href="#cb96-492" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb96-493"><a href="#cb96-493" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-494"><a href="#cb96-494" aria-hidden="true" tabindex="-1"></a><span class="fu">is_positive</span>(<span class="dv">5</span>)</span>
+<span id="cb96-495"><a href="#cb96-495" aria-hidden="true" tabindex="-1"></a><span class="fu">is_positive</span>(<span class="sc">-</span><span class="dv">3</span>)</span>
+<span id="cb96-496"><a href="#cb96-496" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-497"><a href="#cb96-497" aria-hidden="true" tabindex="-1"></a><span class="fu">## For-loops</span></span>
+<span id="cb96-498"><a href="#cb96-498" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-499"><a href="#cb96-499" aria-hidden="true" tabindex="-1"></a>Loops repeat the same statement, although the statement can be "the same" only in an abstract sense.  Use the <span class="in">`for(x in X)`</span> syntax to repeat the subsequent command as many times as there are elements in the right-hand object <span class="in">`X`</span>. Each of these elements will be referred to the left-hand index <span class="in">`x`</span></span>
+<span id="cb96-500"><a href="#cb96-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-501"><a href="#cb96-501" aria-hidden="true" tabindex="-1"></a>First, come up with a vector. </span>
+<span id="cb96-504"><a href="#cb96-504" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-505"><a href="#cb96-505" aria-hidden="true" tabindex="-1"></a>fruits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apples"</span>, <span class="st">"oranges"</span>, <span class="st">"grapes"</span>)</span>
+<span id="cb96-506"><a href="#cb96-506" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-507"><a href="#cb96-507" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-508"><a href="#cb96-508" aria-hidden="true" tabindex="-1"></a>Now we use the <span class="in">`fruits`</span> vector in a <span class="in">`for`</span> loop.</span>
+<span id="cb96-509"><a href="#cb96-509" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-512"><a href="#cb96-512" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-513"><a href="#cb96-513" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (fruit <span class="cf">in</span> fruits) {</span>
+<span id="cb96-514"><a href="#cb96-514" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"I love"</span>, fruit))</span>
+<span id="cb96-515"><a href="#cb96-515" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb96-516"><a href="#cb96-516" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb96-517"><a href="#cb96-517" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-518"><a href="#cb96-518" aria-hidden="true" tabindex="-1"></a>Here <span class="in">`for()`</span> and <span class="in">`in`</span> must be part of any for loop. The right hand side <span class="in">`fruits`</span> must be a thing that exists. Finally the <span class="in">`left-hand`</span> side object is "Pick your favor name." It is analogous to how we can index a sum with any letter. $\sum_{i=1}^{10}i$ and <span class="in">`sum_{j = 1}^{10}j`</span> are in fact the same thing.</span>
+<span id="cb96-519"><a href="#cb96-519" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-520"><a href="#cb96-520" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-523"><a href="#cb96-523" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-524"><a href="#cb96-524" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(fruits)) {</span>
+<span id="cb96-525"><a href="#cb96-525" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"I love"</span>, fruits[i]))</span>
+<span id="cb96-526"><a href="#cb96-526" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb96-527"><a href="#cb96-527" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb96-528"><a href="#cb96-528" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-531"><a href="#cb96-531" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-532"><a href="#cb96-532" aria-hidden="true" tabindex="-1"></a>states_of_interest <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"California"</span>, <span class="st">"Massachusetts"</span>, <span class="st">"New Hampshire"</span>, <span class="st">"Washington"</span>)</span>
+<span id="cb96-533"><a href="#cb96-533" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-534"><a href="#cb96-534" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>( state <span class="cf">in</span> states_of_interest){</span>
+<span id="cb96-535"><a href="#cb96-535" aria-hidden="true" tabindex="-1"></a>  state_data <span class="ot">&lt;-</span> cen10[cen10<span class="sc">$</span>state <span class="sc">==</span> state,]</span>
+<span id="cb96-536"><a href="#cb96-536" aria-hidden="true" tabindex="-1"></a>  nmen <span class="ot">&lt;-</span> <span class="fu">sum</span>(state_data<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"Male"</span>)</span>
+<span id="cb96-537"><a href="#cb96-537" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-538"><a href="#cb96-538" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(state_data)</span>
+<span id="cb96-539"><a href="#cb96-539" aria-hidden="true" tabindex="-1"></a>  men_perc <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="dv">100</span><span class="sc">*</span>(nmen<span class="sc">/</span>n), <span class="at">digits=</span><span class="dv">2</span>)</span>
+<span id="cb96-540"><a href="#cb96-540" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Percentage of men in"</span>,state, <span class="st">"is"</span>, men_perc))</span>
+<span id="cb96-541"><a href="#cb96-541" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-542"><a href="#cb96-542" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb96-543"><a href="#cb96-543" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-544"><a href="#cb96-544" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb96-545"><a href="#cb96-545" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-546"><a href="#cb96-546" aria-hidden="true" tabindex="-1"></a>Instead of printing, you can store the information in a vector</span>
+<span id="cb96-549"><a href="#cb96-549" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-550"><a href="#cb96-550" aria-hidden="true" tabindex="-1"></a>states_of_interest <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"California"</span>, <span class="st">"Massachusetts"</span>, <span class="st">"New Hampshire"</span>, <span class="st">"Washington"</span>)</span>
+<span id="cb96-551"><a href="#cb96-551" aria-hidden="true" tabindex="-1"></a>male_percentages <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb96-552"><a href="#cb96-552" aria-hidden="true" tabindex="-1"></a>iter <span class="ot">&lt;-</span><span class="dv">1</span> </span>
+<span id="cb96-553"><a href="#cb96-553" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-554"><a href="#cb96-554" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>( state <span class="cf">in</span> states_of_interest){</span>
+<span id="cb96-555"><a href="#cb96-555" aria-hidden="true" tabindex="-1"></a>  state_data <span class="ot">&lt;-</span> cen10[cen10<span class="sc">$</span>state <span class="sc">==</span> state,]</span>
+<span id="cb96-556"><a href="#cb96-556" aria-hidden="true" tabindex="-1"></a>  nmen <span class="ot">&lt;-</span> <span class="fu">sum</span>(state_data<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"Male"</span>)</span>
+<span id="cb96-557"><a href="#cb96-557" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(state_data)</span>
+<span id="cb96-558"><a href="#cb96-558" aria-hidden="true" tabindex="-1"></a>  men_perc <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="dv">100</span><span class="sc">*</span>(nmen<span class="sc">/</span>n), <span class="at">digits=</span><span class="dv">2</span>)</span>
+<span id="cb96-559"><a href="#cb96-559" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb96-560"><a href="#cb96-560" aria-hidden="true" tabindex="-1"></a>  male_percentages <span class="ot">&lt;-</span> <span class="fu">c</span>(male_percentages, men_perc)</span>
+<span id="cb96-561"><a href="#cb96-561" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(male_percentages)[iter] <span class="ot">&lt;-</span> state</span>
+<span id="cb96-562"><a href="#cb96-562" aria-hidden="true" tabindex="-1"></a>  iter <span class="ot">&lt;-</span> iter <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb96-563"><a href="#cb96-563" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb96-564"><a href="#cb96-564" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-565"><a href="#cb96-565" aria-hidden="true" tabindex="-1"></a>male_percentages</span>
+<span id="cb96-566"><a href="#cb96-566" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-567"><a href="#cb96-567" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-568"><a href="#cb96-568" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-569"><a href="#cb96-569" aria-hidden="true" tabindex="-1"></a><span class="fu">## Nested Loops</span></span>
+<span id="cb96-570"><a href="#cb96-570" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-571"><a href="#cb96-571" aria-hidden="true" tabindex="-1"></a>What if I want to calculate the population percentage of a race group for all race groups in states of interest?</span>
+<span id="cb96-572"><a href="#cb96-572" aria-hidden="true" tabindex="-1"></a>You could probably use tidyverse functions to do this, but let's try using loops!</span>
+<span id="cb96-573"><a href="#cb96-573" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-576"><a href="#cb96-576" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-577"><a href="#cb96-577" aria-hidden="true" tabindex="-1"></a>states_of_interest <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"California"</span>, <span class="st">"Massachusetts"</span>, <span class="st">"New Hampshire"</span>, <span class="st">"Washington"</span>)</span>
+<span id="cb96-578"><a href="#cb96-578" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (state <span class="cf">in</span> states_of_interest) {</span>
+<span id="cb96-579"><a href="#cb96-579" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (race <span class="cf">in</span> <span class="fu">unique</span>(cen10<span class="sc">$</span>race)) {</span>
+<span id="cb96-580"><a href="#cb96-580" aria-hidden="true" tabindex="-1"></a>    race_state_num <span class="ot">&lt;-</span> <span class="fu">nrow</span>(cen10[cen10<span class="sc">$</span>race <span class="sc">==</span> race <span class="sc">&amp;</span> cen10<span class="sc">$</span>state <span class="sc">==</span> state, ])</span>
+<span id="cb96-581"><a href="#cb96-581" aria-hidden="true" tabindex="-1"></a>    state_pop <span class="ot">&lt;-</span> <span class="fu">nrow</span>(cen10[cen10<span class="sc">$</span>state <span class="sc">==</span> state, ])</span>
+<span id="cb96-582"><a href="#cb96-582" aria-hidden="true" tabindex="-1"></a>    race_perc <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="dv">100</span><span class="sc">*</span>(race_state_num<span class="sc">/</span>(state_pop)), <span class="at">digits=</span><span class="dv">2</span>)</span>
+<span id="cb96-583"><a href="#cb96-583" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Percentage of "</span>, race , <span class="st">"in"</span>, state, <span class="st">"is"</span>, race_perc))</span>
+<span id="cb96-584"><a href="#cb96-584" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb96-585"><a href="#cb96-585" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb96-586"><a href="#cb96-586" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-587"><a href="#cb96-587" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises {-}</span></span>
+<span id="cb96-588"><a href="#cb96-588" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-589"><a href="#cb96-589" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-590"><a href="#cb96-590" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exercise 1: Write your own function {-}</span></span>
+<span id="cb96-591"><a href="#cb96-591" aria-hidden="true" tabindex="-1"></a>Write your own function that makes some task of data analysis simpler. Ideally, it would be a function that helps you do either of the previous tasks in fewer lines of code. You can use the three lines of code that was provided in exercise 1 to wrap that into another function too!</span>
+<span id="cb96-594"><a href="#cb96-594" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-595"><a href="#cb96-595" aria-hidden="true" tabindex="-1"></a><span class="co"># Enter yourself</span></span>
+<span id="cb96-596"><a href="#cb96-596" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-597"><a href="#cb96-597" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb96-598"><a href="#cb96-598" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-599"><a href="#cb96-599" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-600"><a href="#cb96-600" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-601"><a href="#cb96-601" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exercise 2: Using Loops {-}</span></span>
+<span id="cb96-602"><a href="#cb96-602" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-603"><a href="#cb96-603" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-604"><a href="#cb96-604" aria-hidden="true" tabindex="-1"></a>Using a loop, create a crosstab of sex and race for each state in the set "states_of_interest"</span>
+<span id="cb96-607"><a href="#cb96-607" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-608"><a href="#cb96-608" aria-hidden="true" tabindex="-1"></a>states_of_interest <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"California"</span>, <span class="st">"Massachusetts"</span>, <span class="st">"New Hampshire"</span>, <span class="st">"Washington"</span>)</span>
+<span id="cb96-609"><a href="#cb96-609" aria-hidden="true" tabindex="-1"></a><span class="co"># Enter yourself</span></span>
+<span id="cb96-610"><a href="#cb96-610" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-611"><a href="#cb96-611" aria-hidden="true" tabindex="-1"></a><span class="in">```</span> </span>
+<span id="cb96-612"><a href="#cb96-612" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-613"><a href="#cb96-613" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-614"><a href="#cb96-614" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-615"><a href="#cb96-615" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exercise 3: Storing information derived within loops in a global dataframe {-}</span></span>
+<span id="cb96-616"><a href="#cb96-616" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-617"><a href="#cb96-617" aria-hidden="true" tabindex="-1"></a>Recall the following nested loop</span>
+<span id="cb96-620"><a href="#cb96-620" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-621"><a href="#cb96-621" aria-hidden="true" tabindex="-1"></a>states_of_interest <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"California"</span>, <span class="st">"Massachusetts"</span>, <span class="st">"New Hampshire"</span>, <span class="st">"Washington"</span>)</span>
+<span id="cb96-622"><a href="#cb96-622" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (state <span class="cf">in</span> states_of_interest) {</span>
+<span id="cb96-623"><a href="#cb96-623" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (race <span class="cf">in</span> <span class="fu">unique</span>(cen10<span class="sc">$</span>race)) {</span>
+<span id="cb96-624"><a href="#cb96-624" aria-hidden="true" tabindex="-1"></a>    race_state_num <span class="ot">&lt;-</span> <span class="fu">nrow</span>(cen10[cen10<span class="sc">$</span>race <span class="sc">==</span> race <span class="sc">&amp;</span> cen10<span class="sc">$</span>state <span class="sc">==</span> state, ])</span>
+<span id="cb96-625"><a href="#cb96-625" aria-hidden="true" tabindex="-1"></a>    state_pop <span class="ot">&lt;-</span> <span class="fu">nrow</span>(cen10[cen10<span class="sc">$</span>state <span class="sc">==</span> state, ])</span>
+<span id="cb96-626"><a href="#cb96-626" aria-hidden="true" tabindex="-1"></a>    race_perc <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="dv">100</span><span class="sc">*</span>(race_state_num<span class="sc">/</span>(state_pop)), <span class="at">digits=</span><span class="dv">2</span>)</span>
+<span id="cb96-627"><a href="#cb96-627" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Percentage of "</span>, race , <span class="st">"in"</span>, state, <span class="st">"is"</span>, race_perc))</span>
+<span id="cb96-628"><a href="#cb96-628" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb96-629"><a href="#cb96-629" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb96-630"><a href="#cb96-630" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb96-631"><a href="#cb96-631" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-632"><a href="#cb96-632" aria-hidden="true" tabindex="-1"></a>Instead of printing the percentage of each race in each state, create a dataframe, and store all that information in that dataframe. (Hint: look at how I stored information about male percentage in each state of interest in a vector.)</span>
+<span id="cb96-633"><a href="#cb96-633" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-634"><a href="#cb96-634" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-637"><a href="#cb96-637" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb96-638"><a href="#cb96-638" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

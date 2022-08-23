@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.25">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>UCSD Political Science Math Camp - 10&nbsp; Optimization</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./34_intergrals.html" rel="next">
+<link href="./32_derivatives.html" rel="prev">
+<link href="./favicon.ico" rel="icon">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script><style>html{ scroll-behavior: smooth; }</style>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean"
+}
+</script><script async="" src="https://hypothes.is/embed.js"></script><script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Optimization</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">UCSD Political Science Math Camp</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/UCSDPoliMathCamp/MathCamp/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="./UCSD-Political-Science-Math-Camp.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">About this Booklet</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_prerequisites.html" class="sidebar-item-text sidebar-link">Prerequisites</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">I Introduction to R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_orientation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Orientation and Reading in Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_functions_obj_loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Objects, Functions, Loops</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_visualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14_simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Simulation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_non-wysiwyg.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LaTeX and Markdown</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">II Linear Algebra</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21_linear-algebra.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Algebra</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22_matrices.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Manipulating Vectors and Matrices</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">III Calculus</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31_limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Limits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./32_derivatives.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Differential Calculus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./33_optimization.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Optimization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./34_intergrals.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Integral Calculus</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">IV Probability</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41_probability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Probability Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./42_distribution.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Summarizing Distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./43_statistics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Learning from Data</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./51_solutions-warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions Solutions</a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#maxima-and-minima" id="toc-maxima-and-minima" class="nav-link active" data-scroll-target="#maxima-and-minima"> <span class="header-section-number">10.1</span> Maxima and Minima</a></li>
+  <li>
+<a href="#concavity-of-a-function" id="toc-concavity-of-a-function" class="nav-link" data-scroll-target="#concavity-of-a-function"> <span class="header-section-number">10.2</span> Concavity of a Function</a>
+  <ul class="collapse">
+<li><a href="#quadratic-forms" id="toc-quadratic-forms" class="nav-link" data-scroll-target="#quadratic-forms">Quadratic Forms</a></li>
+  <li><a href="#definiteness-of-quadratic-forms" id="toc-definiteness-of-quadratic-forms" class="nav-link" data-scroll-target="#definiteness-of-quadratic-forms">Definiteness of Quadratic Forms</a></li>
+  </ul>
+</li>
+  <li><a href="#gradient-and-foc" id="toc-gradient-and-foc" class="nav-link" data-scroll-target="#gradient-and-foc"> <span class="header-section-number">10.3</span> Gradient and FOC</a></li>
+  <li>
+<a href="#hessian-and-soc" id="toc-hessian-and-soc" class="nav-link" data-scroll-target="#hessian-and-soc"> <span class="header-section-number">10.4</span> Hessian and SOC</a>
+  <ul class="collapse">
+<li><a href="#definiteness-and-concavity" id="toc-definiteness-and-concavity" class="nav-link" data-scroll-target="#definiteness-and-concavity">Definiteness and Concavity</a></li>
+  </ul>
+</li>
+  <li><a href="#global-maxima-and-minima" id="toc-global-maxima-and-minima" class="nav-link" data-scroll-target="#global-maxima-and-minima"> <span class="header-section-number">10.5</span> Global Maxima and Minima</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/33_optimization.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/blob/main/33_optimization.Rmd" class="toc-action">View source</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="optim" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Optimization</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header><p>To optimize, we use derivatives and calculus. Optimization is to find the maximum or minimum of a functon, and to find what value of an input gives that extremum. This has obvious uses in engineering. Many tools in the statistical toolkit use optimization. One of the most common ways of estimating a model is through “Maximum Likelihood Estimation”, done via optimizing a function (the likelihood).</p>
+<p>Optimization also comes up in Economics, Formal Theory, and Political Economy all the time. A go-to model of human behavior is that they optimize a certain utility function. Humans are not pure utility maximizers, of course, but nuanced models of optimization – for example, adding constraints and adding uncertainty – will prove to be quite useful.</p>
+<section id="maxima-and-minima" class="level2" data-number="10.1"><h2 data-number="10.1" class="anchored" data-anchor-id="maxima-and-minima">
+<span class="header-section-number">10.1</span> Maxima and Minima</h2>
+<p>The first derivative, <span class="math inline">f'(x)</span>, quantifies the slope of a function. Therefore, it can be used to check whether the function <span class="math inline">f(x)</span> at the point <span class="math inline">x</span> is increasing or decreasing at <span class="math inline">x</span>.</p>
+<ol type="1">
+<li>
+<strong>Increasing:</strong> <span class="math inline">f'(x)&gt;0</span>
+</li>
+<li>
+<strong>Decreasing:</strong> <span class="math inline">f'(x)&lt;0</span>
+</li>
+<li>
+<strong>Neither increasing nor decreasing</strong>: <span class="math inline">f'(x)=0</span> i.e.&nbsp;a maximum, minimum, or saddle point</li>
+</ol>
+<p>So for example, <span class="math inline">f(x) = x^2 + 2</span> and <span class="math inline">f^\prime(x) = 2x</span></p>
+<div class="cell" data-hash="33_optimization_cache/html/unnamed-chunk-2_43fe78efc3cf92fa110679fd10586348">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="33_optimization_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Maxima and Minima</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10.1 (Plotting a mazimum and minimum) </strong></span></p>
+<p>Plot <span class="math inline">f(x)=x^3+ x^2 + 2</span>, plot its derivative, and identifiy where the derivative is zero. Is there a maximum or minimum?</p>
+</div>
+<div class="cell" data-hash="33_optimization_cache/html/unnamed-chunk-3_128839a3f6eafc5395211a4c79e94ced">
+
+</div>
+<p>The second derivative <span class="math inline">f''(x)</span> identifies whether the function <span class="math inline">f(x)</span> at the point <span class="math inline">x</span> is</p>
+<ol type="1">
+<li>Concave / concave down: <span class="math inline">f''(x)&lt;0</span>
+</li>
+<li>Convex / Concave up: <span class="math inline">f''(x)&gt;0</span>
+</li>
+</ol>
+<p><strong>Maximum (Minimum)</strong>: <span class="math inline">x_0</span> is a <strong>local maximum (minimum)</strong> if <span class="math inline">f(x_0)&gt;f(x)</span> (<span class="math inline">f(x_0)&lt;f(x))</span> for all <span class="math inline">x</span> within some open interval containing <span class="math inline">x_0</span>. <span class="math inline">x_0</span> is a <strong>global maximum (minimum)</strong> if <span class="math inline">f(x_0)&gt;f(x)</span> (<span class="math inline">f(x_0)&lt;f(x))</span> for all <span class="math inline">x</span> in the domain of <span class="math inline">f</span>.</p>
+<p>Given the function <span class="math inline">f</span> defined over domain <span class="math inline">D</span>, all of the following are defined as <strong>critical points</strong>:</p>
+<ol type="1">
+<li>Any interior point of <span class="math inline">D</span> where <span class="math inline">f'(x)=0</span>.</li>
+<li>Any interior point of <span class="math inline">D</span> where <span class="math inline">f'(x)</span> does not exist.</li>
+<li>Any endpoint that is in <span class="math inline">D</span>.</li>
+</ol>
+<p>The maxima and minima will be a subset of the critical points.</p>
+<p><strong>Second Derivative Test of Maxima/Minima</strong>: We can use the second derivative to tell us whether a point is a maximum or minimum of <span class="math inline">f(x)</span>.</p>
+<ol type="1">
+<li>Local Maximum: <span class="math inline">f'(x)=0</span> and <span class="math inline">f''(x)&lt;0</span>
+</li>
+<li>Local Minimum: <span class="math inline">f'(x)=0</span> and <span class="math inline">f''(x)&gt;0</span>
+</li>
+<li>Need more info: <span class="math inline">f'(x)=0</span> and <span class="math inline">f''(x)=0</span>
+</li>
+</ol>
+<p><strong>Global Maxima and Minima</strong> Sometimes no global max or min exists — e.g., <span class="math inline">f(x)</span> not bounded above or below. However, there are three situations where we can fairly easily identify global max or min.</p>
+<ol type="1">
+<li>
+<strong>Functions with only one critical point.</strong> If <span class="math inline">x_0</span> is a local max or min of <span class="math inline">f</span> and it is the only critical point, then it is the global max or min.</li>
+<li>
+<strong>Globally concave up or concave down functions.</strong> If <span class="math inline">f''(x)</span> is never zero, then there is at most one critical point. That critical point is a global maximum if <span class="math inline">f''&lt;0</span> and a global minimum if <span class="math inline">f''&gt;0</span>.</li>
+<li>
+<strong>Functions over closed and bounded intervals</strong> must have both a global maximum and a global minimum.</li>
+</ol>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 10.1 (Maxima and Minima by drawing) </strong></span>Find any critical points and identify whether they are a max, min, or saddle point:</p>
+<ol type="1">
+<li><span class="math inline">f(x)=x^2+2</span></li>
+<li><span class="math inline">f(x)=x^3+2</span></li>
+<li>
+<span class="math inline">f(x)=|x^2-1|</span>, <span class="math inline">x\in [-2,2]</span>
+</li>
+</ol>
+</div>
+</section><section id="concavity-of-a-function" class="level2" data-number="10.2"><h2 data-number="10.2" class="anchored" data-anchor-id="concavity-of-a-function">
+<span class="header-section-number">10.2</span> Concavity of a Function</h2>
+<p>Concavity helps identify the curvature of a function, <span class="math inline">f(x)</span>, in 2 dimensional space.</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 10.1 (Concave Function) </strong></span></p>
+<p>A function <span class="math inline">f</span> is strictly concave over the set S <span class="math inline">\forall x_1,x_2 \in S</span> and <span class="math inline">\forall a \in (0,1)</span>, <span class="math display">f(ax_1 + (1-a)x_2) &gt; af(x_1) + (1-a)f(x_2)</span> line connecting two points on a concave function will lie the function.</p>
+</div>
+<div class="cell" data-hash="33_optimization_cache/html/unnamed-chunk-4_1024d31c79190f6042907c07a1b32dcf">
+<div class="cell-output-display">
+<p><img src="33_optimization_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 10.2 (Convex Function) </strong></span>Convex: A function f is strictly convex over the set S <span class="math inline">\forall x_1,x_2 \in S</span> and <span class="math inline">\forall a \in (0,1)</span>, <span class="math display">f(ax_1 + (1-a)x_2) &lt; af(x_1) + (1-a)f(x_2)</span></p>
+<p>Any line connecting two points on a convex function will lie above the function.</p>
+</div>
+<p><strong>Second Derivative Test of Concavity</strong>: The second derivative can be used to understand concavity.</p>
+<p>If</p>
+<p><span class="math display">\left\{\begin{array}{lll}
+f''(x) &lt; 0 &amp; \Rightarrow &amp; \text{Concave}\\
+f''(x) &gt; 0 &amp; \Rightarrow &amp; \text{Convex}
+\end{array}\right.</span></p>
+<section id="quadratic-forms" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="quadratic-forms">Quadratic Forms</h3>
+<p>Quadratic forms is shorthand for a way to summarize a function. This is important for finding concavity because</p>
+<ol type="1">
+<li>Approximates local curvature around a point — e.g., used to identify max vs min vs saddle point.</li>
+<li>They are simple to express even in <span class="math inline">n</span> dimensions:</li>
+<li>Have a matrix representation.</li>
+</ol>
+<p><strong>Quadratic Form</strong>: A polynomial where each term is a monomial of degree 2 in any number of variables:</p>
+<p><span class="math display">\begin{align*}
+\text{One variable: }&amp; Q(x_1) = a_{11}x_1^2\\
+\text{Two variables: }&amp; Q(x_1,x_2) = a_{11}x_1^2 + a_{12}x_1x_2 + a_{22}x_2^2\\
+\text{N variables: }&amp; Q(x_1,\cdots,x_n)=\sum\limits_{i\le j} a_{ij}x_i x_j
+\end{align*}</span></p>
+<p>which can be written in matrix terms:</p>
+<p>One variable</p>
+<p><span class="math display">Q(\mathbf{x}) = x_1^\top a_{11} x_1</span></p>
+<p>N variables: <span class="math display">\begin{align*}
+Q(\mathbf{x}) &amp;=\begin{bmatrix} x_1 &amp; x_2 &amp; \cdots &amp; x_n \end{bmatrix}\begin{bmatrix}
+a_{11}&amp;\frac{1}{2}a_{12}&amp;\cdots&amp;\frac{1}{2}a_{1n}\\
+\frac{1}{2}a_{12}&amp;a_{22}&amp;\cdots&amp;\frac{1}{2}a_{2n}\\
+\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\
+\frac{1}{2}a_{1n}&amp;\frac{1}{2}a_{2n}&amp;\cdots&amp;a_{nn}
+\end{bmatrix}
+\begin{bmatrix} x_1\\x_2\\\vdots\\x_n\end{bmatrix}\\
+&amp;= \mathbf{x}^\top\mathbf{Ax}
+\end{align*}</span></p>
+<p>For example, the Quadratic on <span class="math inline">\mathbb{R}^2</span>: <span class="math display">\begin{align*}
+  Q(x_1,x_2)&amp;=\begin{bmatrix} x_1&amp; x_2 \end{bmatrix} \begin{bmatrix} a_{11}&amp;\frac{1}{2} a_{12}\\
+  \frac{1}{2}a_{12}&amp;a_{22}\end{bmatrix} \begin{bmatrix} x_1\\x_2 \end{bmatrix} \\
+  &amp;= a_{11}x_1^2 + a_{12}x_1x_2 + a_{22}x_2^2
+\end{align*}</span></p>
+</section><section id="definiteness-of-quadratic-forms" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="definiteness-of-quadratic-forms">Definiteness of Quadratic Forms</h3>
+<p>When the function <span class="math inline">f(\mathbf{x})</span> has more than two inputs, determining whether it has a maxima and minima (remember, functions may have many inputs but they have only one output) is a bit more tedious. Definiteness helps identify the curvature of a function, <span class="math inline">Q(\textbf{x})</span>, in n dimensional space.</p>
+<p><strong>Definiteness</strong>: By definition, a quadratic form always takes on the value of zero when <span class="math inline">x = 0</span>, <span class="math inline">Q(\textbf{x})=0</span> at <span class="math inline">\textbf{x}=0</span>. The definiteness of the matrix <span class="math inline">\textbf{A}</span> is determined by whether the quadratic form <span class="math inline">Q(\textbf{x})=\textbf{x}^\top\textbf{A}\textbf{x}</span> is greater than zero, less than zero, or sometimes both over all <span class="math inline">\mathbf{x}\ne 0</span>.</p>
+</section></section><section id="gradient-and-foc" class="level2" data-number="10.3"><h2 data-number="10.3" class="anchored" data-anchor-id="gradient-and-foc">
+<span class="header-section-number">10.3</span> Gradient and FOC</h2>
+<p>We can see from a graphical representation that if a point is a local maxima or minima, it must meet certain conditions regarding its derivative. These are so commonly used that we refer these to “First Order Conditions” (FOCs) and “Second Order Conditions” (SOCs) in the economic tradition.</p>
+<p>When we examined functions of one variable <span class="math inline">x</span>, we found critical points by taking the first derivative, setting it to zero, and solving for <span class="math inline">x</span>. For functions of <span class="math inline">n</span> variables, the critical points are found in much the same way, except now we set the partial derivatives equal to zero. Note: We will only consider critical points on the interior of a function’s domain.</p>
+<p>In a derivative, we only took the derivative with respect to one variable at a time. When we take the derivative separately with respect to all variables in the elements of <span class="math inline">\mathbf{x}</span> and then express the result as a vector, we use the term Gradient and Hessian.</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 10.3 (Gradient) </strong></span>Given a function <span class="math inline">f(\textbf{x})</span> in <span class="math inline">n</span> variables, the gradient <span class="math inline">\nabla f(\mathbf{x})</span> (the greek letter nabla ) is a row vector, where the <span class="math inline">i</span>th element is the partial derivative of <span class="math inline">f(\textbf{x})</span> with respect to <span class="math inline">x_i</span>:</p>
+<p><span class="math display">\nabla f(\mathbf{x}) = \begin{bmatrix} \frac{\partial f(\mathbf{x})}{\partial x_1} &amp;  \frac{\partial f(\mathbf{x})}{\partial x_2} &amp; \cdots &amp; \frac{\partial f(\mathbf{x})}{\partial x_n} \end{bmatrix}</span></p>
+</div>
+<p>The gradient points in the direction of the steepest rate of increase at each point <span class="math inline">\mathbf{x}</span>.</p>
+<p>Before we know whether a point is a maxima or minima, if it meets the FOC it is a “Critical Point”.</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 10.4 (Critical Point) </strong></span></p>
+<p><span class="math inline">\mathbf{x}^*</span> is a critical point if and only if <span class="math inline">\nabla f(\mathbf{x}^*)=\mathbf{0}</span> (the vector of zeros). If the partial derivative of f(x) with respect to <span class="math inline">x^*</span> is 0, then <span class="math inline">\mathbf{x}^*</span> is a critical point. To solve for <span class="math inline">\mathbf{x}^*</span>, find the gradient, set each element equal to 0, and solve the system of equations. <span class="math display">\mathbf{x}^* = \begin{bmatrix} x_1^*\\x_2^*\\ \vdots \\ x_n^*\end{bmatrix}</span></p>
+</div>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 10.2 </strong></span></p>
+<p>Example: Given a function <span class="math inline">f(\mathbf{x})=(x_1-1)^2+x_2^2+1</span>, find the (1) Gradient and (2) Critical point of <span class="math inline">f(\mathbf{x})</span>.</p>
+</div>
+<div class="solution proof">
+<p><span class="proof-title"><em>Solution</em>. </span>Gradient</p>
+<p><span class="math display">\begin{align*}
+\nabla f(\mathbf{x}) &amp;=
+  \begin{bmatrix}
+  \frac{\partial f(\mathbf{x})}{\partial x_1} &amp;
+  \frac{\partial f(\mathbf{x})}{\partial x_2}
+  \end{bmatrix}
+  =
+  \begin{bmatrix} 2(x_1-1) &amp;
+  2x_2
+  \end{bmatrix}
+\end{align*}</span></p>
+<p>Critical Point <span class="math inline">\mathbf{x}^*</span>:</p>
+<p><span class="math display">\begin{align*}
+&amp;\frac{\partial f(\mathbf{x})}{\partial x_1} = 2(x_1-1) = 0 &amp; \Rightarrow x_1^* = 1\\
+&amp;\frac{\partial f(\mathbf{x})}{\partial x_2} = 2x_2 = 0 &amp; \Rightarrow   x_2^* = 0\\
+\end{align*}</span></p>
+<p>So <span class="math display">\mathbf{x}^* = (1,0)</span></p>
+</div>
+</section><section id="hessian-and-soc" class="level2" data-number="10.4"><h2 data-number="10.4" class="anchored" data-anchor-id="hessian-and-soc">
+<span class="header-section-number">10.4</span> Hessian and SOC</h2>
+<p>When we found a critical point for a function of one variable, we used the second derivative as a indicator of the curvature at the point in order to determine whether the point was a min, max, or saddle (second derivative test of concavity). For functions of <span class="math inline">n</span> variables, we use <em>second order partial derivatives</em> as an indicator of curvature.</p>
+<div id="def-" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 10.5 (Hessian) </strong></span>Given a function <span class="math inline">f(\mathbf{x})</span> in <span class="math inline">n</span> variables, the hessian <span class="math inline">\mathbf{H(x)}</span> is an <span class="math inline">n\times n</span> matrix, where the <span class="math inline">(i,j)</span>th element is the second order partial derivative of <span class="math inline">f(\mathbf{x})</span> with respect to <span class="math inline">x_i</span> and <span class="math inline">x_j</span>:</p>
+<p><span class="math display">\mathbf{H(x)}=\begin{bmatrix} \frac{\partial^2 f(\mathbf{x})}{\partial x_1^2}&amp;\frac{\partial^2f(\mathbf{x})}{\partial x_1 \partial x_2}&amp; \cdots &amp; \frac{\partial^2 f(\mathbf{x})}{\partial x_1 \partial x_n}\\ \frac{\partial^2 f(\mathbf{x})}{\partial x_2 \partial x_1}&amp;\frac{\partial^2f(\mathbf{x})}{\partial x_2^2}&amp; \cdots &amp; \frac{\partial^2 f(\mathbf{x})}{\partial x_2 \partial x_n}\\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ \frac{\partial^2 f(\mathbf{x})}{\partial x_n \partial x_1}&amp;\frac{\partial^2f(\mathbf{x})}{\partial x_n \partial x_2}&amp; \cdots &amp; \frac{\partial^2 f(\mathbf{x})}{\partial x_n^2} \end{bmatrix}</span></p>
+</div>
+<p>Note that the hessian will be a symmetric matrix because <span class="math inline">\frac{\partial f(\mathbf{x})}{\partial x_1\partial x_2} = \frac{\partial f(\mathbf{x})}{\partial x_2\partial x_1}</span>.</p>
+<p>Also note that given that <span class="math inline">f(\mathbf{x})</span> is of quadratic form, each element of the hessian will be a constant.</p>
+<p>These definitions will be employed when we determine the <strong>Second Order Conditions</strong> of a function:</p>
+<p>Given a function <span class="math inline">f(\mathbf{x})</span> and a point <span class="math inline">\mathbf{x}^*</span> such that <span class="math inline">\nabla f(\mathbf{x}^*)=0</span>,</p>
+<ol type="1">
+<li>Hessian is Positive Definite around <span class="math inline">\mathbf{x}^*</span> <span class="math inline">\quad \Longrightarrow \quad</span> Local Min</li>
+<li>Hessian is Negative Definite around <span class="math inline">\mathbf{x}^*</span> <span class="math inline">\quad \Longrightarrow \quad</span> Local Max</li>
+<li>Hessian is Indefinite around <span class="math inline">\mathbf{x}^*</span> <span class="math inline">\quad \Longrightarrow \quad</span> Saddle Point</li>
+</ol>
+<p>Furthermore, there’s an easier way to check whether a <span class="math inline">2\times 2</span> matrix is positive or negative definite.</p>
+<p><strong>Definiteness of 2 <span class="math inline">\times</span> 2 Matrix</strong>: For a <span class="math inline">2 \times 2</span> matrix $$=</p>
+<span class="math display">\begin{bmatrix}
+A_{11} &amp; A_{12}\\
+A_{21} &amp; A_{22}
+\end{bmatrix}</span>
+<p>$$</p>
+<ol type="1">
+<li>If <span class="math inline">\mathrm{det}(\mathbf{A}) &gt; 0</span> and <span class="math inline">A_{11}&gt;0</span>, then <span class="math inline">\mathbf{A}</span> is positive definite</li>
+<li>If <span class="math inline">\mathrm{det}(\mathbf{A}) &gt; 0</span> and <span class="math inline">A_{11}&lt;0</span>, then <span class="math inline">\mathbf{A}</span> is negative definite</li>
+<li>If <span class="math inline">\mathrm{det}(\mathbf{A}) &lt; 0</span>, then <span class="math inline">\mathbf{A}</span> is indefinite</li>
+</ol>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 10.3 (Max and min with two dimensions) </strong></span></p>
+<p>We found that the only critical point of <span class="math inline">f(\mathbf{x})=(x_1-1)^2+x_2^2+1</span> is at <span class="math inline">\mathbf{x}^*=(1,0)</span>. Is it a min, max, or saddle point?</p>
+</div>
+<div class="solution proof">
+<p><span class="proof-title"><em>Solution</em>. </span>The Hessian is <span class="math display">\begin{align*}
+\mathbf{H(x)} &amp;= \begin{bmatrix} 2&amp;0\\0&amp;2 \end{bmatrix}
+\end{align*}</span> Since <span class="math inline">\mathrm{det}(\mathbf{H}(x)) = 4 &gt; 0</span> and <span class="math inline">H_{11}=2&gt;0</span>, the Hessian is positive definite.</p>
+<p>Maxima, Minima, or Saddle Point? Since the Hessian is positive definite and the gradient equals 0, <span class="math inline">x^\star = (1,0)</span> is a local minimum.</p>
+<p>Note: Alternate check of definiteness. Is <span class="math inline">\mathbf{H(x^*)} \geq \leq 0 \quad \forall \quad \mathbf{x}\ne 0</span></p>
+<p><span class="math display">\begin{align*}
+\mathbf{x}^\top H(\mathbf{x}^*) \mathbf{x} &amp;= \begin{bmatrix} x_1 &amp; x_2 \end{bmatrix}\\
+&amp;= \begin{bmatrix} 2&amp;0\\0&amp;2 \end{bmatrix}\\
+\begin{bmatrix} x_1\\x_2\end{bmatrix} &amp;= 2x_1^2+2x_2^2
+\end{align*}</span></p>
+<p>For any <span class="math inline">\mathbf{x}\ne 0</span>, <span class="math inline">2(x_1^2+x_2^2)&gt;0</span>, so the Hessian is positive definite and <span class="math inline">\mathbf{x}^*</span> is a strict local minimum.</p>
+</div>
+<section id="definiteness-and-concavity" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="definiteness-and-concavity">Definiteness and Concavity</h3>
+<p>Although definiteness helps us to understand the curvature of an n-dimensional function, it does not necessarily tell us whether the function is globally concave or convex.</p>
+<p>We need to know whether a function is globally concave or convex to determine whether a critical point is a global min or max. We can use the definiteness of the Hessian to determine whether a function is globally concave or convex:</p>
+<ol type="1">
+<li>Hessian is Positive Semidefinite <span class="math inline">\forall \mathbf{x}</span> <span class="math inline">\quad \Longrightarrow \quad</span> Globally Convex</li>
+<li>Hessian is Negative Semidefinite <span class="math inline">\forall \mathbf{x}</span> <span class="math inline">\quad \Longrightarrow \quad</span> Globally Concave</li>
+</ol>
+<p>Notice that the definiteness conditions must be satisfied over the entire domain.</p>
+</section></section><section id="global-maxima-and-minima" class="level2" data-number="10.5"><h2 data-number="10.5" class="anchored" data-anchor-id="global-maxima-and-minima">
+<span class="header-section-number">10.5</span> Global Maxima and Minima</h2>
+<p><strong>Global Max/Min Conditions</strong>: Given a function <span class="math inline">f(\mathbf{x})</span> and a point <span class="math inline">\mathbf{x}^*</span> such that <span class="math inline">\nabla f(\mathbf{x}^*)=0</span>,</p>
+<ol type="1">
+<li>
+<span class="math inline">f(\mathbf{x})</span> Globally Convex <span class="math inline">\quad \Longrightarrow \quad</span> Global Min</li>
+<li>
+<span class="math inline">f(\mathbf{x})</span> Globally Concave <span class="math inline">\quad \Longrightarrow \quad</span> Global Max</li>
+</ol>
+<p>Note that showing that <span class="math inline">\mathbf{H(x^*)}</span> is negative semidefinite is not enough to guarantee <span class="math inline">\mathbf{x}^*</span> is a local max. However, showing that <span class="math inline">\mathbf{H(x)}</span> is negative semidefinite for all <span class="math inline">\mathbf{x}</span> guarantees that <span class="math inline">x^*</span> is a global max. (The same goes for positive semidefinite and minima.)</p>
+<div id="exm-" class="theorem example">
+<p><span class="theorem-title"><strong>Example 10.4 </strong></span>Take <span class="math inline">f_1(x)=x^4</span> and <span class="math inline">f_2(x)=-x^4</span>.</p>
+<ul>
+<li>Both have <span class="math inline">x=0</span> as a critical point.<br>
+</li>
+<li>Unfortunately, <span class="math inline">f''_1(0)=0</span> and <span class="math inline">f''_2(0)=0</span>, so we can’t tell whether <span class="math inline">x=0</span> is a min or max for either. However, <span class="math inline">f''_1(x)=12x^2</span> and <span class="math inline">f''_2(x)=-12x^2</span>.<br>
+</li>
+<li>For all <span class="math inline">x</span>, <span class="math inline">f''_1(x)\ge 0</span> and <span class="math inline">f''_2(x)\le 0</span> — i.e., <span class="math inline">f_1(x)</span> is globally convex and <span class="math inline">f_2(x)</span> is globally concave.</li>
+<li>So <span class="math inline">x=0</span> is a global min of <span class="math inline">f_1(x)</span> and a global max of <span class="math inline">f_2(x)</span>.</li>
+</ul>
+</div>
+<div id="exr-" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10.2 </strong></span></p>
+<p>Given <span class="math inline">f(\mathbf{x})=x_1^3-x_2^3+9x_1x_2</span>, find any maxima or minima.</p>
+</div>
+<p><em>Solution.</em></p>
+<ol type="1">
+<li>First order conditions
+<ol type="1">
+<li>Gradient <span class="math inline">\nabla f(\mathbf{x})</span> <span class="math display">\begin{bmatrix} \frac{\partial f}{\partial x_1} \\
+\frac{\partial f}{\partial x_2}\end{bmatrix} =
+\begin{bmatrix} 3x_1^2+9x_2 \\ -3x_2^2+9x_1 \end{bmatrix}</span>
+</li>
+<li>Critical Points <span class="math inline">\mathbf{x^*}</span>
+<ul>
+<li>Set the gradient equal to zero and solve for <span class="math inline">x_1</span> and <span class="math inline">x_2</span>. We have two equations and two unknowns. Solving for <span class="math inline">x_1</span> and <span class="math inline">x_2</span>, we get two critical points: <span class="math inline">\mathbf{x}_1^*=(0,0)</span> and <span class="math inline">\mathbf{x}_2^*=(3,-3)</span>.</li>
+<li><span class="math inline">3x_1^2 + 9x_2 = 0 \quad \Rightarrow \quad 9x_2 = -3x_1^2 \quad \Rightarrow \quad x_2 = -\frac{1}{3}x_1^2</span></li>
+<li><span class="math inline">-3x_2^2 + 9x_1 = 0 \quad \Rightarrow \quad -3(-\frac{1} {3}x_1^2)^2 + 9x_1 = 0</span></li>
+<li><span class="math inline">\Rightarrow \quad -\frac{1}{3}x_1^4 + 9x_1 = 0 \quad \Rightarrow \quad x_1^3 = 27x_1 \quad \Rightarrow \quad x_1 = 3</span></li>
+<li><span class="math inline">3(3)^2 + 9x_2 = 0 \quad \Rightarrow \quad x_2 = -3</span></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Second order conditions.
+<ol type="1">
+<li>
+<p>Hessian <span class="math inline">\mathbf{H(x)}</span></p>
+<p><span class="math display">\begin{bmatrix} 6x_1&amp;9\\9&amp;-6x_2 \end{bmatrix}</span></p>
+</li>
+<li>
+<p>Hessian <span class="math inline">\mathbf{H(x_1^*)}</span></p>
+<p><span class="math display">\begin{bmatrix} 0&amp;9\\9&amp;0\end{bmatrix}</span></p>
+</li>
+<li>
+<p>Leading principal minors of <span class="math inline">\mathbf{H(x_1^*)}</span></p>
+<p><span class="math display">M_1=0; M_2=-81</span></p>
+</li>
+<li>
+<p>Definiteness of <span class="math inline">\mathbf{H(x_1^*)}</span>?</p>
+<ul>
+<li>
+<span class="math inline">\mathbf{H(x_1^*)}</span> is indefinite</li>
+</ul>
+</li>
+<li>
+<p>Maxima, Minima, or Saddle Point for <span class="math inline">\mathbf{x_1^*}</span>?</p>
+<ul>
+<li>Since <span class="math inline">\mathbf{H(x_1^*)}</span> is indefinite, <span class="math inline">\mathbf{x}_1^*=(0,0)</span> is a saddle point.</li>
+</ul>
+</li>
+<li>
+<p>Hessian</p>
+<p><span class="math display">\mathbf{H(x_2^*)}=\begin{bmatrix} 18&amp;9\\9&amp;18\end{bmatrix}</span></p>
+</li>
+<li>
+<p>Leading principal minors of <span class="math inline">\mathbf{H(x_2^*)}</span></p>
+<p><span class="math display">M_1=18; M_2=243</span></p>
+</li>
+<li>
+<p>Definiteness of <span class="math inline">\mathbf{H(x_2^*)}</span>?</p>
+<ul>
+<li>
+<span class="math inline">\mathbf{H(x_2^*)}</span> is positive definite</li>
+</ul>
+</li>
+<li>
+<p>Maxima, Minima, or Saddle Point for <span class="math inline">\mathbf{x}_2^*</span>?</p>
+<ul>
+<li>Since <span class="math inline">\mathbf{H(x_2^*)}</span> is positive definite, <span class="math inline">\mathbf{x}_1^*=(3,-3)</span> is a strict local minimum</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Global concavity/convexity.
+<ol type="1">
+<li>Is f(x) globally concave/convex?
+<ul>
+<li>No.&nbsp;In evaluating the Hessians for <span class="math inline">\mathbf{x}_1^*</span> and <span class="math inline">\mathbf{x}_2^*</span> we saw that the Hessian is not positive semidefinite at x <span class="math inline">=</span> (0,0).</li>
+</ul>
+</li>
+<li>Are any <span class="math inline">\mathbf{x^*}</span> global minima or maxima?
+<ul>
+<li>No.&nbsp;Since the function is not globally concave/convex, we can’t infer that <span class="math inline">\mathbf{x}_2^*=(3,-3)</span> is a global minimum. In fact, if we set <span class="math inline">x_1=0</span>, the <span class="math inline">f(\mathbf{x})=-x_2^3</span>, which will go to <span class="math inline">-\infty</span> as <span class="math inline">x_2\to \infty</span>.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+
+
+<!-- -->
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./32_derivatives.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Differential Calculus</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./34_intergrals.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Integral Calculus</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Optimization {#optim}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, include = FALSE}</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>To optimize, we use derivatives and calculus. Optimization is to find the maximum or minimum of a functon, and to find what value of an input gives that extremum. This has obvious uses in engineering. Many tools in the statistical toolkit use optimization. One of the most common ways of estimating a model is through "Maximum Likelihood Estimation", done via optimizing a function (the likelihood). </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Optimization also comes up in Economics, Formal Theory, and Political Economy all the time. A go-to model of human behavior is that they optimize a certain utility function. Humans are not pure utility maximizers, of course, but nuanced models of optimization -- for example, adding constraints and adding uncertainty -- will prove to be quite useful.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Maxima and Minima</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>The first derivative, $f'(x)$, quantifies the slope of a function. Therefore, it can be used to check whether the function $f(x)$ at the point $x$ is increasing or decreasing at $x$.</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>__Increasing:__ $f'(x)&gt;0$</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>__Decreasing:__ $f'(x)&lt;0$</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>__Neither increasing nor decreasing__: $f'(x)=0$</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>             i.e. a maximum, minimum, or saddle point</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>So for example, $f(x) = x^2 + 2$ and $f^\prime(x) = 2x$ </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, fig.cap="Maxima and Minima"}</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>range <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>fx0 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(range, <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(x), <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">f</span>(x)),</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>       <span class="at">labs =</span> <span class="fu">expression</span>(<span class="fu">f</span>(x)<span class="sc">==</span>x<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span>)) </span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>fx <span class="ot">&lt;-</span> fx0 <span class="sc">+</span>  </span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expand_limits</span>(<span class="at">y =</span> <span class="dv">0</span>)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>fprimex <span class="ot">&lt;-</span> fx0 <span class="sc">+</span> <span class="fu">stat_function</span>(<span class="at">fun =</span> <span class="cf">function</span>(x) <span class="dv">2</span><span class="sc">*</span>x, <span class="at">size =</span> <span class="fl">0.5</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(x), <span class="at">y =</span> <span class="fu">expression</span>(f<span class="sc">~</span><span class="fu">plain</span>(<span class="st">"'"</span>)<span class="sc">~</span>(x)))</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>fx <span class="sc">+</span> fprimex <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">nrow =</span> <span class="dv">1</span>)</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>:::{#exr-}</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu">### Plotting a mazimum and minimum</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>Plot $f(x)=x^3+ x^2 + 2$, plot its derivative, and identifiy where the derivative is zero. Is there a maximum or minimum?</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, eval = FALSE}</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>range <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>fx0 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(range, <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(x), <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">f</span>(x))) <span class="sc">+</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>fx <span class="ot">&lt;-</span> fx0 <span class="sc">+</span>  </span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">3</span> <span class="sc">+</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expand_limits</span>(<span class="at">y =</span> <span class="dv">0</span>)</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>fprimex <span class="ot">&lt;-</span> fx0 <span class="sc">+</span> <span class="fu">stat_function</span>(<span class="at">fun =</span> <span class="cf">function</span>(x) <span class="dv">3</span><span class="sc">*</span>x<span class="sc">^</span><span class="dv">2</span>, <span class="at">size =</span> <span class="fl">0.5</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(x), <span class="at">y =</span> <span class="fu">expression</span>(f<span class="sc">~</span><span class="fu">plain</span>(<span class="st">"'"</span>)<span class="sc">~</span>(x)))</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>fx <span class="sc">+</span> fprimex <span class="sc">+</span> <span class="fu">plot_annotation</span>(<span class="fu">expression</span>(<span class="fu">f</span>(x)<span class="sc">==</span>x<span class="sc">^</span><span class="dv">3</span><span class="sc">+</span><span class="dv">2</span>))</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>The second derivative $f''(x)$ identifies whether the function $f(x)$ at the point $x$ is</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Concave / concave down: $f''(x)&lt;0$</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Convex / Concave up: $f''(x)&gt;0$</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>__Maximum (Minimum)__: $x_0$ is a __local maximum (minimum)__ if $f(x_0)&gt;f(x)$ ($f(x_0)&lt;f(x))$ for all $x$ within some open interval containing $x_0$.  $x_0$ is a __global maximum (minimum)__ if $f(x_0)&gt;f(x)$ ($f(x_0)&lt;f(x))$ for all $x$ in the domain of $f$.</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>Given the function $f$ defined over domain $D$, all of the following are defined as __critical points__:</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Any interior point of $D$ where $f'(x)=0$.</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Any interior point of $D$ where $f'(x)$ does not exist.</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Any endpoint that is in $D$.</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>The maxima and minima will be a subset of the critical points.</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>__Second Derivative Test of Maxima/Minima__:  We can use the second derivative to tell us whether a point is a maximum or minimum of $f(x)$. </span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Local Maximum: $f'(x)=0$ and $f''(x)&lt;0$</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Local Minimum: $f'(x)=0$ and $f''(x)&gt;0$</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Need more info: $f'(x)=0$ and $f''(x)=0$</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>__Global Maxima and Minima__ Sometimes no global max or min exists --- e.g., $f(x)$ not bounded above or below.  However, there are three situations where we can fairly easily identify global max or min.</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>__Functions with only one critical point.__ If $x_0$ is a local max or min of $f$ and it is the only critical point, then it is the global max or min.</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>__Globally concave up or concave down functions.__  If $f''(x)$ is never zero, then there is at most one critical point. That critical point is a global maximum if $f''&lt;0$ and a global minimum if $f''&gt;0$.</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>__Functions over closed and bounded intervals__ must have both a global maximum and a global minimum.</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>:::{#exm-}</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="fu">### Maxima and Minima by drawing</span></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>Find any critical points and identify whether they are a max, min, or saddle point:</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$f(x)=x^2+2$</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>$f(x)=x^3+2$</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>$f(x)=|x^2-1|$, $x\in <span class="co">[</span><span class="ot">-2,2</span><span class="co">]</span>$</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="fu">## Concavity of a Function</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>Concavity helps identify the curvature of a function, $f(x)$, in 2 dimensional space.</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>:::{#def-}</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="fu">### Concave Function</span></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>A function $f$ is strictly concave over the set S \underline{if} $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) &gt; af(x_1) + (1-a)f(x_2)$$</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>\textit{Any} line connecting two points on a concave function will lie \textit{below} the function.</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE}</span></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>range1 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>))</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>fx1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(range1, <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> <span class="cf">function</span>(x) <span class="sc">-</span>x<span class="sc">^</span><span class="dv">2</span>, <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">f</span>(x)), <span class="at">title  =</span> <span class="st">"Concave"</span>)</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>fx2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(range1, <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> <span class="cf">function</span>(x) x<span class="sc">^</span><span class="dv">2</span>, <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">f</span>(x)), <span class="at">title =</span> <span class="st">"Convex"</span>)</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>fx1 <span class="sc">+</span> fx2 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">nrow =</span> <span class="dv">1</span>)</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>:::{#def-}</span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="fu">### Convex Function</span></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>Convex: A function f is strictly convex over the set S \underline{if} $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) &lt; af(x_1) + (1-a)f(x_2)$$</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>  Any line connecting two points on a convex function will lie above the function.</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>**Second Derivative Test of Concavity**: The second derivative can be used to understand concavity. </span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a>If</span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a>$$\left<span class="sc">\{</span>\begin{array}{lll}</span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>f''(x) &lt; 0 &amp; \Rightarrow &amp; \text{Concave}<span class="sc">\\</span></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a>f''(x) &gt; 0 &amp; \Rightarrow &amp; \text{Convex}</span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>\end{array}\right.$$</span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a><span class="fu">### Quadratic Forms {-}</span></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>Quadratic forms is shorthand for a way to summarize a function. This is important for finding concavity because</span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Approximates local curvature around a point --- e.g., used to</span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>identify max vs min vs saddle point.</span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>They are simple to express even in $n$ dimensions:</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Have a matrix representation.</span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>__Quadratic Form__:  A polynomial where each term is a monomial</span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>of degree 2 in any number of variables:</span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>\text{One variable: }&amp; Q(x_1) = a_{11}x_1^2<span class="sc">\\</span></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>\text{Two variables: }&amp; Q(x_1,x_2) = a_{11}x_1^2 + a_{12}x_1x_2 + a_{22}x_2^2<span class="sc">\\</span></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>\text{N variables: }&amp; Q(x_1,\cdots,x_n)=\sum\limits_{i\le j} a_{ij}x_i x_j</span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>which can be written in matrix terms:</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>One variable</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a>$$Q(\mathbf{x}) = x_1^\top a_{11} x_1$$</span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>N variables: </span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>Q(\mathbf{x}) &amp;=\begin{bmatrix} x_1 &amp; x_2 &amp; \cdots &amp; x_n \end{bmatrix}\begin{bmatrix}</span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>a_{11}&amp;\frac{1}{2}a_{12}&amp;\cdots&amp;\frac{1}{2}a_{1n}<span class="sc">\\</span></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a>\frac{1}{2}a_{12}&amp;a_{22}&amp;\cdots&amp;\frac{1}{2}a_{2n}<span class="sc">\\</span></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>\vdots&amp;\vdots&amp;\ddots&amp;\vdots<span class="sc">\\</span></span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>\frac{1}{2}a_{1n}&amp;\frac{1}{2}a_{2n}&amp;\cdots&amp;a_{nn}</span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}</span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix} x_1<span class="sc">\\</span>x_2<span class="sc">\\</span>\vdots<span class="sc">\\</span>x_n\end{bmatrix}<span class="sc">\\</span></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>&amp;= \mathbf{x}^\top\mathbf{Ax}</span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>For example, the  Quadratic on $\mathbb{R}^2$:</span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>  Q(x_1,x_2)&amp;=\begin{bmatrix} x_1&amp; x_2 \end{bmatrix} \begin{bmatrix} a_{11}&amp;\frac{1}{2} a_{12}<span class="sc">\\</span></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>  \frac{1}{2}a_{12}&amp;a_{22}\end{bmatrix} \begin{bmatrix} x_1<span class="sc">\\</span>x_2 \end{bmatrix} <span class="sc">\\</span></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>  &amp;= a_{11}x_1^2 + a_{12}x_1x_2 + a_{22}x_2^2</span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a><span class="fu">### Definiteness of Quadratic Forms {-}</span></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>When the function $f(\mathbf{x})$ has more than two inputs, determining whether it has a maxima and minima (remember, functions may have many inputs but they have only one output) is a bit more tedious.  Definiteness helps identify the curvature of a function, $Q(\textbf{x})$, in n dimensional space.</span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>__Definiteness__:  By definition, a quadratic form always takes on the value of zero when $x = 0$, $Q(\textbf{x})=0$ at $\textbf{x}=0$. The definiteness of the matrix $\textbf{A}$ is  determined by whether the</span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>quadratic form $Q(\textbf{x})=\textbf{x}^\top\textbf{A}\textbf{x}$ is greater than zero, less than</span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a>zero, or sometimes both over all $\mathbf{x}\ne 0$.</span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a><span class="fu">## Gradient and FOC</span></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a>We can see from a graphical representation that if a point is a local maxima or minima, it must meet certain conditions regarding its derivative. These are so commonly used that we refer these to "First Order Conditions" (FOCs) and "Second Order Conditions" (SOCs) in the economic tradition.</span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>When we examined functions of one variable $x$, we found critical points by taking the first derivative,  setting it to zero, and solving for $x$.  For functions of $n$ variables, the critical points are found in much the same way, except now we set the partial derivatives equal to zero. Note: We will only consider critical points on the interior of a function's domain. </span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a>In a derivative, we only took the derivative with respect to one variable at a time. When we take the derivative separately with respect to all variables in the elements of $\mathbf{x}$ and then express the result as a vector, we use the term Gradient and Hessian. </span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a>:::{#def-}</span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="fu">### Gradient</span></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a>Given a function $f(\textbf{x})$ in $n$ variables, the gradient $\nabla f(\mathbf{x})$ (the greek letter nabla ) is a row vector, where the $i$th element is the partial derivative of $f(\textbf{x})$ with respect to $x_i$: </span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a>$$\nabla f(\mathbf{x}) = \begin{bmatrix} \frac{\partial f(\mathbf{x})}{\partial x_1} &amp;  \frac{\partial f(\mathbf{x})}{\partial x_2} &amp; \cdots &amp; \frac{\partial f(\mathbf{x})}{\partial x_n} \end{bmatrix}$$</span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>The gradient points in the direction of the steepest rate of increase at each point $\mathbf{x}$.</span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>Before we know whether a point is a maxima or minima, if it meets the FOC it is a "Critical Point".</span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a>:::{#def-}</span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a><span class="fu">### Critical Point</span></span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a>$\mathbf{x}^*$ is a critical point if and only if $\nabla f(\mathbf{x}^*)=\mathbf{0}$ (the vector of zeros). If the partial derivative of f(x) with respect to $x^*$ is 0, then $\mathbf{x}^*$ is a critical point. To solve for $\mathbf{x}^*$, find the gradient, set each element equal to 0, and solve the system of equations. $$\mathbf{x}^* = \begin{bmatrix} x_1^*\\x_2^*\\ \vdots \\ x_n^*\end{bmatrix}$$</span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a>:::{#exm-}</span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a>Example: Given a function $f(\mathbf{x})=(x_1-1)^2+x_2^2+1$, find the (1) Gradient and (2) Critical point of $f(\mathbf{x})$.</span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a>:::{.solution}</span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a>Gradient </span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>\nabla f(\mathbf{x}) &amp;= </span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>  \begin{bmatrix}</span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>  \frac{\partial f(\mathbf{x})}{\partial x_1} &amp; </span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a>  \frac{\partial f(\mathbf{x})}{\partial x_2} </span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a>  \end{bmatrix}</span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a>  = </span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a>  \begin{bmatrix} 2(x_1-1) &amp;</span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a>  2x_2 </span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a>  \end{bmatrix}</span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a>Critical Point $\mathbf{x}^*$:</span>
+<span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a>&amp;\frac{\partial f(\mathbf{x})}{\partial x_1} = 2(x_1-1) = 0 &amp; \Rightarrow x_1^* = 1<span class="sc">\\</span></span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a>&amp;\frac{\partial f(\mathbf{x})}{\partial x_2} = 2x_2 = 0 &amp; \Rightarrow   x_2^* = 0<span class="sc">\\</span></span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a>So $$\mathbf{x}^* = (1,0)$$</span>
+<span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hessian and SOC</span></span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a>When we found a critical point for a function of one variable, we used the second derivative as a indicator of the curvature at the point in order to determine whether the point was a min, max, or saddle (second derivative test of concavity).  For functions of $n$ variables, we use _second order partial derivatives_ as an indicator of curvature.</span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>:::{#def-}</span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a><span class="fu">### Hessian</span></span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a>Given a function $f(\mathbf{x})$ in $n$ variables, the hessian $\mathbf{H(x)}$ is</span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a>an $n\times n$ matrix, where the $(i,j)$th element is the second order</span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a>partial derivative of $f(\mathbf{x})$ with respect to $x_i$ and $x_j$:</span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a>$$\mathbf{H(x)}=\begin{bmatrix} \frac{\partial^2 f(\mathbf{x})}{\partial x_1^2}&amp;\frac{\partial^2f(\mathbf{x})}{\partial x_1 \partial x_2}&amp; \cdots &amp; \frac{\partial^2 f(\mathbf{x})}{\partial x_1 \partial x_n}<span class="sc">\\</span> \frac{\partial^2 f(\mathbf{x})}{\partial x_2 \partial x_1}&amp;\frac{\partial^2f(\mathbf{x})}{\partial x_2^2}&amp; \cdots &amp; \frac{\partial^2 f(\mathbf{x})}{\partial x_2 \partial x_n}<span class="sc">\\</span> \vdots &amp; \vdots &amp; \ddots &amp; \vdots <span class="sc">\\</span> \frac{\partial^2 f(\mathbf{x})}{\partial x_n \partial x_1}&amp;\frac{\partial^2f(\mathbf{x})}{\partial x_n \partial x_2}&amp; \cdots &amp; \frac{\partial^2 f(\mathbf{x})}{\partial x_n^2} \end{bmatrix}$$</span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a>Note that the hessian will be a symmetric matrix because $\frac{\partial f(\mathbf{x})}{\partial x_1\partial x_2} = \frac{\partial f(\mathbf{x})}{\partial x_2\partial x_1}$.</span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a>Also note that given that $f(\mathbf{x})$ is of quadratic form, each element of the hessian will be a constant.</span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a>These definitions will be employed when we determine the __Second Order Conditions__ of a function:</span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a>Given a function $f(\mathbf{x})$ and a point $\mathbf{x}^*$ such that $\nabla f(\mathbf{x}^*)=0$,</span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Hessian is Positive Definite around $\mathbf{x}^*$ $\quad \Longrightarrow \quad$ Local Min</span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Hessian is Negative Definite around $\mathbf{x}^*$ $\quad \Longrightarrow \quad$ Local Max</span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Hessian is Indefinite around $\mathbf{x}^*$ $\quad \Longrightarrow \quad$ Saddle Point</span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a>Furthermore, there's an easier way to check whether a $2\times 2$ matrix is positive or negative definite.</span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a>__Definiteness of 2 $\times$ 2 Matrix__:  For a $2 \times 2$ matrix </span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}=</span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a>A_{11} &amp; A_{12}<span class="sc">\\</span></span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a>A_{21} &amp; A_{22}</span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}$$</span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>If $\mathrm{det}(\mathbf{A}) &gt; 0$ and $A_{11}&gt;0$, then $\mathbf{A}$ is positive definite</span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>If $\mathrm{det}(\mathbf{A}) &gt; 0$ and $A_{11}&lt;0$, then $\mathbf{A}$ is negative definite</span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>If $\mathrm{det}(\mathbf{A}) &lt; 0$, then $\mathbf{A}$ is indefinite</span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a>:::{#exm-}</span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a><span class="fu">### Max and min with two dimensions</span></span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a>We found that the only critical point of</span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a>$f(\mathbf{x})=(x_1-1)^2+x_2^2+1$ is at $\mathbf{x}^*=(1,0)$.  Is it a min, max, or</span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a>saddle point?</span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a>:::{.solution}</span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a>The Hessian is</span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a>\mathbf{H(x)} &amp;= \begin{bmatrix} 2&amp;0<span class="sc">\\</span>0&amp;2 \end{bmatrix}</span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a>Since $\mathrm{det}(\mathbf{H}(x)) = 4 &gt; 0$ and $H_{11}=2&gt;0$, the  Hessian is positive definite.</span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a>Maxima, Minima, or Saddle Point? Since the Hessian is positive definite and the gradient equals 0, $x^\star = (1,0)$ is a local minimum.</span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a>Note: Alternate check of definiteness. Is $\mathbf{H(x^*)} \geq \leq 0 \quad \forall \quad \mathbf{x}\ne 0$</span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a>\mathbf{x}^\top H(\mathbf{x}^*) \mathbf{x} &amp;= \begin{bmatrix} x_1 &amp; x_2 \end{bmatrix}<span class="sc">\\</span></span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a>&amp;= \begin{bmatrix} 2&amp;0<span class="sc">\\</span>0&amp;2 \end{bmatrix}<span class="sc">\\</span></span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix} x_1<span class="sc">\\</span>x_2\end{bmatrix} &amp;= 2x_1^2+2x_2^2</span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a>For any $\mathbf{x}\ne 0$, $2(x_1^2+x_2^2)&gt;0$, so the Hessian is    positive definite and $\mathbf{x}^*$ is a strict local minimum.</span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a><span class="fu">### Definiteness and Concavity {-}</span></span>
+<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a>Although definiteness helps us to understand the curvature of an n-dimensional function, it does not necessarily tell us whether the function is globally concave or convex.</span>
+<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a>We need to know whether a function is globally concave or convex to determine whether a critical point is a global min or max.  We can use the definiteness of the Hessian to determine whether a function is globally concave or convex:</span>
+<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Hessian is Positive Semidefinite $\forall \mathbf{x}$ $\quad \Longrightarrow \quad$ Globally Convex</span>
+<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Hessian is Negative Semidefinite  $\forall \mathbf{x}$ $\quad \Longrightarrow \quad$ Globally Concave</span>
+<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a>Notice that the definiteness conditions must be satisfied over the entire domain.</span>
+<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a><span class="fu">## Global Maxima and Minima</span></span>
+<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a>__Global Max/Min Conditions__: Given a function $f(\mathbf{x})$ and a point $\mathbf{x}^*$ such that $\nabla f(\mathbf{x}^*)=0$,</span>
+<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$f(\mathbf{x})$ Globally Convex $\quad</span>
+<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a>\Longrightarrow \quad$ Global Min</span>
+<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>$f(\mathbf{x})$ Globally Concave $\quad</span>
+<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a>\Longrightarrow \quad$ Global Max</span>
+<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a>Note that showing that $\mathbf{H(x^*)}$ is negative semidefinite is</span>
+<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a>not enough to guarantee $\mathbf{x}^*$ is a local max.  However, showing that</span>
+<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a>$\mathbf{H(x)}$ is negative semidefinite for all $\mathbf{x}$ guarantees that $x^*$</span>
+<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>is a global max.  (The same goes for positive semidefinite and minima.)</span>
+<span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a>:::{#exm-} </span>
+<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a>Take $f_1(x)=x^4$ and $f_2(x)=-x^4$.  </span>
+<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Both have $x=0$ as a critical point.  </span>
+<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Unfortunately, $f''_1(0)=0$ and $f''_2(0)=0$, so we can't tell whether $x=0$ is a min or max for either.  However, $f''_1(x)=12x^2$ and $f''_2(x)=-12x^2$.  </span>
+<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For all $x$, $f''_1(x)\ge 0$ and $f''_2(x)\le 0$ --- i.e., $f_1(x)$ is globally convex and $f_2(x)$ is globally concave. </span>
+<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>So $x=0$ is a global min of $f_1(x)$ and a global max of $f_2(x)$.</span>
+<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a>:::{#exr-}</span>
+<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a>Given $f(\mathbf{x})=x_1^3-x_2^3+9x_1x_2$, find any maxima or minima.</span>
+<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a>*Solution.*</span>
+<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>First order conditions</span>
+<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a>    (1) Gradient $\nabla f(\mathbf{x})$</span>
+<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a>          $$\begin{bmatrix} \frac{\partial f}{\partial x_1} <span class="sc">\\</span> </span>
+<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a>        \frac{\partial f}{\partial x_2}\end{bmatrix} =</span>
+<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a>        \begin{bmatrix} 3x_1^2+9x_2 <span class="sc">\\</span> -3x_2^2+9x_1 \end{bmatrix}$$</span>
+<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a>    (2) Critical Points $\mathbf{x^*}$</span>
+<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>Set the gradient equal to zero and solve for $x_1$ and $x_2$. We have two equations and two unknowns. Solving for $x_1$ and $x_2$, we get two critical points: $\mathbf{x}_1^*=(0,0)$ and $\mathbf{x}_2^*=(3,-3)$.</span>
+<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>$3x_1^2 + 9x_2 = 0 \quad \Rightarrow \quad  9x_2 = -3x_1^2 \quad \Rightarrow \quad  x_2 = -\frac{1}{3}x_1^2$</span>
+<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>$-3x_2^2 + 9x_1 = 0 \quad \Rightarrow \quad -3(-\frac{1} {3}x_1^2)^2 + 9x_1 = 0$</span>
+<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>$\Rightarrow \quad -\frac{1}{3}x_1^4 + 9x_1 = 0 \quad \Rightarrow \quad x_1^3 = 27x_1 \quad \Rightarrow \quad x_1 = 3$</span>
+<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>$3(3)^2 + 9x_2 = 0 \quad \Rightarrow \quad x_2 = -3$</span>
+<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Second order conditions.  </span>
+<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a>    (1) Hessian $\mathbf{H(x)}$</span>
+<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a>        $$\begin{bmatrix} 6x_1&amp;9<span class="sc">\\</span>9&amp;-6x_2 \end{bmatrix}$$</span>
+<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a>    (2) Hessian $\mathbf{H(x_1^*)}$</span>
+<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a>        $$\begin{bmatrix} 0&amp;9<span class="sc">\\</span>9&amp;0\end{bmatrix}$$</span>
+<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a>    (3) Leading principal minors of $\mathbf{H(x_1^*)}$</span>
+<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a>        $$M_1=0; M_2=-81$$</span>
+<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a>    (4) Definiteness of $\mathbf{H(x_1^*)}$?</span>
+<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>$\mathbf{H(x_1^*)}$ is indefinite</span>
+<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a>    (5) Maxima, Minima, or Saddle Point for $\mathbf{x_1^*}$?</span>
+<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>Since $\mathbf{H(x_1^*)}$ is indefinite, $\mathbf{x}_1^*=(0,0)$ is a saddle point.</span>
+<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a>    (6) Hessian </span>
+<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a>        $$\mathbf{H(x_2^*)}=\begin{bmatrix} 18&amp;9<span class="sc">\\</span>9&amp;18\end{bmatrix}$$</span>
+<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a>    (7) Leading principal minors of $\mathbf{H(x_2^*)}$</span>
+<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a>        $$M_1=18; M_2=243$$</span>
+<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a>    (8) Definiteness of $\mathbf{H(x_2^*)}$?</span>
+<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>$\mathbf{H(x_2^*)}$ is positive definite</span>
+<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a>    (9) Maxima, Minima, or Saddle Point for $\mathbf{x}_2^*$?</span>
+<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>Since $\mathbf{H(x_2^*)}$ is positive definite, $\mathbf{x}_1^*=(3,-3)$ is a strict local minimum</span>
+<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Global concavity/convexity.  </span>
+<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a>    (1) Is f(x) globally concave/convex?</span>
+<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>No. In evaluating the Hessians for $\mathbf{x}_1^*$ and $\mathbf{x}_2^*$ we saw that the Hessian is not positive semidefinite at x $=$ (0,0).</span>
+<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a>    (2) Are any $\mathbf{x^*}$ global minima or maxima?</span>
+<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>No. Since the function is not globally concave/convex, we can't infer that $\mathbf{x}_2^*=(3,-3)$ is a global minimum. In fact, if we set $x_1=0$, the $f(\mathbf{x})=-x_2^3$, which will go to $-\infty$ as $x_2\to \infty$.</span>
+<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

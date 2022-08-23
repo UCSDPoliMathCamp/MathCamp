@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.25">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>UCSD Political Science Math Camp - 5&nbsp; LaTeX and Markdown</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./21_linear-algebra.html" rel="next">
+<link href="./14_simulation.html" rel="prev">
+<link href="./favicon.ico" rel="icon">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script><style>html{ scroll-behavior: smooth; }</style>
+<script type="application/json" class="js-hypothesis-config">
+{
+  "theme": "clean"
+}
+</script><script async="" src="https://hypothes.is/embed.js"></script><script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LaTeX and Markdown</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">UCSD Political Science Math Camp</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/UCSDPoliMathCamp/MathCamp/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="./UCSD-Political-Science-Math-Camp.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">About this Booklet</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00_warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_prerequisites.html" class="sidebar-item-text sidebar-link">Prerequisites</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">I Introduction to R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_orientation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Orientation and Reading in Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_functions_obj_loops.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Objects, Functions, Loops</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_visualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14_simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Simulation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15_non-wysiwyg.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LaTeX and Markdown</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">II Linear Algebra</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./21_linear-algebra.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Algebra</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22_matrices.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Manipulating Vectors and Matrices</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">III Calculus</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./31_limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Limits</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./32_derivatives.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Differential Calculus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./33_optimization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Optimization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./34_intergrals.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Integral Calculus</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">IV Probability</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./41_probability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Probability Theory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./42_distribution.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Summarizing Distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./43_statistics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Learning from Data</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./51_solutions-warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions Solutions</a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#where-are-we-where-are-we-headed" id="toc-where-are-we-where-are-we-headed" class="nav-link active" data-scroll-target="#where-are-we-where-are-we-headed">Where are we? Where are we headed?</a></li>
+  <li><a href="#check-your-understanding" id="toc-check-your-understanding" class="nav-link" data-scroll-target="#check-your-understanding">Check your understanding</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation"> <span class="header-section-number">5.1</span> Motivation</a></li>
+  <li>
+<a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown"> <span class="header-section-number">5.2</span> Markdown</a>
+  <ul class="collapse">
+<li><a href="#markdown-commands" id="toc-markdown-commands" class="nav-link" data-scroll-target="#markdown-commands"> <span class="header-section-number">5.2.1</span> markdown commands</a></li>
+  <li><a href="#your-own-markdown" id="toc-your-own-markdown" class="nav-link" data-scroll-target="#your-own-markdown"> <span class="header-section-number">5.2.2</span> your own markdown</a></li>
+  <li><a href="#a-note-on-plain-text-editors" id="toc-a-note-on-plain-text-editors" class="nav-link" data-scroll-target="#a-note-on-plain-text-editors"> <span class="header-section-number">5.2.3</span> A note on plain-text editors</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#latex" id="toc-latex" class="nav-link" data-scroll-target="#latex"> <span class="header-section-number">5.3</span> LaTeX</a>
+  <ul class="collapse">
+<li><a href="#compile-online" id="toc-compile-online" class="nav-link" data-scroll-target="#compile-online"> <span class="header-section-number">5.3.1</span> compile online</a></li>
+  <li><a href="#compile-your-first-latex-document-locally" id="toc-compile-your-first-latex-document-locally" class="nav-link" data-scroll-target="#compile-your-first-latex-document-locally"> <span class="header-section-number">5.3.2</span> compile your first LaTeX document locally</a></li>
+  <li><a href="#main-latex-commands" id="toc-main-latex-commands" class="nav-link" data-scroll-target="#main-latex-commands"> <span class="header-section-number">5.3.3</span> main LaTeX commands</a></li>
+  <li><a href="#further-guides" id="toc-further-guides" class="nav-link" data-scroll-target="#further-guides">Further Guides</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#bibtex" id="toc-bibtex" class="nav-link" data-scroll-target="#bibtex"> <span class="header-section-number">5.4</span> BibTeX</a>
+  <ul class="collapse">
+<li><a href="#what-is-a-.bib-file" id="toc-what-is-a-.bib-file" class="nav-link" data-scroll-target="#what-is-a-.bib-file"> <span class="header-section-number">5.4.1</span> what is a <code>.bib</code> file?</a></li>
+  <li><a href="#what-does-latex-do-with-.bib-files" id="toc-what-does-latex-do-with-.bib-files" class="nav-link" data-scroll-target="#what-does-latex-do-with-.bib-files"> <span class="header-section-number">5.4.2</span> what does LaTeX do with .bib files?</a></li>
+  <li><a href="#stocking-up-on-your-.bib-files" id="toc-stocking-up-on-your-.bib-files" class="nav-link" data-scroll-target="#stocking-up-on-your-.bib-files"> <span class="header-section-number">5.4.3</span> stocking up on your .bib files</a></li>
+  </ul>
+</li>
+  <li><a href="#extension-optional-exercise" id="toc-extension-optional-exercise" class="nav-link" data-scroll-target="#extension-optional-exercise">Extension: Optional Exercise</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/15_non-wysiwyg.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/blob/main/15_non-wysiwyg.Rmd" class="toc-action">View source</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="nonwysiwyg" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LaTeX and Markdown</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header><section id="where-are-we-where-are-we-headed" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="where-are-we-where-are-we-headed">Where are we? Where are we headed?</h3>
+<p>Up till now, you should have covered:</p>
+<ul>
+<li>Statistical Programming in <code>R</code>
+</li>
+</ul>
+<p>This is only the beginning of <code>R</code> – programming is like learning a language, so learn more as we use it. And yet <code>R</code> is of likely not the only programming language you will want to use. While we cannot introduce everything, we’ll pick out a few that we think are particularly helpful.</p>
+<p>Here will cover</p>
+<ul>
+<li>Markdown</li>
+<li>LaTeX (and BibTeX)</li>
+</ul>
+<p>as examples of a non-WYSIWYG editor</p>
+<p>command-line are a basic set of tools that you may have to use from time to time. It also clarifies what more complicated programs are doing. Markdown is an example of compiling a plain text file. LaTeX is a typesetting program and git is a version control program – both are useful for non-quantitative work as well.</p>
+<p>Please familiarize yourself closing with Markdown, and be sure you know how to open an .Rmd file as described below. In class, we will walk through an Rmd file together. LaTeX is included here for your future reference as this is a popular typesetting program among political scientists. This is not needed for Math Camp and is never required for any course. In fact, many prefer R Markdown’s integration rather than a separate typesetting program. This depends on your background and interests but exposure to the range of popular programs and techniques will be helpful moving forward.</p>
+</section><section id="check-your-understanding" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="check-your-understanding">Check your understanding</h3>
+<p>Check if you have an idea of how you might code the following tasks:</p>
+<ul>
+<li>What does “WYSIWYG” stand for? How would a non-WYSIWYG format text?</li>
+<li>How do you start a header in markdown?</li>
+<li>What are some “plain text” editors?</li>
+<li>How do you start a document in <code>.tex</code>?</li>
+<li>How do you start a environment in <code>.tex</code>?</li>
+<li>How do you insert a figure in <code>.tex</code>?</li>
+<li>How do you reference a figure in <code>.tex</code>?</li>
+<li>What is a <code>.bib</code> file?</li>
+<li>Say you came across a interesting journal article. How would you want to maintain this reference so that you can refer to its citation in all your subsequent papers?</li>
+</ul></section><section id="motivation" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="motivation">
+<span class="header-section-number">5.1</span> Motivation</h2>
+<p>Statistical programming is a fast-moving field. The beta version of <code>R</code> was released in 2000, <code>ggplot2</code> was released on 2005, and <code>RStudio</code> started around 2010. Of course, some programming technologies are quite “old”: (<code>C</code> in 1969, <code>C++</code> around 1989, <code>TeX</code> in 1978, <code>Linux</code> in 1991, Mac OS in 1984). But it is easy to feel you are falling behind in the recent developments of programming. Today we will do a <strong>brief</strong> and rough overview of some fundamental and new tools other than <code>R</code>, with the general aim of having you break out of your comfort zone so you won’t be shut out from learning these tools in the future.</p>
+</section><section id="markdown" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="markdown">
+<span class="header-section-number">5.2</span> Markdown</h2>
+<p>At its core markdown is just plain text. Plain text does not have any formatting embedded in it. Instead, the formatting is coded up as text. Markdown is <em>not</em> a WYSIWYG (What you see is what you get) text editor like Microsoft Word or Google Docs. This will mean that you need to explicitly code for <code>bold{text}</code> rather than hitting Command+B and making your text look <strong>bold</strong> on your own computer.</p>
+<p>Markdown is known as a “light-weight” editor, which means that it is relatively easy to write code that will compile. It is quick and easy and satisfies most presentation purposes; you might want to try <code>LaTeX</code> for more involved papers.</p>
+<section id="markdown-commands" class="level3" data-number="5.2.1"><h3 data-number="5.2.1" class="anchored" data-anchor-id="markdown-commands">
+<span class="header-section-number">5.2.1</span> markdown commands</h3>
+<p>For italic and bold, use either the asterisks or the underlines,</p>
+<pre><code>*italic*   **bold**
+_italic_   __bold__</code></pre>
+<p>And for headers use the hash symbols,</p>
+<pre><code># Main Header
+## Sub-headers</code></pre>
+</section><section id="your-own-markdown" class="level3" data-number="5.2.2"><h3 data-number="5.2.2" class="anchored" data-anchor-id="your-own-markdown">
+<span class="header-section-number">5.2.2</span> your own markdown</h3>
+<p>RStudio makes it easy to compile your very first markdown file by giving you templates. Got to <code>New &gt; R Markdown</code>, pick a document and click Ok. This will give you a skeleton of a document you can compile – or “knit”.</p>
+<p>Rmd is actually a slight modification of real markdown. It is a type of file that R reads and turns into a proper <code>md</code> file. Then, it uses a document-conversion called pandoc to compile your <code>md</code> into documents like PDF or HTML.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="images/RMarkdownFlow.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">How Rmds become PDFs or HTMLs</figcaption><p></p>
+</figure>
+</div>
+</section><section id="a-note-on-plain-text-editors" class="level3" data-number="5.2.3"><h3 data-number="5.2.3" class="anchored" data-anchor-id="a-note-on-plain-text-editors">
+<span class="header-section-number">5.2.3</span> A note on plain-text editors</h3>
+<p>Multiple software exist where you can edit plain-text (roughly speaking, text that is not WYSIWYG).</p>
+<ul>
+<li>RStudio (especially for R-related links)</li>
+<li>TeXMaker, TeXShop (especially for TeX)</li>
+<li>
+<a href="https://www.gnu.org/software/emacs/">emacs</a>, aquamacs (general)</li>
+<li>
+<a href="http://www.vim.org/download.php">vim</a> (general)</li>
+<li>
+<a href="https://www.sublimetext.com">Sublime Text</a> (general)</li>
+<li>
+<a href="https://atom.io/">Atom</a> (general)</li>
+</ul>
+<p>Each has their own keyboard shortcuts and special features. You can browse a couple and see which one(s) you like.</p>
+</section></section><section id="latex" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="latex">
+<span class="header-section-number">5.3</span> LaTeX</h2>
+<p>LaTeX is a typesetting program. You’d engage with LaTeX much like you engage with your <code>R</code> code. You will interact with LaTeX in a text editor, and will writing code which will be interpreted by the LaTeX compiler and which will finally be parsed to form your final PDF.</p>
+<section id="compile-online" class="level3" data-number="5.3.1"><h3 data-number="5.3.1" class="anchored" data-anchor-id="compile-online">
+<span class="header-section-number">5.3.1</span> compile online</h3>
+<ol type="1">
+<li>Go to <a href="https://www.overleaf.com" class="uri">https://www.overleaf.com</a>
+</li>
+<li>Scroll down and go to “CREATE A NEW PAPER” if you don’t have an account.</li>
+<li>Let’s discuss the default template.</li>
+<li>Make a new document, and set it as your main document. Then type in the Minimal Working Example (MWE):</li>
+</ol>
+<div class="cell" data-hash="15_non-wysiwyg_cache/html/unnamed-chunk-1_da63009ce0ceab121d9b36a33022ce4a">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">\documentclass{article}</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">\begin{document}</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> World</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">\end{document}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="compile-your-first-latex-document-locally" class="level3" data-number="5.3.2"><h3 data-number="5.3.2" class="anchored" data-anchor-id="compile-your-first-latex-document-locally">
+<span class="header-section-number">5.3.2</span> compile your first LaTeX document locally</h3>
+<p>LaTeX is a very stable system, and few changes to it have been made since the 1990s. The main benefit: better control over how your papers will look; better methods for writing equations or making tables; overall pleasing aesthetic.</p>
+<ol type="1">
+<li>Open a plain text editor. Then type in the MWE</li>
+</ol>
+<div class="cell" data-hash="15_non-wysiwyg_cache/html/unnamed-chunk-2_a21970614ff9dc469ea6d8adb36a1163">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">\documentclass{article}</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">\begin{document}</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> World</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">\end{document}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Save this as <code>hello_world.tex</code>. Make sure you get the file extension right.</li>
+<li>Open this in your “LaTeX” editor. This can be <code>TeXMaker</code>, <code>Aqumacs</code>, etc..</li>
+<li>Go through the click/dropdown interface and click compile.</li>
+</ol></section><section id="main-latex-commands" class="level3" data-number="5.3.3"><h3 data-number="5.3.3" class="anchored" data-anchor-id="main-latex-commands">
+<span class="header-section-number">5.3.3</span> main LaTeX commands</h3>
+<p>LaTeX can cover most of your typesetting needs, to clean equations and intricate diagrams.</p>
+<p>Some main commands you’ll be using are below, and a very concise cheat sheet here: <a href="https://wch.github.io/latexsheet/latexsheet.pdf" class="uri">https://wch.github.io/latexsheet/latexsheet.pdf</a></p>
+<p>Most involved features require that you begin a specific “environment” for that feature, clearly demarcating them by the notation <code>\begin{figure}</code> and then <code>\end{figure}</code>, e.g.&nbsp;in the case of figures.</p>
+<pre><code>\begin{figure}
+\includegraphics{histogram.pdf}
+\end{figure}</code></pre>
+<p>where <code>histogram.pdf</code> is a path to one of your files.</p>
+<p>Notice that each line starts with a backslash <code>\</code> – in LaTeX this is the symbol to run a command.</p>
+<p>The following syntax at the endpoints are shorthand for math equations.</p>
+<pre><code>\[\int x^2 dx\]</code></pre>
+<p>these compile math symbols: <span class="math inline">\displaystyle \int x^2 dx.</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>The <code>align</code> environment is useful to align your multi-line math, for example.</p>
+<pre><code>\begin{align}
+P(A \mid B) &amp;= \frac{P(A \cap B)}{P(B)}\\
+&amp;= \frac{P(B \mid A)P(A)}{P(B)}
+\end{align}</code></pre>
+<p><span class="math display">\begin{align}
+P(A \mid B) &amp;= \frac{P(A \cap B)}{P(B)}\\
+&amp;= \frac{P(B \mid A)P(A)}{P(B)}
+\end{align}</span></p>
+<p>Regression tables should be outputted as <code>.tex</code> files with packages like <code>xtable</code> and <code>stargazer</code>, and then called into LaTeX by <code>\input{regression_table.tex}</code> where <code>regression_table.tex</code> is the path to your regression output.</p>
+<p>Figures and equations should be labelled with the tag (e.g.&nbsp;<code>label{tab:regression}</code> so that you can refer to them later with their tag <code>Table \ref{tab:regression}</code>, instead of hard-coding <code>Table 2</code>).</p>
+<p>For some LaTeX commands you might need to load a separate package that someone else has written. Do this in your preamble (i.e.&nbsp;before <code>\begin{document}</code>):</p>
+<pre><code>\usepackage[options]{package}</code></pre>
+<p>where <code>package</code> is the name of the package and <code>options</code> are options specific to the package.</p>
+</section><section id="further-guides" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="further-guides">Further Guides</h3>
+<p>For a more comprehensive listing of LaTeX commands, Mayya Komisarchik has a great tutorial set of folders: <a href="https://scholar.harvard.edu/mkomisarchik/tutorials-0" class="uri">https://scholar.harvard.edu/mkomisarchik/tutorials-0</a></p>
+<p>There is a version of LaTeX called Beamer, which is a popular way of making a slideshow. Slides in markdown is also a competitor. The language of Beamer is the same as LaTeX but has some special functions for slides.</p>
+</section></section><section id="bibtex" class="level2" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="bibtex">
+<span class="header-section-number">5.4</span> BibTeX</h2>
+<p>BibTeX is a reference system for bibliographical tests. We have a <code>.bib</code> file separately on our computer. This is also a plain text file, but it encodes bibliographical resources with special syntax so that a program can rearrange parts accordingly for different citation systems.</p>
+<section id="what-is-a-.bib-file" class="level3" data-number="5.4.1"><h3 data-number="5.4.1" class="anchored" data-anchor-id="what-is-a-.bib-file">
+<span class="header-section-number">5.4.1</span> what is a <code>.bib</code> file?</h3>
+<p>For example, here is the Nunn and Wantchekon article entry in <code>.bib</code> form.</p>
+<pre><code>@article{nunn2011slave,
+  title={The Slave Trade and the Origins of Mistrust in Africa},
+  author={Nunn, Nathan and Wantchekon, Leonard},
+  journal={American Economic Review},
+  volume={101},
+  number={7},
+  pages={3221--3252},
+  year={2011}
+}</code></pre>
+<p>The first entry, <code>nunn2011slave</code>, is “pick your favorite” – pick your own name for your reference system. The other slots in this <code>@article</code> entry are entries that refer to specific bibliographical text.</p>
+</section><section id="what-does-latex-do-with-.bib-files" class="level3" data-number="5.4.2"><h3 data-number="5.4.2" class="anchored" data-anchor-id="what-does-latex-do-with-.bib-files">
+<span class="header-section-number">5.4.2</span> what does LaTeX do with .bib files?</h3>
+<p>Now, in LaTeX, if you type</p>
+<pre><code>  \textcite{nunn2011slave} argue that current variation in the trust among citizens of African countries has historical roots in the European slave trade in the 1600s.
+  </code></pre>
+<p>as part of your text, then when the <code>.tex</code> file is compiled the PDF shows something like</p>
+<p><img src="images/biblatex_inline.png" class="img-fluid"></p>
+<p>in whatever citation style (APSA, APA, Chicago) you pre-specified!</p>
+<p>Also at the end of your paper you will have a bibliography with entries ordered and formatted in the appropriate citation.</p>
+<p><img src="images/biblatex_bibliography.png" class="img-fluid"></p>
+<p>This is a much less frustrating way of keeping track of your references – no need to hand-edit formatting the bibliography to conform to citation rules (which biblatex already knows) and no need to update your bibliography as you add and drop references (biblatex will only show entries that are used in the main text).</p>
+</section><section id="stocking-up-on-your-.bib-files" class="level3" data-number="5.4.3"><h3 data-number="5.4.3" class="anchored" data-anchor-id="stocking-up-on-your-.bib-files">
+<span class="header-section-number">5.4.3</span> stocking up on your .bib files</h3>
+<p>You should keep your own <code>.bib</code> file that has all your bibliographical resources. Storing entries is cheap (does not take much memory), so it is fine to keep all your references in one place (but you’ll want to make a new one for collaborative projects where multiple people will compile a <code>.tex</code> file).</p>
+<p>For example, Gary’s BibTeX file is here: <a href="https://github.com/iqss-research/gkbibtex/blob/master/gk.bib" class="uri">https://github.com/iqss-research/gkbibtex/blob/master/gk.bib</a></p>
+<p>Citation management software (Mendeley or Zotero) automatically generates .bib entries from your library of PDFs for you, provided you have the bibliography attributes right.</p>
+</section></section><section id="extension-optional-exercise" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="extension-optional-exercise">Extension: Optional Exercise</h2>
+<p>Create a LaTeX document for a hypothetical research paper on your laptop and, once you’ve verified it compiles into a PDF, come show it to either one of the instructors.</p>
+<p>You can also use overleaf if you have preference for a cloud-based system. But don’t swallow the built-in templates without understanding or testing them.</p>
+<p>Each student will have slightly different substantive interests, so we won’t impose much of a standard. But at a minimum, the LaTeX document should have:</p>
+<ul>
+<li>A title, author, date, and abstract</li>
+<li>Sections</li>
+<li>Italics and boldface</li>
+<li>A figure with a caption and in-text reference to it.</li>
+</ul>
+<p>Depending on your subfield or interests, try to implement some of the following:</p>
+<ul>
+<li>A bibliographical reference drawing from a separate <code>.bib</code> file</li>
+<li>A table</li>
+<li>A math expression</li>
+<li>A different font</li>
+<li>Different page margins</li>
+<li>Different line spacing</li>
+</ul>
+
+
+<!-- -->
+
+</section><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
+<ol>
+<li id="fn1" role="doc-endnote"><p>Enclosing with <code>$$</code> instead of <code>\[</code> also has the same effect, so you may see it too. But this is now discouraged due to its inflexibility.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./14_simulation.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Simulation</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./21_linear-algebra.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Linear Algebra</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb11" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">#  LaTeX and Markdown {#nonwysiwyg}</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">### Where are we? Where are we headed? {-}</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>Up till now, you should have covered:</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Statistical Programming in <span class="in">`R`</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>This is only the beginning of <span class="in">`R`</span> -- programming is like learning a language, so learn more as we use it. And yet <span class="in">`R`</span> is of likely not the only programming language you will want to use. While we cannot introduce everything, we'll pick out a few that we think are particularly helpful.</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>Here will cover</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Markdown</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>LaTeX (and BibTeX)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>as examples of a non-WYSIWYG editor</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>command-line are a basic set of tools that you may have to use from time to time. It also clarifies what more complicated programs are doing. Markdown is an example of compiling a plain text file. LaTeX is a typesetting program and git is a version control program -- both are useful for non-quantitative work as well.</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>Please familiarize yourself closing with Markdown, and be sure you know how to open an .Rmd file as described below. In class, we will walk through an Rmd file together. LaTeX is included here for your future reference as this is a popular typesetting program among political scientists. This is not needed for Math Camp and is never required for any course. In fact, many prefer R Markdown's integration rather than a separate typesetting program. This depends on your background and interests but exposure to the range of popular programs and techniques will be helpful moving forward.</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="fu">### Check your understanding {-}</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>Check if you have an idea of how you might code the following tasks:</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>What does "WYSIWYG" stand for? How would a non-WYSIWYG format text?</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>How do you start a header in markdown?</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>What are some "plain text" editors?</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>How do you start a document in <span class="in">`.tex`</span>?</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>How do you start a environment in <span class="in">`.tex`</span>?</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>How do you insert a figure in <span class="in">`.tex`</span>?</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>How do you reference a figure in <span class="in">`.tex`</span>?</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>What is a <span class="in">`.bib`</span> file? </span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Say you came across a interesting journal article. How would you want to maintain this reference so that you can refer to its citation in all your subsequent papers?</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Motivation</span></span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>Statistical programming is a fast-moving field. The beta version of <span class="in">`R`</span> was released in 2000, <span class="in">`ggplot2`</span> was released on 2005, and  <span class="in">`RStudio`</span> started around 2010. Of course, some programming technologies are quite "old": (<span class="in">`C`</span> in 1969, <span class="in">`C++`</span> around 1989, <span class="in">`TeX`</span> in 1978, <span class="in">`Linux`</span> in 1991, Mac OS in 1984). But it is easy to feel you are falling behind in the recent developments of programming. Today we will do a **brief** and rough overview of some fundamental and new tools other than <span class="in">`R`</span>, with the general aim of having you break out of your comfort zone so you won't be shut out from learning these tools in the future.</span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## Markdown</span></span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>At its core markdown is just plain text. Plain text does not have any formatting embedded in it. Instead, the formatting is coded up as text. Markdown is _not_ a WYSIWYG (What you see is what you get) text editor like Microsoft Word or Google Docs. This will mean that you need to explicitly code for `bold{text}` rather than hitting Command+B and making your text look __bold__ on your own computer. </span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>Markdown is known as a "light-weight" editor, which means that it is relatively easy to write code that will compile. It is quick and easy and satisfies most presentation purposes; you might want to try <span class="in">`LaTeX`</span> for more involved papers.</span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a><span class="fu">### markdown commands</span></span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>For italic and bold, use either the asterisks or the underlines, </span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a><span class="in">*italic*   **bold**</span></span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a><span class="in">_italic_   __bold__</span></span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a>And for headers use the hash symbols, </span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a><span class="in"># Main Header</span></span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a><span class="in">## Sub-headers</span></span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a><span class="fu">### your own markdown </span></span>
+<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a>RStudio makes it easy to compile your very first markdown file by giving you templates. Got to <span class="in">`New &gt; R Markdown`</span>, pick a document and click Ok. This will give you a skeleton of a document you can compile -- or "knit".</span>
+<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a>Rmd is actually a slight modification of real markdown. It is a type of file that R reads and turns into a proper <span class="in">`md`</span> file. Then, it uses a document-conversion called pandoc to compile your <span class="in">`md`</span> into documents like PDF or HTML.</span>
+<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a><span class="al">![How Rmds become PDFs or HTMLs](images/RMarkdownFlow.png)</span></span>
+<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a><span class="fu">### A note on plain-text editors</span></span>
+<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a>Multiple software exist where you can edit plain-text (roughly speaking, text that is not WYSIWYG). </span>
+<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>RStudio (especially for R-related links)</span>
+<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>TeXMaker, TeXShop (especially for TeX)</span>
+<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">emacs</span><span class="co">](https://www.gnu.org/software/emacs/)</span>, aquamacs (general)</span>
+<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">vim</span><span class="co">](http://www.vim.org/download.php)</span> (general)</span>
+<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">Sublime Text</span><span class="co">](https://www.sublimetext.com)</span> (general)</span>
+<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">Atom</span><span class="co">](https://atom.io/)</span> (general)</span>
+<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a>Each has their own keyboard shortcuts and special features. You can browse a couple and see which one(s) you like.</span>
+<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a><span class="fu">## LaTeX</span></span>
+<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a>LaTeX is a typesetting program. You'd engage with LaTeX much like you engage with your <span class="in">`R`</span> code. You will interact with LaTeX in a text editor, and will writing code which will be interpreted by the LaTeX compiler and which will finally be parsed to form your final PDF.</span>
+<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a><span class="fu">### compile online</span></span>
+<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Go to <span class="ot">&lt;https://www.overleaf.com&gt;</span></span>
+<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Scroll down and go to "CREATE A NEW PAPER" if you don't have an account.</span>
+<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Let's discuss the default template.</span>
+<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Make a new document, and set it as your main document. Then type in the Minimal Working Example (MWE):</span>
+<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval = FALSE}</span></span>
+<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a><span class="ex">\documentclass{article}</span></span>
+<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a><span class="ex">\begin{document}</span></span>
+<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> World</span>
+<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a><span class="ex">\end{document}</span></span>
+<span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a><span class="fu">### compile your first LaTeX document locally</span></span>
+<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a>LaTeX is a very stable system, and few changes to it have been made since the 1990s. The main benefit: better control over how your papers will look; better methods for writing equations or making tables; overall pleasing aesthetic. </span>
+<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Open a plain text editor. Then type in the MWE</span>
+<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash, eval = FALSE}</span></span>
+<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a><span class="ex">\documentclass{article}</span></span>
+<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a><span class="ex">\begin{document}</span></span>
+<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> World</span>
+<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a><span class="ex">\end{document}</span></span>
+<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Save this as <span class="in">`hello_world.tex`</span>. Make sure you get the file extension right. </span>
+<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Open this in your "LaTeX" editor. This can be <span class="in">`TeXMaker`</span>, <span class="in">`Aqumacs`</span>, etc..</span>
+<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Go through the click/dropdown interface and click compile.</span>
+<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a><span class="fu">### main LaTeX commands</span></span>
+<span id="cb11-128"><a href="#cb11-128" aria-hidden="true" tabindex="-1"></a>LaTeX can cover most of your typesetting needs, to clean equations and intricate diagrams. </span>
+<span id="cb11-129"><a href="#cb11-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-130"><a href="#cb11-130" aria-hidden="true" tabindex="-1"></a>Some main commands you'll be using are below, and a very concise cheat sheet here: <span class="ot">&lt;https://wch.github.io/latexsheet/latexsheet.pdf&gt;</span></span>
+<span id="cb11-131"><a href="#cb11-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-132"><a href="#cb11-132" aria-hidden="true" tabindex="-1"></a>Most involved features require that you begin a specific "environment" for that feature, clearly demarcating them by the notation <span class="in">`\begin{figure}`</span> and then <span class="in">`\end{figure}`</span>, e.g. in the case of figures.</span>
+<span id="cb11-133"><a href="#cb11-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-134"><a href="#cb11-134" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-135"><a href="#cb11-135" aria-hidden="true" tabindex="-1"></a><span class="in">\begin{figure}</span></span>
+<span id="cb11-136"><a href="#cb11-136" aria-hidden="true" tabindex="-1"></a><span class="in">\includegraphics{histogram.pdf}</span></span>
+<span id="cb11-137"><a href="#cb11-137" aria-hidden="true" tabindex="-1"></a><span class="in">\end{figure}</span></span>
+<span id="cb11-138"><a href="#cb11-138" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-139"><a href="#cb11-139" aria-hidden="true" tabindex="-1"></a>where <span class="in">`histogram.pdf`</span> is a path to one of your files. </span>
+<span id="cb11-140"><a href="#cb11-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-141"><a href="#cb11-141" aria-hidden="true" tabindex="-1"></a>Notice that each line starts with a backslash <span class="in">`\`</span> -- in LaTeX this is the symbol to run a command.</span>
+<span id="cb11-142"><a href="#cb11-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-143"><a href="#cb11-143" aria-hidden="true" tabindex="-1"></a>The following syntax at the endpoints are shorthand for math equations.</span>
+<span id="cb11-144"><a href="#cb11-144" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-145"><a href="#cb11-145" aria-hidden="true" tabindex="-1"></a><span class="in">\[\int x^2 dx\]</span></span>
+<span id="cb11-146"><a href="#cb11-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-147"><a href="#cb11-147" aria-hidden="true" tabindex="-1"></a>these compile math symbols: $\displaystyle \int x^2 dx.$^<span class="co">[</span><span class="ot">Enclosing with `$$` instead of `\[` also has the same effect, so you may see it too. But this is now discouraged due to its inflexibility.</span><span class="co">]</span></span>
+<span id="cb11-148"><a href="#cb11-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-149"><a href="#cb11-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-150"><a href="#cb11-150" aria-hidden="true" tabindex="-1"></a>The <span class="in">`align`</span> environment is useful to align your multi-line math, for example. </span>
+<span id="cb11-151"><a href="#cb11-151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-152"><a href="#cb11-152" aria-hidden="true" tabindex="-1"></a><span class="in">\begin{align}</span></span>
+<span id="cb11-153"><a href="#cb11-153" aria-hidden="true" tabindex="-1"></a><span class="in">P(A \mid B) &amp;= \frac{P(A \cap B)}{P(B)}\\</span></span>
+<span id="cb11-154"><a href="#cb11-154" aria-hidden="true" tabindex="-1"></a><span class="in">&amp;= \frac{P(B \mid A)P(A)}{P(B)}</span></span>
+<span id="cb11-155"><a href="#cb11-155" aria-hidden="true" tabindex="-1"></a><span class="in">\end{align}</span></span>
+<span id="cb11-156"><a href="#cb11-156" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-157"><a href="#cb11-157" aria-hidden="true" tabindex="-1"></a>\begin{align}</span>
+<span id="cb11-158"><a href="#cb11-158" aria-hidden="true" tabindex="-1"></a>P(A \mid B) &amp;= \frac{P(A \cap B)}{P(B)}<span class="sc">\\</span></span>
+<span id="cb11-159"><a href="#cb11-159" aria-hidden="true" tabindex="-1"></a>&amp;= \frac{P(B \mid A)P(A)}{P(B)}</span>
+<span id="cb11-160"><a href="#cb11-160" aria-hidden="true" tabindex="-1"></a>\end{align}</span>
+<span id="cb11-161"><a href="#cb11-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-162"><a href="#cb11-162" aria-hidden="true" tabindex="-1"></a>Regression tables should be outputted as <span class="in">`.tex`</span> files with packages like <span class="in">`xtable`</span> and <span class="in">`stargazer`</span>, and then called into LaTeX by <span class="in">`\input{regression_table.tex}`</span> where <span class="in">`regression_table.tex`</span> is the path to your regression output.</span>
+<span id="cb11-163"><a href="#cb11-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-164"><a href="#cb11-164" aria-hidden="true" tabindex="-1"></a>Figures and equations should be labelled with the tag (e.g. <span class="in">`label{tab:regression}`</span> so that you can refer to them later with their tag <span class="in">`Table \ref{tab:regression}`</span>, instead of hard-coding <span class="in">`Table 2`</span>).</span>
+<span id="cb11-165"><a href="#cb11-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-166"><a href="#cb11-166" aria-hidden="true" tabindex="-1"></a>For some LaTeX commands you might need to load a separate package that someone else has written. Do this in your preamble (i.e. before <span class="in">`\begin{document}`</span>):</span>
+<span id="cb11-167"><a href="#cb11-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-168"><a href="#cb11-168" aria-hidden="true" tabindex="-1"></a><span class="in">\usepackage[options]{package}</span></span>
+<span id="cb11-169"><a href="#cb11-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-170"><a href="#cb11-170" aria-hidden="true" tabindex="-1"></a>where <span class="in">`package`</span> is the name of the package and <span class="in">`options`</span> are options specific to the package. </span>
+<span id="cb11-171"><a href="#cb11-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-172"><a href="#cb11-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-173"><a href="#cb11-173" aria-hidden="true" tabindex="-1"></a><span class="fu">### Further Guides {-}</span></span>
+<span id="cb11-174"><a href="#cb11-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-175"><a href="#cb11-175" aria-hidden="true" tabindex="-1"></a>For a more comprehensive listing of LaTeX commands, Mayya Komisarchik has a great tutorial set of folders: <span class="ot">&lt;https://scholar.harvard.edu/mkomisarchik/tutorials-0&gt;</span></span>
+<span id="cb11-176"><a href="#cb11-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-177"><a href="#cb11-177" aria-hidden="true" tabindex="-1"></a>There is a version of LaTeX called Beamer, which is a popular way of making a slideshow. Slides in markdown is also a competitor. The language of Beamer is the same as LaTeX but has some special functions for slides.</span>
+<span id="cb11-178"><a href="#cb11-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-179"><a href="#cb11-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-180"><a href="#cb11-180" aria-hidden="true" tabindex="-1"></a><span class="fu">## BibTeX</span></span>
+<span id="cb11-181"><a href="#cb11-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-182"><a href="#cb11-182" aria-hidden="true" tabindex="-1"></a>BibTeX is a reference system for bibliographical tests. We have a <span class="in">`.bib`</span> file separately on our computer. This is also a plain text file, but it encodes bibliographical resources with special syntax so that a program can rearrange parts accordingly for different citation systems. </span>
+<span id="cb11-183"><a href="#cb11-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-184"><a href="#cb11-184" aria-hidden="true" tabindex="-1"></a><span class="fu">### what is a `.bib` file?</span></span>
+<span id="cb11-185"><a href="#cb11-185" aria-hidden="true" tabindex="-1"></a>For example, here is the Nunn and Wantchekon article entry in <span class="in">`.bib`</span> form.</span>
+<span id="cb11-186"><a href="#cb11-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-187"><a href="#cb11-187" aria-hidden="true" tabindex="-1"></a><span class="in">```{}</span></span>
+<span id="cb11-188"><a href="#cb11-188" aria-hidden="true" tabindex="-1"></a><span class="in">@article{nunn2011slave,</span></span>
+<span id="cb11-189"><a href="#cb11-189" aria-hidden="true" tabindex="-1"></a><span class="in">  title={The Slave Trade and the Origins of Mistrust in Africa},</span></span>
+<span id="cb11-190"><a href="#cb11-190" aria-hidden="true" tabindex="-1"></a><span class="in">  author={Nunn, Nathan and Wantchekon, Leonard},</span></span>
+<span id="cb11-191"><a href="#cb11-191" aria-hidden="true" tabindex="-1"></a><span class="in">  journal={American Economic Review},</span></span>
+<span id="cb11-192"><a href="#cb11-192" aria-hidden="true" tabindex="-1"></a><span class="in">  volume={101},</span></span>
+<span id="cb11-193"><a href="#cb11-193" aria-hidden="true" tabindex="-1"></a><span class="in">  number={7},</span></span>
+<span id="cb11-194"><a href="#cb11-194" aria-hidden="true" tabindex="-1"></a><span class="in">  pages={3221--3252},</span></span>
+<span id="cb11-195"><a href="#cb11-195" aria-hidden="true" tabindex="-1"></a><span class="in">  year={2011}</span></span>
+<span id="cb11-196"><a href="#cb11-196" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb11-197"><a href="#cb11-197" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-198"><a href="#cb11-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-199"><a href="#cb11-199" aria-hidden="true" tabindex="-1"></a>The first entry, <span class="in">`nunn2011slave`</span>, is "pick your favorite" -- pick your own name for your reference system. The other slots in this <span class="in">`@article`</span> entry are entries that refer to specific bibliographical text.</span>
+<span id="cb11-200"><a href="#cb11-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-201"><a href="#cb11-201" aria-hidden="true" tabindex="-1"></a><span class="fu">### what does LaTeX do with .bib files?</span></span>
+<span id="cb11-202"><a href="#cb11-202" aria-hidden="true" tabindex="-1"></a>Now, in LaTeX, if you type  </span>
+<span id="cb11-203"><a href="#cb11-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-204"><a href="#cb11-204" aria-hidden="true" tabindex="-1"></a><span class="in">      \textcite{nunn2011slave} argue that current variation in the trust among citizens of African countries has historical roots in the European slave trade in the 1600s.</span></span>
+<span id="cb11-205"><a href="#cb11-205" aria-hidden="true" tabindex="-1"></a><span class="in">      </span></span>
+<span id="cb11-206"><a href="#cb11-206" aria-hidden="true" tabindex="-1"></a>as part of your text, then when the <span class="in">`.tex`</span> file is compiled the PDF shows something like </span>
+<span id="cb11-207"><a href="#cb11-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-208"><a href="#cb11-208" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/biblatex_inline.png)</span></span>
+<span id="cb11-209"><a href="#cb11-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-210"><a href="#cb11-210" aria-hidden="true" tabindex="-1"></a>in whatever citation style (APSA, APA, Chicago) you pre-specified! </span>
+<span id="cb11-211"><a href="#cb11-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-212"><a href="#cb11-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-213"><a href="#cb11-213" aria-hidden="true" tabindex="-1"></a>Also at the end of your paper you will have a bibliography with entries ordered and formatted in the appropriate citation.</span>
+<span id="cb11-214"><a href="#cb11-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-215"><a href="#cb11-215" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/biblatex_bibliography.png)</span></span>
+<span id="cb11-216"><a href="#cb11-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-217"><a href="#cb11-217" aria-hidden="true" tabindex="-1"></a>This is a much less frustrating way of keeping track of your references -- no need to hand-edit formatting the bibliography to conform to citation rules (which biblatex already knows) and no need to update your bibliography as you add and drop references (biblatex will only show entries that are used in the main text).</span>
+<span id="cb11-218"><a href="#cb11-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-219"><a href="#cb11-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-220"><a href="#cb11-220" aria-hidden="true" tabindex="-1"></a><span class="fu">### stocking up on your .bib files</span></span>
+<span id="cb11-221"><a href="#cb11-221" aria-hidden="true" tabindex="-1"></a>You should keep your own <span class="in">`.bib`</span> file that has all your bibliographical resources. Storing entries is cheap (does not take much memory), so it is fine to keep all your references in one place (but you'll want to make a new one for collaborative projects where multiple people will compile a <span class="in">`.tex`</span> file).</span>
+<span id="cb11-222"><a href="#cb11-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-223"><a href="#cb11-223" aria-hidden="true" tabindex="-1"></a>For example, Gary's BibTeX file is here: <span class="ot">&lt;https://github.com/iqss-research/gkbibtex/blob/master/gk.bib&gt;</span></span>
+<span id="cb11-224"><a href="#cb11-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-225"><a href="#cb11-225" aria-hidden="true" tabindex="-1"></a>Citation management software (Mendeley or Zotero) automatically generates .bib entries from your library of PDFs for you, provided you have the bibliography attributes right. </span>
+<span id="cb11-226"><a href="#cb11-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-227"><a href="#cb11-227" aria-hidden="true" tabindex="-1"></a><span class="fu">## Extension: Optional Exercise {-}</span></span>
+<span id="cb11-228"><a href="#cb11-228" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-229"><a href="#cb11-229" aria-hidden="true" tabindex="-1"></a>Create a LaTeX document for a hypothetical research paper on your laptop and, once you've verified it compiles into a PDF, come show it to either one of the instructors. </span>
+<span id="cb11-230"><a href="#cb11-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-231"><a href="#cb11-231" aria-hidden="true" tabindex="-1"></a>You can also use overleaf if you have preference for a cloud-based system. But don't swallow the built-in templates without understanding or testing them.</span>
+<span id="cb11-232"><a href="#cb11-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-233"><a href="#cb11-233" aria-hidden="true" tabindex="-1"></a>Each student will have slightly different substantive interests, so we won't impose much of a standard. But at a minimum, the LaTeX document should have:</span>
+<span id="cb11-234"><a href="#cb11-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-235"><a href="#cb11-235" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A title, author, date, and abstract</span>
+<span id="cb11-236"><a href="#cb11-236" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Sections</span>
+<span id="cb11-237"><a href="#cb11-237" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Italics and boldface</span>
+<span id="cb11-238"><a href="#cb11-238" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A figure with a caption and in-text reference to it. </span>
+<span id="cb11-239"><a href="#cb11-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-240"><a href="#cb11-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-241"><a href="#cb11-241" aria-hidden="true" tabindex="-1"></a>Depending on your subfield or interests, try to implement some of the following:</span>
+<span id="cb11-242"><a href="#cb11-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-243"><a href="#cb11-243" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A bibliographical reference drawing from a separate <span class="in">`.bib`</span> file</span>
+<span id="cb11-244"><a href="#cb11-244" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A table</span>
+<span id="cb11-245"><a href="#cb11-245" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A math expression</span>
+<span id="cb11-246"><a href="#cb11-246" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>A different font</span>
+<span id="cb11-247"><a href="#cb11-247" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Different page margins</span>
+<span id="cb11-248"><a href="#cb11-248" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Different line spacing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
