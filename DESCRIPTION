@@ -14,8 +14,12 @@ Imports:
     devtools,
     tidyverse,
     here,
+<<<<<<< HEAD
+    unvotes
+=======
     unvotes,
     jsonlite,
     rmarkdown, 
     downlit, 
     xml2
+>>>>>>> b0dd4868983e079dbeca49787a0708b6abb2b7f1
