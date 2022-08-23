@@ -312,4 +312,3 @@ ggplot(map_data) +
 
 Sometimes a diverging color scale is better for contrasting high and low value areas.
 
-

@@ -8,28 +8,9 @@ So far, we've talked about distributions in a theoretical sense, looking at diff
 
 
 __Sample mean__:  This is the most common measure of central tendency, calculated by summing across the observations and dividing by the number of observations.
-\[\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i\]
+$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i$$
 The sample mean is an _estimate_ of the expected value of a distribution.
 
-
-\begin{framed}
-Example:  
-\begin{center}
-\begin{tabular}{|l|cccccccccc|}
-\hline
-X & 6 & 3 & 7 & 5 & 5 & 5 & 6 & 4 & 7 & 2\\
-\hline
-Y & 1 & 2 & 1 & 2 & 2 & 1 & 2 & 0 & 2 & 0\\
-\hline
-\end{tabular}
-\end{center}
-
-\begin{enumerate}
-\item $\bar{x} = $ \hspace{3.1cm} $\bar{y} = $
-\item median(x) $ = $ \hspace{1.5cm} median(y) $ = $
-\item $m_x = $ \hspace{2.75cm} $m_y =$\\
-\end{enumerate}
-\end{framed}
 
 
 __Dispersion__: We also typically want to know how spread out the data are relative to the center of the observed distribution.  There are several ways to measure dispersion.
@@ -43,15 +24,6 @@ __Standard deviation__:  The sample standard deviation is the square root of the
 $$ \hat{SD}(X) = \sqrt{\hat{\text{Var}}(X)} = \sqrt{\frac{1}{n-1}\sum_{i = 1}^n (x_i - \bar{x})^2}$$
 
 
-\begin{framed}
-Example: Using table above, calculate: 
-\begin{enumerate}
-\item $\text{Var}(X) = $ \hspace{1.5cm} $\text{Var}(Y) =$
-\item $\SD(X) = $ \hspace{1.65cm} $\SD(Y) =$
-\end{enumerate}
-\end{framed}
-
-
 __Covariance and Correlation__: Both of these quantities measure the degree to which two variables vary together, and are estimates of the covariance and correlation of two random variables as defined above.
 
 
@@ -59,14 +31,12 @@ __Covariance and Correlation__: Both of these quantities measure the degree to w
 2. **Sample correlation**: $\hat{\text{Corr}} = \frac{\hat{\text{Cov}}(X,Y)}{\sqrt{\hat{\text{Var}}(X)\hat{\text{Var}}(Y)}}$
 
 
-```{example}
+:::{#exm-}
 Example:  Using the above table, calculate the sample versions of:
   
 1. $\text{Cov}(X,Y)$
 2. $\text{Corr}(X, Y)$
-
-
-```
+:::
 
 
 
@@ -79,15 +49,14 @@ In probability theory, asymptotic analysis is the study of limiting behavior. By
 Why is this important?  We rarely know the true process governing the events we see in the social world. It is helpful to understand how such unknown processes theoretically must behave and asymptotic theory helps us do this. 
 
 
-```{theorem, lln, name = "Law of Large Numbers (LLN)"}
+:::{#thm-lln}
+### Law of Large Numbers (LLN)
 For any draw of independent random variables with the same mean $\mu$, the sample average after $n$ draws, $\bar{X}_n = \frac{1}{n}(X_1 + X_2 + \ldots + X_n)$, converges in probability to the expected value of $X$, $\mu$  as $n \rightarrow \infty$:
   
-\[\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | > \varepsilon) = 0\]
-```
+$$\lim\limits_{n\to \infty} P(|\bar{X}_n - \mu | > \varepsilon) = 0$$
+:::
   
-A shorthand of which is  \(\bar{X}_n \xrightarrow{p} \mu\), where the arrow is read as "converges in probability to".
-
-as $n\to \infty$. In other words, $P( \lim_{n\to\infty}\bar{X}_n = \mu) = 1$. This is an important motivation for the widespread use of the sample mean, as well as the intuition link between averages and expected values. 
+A shorthand of which is  $\bar{X}_n \xrightarrow{p} \mu$, where the arrow is read as "converges in probability to" as $n\to \infty$. In other words, $P( \lim_{n\to\infty}\bar{X}_n = \mu) = 1$. This is an important motivation for the widespread use of the sample mean, as well as the intuition link between averages and expected values. 
 
 
 More precisely this version of the LLN is called the _weak_ law of large numbers because it leaves open the possibility that $|\bar{X}_n - \mu | > \varepsilon$ occurs many times. The _strong_ law of large numbers states that, under a few more conditions, the probability that the limit of the sample average is the true mean is 1 (and other possibilities occur with probability 0), but the difference is rarely consequential in practice.
@@ -97,176 +66,22 @@ The Strong Law of Large Numbers holds so long as the expected value exists; no o
 
 ## Central Limit Theorem
 
-We are now finally ready to revisit, with a bit more precise terms, the two pillars of statistical theory we motivated Section \@ref(limitsfun) with.
+We are now finally ready to revisit, with a bit more precise terms, the two pillars of statistical theory we motivated Probability with.
 
-```{theorem, clt, name = "Central Limit Theorem (i.i.d. case)"}
+:::{#thm-clt}
+### Central Limit Theorem (i.i.d. case)
 Let $\{X_n\} = \{X_1, X_2, \ldots\}$ be a sequence of i.i.d. random variables with finite mean ($\mu$) and variance ($\sigma^2$). Then, the sample mean $\bar{X}_n = \frac{X_1 + X_2 + \cdots + X_n}{n}$ increasingly converges into a Normal distribution. 
 
-\[\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} \text{Normal}(0, 1),\]
-```
+$$\frac{\bar{X}_n - \mu}{\sigma / \sqrt{n}} \xrightarrow{d} \text{Normal}(0, 1),$$
+:::
 
 Another way to write this as a probability statement is that for all real numbers $a$,
 
 $$P\left(\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \le a\right) \rightarrow \Phi(a)$$
-as $n\to \infty$, where \[\Phi(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} \, dx\] is the CDF of a Normal distribution with mean 0 and variance 1. 
+as $n\to \infty$, where $$\Phi(x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}} \, dx$$ is the CDF of a Normal distribution with mean 0 and variance 1. 
 
 This result means that, as $n$ grows, the distribution of the sample mean $\bar X_n = \frac{1}{n} (X_1 + X_2 + \cdots + X_n)$ is approximately normal with mean $\mu$ and standard deviation $\frac{\sigma}{\sqrt n}$, i.e.,
-\[\bar{X}_n \approx \mathcal{N}\bigg(\mu, \frac{\sigma^2}{n}\bigg).\] The standard deviation of $\bar X_n$ (which is roughly a measure of the precision of $\bar X_n$ as an estimator of $\mu$) decreases at the rate $1/\sqrt{n}$, so, for example, to increase its precision by $10$ (i.e., to get one more digit right), one needs to collect $10^2=100$ times more units of data.
+$$\bar{X}_n \approx \mathcal{N}\bigg(\mu, \frac{\sigma^2}{n}\bigg).$$ The standard deviation of $\bar X_n$ (which is roughly a measure of the precision of $\bar X_n$ as an estimator of $\mu$) decreases at the rate $1/\sqrt{n}$, so, for example, to increase its precision by $10$ (i.e., to get one more digit right), one needs to collect $10^2=100$ times more units of data.
  
 Intuitively, this result also justifies that whenever a lot of small, independent processes somehow combine together to form the realized observations, practitioners often feel comfortable assuming Normality. 
 
-
-
-
-## Answers to Examples and Exercises  {-}
-
-Answer to Example \@ref(exm:counting):
-
-1. $5 \times 5 \times 5 = 125$
-
-2. $5 \times 4 \times 3 = 60$
-
-3. $\binom{5}{3} = \frac{5!}{(5-3)!3!} = \frac{5 \times 4}{2 \times 1} = 10$
-
-
-Answer to Exercise \@ref(exr:counting1):
-
-1. $\binom{52}{4} = \frac{52!}{(52-4)!4!} = 270725$
-
-
-
-Answer to Example \@ref(exm:sets):
-
-1. {1, 2, 3, 4, 5, 6}
-2. {5, 6}
-3. {1, 2, 7, 8, 9, 10}
-4. {3, 4}
-
-Answer to Exercise \@ref(exr:sets1):
-
-Sample Space: {2, 3, 4, 5, 6, 7, 8}
-
-1. {3, 4, 5, 6, 7}
-2. {4, 5, 6}
-
-
-Answer to Example \@ref(exm:prob):
-
-
-1. ${1, 2, 3, 4, 5, 6}$
-
-2. $\frac{1}{6}$
-
-3. $0$
-
-4. $\frac{1}{2}$
-
-5. $\frac{4}{6} = \frac{2}{3}$
-
-6. $1$
-
-7. $A\cup B=\{1, 2, 3, 4, 6\}$, $A\cap B=\{2\}$, $\frac{5}{6}$
-
-
-Answer to Exercise \@ref(exr:prob1):
-
-1. $P(X = 5) = \frac{4}{16}$, $P(X = 3) = \frac{2}{16}$, $P(X = 6) = \frac{3}{16}$
-
-  
-2. What is $P(X=5 \cup X = 3)^C = \frac{10}{16}$? 
-
-Answer to Example \@ref(exm:condprobexm1):
-
-1. $\frac{n_{ab} + n_{ab^c}}{N}$
-
-2. $\frac{n_{ab} + n_{a^cb}}{N}$
-
-3. $\frac{n_{ab}}{N}$
-
-4. $\frac{\frac{n_{ab}}{N}}{\frac{n_{ab} + n_{a^cb}}{N}} = \frac{n_{ab}}{n_{ab} + n_{a^cb}}$
-
-5. $\frac{\frac{n_{ab}}{N}}{\frac{n_{ab} + n_{ab^c}}{N}} = \frac{n_{ab}}{n_{ab} + n_{ab^c}}$
-
-Answer to Example \@ref(exm:condprobexm2):
-
-$P(1|Odd) = \frac{P(1 \cap Odd)}{P(Odd)} = \frac{\frac{1}{6}}{\frac{1}{2}} = \frac{1}{3}$
-
-
-Answer to Example \@ref(exm:bayesrule):
-
-We are given that
-$$P(D) = .4, P(D^c) = .6, P(S|D) = .5, P(S|D^c) = .9$$
-Using this, Bayes' Law and the Law of Total Probability, we know: 
-
-$$P(D|S) = \frac{P(D)P(S|D)}{P(D)P(S|D) + P(D^c)P(S|D^c)}$$
-$$P(D|S) = \frac{.4 \times .5}{.4 \times .5 + .6 \times .9 } = .27$$
-
-Answer to Exercise \@ref(exr:condprobexr):
-
-
-We are given that
-
-$$P(M) = .02, P(C|M) = .95, P(C^c|M^c) = .97$$
-
-
-$$P(M|C) = \frac{P(C|M)P(M)}{P(C)}$$
-
-$$= \frac{P(C|M)P(M)}{P(C|M)P(M) + P(C|M^c)P(M^c)}$$
-
-$$= \frac{P(C|M)P(M)}{P(C|M)P(M) + [1-P(C^c|M^c)]P(M^c)}$$
-$$ = \frac{.95 \times .02}{.95 \times .02 + .03 \times .98} = .38$$
-
-
-Answer to Example \@ref(exm:expectdiscrete):
-
-$E(Y)=7/2$ 
-
-We would never expect the result of a rolled die to be $7/2$, but that would be the average over a large number of rolls of the die.
-
-
-Answer to Example \@ref(exm:expectconti)
-
-0.75
-
-
-
-Answer to Example \@ref(exm:var):
-
-
-$E(X) = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 2 \times \frac{3}{8} + 3 \times \frac{1}{8} = \frac{3}{2}$
-
-Since there is a 1 to 1 mapping from $X$ to $X^2:$ $E(X^2) = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 4 \times \frac{3}{8} + 9 \times \frac{1}{8} = \frac{24}{8} = 3$
-
-\begin{align*}
-\text{Var}(x) &= E(X^2) - E(x)^2\\
-&= 3 - (\frac{3}{2})^2\\
-&= \frac{3}{4}
-\end{align*}
-
-
-
-Answer to Exercise \@ref(exr:expvar):
-
-1. $E(X) = -2(\frac{1}{5}) + -1(\frac{1}{6}) + 0(\frac{1}{5}) + 1(\frac{1}{15}) + 2(\frac{11}{30}) = \frac{7}{30}$
-
-2. $E(Y) = 0(\frac{1}{5}) + 1(\frac{7}{30}) + 4(\frac{17}{30}) = \frac{5}{2}$
-
-3. 
-
-\begin{align*}
-\text{Var}(X) &= E[X^2] - E[X]^2\\
-&= E(Y) - E(X)^2\\
-&= \frac{5}{2} - \frac{7}{30}^2 \approx 2.45
-\end{align*}
-
-
-
-Answer to Exercise \@ref(exr:expvar2):
-
-1. expectation = $\frac{6}{5}$, variance = $\frac{6}{25}$
-
-Answer to Exercise \@ref(exr:expvar3):
-
-1. mean = 2, standard deviation = $\sqrt(\frac{2}{3})$
-
-2. $\frac{1}{8}(2 - \sqrt(\frac{2}{3}))^2$

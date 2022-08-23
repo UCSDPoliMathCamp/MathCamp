@@ -1,4 +1,4 @@
-#  LaTeX and markdown {#nonwysiwyg}
+#  LaTeX and Markdown {#nonwysiwyg}
 
 
 ### Where are we? Where are we headed? {-}

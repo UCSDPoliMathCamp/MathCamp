@@ -1,59 +1,41 @@
-# (PART) Linear Algebra {-}
 
 # Linear Algebra {#linearalgebra}
 
-Topics:
-$\bullet$ Working with Vectors 
-$\bullet$ Linear Independence
-$\bullet$ Basics of Matrix Algebra
-$\bullet$ Square Matrices
-$\bullet$ Linear Equations
-$\bullet$ Systems of Linear Equations
-$\bullet$ Systems of Equations as Matrices
-$\bullet$ Solving Augmented Matrices and Systems of Equations
-$\bullet$ Rank
-$\bullet$ The Inverse of a Matrix
-$\bullet$ Inverse of Larger Matrices
-
-
-
-
 ## Working with Vectors {#vector-def}
 __Vector__: A vector in $n$-space is an ordered list of $n$ numbers.  These numbers can be represented as either a row vector or a column vector: 
-		$$ {\bf v} \begin{pmatrix} v_1 & v_2 & \dots & v_n\end{pmatrix} , {\bf v} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}$$ 
+$${\bf v} = \begin{bmatrix} v_1 & v_2 & \dots & v_n\end{bmatrix}$$
+$${\bf v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix}$$ 
 		
-We can also think of a vector as defining a point in $n$-dimensional space, usually ${\bf R}^n$; each element of the vector defines the coordinate of the point in a particular direction.
+We can also think of a vector as defining a point in $n$-dimensional space, usually $\mathbb{R}^n$; each element of the vector defines the coordinate of the point in a particular direction.
 
 __Vector Addition and Subtraction__:  If two vectors, ${\bf u}$ and ${\bf v}$, have the same length (i.e. have the same number of elements), they can be added (subtracted) together:
-		$$ {\bf u} + {\bf v} = \begin{pmatrix} u_1 + v_1 & u_2 + v_2 & \cdots & u_k + v_n \end{pmatrix}$$
-		$$ {\bf u} - {\bf v} = \begin{pmatrix} u_1 - v_1 & u_2 - v_2 & \cdots & u_k - v_n \end{pmatrix}$$
+$${\bf u} + {\bf v} = \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \\ \vdots \\ u_k + v_n \end{bmatrix}$$
+$${\bf u} - {\bf v} = \begin{bmatrix} u_1 - v_1 \\ u_2 - v_2 \\ \vdots \\ u_k - v_n \end{bmatrix}$$
 
 __Scalar Multiplication__:  The product of a scalar $c$ (i.e. a constant) and vector ${\bf v}$ is: \
-		$$ c{\bf v} =  \begin{pmatrix} cv_1 & cv_2 & \dots & cv_n \end{pmatrix} $$
+$$ c{\bf v} =  \begin{bmatrix} cv_1 \\ cv_2 \\ \dots \\ cv_n \end{bmatrix} $$
 
 __Vector Inner Product__: The inner product (also called the dot product or scalar product) of two vectors  ${\bf u}$ and ${\bf v}$ is again defined if and only if they have the same number of elements 
-		$$ {\bf u} \cdot {\bf v} = u_1v_1 + u_2v_2 + \cdots + u_nv_n = \sum_{i = 1}^n u_iv_i$$
-		If ${\bf u} \cdot {\bf v} = 0$, the two vectors are orthogonal (or perpendicular).
+
+$$ {\bf u} \cdot {\bf v} = u_1v_1 + u_2v_2 + \cdots + u_nv_n = \sum_{i = 1}^n u_iv_i$$
+
+If ${\bf u} \cdot {\bf v} = 0$, the two vectors are orthogonal (or perpendicular).
 
 __Vector Norm__: The norm of a vector is a measure of its length.  There are many different ways to calculate the norm, but the most common is the Euclidean norm (which corresponds to our usual conception of distance in three-dimensional space):
-		$$ ||{\bf v}|| = \sqrt{{\bf v}\cdot{\bf v}} = \sqrt{ v_1v_1 + v_2v_2 + \cdots + v_nv_n}$$
+$$ ||{\bf v}|| = \sqrt{{\bf v}\cdot{\bf v}} = \sqrt{ v_1v_1 + v_2v_2 + \cdots + v_nv_n}$$
 
-```{example, name = "Vector Algebra", vectors}
-
-Let  $a = \begin{pmatrix} 2&1&2\end{pmatrix}$, $b = \begin{pmatrix} 3&4&5 \end{pmatrix}$. Calculate the following:
+:::{#exm-vectors}
+Let  $a = \begin{bmatrix} 2\\1\\2\end{bmatrix}$, $b = \begin{bmatrix} 3\\4\\5 \end{bmatrix}$. Calculate the following:
 
 1. $a - b$
-
 2. $a \cdot b$
 
-  
-
-```
+:::
 
 
-```{exercise, name = "Vector Algebra", vectors1}
+:::{#exr-vectors1}
 
-Let $u = \begin{pmatrix} 7&1&-5&3\end{pmatrix}$, $v = \begin{pmatrix} 9&-3&2&8 \end{pmatrix}$, $w = \begin{pmatrix} 1&13& -7&2 &15 \end{pmatrix}$, and $c = 2$. Calculate the following: 
+Let $u = \begin{bmatrix} 7\\1\\-5\\3\end{bmatrix}$, $v = \begin{bmatrix} 9\\-3\\2\\8 \end{bmatrix}$, $w = \begin{bmatrix} 1\\13\\ -7\\2 \\15 \end{bmatrix}$, and $c = 2$. Calculate the following: 
   
   1. $u-v$
   
@@ -63,135 +45,106 @@ Let $u = \begin{pmatrix} 7&1&-5&3\end{pmatrix}$, $v = \begin{pmatrix} 9&-3&2&8 \
   
   4. $w \cdot v$
   
-
-
-```
+:::
 
 
 ## Linear Independence {#linearindependence}
 
 __Linear combinations__: The vector ${\bf u}$ is a linear combination of the vectors ${\bf v}_1, {\bf v}_2,  \cdots , {\bf v}_k$ if
-		$${\bf u} = c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k$$
+
+$${\bf u} = c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k$$
 
 
-For example,  $\begin{pmatrix}9 & 13 & 17 \end{pmatrix}$ is a linear combination of the following three vectors: $\begin{pmatrix}1 & 2 & 3 \end{pmatrix}$, $\begin{pmatrix} 2 & 3& 4\end{pmatrix}$, and $\begin{pmatrix} 3 & 4 & 5 \end{pmatrix}$. This is because  $\begin{pmatrix}9 & 13 & 17 \end{pmatrix}$ = $(2)\begin{pmatrix}1 & 2 & 3 \end{pmatrix}$ $+ (-1)\begin{pmatrix} 2 & 3& 4\end{pmatrix}$ + $3\begin{pmatrix} 3 & 4 & 5 \end{pmatrix}$
+For example,  $\begin{bmatrix}9 \\ 13 \\ 17 \end{bmatrix}$ is a linear combination of the following three vectors: $\begin{bmatrix}1 \\ 2 \\ 3 \end{bmatrix}$, $\begin{bmatrix} 2 \\ 3\\ 4\end{bmatrix}$, and $\begin{bmatrix} 3 \\ 4 \\ 5 \end{bmatrix}$. This is because  $\begin{bmatrix}9 \\ 13 \\ 17 \end{bmatrix}$ = $(2)\begin{bmatrix}1 \\ 2 \\ 3 \end{bmatrix}$ $+ (-1)\begin{bmatrix} 2 \\ 3\\ 4\end{bmatrix}$ + $3\begin{bmatrix} 3 \\ 4 \\ 5 \end{bmatrix}$
 
 
 __Linear independence__:  A set of vectors ${\bf v}_1, {\bf v}_2,  \cdots , {\bf v}_k$ is linearly independent if the only solution to the equation
-		$$c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k = 0$$
-		is $c_1 = c_2 = \cdots = c_k = 0$.  If another solution exists, the set of vectors is linearly dependent.
+
+$$c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k = 0$$
+
+is $c_1 = c_2 = \cdots = c_k = 0$.  If another solution exists, the set of vectors is linearly dependent.
 	
 A set $S$ of vectors is linearly dependent if and only if at least one of the vectors in $S$ can be written as a linear combination of the other vectors in $S$.
 
  Linear independence is only defined for sets of vectors with the same number of elements; any linearly independent set of vectors in $n$-space contains at most $n$ vectors.
  
  
- Since $\begin{pmatrix}9 & 13 & 17 \end{pmatrix}$ is a linear combination of $\begin{pmatrix}1 & 2 & 3 \end{pmatrix}$, $\begin{pmatrix} 2 & 3& 4\end{pmatrix}$, and $\begin{pmatrix} 3 & 4 & 5 \end{pmatrix}$, these 4 vectors constitute a linearly dependent set. 
+ Since $\begin{bmatrix}9 \\ 13 \\ 17 \end{bmatrix}$ is a linear combination of $\begin{bmatrix}1 \\ 2 \\ 3 \end{bmatrix}$, $\begin{bmatrix} 2 \\ 3\\ 4\end{bmatrix}$, and $\begin{bmatrix} 3 \\ 4 \\ 5 \end{bmatrix}$, these 4 vectors constitute a linearly dependent set. 
 
-```{example, name = "Linear Independence", linearindep} 
-
+:::{#exm-linearindep} 
 Are the following sets of vectors linearly independent?
   
-  1. $\begin{pmatrix}2 & 3 & 1 \end{pmatrix}$ and $\begin{pmatrix}4 & 6 & 1 \end{pmatrix}$
-  2. $\begin{pmatrix}1 & 0 & 0 \end{pmatrix}$, $\begin{pmatrix}0 & 5 & 0 \end{pmatrix}$, and $\begin{pmatrix}10 & 10 & 0 \end{pmatrix}$
+  1. $\begin{bmatrix}2 \\ 3 \\ 1 \end{bmatrix}$ and $\begin{bmatrix}4 \\ 6 \\ 1 \end{bmatrix}$
+  2. $\begin{bmatrix}1 \\ 0 \\ 0 \end{bmatrix}$, $\begin{bmatrix}0 \\ 5 \\ 0 \end{bmatrix}$, and $\begin{bmatrix}10 \\ 10 \\ 0 \end{bmatrix}$
 
-
-  
-```
+:::
 
 
 
-```{exercise, name = "Linear Independence", linearindep1}
-
+:::{#exr-linearindep1}
 Are the following sets of vectors linearly independent?
   
-  1. $${\bf v}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} $$ 
+  1. $${\bf v}_1 = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} , {\bf v}_2 = \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} , {\bf v}_3 = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} $$ 
   
-  2. $${\bf v}_1 = \begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} , {\bf v}_2 = \begin{pmatrix} -4 \\ 6 \\ 5 \end{pmatrix} , {\bf v}_3 = \begin{pmatrix} -2 \\ 8 \\ 6 \end{pmatrix} $$
+  2. $${\bf v}_1 = \begin{bmatrix} 2 \\ 2 \\ 1 \end{bmatrix} , {\bf v}_2 = \begin{bmatrix} -4 \\ 6 \\ 5 \end{bmatrix} , {\bf v}_3 = \begin{bmatrix} -2 \\ 8 \\ 6 \end{bmatrix} $$
 
-
-
-```
-
-
+:::
 
 
 ## Basics of Matrix Algebra {#matrixbasics}
 
 __Matrix__: A matrix is an array of real numbers arranged in $m$ rows by $n$ columns. The dimensionality of the matrix is defined as the number of rows by the number of columns, $m \times n$. 
 
-\[{\bf A}=\begin{pmatrix}
-			a_{11} & a_{12} & \cdots & a_{1n} \\
-			a_{21} & a_{22} & \cdots & a_{2n} \\
-			\vdots & \vdots & \ddots & \vdots \\
-			a_{m1} & a_{m2} & \cdots & a_{mn}
-		\end{pmatrix}\]
+$${\bf A}=\begin{bmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{bmatrix}$$
 		
 Note that you can think of vectors as special cases of matrices; a column vector of length $k$ is a $k \times 1$ matrix, while a row vector of the same length is a $1 \times k$ matrix.
 
 It's also useful to think of matrices as being made up of a collection of row or column vectors.  For example,
-		$$\bf A = \begin{pmatrix} {\bf a}_1 & {\bf a}_2 &  \cdots & {\bf a}_m \end{pmatrix}$$
+
+$$\bf A = \begin{bmatrix} {\bf a}_1 & {\bf a}_2 &  \cdots & {\bf a}_m \end{bmatrix}$$
 	
 __Matrix Addition__: Let $\bf A$ and $\bf B$ be two $m\times n$ matrices.
-		$${\bf A+B}=\begin{pmatrix}
-			a_{11}+b_{11} & a_{12}+b_{12} & \cdots & a_{1n}+b_{1n} \\
-			a_{21}+b_{21} & a_{22}+b_{22} & \cdots & a_{2n}+b_{2n} \\
-			\vdots & \vdots  & \ddots & \vdots \\
-			a_{m1}+b_{m1} & a_{m2}+b_{m2} & \cdots & a_{mn}+b_{mn}
-		\end{pmatrix}$$
+
+$$\mathbf{A+B}=\begin{bmatrix} a_{11}+b_{11} & a_{12}+b_{12} & \cdots & a_{1n}+b_{1n} \\ a_{21}+b_{21} & a_{22}+b_{22} & \cdots & a_{2n}+b_{2n} \\ \vdots & \vdots  & \ddots & \vdots \\ a_{m1}+b_{m1} & a_{m2}+b_{m2} & \cdots & a_{mn}+b_{mn} \end{bmatrix}$$
 
 Note that matrices ${\bf A}$ and ${\bf B}$ must have the same dimensionality, in which case they are __conformable for addition__.
 	
-```{example, matrixaddition}
-$${\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}, \qquad
-			{\bf B}=\begin{pmatrix} 1 & 2 & 1 \\ 2 & 1 & 2 \end{pmatrix}$$
-		${\bf A+B}=$
-
-  
-
-```
+:::{#exm-matrixaddition}
+$${\bf A}=\begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix}, \qquad {\bf B}=\begin{bmatrix} 1 & 2 & 1 \\ 2 & 1 & 2 \end{bmatrix}$$
+Find $\mathbf{A}+\mathbf{B}$
+:::
 
 
 __Scalar Multiplication__:  Given the scalar $s$, the scalar multiplication of $s {\bf A}$ is
-		$$ s {\bf A}=  s \begin{pmatrix}
-			a_{11} & a_{12} & \cdots & a_{1n} \\
-			a_{21} & a_{22} & \cdots & a_{2n} \\
-			\vdots & \vdots & \ddots & \vdots \\
-			a_{m1} & a_{m2} & \cdots & a_{mn}
-		\end{pmatrix}
-		= \begin{pmatrix}
-			s a_{11} & s a_{12} & \cdots & s a_{1n} \\
-			s a_{21} & s a_{22} & \cdots & s a_{2n} \\
-			\vdots & \vdots & \ddots & \vdots \\
-			s a_{m1} & s a_{m2} & \cdots & s a_{mn}
-		\end{pmatrix}$$
+$$ s {\bf A}=  s \begin{bmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{bmatrix} = \begin{bmatrix} s a_{11} & s a_{12} & \cdots & s a_{1n} \\ s a_{21} & s a_{22} & \cdots & s a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ s a_{m1} & s a_{m2} & \cdots & s a_{mn} \end{bmatrix}$$
 
-```{example, scalarmulti}
+:::{#exm-scalarmulti}
 
+$s=2$, 
 
-$s=2, \qquad {\bf A}=\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}$
+$${\bf A}=\begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix}$$
   
-$s {\bf A} =$
+Find $s {\bf A}$
 
-  
-
-```
+:::
 
 
 __Matrix Multiplication__:  If ${\bf A}$ is an $m\times k$ matrix and $\bf B$ is a $k\times n$ matrix, then their product $\bf C = A B$ is the $m\times n$ matrix where
-		$$c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{ik}b_{kj}$$
 
-```{example, matrixmulti}
+$$c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{ik}b_{kj}$$
 
+:::{#exm-matrixmulti}
 
-1.  $\begin{pmatrix} a&b\\c&d\\e&f \end{pmatrix} \begin{pmatrix} A&B\\C&D \end{pmatrix}
-			=$
+1. Find $\begin{bmatrix} a&b\\c&d\\e&f \end{bmatrix} \begin{bmatrix} A&B\\C&D \end{bmatrix}$
 		
-2. $\begin{pmatrix} 1&2&-1\\3&1&4 \end{pmatrix} \begin{pmatrix} -2&5\\4&-3\\2&1\end{pmatrix} =$
+2. Find $\begin{bmatrix} 1&2&-1\\3&1&4 \end{bmatrix} \begin{bmatrix} -2&5\\4&-3\\2&1\end{bmatrix}$
 
-
-
-```
+:::
 
 
 
@@ -202,106 +155,93 @@ Also note that if __AB__ exists, __BA__ exists only if $\dim({\bf A}) = m \times
 	
 This does not mean that __AB__ = __BA__. __AB__ = __BA__ is true only in special circumstances, like when ${\bf A}$ or ${\bf B}$ is an identity matrix or ${\bf A} = {\bf B}^{-1}$.
 
-__Laws of Matrix Algebra__:
-\begin{enumerate}
-		\item \parbox[t]{1.5in}{Associative:} $\bf (A+B)+C = A+(B+C)$\\
-			\parbox[t]{1.5in}{\quad}  $\bf (AB)C = A(BC)$
-		\item \parbox[t]{1.5in}{Commutative:} $\bf A+B=B+A$
-		\item \parbox[t]{1.5in}{Distributive:} $\bf A(B+C)=AB+AC$\\
-			\parbox[t]{1.5in}{\quad}   $\bf (A+B)C=AC+BC$
-\end{enumerate}
-	
+### Laws of Matrix Algebra
+
+1. Associative: $\bf (A+B)+C = A+(B+C)$
+2. $\bf (AB)C = A(BC)$
+3. Commutative: $\bf A+B=B+A$
+4. Distributive: $\bf A(B+C)=AB+AC$
+5. $\bf (A+B)C=AC+BC$
+
+
 Commutative law for multiplication does not hold -- the order of multiplication matters:
-		$$\bf AB\ne BA$$
+$$\bf AB \ne BA$$
 
 For example,
-		$${\bf A}=\begin{pmatrix} 1&2\\-1&3\end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} 2&1\\0&1\end{pmatrix}$$
-		$${\bf AB}=\begin{pmatrix} 2&3\\-2&2\end{pmatrix}, \qquad {\bf BA}=\begin{pmatrix} 1&7\\-1&3\end{pmatrix}$$
+$${\bf A}=\begin{bmatrix} 1&2\\-1&3\end{bmatrix}, \qquad {\bf B}=\begin{bmatrix} 2&1\\0&1\end{bmatrix}$$
+$${\bf AB}=\begin{bmatrix} 2&3\\-2&2\end{bmatrix}, \qquad {\bf BA}=\begin{bmatrix} 1&7\\-1&3\end{bmatrix}$$
 
-__Transpose__: The transpose of the $m\times n$ matrix $\bf A$ is the $n\times m$ matrix ${\bf A}^T$  (also written ${\bf A}'$) obtained by interchanging the rows and columns of $\bf A$.
+__Transpose__: The transpose of the $m\times n$ matrix $\bf A$ is the $n\times m$ matrix ${\bf A}^\top$  (also written ${\bf A}'$) obtained by interchanging the rows and columns of $\bf A$.
 
 For example,
 
+${\bf A}=\begin{bmatrix} 4&-2&3\\0&5&-1\end{bmatrix}, \qquad {\bf A}^\top=\begin{bmatrix} 4&0\\-2&5\\3&-1 \end{bmatrix}$
 
-${\bf A}=\begin{pmatrix} 4&-2&3\\0&5&-1\end{pmatrix}, \qquad {\bf A}^T=\begin{pmatrix} 4&0\\-2&5\\3&-1 \end{pmatrix}$
-
-${\bf B}=\begin{pmatrix} 2\\-1\\3 \end{pmatrix}, \qquad {\bf B}^T=\begin{pmatrix} 2&-1&3\end{pmatrix}$
+${\bf B}=\begin{bmatrix} 2\\-1\\3 \end{bmatrix}, \qquad {\bf B}^\top=\begin{bmatrix} 2&-1&3\end{bmatrix}$
 
 
 The following rules apply for transposed matrices:
-	\begin{enumerate}
-		\item $({\bf A+B})^T = {\bf A}^T+{\bf B}^T$
-		\item $({\bf A}^T)^T={\bf A}$
-		\item $(s{\bf A})^T = s{\bf A}^T$
-		\item $({\bf AB})^T = {\bf B}^T{\bf A}^T$; and by induction $({\bf ABC})^T = {\bf C}^T{\bf B}^T{\bf A}^T$
-\end{enumerate}
 
-Example of $({\bf AB})^T = {\bf B}^T{\bf A}^T$:
-		$${\bf A}=\begin{pmatrix} 1&3&2\\2&-1&3\end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} 0&1\\2&2\\3&-1\end{pmatrix}$$
-		$$ ({\bf AB})^T = \left[ \begin{pmatrix} 1&3&2\\2&-1&3\end{pmatrix} \begin{pmatrix} 0&1\\2&2\\3&-1\end{pmatrix} \right]^T = \begin{pmatrix} 12&7\\5&-3 \end{pmatrix}$$
-		$$ {\bf B}^T{\bf A}^T= \begin{pmatrix} 0&2&3\\1&2&-1 \end{pmatrix}  \begin{pmatrix} 1&2\\3&-1\\2&3 \end{pmatrix} = \begin{pmatrix} 12&7\\5&-3 \end{pmatrix}$$
+1. $({\bf A+B})^\top = {\bf A}^\top+{\bf B}^\top$
+2. $({\bf A}^\top)^\top={\bf A}$
+3. $(s{\bf A})^\top = s{\bf A}^\top$
+4. $({\bf AB})^\top = {\bf B}^\top{\bf A}^\top$; and by induction $({\bf ABC})^\top = {\bf C}^\top{\bf B}^\top{\bf A}^\top$
 
+Example of $({\bf AB})^\top = {\bf B}^\top{\bf A}^\top$:
 
+$${\bf A}=\begin{bmatrix} 1&3&2\\2&-1&3\end{bmatrix}, \qquad {\bf B}=\begin{bmatrix} 0&1\\2&2\\3&-1\end{bmatrix}$$
 
+$$ ({\bf AB})^\top = \left[ \begin{bmatrix} 1&3&2\\2&-1&3\end{bmatrix} \begin{bmatrix} 0&1\\2&2\\3&-1\end{bmatrix} \right]^\top = \begin{bmatrix} 12&7\\5&-3 \end{bmatrix}$$
 
-```{exercise, name = "Matrix Multiplication", matrixmulti1}
+$$ {\bf B}^\top{\bf A}^\top= \begin{bmatrix} 0&2&3\\1&2&-1 \end{bmatrix}  \begin{bmatrix} 1&2\\3&-1\\2&3 \end{bmatrix} = \begin{bmatrix} 12&7\\5&-3 \end{bmatrix}$$
 
 
-Let $$A =  \begin{pmatrix} 2&0&-1&1\\1&2&0&1 \end{pmatrix}$$
 
-$$B = \begin{pmatrix} 1&5&-7\\1&1&0\\0&-1&1\\2&0&0\end{pmatrix} $$
-  
 
-  $$C =  \begin{pmatrix} 3&2&-1\\0&4&6 \end{pmatrix}$$
+:::{#exr-matrixmulti1}
+
+
+Let 
+
+$$A =  \begin{bmatrix} 2&0&-1&1\\1&2&0&1 \end{bmatrix}$$
+
+$$B = \begin{bmatrix} 1&5&-7\\1&1&0\\0&-1&1\\2&0&0\end{bmatrix}$$
+
+$$C =  \begin{bmatrix} 3&2&-1\\0&4&6 \end{bmatrix}$$
 
 Calculate the following:
   
 1. $$AB$$
 2. $$BA$$
-3. $$(BC)^T$$
-4. $$BC^T$$
+3. $$(BC)^\top$$
+4. $$BC^\top$$
 
-
-
-```
+:::
 	
-
-
 
 
 ## Systems of Linear Equations
 
 
-__Linear Equation__:  $a_1 x_1 + a_2 x_2 + \cdots + a_n x_n = b$
+### Linear Equation
+
+Linear equations take form of $a_1 x_1 + a_2 x_2 + \cdots + a_n x_n = b$
 
 $a_i$ are parameters or coefficients.  $x_i$ are variables or unknowns.
-	
 
 Linear because only one variable per term and degree is at most 1.
 
-
-
 We are often interested in solving linear systems like
 
-
-
-\[\begin{matrix}
-			x  & - & 3y & = & -3\\
-			2x & + &  y & = &  8
-			\end{matrix}\]
-			
-\begin{comment}
-		\parbox[t]{1in}{\includegraphics[angle=270, width = 1in]{linsys.eps}}
-\end{comment}
+$$\left\{\begin{array}{ll} x-3y &= -3\\ 2x +y &= 8 \end{array}\right.$$
 
 More generally, we might have a system of $m$ equations in $n$ unknowns
-
-\[\begin{matrix}
-			a_{11}x_1  & + & a_{12}x_2 & + & \cdots & + & a_{1n}x_n & = & b_1\\
-			a_{21}x_1  & + & a_{22}x_2 & + & \cdots & + & a_{2n}x_n & = & b_2\\
-			\vdots     &   &     &   & \vdots &   &     & \vdots & \\
-			a_{m1}x_1  & + & a_{m2}x_2 & + & \cdots & + & a_{mn}x_n & = & b_m
-			\end{matrix}\]
+	$$\begin{matrix}
+		a_{11}x_1  & + & a_{12}x_2 & + & \cdots & + & a_{1n}x_n & = & b_1\\
+		a_{21}x_1  & + & a_{22}x_2 & + & \cdots & + & a_{2n}x_n & = & b_2\\
+		\vdots     &   &     &   & \vdots &   &     & \vdots & \\
+		a_{m1}x_1  & + & a_{m2}x_2 & + & \cdots & + & a_{mn}x_n & = & b_m
+		\end{matrix}$$
 
 A __solution__ to a linear system of $m$ equations in $n$ unknowns is a set of $n$ numbers $x_1, x_2, \cdots, x_n$ that satisfy each of the $m$ equations.
 
@@ -310,12 +250,10 @@ Example:  $x=3$ and $y=2$ is the solution to the above $2\times 2$ linear system
 
 
 Does a linear system have one, no, or multiple solutions? For a system of 2 equations with 2 unknowns (i.e., two lines):
-_		
-__One solution:__ The lines intersect at exactly one point.
 
-__No solution:__  The lines are parallel.
-
-__Infinite solutions:__ The lines coincide.
+- __One solution:__ The lines intersect at exactly one point.
+- __No solution:__  The lines are parallel.
+- __Infinite solutions:__ The lines coincide.
 
 
 
@@ -323,24 +261,17 @@ __Infinite solutions:__ The lines coincide.
 Methods to solve linear systems:
 
 1. Substitution
-2.  Elimination of variables
-3.  Matrix methods
+2. Elimination of variables
+3. Matrix methods
 
-```{exercise, name = "Linear Equations", lineareq}
-
+:::{#exr-lineareq}
 
 Provide a system of 2 equations with 2 unknowns that has
 
 1. one solution
-
 2. no solution
-
 3. infinite solutions
-
-
-
-
-```
+:::
 
 
 ## Systems of Equations as Matrices
@@ -355,40 +286,35 @@ Matrices provide an easy and efficient way to represent linear systems such as
 
 as $${\bf A x = b}$$ where
 
- The $m \times n$ \textbf{coefficient matrix} ${\bf A}$ is an array of $m n$  real numbers arranged in $m$ rows by $n$ columns:
-			$${\bf A}=\begin{pmatrix}
-			a_{11} & a_{12} & \cdots & a_{1n} \\
-			a_{21} & a_{22} & \cdots & a_{2n} \\
-			\vdots &  & \ddots & \vdots \\
-			a_{m1} & a_{m2} & \cdots & a_{mn}
-			\end{pmatrix}$$
+The $m \times n$ \textbf{coefficient matrix} ${\bf A}$ is an array of $m n$  real numbers arranged in $m$ rows by $n$ columns:
+	$${\bf A}=\begin{bmatrix}
+	a_{11} & a_{12} & \cdots & a_{1n} \\
+	a_{21} & a_{22} & \cdots & a_{2n} \\
+	\vdots &  & \ddots & \vdots \\
+	a_{m1} & a_{m2} & \cdots & a_{mn}
+	\end{bmatrix}$$
 
-The unknown quantities are represented by the vector ${\bf x}=\begin{pmatrix} x_1\\x_2\\\vdots\\x_n \end{pmatrix}$.
+The unknown quantities are represented by the vector ${\bf x}=\begin{bmatrix} x_1\\x_2\\\vdots\\x_n \end{bmatrix}$.
 
-The right hand side of the linear system is represented by the vector ${\bf b}=\begin{pmatrix} b_1\\b_2\\\vdots\\b_m \end{pmatrix}$.
+The right hand side of the linear system is represented by the vector ${\bf b}=\begin{bmatrix} b_1\\b_2\\\vdots\\b_m \end{bmatrix}$.
 
 
 __Augmented Matrix__:  When we append $\bf b$ to the coefficient matrix $\bf A$, we get the augmented matrix $\widehat{\bf A}=[\bf A | b]$
-		$$\begin{pmatrix}
-			a_{11} & a_{12} & \cdots & a_{1n} & | & b_1\\
-			a_{21} & a_{22} & \cdots & a_{2n} & | & b_2\\
-			\vdots &  & \ddots & \vdots & | & \vdots\\
-			a_{m1} & a_{m2} & \cdots & a_{mn} & | & b_m
-			\end{pmatrix}$$
+  $$\begin{bmatrix}
+  	a_{11} & a_{12} & \cdots & a_{1n} & | & b_1\\
+  	a_{21} & a_{22} & \cdots & a_{2n} & | & b_2\\
+  	\vdots &  & \ddots & \vdots & | & \vdots\\
+  	a_{m1} & a_{m2} & \cdots & a_{mn} & | & b_m
+  	\end{bmatrix}$$
 
 
-```{exercise, name="Augmented Matrix", augmatrix}
-
+:::{#exr-augmatrix}
 
 Create an augmented matrix that represent the following system of equations:
-  
   $$2x_1 -7x_2 + 9x_3 -4x_4 = 8$$
   $$41x_2 + 9x_3 -5x_6 = 11$$
   $$x_1 -15x_2 -11x_5 = 9$$
-
-
-
-```
+:::
 
 
 			
@@ -396,26 +322,25 @@ Create an augmented matrix that represent the following system of equations:
 
 
 __Row Echelon Form__: Our goal is to translate our augmented matrix or system of equations into row echelon form. This will provide us with the values of the vector __x__ which solve the system. We use the row operations to change coefficients in the lower triangle of the augmented matrix to 0.  An augmented matrix of the form
-
-$$\begin{pmatrix}
-			\fbox{$a'_{11}$}& a'_{12} & a'_{13}& \cdots & a'_{1n} & | & b'_1\\
-			0 & \fbox{$a'_{22}$} & a'_{23}& \cdots & a'_{2n} & | & b'_2\\
-			0 & 0 & \fbox{$a'_{33}$}& \cdots & a'_{3n} & | & b'_3\\
-			0 & 0 &0 & \ddots & \vdots  & | & \vdots \\
-			0 & 0 &0 &0 & \fbox{$a'_{mn}$} & | & b'_m
-			\end{pmatrix}$$
+  $$\begin{bmatrix}
+  	\fbox{$a'_{11}$}& a'_{12} & a'_{13}& \cdots & a'_{1n} & | & b'_1\\
+  	0 & \fbox{$a'_{22}$} & a'_{23}& \cdots & a'_{2n} & | & b'_2\\
+  	0 & 0 & \fbox{$a'_{33}$}& \cdots & a'_{3n} & | & b'_3\\
+  	0 & 0 &0 & \ddots & \vdots  & | & \vdots \\
+  	0 & 0 &0 &0 & \fbox{$a'_{mn}$} & | & b'_m
+  	\end{bmatrix}$$
 
 is said to be in row echelon form --- each row has more leading zeros than the row preceding it.
 
 __Reduced Row Echelon Form__: We can go one step further and put the matrix into reduced row echelon form. Reduced row echelon form makes the value of __x__ which solves the system very obvious. For a system of $m$ equations in $m$ unknowns, with no all-zero rows, the reduced row echelon form would be
 
-$$\begin{pmatrix}
-			\fbox{$1$}  &  0 &   0 &    0  &   0 & | & b^*_1\\
-			0  &  \fbox{$1$} &   0 &    0  &   0 & | & b^*_2\\
-			0  &  0 &   \fbox{$1$} &    0  &   0 & | & b^*_3\\
-			0  &  0 &   0 &\ddots &   0 & | &\vdots\\
-			0  &  0 &   0 &    0  &   \fbox{$1$} & | & b^*_m
-			\end{pmatrix}$$
+  $$\begin{bmatrix}
+  	\fbox{$1$}  &  0 &   0 &    0  &   0 & | & b^*_1\\
+  	0  &  \fbox{$1$} &   0 &    0  &   0 & | & b^*_2\\
+  	0  &  0 &   \fbox{$1$} &    0  &   0 & | & b^*_3\\
+  	0  &  0 &   0 &\ddots &   0 & | &\vdots\\
+  	0  &  0 &   0 &    0  &   \fbox{$1$} & | & b^*_m
+  	\end{bmatrix}$$
 
 
 __Gaussian and Gauss-Jordan elimination__:  We can conduct elementary row operations to get our augmented matrix into row echelon or reduced row echelon form. The methods of transforming a matrix or system into row echelon and reduced row echelon form are referred to as Gaussian elimination and Gauss-Jordan elimination, respectively.
@@ -424,141 +349,121 @@ __Elementary Row Operations__: To do Gaussian and Gauss-Jordan elimination, we u
 
 
 __Interchanging Rows__:  Suppose we have the augmented matrix 
-		$${\widehat{\bf A}}=\begin{pmatrix} a_{11} & a_{12} & | & b_1\\
-			a_{21} & a_{22} & | & b_2 
-			\end{pmatrix}$$
-		If we interchange the two rows, we get the augmented matrix
-		$$\begin{pmatrix}
-			a_{21} & a_{22} & | & b_2\\
-			a_{11} & a_{12} & | & b_1
-			\end{pmatrix}$$
-		which represents a linear system equivalent to that represented by matrix $\widehat{\bf A}$.
+	$${\widehat{\bf A}}=\begin{bmatrix} a_{11} & a_{12} & | & b_1\\
+		a_{21} & a_{22} & | & b_2 
+		\end{bmatrix}$$
+If we interchange the two rows, we get the augmented matrix
+	$$\begin{bmatrix}
+		a_{21} & a_{22} & | & b_2\\
+		a_{11} & a_{12} & | & b_1
+		\end{bmatrix}$$
+which represents a linear system equivalent to that represented by matrix $\widehat{\bf A}$.
 
 __Multiplying by a Constant__: If we multiply the second row of matrix $\widehat{\bf A}$ by a constant $c$, we get the augmented matrix
-		$$\begin{pmatrix}
-			a_{11} & a_{12} & | & b_1\\
-			c a_{21} & c a_{22} & | & c b_2
-			\end{pmatrix}$$
+	$$\begin{bmatrix}
+		a_{11} & a_{12} & | & b_1\\
+		c a_{21} & c a_{22} & | & c b_2
+		\end{bmatrix}$$
 		which represents a linear system equivalent to that represented by matrix $\widehat{\bf A}$.
 
 __Adding (subtracting) Rows__:  If we add (subtract) the first row of matrix $\widehat{\bf A}$ to the second, we obtain the augmented matrix
-		$$\begin{pmatrix}
-			a_{11} & a_{12} & | & b_1\\
-			a_{11}+a_{21} & a_{12}+a_{22} & | & b_1+b_2
-			\end{pmatrix}$$
+	$$\begin{bmatrix}
+		a_{11} & a_{12} & | & b_1\\
+		a_{11}+a_{21} & a_{12}+a_{22} & | & b_1+b_2
+		\end{bmatrix}$$
 		which represents a linear system equivalent to that represented by matrix $\widehat{\bf A}$.
 
-```{example, solvesys}
-
+:::{#exm-solvesys}
 
 Solve the following system of equations by using elementary row operations:
+  $$\begin{matrix}
+  	x  & - & 3y & = & -3\\
+  	2x & + &  y & = &  8
+  	\end{matrix}$$
 
-$\begin{matrix}
-			x  & - & 3y & = & -3\\
-			2x & + &  y & = &  8
-			\end{matrix}$
-			  
-
-
-```
+:::
 
 
 
 			
-```{exercise, name = "Solving Systems of Equations", solvesys1}
-
+:::{#exr-solvesys1}
 
 Put the following system of equations into augmented matrix form. Then, using Gaussian or Gauss-Jordan elimination, solve the system of equations by putting the matrix into row echelon or reduced row echelon form.
 
-
-\[
-  1. \begin{cases}
-               x + y + 2z = 2\\
-               3x - 2y + z = 1\\
-               y - z = 3
-            \end{cases}
-               \]
-
-\[
-  2. \begin{cases}
-               2x + 3y - z = -8\\
-               x + 2y - z = 12\\
-             -x -4y + z = -6
-            \end{cases}
-               \]
+1. 
+  $$ \begin{cases}
+       x + y + 2z = 2\\
+       3x - 2y + z = 1\\
+       y - z = 3
+    \end{cases}$$
+2. 
+  $$ \begin{cases}
+       2x + 3y - z = -8\\
+       x + 2y - z = 12\\
+     -x -4y + z = -6
+    \end{cases}$$
+    
+:::
 
 
-
-```
-
-
-
-
-
-## Rank --- and Whether a System Has One, Infinite, or No Solutions
+## Rank of a Matrix
 
 To determine how many solutions exist, we can use information about (1) the number of equations $m$, (2) the number of unknowns $n$, and (3) the __rank__ of the matrix representing the linear system.
 	
 __Rank__:  The maximum number of linearly independent row or column vectors in the matrix. This is equivalent to the number of nonzero rows of a matrix in row echelon form. For any matrix __A__, the row rank always equals column rank, and we refer to this number as the rank of __A__.
 
 For example
-
-$\begin{pmatrix} 1 & 2 & 3 \\
-			0 & 4 & 5 \\
-			0 & 0 & 6 \end{pmatrix}$
+  $$\begin{bmatrix} 1 & 2 & 3 \\
+  			0 & 4 & 5 \\
+  			0 & 0 & 6 \end{bmatrix}$$
 			
 Rank = 3
 			
-$\begin{pmatrix} 1 & 2 & 3 \\ 
-0 & 4 & 5 \\
-0 & 0 & 0 \end{pmatrix}$
+  $$\begin{bmatrix} 1 & 2 & 3 \\ 
+    0 & 4 & 5 \\
+    0 & 0 & 0 \end{bmatrix}$$
 			
 Rank = 2
 
 
-```{exercise, name = "Rank of Matrices", rank}
-
+:::{#exr-rank}
 
 Find the rank of each matrix below:
 
 (Hint: transform the matrices into row echelon form. Remember that the number of nonzero rows of a matrix in row echelon form is the rank of that matrix)
 
-1.$\begin{pmatrix} 1 & 1 & 2 \\ 
-2 & 1 & 3 \\
-1 & 2 & 3 \end{pmatrix}$
+1. 
+  $$\begin{bmatrix} 1 & 1 & 2 \\ 
+  2 & 1 & 3 \\
+  1 & 2 & 3 \end{bmatrix}$$
 
-
-\bigskip
-
-2.$\begin{pmatrix} 1 & 3 & 3 & -3 & 3\\ 
-1 & 3 & 1 & 1 & 3 \\
-1 & 3 & 2 & -1 & -2 \\
-1 & 3 & 0 & 3 & -2 \end{pmatrix}$
+2.
+  $$\begin{bmatrix} 1 & 3 & 3 & -3 & 3\\ 
+  1 & 3 & 1 & 1 & 3 \\
+  1 & 3 & 2 & -1 & -2 \\
+  1 & 3 & 0 & 3 & -2 \end{bmatrix}$$
   
-
-
-```
+:::
 
 
 
-Answer to Exercise \@ref(exr:rank):
+Answer to @exr-rank:
 
 1. rank is 2
-
 2. rank is 3
 
 
 ## The Inverse of a Matrix
 __Identity Matrix__:  The $n\times n$ identity matrix ${\bf I}_n$ is the matrix whose diagonal elements are 1 and all off-diagonal elements are 0. Examples:
-			$$ {\bf I}_2=\begin{pmatrix} 1&0\\0&1 \end{pmatrix}, \qquad {\bf I}_3=\begin{pmatrix} 1&0&0\\ 0&1&0\\ 
-			0&0&1 \end{pmatrix}$$	
+			$$ {\bf I}_2=\begin{bmatrix} 1&0\\0&1 \end{bmatrix}, \qquad {\bf I}_3=\begin{bmatrix} 1&0&0\\ 0&1&0\\ 
+			0&0&1 \end{bmatrix}$$	
 			
 			
 __Inverse Matrix__:  An $n\times n$ matrix ${\bf A}$ is __nonsingular__ or __invertible__ if there exists an $n\times n$ matrix ${\bf A}^{-1}$ such that $${\bf A} {\bf A}^{-1} = {\bf A}^{-1} {\bf A} = {\bf I}_n$$ where ${\bf A}^{-1}$ is the inverse of ${\bf A}$.  If there is no such ${\bf A}^{-1}$, then ${\bf A}$ is singular or not invertible.
 
 Example:  Let
-		$${\bf A} = \begin{pmatrix} 2&3\\2&2 \end{pmatrix}, \qquad {\bf B}=\begin{pmatrix} -1&\frac{3}{2}\\ 1&-1
-		\end{pmatrix}$$
+		$${\bf A} = \begin{bmatrix} 2&3\\2&2 \end{bmatrix}, \qquad {\bf B}=\begin{bmatrix} -1&\frac{3}{2}\\ 1&-1
+		\end{bmatrix}$$
 		Since $${\bf A} {\bf B} = {\bf B} {\bf A} = {\bf I}_n$$ we conclude that ${\bf B}$ is the inverse, ${\bf A}^{-1}$, of ${\bf A}$ and that ${\bf A}$ is nonsingular.
 
 __Properties of the Inverse__:
@@ -573,7 +478,7 @@ __Properties of the Inverse__:
 
 - $({\bf A}{\bf B})^{-1} = {\bf B}^{-1}{\bf A}^{-1}$
 
-- If ${\bf A}$ is nonsingular, then $({\bf A}^T)^{-1}=({\bf A}^{-1})^T$
+- If ${\bf A}$ is nonsingular, then $({\bf A}^\top)^{-1}=({\bf A}^{-1})^\top$
 
  
 __Procedure to Find__ ${\bf A}^{-1}$:  We know that if ${\bf B}$ is the inverse of ${\bf A}$, then $${\bf A} {\bf B} = {\bf B} {\bf A} = {\bf I}_n$$  Looking only at the first and last parts of this $${\bf A} {\bf B} = {\bf I}_n$$  Solving for ${\bf B}$ is equivalent to solving for $n$ linear systems, where each column of ${\bf B}$ is solved for the corresponding column in ${\bf I}_n$.  We can solve the systems simultaneously by augmenting ${\bf A}$ with ${\bf I}_n$ and performing Gauss-Jordan elimination on ${\bf A}$.  If Gauss-Jordan elimination on $[{\bf A} | {\bf I}_n]$ results in $[{\bf I}_n | {\bf B} ]$, then ${\bf B}$ is the inverse of ${\bf A}$.  Otherwise, ${\bf A}$ is singular.
@@ -591,30 +496,23 @@ To summarize:  To calculate the inverse of ${\bf A}$
 	b. If ${\bf C}\ne{\bf I}_n$, then $\bf C$ has a row of zeros. This means ${\bf A}$ is singular and ${\bf A}^{-1}$ does not exist.
 
 
-```{example, inverse}
-
-Find the inverse of the following matricies:
-  
-1. ${\bf A}=\begin{pmatrix} 1&1&1\\0&2&3\\5&5&1 \end{pmatrix}$
-
-
-
-```
-
-
-
-
-
-```{exercise, name = "Finding the inverse of matrices", inverse1}
-
+:::{#exm-inverse}
 
 Find the inverse of the following matrix:
-  
-1. ${\bf A}=\begin{pmatrix} 1&0&4\\0&2&0\\0&0&1 \end{pmatrix}$
+  $${\bf A}=\begin{bmatrix} 1&1&1\\0&2&3\\5&5&1 \end{bmatrix}$$
+
+:::
 
 
 
-```
+
+
+:::{#exr-inverse1}
+
+Find the inverse of the following matrix:
+  $${\bf A}=\begin{bmatrix} 1&0&4\\0&2&0\\0&0&1 \end{bmatrix}$$
+
+:::
 
 
 
@@ -623,118 +521,102 @@ Find the inverse of the following matrix:
 
 Let's return to the matrix representation of a linear system 
 		
-\[\bf{Ax} = \bf{b}\]
+  $$\bf{Ax} = \bf{b}$$
 
 If $\bf{A}$ is an $n\times n$ matrix,then $\bf{Ax}=\bf{b}$ is a system of $n$ equations in $n$ unknowns.  Suppose $\bf{A}$ is nonsingular. Then $\bf{A}^{-1}$ exists.  To solve this system, we can multiply each side by $\bf{A}^{-1}$ and reduce it as follows:
-		
-\begin{eqnarray*} 
-\bf{A}^{-1} (\bf{A} \bf{x}) & = & \bf{A}^{-1} \bf{b} \\
-(\bf{A}^{-1} \bf{A})\bf{x} & = & \bf{A}^{-1} \bf{b}\\
-\bf{I}_n \bf{x}     & = & \bf{A}^{-1} \bf{b}\\
-\bf{x} & = & \bf{A}^{-1} \bf{b}
-\end{eqnarray*}
+  $$\begin{align*} \bf{A}^{-1} (\bf{A} \bf{x}) & =  \bf{A}^{-1} \bf{b} \\ (\bf{A}^{-1} \bf{A})\bf{x} & =  \bf{A}^{-1} \bf{b}\\ \bf{I}_n \bf{x}     & =  \bf{A}^{-1} \bf{b}\\ \bf{x} & =  \bf{A}^{-1} \bf{b} \end{align*} $$
 
 Hence, given $\bf{A}$ and $\bf{b}$ and given that $\bf{A}$ is nonsingular, then $\bf{x} = \bf{A}^{-1} \bf{b}$ is a unique solution to this system.
 
 
-
-```{exercise, invlinsys, name = "Solve linear system using inverses"}
+:::{#exr-invlinsys}
 
 Use the inverse matrix to solve the following linear system:
 
-\begin{align*} 
--3x + 4y &= 5 \\
-2x - y &= -10
-\end{align*}
+  $$ \begin{align*} 
+  -3x + 4y &= 5 \\
+  2x - y &= -10
+  \end{align*} $$
 
-
-___Hint: the linear system above can be written in the matrix form___ 
+**Hint**: the linear system above can be written in the matrix form
 
 $\textbf{A}\textbf{z} = \textbf{b}$ 
   
-given \[\textbf{A} = \begin{pmatrix} -3&4\\2&-1 \end{pmatrix},\] 
+given 
+  $$\textbf{A} = \begin{bmatrix} -3&4\\2&-1 \end{bmatrix},$$
 
-\[\textbf{z} = \begin{pmatrix} x\\y \end{pmatrix},\] 
+  $$\textbf{z} = \begin{bmatrix} x\\y \end{bmatrix},$$ 
 and 
-\[\textbf{b} = \begin{pmatrix} 5\\-10 \end{pmatrix}\]
+  $$\textbf{b} = \begin{bmatrix} 5\\-10 \end{bmatrix}$$
 
-
-
-
-
-```
+:::
 
 ## Determinants
 
 __Singularity__:  Determinants can be used to determine whether a square matrix is nonsingular.
 	
- A square matrix is nonsingular if and only if its determinant is not zero.
-	
+A square matrix is nonsingular if and only if its determinant is not zero.
 
-Determinant of a $1 \times 1$ matrix, __A__, equals $a_{11}$
+Determinant of a $1 \times 1$ matrix, equals $|\mathbf{A}|=|a_{11}|=a_{11}$
 
-Determinant of a $2 \times 2$ matrix, __A__, 
-		$\begin{vmatrix} a_{11}&a_{12}\\ 
-			a_{21}&a_{22} \end{vmatrix}$:
+Determinant of a $2 \times 2$ matrix,   
+$$\mathbf{A}=\begin{vmatrix} a_{11}&a_{12}\\ a_{21}&a_{22} \end{vmatrix}$$
 
-\begin{eqnarray*}
-\det({\bf A}) &=& |{\bf A}|\\
-			&=& a_{11}|a_{22}| - a_{12}|a_{21}|\\
-			&=& a_{11}a_{22} - a_{12}a_{21}
-\end{eqnarray*}
+  $$\begin{align*}\det({\bf A}) &= |{\bf A}|\\
+  			&= a_{11}|a_{22}| - a_{12}|a_{21}|\\
+  			&= a_{11}a_{22} - a_{12}a_{21}
+  \end{align*}$$
 
 We can extend the second to last equation above to get the definition of the determinant of a $3 \times 3$ matrix:
+  $$\begin{align*}
+  			\begin{vmatrix} a_{11}&a_{12}&a_{13}\\  a_{21} & a_{22}&a_{23}\\ a_{31}&a_{32}&a_{33} \end{vmatrix} 
+  				&= 
+  				a_{11} \begin{vmatrix} a_{22}&a_{23}\\ a_{32}&a_{33} \end{vmatrix}
+  				- a_{12} \begin{vmatrix} a_{21}&a_{23}\\ a_{31}&a_{33} \end{vmatrix}
+  				+ a_{13} \begin{vmatrix} a_{21}&a_{22}\\ a_{31}&a_{32} 
+  				\end{vmatrix}\\
+  				&= a_{11}(a_{22}a_{33} - a_{23}a_{32}) - a_{12}(a_{21}a_{33} - a_{23}a_{31}) + a_{13}(a_{21}a_{32} - a_{22}a_{31})
+  \end{align*} $$
 
-\begin{eqnarray*}
-			\begin{vmatrix} a_{11}&a_{12}&a_{13}\\  a_{21} & a_{22}&a_{23}\\ a_{31}&a_{32}&a_{33} \end{vmatrix} 
-				&=& 
-				a_{11} \begin{vmatrix} a_{22}&a_{23}\\ a_{32}&a_{33} \end{vmatrix}
-				- a_{12} \begin{vmatrix} a_{21}&a_{23}\\ a_{31}&a_{33} \end{vmatrix}
-				+ a_{13} \begin{vmatrix} a_{21}&a_{22}\\ a_{31}&a_{32} 
-				\end{vmatrix}\\
-				&=& a_{11}(a_{22}a_{33} - a_{23}a_{32}) - a_{12}(a_{21}a_{33} - a_{23}a_{31}) + a_{13}(a_{21}a_{32} - a_{22}a_{31})
-\end{eqnarray*}
-
-Let's extend this now to any $n\times n$ matrix. Let's define ${\bf A}_{ij}$ as the $(n-1)\times (n-1)$ submatrix of ${\bf A}$ obtained by deleting row $i$ and column $j$.  Let the $(i,j)$th __minor__ of ${\bf A}$ be  the determinant of ${\bf A}_{ij}$:
-			$$M_{ij}=|{\bf A}_{ij}|$$
-			Then for any $n\times n$ matrix ${\bf A}$
-			$$|{\bf A}|= a_{11}M_{11} - a_{12}M_{12} + \cdots + (-1)^{n+1} a_{1n} M_{1n}$$
+Let's extend this now to any $n\times n$ matrix. Let's define $\mathbf{A}_{ij}$ as the $(n-1)\times (n-1)$ submatrix of $\mathbf{A}$ obtained by deleting row $i$ and column $j$.  Let the $(i,j)$th __minor__ of $\mathbf{A}$ be  the determinant of $\mathbf{A}_{ij}$:
+$$M_{ij} = \left|\mathbf{A}_{ij}\right|$$
+	
+Then for any $n\times n$ matrix $\mathbf{A}$
+$$|\mathbf{A}| = a_{11}M_{11} - a_{12}M_{12} + \cdots + (-1)^{n+1} a_{1n} M_{1n}$$
 
 
 	
 For example, in figuring out whether the following matrix has an inverse? 
-		$${\bf A}=\begin{pmatrix} 1&1&1\\0&2&3\\5&5&1 \end{pmatrix}$$
+$$\mathbf{A}=\begin{bmatrix} 1&1&1\\0&2&3\\5&5&1 \end{bmatrix}$$
+
 1. Calculate its determinant.
-\begin{eqnarray}
-				&=& 1(2-15) - 1(0-15) + 1(0-10) \nonumber\\
-				&=& -13+15-10 \nonumber\\
-				&=& -8\nonumber
-\end{eqnarray}
+  $$\begin{align*}
+  	|\mathbf{A}| &= 1(2-15) - 1(0-15) + 1(0-10) \nonumber\\
+  	&= -13+15-10 \nonumber\\
+  	&= -8\nonumber
+    \end{align*}$$
+
 2. Since $|{\bf A}|\ne 0$, we conclude that ${\bf A}$ has an inverse.
 
-
-
-```{exercise, name = "Determinants and Inverses", determinants}
-
+:::{#exr-determinants}
 
 Determine whether the following matrices are nonsingular:
   
-  
-  $$1. \begin{pmatrix}
-			1 & 0 & 1\\
-			2 & 1 & 2\\
-			1 & 0 & -1
-		\end{pmatrix}$$
+1. 
+  $$\begin{bmatrix}
+  1 & 0 & 1\\
+  2 & 1 & 2\\
+  1 & 0 & -1
+  \end{bmatrix}$$
 			  
-$$2. \begin{pmatrix}
-			2 & 1 & 2\\
-			1 & 0 & 1\\
-			4 & 1 & 4
-		\end{pmatrix}$$
+2. 
+  $$\begin{bmatrix}
+		2 & 1 & 2\\
+		1 & 0 & 1\\
+		4 & 1 & 4
+	\end{bmatrix}$$
 
-			  
-
-```
+:::
 
 
 ## Getting Inverse of a Matrix using its Determinant
@@ -754,165 +636,163 @@ Hence, we can examine how changes in the parameters and $b_i$ affect the solutio
 
 __Determinant Formula for the Inverse of a $2 \times 2$__: 
 
-The determinant of a $2 \times 2$ matrix __A__ $\begin{pmatrix} a & b\\ c & d\\ \end{pmatrix}$ is defined as:
-\[\frac{1}{\det({\bf A})} \begin{pmatrix}
-			d & -b\\
-			-c & a\\
-		\end{pmatrix}\]
+The determinant of a $2 \times 2$ matrix $\mathbf{A}=\begin{bmatrix} a & b\\ c & d\\ \end{bmatrix}$ is defined as:
+  $$\frac{1}{\det({\bf A})} \begin{bmatrix}
+  			d & -b\\
+  			-c & a\\
+  		\end{bmatrix}$$
 		
 
-For example, Let's calculate the inverse of matrix A from Exercise \@ref(exr:invlinsys) using the determinant formula. 
+For example, Let's calculate the inverse of matrix A from @exr-invlinsys using the determinant formula. 
 
 
 Recall, 
 
-\[A = \begin{pmatrix}
-			-3 & 4\\
-			2 & -1\\
-		\end{pmatrix}\]
-		
-\[\det({\bf A}) = (-3)(-1) - (4)(2) = 3 - 8  = -5\]
-
-\[\frac{1}{\det({\bf A})} \begin{pmatrix}
-			-1 & -4\\
-			-2 & -3\\
-		\end{pmatrix}\]
-		
-\[\frac{1}{-5} \begin{pmatrix}
-			-1 & -4\\
-			-2 & -3\\
-		\end{pmatrix}\]
-		
-\[ \begin{pmatrix}
-			\frac{1}{5} & \frac{4}{5}\\
-			\frac{2}{5} & \frac{3}{5}\\
-		\end{pmatrix}\]
-
-
-```{exercise, name = "Calculate Inverse using Determinant Formula", calcinverse}
+  $$\mathbf{A} = \begin{bmatrix}
+  			-3 & 4\\
+  			2 & -1\\
+  		\end{bmatrix}$$
+  		
+  $$\det(\mathbf{A}) = (-3)(-1) - (4)(2) = 3 - 8  = -5$$
+  
+  $$\frac{1}{\det(\mathbf{A})} \begin{bmatrix}
+  			-1 & -4\\
+  			-2 & -3\\
+  		\end{bmatrix}$$
+  		
+  $$\frac{1}{-5} \begin{bmatrix}
+  			-1 & -4\\
+  			-2 & -3\\
+  		\end{bmatrix}$$
+  		
+  $$\begin{bmatrix}
+  			\frac{1}{5} & \frac{4}{5}\\
+  			\frac{2}{5} & \frac{3}{5}\\
+  		\end{bmatrix}$$
 
 
-Caculate the inverse of A
+:::{#exr-calcinverse}
 
-$$A = \begin{pmatrix}
-			3 & 5\\
-			-7 & 2\\
-		\end{pmatrix}$$
+Caculate the inverse of $\mathbf{A}$
+  $$\mathbf{A} = \begin{bmatrix}
+  			3 & 5\\
+  			-7 & 2\\
+  		\end{bmatrix}$$
 
-
-			  
-
-```
+:::
 
 
 
 ## Answers to Examples and Exercises {-}
 
-Answer to Example \@ref(exm:vectors):
+Answer to @exm-vectors:
 
-  1. $\begin{pmatrix} -1 &-3&-3 \end{pmatrix}$
+  1. $\begin{bmatrix} -1 &-3&-3 \end{bmatrix}$
   2. 6 + 4 + 10 = 20
 
-Answer to Exercise \@ref(exr:vectors1):
+Answer to @exr-vectors1:
 
-  1. $\begin{pmatrix} -2 &4&-7&-5 \end{pmatrix}$
-  2. $\begin{pmatrix} 2 &26&-14&4&30 \end{pmatrix}$
+  1. $\begin{bmatrix} -2 &4&-7&-5 \end{bmatrix}$
+  2. $\begin{bmatrix} 2 &26&-14&4&30 \end{bmatrix}$
   3. 63 -3 -10 + 24 = 74
   4. undefined
 
-Answer to Example \@ref(exm:linearindep):
+Answer to @exm-linearindep:
 
   1. yes
   2. no
 
-Answer to Exercise \@ref(exr:linearindep1):
+Answer to @exr-linearindep1:
 
   1. yes
   2. no ($-v_1 -v_2 + v_3  = 0$)
   
 
-Answer to Example \@ref(exm:matrixaddition):
+Answer to @exm-matrixaddition:
 
-${\bf A+B}=\begin{pmatrix} 2 & 4 & 4 \\ 6 & 6 & 8 \end{pmatrix}$
+${\bf A+B}=\begin{bmatrix} 2 & 4 & 4 \\ 6 & 6 & 8 \end{bmatrix}$
 	
-Answer to Example \@ref(exm:scalarmulti):
+Answer to @exm-scalarmulti:
 
-$s {\bf A} = \begin{pmatrix} 2 & 4 & 6 \\ 8 & 10 & 12 \end{pmatrix}$
+$s {\bf A} = \begin{bmatrix} 2 & 4 & 6 \\ 8 & 10 & 12 \end{bmatrix}$
 
 
 
-Answer to Example \@ref(exm:matrixmulti):
+Answer to @exm-matrixmulti:
 
-1. $\begin{pmatrix} aA+bC&aB+bD\\cA+dC&cB+dD\\eA+fC&eB+fD \end{pmatrix}$
+1. $\begin{bmatrix} aA+bC&aB+bD\\cA+dC&cB+dD\\eA+fC&eB+fD \end{bmatrix}$
 
-2. $\begin{pmatrix} 1(-2)+2(4)-1(2)&1(5)+2(-3)-1(1)\\
-				3(-2)+1(4)+4(2)&3(5)+1(-3)+4(1)\end{pmatrix} =
-			\begin{pmatrix} 4&-2\\6&16\end{pmatrix}$
+2. $\begin{bmatrix} 1(-2)+2(4)-1(2)&1(5)+2(-3)-1(1)\\
+				3(-2)+1(4)+4(2)&3(5)+1(-3)+4(1)\end{bmatrix} =
+			\begin{bmatrix} 4&-2\\6&16\end{bmatrix}$
 
-Answer to Exercise \@ref(exr:matrixmulti1):
+Answer to @exr-matrixmulti1:
   
-1. $AB = \begin{pmatrix} 4 & 11 & -15 \\ 5 & 7 & -7 \end{pmatrix}$
+1. $AB = \begin{bmatrix} 4 & 11 & -15 \\ 5 & 7 & -7 \end{bmatrix}$
   
 2. $BA =$ undefined
   
-3. $(BC)^T =$ undefined
+3. $(BC)^\top =$ undefined
   
-4. $BC^T = \begin{pmatrix} 1&5&-7\\1&1&0\\0&-1&1\\2&0&0\end{pmatrix}\begin{pmatrix} 3&0\\2&4\\-1&6 \end{pmatrix} =\begin{pmatrix}20 & -22 \\ 5 & 4 \\ -3 &2 \\6 & 0\end{pmatrix}$
+4. $BC^\top = \begin{bmatrix} 1&5&-7\\1&1&0\\0&-1&1\\2&0&0\end{bmatrix}\begin{bmatrix} 3&0\\2&4\\-1&6 \end{bmatrix} =\begin{bmatrix}20 & -22 \\ 5 & 4 \\ -3 &2 \\6 & 0\end{bmatrix}$
 
 
-Answer to Exercise \@ref(exr:lineareq):
+Answer to @exr-lineareq:
 
 There are many answers to this. Some possible simple ones are as follows:
 
-1. One solution: \[\begin{matrix}
-			-x  & + & y & = & 0\\
-			x & + &  y & = &  2
-			\end{matrix}\]
+1. One solution: 
+  $$\begin{matrix}
+  			-x  & + & y & = & 0\\
+  			x & + &  y & = &  2
+  			\end{matrix}$$
 
-2.  No solution: \[\begin{matrix}
-			-x  & + & y & = & 0\\
-			x & - &  y & = &  2
-			\end{matrix}\]
+2. No solution: 
+  $$\begin{matrix}
+  			-x  & + & y & = & 0\\
+  			x & - &  y & = &  2
+  			\end{matrix}$$
 
-3. Infinite solutions: \[\begin{matrix}
-			-x  & + & y & = & 0\\
-			2x & - &  2y & = &  0
-			\end{matrix}\]
+3. Infinite solutions: 
+  $$\begin{matrix}
+  			-x  & + & y & = & 0\\
+  			2x & - &  2y & = &  0
+  			\end{matrix}$$
 
 
 
-Answer to Exercise \@ref(exr:augmatrix):
+Answer to @exr-augmatrix:
 
-$\begin{pmatrix}
+$\begin{bmatrix}
 			2 & -7 & 9 & -4 & 0 & 0| & 8\\
 			0 & 41 & 9 & 0 & 0 & 5 | & 11\\
 			1 & -15 & 0 & 0 & -11 & 0 | & 9
-			\end{pmatrix}$
+			\end{bmatrix}$
 
-Answer to Example \@ref(exm:solvesys):
+Answer to @exm-solvesys:
 
 
-$$\begin{matrix}
-			x  & - & 3y & = & -3\\
-			2x & + &  y & = &  8
-			\end{matrix}$$
+  $$\begin{matrix}
+  	x  & - & 3y & = & -3\\
+  	2x & + &  y & = &  8
+  	\end{matrix}$$
 
-$$\begin{matrix}
-			x  & - & 3y & = & -3\\
-			   &   & 7y & = & 14\\			
-			\end{matrix}$$
+  $$\begin{matrix}
+  	x  & - & 3y & = & -3\\
+  	   &   & 7y & = & 14\\			
+  	\end{matrix}$$
 
-$$\begin{matrix}
-			x  & - & 3y & = & -3\\
-			   &   & y & = & 2\\			
-			\end{matrix}$$
+  $$\begin{matrix}
+  	x  & - & 3y & = & -3\\
+  	   &   & y & = & 2\\			
+  	\end{matrix}$$
 			
-$$\begin{matrix}
-			x & = & 3\\
-			y & = & 2\\			
-			\end{matrix}$$
+  $$\begin{matrix}
+  	x & = & 3\\
+  	y & = & 2\\			
+  	\end{matrix}$$
 			
-Answer to Exercise \@ref(exr:solvesys1):
+Answer to @exr-solvesys1:
 
 1. x = 2, y = 2, z = -1
 
@@ -920,13 +800,13 @@ Answer to Exercise \@ref(exr:solvesys1):
 
 
 
-Answer to Exercise \@ref(exr:rank):
+Answer to @exr-rank:
 
 1. rank is 2
 
 2. rank is 3
 
-Answer to Example \@ref(exm:inverse):
+Answer to @exm-inverse:
 
 $\left(\begin{array}{ccc|ccc}
 	1&1&1&1&0&0\\
@@ -971,37 +851,37 @@ ${\bf A}^{-1} = \left(\begin{array}{ccc}
 \end{array} \right)$
 
 
-Answer to Exercise \@ref(exr:inverse1):
+Answer to @exr-inverse1:
 
-1. ${\bf A}^{-1}=\begin{pmatrix} 1&0&-4\\0&\frac{1}{2}&0\\0&0&1 \end{pmatrix}$
+1. ${\bf A}^{-1}=\begin{bmatrix} 1&0&-4\\0&\frac{1}{2}&0\\0&0&1 \end{bmatrix}$
 
-Answer to Exercise \@ref(exr:invlinsys):
+Answer to @exr-invlinsys:
 
-$\textbf{z} = \bf{A}^{-1} \bf{b} = \begin{pmatrix}
+$\textbf{z} = \bf{A}^{-1} \bf{b} = \begin{bmatrix}
 	1/5 &4/5\\
 	2/5&3/5 
-\end{pmatrix} \begin{pmatrix}
+\end{bmatrix} \begin{bmatrix}
 	5 \\
 	-10
-\end{pmatrix}= \begin{pmatrix}
+\end{bmatrix}= \begin{bmatrix}
 	-7 \\
 	-4
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
 	x \\
 	y
-\end{pmatrix}$
+\end{bmatrix}$
 
-Answer to Exercise \@ref(exr:determinants):
+Answer to @exr-determinants:
 
 1. nonsingular
 
 2. singular
 
-Answer to Exercise \@ref(exr:calcinverse):
+Answer to @exr-calcinverse:
 
-$\begin{pmatrix}
+$\begin{bmatrix}
 			\frac{2}{41} & \frac{-5}{41}\\
 			\frac{7}{41} & \frac{3}{41}\\
-		\end{pmatrix}$
+		\end{bmatrix}$
 
 

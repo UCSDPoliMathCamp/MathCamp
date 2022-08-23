@@ -1,18 +1,4 @@
---- 
-title: "UCSD Political Science Math Camp"
-author: ""
-date: "`r format(Sys.Date(), '%B %Y')`"
-description: "Text for UCSD Department of Political Science Math Camp"
-github-repo: "UCSDPoliMathCamp/MathCamp"
-site: bookdown::bookdown_site
-documentclass: book
-geometry: "margin=1.5in"
-biblio-style: apalike
-link-citations: yes
-cover-image: "./images/logo.png"
----
-
-# About this Booklet {-}
+## About this Booklet {-}
 
 This booklet is adapted from the [Harvard Gov Prefresher booklet](https://iqss.github.io/prefresher/), maintained by [Shiro Kuriwaki](https://www.shirokuriwaki.com). 
 It will serve as as the text for the UCSD Math Camp, taught by Bertrand Wilden and Keng-Chi Chang, and we have reordered and adapted it to fit the structure of our course.

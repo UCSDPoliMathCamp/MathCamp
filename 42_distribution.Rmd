@@ -1,27 +1,26 @@
 # Summarizing Distributions {#distribution}
 
-
+```{r, include = FALSE}
+library(tidyverse)
+```
 
 
 ## Expectation 
 
 We often want to summarize some characteristics of the distribution of a random variable.  The most important summary is the expectation (or expected value, or mean), in which the possible values of a random variable are weighted by their probabilities.
 
-```{definition, name = "Expectation of a Discrete Random Variable"}
-The expected value of a discrete random variable $Y$ is \[E(Y)=\sum\limits_{y} y P(Y=y)= \sum\limits_{y} y p(y)\]  
+:::{#def-}
+### Expectation of a Discrete Random Variable
+The expected value of a discrete random variable $Y$ is 
+$$E(Y)=\sum\limits_{y} y P(Y=y)= \sum\limits_{y} y p(y)$$  
 In words, it is the weighted average of all possible values of $Y$, weighted by the probability that $y$ occurs.  It is not necessarily the number we would expect $Y$ to take on, but the average value of $Y$ after a large number of repetitions of an experiment.
+:::
 
-```
 
-
-```{example, name = "Expectation of a Discrete Random Variable", expectdiscrete}
-
+:::{#exm-expectdiscrete}
 
 What is the expectation of a fair, six-sided die?
-  
-
-
-```
+:::
 
 
 __Expectation of a Continuous Random Variable__:  The expected
@@ -29,18 +28,13 @@ value of a continuous random variable is similar in concept to that of
 the discrete random variable, except that instead of summing using
 probabilities as weights, we integrate using the density to weight.
 Hence, the expected value of the continuous variable $Y$ is defined by
-\[E(Y)=\int\limits_{y} y f(y) dy\]
+$$E(Y)=\int\limits_{y} y f(y) dy$$
 
 
-```{example, name = "Expectation of a Continuous Random Variable", expectconti}
-
-
+:::{#exm-expectconti}
+### Expectation of a Continuous Random Variable
 Find $E(Y)$ for $f(y)=\frac{1}{1.5}, \quad 0<y<1.5$.
-
-
-```
-
-
+:::
 
 
 ### Expected Value of a Function {-}
@@ -49,28 +43,27 @@ Remember: An Expected Value is a type of weighted average. We can extend this to
 
 If $Y$ is Discrete with PMF $p(y)$,  
 
-\[E[g(Y)]=\sum\limits_y g(y)p(y)\]
+$$E[g(Y)]=\sum\limits_y g(y)p(y)$$
 
 If $Y$ is Continuous with PDF $f(y)$,
 
-\[E[g(Y)]=\int\limits_{-\infty}^\infty g(y)f(y)dy\]
+$$E[g(Y)]=\int\limits_{-\infty}^\infty g(y)f(y)dy$$
 
 
 ### Properties of Expected Values {-}
 
 Dealing with Expectations is easier when the thing inside is a sum. The intuition behind this that Expectation is an integral, which is a type of sum. 
 
-1. Expectation of a constant is a constant \[E(c)=c\]
-2. Constants come out \[E(c g(Y))= c E(g(Y))\]
-4. Expectation is Linear \[E(g(Y_1) + \cdots + g(Y_n))=E(g(Y_1)) +\cdots+E(g(Y_n)),\] regardless of independence
-2. Expected Value of Expected Values: \[E(E(Y)) = E(Y)\] (because the expected value of a random variable is a constant)
+:::{#prop-}
+1. Expectation of a constant is a constant $$E(c)=c$$
+2. Constants come out $$E(c g(Y))= c E(g(Y))$$
+4. Expectation is Linear $$E(g(Y_1) + \cdots + g(Y_n))=E(g(Y_1)) +\cdots+E(g(Y_n)),$$ regardless of independence
+2. Expected Value of Expected Values: $$E(E(Y)) = E(Y)$$ (because the expected value of a random variable is a constant)
 
 Finally, if $X$ and $Y$ are independent, even products are easy:
 
-\[E(XY) = E(X)E(Y)\]
-
-
-
+$$X \;\; \mathrm{ and } \;\; Y \mathrm{are independent } \;\Rightarrow\; E(XY) = E(X)E(Y)$$
+:::
 
 __Conditional Expectation__: With joint distributions, we are often interested in the expected value of a variable $Y$ if we could hold the other variable $X$ fixed.  This is the conditional expectation of $Y$ given $X = x$:
 
@@ -85,44 +78,38 @@ The conditional expectation is often used for prediction when one knows the valu
 
 We can also look at other summaries of the distribution, which build on the idea of taking expectations. Variance tells us about the "spread" of the distribution; it is the expected value of the squared deviations from the mean of the distribution.  The standard deviation is simply the square root of the variance.
 
-```{definition, name = "Variance"}
+:::{#def-}
+### Variance
 The Variance of a Random Variable $Y$ is
   
-  \[\text{Var}(Y) = E[(Y - E(Y))^2] =  E(Y^2)-[E(Y)]^2\]
-
+$$\text{Var}(Y) = E[(Y - E(Y))^2] =  E(Y^2)-[E(Y)]^2$$
   
-The Standard Deviation is the square root of the variance : \[SD(Y) = \sigma_Y= \sqrt{\text{Var}(Y)}\]
+The Standard Deviation is the square root of the variance : 
 
-```
+$$SD(Y) = \sigma_Y= \sqrt{\text{Var}(Y)}$$
+:::
 
 
 
-```{example, name = "Variance", var}
-
+:::{#exm-var}
 
 Given the following PMF: 
-\[f(x) =  \begin{cases}
-              \frac{3!}{x!(3-x)!}(\frac{1}{2})^3 \quad x = 0,1,2,3\\
-               0 \quad otherwise
-            \end{cases}
-               \]
+$$f(x) = \begin{cases}
+    \frac{3!}{x!(3-x)!}(\frac{1}{2})^3 \quad x = 0,1,2,3\\
+      0 \quad otherwise
+  \end{cases}$$
 
 What is $\text{Var}(x)$?
   
-  
 __Hint:__ First calculate $E(X)$ and $E(X^2)$
 
-  
-  
+:::
 
-```
-
-```{definition, name = "Covariance and Correlation"}
-
+:::{#def-}
+### Covariance
 The covariance measures the degree to which two random variables vary together; if the covariance between $X$ and $Y$ is positive, X tends to be larger than its mean when Y is larger than its mean.  
 
-
-\[\text{Cov}(X,Y) = E[(X - E(X))(Y - E(Y))] \]
+$$\text{Cov}(X,Y) = E[(X - E(X))(Y - E(Y))] $$
 We can also write this as 
 
 \begin{align*}
@@ -131,23 +118,22 @@ We can also write this as
 &= E(XY) - E(X)E(Y)
 \end{align*}
 
-
-```
+:::
 
 The covariance of a variable with itself is the variance of that variable.
 
 The Covariance is unfortunately hard to interpret in magnitude. The correlation is a standardized version of the covariance, and always ranges from -1 to 1. 
 
-```{definition, name = "Correlation"}
+:::{#def-}
+### Correlation
 The correlation coefficient is the covariance divided by the standard deviations of $X$ and $Y$.  It is a unitless measure and always takes on values in the interval $[-1,1]$.
 
-\[\text{Corr}(X, Y) = \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}} = \frac{\text{Cov}(X,Y)}{SD(X)SD(Y)}\]
-
-
-```
+$$\text{Corr}(X, Y) = \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}} = \frac{\text{Cov}(X,Y)}{SD(X)SD(Y)}$$
+:::
 
 ___Properties of Variance and Covariance:___
 
+:::{#prop-}
 1. $\text{Var}(c) = 0$
 2. $\text{Var}(cY) = c^2 \text{Var}(Y)$
 3. $\text{Cov}(Y,Y) = \text{Var}(Y)$
@@ -156,66 +142,42 @@ ___Properties of Variance and Covariance:___
 6. $\text{Cov}(X+a,Y) =  \text{Cov}(X,Y)$
 7. $\text{Cov}(X+Z,Y+W) = \text{Cov}(X,Y) + \text{Cov}(X,W) + \text{Cov}(Z,Y) + \text{Cov}(Z,W)$
 8. $\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y) + 2\text{Cov}(X,Y)$
+:::
 
 
-
-
-```{exercise, name = "Expectation and Variance", expvar}
-
+:::{#exr-expvar}
+### Expectation and Variance
 Suppose we have a PMF with the following characteristics:
-\begin{eqnarray*}
-  P(X = -2) = \frac{1}{5}\\
-  P(X = -1) = \frac{1}{6}\\
-  P(X = 0) = \frac{1}{5}\\
-  P(X = 1) = \frac{1}{15}\\
-  P(X = 2) = \frac{11}{30}
-\end{eqnarray*}
+\begin{align*}
+  P(X = -2) &= \frac{1}{5}\\
+  P(X = -1) &= \frac{1}{6}\\
+  P(X = 0) &= \frac{1}{5}\\
+  P(X = 1) &= \frac{1}{15}\\
+  P(X = 2) &= \frac{11}{30}
+\end{align*}
   
 1. Calculate the expected value of X
 
 Define the random variable $Y = X^2$. 
 
-2. Calculate the expected value of Y. (Hint: It would help to derive the PMF of Y first in order to calculate the expected value of Y in a straightforward way)
+2. Calculate the expected value of $Y$. (Hint: It would help to derive the PMF of $Y$ first in order to calculate the expected value of $Y$ in a straightforward way)
 
-3. Calculate the variance of X.
+3. Calculate the variance of $X$.
 
+:::
 
-
-
-```
-
-```{exercise, name = "Expectation and Variance 2", expvar2}
-
-
-1. Find the expectation and variance
-
+:::{#exr-expvar2}
 Given the following PDF: 
-\[f(x) =  \begin{cases}
-              \frac{3}{10}(3x - x^2) \quad 0 \leq x \leq 2\\
-               0 \quad otherwise
-            \end{cases}
-               \]
+$$f(x) = \begin{cases} \frac{3}{10}(3x - x^2) \quad 0 \leq x \leq 2\\ 0 \quad \mathrm{ otherwise} \end{cases}$$
+Find the expectation and variance of $X$.
+:::
 
+:::{#exr-expvar3}
 
-
-```
-
-```{exercise, name = "Expectation and Variance 3", expvar3}
-
-
-1. Find the mean and standard deviation of random variable X. The PDF of this X is as follows:
-  
-  \[f(x) =  \begin{cases}
-              \frac{1}{4}x \quad 0 \leq x \leq 2\\
-               \frac{1}{4}(4 - x)  \quad 2 \leq x \leq 4\\
-               0 \quad otherwise
-            \end{cases}
-               \]
-
-2. Next, calculate $P(X < \mu - \sigma)$ Remember, $\mu$ is the mean and $\sigma$ is the standard deviation
-  
-
-```
+Find the mean and standard deviation of random variable $X$. The PDF of this $X$ is as follows:
+$$f(x) = \begin{cases} \frac{1}{4}x \quad 0 \leq x \leq 2\\ \frac{1}{4}(4 - x)  \quad 2 \leq x \leq 4\\ 0 \quad \mathrm{ otherwise} \end{cases}$$
+Next, calculate $P(X < \mu - \sigma)$ Remember, $\mu$ is the mean and $\sigma$ is the standard deviation.
+:::
 
 
 ## Common Distributions
@@ -223,81 +185,66 @@ Given the following PDF:
 Two _discrete_ distributions used often are:  
 
 
-```{definition, name = "Binomial Distribution"}
+:::{#def-}
+### Binomial Distribution
 $Y$ is distributed binomial if it represents the number of "successes" observed in $n$ independent, identical "trials," where the probability of success in any trial is $p$ and the probability of failure is $q=1-p$.
-```
-
-
+:::
 
 For any particular sequence of $y$ successes and $n-y$ failures, the probability of obtaining that sequence is $p^y q^{n-y}$ (by the multiplicative law and independence).  However, there are $\binom{n}{y}=\frac{n!}{(n-y)!y!}$ ways of obtaining a sequence with $y$ successes and $n-y$ failures.  So the binomial distribution is given by $$p(y)=\binom{n}{y}p^y q^{n-y}, \quad y=0,1,2,\ldots,n$$ with mean $\mu=E(Y)=np$ and variance $\sigma^2=\text{Var}(Y)=npq$.
 
-```{example}
+:::{#exm-}
 Republicans vote for Democrat-sponsored bills 2\% of the time. What is the probability that out of 10 Republicans questioned, half voted for a particular Democrat-sponsored bill?  What is the mean number of Republicans voting for Democrat-sponsored bills?  The variance?
 1. $P(Y=5)=$
-1. $E(Y)=$ 
-1. $\text{Var}(Y)=6$
-```
+2. $E(Y)=$ 
+3. $\text{Var}(Y)=6$
+:::
 
-  \begin{comment}
-  \parbox{1.5in}{\hfill \epsffile{binopmf.eps}}
-  \end{comment}
 
-```{definition, name ="Poisson Distribution"}
+:::{#def-}
+### Poisson Distribution
 A random variable $Y$ has a Poisson distribution if 
 
-\[P(Y = y)=\frac{\lambda^y}{y!}e^{-\lambda}, \quad y=0,1,2,\ldots, \quad \lambda>0\]
+$$P(Y = y)=\frac{\lambda^y}{y!}e^{-\lambda}, \quad y=0,1,2,\ldots, \quad \lambda>0$$
 
 The Poisson has the unusual feature that its expectation equals its variance: $E(Y)=\text{Var}(Y)=\lambda$. The Poisson distribution is often used to model rare event counts:  counts of the number of events that occur during some unit of time.  $\lambda$ is often called the "arrival rate."
-
-```
+:::
    
 
-```{example}
+:::{#exm-}
 Border disputes occur between two countries through a Poisson Distribution, at a rate of 2 per month.  What is the probability of 0, 2, and less than 5 disputes occurring in a month?
-```
-
- \begin{comment}
- \parbox{1.5in}{\hfill \epsffile{poispmf.eps}}
- \end{comment}
+:::
 
 
 Two _continuous_  distributions used often are: 
 
 
-```{definition, name = "Uniform Distribution"}
+:::{#def-}
+### Uniform Distribution
 A random variable $Y$ has a continuous uniform distribution on the interval $(\alpha,\beta)$ if its density is given by $$f(y)=\frac{1}{\beta-\alpha}, \quad \alpha\le y\le \beta$$  The mean and variance of $Y$ are $E(Y)=\frac{\alpha+\beta}{2}$ and $\text{Var}(Y)=\frac{(\beta-\alpha)^2}{12}$.
-```
+:::
 
-
-```{example}
+:::{#exm-}
 For $Y$ uniformly distributed over $(1,3)$, what are the following probabilities?
 
 1. $P(Y=2)$
-1. Its density evaluated at 2, or $f(2)$
-1. $P(Y \le 2)$
-1. $P(Y > 2)$
+2. Its density evaluated at 2, or $f(2)$
+3. $P(Y \le 2)$
+4. $P(Y > 2)$
+
+:::
 
 
-```
-
-
-\begin{comment}
-\parbox{1.5in}{\hfill \epsffile{unifpdf.eps}}
-\end{comment}
-
-```{definition, name = "Normal Distribution"}
-
+:::{#def-}
+### Normal Distribution
 A random variable $Y$ is normally distributed with mean $E(Y)=\mu$ and variance $\text{Var}(Y)=\sigma^2$ if its density is 
 
-\[f(y)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(y-\mu)^2}{2\sigma^2}}\]
+$$f(y)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(y-\mu)^2}{2\sigma^2}}$$
+:::
+
+See Figure @fig-normaldens are various Normal Distributions with the same $\mu = 1$ and two versions of the variance. 
 
 
-```
-
-See Figure \@ref(fig:normaldens) are various Normal Distributions with the same $\mu = 1$ and two versions of the variance. 
-
-
-```{r normaldens, echo = FALSE, fig.cap = "Normal Distribution Density"}
+```{r, #fig-normaldens, echo = FALSE, fig.cap = "Normal Distribution Density"}
 range <- tibble::tibble(x = c(-5, 5))
 
 fx0 <- ggplot(range, aes(x = x)) +
@@ -310,7 +257,6 @@ fx <- fx0 +
   labs(caption = "Thick line: variance = 2, Normal line: variance = 1")
 
 fx
-
 ```
 
 
@@ -322,18 +268,18 @@ __Joint Probability Distribution__: If both $X$ and $Y$ are random variable, the
 
 Discrete: 
 
-\[p(x, y) = P(X = x, Y = y)\]
+$$p(x, y) = P(X = x, Y = y)$$
 
-such that  $p(x,y) \in [0,1]$ and \[\sum\sum p(x,y) = 1\]
+such that  $p(x,y) \in [0,1]$ and $$\sum\sum p(x,y) = 1$$
 
 
 Continuous: 
 
-\[f(x,y);P((X,Y) \in A) = \int\!\!\!\int_A f(x,y)dx dy \]
+$$f(x,y);P((X,Y) \in A) = \int\!\!\!\int_A f(x,y)dx dy $$
 
 s.t. $f(x,y)\ge 0$ and 
 
-\[\int_{-\infty}^\infty\int_{-\infty}^\infty f(x,y)dxdy = 1\]
+$$\int_{-\infty}^\infty\int_{-\infty}^\infty f(x,y)dxdy = 1$$
 
 If X and Y are independent, then $P(X=x,Y=y) = P(X=x)P(Y=y)$ and $f(x,y) = f(x)f(y)$
 
@@ -349,20 +295,69 @@ __Conditional Probability Distribution__: probability distribution for one varia
 * Continuous: $f_{Y|X}(y|x) = \frac{f(x,y)}{f_X(x)},\quad f_X(x) > 0$
 
 
-```{exercise, name= "Discrete Outcomes"}
+:::{#exr-}
 Suppose we are interested in the outcomes of flipping a coin and rolling a 6-sided die at the same time.  The sample space for this process contains 12 elements: $$\{(H, 1), (H, 2), (H, 3), (H, 4), (H, 5), (H, 6), (T, 1), (T, 2), (T, 3), (T, 4), (T, 5), (T, 6)\}$$  We can define two random variables $X$ and $Y$ such that $X = 1$ if heads and $X = 0$ if tails, while $Y$ equals the number on the die.  
 
 We can then make statements about the joint distribution of $X$ and $Y$. What are the following?
 
-
 1. $P(X=x)$
-1. $P(Y=y)$
-1. $P(X=x, Y=y)$
-1. $P(X=x|Y=y)$
-1. Are X and Y independent? 
-
-  
-
-```
+2. $P(Y=y)$
+3. $P(X=x, Y=y)$
+4. $P(X=x|Y=y)$
+5. Are X and Y independent? 
+:::
 
 
+
+## Answers to Examples and Exercises  {-}
+
+Answer to Example @exm-expectdiscrete:
+
+$E(Y)=7/2$ 
+
+We would never expect the result of a rolled die to be $7/2$, but that would be the average over a large number of rolls of the die.
+
+
+Answer to @exm-expectconti
+
+0.75
+
+
+
+Answer to @exm-var:
+
+
+$E(X) = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 2 \times \frac{3}{8} + 3 \times \frac{1}{8} = \frac{3}{2}$
+
+Since there is a 1 to 1 mapping from $X$ to $X^2:$ $E(X^2) = 0 \times \frac{1}{8} + 1 \times \frac{3}{8} + 4 \times \frac{3}{8} + 9 \times \frac{1}{8} = \frac{24}{8} = 3$
+
+\begin{align*}
+\text{Var}(x) &= E(X^2) - E(x)^2\\
+&= 3 - (\frac{3}{2})^2\\
+&= \frac{3}{4}
+\end{align*}
+
+
+Answer to @exr-expvar:
+
+1. $E(X) = -2(\frac{1}{5}) + -1(\frac{1}{6}) + 0(\frac{1}{5}) + 1(\frac{1}{15}) + 2(\frac{11}{30}) = \frac{7}{30}$
+
+2. $E(Y) = 0(\frac{1}{5}) + 1(\frac{7}{30}) + 4(\frac{17}{30}) = \frac{5}{2}$
+
+3. 
+
+\begin{align*}
+\text{Var}(X) &= E[X^2] - E[X]^2\\
+&= E(Y) - E(X)^2\\
+&= \frac{5}{2} - \frac{7}{30}^2 \approx 2.45
+\end{align*}
+
+Answer to @exr-expvar2:
+
+1. expectation = $\frac{6}{5}$, variance = $\frac{6}{25}$
+
+Answer to @exr-expvar3:
+
+1. mean = 2, standard deviation = $\sqrt{\frac{2}{3}}$
+
+2. $\frac{1}{8}(2 - \sqrt{\frac{2}{3}})^2$

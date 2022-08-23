@@ -1,5 +1,5 @@
 # UCSD Political Science Math Camp
-[![build](https://github.com/UCSDPoliMathCamp/MathCamp/actions/workflows/deploy_bookdown.yml/badge.svg)](https://github.com/UCSDPoliMathCamp/MathCamp/actions/workflows/deploy_bookdown.yml)
+[![build](https://github.com/UCSDPoliMathCamp/MathCamp/actions/workflows/quarto-publish.yml/badge.svg)](https://github.com/UCSDPoliMathCamp/MathCamp/actions/workflows/quarto-publish.yml)
 
 This booklet is adapted from the [Harvard Gov Prefresher booklet](https://iqss.github.io/prefresher/), maintained by [Shiro Kuriwaki](https://www.shirokuriwaki.com). 
 It will serve as as the text for the UCSD Math Camp. 

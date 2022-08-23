@@ -1,4 +1,3 @@
-# (PART) Introduction to R {.unnumbered}
 
 # Orientation and Reading in Data
 

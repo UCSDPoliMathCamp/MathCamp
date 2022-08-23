@@ -3,7 +3,6 @@ Type: Book
 Title: Does not matter.
 Version: 0.0.1
 Imports: 
-    bookdown,
     forcats,
     scales,
     haven,
@@ -15,4 +14,12 @@ Imports:
     devtools,
     tidyverse,
     here,
+<<<<<<< HEAD
     unvotes
+=======
+    unvotes,
+    jsonlite,
+    rmarkdown, 
+    downlit, 
+    xml2
+>>>>>>> b0dd4868983e079dbeca49787a0708b6abb2b7f1
