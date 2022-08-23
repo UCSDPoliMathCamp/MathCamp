@@ -66,8 +66,8 @@ format:
   # see https://pandoc.org/MANUAL.html for all options
   pdf:
     documentclass: book
-    lof: true
-    lot: true
+    lof: false
+    lot: false
     toc: true
     # classoption: [onecolumn]
     geometry:

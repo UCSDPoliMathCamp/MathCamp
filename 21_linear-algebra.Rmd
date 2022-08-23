@@ -233,7 +233,7 @@ Linear because only one variable per term and degree is at most 1.
 
 We are often interested in solving linear systems like
 
-$$\left\{\begin{align*} x-3y &= -3\\ 2x +y &= 8 \end{align*}\right.$$
+$$\left\{\begin{array}{ll} x-3y &= -3\\ 2x +y &= 8 \end{array}\right.$$
 
 More generally, we might have a system of $m$ equations in $n$ unknowns
 	$$\begin{matrix}
