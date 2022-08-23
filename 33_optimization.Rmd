@@ -24,7 +24,7 @@ The first derivative, $f'(x)$, quantifies the slope of a function. Therefore, it
 1. __Increasing:__ $f'(x)>0$
 1. __Decreasing:__ $f'(x)<0$
 1. __Neither increasing nor decreasing__: $f'(x)=0$
-			 i.e. a maximum, minimum, or saddle point
+             i.e. a maximum, minimum, or saddle point
 
 So for example, $f(x) = x^2 + 2$ and $f^\prime(x) = 2x$ 
 
@@ -45,10 +45,10 @@ fx + fprimex + plot_layout(nrow = 1)
 ```
 
 
-```{exercise, name = "Plotting a mazimum and minimum"}
+:::{#exr-}
+### Plotting a mazimum and minimum
 Plot $f(x)=x^3+ x^2 + 2$, plot its derivative, and identifiy where the derivative is zero. Is there a maximum or minimum?
-
-```
+:::
 
 
 ```{r, echo = FALSE, eval = FALSE}
@@ -71,7 +71,7 @@ fx + fprimex + plot_annotation(expression(f(x)==x^3+2))
 The second derivative $f''(x)$ identifies whether the function $f(x)$ at the point $x$ is
 
 1. Concave / concave down: $f''(x)<0$
-1. Convex / Concave up: $f''(x)>0$
+2. Convex / Concave up: $f''(x)>0$
 
 __Maximum (Minimum)__: $x_0$ is a __local maximum (minimum)__ if $f(x_0)>f(x)$ ($f(x_0)<f(x))$ for all $x$ within some open interval containing $x_0$.  $x_0$ is a __global maximum (minimum)__ if $f(x_0)>f(x)$ ($f(x_0)<f(x))$ for all $x$ in the domain of $f$.
 
@@ -88,7 +88,7 @@ __Second Derivative Test of Maxima/Minima__:  We can use the second derivative t
 1. Local Maximum: $f'(x)=0$ and $f''(x)<0$
 1. Local Minimum: $f'(x)=0$ and $f''(x)>0$
 1. Need more info: $f'(x)=0$ and $f''(x)=0$
-		
+        
 
 __Global Maxima and Minima__ Sometimes no global max or min exists --- e.g., $f(x)$ not bounded above or below.  However, there are three situations where we can fairly easily identify global max or min.
 
@@ -98,28 +98,27 @@ __Global Maxima and Minima__ Sometimes no global max or min exists --- e.g., $f(
 
 
 
-```{example, name = "Maxima and Minima by drawing"}
+:::{#exm-}
+### Maxima and Minima by drawing
 
 Find any critical points and identify whether they are a max, min, or saddle point:
 
-
 1. $f(x)=x^2+2$
-1. $f(x)=x^3+2$
-1. $f(x)=|x^2-1|$, $x\in [-2,2]$
+2. $f(x)=x^3+2$
+3. $f(x)=|x^2-1|$, $x\in [-2,2]$
 
-
-```
-
+:::
 
 
 ## Concavity of a Function
 
 Concavity helps identify the curvature of a function, $f(x)$, in 2 dimensional space.
 
-```{definition, name = "Concave Function"}
+:::{#def-}
+### Concave Function
 A function $f$ is strictly concave over the set S \underline{if} $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) > af(x_1) + (1-a)f(x_2)$$
 \textit{Any} line connecting two points on a concave function will lie \textit{below} the function.
-```
+:::
 
 
 ```{r, echo = FALSE}
@@ -135,26 +134,21 @@ fx1 + fx2 + plot_layout(nrow = 1)
 ```
 
 
-```{definition, name = "Convex Function"}
+:::{#def-}
+### Convex Function
 Convex: A function f is strictly convex over the set S \underline{if} $\forall x_1,x_2 \in S$ and $\forall a \in (0,1)$, $$f(ax_1 + (1-a)x_2) < af(x_1) + (1-a)f(x_2)$$
 
   Any line connecting two points on a convex function will lie above the function.
-```
-
-
-\begin{comment}
-  \parbox{2in}{\includegraphics[scale=.4]{Convex.pdf}}
-\end{comment}
-
+:::
 
 
 **Second Derivative Test of Concavity**: The second derivative can be used to understand concavity. 
 
 If
-\[\begin{array}{lll}
+$$\left\{\begin{array}{lll}
 f''(x) < 0 & \Rightarrow & \text{Concave}\\
 f''(x) > 0 & \Rightarrow & \text{Convex}
-\end{array}\]
+\end{array}\right.$$
 
 
 ### Quadratic Forms {-}
@@ -179,24 +173,24 @@ which can be written in matrix terms:
 
 One variable
 
-\[Q(\mathbf{x}) = x_1^\top a_{11} x_1\]
+$$Q(\mathbf{x}) = x_1^\top a_{11} x_1$$
 
 N variables: 
 \begin{align*}
-Q(\mathbf{x}) &=\begin{pmatrix} x_1 & x_2 & \cdots & x_n \end{pmatrix}\begin{pmatrix}
+Q(\mathbf{x}) &=\begin{bmatrix} x_1 & x_2 & \cdots & x_n \end{bmatrix}\begin{bmatrix}
 a_{11}&\frac{1}{2}a_{12}&\cdots&\frac{1}{2}a_{1n}\\
 \frac{1}{2}a_{12}&a_{22}&\cdots&\frac{1}{2}a_{2n}\\
 \vdots&\vdots&\ddots&\vdots\\
 \frac{1}{2}a_{1n}&\frac{1}{2}a_{2n}&\cdots&a_{nn}
-\end{pmatrix}
-\begin{pmatrix} x_1\\x_2\\\vdots\\x_n\end{pmatrix}\\
+\end{bmatrix}
+\begin{bmatrix} x_1\\x_2\\\vdots\\x_n\end{bmatrix}\\
 &= \mathbf{x}^\top\mathbf{Ax}
 \end{align*}
 
-For example, the  Quadratic on $\mathbf{R}^2$:
+For example, the  Quadratic on $\mathbb{R}^2$:
 \begin{align*}
-  Q(x_1,x_2)&=\begin{pmatrix} x_1& x_2 \end{pmatrix} \begin{pmatrix} a_{11}&\frac{1}{2} a_{12}\\
-  \frac{1}{2}a_{12}&a_{22}\end{pmatrix} \begin{pmatrix} x_1\\x_2 \end{pmatrix} \\
+  Q(x_1,x_2)&=\begin{bmatrix} x_1& x_2 \end{bmatrix} \begin{bmatrix} a_{11}&\frac{1}{2} a_{12}\\
+  \frac{1}{2}a_{12}&a_{22}\end{bmatrix} \begin{bmatrix} x_1\\x_2 \end{bmatrix} \\
   &= a_{11}x_1^2 + a_{12}x_1x_2 + a_{22}x_2^2
 \end{align*}
 
@@ -223,55 +217,52 @@ When we examined functions of one variable $x$, we found critical points by taki
 In a derivative, we only took the derivative with respect to one variable at a time. When we take the derivative separately with respect to all variables in the elements of $\mathbf{x}$ and then express the result as a vector, we use the term Gradient and Hessian. 
 
 
-```{definition, name = "Gradient"}
+:::{#def-}
+
+### Gradient
 
 Given a function $f(\textbf{x})$ in $n$ variables, the gradient $\nabla f(\mathbf{x})$ (the greek letter nabla ) is a row vector, where the $i$th element is the partial derivative of $f(\textbf{x})$ with respect to $x_i$: 
 
-\[\nabla f(\mathbf{x}) = 
-    \begin{pmatrix}
-    \frac{\partial f(\mathbf{x})}{\partial x_1} & 
-      \frac{\partial f(\mathbf{x})}{\partial x_2} &
-      \cdots &
-      \frac{\partial f(\mathbf{x})}{\partial x_n} 
-    \end{pmatrix}
-\]
+$$\nabla f(\mathbf{x}) = \begin{bmatrix} \frac{\partial f(\mathbf{x})}{\partial x_1} &  \frac{\partial f(\mathbf{x})}{\partial x_2} & \cdots & \frac{\partial f(\mathbf{x})}{\partial x_n} \end{bmatrix}$$
 
-```
+:::
 
 
 The gradient points in the direction of the steepest rate of increase at each point $\mathbf{x}$.
 
 Before we know whether a point is a maxima or minima, if it meets the FOC it is a "Critical Point".
 
-```{definition, name = "Critical Point"}
+:::{#def-}
 
-$\mathbf{x}^*$ is a critical point if and only if $\nabla f(\mathbf{x}^*)=\mathbf{0}$ (the vector of zeros). If the partial derivative of f(x) with respect to $x^*$ is 0, then $\mathbf{x}^*$ is a critical point. To solve for $\mathbf{x}^*$, find the gradient, set each element equal to 0, and solve the system of equations. $$\mathbf{x}^* = \begin{pmatrix} x_1^*\\x_2^*\\ \vdots \\ x_n^*\end{pmatrix}$$
+### Critical Point
+
+$\mathbf{x}^*$ is a critical point if and only if $\nabla f(\mathbf{x}^*)=\mathbf{0}$ (the vector of zeros). If the partial derivative of f(x) with respect to $x^*$ is 0, then $\mathbf{x}^*$ is a critical point. To solve for $\mathbf{x}^*$, find the gradient, set each element equal to 0, and solve the system of equations. $$\mathbf{x}^* = \begin{bmatrix} x_1^*\\x_2^*\\ \vdots \\ x_n^*\end{bmatrix}$$
   
-```
+:::
 
 
 
 
 
-```{example}
+:::{#exm-}
 
 Example: Given a function $f(\mathbf{x})=(x_1-1)^2+x_2^2+1$, find the (1) Gradient and (2) Critical point of $f(\mathbf{x})$.
 
-```
+:::
 
-```{solution}
+:::{.solution}
 Gradient 
 
 \begin{align*}
 \nabla f(\mathbf{x}) &= 
-  \begin{pmatrix}
+  \begin{bmatrix}
   \frac{\partial f(\mathbf{x})}{\partial x_1} & 
   \frac{\partial f(\mathbf{x})}{\partial x_2} 
-  \end{pmatrix}
+  \end{bmatrix}
   = 
-  \begin{pmatrix} 2(x_1-1) &
+  \begin{bmatrix} 2(x_1-1) &
   2x_2 
-  \end{pmatrix}
+  \end{bmatrix}
 \end{align*}
 
 
@@ -283,10 +274,9 @@ Critical Point $\mathbf{x}^*$:
 \end{align*}
 
 
-So \[\mathbf{x}^* = (1,0)\]
+So $$\mathbf{x}^* = (1,0)$$
 
-
-```
+:::
 
 
 
@@ -295,22 +285,17 @@ So \[\mathbf{x}^* = (1,0)\]
 
 When we found a critical point for a function of one variable, we used the second derivative as a indicator of the curvature at the point in order to determine whether the point was a min, max, or saddle (second derivative test of concavity).  For functions of $n$ variables, we use _second order partial derivatives_ as an indicator of curvature.
 
-```{definition, name = "Hessian"}
+:::{#def-}
+
+### Hessian
 
 Given a function $f(\mathbf{x})$ in $n$ variables, the hessian $\mathbf{H(x)}$ is
 an $n\times n$ matrix, where the $(i,j)$th element is the second order
 partial derivative of $f(\mathbf{x})$ with respect to $x_i$ and $x_j$:
 
-\[\mathbf{H(x)}=\begin{pmatrix}
-\frac{\partial^2 f(\mathbf{x})}{\partial x_1^2}&\frac{\partial^2f(\mathbf{x})}{\partial x_1 \partial x_2}&
-\cdots & \frac{\partial^2 f(\mathbf{x})}{\partial x_1 \partial x_n}\\[9pt]
-\frac{\partial^2 f(\mathbf{x})}{\partial x_2 \partial x_1}&\frac{\partial^2f(\mathbf{x})}{\partial x_2^2}&
-\cdots & \frac{\partial^2 f(\mathbf{x})}{\partial x_2 \partial x_n}\\
-\vdots & \vdots & \ddots & \vdots \\[3pt]
-\frac{\partial^2 f(\mathbf{x})}{\partial x_n \partial x_1}&\frac{\partial^2f(\mathbf{x})}{\partial x_n \partial x_2}&
-\cdots & \frac{\partial^2 f(\mathbf{x})}{\partial x_n^2}\end{pmatrix}\]
+$$\mathbf{H(x)}=\begin{bmatrix} \frac{\partial^2 f(\mathbf{x})}{\partial x_1^2}&\frac{\partial^2f(\mathbf{x})}{\partial x_1 \partial x_2}& \cdots & \frac{\partial^2 f(\mathbf{x})}{\partial x_1 \partial x_n}\\ \frac{\partial^2 f(\mathbf{x})}{\partial x_2 \partial x_1}&\frac{\partial^2f(\mathbf{x})}{\partial x_2^2}& \cdots & \frac{\partial^2 f(\mathbf{x})}{\partial x_2 \partial x_n}\\ \vdots & \vdots & \ddots & \vdots \\ \frac{\partial^2 f(\mathbf{x})}{\partial x_n \partial x_1}&\frac{\partial^2f(\mathbf{x})}{\partial x_n \partial x_2}& \cdots & \frac{\partial^2 f(\mathbf{x})}{\partial x_n^2} \end{bmatrix}$$
 
-```
+:::
 
 
 
@@ -344,38 +329,39 @@ A_{21} & A_{22}
 
 
 
-```{example, name = "Max and min with two dimensions"}
+:::{#exm-}
+
+### Max and min with two dimensions
 
 We found that the only critical point of
 $f(\mathbf{x})=(x_1-1)^2+x_2^2+1$ is at $\mathbf{x}^*=(1,0)$.  Is it a min, max, or
 saddle point?
 
-```
+:::
 
 
-```{solution}
+:::{.solution}
 
 The Hessian is
 \begin{align*}
-\mathbf{H(x)} &= \begin{pmatrix} 2&0\\0&2 \end{pmatrix}
+\mathbf{H(x)} &= \begin{bmatrix} 2&0\\0&2 \end{bmatrix}
 \end{align*}
 Since $\mathrm{det}(\mathbf{H}(x)) = 4 > 0$ and $H_{11}=2>0$, the  Hessian is positive definite.
 
 Maxima, Minima, or Saddle Point? Since the Hessian is positive definite and the gradient equals 0, $x^\star = (1,0)$ is a local minimum.
 
-
 Note: Alternate check of definiteness. Is $\mathbf{H(x^*)} \geq \leq 0 \quad \forall \quad \mathbf{x}\ne 0$
   
-    
+
 \begin{align*}
-\mathbf{x}^\top H(\mathbf{x}^*) \mathbf{x} &= \begin{pmatrix} x_1 & x_2 \end{pmatrix}\\
-&= \begin{pmatrix} 2&0\\0&2 \end{pmatrix}\\
-\begin{pmatrix} x_1\\x_2\end{pmatrix} &= 2x_1^2+2x_2^2
+\mathbf{x}^\top H(\mathbf{x}^*) \mathbf{x} &= \begin{bmatrix} x_1 & x_2 \end{bmatrix}\\
+&= \begin{bmatrix} 2&0\\0&2 \end{bmatrix}\\
+\begin{bmatrix} x_1\\x_2\end{bmatrix} &= 2x_1^2+2x_2^2
 \end{align*}
 
 For any $\mathbf{x}\ne 0$, $2(x_1^2+x_2^2)>0$, so the Hessian is 	positive definite and $\mathbf{x}^*$ is a strict local minimum.
   
-```
+:::
 
 
 
@@ -396,89 +382,69 @@ Notice that the definiteness conditions must be satisfied over the entire domain
 
 __Global Max/Min Conditions__: Given a function $f(\mathbf{x})$ and a point $\mathbf{x}^*$ such that $\nabla f(\mathbf{x}^*)=0$,
 
-\begin{enumerate}
-  \item \parbox[t]{2in}{$f(\mathbf{x})$ Globally Convex} $\quad
+1. $f(\mathbf{x})$ Globally Convex $\quad
 \Longrightarrow \quad$ Global Min
-  \item \parbox[t]{2in}{$f(\mathbf{x})$ Globally Concave} $\quad
+2. $f(\mathbf{x})$ Globally Concave $\quad
 \Longrightarrow \quad$ Global Max
-\end{enumerate}
 
 Note that showing that $\mathbf{H(x^*)}$ is negative semidefinite is
 not enough to guarantee $\mathbf{x}^*$ is a local max.  However, showing that
 $\mathbf{H(x)}$ is negative semidefinite for all $\mathbf{x}$ guarantees that $x^*$
 is a global max.  (The same goes for positive semidefinite and minima.)
 
+:::{#exm-} 
 
-Example: Take $f_1(x)=x^4$ and $f_2(x)=-x^4$.  Both have $x=0$ as
-a critical point.  Unfortunately, $f''_1(0)=0$ and $f''_2(0)=0$, so we
-can't tell whether $x=0$ is a min or max for either.  However,
-$f''_1(x)=12x^2$ and $f''_2(x)=-12x^2$.  For all $x$, $f''_1(x)\ge 0$
-and $f''_2(x)\le 0$ --- i.e., $f_1(x)$ is globally convex and $f_2(x)$
-is globally concave.  So $x=0$ is a global min of $f_1(x)$ and a
-global max of $f_2(x)$.
+Take $f_1(x)=x^4$ and $f_2(x)=-x^4$.  
 
+- Both have $x=0$ as a critical point.  
+- Unfortunately, $f''_1(0)=0$ and $f''_2(0)=0$, so we can't tell whether $x=0$ is a min or max for either.  However, $f''_1(x)=12x^2$ and $f''_2(x)=-12x^2$.  
+- For all $x$, $f''_1(x)\ge 0$ and $f''_2(x)\le 0$ --- i.e., $f_1(x)$ is globally convex and $f_2(x)$ is globally concave. 
+- So $x=0$ is a global min of $f_1(x)$ and a global max of $f_2(x)$.
+:::
 
-```{exercise}
+:::{#exr-}
 Given $f(\mathbf{x})=x_1^3-x_2^3+9x_1x_2$, find any maxima or minima.
-```
+:::
 
+*Solution.*
 
-  \begin{enumerate}
-  \item First order conditions.  
-	\begin{enumerate}
-	\item Gradient $\nabla f(\mathbf{x}) = $
-		$$\phantom{\begin{pmatrix} \frac{\partial f}{\partial x_1} \\ 
-		\frac{\partial f}{\partial x_2}\end{pmatrix} =
-		\begin{pmatrix} 3x_1^2+9x_2 \\ -3x_2^2+9x_1 \end{pmatrix}}$$
-	\item Critical Points $\mathbf{x^*} =$\\
-		\phantom{Set the gradient equal to zero and solve for $x_1$ and 
-		$x_2$.We have two equations and two unknowns.  Solving for $x_1$ 
-		and $x_2$, we get two critical points:  $\mathbf{x}_1^*=(0,0)$ and
-		$\mathbf{x}_2^*=(3,-3)$.}
-		$$\phantom{3x_1^2 + 9x_2 = 0 \quad \Rightarrow \quad  9x_2 = 
-		-3x_1^2 \quad \Rightarrow \quad  x_2 = -\frac{1}{3}x_1^2}$$
-		$$\phantom{-3x_2^2 + 9x_1 = 0 \quad \Rightarrow \quad 
-		-3(-\frac{1} {3}x_1^2)^2 + 9x_1 = 0}$$ 
-		$$\phantom{\Rightarrow \quad -\frac{1}{3}x_1^4 
-		+ 9x_1 = 0 \quad \Rightarrow \quad x_1^3 = 27x_1 \quad 
-		\Rightarrow \quad x_1 = 3}$$
-		$$\phantom{3(3)^2 + 9x_2 = 0 \quad \Rightarrow \quad x_2 = -3}$$	
-	\end{enumerate}		  
+1. First order conditions
+    (1) Gradient $\nabla f(\mathbf{x})$
+          $$\begin{bmatrix} \frac{\partial f}{\partial x_1} \\ 
+        \frac{\partial f}{\partial x_2}\end{bmatrix} =
+        \begin{bmatrix} 3x_1^2+9x_2 \\ -3x_2^2+9x_1 \end{bmatrix}$$
+    (2) Critical Points $\mathbf{x^*}$
+        - Set the gradient equal to zero and solve for $x_1$ and $x_2$. We have two equations and two unknowns. Solving for $x_1$ and $x_2$, we get two critical points: $\mathbf{x}_1^*=(0,0)$ and $\mathbf{x}_2^*=(3,-3)$.
+        - $3x_1^2 + 9x_2 = 0 \quad \Rightarrow \quad  9x_2 = -3x_1^2 \quad \Rightarrow \quad  x_2 = -\frac{1}{3}x_1^2$
+        - $-3x_2^2 + 9x_1 = 0 \quad \Rightarrow \quad -3(-\frac{1} {3}x_1^2)^2 + 9x_1 = 0$
+        - $\Rightarrow \quad -\frac{1}{3}x_1^4 + 9x_1 = 0 \quad \Rightarrow \quad x_1^3 = 27x_1 \quad \Rightarrow \quad x_1 = 3$
+        - $3(3)^2 + 9x_2 = 0 \quad \Rightarrow \quad x_2 = -3$
  
-  \item Second order conditions.  
-	\begin{enumerate}
-	\item Hessian $\mathbf{H(x)} = $
-		$$\phantom{\begin{pmatrix} 6x_1&9\\9&-6x_2 \end{pmatrix}}$$
-	\item Hessian $\mathbf{H(x_1^*)} = $
-		$$\phantom{\begin{pmatrix} 0&9\\9&0\end{pmatrix}}$$
-	\item Leading principal minors of $\mathbf{H(x_1^*)} = $
-		$$\phantom{M_1=0; M_2=-81}$$\\
-	\item Definiteness of $\mathbf{H(x_1^*)}$?\\
-		\phantom{$\mathbf{H(x_1^*)}$ is indefinite}\\
-	\item Maxima, Minima, or Saddle Point for $\mathbf{x_1^*}$?\\
-		\phantom{Since $\mathbf{H(x_1^*)}$ is indefinite, $\mathbf{x}_1^*=(0,0)$ 
-		is a saddle point.}\\
-	\item Hessian $\mathbf{H(x_2^*)} = $
-		$$\phantom{\begin{pmatrix} 18&9\\9&18\end{pmatrix}}$$
-	\item Leading principal minors of $\mathbf{H(x_2^*)} = $
-		$$\phantom{M_1=18; M_2=243}$$\\
-	\item Definiteness of $\mathbf{H(x_2^*)}$?\\
-		\phantom{$\mathbf{H(x_2^*)}$ is positive definite}\\
-	\item Maxima, Minima, or Saddle Point for $\mathbf{x}_2^*$?\\
-		\phantom{Since $\mathbf{H(x_2^*)}$ is positive definite, $\mathbf{x}_1^*=(3,-3)$ is a strict local minimum}\\
-	\end{enumerate}	  
-	
-  \item Global concavity/convexity.  
-	\begin{enumerate}
-	\item Is f(x) globally concave/convex?\\
-		\phantom{No. 	In evaluating the Hessians for $\mathbf{x}_1^*$ 
-		and $\mathbf{x}_2^*$ we saw that the Hessian is not positive 
-		semidefinite at x $=$ (0,0).}\\
-	\item Are any $\mathbf{x^*}$ global minima or maxima?\\
-		\phantom{No. Since the function is not globally concave/convex, 
-		we can't infer that $\mathbf{x}_2^*=(3,-3)$ is a global minimum.  
-		In fact, if we set $x_1=0$, the $f(\mathbf{x})=-x_2^3$, which will 
-		go to $-\infty$ as $x_2\to \infty$.}\\
-	\end{enumerate}	      
-\end{enumerate}
+2. Second order conditions.  
+    (1) Hessian $\mathbf{H(x)}$
+        $$\begin{bmatrix} 6x_1&9\\9&-6x_2 \end{bmatrix}$$
+    (2) Hessian $\mathbf{H(x_1^*)}$
+        $$\begin{bmatrix} 0&9\\9&0\end{bmatrix}$$
+    (3) Leading principal minors of $\mathbf{H(x_1^*)}$
+        $$M_1=0; M_2=-81$$
+    (4) Definiteness of $\mathbf{H(x_1^*)}$?
+        - $\mathbf{H(x_1^*)}$ is indefinite
+    (5) Maxima, Minima, or Saddle Point for $\mathbf{x_1^*}$?
+        - Since $\mathbf{H(x_1^*)}$ is indefinite, $\mathbf{x}_1^*=(0,0)$ is a saddle point.
+    (6) Hessian 
+        $$\mathbf{H(x_2^*)}=\begin{bmatrix} 18&9\\9&18\end{bmatrix}$$
+    (7) Leading principal minors of $\mathbf{H(x_2^*)}$
+        $$M_1=18; M_2=243$$
+    (8) Definiteness of $\mathbf{H(x_2^*)}$?
+        - $\mathbf{H(x_2^*)}$ is positive definite
+    (9) Maxima, Minima, or Saddle Point for $\mathbf{x}_2^*$?
+        - Since $\mathbf{H(x_2^*)}$ is positive definite, $\mathbf{x}_1^*=(3,-3)$ is a strict local minimum
+    
+3. Global concavity/convexity.  
+    (1) Is f(x) globally concave/convex?
+        - No. In evaluating the Hessians for $\mathbf{x}_1^*$ and $\mathbf{x}_2^*$ we saw that the Hessian is not positive semidefinite at x $=$ (0,0).
+    (2) Are any $\mathbf{x^*}$ global minima or maxima?
+        - No. Since the function is not globally concave/convex, we can't infer that $\mathbf{x}_2^*=(3,-3)$ is a global minimum. In fact, if we set $x_1=0$, the $f(\mathbf{x})=-x_2^3$, which will go to $-\infty$ as $x_2\to \infty$.
+
+
 

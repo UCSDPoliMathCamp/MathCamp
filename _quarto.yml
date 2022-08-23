@@ -2,7 +2,7 @@ project:
   type: book
 
 book:
-  title: "UCSD PoliSci Math Camp"
+  title: "UCSD Political Science Math Camp"
   repo-url: https://github.com/UCSDPoliMathCamp/MathCamp/
   repo-actions: [edit, source]
   favicon: favicon.ico
@@ -48,11 +48,13 @@ format:
     theme:
       light: [cosmo, custom.scss]
     css: style.css
-    fontsize: "15px"
+    fontsize: "16px"
     linestretch: 1.6
-    mainfont: "Roboto"
+    mainfont: "Lora"
     monofont: "JetBrains Mono"
+    html-math-method: katex
     smooth-scroll: true
+    toc-title: "On this page"
     toc-depth: 4
     code-link: true
     code-overflow: wrap
@@ -61,7 +63,6 @@ format:
       code-fold: false
     highlight-style: printing
     code-block-bg: true
-    html-math-method: katex
   # see https://pandoc.org/MANUAL.html for all options
   pdf:
     documentclass: book

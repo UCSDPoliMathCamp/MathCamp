@@ -34,7 +34,7 @@ Up till now, you should have covered:
 * Joining real data
 
 
-In this module, we will start to work with generating data within R, from thin air, as it were. Doing simulation also strengthens your understanding of Probability (Section \@ref{probability}).
+In this module, we will start to work with generating data within R, from thin air, as it were. Doing simulation also strengthens your understanding of Probability.
 
 
 ### Check your Understanding {-}

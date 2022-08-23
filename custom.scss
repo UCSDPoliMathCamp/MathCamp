@@ -1,15 +1,32 @@
 /*-- scss:defaults --*/
 
+$body-bg: #fffef9;
+$navbar-bg: #fef8eb;
+$sidebar-bg: #fef8eb;
+$progress-bg: #fef8eb;
+$code-block-bg:#faf6ed;
+
 $body-color: #000000;
 $code-color: #212529;
-$link-color: #205b87;
+$link-color: #125194;
 
 
 $navbar-fg: #000000;
-$navbar-hl: #205b87;
+$navbar-hl: #125194;
 
 $sidebar-fg: #000000;
-$sidebar-hl: #205b87;
+$sidebar-hl: #125194;
+
+
+.header-section-number, .chapter-number {
+        color: #125194 !important;
+}
+
+.sidebar-title {
+        color: #125194 !important;
+        font-weight: bold !important;
+}
+
 
 // // add some spacing between references in biblio list
 // div.csl-entry {
