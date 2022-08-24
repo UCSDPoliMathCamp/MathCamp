@@ -24,7 +24,6 @@ book:
     - part: "I Introduction to R"
       chapters:
       - 11_orientation.Rmd
-      - 12_functions_obj_loops.Rmd
       - 12_visualization.Rmd
       - 13_data_wrangling_cleaning.Rmd
       - 14_simulation.Rmd
@@ -54,7 +53,7 @@ format:
     fontsize: "16px"
     linestretch: 1.6
     mainfont: "Lora"
-    monofont: "JetBrains Mono"
+    monofont: "Fira Mono"
     html-math-method: katex
     smooth-scroll: true
     toc-title: "On this page"
