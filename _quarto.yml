@@ -67,27 +67,27 @@ format:
     highlight-style: printing
     code-block-bg: true
   # see https://pandoc.org/MANUAL.html for all options
-  pdf:
-    documentclass: scrbook
-    lof: false
-    lot: false
-    toc: true
-    fontfamily: libertinus
-    fontfamilyoptions:
-      - p
-    monofont: inconsolata
-    # include-in-header: preamble.tex
-    classoption: [onecolumn, enabledeprecatedfontcommands]
-    geometry:
-      - top=30mm
-      - left=20mm
-      - heightrounded
-    hyperrefoptions:
-      - linktoc=all
-    colorlinks: true
-    linkcolor: "blue"
-    biblio-style: apalike
-    keep-tex: true
+  # pdf:
+  #   documentclass: scrbook
+  #   lof: false
+  #   lot: false
+  #   toc: true
+  #   fontfamily: libertinus
+  #   fontfamilyoptions:
+  #     - p
+  #   monofont: inconsolata
+  #   # include-in-header: preamble.tex
+  #   classoption: [onecolumn, enabledeprecatedfontcommands]
+  #   geometry:
+  #     - top=30mm
+  #     - left=20mm
+  #     - heightrounded
+  #   hyperrefoptions:
+  #     - linktoc=all
+  #   colorlinks: true
+  #   linkcolor: "blue"
+  #   biblio-style: apalike
+  #   keep-tex: true
     # cite-method: citeproc
     # cite-method: natbib
   # epub:
