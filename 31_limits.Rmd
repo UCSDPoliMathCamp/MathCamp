@@ -9,6 +9,9 @@ library(glue)
 library(patchwork)
 ```
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WUvTyaaNkzM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:1;display:block;margin:10px auto;"></iframe>
+
+
 
 Solving limits, i.e. finding out the value of functions as its input moves  closer to some value, is important for the social scientist's mathematical toolkit for two related tasks. The first is for the study of calculus, which will be in turn useful to show where certain functions are maximized or minimized. The second is for the study of statistical inference, which is the study of inferring things about things you cannot see by using things you can see. 
 

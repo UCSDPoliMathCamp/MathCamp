@@ -149,6 +149,9 @@ and
 
 ## Determinants
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ip3X9LOh2dk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:1;display:block;margin:10px auto;"></iframe>
+
+
 __Singularity__:  Determinants can be used to determine whether a square matrix is nonsingular.
     
 A square matrix is nonsingular if and only if its determinant is not zero.

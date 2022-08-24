@@ -4,6 +4,9 @@
 ## Working with Vectors {#vector-def}
 
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fNk_zzaMoSs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:1;display:block;margin:10px auto;"></iframe>
+
+
 __Vector__: A vector in $n$-space is an ordered list of $n$ numbers.  These numbers can be represented as either a row vector or a column vector: 
 $${\bf v} = \begin{bmatrix} v_1 & v_2 & \dots & v_n\end{bmatrix}$$
 $${\bf v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix}$$ 
@@ -51,6 +54,10 @@ Let $u = \begin{bmatrix} 7\\1\\-5\\3\end{bmatrix}$, $v = \begin{bmatrix} 9\\-3\\
 
 
 ## Linear Independence {#linearindependence}
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/k7RM-ot2NWY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:1;display:block;margin:10px auto;"></iframe>
+
 
 __Linear combinations__: The vector ${\bf u}$ is a linear combination of the vectors ${\bf v}_1, {\bf v}_2,  \cdots , {\bf v}_k$ if
 
@@ -156,6 +163,14 @@ Note that the number of columns of the first matrix must equal the number of row
 Also note that if __AB__ exists, __BA__ exists only if $\dim({\bf A}) = m \times n$ and $\dim({\bf B}) = n \times m$.
     
 This does not mean that __AB__ = __BA__. __AB__ = __BA__ is true only in special circumstances, like when ${\bf A}$ or ${\bf B}$ is an identity matrix or ${\bf A} = {\bf B}^{-1}$.
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kYB8IZa5AuE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:1;display:block;margin:10px auto;"></iframe>
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XkY2DOUCWMU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:1;display:block;margin:10px auto;"></iframe>
+
+
 
 ### Laws of Matrix Algebra
 

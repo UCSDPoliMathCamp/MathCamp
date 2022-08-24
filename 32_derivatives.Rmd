@@ -64,6 +64,8 @@ If $f'(x)$ exists at a point $x_0$, then $f$ is said to be __differentiable__ at
 
 ### Properties of derivatives  {-}
 
+
+
 Suppose that $f$ and $g$ are differentiable at $x$ and that $\alpha$ is a constant.  Then the functions $f\pm g$, $\alpha f$, $f g$, and $f/g$ (provided $g(x)\ne 0$) are also differentiable at $x$.  Additionally,
 
 __Constant rule:__ $$\left[k f(x)\right]' = k f'(x)$$
@@ -116,6 +118,7 @@ To show that it holds for real fractions as well, we can prove expressing that e
 :::
 
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/S0_qX4VJhMQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:1;display:block;margin:10px auto;"></iframe>
 
 
 
@@ -141,6 +144,11 @@ For each of the following functions, find the first-order derivative $f^\prime(x
 
 
 ## Higher-Order Derivatives {#derivpoly}
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BLkz5LGWihw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:1;display:block;margin:10px auto;"></iframe>
+
+
 
 The first derivative is applying the definition of derivatives on the function, and it can be expressed as
 
@@ -171,6 +179,11 @@ Earlier, in @sec-derivintro, we said that if a function differentiable at a give
 
 
 ## The Chain Rule
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YG15m2VwSjA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:1;display:block;margin:10px auto;"></iframe>
+
+
 
 As useful as the above rules are, many functions you'll see won't fit neatly in each case immediately. Instead, they will be functions of functions. For example, the difference between $x^2 + 1^2$ and $(x^2 + 1)^2$  may look trivial, but the sum rule can be easily applied to the former, while it's actually not obvious what do with the latter. 
 
@@ -215,6 +228,11 @@ If $f(x)=[g(x)]^p$ for any rational number $p$, $$f^\prime(x) =p[g(x)]^{p-1}g^\p
 
 
 ## Derivatives of logs and exponents
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/m2MIpDrF7Es" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:1;display:block;margin:10px auto;"></iframe>
+
+
 
 Natural logs and exponents (they are inverses of each other; see Prerequisites) crop up everywhere in statistics. Their derivative is a special case from the above, but quite elegant. 
 
@@ -403,6 +421,11 @@ Let $f(x,y)=x^3 y^4 +e^x -\ln y$. What are the following partial derivaitves?
 
 
 ## Taylor Approximation {#taylorapprox}
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3d6DsjIBzJ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:1;display:block;margin:10px auto;"></iframe>
+
+
 
 A common form of approximation used in statistics involves derivatives. A Taylor series is a way to represent common functions as infinite series (a sum of infinite elements) of the function's derivatives at some point $a$. 
 
