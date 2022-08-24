@@ -10,7 +10,6 @@ $body-color: #000000;
 $code-color: #212529;
 $link-color: #125194;
 
-
 $navbar-fg: #000000;
 $navbar-hl: #125194;
 
@@ -27,6 +26,48 @@ $sidebar-hl: #125194;
         font-weight: bold !important;
 }
 
+// .quarto-sidebar-toggle.expanded, .quarto-sidebar-toggle-contents {
+//         background-color: #fef8eb !important;
+// }
+
+
+// sidebar margin-sidebar zindex-over-content quarto-sidebar-toggle-contents sidebar-unpinned
+
+// sidebar collapse sidebar-navigation docked overflow-auto sidebar-unpinned
+
+// sidebar collapse sidebar-navigation docked overflow-auto slow zindex-over-content quarto-sidebar-toggle-contents
+
+.sidebar-navigation.rollup,
+.sidebar-navigation.slow {
+        background-color: #fffef9;
+}
+
+// regular left: sidebar collapse sidebar-navigation docked overflow-auto
+
+.quarto-sidebar-toggle,
+.sidebar-navigation,
+.sidebar-navigation:not(.rollup),
+.zindex-over-content.quarto-sidebar-toggle-contents,
+.sidebar.margin-sidebar.zindex-over-content.quarto-sidebar-toggle-contents,
+.sidebar.collapse.sidebar-navigation.docked.overflow-auto.zindex-over-content.quarto-sidebar-toggle-contents,
+.quarto-sidebar-toggle.expanded ~ .sidebar.collapse.sidebar-navigation.docked.overflow-auto,
+.sidebar.collapse.sidebar-navigation.docked.overflow-auto {
+        background-color: #fef8eb;
+}
+
+.quarto-sidebar-toggle.headroom-target ~ .sidebar.collapse.sidebar-navigation.docked.overflow-auto {
+        background-color: #fffef9;
+}
+
+// .zindex-over-content.quarto-sidebar-toggle.headroom-target.expanded,
+
+
+// left when nav roll down: .sidebar.collapse.sidebar-navigation.docked.overflow-auto.zindex-over-content.quarto-sidebar-toggle-contents
+// left when nav roll up: .sidebar.collapse.sidebar-navigation.docked.overflow-auto
+
+// .sidebar.collapse.sidebar-navigation.docked.overflow-auto {
+//         background-color: #fffef9 !important;
+// }
 
 // // add some spacing between references in biblio list
 // div.csl-entry {

@@ -4,16 +4,18 @@ project:
 book:
   title: "UCSD Political Science Math Camp"
   repo-url: https://github.com/UCSDPoliMathCamp/MathCamp/
-  repo-actions: [edit, source]
+  repo-actions: [edit]
   favicon: favicon.ico
+  reader-mode: true
   comments:
     hypothesis:
       theme: clean
-  downloads: [pdf]
+  # downloads: [pdf]
   sidebar:
+    title: "UCSD Political Science Math Camp"
     style: "docked"
     collapse-level: 2
-    border: true
+    border: false
     search: true
   chapters:
     - index.Rmd
@@ -65,22 +67,31 @@ format:
     highlight-style: printing
     code-block-bg: true
   # see https://pandoc.org/MANUAL.html for all options
-  # pdf:
-  #   documentclass: book
-  #   lof: false
-  #   lot: false
+  pdf:
+    documentclass: scrbook
+    lof: false
+    lot: false
+    toc: true
+    fontfamily: libertinus
+    fontfamilyoptions:
+      - p
+    monofont: inconsolata
+    # include-in-header: preamble.tex
+    classoption: [onecolumn, enabledeprecatedfontcommands]
+    geometry:
+      - top=30mm
+      - left=20mm
+      - heightrounded
+    hyperrefoptions:
+      - linktoc=all
+    colorlinks: true
+    linkcolor: "blue"
+    biblio-style: apalike
+    keep-tex: true
+    # cite-method: citeproc
+    # cite-method: natbib
+  # epub:
   #   toc: true
-  #   # classoption: [onecolumn]
-  #   geometry:
-  #     - top=30mm
-  #     - left=20mm
-  #     - heightrounded
-  #   hyperrefoptions:
-  #     - linktoc=all
-  #   colorlinks: true
-  #   linkcolor: "blue"
-  #   biblio-style: apalike
-  #   keep-tex: true
 
 latex-auto-install: true
 

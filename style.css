@@ -7,11 +7,15 @@
         padding-right: 20px !important;
 }
 
+.quarto-sidebar-toggle {
+        border: none !important;
+}
+
 .quarto-secondary-nav {
         border-bottom: none !important;
 }
 
-.sidebar.sidebar-navigation:not(.rollup) {
+.sidebar.sidebar-navigation {
         border-right: none !important;
 }
 

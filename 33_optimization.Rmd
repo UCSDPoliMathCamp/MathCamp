@@ -316,12 +316,8 @@ Given a function $f(\mathbf{x})$ and a point $\mathbf{x}^*$ such that $\nabla f(
 
 Furthermore, there's an easier way to check whether a $2\times 2$ matrix is positive or negative definite.
 
-__Definiteness of 2 $\times$ 2 Matrix__:  For a $2 \times 2$ matrix 
-$$\mathbf{A}=
-\begin{bmatrix}
-A_{11} & A_{12}\\
-A_{21} & A_{22}
-\end{bmatrix}$$
+**Definiteness of 2 $\times$ 2 Matrix**:  For a $2 \times 2$ matrix 
+$$\mathbf{A}=\begin{bmatrix}A_{11} & A_{12}\\ A_{21} & A_{22}\end{bmatrix}$$
 
 1. If $\mathrm{det}(\mathbf{A}) > 0$ and $A_{11}>0$, then $\mathbf{A}$ is positive definite
 1. If $\mathrm{det}(\mathbf{A}) > 0$ and $A_{11}<0$, then $\mathbf{A}$ is negative definite

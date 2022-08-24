@@ -100,14 +100,14 @@ $$\left[x^m\right]^\prime = m x^{m-1}$$
 
 Then, for the case $m + 1$, using the product rule above, we can simplify
 
-  $$\begin{align*}
-  \left[x^{m + 1}\right]^\prime &= [x^{m}\cdot x]^\prime\\
-  &= (x^m)^\prime\cdot x + (x^m)\cdot (x)^\prime\\
-  &= m x^{m - 1}\cdot x + x^m ~~\because \text{by previous assumption}\\
-  &= mx^m + x^m\\
-  &= (m + 1)x^m\\
-  &= (m + 1)x^{(m + 1) - 1}
-  \end{align*}$$
+\begin{align*}
+\left[x^{m + 1}\right]^\prime &= [x^{m}\cdot x]^\prime\\
+&= (x^m)^\prime\cdot x + (x^m)\cdot (x)^\prime\\
+&= m x^{m - 1}\cdot x + x^m ~~\because \text{by previous assumption}\\
+&= mx^m + x^m\\
+&= (m + 1)x^m\\
+&= (m + 1)x^{(m + 1) - 1}
+\end{align*}
 
 Therefore, the rule holds for the case $k = m + 1$ once we have assumed it holds for $k = m$. Combined with the first case, this completes proof by induction -- we have now proved that the statement holds for all integers $k = 1, 2, 3, \cdots$. 
 
@@ -158,13 +158,13 @@ Similarly, the derivative of $f''(x)$ would be called the third derivative and i
 
 :::{#exm-succ-der}
 
-$$\begin{align*}
+\begin{align*}
 f(x) &=x^3\\
 f^{\prime}(x) &=3x^2\\
 f^{\prime\prime}(x) &=6x \\
 f^{\prime\prime\prime}(x) &=6\\
 f^{\prime\prime\prime\prime}(x) &=0\\
-\end{align*}$$
+\end{align*}
 :::
 
 Earlier, in @sec-derivintro, we said that if a function differentiable at a given point, then it must be continuous. Further, if $f'(x)$ is itself continuous, then $f(x)$ is called continuously differentiable. All of this matters because many of our findings about optimization rely on differentiation, and so we want our function to be differentiable in as many layers.  A function that is continuously differentiable infinitly is called "smooth". Some examples: $f(x) = x^2$, $f(x) = e^x$. 
