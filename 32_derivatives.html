@@ -150,7 +150,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <a href="./">UCSD Political Science Math Camp</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/UCSDPoliMathCamp/MathCamp/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="./UCSD-Political-Science-Math-Camp.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
 </div>
     </div>
       </div>
@@ -315,7 +319,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
   <li><a href="#partial-derivatives" id="toc-partial-derivatives" class="nav-link" data-scroll-target="#partial-derivatives"> <span class="header-section-number">9.5</span> Partial Derivatives</a></li>
   <li><a href="#taylorapprox" id="toc-taylorapprox" class="nav-link" data-scroll-target="#taylorapprox"> <span class="header-section-number">9.6</span> Taylor Approximation</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/32_derivatives.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/blob/main/32_derivatives.Rmd" class="toc-action">View source</a></p></div></div></nav>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/32_derivatives.Rmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
@@ -378,13 +382,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\left[x^m\right]^\prime = m x^{m-1}</span></p>
 <p>Then, for the case <span class="math inline">m + 1</span>, using the product rule above, we can simplify</p>
 <p><span class="math display">\begin{align*}
-  \left[x^{m + 1}\right]^\prime &amp;= [x^{m}\cdot x]^\prime\\
-  &amp;= (x^m)^\prime\cdot x + (x^m)\cdot (x)^\prime\\
-  &amp;= m x^{m - 1}\cdot x + x^m ~~\because \text{by previous assumption}\\
-  &amp;= mx^m + x^m\\
-  &amp;= (m + 1)x^m\\
-  &amp;= (m + 1)x^{(m + 1) - 1}
-  \end{align*}</span></p>
+\left[x^{m + 1}\right]^\prime &amp;= [x^{m}\cdot x]^\prime\\
+&amp;= (x^m)^\prime\cdot x + (x^m)\cdot (x)^\prime\\
+&amp;= m x^{m - 1}\cdot x + x^m ~~\because \text{by previous assumption}\\
+&amp;= mx^m + x^m\\
+&amp;= (m + 1)x^m\\
+&amp;= (m + 1)x^{(m + 1) - 1}
+\end{align*}</span></p>
 <p>Therefore, the rule holds for the case <span class="math inline">k = m + 1</span> once we have assumed it holds for <span class="math inline">k = m</span>. Combined with the first case, this completes proof by induction – we have now proved that the statement holds for all integers <span class="math inline">k = 1, 2, 3, \cdots</span>.</p>
 <p>To show that it holds for real fractions as well, we can prove expressing that exponent by a fraction of two integers.</p>
 </div>
@@ -853,14 +857,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>Then, for the case $m + 1$, using the product rule above, we can simplify</span>
 <span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>  $$\begin{align*}</span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>  \left<span class="co">[</span><span class="ot">x^{m + 1}\right</span><span class="co">]</span>^\prime &amp;= <span class="co">[</span><span class="ot">x^{m}\cdot x</span><span class="co">]</span>^\prime<span class="sc">\\</span></span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>  &amp;= (x^m)^\prime\cdot x + (x^m)\cdot (x)^\prime<span class="sc">\\</span></span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>  &amp;= m x^{m - 1}\cdot x + x^m ~~\because \text{by previous assumption}<span class="sc">\\</span></span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>  &amp;= mx^m + x^m<span class="sc">\\</span></span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>  &amp;= (m + 1)x^m<span class="sc">\\</span></span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>  &amp;= (m + 1)x^{(m + 1) - 1}</span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>  \end{align*}$$</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>\left<span class="co">[</span><span class="ot">x^{m + 1}\right</span><span class="co">]</span>^\prime &amp;= <span class="co">[</span><span class="ot">x^{m}\cdot x</span><span class="co">]</span>^\prime<span class="sc">\\</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>&amp;= (x^m)^\prime\cdot x + (x^m)\cdot (x)^\prime<span class="sc">\\</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>&amp;= m x^{m - 1}\cdot x + x^m ~~\because \text{by previous assumption}<span class="sc">\\</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>&amp;= mx^m + x^m<span class="sc">\\</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>&amp;= (m + 1)x^m<span class="sc">\\</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>&amp;= (m + 1)x^{(m + 1) - 1}</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
 <span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>Therefore, the rule holds for the case $k = m + 1$ once we have assumed it holds for $k = m$. Combined with the first case, this completes proof by induction -- we have now proved that the statement holds for all integers $k = 1, 2, 3, \cdots$. </span>
 <span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
@@ -911,13 +915,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>:::{#exm-succ-der}</span>
 <span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>$$\begin{align*}</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
 <span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>f(x) &amp;=x^3<span class="sc">\\</span></span>
 <span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>f^{\prime}(x) &amp;=3x^2<span class="sc">\\</span></span>
 <span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>f^{\prime\prime}(x) &amp;=6x <span class="sc">\\</span></span>
 <span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>f^{\prime\prime\prime}(x) &amp;=6<span class="sc">\\</span></span>
 <span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>f^{\prime\prime\prime\prime}(x) &amp;=0<span class="sc">\\</span></span>
-<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>\end{align*}$$</span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
 <span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>Earlier, in @sec-derivintro, we said that if a function differentiable at a given point, then it must be continuous. Further, if $f'(x)$ is itself continuous, then $f(x)$ is called continuously differentiable. All of this matters because many of our findings about optimization rely on differentiation, and so we want our function to be differentiable in as many layers.  A function that is continuously differentiable infinitly is called "smooth". Some examples: $f(x) = x^2$, $f(x) = e^x$. </span>

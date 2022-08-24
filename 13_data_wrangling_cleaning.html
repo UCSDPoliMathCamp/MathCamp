@@ -136,7 +136,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <a href="./">UCSD Political Science Math Camp</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/UCSDPoliMathCamp/MathCamp/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="./UCSD-Political-Science-Math-Camp.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
 </div>
     </div>
       </div>
@@ -306,7 +310,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
   <li><a href="#merging-data" id="toc-merging-data" class="nav-link" data-scroll-target="#merging-data"> <span class="header-section-number">3.5</span> Merging Data</a></li>
   <li><a href="#reshaping-data" id="toc-reshaping-data" class="nav-link" data-scroll-target="#reshaping-data"> <span class="header-section-number">3.6</span> Reshaping Data</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/13_data_wrangling_cleaning.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/blob/main/13_data_wrangling_cleaning.Rmd" class="toc-action">View source</a></p></div></div></nav>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/13_data_wrangling_cleaning.Rmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
@@ -577,7 +581,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  8  2610      38             1 1983-12-03 R/38/101      0     0 HUMAN RIG… TO E…
  9  2641      39             1 1984-10-04 R/39/5        0     0 KAMPUCHEA  TO R…
 10  2645      39             1 1984-11-02 R/39/13       0     0 AFGHANIST… TO R…
-# … with 401 more rows</code></pre>
+# … with 401 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>The original “un_roll_calls” data set object has 6202 rows, whereas this new data set only has 411 rows. This is because we filtered out any row in which the variable “importantvote” was not equal to <code>1</code>. Like <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>, we can extend the use of <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> in many ways.</p>
@@ -599,7 +604,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  8  3078      41             1 1986-12-05 R/41/162A    NA    NA MIDDLE EA… Reaf…
  9  3098      41             1 1986-12-05 R/41/211A    NA    NA BUDGET, 1… Revi…
 10  3099      41             1 1986-12-05 R/41/211B    NA    NA BUDGET, 1… Revi…
-# … with 376 more rows</code></pre>
+# … with 376 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># | for OR</span></span>
 <span><span class="va">un_roll_calls</span> <span class="op">|&gt;</span> </span>
@@ -618,7 +624,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  8  2610      38             1 1983-12-03 R/38/101      0     0 HUMAN RIG… TO E…
  9  2641      39             1 1984-10-04 R/39/5        0     0 KAMPUCHEA  TO R…
 10  2645      39             1 1984-11-02 R/39/13       0     0 AFGHANIST… TO R…
-# … with 3,218 more rows</code></pre>
+# … with 3,218 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>The first chunk above filters out all rows in which “importantvote” did not equal <code>1</code> <em>AND</em> “session” was less than <code>40</code>. The second chunk above filters out all rows in which “importantvote” did not equal <code>1</code> <em>OR</em> “session” was less than <code>40</code>.</p>
@@ -640,7 +647,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  8    10       1             0 1946-02-05 R/1/361     1     1 U.N. MEMBER… "TO …
  9    11       1             0 1946-02-05 R/1/376     0     0 TRUSTEESHIP… "TO …
 10    12       1             0 1946-02-06 R/1/394     1     1 COUNCIL MEM… "TO …
-# … with 2,858 more rows</code></pre>
+# … with 2,858 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>It can be confusing to think in terms of logical statements, especially when negation is involved! But you will become more comfortable with <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> the more you practice!</p>
@@ -668,7 +676,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  8    10 Canada  CA           yes  
  9    11 Canada  CA           yes  
 10    12 Canada  CA           yes  
-# … with 23,314 more rows</code></pre>
+# … with 23,314 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Easier way</span></span>
 <span><span class="va">country_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Kenya"</span>, <span class="st">"Grenada"</span>, <span class="st">"Canada"</span>,</span>
@@ -689,7 +698,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  8    10 Canada  CA           yes  
  9    11 Canada  CA           yes  
 10    12 Canada  CA           yes  
-# … with 23,314 more rows</code></pre>
+# … with 23,314 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>The two chunks of code above will produce the same filtered data set, but the second chunk requires fewer lines of code and is more flexible if we want to add or remove countries.</p>
@@ -720,7 +730,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  8 Armenia                         0.950
  9 Australia                       0.745
 10 Austria                         0.880
-# … with 190 more rows</code></pre>
+# … with 190 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <p>The code above uses the function <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> to calculate the average value of “vote_dummy” within each country. Because “vote_dummy” takes the values <code>1</code> and <code>0</code>, this average can be interpreted as a proportion of 1’s, or “yes” votes. We need to add <code>na.rm = TRUE</code> inside <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> to tell R to ignore <code>NA</code> values when calculating this average.</p>
@@ -746,7 +757,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  8 Federal Republic of Germany                    0.682
  9 Canada                                         0.701
 10 Belgium                                        0.714
-# … with 190 more rows</code></pre>
+# … with 190 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Use arrange(desc(proportion_yes_vote))</span></span>
 <span><span class="co"># to sort in descending order</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -788,7 +800,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  9     3 El Salvador  SV      yes         1       0 1946-01-01 R/1/…     1     0
 10     3 Nicaragua    NI      yes         1       0 1946-01-01 R/1/…     1     0
 # … with 869,927 more rows, 2 more variables: short &lt;chr&gt;, descr &lt;chr&gt;, and
-#   abbreviated variable names ¹​country_code, ²​importantvote</code></pre>
+#   abbreviated variable names ¹​country_code, ²​importantvote
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
 </div>
 </div>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-23_35ee867fa2b62de6e2069eb79ba87c4f">
@@ -808,7 +821,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  8     3 Honduras           HN           yes   &lt;NA&gt;       &lt;NA&gt; 
  9     3 El Salvador        SV           yes   &lt;NA&gt;       &lt;NA&gt; 
 10     3 Nicaragua          NI           yes   &lt;NA&gt;       &lt;NA&gt; 
-# … with 1,123,324 more rows</code></pre>
+# … with 1,123,324 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-24_3976f66fec3934a852b2bf25401ff39c">
@@ -832,7 +846,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  9    11       1        0 1946-02-05 R/1/…     0     0 TRUS… "TO … co      Colo…
 10    11       1        0 1946-02-05 R/1/…     0     0 TRUS… "TO … ec      Econ…
 # … with 7,838 more rows, and abbreviated variable names ¹​importantvote,
-#   ²​short_name</code></pre>
+#   ²​short_name
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 </section><section id="reshaping-data" class="level2" data-number="3.6"><h2 data-number="3.6" class="anchored" data-anchor-id="reshaping-data">
@@ -860,7 +875,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #   `United Kingdom` &lt;fct&gt;, Netherlands &lt;fct&gt;, Belgium &lt;fct&gt;, Luxembourg &lt;fct&gt;,
 #   France &lt;fct&gt;, Poland &lt;fct&gt;, Czechoslovakia &lt;fct&gt;, Yugoslavia &lt;fct&gt;,
 #   Greece &lt;fct&gt;, Russia &lt;fct&gt;, Ukraine &lt;fct&gt;, Belarus &lt;fct&gt;, Norway &lt;fct&gt;,
-#   Denmark &lt;fct&gt;, Liberia &lt;fct&gt;, Ethiopia &lt;fct&gt;, `South Africa` &lt;fct&gt;, …</code></pre>
+#   Denmark &lt;fct&gt;, Liberia &lt;fct&gt;, Ethiopia &lt;fct&gt;, `South Africa` &lt;fct&gt;, …
+# ℹ Use `colnames()` to see all variable names</code></pre>
 </div>
 </div>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-26_66fbbf859f3b6e076a164016c20da1bb">
@@ -884,7 +900,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  8     3 Honduras           yes  
  9     3 El Salvador        yes  
 10     3 Nicaragua          yes  
-# … with 1,240,390 more rows</code></pre>
+# … with 1,240,390 more rows
+# ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
 

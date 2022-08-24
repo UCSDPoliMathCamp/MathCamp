@@ -150,7 +150,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <a href="./">UCSD Political Science Math Camp</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/UCSDPoliMathCamp/MathCamp/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="./UCSD-Political-Science-Math-Camp.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
 </div>
     </div>
       </div>
@@ -319,7 +323,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#determinants" id="toc-determinants" class="nav-link" data-scroll-target="#determinants"> <span class="header-section-number">6.10</span> Determinants</a></li>
   <li><a href="#getting-inverse-of-a-matrix-using-its-determinant" id="toc-getting-inverse-of-a-matrix-using-its-determinant" class="nav-link" data-scroll-target="#getting-inverse-of-a-matrix-using-its-determinant"> <span class="header-section-number">6.11</span> Getting Inverse of a Matrix using its Determinant</a></li>
   <li><a href="#answers-to-examples-and-exercises" id="toc-answers-to-examples-and-exercises" class="nav-link" data-scroll-target="#answers-to-examples-and-exercises">Answers to Examples and Exercises</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/21_linear-algebra.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/blob/main/21_linear-algebra.Rmd" class="toc-action">View source</a></p></div></div></nav>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/21_linear-algebra.Rmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
@@ -539,11 +543,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The unknown quantities are represented by the vector <span class="math inline">{\bf x}=\begin{bmatrix} x_1\\x_2\\\vdots\\x_n \end{bmatrix}</span>.</p>
 <p>The right hand side of the linear system is represented by the vector <span class="math inline">{\bf b}=\begin{bmatrix} b_1\\b_2\\\vdots\\b_m \end{bmatrix}</span>.</p>
 <p><strong>Augmented Matrix</strong>: When we append <span class="math inline">\bf b</span> to the coefficient matrix <span class="math inline">\bf A</span>, we get the augmented matrix <span class="math inline">\widehat{\bf A}=[\bf A | b]</span> <span class="math display">\begin{bmatrix}
-    a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} &amp; | &amp; b_1\\
-    a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} &amp; | &amp; b_2\\
-    \vdots &amp;  &amp; \ddots &amp; \vdots &amp; | &amp; \vdots\\
-    a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn} &amp; | &amp; b_m
-    \end{bmatrix}</span></p>
+      a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} &amp; | &amp; b_1\\
+      a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} &amp; | &amp; b_2\\
+      \vdots &amp;  &amp; \ddots &amp; \vdots &amp; | &amp; \vdots\\
+      a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn} &amp; | &amp; b_m
+      \end{bmatrix}</span></p>
 <div id="exr-augmatrix" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 6.5 </strong></span>Create an augmented matrix that represent the following system of equations:</p>
 <p><span class="math display">2x_1 -7x_2 + 9x_3 -4x_4 = 8</span></p>
@@ -553,21 +557,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section><section id="finding-solutions-to-augmented-matrices-and-systems-of-equations" class="level2" data-number="6.6"><h2 data-number="6.6" class="anchored" data-anchor-id="finding-solutions-to-augmented-matrices-and-systems-of-equations">
 <span class="header-section-number">6.6</span> Finding Solutions to Augmented Matrices and Systems of Equations</h2>
 <p><strong>Row Echelon Form</strong>: Our goal is to translate our augmented matrix or system of equations into row echelon form. This will provide us with the values of the vector <strong>x</strong> which solve the system. We use the row operations to change coefficients in the lower triangle of the augmented matrix to 0. An augmented matrix of the form <span class="math display">\begin{bmatrix}
-    \fbox{$a'_{11}$}&amp; a'_{12} &amp; a'_{13}&amp; \cdots &amp; a'_{1n} &amp; | &amp; b'_1\\
-    0 &amp; \fbox{$a'_{22}$} &amp; a'_{23}&amp; \cdots &amp; a'_{2n} &amp; | &amp; b'_2\\
-    0 &amp; 0 &amp; \fbox{$a'_{33}$}&amp; \cdots &amp; a'_{3n} &amp; | &amp; b'_3\\
-    0 &amp; 0 &amp;0 &amp; \ddots &amp; \vdots  &amp; | &amp; \vdots \\
-    0 &amp; 0 &amp;0 &amp;0 &amp; \fbox{$a'_{mn}$} &amp; | &amp; b'_m
-    \end{bmatrix}</span></p>
+      \fbox{$a'_{11}$}&amp; a'_{12} &amp; a'_{13}&amp; \cdots &amp; a'_{1n} &amp; | &amp; b'_1\\
+      0 &amp; \fbox{$a'_{22}$} &amp; a'_{23}&amp; \cdots &amp; a'_{2n} &amp; | &amp; b'_2\\
+      0 &amp; 0 &amp; \fbox{$a'_{33}$}&amp; \cdots &amp; a'_{3n} &amp; | &amp; b'_3\\
+      0 &amp; 0 &amp;0 &amp; \ddots &amp; \vdots  &amp; | &amp; \vdots \\
+      0 &amp; 0 &amp;0 &amp;0 &amp; \fbox{$a'_{mn}$} &amp; | &amp; b'_m
+      \end{bmatrix}</span></p>
 <p>is said to be in row echelon form — each row has more leading zeros than the row preceding it.</p>
 <p><strong>Reduced Row Echelon Form</strong>: We can go one step further and put the matrix into reduced row echelon form. Reduced row echelon form makes the value of <strong>x</strong> which solves the system very obvious. For a system of <span class="math inline">m</span> equations in <span class="math inline">m</span> unknowns, with no all-zero rows, the reduced row echelon form would be</p>
 <p><span class="math display">\begin{bmatrix}
-    \fbox{$1$}  &amp;  0 &amp;   0 &amp;    0  &amp;   0 &amp; | &amp; b^*_1\\
-    0  &amp;  \fbox{$1$} &amp;   0 &amp;    0  &amp;   0 &amp; | &amp; b^*_2\\
-    0  &amp;  0 &amp;   \fbox{$1$} &amp;    0  &amp;   0 &amp; | &amp; b^*_3\\
-    0  &amp;  0 &amp;   0 &amp;\ddots &amp;   0 &amp; | &amp;\vdots\\
-    0  &amp;  0 &amp;   0 &amp;    0  &amp;   \fbox{$1$} &amp; | &amp; b^*_m
-    \end{bmatrix}</span></p>
+      \fbox{$1$}  &amp;  0 &amp;   0 &amp;    0  &amp;   0 &amp; | &amp; b^*_1\\
+      0  &amp;  \fbox{$1$} &amp;   0 &amp;    0  &amp;   0 &amp; | &amp; b^*_2\\
+      0  &amp;  0 &amp;   \fbox{$1$} &amp;    0  &amp;   0 &amp; | &amp; b^*_3\\
+      0  &amp;  0 &amp;   0 &amp;\ddots &amp;   0 &amp; | &amp;\vdots\\
+      0  &amp;  0 &amp;   0 &amp;    0  &amp;   \fbox{$1$} &amp; | &amp; b^*_m
+      \end{bmatrix}</span></p>
 <p><strong>Gaussian and Gauss-Jordan elimination</strong>: We can conduct elementary row operations to get our augmented matrix into row echelon or reduced row echelon form. The methods of transforming a matrix or system into row echelon and reduced row echelon form are referred to as Gaussian elimination and Gauss-Jordan elimination, respectively.</p>
 <p><strong>Elementary Row Operations</strong>: To do Gaussian and Gauss-Jordan elimination, we use three basic operations to transform the augmented matrix into another augmented matrix that represents an equivalent linear system – equivalent in the sense that the same values of <span class="math inline">x_j</span> solve both the original and transformed matrix/system:</p>
 <p><strong>Interchanging Rows</strong>: Suppose we have the augmented matrix <span class="math display">{\widehat{\bf A}}=\begin{bmatrix} a_{11} &amp; a_{12} &amp; | &amp; b_1\\
@@ -587,9 +591,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="exm-solvesys" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6.6 </strong></span></p>
 <p>Solve the following system of equations by using elementary row operations: <span class="math display">\begin{matrix}
-    x  &amp; - &amp; 3y &amp; = &amp; -3\\
-    2x &amp; + &amp;  y &amp; = &amp;  8
-    \end{matrix}</span></p>
+      x  &amp; - &amp; 3y &amp; = &amp; -3\\
+      2x &amp; + &amp;  y &amp; = &amp;  8
+      \end{matrix}</span></p>
 </div>
 <div id="exr-solvesys1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 6.6 </strong></span>Put the following system of equations into augmented matrix form. Then, using Gaussian or Gauss-Jordan elimination, solve the system of equations by putting the matrix into row echelon or reduced row echelon form.</p>
@@ -611,8 +615,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To determine how many solutions exist, we can use information about (1) the number of equations <span class="math inline">m</span>, (2) the number of unknowns <span class="math inline">n</span>, and (3) the <strong>rank</strong> of the matrix representing the linear system.</p>
 <p><strong>Rank</strong>: The maximum number of linearly independent row or column vectors in the matrix. This is equivalent to the number of nonzero rows of a matrix in row echelon form. For any matrix <strong>A</strong>, the row rank always equals column rank, and we refer to this number as the rank of <strong>A</strong>.</p>
 <p>For example <span class="math display">\begin{bmatrix} 1 &amp; 2 &amp; 3 \\
-            0 &amp; 4 &amp; 5 \\
-            0 &amp; 0 &amp; 6 \end{bmatrix}</span></p>
+              0 &amp; 4 &amp; 5 \\
+              0 &amp; 0 &amp; 6 \end{bmatrix}</span></p>
 <p>Rank = 3</p>
 <p><span class="math display">\begin{bmatrix} 1 &amp; 2 &amp; 3 \\
     0 &amp; 4 &amp; 5 \\
@@ -676,15 +680,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="header-section-number">6.9</span> Linear Systems and Inverses</h2>
 <p>Let’s return to the matrix representation of a linear system</p>
 <p><span class="math display">\bf{Ax} = \bf{b}</span></p>
-<p>If <span class="math inline">\bf{A}</span> is an <span class="math inline">n\times n</span> matrix,then <span class="math inline">\bf{Ax}=\bf{b}</span> is a system of <span class="math inline">n</span> equations in <span class="math inline">n</span> unknowns. Suppose <span class="math inline">\bf{A}</span> is nonsingular. Then <span class="math inline">\bf{A}^{-1}</span> exists. To solve this system, we can multiply each side by <span class="math inline">\bf{A}^{-1}</span> and reduce it as follows:</p>
-<p><span class="math display">\begin{align*} \bf{A}^{-1} (\bf{A} \bf{x}) &amp; =  \bf{A}^{-1} \bf{b} \\ (\bf{A}^{-1} \bf{A})\bf{x} &amp; =  \bf{A}^{-1} \bf{b}\\ \bf{I}_n \bf{x}     &amp; =  \bf{A}^{-1} \bf{b}\\ \bf{x} &amp; =  \bf{A}^{-1} \bf{b} \end{align*} </span></p>
+<p>If <span class="math inline">\bf{A}</span> is an <span class="math inline">n\times n</span> matrix,then <span class="math inline">\bf{Ax}=\bf{b}</span> is a system of <span class="math inline">n</span> equations in <span class="math inline">n</span> unknowns. Suppose <span class="math inline">\bf{A}</span> is nonsingular. Then <span class="math inline">\bf{A}^{-1}</span> exists. To solve this system, we can multiply each side by <span class="math inline">\bf{A}^{-1}</span> and reduce it as follows: <span class="math display">\begin{align*} \bf{A}^{-1} (\bf{A} \bf{x}) &amp; =  \bf{A}^{-1} \bf{b} \\ (\bf{A}^{-1} \bf{A})\bf{x} &amp; =  \bf{A}^{-1} \bf{b}\\ \bf{I}_n \bf{x}     &amp; =  \bf{A}^{-1} \bf{b}\\ \bf{x} &amp; =  \bf{A}^{-1} \bf{b} \end{align*}</span></p>
 <p>Hence, given <span class="math inline">\bf{A}</span> and <span class="math inline">\bf{b}</span> and given that <span class="math inline">\bf{A}</span> is nonsingular, then <span class="math inline">\bf{x} = \bf{A}^{-1} \bf{b}</span> is a unique solution to this system.</p>
 <div id="exr-invlinsys" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 6.9 </strong></span>Use the inverse matrix to solve the following linear system:</p>
-<p><span class="math display"> \begin{align*}
-  -3x + 4y &amp;= 5 \\
-  2x - y &amp;= -10
-  \end{align*} </span></p>
+<p><span class="math display">\begin{align*}
+-3x + 4y &amp;= 5 \\
+2x - y &amp;= -10
+\end{align*}</span></p>
 <p><strong>Hint</strong>: the linear system above can be written in the matrix form</p>
 <p><span class="math inline">\textbf{A}\textbf{z} = \textbf{b}</span></p>
 <p>given</p>
@@ -701,18 +704,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Determinant of a <span class="math inline">2 \times 2</span> matrix,</p>
 <p><span class="math display">\mathbf{A}=\begin{vmatrix} a_{11}&amp;a_{12}\\ a_{21}&amp;a_{22} \end{vmatrix}</span></p>
 <p><span class="math display">\begin{align*}\det({\bf A}) &amp;= |{\bf A}|\\
-            &amp;= a_{11}|a_{22}| - a_{12}|a_{21}|\\
-            &amp;= a_{11}a_{22} - a_{12}a_{21}
-  \end{align*}</span></p>
+        &amp;= a_{11}|a_{22}| - a_{12}|a_{21}|\\
+        &amp;= a_{11}a_{22} - a_{12}a_{21}
+\end{align*}</span></p>
 <p>We can extend the second to last equation above to get the definition of the determinant of a <span class="math inline">3 \times 3</span> matrix: <span class="math display">\begin{align*}
-            \begin{vmatrix} a_{11}&amp;a_{12}&amp;a_{13}\\  a_{21} &amp; a_{22}&amp;a_{23}\\ a_{31}&amp;a_{32}&amp;a_{33} \end{vmatrix}
-                &amp;=
-                a_{11} \begin{vmatrix} a_{22}&amp;a_{23}\\ a_{32}&amp;a_{33} \end{vmatrix}
-                - a_{12} \begin{vmatrix} a_{21}&amp;a_{23}\\ a_{31}&amp;a_{33} \end{vmatrix}
-                + a_{13} \begin{vmatrix} a_{21}&amp;a_{22}\\ a_{31}&amp;a_{32}
-                \end{vmatrix}\\
-                &amp;= a_{11}(a_{22}a_{33} - a_{23}a_{32}) - a_{12}(a_{21}a_{33} - a_{23}a_{31}) + a_{13}(a_{21}a_{32} - a_{22}a_{31})
-  \end{align*} </span></p>
+        \begin{vmatrix} a_{11}&amp;a_{12}&amp;a_{13}\\  a_{21} &amp; a_{22}&amp;a_{23}\\ a_{31}&amp;a_{32}&amp;a_{33} \end{vmatrix}
+            &amp;=
+            a_{11} \begin{vmatrix} a_{22}&amp;a_{23}\\ a_{32}&amp;a_{33} \end{vmatrix}
+            - a_{12} \begin{vmatrix} a_{21}&amp;a_{23}\\ a_{31}&amp;a_{33} \end{vmatrix}
+            + a_{13} \begin{vmatrix} a_{21}&amp;a_{22}\\ a_{31}&amp;a_{32}
+            \end{vmatrix}\\
+            &amp;= a_{11}(a_{22}a_{33} - a_{23}a_{32}) - a_{12}(a_{21}a_{33} - a_{23}a_{31}) + a_{13}(a_{21}a_{32} - a_{22}a_{31})
+\end{align*}</span></p>
 <p>Let’s extend this now to any <span class="math inline">n\times n</span> matrix. Let’s define <span class="math inline">\mathbf{A}_{ij}</span> as the <span class="math inline">(n-1)\times (n-1)</span> submatrix of <span class="math inline">\mathbf{A}</span> obtained by deleting row <span class="math inline">i</span> and column <span class="math inline">j</span>. Let the <span class="math inline">(i,j)</span>th <strong>minor</strong> of <span class="math inline">\mathbf{A}</span> be the determinant of <span class="math inline">\mathbf{A}_{ij}</span>:</p>
 <p><span class="math display">M_{ij} = \left|\mathbf{A}_{ij}\right|</span></p>
 <p>Then for any <span class="math inline">n\times n</span> matrix <span class="math inline">\mathbf{A}</span></p>
@@ -754,34 +757,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Hence, we can examine how changes in the parameters and <span class="math inline">b_i</span> affect the solutions <span class="math inline">x_j</span>.</p>
 <p><strong>Determinant Formula for the Inverse of a <span class="math inline">2 \times 2</span></strong>:</p>
 <p>The determinant of a <span class="math inline">2 \times 2</span> matrix <span class="math inline">\mathbf{A}=\begin{bmatrix} a &amp; b\\ c &amp; d\\ \end{bmatrix}</span> is defined as: <span class="math display">\frac{1}{\det({\bf A})} \begin{bmatrix}
-            d &amp; -b\\
-            -c &amp; a\\
-        \end{bmatrix}</span></p>
+              d &amp; -b\\
+              -c &amp; a\\
+          \end{bmatrix}</span></p>
 <p>For example, Let’s calculate the inverse of matrix A from <a href="#exr-invlinsys">Exercise&nbsp;<span>6.9</span></a> using the determinant formula.</p>
 <p>Recall,</p>
 <p><span class="math display">\mathbf{A} = \begin{bmatrix}
-            -3 &amp; 4\\
-            2 &amp; -1\\
-        \end{bmatrix}</span></p>
+              -3 &amp; 4\\
+              2 &amp; -1\\
+          \end{bmatrix}</span></p>
 <p><span class="math display">\det(\mathbf{A}) = (-3)(-1) - (4)(2) = 3 - 8  = -5</span></p>
 <p><span class="math display">\frac{1}{\det(\mathbf{A})} \begin{bmatrix}
-            -1 &amp; -4\\
-            -2 &amp; -3\\
-        \end{bmatrix}</span></p>
+              -1 &amp; -4\\
+              -2 &amp; -3\\
+          \end{bmatrix}</span></p>
 <p><span class="math display">\frac{1}{-5} \begin{bmatrix}
-            -1 &amp; -4\\
-            -2 &amp; -3\\
-        \end{bmatrix}</span></p>
+              -1 &amp; -4\\
+              -2 &amp; -3\\
+          \end{bmatrix}</span></p>
 <p><span class="math display">\begin{bmatrix}
-            \frac{1}{5} &amp; \frac{4}{5}\\
-            \frac{2}{5} &amp; \frac{3}{5}\\
-        \end{bmatrix}</span></p>
+              \frac{1}{5} &amp; \frac{4}{5}\\
+              \frac{2}{5} &amp; \frac{3}{5}\\
+          \end{bmatrix}</span></p>
 <div id="exr-calcinverse" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 6.11 </strong></span></p>
 <p>Caculate the inverse of <span class="math inline">\mathbf{A}</span> <span class="math display">\mathbf{A} = \begin{bmatrix}
-            3 &amp; 5\\
-            -7 &amp; 2\\
-        \end{bmatrix}</span></p>
+              3 &amp; 5\\
+              -7 &amp; 2\\
+          \end{bmatrix}</span></p>
 </div>
 </section><section id="answers-to-examples-and-exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="answers-to-examples-and-exercises">Answers to Examples and Exercises</h2>
 <p>Answer to <a href="#exm-vectors">Example&nbsp;<span>6.1</span></a>:</p>
@@ -826,37 +829,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>There are many answers to this. Some possible simple ones are as follows:</p>
 <ol type="1">
 <li><p>One solution: <span class="math display">\begin{matrix}
-         -x  &amp; + &amp; y &amp; = &amp; 0\\
-         x &amp; + &amp;  y &amp; = &amp;  2
-         \end{matrix}</span></p></li>
+           -x  &amp; + &amp; y &amp; = &amp; 0\\
+           x &amp; + &amp;  y &amp; = &amp;  2
+           \end{matrix}</span></p></li>
 <li><p>No solution: <span class="math display">\begin{matrix}
-         -x  &amp; + &amp; y &amp; = &amp; 0\\
-         x &amp; - &amp;  y &amp; = &amp;  2
-         \end{matrix}</span></p></li>
+           -x  &amp; + &amp; y &amp; = &amp; 0\\
+           x &amp; - &amp;  y &amp; = &amp;  2
+           \end{matrix}</span></p></li>
 <li><p>Infinite solutions: <span class="math display">\begin{matrix}
-         -x  &amp; + &amp; y &amp; = &amp; 0\\
-         2x &amp; - &amp;  2y &amp; = &amp;  0
-         \end{matrix}</span></p></li>
+           -x  &amp; + &amp; y &amp; = &amp; 0\\
+           2x &amp; - &amp;  2y &amp; = &amp;  0
+           \end{matrix}</span></p></li>
 </ol>
 <p>Answer to <a href="#exr-augmatrix">Exercise&nbsp;<span>6.5</span></a>:</p>
 <p><span class="math inline">\begin{bmatrix}  2 &amp; -7 &amp; 9 &amp; -4 &amp; 0 &amp; 0| &amp; 8\\  0 &amp; 41 &amp; 9 &amp; 0 &amp; 0 &amp; 5 | &amp; 11\\  1 &amp; -15 &amp; 0 &amp; 0 &amp; -11 &amp; 0 | &amp; 9  \end{bmatrix}</span></p>
 <p>Answer to <a href="#exm-solvesys">Example&nbsp;<span>6.6</span></a>:</p>
 <p><span class="math display">\begin{matrix}
-    x  &amp; - &amp; 3y &amp; = &amp; -3\\
-    2x &amp; + &amp;  y &amp; = &amp;  8
-    \end{matrix}</span></p>
+      x  &amp; - &amp; 3y &amp; = &amp; -3\\
+      2x &amp; + &amp;  y &amp; = &amp;  8
+      \end{matrix}</span></p>
 <p><span class="math display">\begin{matrix}
-    x  &amp; - &amp; 3y &amp; = &amp; -3\\
-       &amp;   &amp; 7y &amp; = &amp; 14\\          
-    \end{matrix}</span></p>
+      x  &amp; - &amp; 3y &amp; = &amp; -3\\
+         &amp;   &amp; 7y &amp; = &amp; 14\\            
+      \end{matrix}</span></p>
 <p><span class="math display">\begin{matrix}
-    x  &amp; - &amp; 3y &amp; = &amp; -3\\
-       &amp;   &amp; y &amp; = &amp; 2\\            
-    \end{matrix}</span></p>
+      x  &amp; - &amp; 3y &amp; = &amp; -3\\
+         &amp;   &amp; y &amp; = &amp; 2\\          
+      \end{matrix}</span></p>
 <p><span class="math display">\begin{matrix}
-    x &amp; = &amp; 3\\
-    y &amp; = &amp; 2\\         
-    \end{matrix}</span></p>
+      x &amp; = &amp; 3\\
+      y &amp; = &amp; 2\\           
+      \end{matrix}</span></p>
 <p>Answer to <a href="#exr-solvesys1">Exercise&nbsp;<span>6.6</span></a>:</p>
 <ol type="1">
 <li><p>x = 2, y = 2, z = -1</p></li>
@@ -1352,11 +1355,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a>__Augmented Matrix__:  When we append $\bf b$ to the coefficient matrix $\bf A$, we get the augmented matrix $\widehat{\bf A}=<span class="co">[</span><span class="ot">\bf A | b</span><span class="co">]</span>$</span>
 <span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a>  $$\begin{bmatrix}</span>
-<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a>    a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} &amp; | &amp; b_1<span class="sc">\\</span></span>
-<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a>    a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} &amp; | &amp; b_2<span class="sc">\\</span></span>
-<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a>    \vdots &amp;  &amp; \ddots &amp; \vdots &amp; | &amp; \vdots<span class="sc">\\</span></span>
-<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a>    a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn} &amp; | &amp; b_m</span>
-<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a>    \end{bmatrix}$$</span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a>      a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} &amp; | &amp; b_1<span class="sc">\\</span></span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a>      a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} &amp; | &amp; b_2<span class="sc">\\</span></span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a>      \vdots &amp;  &amp; \ddots &amp; \vdots &amp; | &amp; \vdots<span class="sc">\\</span></span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a>      a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn} &amp; | &amp; b_m</span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a>      \end{bmatrix}$$</span>
 <span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a>:::{#exr-augmatrix}</span>
@@ -1374,24 +1377,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a>__Row Echelon Form__: Our goal is to translate our augmented matrix or system of equations into row echelon form. This will provide us with the values of the vector __x__ which solve the system. We use the row operations to change coefficients in the lower triangle of the augmented matrix to 0.  An augmented matrix of the form</span>
 <span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a>  $$\begin{bmatrix}</span>
-<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a>    \fbox{$a'_{11}$}&amp; a'_{12} &amp; a'_{13}&amp; \cdots &amp; a'_{1n} &amp; | &amp; b'_1<span class="sc">\\</span></span>
-<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a>    0 &amp; \fbox{$a'_{22}$} &amp; a'_{23}&amp; \cdots &amp; a'_{2n} &amp; | &amp; b'_2<span class="sc">\\</span></span>
-<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a>    0 &amp; 0 &amp; \fbox{$a'_{33}$}&amp; \cdots &amp; a'_{3n} &amp; | &amp; b'_3<span class="sc">\\</span></span>
-<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a>    0 &amp; 0 &amp;0 &amp; \ddots &amp; \vdots  &amp; | &amp; \vdots <span class="sc">\\</span></span>
-<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a>    0 &amp; 0 &amp;0 &amp;0 &amp; \fbox{$a'_{mn}$} &amp; | &amp; b'_m</span>
-<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a>    \end{bmatrix}$$</span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a>      \fbox{$a'_{11}$}&amp; a'_{12} &amp; a'_{13}&amp; \cdots &amp; a'_{1n} &amp; | &amp; b'_1<span class="sc">\\</span></span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a>      0 &amp; \fbox{$a'_{22}$} &amp; a'_{23}&amp; \cdots &amp; a'_{2n} &amp; | &amp; b'_2<span class="sc">\\</span></span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a>      0 &amp; 0 &amp; \fbox{$a'_{33}$}&amp; \cdots &amp; a'_{3n} &amp; | &amp; b'_3<span class="sc">\\</span></span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a>      0 &amp; 0 &amp;0 &amp; \ddots &amp; \vdots  &amp; | &amp; \vdots <span class="sc">\\</span></span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a>      0 &amp; 0 &amp;0 &amp;0 &amp; \fbox{$a'_{mn}$} &amp; | &amp; b'_m</span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a>      \end{bmatrix}$$</span>
 <span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a>is said to be in row echelon form --- each row has more leading zeros than the row preceding it.</span>
 <span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a>__Reduced Row Echelon Form__: We can go one step further and put the matrix into reduced row echelon form. Reduced row echelon form makes the value of __x__ which solves the system very obvious. For a system of $m$ equations in $m$ unknowns, with no all-zero rows, the reduced row echelon form would be</span>
 <span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a>  $$\begin{bmatrix}</span>
-<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a>    \fbox{$1$}  &amp;  0 &amp;   0 &amp;    0  &amp;   0 &amp; | &amp; b^*_1<span class="sc">\\</span></span>
-<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a>    0  &amp;  \fbox{$1$} &amp;   0 &amp;    0  &amp;   0 &amp; | &amp; b^*_2<span class="sc">\\</span></span>
-<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a>    0  &amp;  0 &amp;   \fbox{$1$} &amp;    0  &amp;   0 &amp; | &amp; b^*_3<span class="sc">\\</span></span>
-<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a>    0  &amp;  0 &amp;   0 &amp;\ddots &amp;   0 &amp; | &amp;\vdots<span class="sc">\\</span></span>
-<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a>    0  &amp;  0 &amp;   0 &amp;    0  &amp;   \fbox{$1$} &amp; | &amp; b^*_m</span>
-<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a>    \end{bmatrix}$$</span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a>      \fbox{$1$}  &amp;  0 &amp;   0 &amp;    0  &amp;   0 &amp; | &amp; b^*_1<span class="sc">\\</span></span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a>      0  &amp;  \fbox{$1$} &amp;   0 &amp;    0  &amp;   0 &amp; | &amp; b^*_2<span class="sc">\\</span></span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a>      0  &amp;  0 &amp;   \fbox{$1$} &amp;    0  &amp;   0 &amp; | &amp; b^*_3<span class="sc">\\</span></span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a>      0  &amp;  0 &amp;   0 &amp;\ddots &amp;   0 &amp; | &amp;\vdots<span class="sc">\\</span></span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a>      0  &amp;  0 &amp;   0 &amp;    0  &amp;   \fbox{$1$} &amp; | &amp; b^*_m</span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a>      \end{bmatrix}$$</span>
 <span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a>__Gaussian and Gauss-Jordan elimination__:  We can conduct elementary row operations to get our augmented matrix into row echelon or reduced row echelon form. The methods of transforming a matrix or system into row echelon and reduced row echelon form are referred to as Gaussian elimination and Gauss-Jordan elimination, respectively.</span>
@@ -1428,9 +1431,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a>Solve the following system of equations by using elementary row operations:</span>
 <span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a>  $$\begin{matrix}</span>
-<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a>    x  &amp; - &amp; 3y &amp; = &amp; -3<span class="sc">\\</span></span>
-<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a>    2x &amp; + &amp;  y &amp; = &amp;  8</span>
-<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a>    \end{matrix}$$</span>
+<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a>      x  &amp; - &amp; 3y &amp; = &amp; -3<span class="sc">\\</span></span>
+<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a>      2x &amp; + &amp;  y &amp; = &amp;  8</span>
+<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a>      \end{matrix}$$</span>
 <span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a></span>
@@ -1465,8 +1468,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a>For example</span>
 <span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a>  $$\begin{bmatrix} 1 &amp; 2 &amp; 3 <span class="sc">\\</span></span>
-<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a>            0 &amp; 4 &amp; 5 <span class="sc">\\</span></span>
-<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a>            0 &amp; 0 &amp; 6 \end{bmatrix}$$</span>
+<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a>              0 &amp; 4 &amp; 5 <span class="sc">\\</span></span>
+<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a>              0 &amp; 0 &amp; 6 \end{bmatrix}$$</span>
 <span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a>            </span>
 <span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a>Rank = 3</span>
 <span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a>            </span>
@@ -1575,7 +1578,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-523"><a href="#cb1-523" aria-hidden="true" tabindex="-1"></a>  $$\bf{Ax} = \bf{b}$$</span>
 <span id="cb1-524"><a href="#cb1-524" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-525"><a href="#cb1-525" aria-hidden="true" tabindex="-1"></a>If $\bf{A}$ is an $n\times n$ matrix,then $\bf{Ax}=\bf{b}$ is a system of $n$ equations in $n$ unknowns.  Suppose $\bf{A}$ is nonsingular. Then $\bf{A}^{-1}$ exists.  To solve this system, we can multiply each side by $\bf{A}^{-1}$ and reduce it as follows:</span>
-<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a>  $$\begin{align*} \bf{A}^{-1} (\bf{A} \bf{x}) &amp; =  \bf{A}^{-1} \bf{b} \\ (\bf{A}^{-1} \bf{A})\bf{x} &amp; =  \bf{A}^{-1} \bf{b}\\ \bf{I}_n \bf{x}     &amp; =  \bf{A}^{-1} \bf{b}\\ \bf{x} &amp; =  \bf{A}^{-1} \bf{b} \end{align*} $$</span>
+<span id="cb1-526"><a href="#cb1-526" aria-hidden="true" tabindex="-1"></a>\begin{align*} \bf{A}^{-1} (\bf{A} \bf{x}) &amp; =  \bf{A}^{-1} \bf{b} \\ (\bf{A}^{-1} \bf{A})\bf{x} &amp; =  \bf{A}^{-1} \bf{b}\\ \bf{I}_n \bf{x}     &amp; =  \bf{A}^{-1} \bf{b}\\ \bf{x} &amp; =  \bf{A}^{-1} \bf{b} \end{align*}</span>
 <span id="cb1-527"><a href="#cb1-527" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-528"><a href="#cb1-528" aria-hidden="true" tabindex="-1"></a>Hence, given $\bf{A}$ and $\bf{b}$ and given that $\bf{A}$ is nonsingular, then $\bf{x} = \bf{A}^{-1} \bf{b}$ is a unique solution to this system.</span>
 <span id="cb1-529"><a href="#cb1-529" aria-hidden="true" tabindex="-1"></a></span>
@@ -1584,10 +1587,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-532"><a href="#cb1-532" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-533"><a href="#cb1-533" aria-hidden="true" tabindex="-1"></a>Use the inverse matrix to solve the following linear system:</span>
 <span id="cb1-534"><a href="#cb1-534" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-535"><a href="#cb1-535" aria-hidden="true" tabindex="-1"></a>  $$ \begin{align*} </span>
-<span id="cb1-536"><a href="#cb1-536" aria-hidden="true" tabindex="-1"></a>  -3x + 4y &amp;= 5 <span class="sc">\\</span></span>
-<span id="cb1-537"><a href="#cb1-537" aria-hidden="true" tabindex="-1"></a>  2x - y &amp;= -10</span>
-<span id="cb1-538"><a href="#cb1-538" aria-hidden="true" tabindex="-1"></a>  \end{align*} $$</span>
+<span id="cb1-535"><a href="#cb1-535" aria-hidden="true" tabindex="-1"></a>\begin{align*} </span>
+<span id="cb1-536"><a href="#cb1-536" aria-hidden="true" tabindex="-1"></a>-3x + 4y &amp;= 5 <span class="sc">\\</span></span>
+<span id="cb1-537"><a href="#cb1-537" aria-hidden="true" tabindex="-1"></a>2x - y &amp;= -10</span>
+<span id="cb1-538"><a href="#cb1-538" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
 <span id="cb1-539"><a href="#cb1-539" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-540"><a href="#cb1-540" aria-hidden="true" tabindex="-1"></a>**Hint**: the linear system above can be written in the matrix form</span>
 <span id="cb1-541"><a href="#cb1-541" aria-hidden="true" tabindex="-1"></a></span>
@@ -1613,21 +1616,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-561"><a href="#cb1-561" aria-hidden="true" tabindex="-1"></a>Determinant of a $2 \times 2$ matrix,   </span>
 <span id="cb1-562"><a href="#cb1-562" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}=\begin{vmatrix} a_{11}&amp;a_{12}<span class="sc">\\</span> a_{21}&amp;a_{22} \end{vmatrix}$$</span>
 <span id="cb1-563"><a href="#cb1-563" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-564"><a href="#cb1-564" aria-hidden="true" tabindex="-1"></a>  $$\begin{align*}\det({\bf A}) &amp;= |{\bf A}|<span class="sc">\\</span></span>
-<span id="cb1-565"><a href="#cb1-565" aria-hidden="true" tabindex="-1"></a>            &amp;= a_{11}|a_{22}| - a_{12}|a_{21}|<span class="sc">\\</span></span>
-<span id="cb1-566"><a href="#cb1-566" aria-hidden="true" tabindex="-1"></a>            &amp;= a_{11}a_{22} - a_{12}a_{21}</span>
-<span id="cb1-567"><a href="#cb1-567" aria-hidden="true" tabindex="-1"></a>  \end{align*}$$</span>
+<span id="cb1-564"><a href="#cb1-564" aria-hidden="true" tabindex="-1"></a>\begin{align*}\det({\bf A}) &amp;= |{\bf A}|<span class="sc">\\</span></span>
+<span id="cb1-565"><a href="#cb1-565" aria-hidden="true" tabindex="-1"></a>        &amp;= a_{11}|a_{22}| - a_{12}|a_{21}|<span class="sc">\\</span></span>
+<span id="cb1-566"><a href="#cb1-566" aria-hidden="true" tabindex="-1"></a>        &amp;= a_{11}a_{22} - a_{12}a_{21}</span>
+<span id="cb1-567"><a href="#cb1-567" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
 <span id="cb1-568"><a href="#cb1-568" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-569"><a href="#cb1-569" aria-hidden="true" tabindex="-1"></a>We can extend the second to last equation above to get the definition of the determinant of a $3 \times 3$ matrix:</span>
-<span id="cb1-570"><a href="#cb1-570" aria-hidden="true" tabindex="-1"></a>  $$\begin{align*}</span>
-<span id="cb1-571"><a href="#cb1-571" aria-hidden="true" tabindex="-1"></a>            \begin{vmatrix} a_{11}&amp;a_{12}&amp;a_{13}<span class="sc">\\</span>  a_{21} &amp; a_{22}&amp;a_{23}<span class="sc">\\</span> a_{31}&amp;a_{32}&amp;a_{33} \end{vmatrix} </span>
-<span id="cb1-572"><a href="#cb1-572" aria-hidden="true" tabindex="-1"></a>                &amp;= </span>
-<span id="cb1-573"><a href="#cb1-573" aria-hidden="true" tabindex="-1"></a>                a_{11} \begin{vmatrix} a_{22}&amp;a_{23}<span class="sc">\\</span> a_{32}&amp;a_{33} \end{vmatrix}</span>
-<span id="cb1-574"><a href="#cb1-574" aria-hidden="true" tabindex="-1"></a><span class="ss">                - </span>a_{12} \begin{vmatrix} a_{21}&amp;a_{23}\\ a_{31}&amp;a_{33} \end{vmatrix}</span>
-<span id="cb1-575"><a href="#cb1-575" aria-hidden="true" tabindex="-1"></a><span class="ss">                + </span>a_{13} \begin{vmatrix} a_{21}&amp;a_{22}\\ a_{31}&amp;a_{32} </span>
-<span id="cb1-576"><a href="#cb1-576" aria-hidden="true" tabindex="-1"></a>                \end{vmatrix}<span class="sc">\\</span></span>
-<span id="cb1-577"><a href="#cb1-577" aria-hidden="true" tabindex="-1"></a>                &amp;= a_{11}(a_{22}a_{33} - a_{23}a_{32}) - a_{12}(a_{21}a_{33} - a_{23}a_{31}) + a_{13}(a_{21}a_{32} - a_{22}a_{31})</span>
-<span id="cb1-578"><a href="#cb1-578" aria-hidden="true" tabindex="-1"></a>  \end{align*} $$</span>
+<span id="cb1-570"><a href="#cb1-570" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-571"><a href="#cb1-571" aria-hidden="true" tabindex="-1"></a>        \begin{vmatrix} a_{11}&amp;a_{12}&amp;a_{13}<span class="sc">\\</span>  a_{21} &amp; a_{22}&amp;a_{23}<span class="sc">\\</span> a_{31}&amp;a_{32}&amp;a_{33} \end{vmatrix} </span>
+<span id="cb1-572"><a href="#cb1-572" aria-hidden="true" tabindex="-1"></a>            &amp;= </span>
+<span id="cb1-573"><a href="#cb1-573" aria-hidden="true" tabindex="-1"></a>            a_{11} \begin{vmatrix} a_{22}&amp;a_{23}<span class="sc">\\</span> a_{32}&amp;a_{33} \end{vmatrix}</span>
+<span id="cb1-574"><a href="#cb1-574" aria-hidden="true" tabindex="-1"></a><span class="ss">            - </span>a_{12} \begin{vmatrix} a_{21}&amp;a_{23}\\ a_{31}&amp;a_{33} \end{vmatrix}</span>
+<span id="cb1-575"><a href="#cb1-575" aria-hidden="true" tabindex="-1"></a><span class="ss">            + </span>a_{13} \begin{vmatrix} a_{21}&amp;a_{22}\\ a_{31}&amp;a_{32} </span>
+<span id="cb1-576"><a href="#cb1-576" aria-hidden="true" tabindex="-1"></a>            \end{vmatrix}<span class="sc">\\</span></span>
+<span id="cb1-577"><a href="#cb1-577" aria-hidden="true" tabindex="-1"></a>            &amp;= a_{11}(a_{22}a_{33} - a_{23}a_{32}) - a_{12}(a_{21}a_{33} - a_{23}a_{31}) + a_{13}(a_{21}a_{32} - a_{22}a_{31})</span>
+<span id="cb1-578"><a href="#cb1-578" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
 <span id="cb1-579"><a href="#cb1-579" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-580"><a href="#cb1-580" aria-hidden="true" tabindex="-1"></a>Let's extend this now to any $n\times n$ matrix. Let's define $\mathbf{A}_{ij}$ as the $(n-1)\times (n-1)$ submatrix of $\mathbf{A}$ obtained by deleting row $i$ and column $j$.  Let the $(i,j)$th __minor__ of $\mathbf{A}$ be  the determinant of $\mathbf{A}_{ij}$:</span>
 <span id="cb1-581"><a href="#cb1-581" aria-hidden="true" tabindex="-1"></a>$$M_{ij} = \left|\mathbf{A}_{ij}\right|$$</span>
@@ -1641,11 +1644,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-589"><a href="#cb1-589" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}=\begin{bmatrix} 1&amp;1&amp;1<span class="sc">\\</span>0&amp;2&amp;3<span class="sc">\\</span>5&amp;5&amp;1 \end{bmatrix}$$</span>
 <span id="cb1-590"><a href="#cb1-590" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-591"><a href="#cb1-591" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Calculate its determinant.</span>
-<span id="cb1-592"><a href="#cb1-592" aria-hidden="true" tabindex="-1"></a>  $$\begin{align*}</span>
-<span id="cb1-593"><a href="#cb1-593" aria-hidden="true" tabindex="-1"></a>    |\mathbf{A}| &amp;= 1(2-15) - 1(0-15) + 1(0-10) \nonumber<span class="sc">\\</span></span>
-<span id="cb1-594"><a href="#cb1-594" aria-hidden="true" tabindex="-1"></a>    &amp;= -13+15-10 \nonumber<span class="sc">\\</span></span>
-<span id="cb1-595"><a href="#cb1-595" aria-hidden="true" tabindex="-1"></a>    &amp;= -8\nonumber</span>
-<span id="cb1-596"><a href="#cb1-596" aria-hidden="true" tabindex="-1"></a>    \end{align*}$$</span>
+<span id="cb1-592"><a href="#cb1-592" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-593"><a href="#cb1-593" aria-hidden="true" tabindex="-1"></a>|\mathbf{A}| &amp;= 1(2-15) - 1(0-15) + 1(0-10) \nonumber<span class="sc">\\</span></span>
+<span id="cb1-594"><a href="#cb1-594" aria-hidden="true" tabindex="-1"></a>&amp;= -13+15-10 \nonumber<span class="sc">\\</span></span>
+<span id="cb1-595"><a href="#cb1-595" aria-hidden="true" tabindex="-1"></a>&amp;= -8\nonumber</span>
+<span id="cb1-596"><a href="#cb1-596" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
 <span id="cb1-597"><a href="#cb1-597" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-598"><a href="#cb1-598" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Since $|{\bf A}|\ne 0$, we conclude that ${\bf A}$ has an inverse.</span>
 <span id="cb1-599"><a href="#cb1-599" aria-hidden="true" tabindex="-1"></a></span>
@@ -1689,9 +1692,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-637"><a href="#cb1-637" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-638"><a href="#cb1-638" aria-hidden="true" tabindex="-1"></a>The determinant of a $2 \times 2$ matrix $\mathbf{A}=\begin{bmatrix} a &amp; b<span class="sc">\\</span> c &amp; d<span class="sc">\\</span> \end{bmatrix}$ is defined as:</span>
 <span id="cb1-639"><a href="#cb1-639" aria-hidden="true" tabindex="-1"></a>  $$\frac{1}{\det({\bf A})} \begin{bmatrix}</span>
-<span id="cb1-640"><a href="#cb1-640" aria-hidden="true" tabindex="-1"></a>            d &amp; -b<span class="sc">\\</span></span>
-<span id="cb1-641"><a href="#cb1-641" aria-hidden="true" tabindex="-1"></a>            -c &amp; a<span class="sc">\\</span></span>
-<span id="cb1-642"><a href="#cb1-642" aria-hidden="true" tabindex="-1"></a>        \end{bmatrix}$$</span>
+<span id="cb1-640"><a href="#cb1-640" aria-hidden="true" tabindex="-1"></a>              d &amp; -b<span class="sc">\\</span></span>
+<span id="cb1-641"><a href="#cb1-641" aria-hidden="true" tabindex="-1"></a>              -c &amp; a<span class="sc">\\</span></span>
+<span id="cb1-642"><a href="#cb1-642" aria-hidden="true" tabindex="-1"></a>          \end{bmatrix}$$</span>
 <span id="cb1-643"><a href="#cb1-643" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb1-644"><a href="#cb1-644" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-645"><a href="#cb1-645" aria-hidden="true" tabindex="-1"></a>For example, Let's calculate the inverse of matrix A from @exr-invlinsys using the determinant formula. </span>
@@ -1700,35 +1703,35 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-648"><a href="#cb1-648" aria-hidden="true" tabindex="-1"></a>Recall, </span>
 <span id="cb1-649"><a href="#cb1-649" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-650"><a href="#cb1-650" aria-hidden="true" tabindex="-1"></a>  $$\mathbf{A} = \begin{bmatrix}</span>
-<span id="cb1-651"><a href="#cb1-651" aria-hidden="true" tabindex="-1"></a>            -3 &amp; 4<span class="sc">\\</span></span>
-<span id="cb1-652"><a href="#cb1-652" aria-hidden="true" tabindex="-1"></a>            2 &amp; -1<span class="sc">\\</span></span>
-<span id="cb1-653"><a href="#cb1-653" aria-hidden="true" tabindex="-1"></a>        \end{bmatrix}$$</span>
-<span id="cb1-654"><a href="#cb1-654" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb1-651"><a href="#cb1-651" aria-hidden="true" tabindex="-1"></a>              -3 &amp; 4<span class="sc">\\</span></span>
+<span id="cb1-652"><a href="#cb1-652" aria-hidden="true" tabindex="-1"></a>              2 &amp; -1<span class="sc">\\</span></span>
+<span id="cb1-653"><a href="#cb1-653" aria-hidden="true" tabindex="-1"></a>          \end{bmatrix}$$</span>
+<span id="cb1-654"><a href="#cb1-654" aria-hidden="true" tabindex="-1"></a>          </span>
 <span id="cb1-655"><a href="#cb1-655" aria-hidden="true" tabindex="-1"></a>  $$\det(\mathbf{A}) = (-3)(-1) - (4)(2) = 3 - 8  = -5$$</span>
 <span id="cb1-656"><a href="#cb1-656" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb1-657"><a href="#cb1-657" aria-hidden="true" tabindex="-1"></a>  $$\frac{1}{\det(\mathbf{A})} \begin{bmatrix}</span>
-<span id="cb1-658"><a href="#cb1-658" aria-hidden="true" tabindex="-1"></a>            -1 &amp; -4<span class="sc">\\</span></span>
-<span id="cb1-659"><a href="#cb1-659" aria-hidden="true" tabindex="-1"></a>            -2 &amp; -3<span class="sc">\\</span></span>
-<span id="cb1-660"><a href="#cb1-660" aria-hidden="true" tabindex="-1"></a>        \end{bmatrix}$$</span>
-<span id="cb1-661"><a href="#cb1-661" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb1-658"><a href="#cb1-658" aria-hidden="true" tabindex="-1"></a>              -1 &amp; -4<span class="sc">\\</span></span>
+<span id="cb1-659"><a href="#cb1-659" aria-hidden="true" tabindex="-1"></a>              -2 &amp; -3<span class="sc">\\</span></span>
+<span id="cb1-660"><a href="#cb1-660" aria-hidden="true" tabindex="-1"></a>          \end{bmatrix}$$</span>
+<span id="cb1-661"><a href="#cb1-661" aria-hidden="true" tabindex="-1"></a>          </span>
 <span id="cb1-662"><a href="#cb1-662" aria-hidden="true" tabindex="-1"></a>  $$\frac{1}{-5} \begin{bmatrix}</span>
-<span id="cb1-663"><a href="#cb1-663" aria-hidden="true" tabindex="-1"></a>            -1 &amp; -4<span class="sc">\\</span></span>
-<span id="cb1-664"><a href="#cb1-664" aria-hidden="true" tabindex="-1"></a>            -2 &amp; -3<span class="sc">\\</span></span>
-<span id="cb1-665"><a href="#cb1-665" aria-hidden="true" tabindex="-1"></a>        \end{bmatrix}$$</span>
-<span id="cb1-666"><a href="#cb1-666" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb1-663"><a href="#cb1-663" aria-hidden="true" tabindex="-1"></a>              -1 &amp; -4<span class="sc">\\</span></span>
+<span id="cb1-664"><a href="#cb1-664" aria-hidden="true" tabindex="-1"></a>              -2 &amp; -3<span class="sc">\\</span></span>
+<span id="cb1-665"><a href="#cb1-665" aria-hidden="true" tabindex="-1"></a>          \end{bmatrix}$$</span>
+<span id="cb1-666"><a href="#cb1-666" aria-hidden="true" tabindex="-1"></a>          </span>
 <span id="cb1-667"><a href="#cb1-667" aria-hidden="true" tabindex="-1"></a>  $$\begin{bmatrix}</span>
-<span id="cb1-668"><a href="#cb1-668" aria-hidden="true" tabindex="-1"></a>            \frac{1}{5} &amp; \frac{4}{5}<span class="sc">\\</span></span>
-<span id="cb1-669"><a href="#cb1-669" aria-hidden="true" tabindex="-1"></a>            \frac{2}{5} &amp; \frac{3}{5}<span class="sc">\\</span></span>
-<span id="cb1-670"><a href="#cb1-670" aria-hidden="true" tabindex="-1"></a>        \end{bmatrix}$$</span>
+<span id="cb1-668"><a href="#cb1-668" aria-hidden="true" tabindex="-1"></a>              \frac{1}{5} &amp; \frac{4}{5}<span class="sc">\\</span></span>
+<span id="cb1-669"><a href="#cb1-669" aria-hidden="true" tabindex="-1"></a>              \frac{2}{5} &amp; \frac{3}{5}<span class="sc">\\</span></span>
+<span id="cb1-670"><a href="#cb1-670" aria-hidden="true" tabindex="-1"></a>          \end{bmatrix}$$</span>
 <span id="cb1-671"><a href="#cb1-671" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-672"><a href="#cb1-672" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-673"><a href="#cb1-673" aria-hidden="true" tabindex="-1"></a>:::{#exr-calcinverse}</span>
 <span id="cb1-674"><a href="#cb1-674" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-675"><a href="#cb1-675" aria-hidden="true" tabindex="-1"></a>Caculate the inverse of $\mathbf{A}$</span>
 <span id="cb1-676"><a href="#cb1-676" aria-hidden="true" tabindex="-1"></a>  $$\mathbf{A} = \begin{bmatrix}</span>
-<span id="cb1-677"><a href="#cb1-677" aria-hidden="true" tabindex="-1"></a>            3 &amp; 5<span class="sc">\\</span></span>
-<span id="cb1-678"><a href="#cb1-678" aria-hidden="true" tabindex="-1"></a>            -7 &amp; 2<span class="sc">\\</span></span>
-<span id="cb1-679"><a href="#cb1-679" aria-hidden="true" tabindex="-1"></a>        \end{bmatrix}$$</span>
+<span id="cb1-677"><a href="#cb1-677" aria-hidden="true" tabindex="-1"></a>              3 &amp; 5<span class="sc">\\</span></span>
+<span id="cb1-678"><a href="#cb1-678" aria-hidden="true" tabindex="-1"></a>              -7 &amp; 2<span class="sc">\\</span></span>
+<span id="cb1-679"><a href="#cb1-679" aria-hidden="true" tabindex="-1"></a>          \end{bmatrix}$$</span>
 <span id="cb1-680"><a href="#cb1-680" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-681"><a href="#cb1-681" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-682"><a href="#cb1-682" aria-hidden="true" tabindex="-1"></a></span>
@@ -1794,21 +1797,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-742"><a href="#cb1-742" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-743"><a href="#cb1-743" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>One solution: </span>
 <span id="cb1-744"><a href="#cb1-744" aria-hidden="true" tabindex="-1"></a>  $$\begin{matrix}</span>
-<span id="cb1-745"><a href="#cb1-745" aria-hidden="true" tabindex="-1"></a>            -x  &amp; + &amp; y &amp; = &amp; 0<span class="sc">\\</span></span>
-<span id="cb1-746"><a href="#cb1-746" aria-hidden="true" tabindex="-1"></a>            x &amp; + &amp;  y &amp; = &amp;  2</span>
-<span id="cb1-747"><a href="#cb1-747" aria-hidden="true" tabindex="-1"></a>            \end{matrix}$$</span>
+<span id="cb1-745"><a href="#cb1-745" aria-hidden="true" tabindex="-1"></a>              -x  &amp; + &amp; y &amp; = &amp; 0<span class="sc">\\</span></span>
+<span id="cb1-746"><a href="#cb1-746" aria-hidden="true" tabindex="-1"></a>              x &amp; + &amp;  y &amp; = &amp;  2</span>
+<span id="cb1-747"><a href="#cb1-747" aria-hidden="true" tabindex="-1"></a>              \end{matrix}$$</span>
 <span id="cb1-748"><a href="#cb1-748" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-749"><a href="#cb1-749" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>No solution: </span>
 <span id="cb1-750"><a href="#cb1-750" aria-hidden="true" tabindex="-1"></a>  $$\begin{matrix}</span>
-<span id="cb1-751"><a href="#cb1-751" aria-hidden="true" tabindex="-1"></a>            -x  &amp; + &amp; y &amp; = &amp; 0<span class="sc">\\</span></span>
-<span id="cb1-752"><a href="#cb1-752" aria-hidden="true" tabindex="-1"></a>            x &amp; - &amp;  y &amp; = &amp;  2</span>
-<span id="cb1-753"><a href="#cb1-753" aria-hidden="true" tabindex="-1"></a>            \end{matrix}$$</span>
+<span id="cb1-751"><a href="#cb1-751" aria-hidden="true" tabindex="-1"></a>              -x  &amp; + &amp; y &amp; = &amp; 0<span class="sc">\\</span></span>
+<span id="cb1-752"><a href="#cb1-752" aria-hidden="true" tabindex="-1"></a>              x &amp; - &amp;  y &amp; = &amp;  2</span>
+<span id="cb1-753"><a href="#cb1-753" aria-hidden="true" tabindex="-1"></a>              \end{matrix}$$</span>
 <span id="cb1-754"><a href="#cb1-754" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-755"><a href="#cb1-755" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Infinite solutions: </span>
 <span id="cb1-756"><a href="#cb1-756" aria-hidden="true" tabindex="-1"></a>  $$\begin{matrix}</span>
-<span id="cb1-757"><a href="#cb1-757" aria-hidden="true" tabindex="-1"></a>            -x  &amp; + &amp; y &amp; = &amp; 0<span class="sc">\\</span></span>
-<span id="cb1-758"><a href="#cb1-758" aria-hidden="true" tabindex="-1"></a>            2x &amp; - &amp;  2y &amp; = &amp;  0</span>
-<span id="cb1-759"><a href="#cb1-759" aria-hidden="true" tabindex="-1"></a>            \end{matrix}$$</span>
+<span id="cb1-757"><a href="#cb1-757" aria-hidden="true" tabindex="-1"></a>              -x  &amp; + &amp; y &amp; = &amp; 0<span class="sc">\\</span></span>
+<span id="cb1-758"><a href="#cb1-758" aria-hidden="true" tabindex="-1"></a>              2x &amp; - &amp;  2y &amp; = &amp;  0</span>
+<span id="cb1-759"><a href="#cb1-759" aria-hidden="true" tabindex="-1"></a>              \end{matrix}$$</span>
 <span id="cb1-760"><a href="#cb1-760" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-761"><a href="#cb1-761" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-762"><a href="#cb1-762" aria-hidden="true" tabindex="-1"></a></span>
@@ -1824,24 +1827,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-772"><a href="#cb1-772" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-773"><a href="#cb1-773" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-774"><a href="#cb1-774" aria-hidden="true" tabindex="-1"></a>  $$\begin{matrix}</span>
-<span id="cb1-775"><a href="#cb1-775" aria-hidden="true" tabindex="-1"></a>    x  &amp; - &amp; 3y &amp; = &amp; -3<span class="sc">\\</span></span>
-<span id="cb1-776"><a href="#cb1-776" aria-hidden="true" tabindex="-1"></a>    2x &amp; + &amp;  y &amp; = &amp;  8</span>
-<span id="cb1-777"><a href="#cb1-777" aria-hidden="true" tabindex="-1"></a>    \end{matrix}$$</span>
+<span id="cb1-775"><a href="#cb1-775" aria-hidden="true" tabindex="-1"></a>      x  &amp; - &amp; 3y &amp; = &amp; -3<span class="sc">\\</span></span>
+<span id="cb1-776"><a href="#cb1-776" aria-hidden="true" tabindex="-1"></a>      2x &amp; + &amp;  y &amp; = &amp;  8</span>
+<span id="cb1-777"><a href="#cb1-777" aria-hidden="true" tabindex="-1"></a>      \end{matrix}$$</span>
 <span id="cb1-778"><a href="#cb1-778" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-779"><a href="#cb1-779" aria-hidden="true" tabindex="-1"></a>  $$\begin{matrix}</span>
-<span id="cb1-780"><a href="#cb1-780" aria-hidden="true" tabindex="-1"></a>    x  &amp; - &amp; 3y &amp; = &amp; -3<span class="sc">\\</span></span>
-<span id="cb1-781"><a href="#cb1-781" aria-hidden="true" tabindex="-1"></a>       &amp;   &amp; 7y &amp; = &amp; 14<span class="sc">\\</span>          </span>
-<span id="cb1-782"><a href="#cb1-782" aria-hidden="true" tabindex="-1"></a>    \end{matrix}$$</span>
+<span id="cb1-780"><a href="#cb1-780" aria-hidden="true" tabindex="-1"></a>      x  &amp; - &amp; 3y &amp; = &amp; -3<span class="sc">\\</span></span>
+<span id="cb1-781"><a href="#cb1-781" aria-hidden="true" tabindex="-1"></a>         &amp;   &amp; 7y &amp; = &amp; 14<span class="sc">\\</span>            </span>
+<span id="cb1-782"><a href="#cb1-782" aria-hidden="true" tabindex="-1"></a>      \end{matrix}$$</span>
 <span id="cb1-783"><a href="#cb1-783" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-784"><a href="#cb1-784" aria-hidden="true" tabindex="-1"></a>  $$\begin{matrix}</span>
-<span id="cb1-785"><a href="#cb1-785" aria-hidden="true" tabindex="-1"></a>    x  &amp; - &amp; 3y &amp; = &amp; -3<span class="sc">\\</span></span>
-<span id="cb1-786"><a href="#cb1-786" aria-hidden="true" tabindex="-1"></a>       &amp;   &amp; y &amp; = &amp; 2<span class="sc">\\</span>            </span>
-<span id="cb1-787"><a href="#cb1-787" aria-hidden="true" tabindex="-1"></a>    \end{matrix}$$</span>
+<span id="cb1-785"><a href="#cb1-785" aria-hidden="true" tabindex="-1"></a>      x  &amp; - &amp; 3y &amp; = &amp; -3<span class="sc">\\</span></span>
+<span id="cb1-786"><a href="#cb1-786" aria-hidden="true" tabindex="-1"></a>         &amp;   &amp; y &amp; = &amp; 2<span class="sc">\\</span>          </span>
+<span id="cb1-787"><a href="#cb1-787" aria-hidden="true" tabindex="-1"></a>      \end{matrix}$$</span>
 <span id="cb1-788"><a href="#cb1-788" aria-hidden="true" tabindex="-1"></a>            </span>
 <span id="cb1-789"><a href="#cb1-789" aria-hidden="true" tabindex="-1"></a>  $$\begin{matrix}</span>
-<span id="cb1-790"><a href="#cb1-790" aria-hidden="true" tabindex="-1"></a>    x &amp; = &amp; 3<span class="sc">\\</span></span>
-<span id="cb1-791"><a href="#cb1-791" aria-hidden="true" tabindex="-1"></a>    y &amp; = &amp; 2<span class="sc">\\</span>         </span>
-<span id="cb1-792"><a href="#cb1-792" aria-hidden="true" tabindex="-1"></a>    \end{matrix}$$</span>
+<span id="cb1-790"><a href="#cb1-790" aria-hidden="true" tabindex="-1"></a>      x &amp; = &amp; 3<span class="sc">\\</span></span>
+<span id="cb1-791"><a href="#cb1-791" aria-hidden="true" tabindex="-1"></a>      y &amp; = &amp; 2<span class="sc">\\</span>           </span>
+<span id="cb1-792"><a href="#cb1-792" aria-hidden="true" tabindex="-1"></a>      \end{matrix}$$</span>
 <span id="cb1-793"><a href="#cb1-793" aria-hidden="true" tabindex="-1"></a>            </span>
 <span id="cb1-794"><a href="#cb1-794" aria-hidden="true" tabindex="-1"></a>Answer to @exr-solvesys1:</span>
 <span id="cb1-795"><a href="#cb1-795" aria-hidden="true" tabindex="-1"></a></span>

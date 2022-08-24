@@ -150,7 +150,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <a href="./">UCSD Political Science Math Camp</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/UCSDPoliMathCamp/MathCamp/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="./UCSD-Political-Science-Math-Camp.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
 </div>
     </div>
       </div>
@@ -313,7 +317,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul>
 </li>
   <li><a href="#global-maxima-and-minima" id="toc-global-maxima-and-minima" class="nav-link" data-scroll-target="#global-maxima-and-minima"> <span class="header-section-number">10.5</span> Global Maxima and Minima</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/33_optimization.Rmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/blob/main/33_optimization.Rmd" class="toc-action">View source</a></p></div></div></nav>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/33_optimization.Rmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
@@ -516,12 +520,8 @@ a_{11}&amp;\frac{1}{2}a_{12}&amp;\cdots&amp;\frac{1}{2}a_{1n}\\
 <li>Hessian is Indefinite around <span class="math inline">\mathbf{x}^*</span> <span class="math inline">\quad \Longrightarrow \quad</span> Saddle Point</li>
 </ol>
 <p>Furthermore, there’s an easier way to check whether a <span class="math inline">2\times 2</span> matrix is positive or negative definite.</p>
-<p><strong>Definiteness of 2 <span class="math inline">\times</span> 2 Matrix</strong>: For a <span class="math inline">2 \times 2</span> matrix $$=</p>
-<span class="math display">\begin{bmatrix}
-A_{11} &amp; A_{12}\\
-A_{21} &amp; A_{22}
-\end{bmatrix}</span>
-<p>$$</p>
+<p><strong>Definiteness of 2 <span class="math inline">\times</span> 2 Matrix</strong>: For a <span class="math inline">2 \times 2</span> matrix</p>
+<p><span class="math display">\mathbf{A}=\begin{bmatrix}A_{11} &amp; A_{12}\\ A_{21} &amp; A_{22}\end{bmatrix}</span></p>
 <ol type="1">
 <li>If <span class="math inline">\mathrm{det}(\mathbf{A}) &gt; 0</span> and <span class="math inline">A_{11}&gt;0</span>, then <span class="math inline">\mathbf{A}</span> is positive definite</li>
 <li>If <span class="math inline">\mathrm{det}(\mathbf{A}) &gt; 0</span> and <span class="math inline">A_{11}&lt;0</span>, then <span class="math inline">\mathbf{A}</span> is negative definite</li>
@@ -1141,137 +1141,133 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a>Furthermore, there's an easier way to check whether a $2\times 2$ matrix is positive or negative definite.</span>
 <span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a>__Definiteness of 2 $\times$ 2 Matrix__:  For a $2 \times 2$ matrix </span>
-<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}=</span>
-<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
-<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a>A_{11} &amp; A_{12}<span class="sc">\\</span></span>
-<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a>A_{21} &amp; A_{22}</span>
-<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}$$</span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a>**Definiteness of 2 $\times$ 2 Matrix**:  For a $2 \times 2$ matrix </span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}=\begin{bmatrix}A_{11} &amp; A_{12}<span class="sc">\\</span> A_{21} &amp; A_{22}\end{bmatrix}$$</span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>If $\mathrm{det}(\mathbf{A}) &gt; 0$ and $A_{11}&gt;0$, then $\mathbf{A}$ is positive definite</span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>If $\mathrm{det}(\mathbf{A}) &gt; 0$ and $A_{11}&lt;0$, then $\mathbf{A}$ is negative definite</span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>If $\mathrm{det}(\mathbf{A}) &lt; 0$, then $\mathbf{A}$ is indefinite</span>
 <span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>If $\mathrm{det}(\mathbf{A}) &gt; 0$ and $A_{11}&gt;0$, then $\mathbf{A}$ is positive definite</span>
-<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>If $\mathrm{det}(\mathbf{A}) &gt; 0$ and $A_{11}&lt;0$, then $\mathbf{A}$ is negative definite</span>
-<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>If $\mathrm{det}(\mathbf{A}) &lt; 0$, then $\mathbf{A}$ is indefinite</span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a>:::{#exm-}</span>
 <span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a><span class="fu">### Max and min with two dimensions</span></span>
 <span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a>:::{#exm-}</span>
-<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a><span class="fu">### Max and min with two dimensions</span></span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a>We found that the only critical point of</span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a>$f(\mathbf{x})=(x_1-1)^2+x_2^2+1$ is at $\mathbf{x}^*=(1,0)$.  Is it a min, max, or</span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a>saddle point?</span>
 <span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a>We found that the only critical point of</span>
-<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a>$f(\mathbf{x})=(x_1-1)^2+x_2^2+1$ is at $\mathbf{x}^*=(1,0)$.  Is it a min, max, or</span>
-<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a>saddle point?</span>
-<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a>:::{.solution}</span>
-<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a>The Hessian is</span>
-<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
-<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a>\mathbf{H(x)} &amp;= \begin{bmatrix} 2&amp;0<span class="sc">\\</span>0&amp;2 \end{bmatrix}</span>
-<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
-<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a>Since $\mathrm{det}(\mathbf{H}(x)) = 4 &gt; 0$ and $H_{11}=2&gt;0$, the  Hessian is positive definite.</span>
-<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a>Maxima, Minima, or Saddle Point? Since the Hessian is positive definite and the gradient equals 0, $x^\star = (1,0)$ is a local minimum.</span>
-<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a>Note: Alternate check of definiteness. Is $\mathbf{H(x^*)} \geq \leq 0 \quad \forall \quad \mathbf{x}\ne 0$</span>
-<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
-<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a>\mathbf{x}^\top H(\mathbf{x}^*) \mathbf{x} &amp;= \begin{bmatrix} x_1 &amp; x_2 \end{bmatrix}<span class="sc">\\</span></span>
-<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a>&amp;= \begin{bmatrix} 2&amp;0<span class="sc">\\</span>0&amp;2 \end{bmatrix}<span class="sc">\\</span></span>
-<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix} x_1<span class="sc">\\</span>x_2\end{bmatrix} &amp;= 2x_1^2+2x_2^2</span>
-<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a>:::{.solution}</span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a>The Hessian is</span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a>\mathbf{H(x)} &amp;= \begin{bmatrix} 2&amp;0<span class="sc">\\</span>0&amp;2 \end{bmatrix}</span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a>Since $\mathrm{det}(\mathbf{H}(x)) = 4 &gt; 0$ and $H_{11}=2&gt;0$, the  Hessian is positive definite.</span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a>Maxima, Minima, or Saddle Point? Since the Hessian is positive definite and the gradient equals 0, $x^\star = (1,0)$ is a local minimum.</span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a>Note: Alternate check of definiteness. Is $\mathbf{H(x^*)} \geq \leq 0 \quad \forall \quad \mathbf{x}\ne 0$</span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a>\mathbf{x}^\top H(\mathbf{x}^*) \mathbf{x} &amp;= \begin{bmatrix} x_1 &amp; x_2 \end{bmatrix}<span class="sc">\\</span></span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a>&amp;= \begin{bmatrix} 2&amp;0<span class="sc">\\</span>0&amp;2 \end{bmatrix}<span class="sc">\\</span></span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix} x_1<span class="sc">\\</span>x_2\end{bmatrix} &amp;= 2x_1^2+2x_2^2</span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a>For any $\mathbf{x}\ne 0$, $2(x_1^2+x_2^2)&gt;0$, so the Hessian is    positive definite and $\mathbf{x}^*$ is a strict local minimum.</span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a>For any $\mathbf{x}\ne 0$, $2(x_1^2+x_2^2)&gt;0$, so the Hessian is    positive definite and $\mathbf{x}^*$ is a strict local minimum.</span>
-<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a><span class="fu">### Definiteness and Concavity {-}</span></span>
 <span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a>Although definiteness helps us to understand the curvature of an n-dimensional function, it does not necessarily tell us whether the function is globally concave or convex.</span>
 <span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a><span class="fu">### Definiteness and Concavity {-}</span></span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a>We need to know whether a function is globally concave or convex to determine whether a critical point is a global min or max.  We can use the definiteness of the Hessian to determine whether a function is globally concave or convex:</span>
 <span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a>Although definiteness helps us to understand the curvature of an n-dimensional function, it does not necessarily tell us whether the function is globally concave or convex.</span>
-<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a>We need to know whether a function is globally concave or convex to determine whether a critical point is a global min or max.  We can use the definiteness of the Hessian to determine whether a function is globally concave or convex:</span>
+<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Hessian is Positive Semidefinite $\forall \mathbf{x}$ $\quad \Longrightarrow \quad$ Globally Convex</span>
+<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Hessian is Negative Semidefinite  $\forall \mathbf{x}$ $\quad \Longrightarrow \quad$ Globally Concave</span>
+<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Hessian is Positive Semidefinite $\forall \mathbf{x}$ $\quad \Longrightarrow \quad$ Globally Convex</span>
-<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Hessian is Negative Semidefinite  $\forall \mathbf{x}$ $\quad \Longrightarrow \quad$ Globally Concave</span>
+<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a>Notice that the definiteness conditions must be satisfied over the entire domain.</span>
+<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a>Notice that the definiteness conditions must be satisfied over the entire domain.</span>
-<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a><span class="fu">## Global Maxima and Minima</span></span>
+<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a>__Global Max/Min Conditions__: Given a function $f(\mathbf{x})$ and a point $\mathbf{x}^*$ such that $\nabla f(\mathbf{x}^*)=0$,</span>
 <span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a><span class="fu">## Global Maxima and Minima</span></span>
-<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a>__Global Max/Min Conditions__: Given a function $f(\mathbf{x})$ and a point $\mathbf{x}^*$ such that $\nabla f(\mathbf{x}^*)=0$,</span>
-<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$f(\mathbf{x})$ Globally Convex $\quad</span>
-<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a>\Longrightarrow \quad$ Global Min</span>
-<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>$f(\mathbf{x})$ Globally Concave $\quad</span>
-<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a>\Longrightarrow \quad$ Global Max</span>
-<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a>Note that showing that $\mathbf{H(x^*)}$ is negative semidefinite is</span>
-<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a>not enough to guarantee $\mathbf{x}^*$ is a local max.  However, showing that</span>
-<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a>$\mathbf{H(x)}$ is negative semidefinite for all $\mathbf{x}$ guarantees that $x^*$</span>
-<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>is a global max.  (The same goes for positive semidefinite and minima.)</span>
+<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$f(\mathbf{x})$ Globally Convex $\quad</span>
+<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a>\Longrightarrow \quad$ Global Min</span>
+<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>$f(\mathbf{x})$ Globally Concave $\quad</span>
+<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a>\Longrightarrow \quad$ Global Max</span>
+<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a>Note that showing that $\mathbf{H(x^*)}$ is negative semidefinite is</span>
+<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a>not enough to guarantee $\mathbf{x}^*$ is a local max.  However, showing that</span>
+<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a>$\mathbf{H(x)}$ is negative semidefinite for all $\mathbf{x}$ guarantees that $x^*$</span>
+<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a>is a global max.  (The same goes for positive semidefinite and minima.)</span>
+<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a>:::{#exm-} </span>
+<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>Take $f_1(x)=x^4$ and $f_2(x)=-x^4$.  </span>
 <span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a>:::{#exm-} </span>
-<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a>Take $f_1(x)=x^4$ and $f_2(x)=-x^4$.  </span>
-<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Both have $x=0$ as a critical point.  </span>
-<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Unfortunately, $f''_1(0)=0$ and $f''_2(0)=0$, so we can't tell whether $x=0$ is a min or max for either.  However, $f''_1(x)=12x^2$ and $f''_2(x)=-12x^2$.  </span>
-<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For all $x$, $f''_1(x)\ge 0$ and $f''_2(x)\le 0$ --- i.e., $f_1(x)$ is globally convex and $f_2(x)$ is globally concave. </span>
-<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>So $x=0$ is a global min of $f_1(x)$ and a global max of $f_2(x)$.</span>
+<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Both have $x=0$ as a critical point.  </span>
+<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Unfortunately, $f''_1(0)=0$ and $f''_2(0)=0$, so we can't tell whether $x=0$ is a min or max for either.  However, $f''_1(x)=12x^2$ and $f''_2(x)=-12x^2$.  </span>
+<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>For all $x$, $f''_1(x)\ge 0$ and $f''_2(x)\le 0$ --- i.e., $f_1(x)$ is globally convex and $f_2(x)$ is globally concave. </span>
+<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>So $x=0$ is a global min of $f_1(x)$ and a global max of $f_2(x)$.</span>
+<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a>:::{#exr-}</span>
+<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a>Given $f(\mathbf{x})=x_1^3-x_2^3+9x_1x_2$, find any maxima or minima.</span>
 <span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a>:::{#exr-}</span>
-<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a>Given $f(\mathbf{x})=x_1^3-x_2^3+9x_1x_2$, find any maxima or minima.</span>
-<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a>*Solution.*</span>
-<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>First order conditions</span>
-<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a>    (1) Gradient $\nabla f(\mathbf{x})$</span>
-<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a>          $$\begin{bmatrix} \frac{\partial f}{\partial x_1} <span class="sc">\\</span> </span>
-<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a>        \frac{\partial f}{\partial x_2}\end{bmatrix} =</span>
-<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a>        \begin{bmatrix} 3x_1^2+9x_2 <span class="sc">\\</span> -3x_2^2+9x_1 \end{bmatrix}$$</span>
-<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a>    (2) Critical Points $\mathbf{x^*}$</span>
-<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>Set the gradient equal to zero and solve for $x_1$ and $x_2$. We have two equations and two unknowns. Solving for $x_1$ and $x_2$, we get two critical points: $\mathbf{x}_1^*=(0,0)$ and $\mathbf{x}_2^*=(3,-3)$.</span>
-<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>$3x_1^2 + 9x_2 = 0 \quad \Rightarrow \quad  9x_2 = -3x_1^2 \quad \Rightarrow \quad  x_2 = -\frac{1}{3}x_1^2$</span>
-<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>$-3x_2^2 + 9x_1 = 0 \quad \Rightarrow \quad -3(-\frac{1} {3}x_1^2)^2 + 9x_1 = 0$</span>
-<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>$\Rightarrow \quad -\frac{1}{3}x_1^4 + 9x_1 = 0 \quad \Rightarrow \quad x_1^3 = 27x_1 \quad \Rightarrow \quad x_1 = 3$</span>
-<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>$3(3)^2 + 9x_2 = 0 \quad \Rightarrow \quad x_2 = -3$</span>
-<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Second order conditions.  </span>
-<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a>    (1) Hessian $\mathbf{H(x)}$</span>
-<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a>        $$\begin{bmatrix} 6x_1&amp;9<span class="sc">\\</span>9&amp;-6x_2 \end{bmatrix}$$</span>
-<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a>    (2) Hessian $\mathbf{H(x_1^*)}$</span>
-<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a>        $$\begin{bmatrix} 0&amp;9<span class="sc">\\</span>9&amp;0\end{bmatrix}$$</span>
-<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a>    (3) Leading principal minors of $\mathbf{H(x_1^*)}$</span>
-<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a>        $$M_1=0; M_2=-81$$</span>
-<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a>    (4) Definiteness of $\mathbf{H(x_1^*)}$?</span>
-<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>$\mathbf{H(x_1^*)}$ is indefinite</span>
-<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a>    (5) Maxima, Minima, or Saddle Point for $\mathbf{x_1^*}$?</span>
-<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>Since $\mathbf{H(x_1^*)}$ is indefinite, $\mathbf{x}_1^*=(0,0)$ is a saddle point.</span>
-<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a>    (6) Hessian </span>
-<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a>        $$\mathbf{H(x_2^*)}=\begin{bmatrix} 18&amp;9<span class="sc">\\</span>9&amp;18\end{bmatrix}$$</span>
-<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a>    (7) Leading principal minors of $\mathbf{H(x_2^*)}$</span>
-<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a>        $$M_1=18; M_2=243$$</span>
-<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a>    (8) Definiteness of $\mathbf{H(x_2^*)}$?</span>
-<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>$\mathbf{H(x_2^*)}$ is positive definite</span>
-<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a>    (9) Maxima, Minima, or Saddle Point for $\mathbf{x}_2^*$?</span>
-<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>Since $\mathbf{H(x_2^*)}$ is positive definite, $\mathbf{x}_1^*=(3,-3)$ is a strict local minimum</span>
-<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Global concavity/convexity.  </span>
-<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a>    (1) Is f(x) globally concave/convex?</span>
-<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>No. In evaluating the Hessians for $\mathbf{x}_1^*$ and $\mathbf{x}_2^*$ we saw that the Hessian is not positive semidefinite at x $=$ (0,0).</span>
-<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a>    (2) Are any $\mathbf{x^*}$ global minima or maxima?</span>
-<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>No. Since the function is not globally concave/convex, we can't infer that $\mathbf{x}_2^*=(3,-3)$ is a global minimum. In fact, if we set $x_1=0$, the $f(\mathbf{x})=-x_2^3$, which will go to $-\infty$ as $x_2\to \infty$.</span>
-<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a>*Solution.*</span>
+<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>First order conditions</span>
+<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a>    (1) Gradient $\nabla f(\mathbf{x})$</span>
+<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a>          $$\begin{bmatrix} \frac{\partial f}{\partial x_1} <span class="sc">\\</span> </span>
+<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a>        \frac{\partial f}{\partial x_2}\end{bmatrix} =</span>
+<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a>        \begin{bmatrix} 3x_1^2+9x_2 <span class="sc">\\</span> -3x_2^2+9x_1 \end{bmatrix}$$</span>
+<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a>    (2) Critical Points $\mathbf{x^*}$</span>
+<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>Set the gradient equal to zero and solve for $x_1$ and $x_2$. We have two equations and two unknowns. Solving for $x_1$ and $x_2$, we get two critical points: $\mathbf{x}_1^*=(0,0)$ and $\mathbf{x}_2^*=(3,-3)$.</span>
+<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>$3x_1^2 + 9x_2 = 0 \quad \Rightarrow \quad  9x_2 = -3x_1^2 \quad \Rightarrow \quad  x_2 = -\frac{1}{3}x_1^2$</span>
+<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>$-3x_2^2 + 9x_1 = 0 \quad \Rightarrow \quad -3(-\frac{1} {3}x_1^2)^2 + 9x_1 = 0$</span>
+<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>$\Rightarrow \quad -\frac{1}{3}x_1^4 + 9x_1 = 0 \quad \Rightarrow \quad x_1^3 = 27x_1 \quad \Rightarrow \quad x_1 = 3$</span>
+<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>$3(3)^2 + 9x_2 = 0 \quad \Rightarrow \quad x_2 = -3$</span>
+<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Second order conditions.  </span>
+<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a>    (1) Hessian $\mathbf{H(x)}$</span>
+<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a>        $$\begin{bmatrix} 6x_1&amp;9<span class="sc">\\</span>9&amp;-6x_2 \end{bmatrix}$$</span>
+<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a>    (2) Hessian $\mathbf{H(x_1^*)}$</span>
+<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a>        $$\begin{bmatrix} 0&amp;9<span class="sc">\\</span>9&amp;0\end{bmatrix}$$</span>
+<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a>    (3) Leading principal minors of $\mathbf{H(x_1^*)}$</span>
+<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a>        $$M_1=0; M_2=-81$$</span>
+<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a>    (4) Definiteness of $\mathbf{H(x_1^*)}$?</span>
+<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>$\mathbf{H(x_1^*)}$ is indefinite</span>
+<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a>    (5) Maxima, Minima, or Saddle Point for $\mathbf{x_1^*}$?</span>
+<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>Since $\mathbf{H(x_1^*)}$ is indefinite, $\mathbf{x}_1^*=(0,0)$ is a saddle point.</span>
+<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a>    (6) Hessian </span>
+<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a>        $$\mathbf{H(x_2^*)}=\begin{bmatrix} 18&amp;9<span class="sc">\\</span>9&amp;18\end{bmatrix}$$</span>
+<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a>    (7) Leading principal minors of $\mathbf{H(x_2^*)}$</span>
+<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a>        $$M_1=18; M_2=243$$</span>
+<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a>    (8) Definiteness of $\mathbf{H(x_2^*)}$?</span>
+<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>$\mathbf{H(x_2^*)}$ is positive definite</span>
+<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a>    (9) Maxima, Minima, or Saddle Point for $\mathbf{x}_2^*$?</span>
+<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>Since $\mathbf{H(x_2^*)}$ is positive definite, $\mathbf{x}_1^*=(3,-3)$ is a strict local minimum</span>
+<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Global concavity/convexity.  </span>
+<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a>    (1) Is f(x) globally concave/convex?</span>
+<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>No. In evaluating the Hessians for $\mathbf{x}_1^*$ and $\mathbf{x}_2^*$ we saw that the Hessian is not positive semidefinite at x $=$ (0,0).</span>
+<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a>    (2) Are any $\mathbf{x^*}$ global minima or maxima?</span>
+<span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>No. Since the function is not globally concave/convex, we can't infer that $\mathbf{x}_2^*=(3,-3)$ is a global minimum. In fact, if we set $x_1=0$, the $f(\mathbf{x})=-x_2^3$, which will go to $-\infty$ as $x_2\to \infty$.</span>
+<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
