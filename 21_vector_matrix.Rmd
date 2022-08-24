@@ -1,0 +1,279 @@
+
+# Vector and Matrix {#vector-matrix}
+
+## Working with Vectors {#vector-def}
+
+
+__Vector__: A vector in $n$-space is an ordered list of $n$ numbers.  These numbers can be represented as either a row vector or a column vector: 
+$${\bf v} = \begin{bmatrix} v_1 & v_2 & \dots & v_n\end{bmatrix}$$
+$${\bf v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix}$$ 
+        
+We can also think of a vector as defining a point in $n$-dimensional space, usually $\mathbb{R}^n$; each element of the vector defines the coordinate of the point in a particular direction.
+
+__Vector Addition and Subtraction__:  If two vectors, ${\bf u}$ and ${\bf v}$, have the same length (i.e. have the same number of elements), they can be added (subtracted) together:
+$${\bf u} + {\bf v} = \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \\ \vdots \\ u_k + v_n \end{bmatrix}$$
+$${\bf u} - {\bf v} = \begin{bmatrix} u_1 - v_1 \\ u_2 - v_2 \\ \vdots \\ u_k - v_n \end{bmatrix}$$
+
+__Scalar Multiplication__:  The product of a scalar $c$ (i.e. a constant) and vector ${\bf v}$ is: \
+$$ c{\bf v} =  \begin{bmatrix} cv_1 \\ cv_2 \\ \dots \\ cv_n \end{bmatrix} $$
+
+__Vector Inner Product__: The inner product (also called the dot product or scalar product) of two vectors  ${\bf u}$ and ${\bf v}$ is again defined if and only if they have the same number of elements 
+
+$$ {\bf u} \cdot {\bf v} = u_1v_1 + u_2v_2 + \cdots + u_nv_n = \sum_{i = 1}^n u_iv_i$$
+
+If ${\bf u} \cdot {\bf v} = 0$, the two vectors are orthogonal (or perpendicular).
+
+__Vector Norm__: The norm of a vector is a measure of its length.  There are many different ways to calculate the norm, but the most common is the Euclidean norm (which corresponds to our usual conception of distance in three-dimensional space):
+$$ ||{\bf v}|| = \sqrt{{\bf v}\cdot{\bf v}} = \sqrt{ v_1v_1 + v_2v_2 + \cdots + v_nv_n}$$
+
+:::{#exm-vectors}
+Let  $a = \begin{bmatrix} 2\\1\\2\end{bmatrix}$, $b = \begin{bmatrix} 3\\4\\5 \end{bmatrix}$. Calculate the following:
+
+1. $a - b$
+2. $a \cdot b$
+
+:::
+
+
+:::{#exr-vectors1}
+
+Let $u = \begin{bmatrix} 7\\1\\-5\\3\end{bmatrix}$, $v = \begin{bmatrix} 9\\-3\\2\\8 \end{bmatrix}$, $w = \begin{bmatrix} 1\\13\\ -7\\2 \\15 \end{bmatrix}$, and $c = 2$. Calculate the following: 
+  
+  1. $u-v$
+  
+  2. $cw$
+  
+  3. $u \cdot v$
+  
+  4. $w \cdot v$
+  
+:::
+
+
+## Linear Independence {#linearindependence}
+
+__Linear combinations__: The vector ${\bf u}$ is a linear combination of the vectors ${\bf v}_1, {\bf v}_2,  \cdots , {\bf v}_k$ if
+
+$${\bf u} = c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k$$
+
+
+For example,  $\begin{bmatrix}9 \\ 13 \\ 17 \end{bmatrix}$ is a linear combination of the following three vectors: $\begin{bmatrix}1 \\ 2 \\ 3 \end{bmatrix}$, $\begin{bmatrix} 2 \\ 3\\ 4\end{bmatrix}$, and $\begin{bmatrix} 3 \\ 4 \\ 5 \end{bmatrix}$. This is because  $\begin{bmatrix}9 \\ 13 \\ 17 \end{bmatrix}$ = $(2)\begin{bmatrix}1 \\ 2 \\ 3 \end{bmatrix}$ $+ (-1)\begin{bmatrix} 2 \\ 3\\ 4\end{bmatrix}$ + $3\begin{bmatrix} 3 \\ 4 \\ 5 \end{bmatrix}$
+
+
+__Linear independence__:  A set of vectors ${\bf v}_1, {\bf v}_2,  \cdots , {\bf v}_k$ is linearly independent if the only solution to the equation
+
+$$c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k = 0$$
+
+is $c_1 = c_2 = \cdots = c_k = 0$.  If another solution exists, the set of vectors is linearly dependent.
+    
+A set $S$ of vectors is linearly dependent if and only if at least one of the vectors in $S$ can be written as a linear combination of the other vectors in $S$.
+
+ Linear independence is only defined for sets of vectors with the same number of elements; any linearly independent set of vectors in $n$-space contains at most $n$ vectors.
+ 
+ 
+ Since $\begin{bmatrix}9 \\ 13 \\ 17 \end{bmatrix}$ is a linear combination of $\begin{bmatrix}1 \\ 2 \\ 3 \end{bmatrix}$, $\begin{bmatrix} 2 \\ 3\\ 4\end{bmatrix}$, and $\begin{bmatrix} 3 \\ 4 \\ 5 \end{bmatrix}$, these 4 vectors constitute a linearly dependent set. 
+
+:::{#exm-linearindep} 
+Are the following sets of vectors linearly independent?
+  
+  1. $\begin{bmatrix}2 \\ 3 \\ 1 \end{bmatrix}$ and $\begin{bmatrix}4 \\ 6 \\ 1 \end{bmatrix}$
+  2. $\begin{bmatrix}1 \\ 0 \\ 0 \end{bmatrix}$, $\begin{bmatrix}0 \\ 5 \\ 0 \end{bmatrix}$, and $\begin{bmatrix}10 \\ 10 \\ 0 \end{bmatrix}$
+
+:::
+
+
+
+:::{#exr-linearindep1}
+Are the following sets of vectors linearly independent?
+  
+  1. $${\bf v}_1 = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} , {\bf v}_2 = \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} , {\bf v}_3 = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} $$ 
+  
+  2. $${\bf v}_1 = \begin{bmatrix} 2 \\ 2 \\ 1 \end{bmatrix} , {\bf v}_2 = \begin{bmatrix} -4 \\ 6 \\ 5 \end{bmatrix} , {\bf v}_3 = \begin{bmatrix} -2 \\ 8 \\ 6 \end{bmatrix} $$
+
+:::
+
+
+## Basics of Matrix Algebra {#matrixbasics}
+
+__Matrix__: A matrix is an array of real numbers arranged in $m$ rows by $n$ columns. The dimensionality of the matrix is defined as the number of rows by the number of columns, $m \times n$. 
+
+$${\bf A}=\begin{bmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{bmatrix}$$
+        
+Note that you can think of vectors as special cases of matrices; a column vector of length $k$ is a $k \times 1$ matrix, while a row vector of the same length is a $1 \times k$ matrix.
+
+It's also useful to think of matrices as being made up of a collection of row or column vectors.  For example,
+
+$$\bf A = \begin{bmatrix} {\bf a}_1 & {\bf a}_2 &  \cdots & {\bf a}_m \end{bmatrix}$$
+    
+__Matrix Addition__: Let $\bf A$ and $\bf B$ be two $m\times n$ matrices.
+
+$$\mathbf{A+B}=\begin{bmatrix} a_{11}+b_{11} & a_{12}+b_{12} & \cdots & a_{1n}+b_{1n} \\ a_{21}+b_{21} & a_{22}+b_{22} & \cdots & a_{2n}+b_{2n} \\ \vdots & \vdots  & \ddots & \vdots \\ a_{m1}+b_{m1} & a_{m2}+b_{m2} & \cdots & a_{mn}+b_{mn} \end{bmatrix}$$
+
+Note that matrices ${\bf A}$ and ${\bf B}$ must have the same dimensionality, in which case they are __conformable for addition__.
+    
+:::{#exm-matrixaddition}
+$${\bf A}=\begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix}, \qquad {\bf B}=\begin{bmatrix} 1 & 2 & 1 \\ 2 & 1 & 2 \end{bmatrix}$$
+Find $\mathbf{A}+\mathbf{B}$
+:::
+
+
+__Scalar Multiplication__:  Given the scalar $s$, the scalar multiplication of $s {\bf A}$ is
+$$ s {\bf A}=  s \begin{bmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22} & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} & \cdots & a_{mn} \end{bmatrix} = \begin{bmatrix} s a_{11} & s a_{12} & \cdots & s a_{1n} \\ s a_{21} & s a_{22} & \cdots & s a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ s a_{m1} & s a_{m2} & \cdots & s a_{mn} \end{bmatrix}$$
+
+:::{#exm-scalarmulti}
+
+$s=2$, 
+
+$${\bf A}=\begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix}$$
+  
+Find $s {\bf A}$
+
+:::
+
+
+__Matrix Multiplication__:  If ${\bf A}$ is an $m\times k$ matrix and $\bf B$ is a $k\times n$ matrix, then their product $\bf C = A B$ is the $m\times n$ matrix where
+
+$$c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{ik}b_{kj}$$
+
+:::{#exm-matrixmulti}
+
+1. Find $\begin{bmatrix} a&b\\c&d\\e&f \end{bmatrix} \begin{bmatrix} A&B\\C&D \end{bmatrix}$
+        
+2. Find $\begin{bmatrix} 1&2&-1\\3&1&4 \end{bmatrix} \begin{bmatrix} -2&5\\4&-3\\2&1\end{bmatrix}$
+
+:::
+
+
+
+
+Note that the number of columns of the first matrix must equal the number of rows of the second matrix, in which case they are __conformable for multiplication__.  The sizes of the matrices (including the resulting product) must be $$(m\times k)(k\times n)=(m\times n)$$
+    
+Also note that if __AB__ exists, __BA__ exists only if $\dim({\bf A}) = m \times n$ and $\dim({\bf B}) = n \times m$.
+    
+This does not mean that __AB__ = __BA__. __AB__ = __BA__ is true only in special circumstances, like when ${\bf A}$ or ${\bf B}$ is an identity matrix or ${\bf A} = {\bf B}^{-1}$.
+
+### Laws of Matrix Algebra
+
+1. Associative: $\bf (A+B)+C = A+(B+C)$
+2. $\bf (AB)C = A(BC)$
+3. Commutative: $\bf A+B=B+A$
+4. Distributive: $\bf A(B+C)=AB+AC$
+5. $\bf (A+B)C=AC+BC$
+
+
+Commutative law for multiplication does not hold -- the order of multiplication matters:
+$$\bf AB \ne BA$$
+
+For example,
+$${\bf A}=\begin{bmatrix} 1&2\\-1&3\end{bmatrix}, \qquad {\bf B}=\begin{bmatrix} 2&1\\0&1\end{bmatrix}$$
+$${\bf AB}=\begin{bmatrix} 2&3\\-2&2\end{bmatrix}, \qquad {\bf BA}=\begin{bmatrix} 1&7\\-1&3\end{bmatrix}$$
+
+__Transpose__: The transpose of the $m\times n$ matrix $\bf A$ is the $n\times m$ matrix ${\bf A}^\top$  (also written ${\bf A}'$) obtained by interchanging the rows and columns of $\bf A$.
+
+For example,
+
+${\bf A}=\begin{bmatrix} 4&-2&3\\0&5&-1\end{bmatrix}, \qquad {\bf A}^\top=\begin{bmatrix} 4&0\\-2&5\\3&-1 \end{bmatrix}$
+
+${\bf B}=\begin{bmatrix} 2\\-1\\3 \end{bmatrix}, \qquad {\bf B}^\top=\begin{bmatrix} 2&-1&3\end{bmatrix}$
+
+
+The following rules apply for transposed matrices:
+
+1. $({\bf A+B})^\top = {\bf A}^\top+{\bf B}^\top$
+2. $({\bf A}^\top)^\top={\bf A}$
+3. $(s{\bf A})^\top = s{\bf A}^\top$
+4. $({\bf AB})^\top = {\bf B}^\top{\bf A}^\top$; and by induction $({\bf ABC})^\top = {\bf C}^\top{\bf B}^\top{\bf A}^\top$
+
+Example of $({\bf AB})^\top = {\bf B}^\top{\bf A}^\top$:
+
+$${\bf A}=\begin{bmatrix} 1&3&2\\2&-1&3\end{bmatrix}, \qquad {\bf B}=\begin{bmatrix} 0&1\\2&2\\3&-1\end{bmatrix}$$
+
+$$ ({\bf AB})^\top = \left[ \begin{bmatrix} 1&3&2\\2&-1&3\end{bmatrix} \begin{bmatrix} 0&1\\2&2\\3&-1\end{bmatrix} \right]^\top = \begin{bmatrix} 12&7\\5&-3 \end{bmatrix}$$
+
+$$ {\bf B}^\top{\bf A}^\top= \begin{bmatrix} 0&2&3\\1&2&-1 \end{bmatrix}  \begin{bmatrix} 1&2\\3&-1\\2&3 \end{bmatrix} = \begin{bmatrix} 12&7\\5&-3 \end{bmatrix}$$
+
+
+
+
+:::{#exr-matrixmulti1}
+
+
+Let 
+
+$$A =  \begin{bmatrix} 2&0&-1&1\\1&2&0&1 \end{bmatrix}$$
+
+$$B = \begin{bmatrix} 1&5&-7\\1&1&0\\0&-1&1\\2&0&0\end{bmatrix}$$
+
+$$C =  \begin{bmatrix} 3&2&-1\\0&4&6 \end{bmatrix}$$
+
+Calculate the following:
+  
+1. $$AB$$
+2. $$BA$$
+3. $$(BC)^\top$$
+4. $$BC^\top$$
+
+:::
+    
+
+
+
+
+## Answers to Examples and Exercises {-}
+
+Answer to @exm-vectors:
+
+  1. $\begin{bmatrix} -1 &-3&-3 \end{bmatrix}$
+  2. 6 + 4 + 10 = 20
+
+Answer to @exr-vectors1:
+
+  1. $\begin{bmatrix} -2 &4&-7&-5 \end{bmatrix}$
+  2. $\begin{bmatrix} 2 &26&-14&4&30 \end{bmatrix}$
+  3. 63 -3 -10 + 24 = 74
+  4. undefined
+
+Answer to @exm-linearindep:
+
+  1. yes
+  2. no
+
+Answer to @exr-linearindep1:
+
+  1. yes
+  2. no ($-v_1 -v_2 + v_3  = 0$)
+  
+
+Answer to @exm-matrixaddition:
+
+${\bf A+B}=\begin{bmatrix} 2 & 4 & 4 \\ 6 & 6 & 8 \end{bmatrix}$
+    
+Answer to @exm-scalarmulti:
+
+$s {\bf A} = \begin{bmatrix} 2 & 4 & 6 \\ 8 & 10 & 12 \end{bmatrix}$
+
+
+
+Answer to @exm-matrixmulti:
+
+1. $\begin{bmatrix} aA+bC&aB+bD\\cA+dC&cB+dD\\eA+fC&eB+fD \end{bmatrix}$
+
+2. $\begin{bmatrix} 1(-2)+2(4)-1(2)&1(5)+2(-3)-1(1)\\
+                3(-2)+1(4)+4(2)&3(5)+1(-3)+4(1)\end{bmatrix} =
+            \begin{bmatrix} 4&-2\\6&16\end{bmatrix}$
+
+Answer to @exr-matrixmulti1:
+  
+1. $AB = \begin{bmatrix} 4 & 11 & -15 \\ 5 & 7 & -7 \end{bmatrix}$
+  
+2. $BA =$ undefined
+  
+3. $(BC)^\top =$ undefined
+  
+4. $BC^\top = \begin{bmatrix} 1&5&-7\\1&1&0\\0&-1&1\\2&0&0\end{bmatrix}\begin{bmatrix} 3&0\\2&4\\-1&6 \end{bmatrix} =\begin{bmatrix}20 & -22 \\ 5 & 4 \\ -3 &2 \\6 & 0\end{bmatrix}$
+

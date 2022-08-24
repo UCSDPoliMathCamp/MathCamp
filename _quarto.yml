@@ -30,8 +30,9 @@ book:
       - 15_non-wysiwyg.Rmd
     - part: "II Linear Algebra"
       chapters:
-      - 21_linear-algebra.Rmd
-      - 22_matrices.Rmd
+      - 21_vector_matrix.Rmd
+      - 22_linear_systems.Rmd
+      - 23_matrix_inverse.Rmd
     - part: "III Calculus"
       chapters:
       - 31_limits.Rmd
