@@ -1,5 +1,5 @@
 
-# Data Wrangling and Cleaning {#datawrangling}
+# Data Wrangling {#datawrangling}
 
 ## Clean Data
 

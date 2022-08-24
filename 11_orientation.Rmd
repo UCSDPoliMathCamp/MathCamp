@@ -1,5 +1,5 @@
 
-# Orientation and Reading in Data
+# RStudio and Read in Data
 
 Welcome to Math Camp! The first day we will get to know each other and get acquainted with R. We will be working with R throughout this course, and today is the beginning, where you will learn about this program. It can be overwhelming to learn any programming language, but we will spend a lot of time and practice with it. Please work through the following tutorials and exercises. There is a lot of information here, and it will take time to understand everything. In fact, programming is a continual learning experience. Please come to class with areas of confusion and questions; we will walk through more examples together.
 
