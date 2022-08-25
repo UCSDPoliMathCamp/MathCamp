@@ -81,6 +81,7 @@ Multiple software exist where you can edit plain-text (roughly speaking, text th
 * TeXMaker, TeXShop (especially for TeX)
 * [emacs](https://www.gnu.org/software/emacs/), aquamacs (general)
 * [vim](http://www.vim.org/download.php) (general)
+* [VS Code](https://code.visualstudio.com) (general)
 * [Sublime Text](https://www.sublimetext.com) (general)
 * [Atom](https://atom.io/) (general)
 
