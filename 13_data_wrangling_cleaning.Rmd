@@ -5,11 +5,11 @@
 
 The raw data used in much of political science research rarely comes to us in a format that is immediately accessible for analysis. Instead, we frequently need to write an R script to "clean" the data first. Only after cleaning the data will it be usable for visualization or statistical modeling. This process (also known as "data wrangling") can be extremely arduous and time-consuming---depending on how messy the raw data is in the first place. According to the common aphorism, the time you spend writing R code to clean your data sets will far exceed the time you spend subsequently running any sort of statistical analysis on the cleaned data.
 
-Although data cleaning has a reputation as a dull, menial task (compared to the "fun" of statistical modeling), try to avoid treating the process like it is merely a roadblock---something to be overcome before you can begin the *real* analysis. In fact, each decision you make when wrangling your raw data into its final state [is a crucial part of the final research product](https://counting.substack.com/p/data-cleaning-is-analysis-not-grunt#:~:text=The%20act%20of%20cleaning%20data%20is%20the%20act%20of%20preferentially,the%20act%20of%20data%20analysis.). Whether or not to drop certain observations, or using different levels of data aggregation are some examples of choices which can have massive downstream effects. You should be thoughtful and transparent about your decision-making process the whole time you spend cleaning data.
+Although data cleaning has a reputation as a dull, menial task (compared to the "fun" of statistical modeling), try to avoid treating the process like it is merely a roadblock---something to be overcome before you can begin the *real* analysis. In fact, each decision you make when wrangling your raw data into its final state [is a crucial part of the final research product](https://counting.substack.com/p/data-cleaning-is-analysis-not-grunt#:~:text=The%20act%20of%20cleaning%20data%20is%20the%20act%20of%20preferentially,the%20act%20of%20data%20analysis.). Whether or not to drop certain observations, or using different levels of data aggregation, are some examples of choices which can have massive downstream effects. You should be thoughtful and transparent about your decision-making process the whole time you spend cleaning data.
 
 ## Cleaning Data Using dplyr
 
-As in the other sections of this book, we will be using the Tidyverse approach to data cleaning here. The Tidyverse package for data cleaning is [dplyr](https://dplyr.tidyverse.org/) and it contains most of the functions we will be using in this chapter.
+As in the other sections of this book, we will be using the Tidyverse approach to data cleaning here. The primary Tidyverse package for data cleaning is [dplyr](https://dplyr.tidyverse.org/) and it contains most of the functions we will be using in this chapter.
 
 Rather than downloading a .csv file and using the `read_csv()` function to load in our data for this chapter, we will be using a package which contains multiple data sets. The data come from the [United Nations General Assembly](https://github.com/dgrtwo/unvotes). First install the unvotes package by running the following command in your Console.
 
@@ -19,12 +19,12 @@ install.packages("unvotes")
 
 Then run
 
-```{r, message=FALSE}
+```{r, message=FALSE, warning=FALSE}
 library(unvotes)
 library(tidyverse)
 ```
 
-When you use the `library()` function, many packages automatically load small data sets that immediately become available for use. However, accessing these data can be a bit confusing because they do not automatically show up as objects in your Environment tab. Let's add the unvotes data sets to our Environment with the following chunk of code:
+When you use the `library()` function, many packages automatically load small data sets which immediately become available for use. However, accessing these data can be a bit confusing because they do not automatically show up as objects in your Environment tab. Let's add the unvotes data sets to our Environment with the following chunk of code:
 
 ```{r}
 un_votes <- un_votes
@@ -32,13 +32,15 @@ un_roll_calls <- un_roll_calls
 un_roll_call_issues <- un_roll_call_issues
 ```
 
+About the data
+
 -   `un_votes`, country-vote level data. Each row is a country's vote on a particular UN Assembly resolution.
 -   `un_roll_calls`, resolution level data. Contains information about each resolution.
 -   `un_roll_call_issues`, resolution level data. Contains the issue-area for each resolution.
 
-### The Pipe Operator
+### The Pipe Operator {.unnumbered}
 
-Before we get started using dplyr we need to first introduce the "pipe" operator `|>`. Pipes are an extremely convenient tool for linking sequences of functions together. They work by passing the object on the left hand side of the pipe into the function following the pipe. [Here is an example](https://twitter.com/andrewheiss/status/1359583543509348356).
+Before we get started using dplyr we need to first introduce the "pipe" operator `|>`. Pipes are an extremely convenient tool for linking several functions together. They work by passing the object on the left hand side of the pipe into the function following the pipe. [Here is an example](https://twitter.com/andrewheiss/status/1359583543509348356).
 
 ```{r, eval=FALSE}
 # The pipe way
@@ -60,17 +62,14 @@ Before R version 4.1, the pipe operator was only available in the [magrittr](htt
 
 Each column in a data set typically represents a single variable, or attribute, relating to the observation in a particular row. In this section we will look at some of dplyr's functions for working with columns.
 
-### Select
+### Select {.unnumbered}
 
 The `select()` function is primarily used to remove unwanted columns from the data. Here is an example.
 
 ```{r}
 un_roll_calls |> 
-  select(rcid, date) |> # Keeping only two variables
-  head() # Print out first 6 rows
+  select(rcid, date) # Keeping only two variables
 ```
-
-The `head()` function prints out the first few rows of a data set, and can be helpful to check if your cleaning function worked in the way you expected.
 
 Note that the code chunk above did not alter the data set object `un_roll_calls`. If we wanted to take this smaller data set and use it for something else, we will need to use the assignment operator `<-` to save our work.
 
@@ -85,24 +84,21 @@ The `select()` function can be very versatile. Rather than typing every column n
 
 ```{r}
 un_roll_calls |> 
-  select(-session) |> # Keep everything except session column
-  head()
+  select(-session) # Keep everything except session column
 ```
 
 There are many other convenient ways to selection columns (e.g. by common names, by type of data, or by position in the data set). For a full list of ways to use `select()` see [this link](https://dplyr.tidyverse.org/reference/select.html). Here is one example of selecting every column which is a "character" type.
 
 ```{r}
 un_roll_calls |> 
-  select(where(is.character)) |> 
-  head()
+  select(where(is.character))
 ```
 
 Lastly, we can use `select()` to rename columns in our data. The chunk of code below selects the "unres" and date columns, and renames "unres" to "un_resolution" at the same time.
 
 ```{r}
 un_roll_calls |> 
-  select(un_resolution = unres, date) |> 
-  head()
+  select(un_resolution = unres, date)
 ```
 
 If you only want to rename columns---without specifying which to select---dplyr has a function `rename()` for this purpose. The syntax is similar to the code chunk above `new_variable_name = original_variable_name`. This code will keep all columns and change the names of the specified variables.
@@ -111,11 +107,10 @@ If you only want to rename columns---without specifying which to select---dplyr 
 un_roll_calls |> 
   rename(un_resolution = unres,
          amendment = amend,
-         paragraph = para) |> 
-  head()
+         paragraph = para)
 ```
 
-### Mutate
+### Mutate {.unnumbered}
 
 The `select()` and `rename()` functions are great for tidying up your data sets, but they do not change the underlying variables. To change existing variables or to create new ones we use `mutate()`.
 
@@ -123,16 +118,14 @@ Let's say we discovered that all the roll call IDs in the column "rcid" were sup
 
 ```{r}
 un_votes |> 
-  mutate(rcid_10 = rcid * 10) |> 
-  head()
+  mutate(rcid_10 = rcid * 10) # Creates the new rcid_10 variable
 ```
 
-If you didn't want to create a brand new variable, and instead wanted to overwrite the original variable, you just need to put the original variable to the left of the `=` in `mutate()`.
+If you didn't want to create a brand new variable, but instead wanted to overwrite the original variable, you just need to put the original variable to the left of the `=` in `mutate()`.
 
 ```{r}
 un_votes |> 
-  mutate(rcid = rcid * 10) |> 
-  head()
+  mutate(rcid = rcid * 10) # Overwrites the existing rcid variable
 ```
 
 We commonly need to create a new variable whose values depend on the values of one of the original variables. The function `case_when()` helps us do this inside `mutate()`.
@@ -140,8 +133,7 @@ We commonly need to create a new variable whose values depend on the values of o
 ```{r}
 un_votes |> 
   mutate(vote_dummy = case_when(vote == "yes" ~ 1,
-                                vote == "no" ~ 0)) |> 
-  head()
+                                vote == "no" ~ 0))
 ```
 
 As you can see, the code chunk above creates a new variable called "vote_dummy" which takes the value `1` if "vote" equals `"yes"` and takes the values `0` if "vote" equals `"no"`. Like other programming languages, R uses the `==` logical operator to check whether a value *equals*, or is equivalent, to some other value. This is different from the single `=` which is used to create entire new variables inside `mutate()`. 
@@ -152,8 +144,7 @@ Here is one more example using `case_when()`.
 un_votes |> 
   mutate(rcid_era = case_when(rcid < 2000 ~ "old",
                               rcid >= 2000 & rcid < 6000 ~ "middle",
-                              rcid >= 6000 ~ "recent")) |> 
-  head()
+                              rcid >= 6000 ~ "recent"))
 ```
 
 
@@ -164,14 +155,12 @@ To recap, the most commonly used functions for cleaning columns/variables in you
   -   `select()` removes and/or renames columns.
   -   `rename()` renames existing columns without removing any.
   -   `mutate()` changes the values of existing columns and creates new columns.
-  
-The new variable "rcid_era" takes three values, `"old"`, `"middle"`, and `"recent"` based on what range the "rcid" variable falls under.
 
 ## Working with Rows
 
-### Filter
+### Filter {.unnumbered}
 
-Dplyr's primary function for removing rows is `filter()`. Like we saw when using `case_when()` inside `mutate()`, using `filter()` requires some practice with logical operators. The function `filter()` works by specifying some variable and only keeping rows in the data for which the logical operation evaluates to `TRUE`. Here is an example.
+Dplyr's primary function for removing unwanted rows is `filter()`. Like we saw when using `case_when()` inside `mutate()`, using `filter()` requires some practice with logical operators. The function `filter()` works by specifying some variable and only keeping rows in the data for which the logical operation evaluates to `TRUE`. Here is an example.
 
 ```{r}
 un_roll_calls |> 
@@ -190,16 +179,16 @@ un_roll_calls |>
   filter(importantvote == 1 | session > 40)
 ```
 
-The first chunk above filters out all rows in which "importantvote" did not equal `1` *AND* "session" was less than `40`. The second chunk above filters out all rows in which "importantvote" did not equal `1` *OR* "session" was less than `40`.
+The first chunk above filters out all rows in which "importantvote" did not equal `1` **AND** "session" was less than `40`. The second chunk above filters out all rows in which "importantvote" did not equal `1` **OR** "session" was less than `40`.
 
 Removing missing, or `NA`, values is another common job for `filter()`. To do this you can use the function `is.na()` inside `filter()`. The function `is.na()` evaluates to `TRUE` if the variable's value is `NA` and evaluates to `FALSE` otherwise. Because `filter()` only keeps rows where the condition evaluates to `TRUE`, in order to *remove* `NA` values we need to negate `is.na()` with the `!` operator. The `!` operator flips the truthiness of any logical statement it precedes. 
 
 ```{r}
 un_roll_calls |> 
-  filter(!is.na(amend)) # Removing rows with NA for amend
+  filter(!is.na(amend)) # Removing rows with NA for the amend variable
 ```
 
-It can be confusing to think in terms of logical statements, especially when negation is involved! But you will become more comfortable with `filter()` the more you practice!
+It can be confusing to think in terms of logical statements, especially when negation is involved! But you will become more comfortable with `filter()` the more you practice.
 
 Another handy logical operator is `%in%`. This lets you specify several values at once when checking whether to keep rows in `filter()`. 
 
@@ -222,9 +211,9 @@ un_votes |>
 
 The two chunks of code above will produce the same filtered data set, but the second chunk requires fewer lines of code and is more flexible if we want to add or remove countries.
 
-### Aggregation
+### Aggregation {.unnumbered}
 
-Filtering is great for removing unwanted rows in your data. However, after using `filter()` the unit of analysis typically remains the same. In the code chunk above, for example, we removed most of the countries from our data, but each row in the resulting data set is still a unique country-vote observation. 
+Filtering is great for removing unwanted rows in your data. However, after using `filter()` the data set's unit of analysis typically remains the same. In the code chunk above, for example, we removed most of the countries from our data, but each row in the resulting data set is still a unique country-vote observation. 
 
 Let's say we want to reduce the data set down to the country level, rather than country-vote level, and examine the proportion of "no" votes taken by each country. We can do this in dplyr using the pair of functions `group_by()` and `summarize()`. Here is an example.
 
@@ -257,6 +246,8 @@ un_votes |>
 
 The United States votes "No" at a much higher rate than other countries!
 
+Lastly, the dplyr function `count()` is very handy for quickly tallying the number of observations within each category of a variable. Simply put the name of the variable you want to count inside `count()` and voila.
+
 ```{r}
 un_roll_call_issues |> 
   count(issue)
@@ -266,41 +257,59 @@ un_roll_call_issues |>
 
 ## Merging Data
 
-So far we have only been working with one data set at a time.
+So far we have only been working with one data set at a time. But it is rare to find all the data you need for a particular project in one single data set. Frequently we will have to merge data sets together in order to have all our variables in the same place. The most common way to merge data using dplyr is with the `left_join()` function. 
+
+To illustrate how `left_join()` works, let's say we have two data sets: our main data set, `x` and the data set we want to merge, `y`. Here is an example:
+
+```{r, eval=FALSE}
+xy_data <- left_join(x, y, by = "key_variable")
+```
+
+The new data set `xy_data` is produced by merging the `y` data set *into* the `x` data set based on the shared value of the `key_variable` variable. Left joins will always keep all rows in the `x` data set, but will only merge in rows from `y` if they match up with the `key_variable`. Your key variable will typically be something like country ID code or a unit's name in the data. Because we like to use pipes in this course, the chunk of code above can be rewritten as:
+
+```{r, eval=FALSE}
+xy_data <- x |> 
+  left_join(y, by = "key_variable")
+```
+
+Now let's take a look at `left_join()` using real data from the unvotes data set.
 
 ```{r}
 un_votes |> 
   left_join(un_roll_calls, by = "rcid")
 ```
 
-```{r}
-un_votes |> 
-  left_join(un_roll_call_issues, by = "rcid")
-```
+The code chunk above merged all the variables from the `un_roll_calls` data set into the `un_votes` data set. Recall that the `un_votes` data contains information about how countries voted on particular UN roll call votes, and the `un_roll_calls` data contains information about the specific votes (such as whether the vote was an "importantvote"). If there were any rows in `un_roll_calls` that had `rcid` values which failed to match with an `rcid` value in `un_votes`, the row would not get merged.
 
-```{r}
-un_roll_calls |> 
-  left_join(un_roll_call_issues)
-```
+While `left_join()` is far and away the most common, and useful, way to merge two data sets when using dplyr, there are various other types of merges which have their niche applications. For a more in-depth look at merging data in dplyr see [this page](https://github.com/gadenbuie/tidyexplain) with helpful animations.
+
+<!-- un_votes |>  -->
+<!--   left_join(un_roll_call_issues, by = "rcid") -->
 
 
-## Reshaping Data
 
-```{r}
-wide_un_votes <- un_votes |> 
-  pivot_wider(id_cols = rcid,
-              values_from = vote,
-              names_from = country)
+<!-- un_roll_calls |>  -->
+<!--   left_join(un_roll_call_issues) -->
 
-head(wide_un_votes)
-```
 
-```{r}
-long_un_votes <- wide_un_votes |> 
-  pivot_longer(cols = -rcid,
-               names_to = "country",
-               values_to = "vote")
+<!-- ## Reshaping Data -->
 
-long_un_votes
-```
+
+<!-- ```{r} -->
+<!-- wide_un_votes <- un_votes |>  -->
+<!--   pivot_wider(id_cols = rcid, -->
+<!--               values_from = vote, -->
+<!--               names_from = country) -->
+
+<!-- head(wide_un_votes) -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- long_un_votes <- wide_un_votes |>  -->
+<!--   pivot_longer(cols = -rcid, -->
+<!--                names_to = "country", -->
+<!--                values_to = "vote") -->
+
+<!-- long_un_votes -->
+<!-- ``` -->
 
