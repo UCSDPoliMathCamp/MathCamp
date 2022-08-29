@@ -18,4 +18,7 @@ Imports:
     jsonlite,
     rmarkdown, 
     downlit, 
-    xml2
+    xml2,
+    urbnmapr
+Remotes:
+    UrbanInstitute/urbnmapr
