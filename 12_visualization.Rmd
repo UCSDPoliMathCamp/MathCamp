@@ -1,9 +1,9 @@
 
 # Visualization {#dataviz}
 
-This lesson is about creating effective data visualizations using the [ggplot2](https://ggplot2.tidyverse.org/) package (part of the Tidyverse). Becoming good at graphing your data is a key skill you will want to develop while in the PhD program. Each graph you make should clearly communicate an insight without overloading your audience with too much information. Today we will practice the nuts and bolts of the coding necessary to accomplish this.
+This lesson is about creating effective data visualizations using the [ggplot2](https://ggplot2.tidyverse.org/) package (part of the Tidyverse). Becoming good at graphing your is a key skill you will want to develop while in the PhD program. Each graph you make should clearly communicate an insight without overloading your audience with too much information. Today we will practice the nuts and bolts of the coding necessary to accomplish this.
 
-Let's start by loading in our external packages: the Tidyverse, and here.
+Let's start by loading in our external packages: Tidyverse, and here.
 
 ```{r, message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -21,7 +21,7 @@ county_elections <- na.omit(county_elections)
 
 ## Univariate Graphs
 
-The first graph we will make is a histogram. Histograms are the most common type of graph for continuous variables and make it easy to see the spread and central tendency of the data. Let's plot the distribution of county median household income using the variable `median_hh_inc` in `county_elections`.
+The first graph we will make is a histogram. Histograms are the most common type of graph for displaying the distributions of continuous variables and make it easy to see the spread and central tendency of the data. Let's plot the distribution of county median household income using the variable `median_hh_inc` in `county_elections`.
 
 ```{r, warning=FALSE, message=FALSE}
 ggplot(county_elections) +
@@ -29,7 +29,7 @@ ggplot(county_elections) +
   geom_histogram()
 ```
 
-Each graph you create using ggplot will contain the following three elements
+Each graph you create using ggplot will contain the following three elements:
 
   1. **Data**. You need to tell ggplot which data set the variables that you want to graph come from. This section is `ggplot(county_elections)` in the code above.
   2. **Aesthetics**. Now that we know which data set we're working with, which variables do you want to use and in what way do we want them to be used? This information goes in the `aes()` section. Because histograms typically view the distribution of a single variable along the x-axis of a graph, we specify our aesthetic `aes(x = median_hh_inc)` in the code above.
@@ -37,7 +37,7 @@ Each graph you create using ggplot will contain the following three elements
   
 In ggplot we combine these elements together using the `+` symbol. You could put the data, aesthetics, and geom sections all in the same line of code. But it is good practice to put each on its own line to make your code more readable. 
 
-Each geom in ggplot has tons of extra options (also called arguments), which you can specify to make your graphs more pretty. Let's begin to customize our histogram!
+Each geom in ggplot has tons of extra options (also called arguments), which you can specify to make your graphs more pretty. Let's begin to customizing our histogram.
 
 ```{r, warning=FALSE}
 ggplot(county_elections) +
@@ -60,7 +60,7 @@ ggplot(county_elections) +
        y = "Count")
 ```
 
-Themes in ggplot control the overall look and background style of our graphs. For a complete list of themes: [Link](https://ggplot2.tidyverse.org/reference/ggtheme.html). There is also a package with a bunch of additional cool themes you can check out here: [Link](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/). Personally I'm a big fan of `theme_minimal()`. 
+Themes in ggplot control the overall look and background style of our graphs. For a complete list of themes: [see here](https://ggplot2.tidyverse.org/reference/ggtheme.html). There is also a package with a bunch of additional cool themes you can [check out here](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/). Personally I'm a big fan of `theme_minimal()`. 
 
 ```{r, warning=FALSE}
 ggplot(county_elections) +
@@ -96,7 +96,7 @@ Now the data looks almost normally distributed. Also note the use of `scales::do
 
 ## Bivariate Graphs
 
-If histograms are the most common way to plot the distribution of a single continuous variable, scatter plots are the most common way to show the relationship between two continuous variables. Translating our histogram ggplot code to a scatter plot is straightforward: simply add a y-axis variable to `aes()`, and change the geom to `geom_point()`. The graph below displays the relationship between median household income and the population percentage in a county who did not complete high school. 
+If histograms are the most common way to plot the distribution of a single continuous variable, scatter plots are the most common way to show the relationship between *two* continuous variables. Translating our histogram ggplot code to scatter plot code is straightforward: simply add a y-axis variable to `aes()`, and change the geom to `geom_point()`. The graph below displays the relationship between median household income and the population percentage in a county who did not complete high school. 
 
 ```{r, warning=FALSE}
 ggplot(county_elections) +
@@ -132,7 +132,7 @@ ggplot(county_elections) +
 
 The negative relationship between our two variables is clear just by eyeballing it, but if we want to be real scientists we need to add the magic regression line. If you are unfamiliar with regression lines, don't worry---we will be covering them extensively in your introductory quantitative methods course. A linear regression line is essentially just the "best fitting" straight line to the data.
 
-Adding a regression line to the graph gives us our first opportunity to combine multiple *geoms*. In the code chunk below, notice how we simply use `+` to add `geom_smooth()` to our ggplot object. This overlays a fitted line on top of the dots from `geom_point()`. The argument `method = "lm"` tells ggplot to use a linear regression line (`lm` = "linear model") as opposed to some other type of fitted line.
+Adding a regression line to the graph gives us our first opportunity to combine *multiple* geoms. In the code chunk below, notice how we simply use `+` to add `geom_smooth()` to our ggplot object. This overlays a fitted line on top of the dots from `geom_point()`. The argument `method = "lm"` tells ggplot to use a linear regression line (`lm` = "linear model") as opposed to some other type of fitted line.
 
 ```{r, warning=FALSE}
 ggplot(county_elections) +
@@ -170,7 +170,7 @@ Not perfect, but now our fitted line is looking better!
 
 ## Trivariate(!) Graphs
 
-We are now experts are graphing one variable at a time, or two variables together, but what if we want to graph three or more variables at once? There are a number of ways to do this in ggplot as we will see below. However, first a word of caution: beware of cluttering your plots with *too* much information! It can be tempting to throw everything into a graph, but doing so can obscure the main point you're trying to make. Always keep this in mind when going beyond graphing two variables at once.
+We are now experts at graphing one variable at a time---or two variables together---but what if we want to graph three or more variables at once? There are a number of ways to do this in ggplot as we will see below. However, first a word of caution: beware of cluttering your plots with *too* much information! It can be tempting to throw everything into a graph, but doing so can obscure the main point you're trying to make. Always keep this in mind when going beyond graphing two variables at once.
 
 ### Using Colors and Shapes
 
@@ -199,7 +199,7 @@ ggplot(county_elections) +
 
 By default, ggplot even gives us a handy legend to tell us which color points correspond to which value of `rural`. 
 
-Now let's try adding a third variable to our scatter plot which is continuous. One way to do this is with the `size` option in `aes()`.
+Now let's try adding a *continuous* third variable to our scatter plot. One way to do this is with the `size` option in `aes()`. In the example below, each point's size in our scatter plot is proportional to the total population in that county.
 
 ```{r, warning=FALSE}
 ggplot(county_elections) +
@@ -215,7 +215,7 @@ ggplot(county_elections) +
 
 Are we overdoing things with adding too much information to our graph? Possibly!
 
-### Using Facets to Graph Comparisons
+### Using Facets to Graph Comparisons {.unnumbered}
 
 One of ggplot's most powerful features is "faceting". Facets allow you to easily graph comparisons between different levels of a categorical variable in a clear manner by creating side by side subgraphs. To apply a facet to our ggplot graph we can simply add `+ facet_wrap(~ facet_variable)`.
 
@@ -259,26 +259,27 @@ We use the command `devtools::install_github()` because the developers of urbnma
 
 Once you have the urbnmapr package installed, you can load it into R using:
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 library(urbnmapr)
 ```
 
 We need to perform a couple data cleaning steps before the data is ready to map in ggplot. The first step is making our `countyCode` variable match the format of the corresponding US county code in the urbnmapr data. US counties are each given a unique 5-digit number called a [FIPS code](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/home/?cid=nrcs143_013697). However, at some point the "county_elections.csv" file was opened in Excel, which read the FIPS codes as numeric values thereby removing any 0's from the start of each code. Never open your data in Excel! Now a bunch of the FIPS codes in our data are only 4-digits long instead of 5, which means they will not match the FIPS codes in the urbnmapr data. Luckily we can fix this using the Tidyverse. The function `str_pad` from the [stringr](https://stringr.tidyverse.org/) package can be used to "pad" out a variable with a specific character until it becomes a specific size.
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 county_elections <- county_elections |> 
   mutate(county_fips = str_pad(countyCode, width = 5, pad = "0"))
 ```
 
 Next we need to join our `county_elections` data with the mapping data from urbnmapr. We will do this using a `left_join` command, which, if you are not familiar with, we will cover in much greater detail in a future lesson. The big idea here is that we have one data set with county-level variables, such as median household income, that we need to merge with a data set containing the geographic coordinate information for each US county.
 
-```{r, eval=FALSE}
-map_data <- left_join(county_elections, counties)
+```{r, eval=TRUE}
+map_data <- left_join(county_elections, counties,
+                      by = "county_fips")
 ```
 
 Awesome! Now we are ready to make a map! Let's check out the geographic distribution of population percentage without a high school diploma.
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 ggplot(map_data) +
   aes(x = long, y = lat, 
       group = group, fill = lesshs_pct) +
@@ -294,7 +295,7 @@ ggplot(map_data) +
 
 Don't worry if you are not yet able to understand every aspect of the ggplot code that produced this map. Try playing around with some of the arguments and see what happens to the map!
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 ggplot(map_data) +
   aes(x = long, y = lat, 
       group = group, fill = lesshs_pct) +

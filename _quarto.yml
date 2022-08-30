@@ -26,7 +26,7 @@ book:
       - 11_orientation.Rmd
       - 12_visualization.Rmd
       - 13_data_wrangling_cleaning.Rmd
-      - 14_simulation.Rmd
+      - 14_loops_simulations.Rmd
       - 15_non-wysiwyg.Rmd
     - part: "II Linear Algebra"
       chapters:

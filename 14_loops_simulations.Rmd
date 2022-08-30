@@ -1,0 +1,483 @@
+
+# Loops and Simulation {#simulation}
+
+Thus far in the course we have been working with real data. These data sets contained variables which correspond to tangible phenomena out in the world. While the bulk of social science research uses data of this sort, generating *fake* data can be surprisingly useful. Fake, or synthetic, data allows us to control every aspect of the **data generating process (DGP)**. By manually tweaking different parameters that govern the DGP, we can better understand how our statistical methods will perform on real data. In this chapter we will learn some of the tools in R to simulate fake data.
+
+## Generating Fake Data
+
+First let's load in our favorite packages.
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+```
+
+### sample()
+
+The simplest way to generate random data in R is through the function `samples()`. The primary inputs to `sample()` are `x`, which is the set of values you want to draw from and `size`, which is the number of samples you want to draw. Let's takes a look at an example.
+
+```{r}
+# Create a vector of character values
+my_animals <- c("cat", "dog", "fish", "monkey", "parrot")
+
+# From the set "my_animals", draw 2 at random
+sample(x = my_animals, size = 2)
+```
+
+By default, `sample()` samples *without* replacement. This means that once a value from `x` is drawn, it will be ineligible to be drawn again. The following code gives us an error because `size = 100` is larger than the total number of values in `my_animals`.
+
+```{r, error=TRUE}
+sample(x = my_animals, size = 100)
+```
+
+To fix this we need to sample *with* replacement by setting `replace = TRUE` inside `sample()`. 
+
+```{r}
+sample(x = my_animals, size = 100, replace = TRUE)
+```
+
+The decision to sample with, or without, replacement depends on the particular DGP you want to simulate. 
+
+The `sample()` function has one last option which may be useful when generating random values. If you give `prob` a vector of values, `sample()` will draw samples from `x` in proportion to the values in `prob`. Each value in `prob` corresponds to the values in `x` that shares its position in the vector.
+
+```{r}
+my_animals <- sample(
+  x = my_animals,
+  size = 1000,
+  replace = TRUE,
+  prob = c(0.1, 0.2, 0.2, 0.4, 0.1)
+)
+```
+
+The code above samples `my_animals` with 10% weight on `cat`, 20% weight on `dog` and `fish`, 40% weight on `monkey`, and 10% weight on `parrot`. We can confirm this worked by inspecting a bar graph of our `my_animals` data.
+
+```{r}
+# ggplot requires the data be in tibble or data.frame form
+tibble(my_animals) |> 
+  ggplot(aes(x = my_animals)) +
+  geom_bar()
+```
+
+### Sampling from Data
+
+While we're discussing sampling to create fake data, it's also handy to know how to sample from real data. Sometimes you will be working with data sets that are so large that you'll want to test your code on smaller portions first. Or you may want to perform sampling on data when creating bootstrapped confidence intervals (a topic we will return to at the end of this chapter).
+
+Let's read in the "county_elections.csv" data once again.
+
+```{r}
+county_elections <- read_csv(here("data", "county_elections.csv"))
+```
+
+Dplyr contains a function called `sample_n()` which lets you easily draw a number of random rows from your data.
+
+```{r}
+county_elections |> 
+  sample_n(size = 10)
+```
+
+Alternatively, we can use `sample_frac()` to specify how many random rows to draw based on a proportion of total rows.
+
+```{r}
+county_elections |> 
+  sample_frac(size = 0.01) # Return 1% of the final data
+```
+
+Performing stratified sampling is very easy using the `group_by()` function we introduced in the last chapter. The code below draws one random row (i.e. county) from each US state.
+
+```{r}
+county_elections |> 
+  group_by(state_abbrv) |> 
+  sample_n(1)
+```
+
+### Sampling from Distributions
+
+The `sample()` function is great for generating random data, but its use is limited by the fact that you have to manually specify the set of values `x` to draw from. For many common distributions of data (for example the Normal distribution), the set of possible values can range from negative infinity to positive infinity! To help us with this problem, base R comes with dozens of functions for drawing samples from well-known statistical distributions. The first one we will take a look at is `rbinom()` (`r` for "random" and `binom` for "binomial").
+
+#### Binomial Distribution
+
+The `rbinom()` function takes three inputs: `n` for the number of draws we want, `size` for the number of binomial trails, and `prob` for the probability of a "success". Don't worry if some of these parameters are unfamiliar, we will cover the binomial distribution in much greater detail in the Probability section of the course. The easiest introduction to the binomial distribution is to set `size = 1` and `prob = 0.5`. This simulates flipping a coin and getting either a heads, `1`, or tails, `0` with equal probability. The code below generates 100 coin flips in this way.
+
+```{r}
+rbinom(n = 100, size = 1, prob = 0.5)
+```
+
+We can replicate the same data generating process using `sample()` with the following code.
+
+```{r}
+sample(x = c(0, 1),
+       size = 100,
+       replace = TRUE)
+```
+
+Let's tweak the value for `prob` and see what happens.
+
+```{r}
+rbinom(n = 100, size = 1, prob = 0.8)
+```
+
+Now there are way more `1`'s than `0`'s! A bar graph can help us visualize the proportions.
+
+```{r}
+binomial_draws <- rbinom(n = 100, size = 1, prob = 0.8)
+
+tibble(binomial_draws) |> 
+  ggplot(aes(x = binomial_draws)) +
+  geom_bar() +
+  scale_x_continuous(breaks = 0:1) +
+  labs(title = "Binomial Distribution: size = 1, prob = 0.8")
+```
+
+Differentiating `size` from `n` in `rbinom()` can be difficult to understand at first, so let's experiment with the code to help figure it out. When we set `n = 100` and `size = 1` we were drawing 100 values from a trial that only ran once. Instead, if we reverse these numbers, we would be drawing a single value from 100 trials.
+
+```{r}
+rbinom(n = 1, size = 100, prob = 0.5)
+```
+
+As you can see, the code above gives us a single value which is the sum of `1`'s from 100 trials. Because `prob = 0.5`, this number should be around 50.
+
+Like in our example of sampling animal names with `sample()`, it can be useful to create histograms to understand how sampling parameters affect the distribution of draws we get. 
+
+```{r}
+binomial_draws <- rbinom(n = 10000,
+                         size = 7,
+                         prob = 0.5)
+```
+
+The code chunk above creates an object called `binomial_draws` which holds 10,000 draws from a binomial distribution with seven trials and where the probability of a successful trial is 0.5. Let's plot the values of `binomial_draws`.
+
+```{r}
+tibble(binomial_draws) |> 
+  ggplot(aes(x = binomial_draws)) +
+  geom_bar() +
+  scale_x_continuous(breaks = 0:7) +
+  labs(title = "Binomial Distribution: size = 7, prob = 0.5")
+```
+
+As you can see, the results of our random draws cluster around `3` and `4`. This is because the expected value of a binomial distribution is the total number of trials multiplied by the probability of a success. So that would be $7 * 0.5 = 3.5$ in this example. 
+
+Now let's try changing `prob` to equal `0.8` in our simulation. The histogram below shows that the values of `binomial_draws` are clustered towards the higher end of the distribution with an average value of $7 * 0.8 = 5.6$.
+
+```{r}
+binomial_draws <- rbinom(n = 10000,
+                         size = 7,
+                         prob = 0.8)
+
+tibble(binomial_draws) |> 
+  ggplot(aes(x = binomial_draws)) +
+  geom_bar() +
+  scale_x_continuous(breaks = 0:7) +
+  labs(title = "Binomial Distribution: size = 7, prob = 0.8")
+```
+
+#### The Uniform Distribution
+
+Whereas the binomial distribution only returns whole numbers when we sample from it, samples drawn from a uniform distribution can be any real number between a specified minimum and maximum. The uniform distribution is useful when you want to generate random numbers with equal weight from within a pre-determined range. To generate random samples from the uniform distribution we use `runif()`. Like `rbinom()`, the option `n` sets the number of random draws we want. We also need to specify our range by including a `max` and `min`.
+
+```{r}
+# Generating random numbers from between 0 and 1
+runif(n = 25, min = 0, max = 1)
+```
+
+Let's graph the random draws we get from a uniform distribution to better understand what's taking place.
+
+```{r, waring=FALSE}
+uniform_draws <- runif(10000, min = 0, max = 1)
+
+tibble(uniform_draws) |> 
+  ggplot(aes(x = uniform_draws)) +
+  geom_histogram(color = "white", bins = 30) +
+  xlim(-0.5, 1.5) +
+  labs(title = "Unfiform Distribution: min = 0, max = 1")
+```
+
+The histogram above shows that values between 0 and 1 are all about equally likely, but we won't get any draws that are less than 0 or greater than 1. 
+
+#### The Normal Distribution
+
+The normal distribution creates that familiar bell-shaped curve and has two parameters: the mean which controls the center of the distribution, and the standard deviation which controls the width of the curve. We often model variables as following a normal distribution when we believe they should be drawn from some central value plus or minus some random "noise". Normal distributions arise naturally when the data-generating process involves the addition of many small fluctuations in some process.
+
+The function for generating samples from a normal distribution, `rnorm()`, follows the same pattern we have seen with `rbinom()` and `ruinf()`. First we specify how many samples we want to draw `n`, then we specify the parameters `mean` and `sd` of the normal distribution we want to draw from. 
+
+```{r}
+rnorm(n = 100, mean = 0, sd = 1)
+```
+
+Like the uniform distribution, draws from the normal distribution can be any real number. It may be difficult to see from the random draws above that values close to the mean of 0 are more likely than more extreme values. So let's take a look at the distribution graphically.
+
+```{r}
+normal_draws <- rnorm(10000, mean = 0, sd = 1)
+
+tibble(normal_draws) |> 
+  ggplot(aes(x = normal_draws)) +
+  geom_histogram(color = "white", bins = 30) +
+  labs(title = "Normal Distribution: mean = 0, sd = 1")
+```
+
+A normal distribution that looks like the one above (mean = 0, standard deviation = 1) is often called a "Standard Normal" distribution, and you will come across it all the time in statistics. Let's take a look at some other normal distributions by varying their mean and standard deviation values.
+
+```{r}
+# rnorm defaults to mean = 0, sd = 1 if those options are left blank
+normal_minus_one <- rnorm(10000, mean = -1)
+normal_zero <- rnorm(10000)
+normal_one <- rnorm(10000, mean = 1)
+
+# Combining the draws into a single "long" data frame
+normal_data <- cbind(normal_minus_one,
+                     normal_zero,
+                     normal_one) |> 
+  as_tibble() |> 
+  pivot_longer(cols = everything(),
+               names_to = "distribution",
+               values_to = "normal_draws")
+
+normal_data |> 
+  ggplot(aes(x = normal_draws)) +
+  geom_histogram(color = "white", bins = 90) +
+  facet_wrap(~ distribution, nrow = 3)
+```
+
+Changing the value for `mean` shifts the distribution along the x-axis but the spread of the data remains the same.
+
+```{r}
+normal_narrow <- rnorm(10000, sd = 0.5)
+normal_standard <- rnorm(10000)
+normal_wide <- rnorm(10000, sd = 1.5)
+
+normal_data <- cbind(normal_narrow,
+                     normal_standard,
+                     normal_wide) |> 
+  as_tibble() |> 
+  pivot_longer(cols = everything(),
+               names_to = "distribution",
+               values_to = "normal_draws")
+
+normal_data |> 
+  ggplot(aes(x = normal_draws)) +
+  geom_histogram(color = "white", bins = 90) +
+  facet_wrap(~ distribution, nrow = 3)
+```
+
+Changing the value for only `sd` keeps each distribution centered at 0, but makes the data more or less spread out.
+
+### set.seed()
+
+If you have been running the code chunks above yourself, you may have noticed that random values you got differed from those printed in this chapter. In fact, each time you run a function like `rnorm(n = 100, mean = 0, sd = 1)` you will get different results. The function `set.seed()` is R's way of making sure that the results of your random simulations are the same for others, and for yourself if you re-run your code. This is an important part of making sure the results of your statistical analyses are reproducible.
+
+Simply put any number inside `set.seed()` and R's randomness will become tied to that particular number. 
+
+```{r}
+set.seed(10071992)
+
+sample(my_animals, 3)
+```
+
+Running the chunk of code above should output `"parrot" "cat" "monkey"` each time it is run and across different computers, or different versions of R.
+
+## Loops
+
+Loops are handy tools for running the same process repeatedly in R. For example, let's say we wanted to print out the name of every animal in our vector of `my_animals`. The tedious way would be to type out the `print()` function for each animal as in the code below.
+
+```{r}
+print("cat")
+print("dog")
+print("monkey")
+print("parrot")
+print("fish")
+```
+
+But with loops we can perform the same task in a much more concise fashion. 
+
+```{r}
+my_animals <- c("cat", "dog", "monkey", "parrot", "fish")
+
+for (animal in my_animals) {
+  print(animal)
+}
+```
+
+The basic structure of a loop is shown in the code chunk below. The object `set_of_things` should be some object in R which holds many values (such as a vector, a data frame, a list, or a matrix). The `thing` object refers to each element in `set_of_things` and changes its value each time the loop goes through a single iteration. Typically you will refer to `thing` in the body of your loop, such as in the function `do_something_to()`. A loop structured like this runs until every element in `set_of_things` is iterated through.
+
+```{r, eval=FALSE}
+for (thing in set_of_things) {
+  do_something_to(thing)
+}
+```
+
+It is very common to use loops as a way to run a set of R commands N times, where N is some integer greater than 1. The easiest way to do this is to create a sequence of numbers using `:` as shown below.
+
+```{r}
+1:10
+```
+
+The object `1:10` is then what we will insert into the `set_of_things` position in our loop in order to iterate through each number in the sequence. When you construct a loop in this manner you should name your `thing` object `i`. This is the standard style taken from mathematical indexing, and helps readers of your code better understand the purpose of your loop.
+
+```{r}
+for (i in 1:10) {
+  i <- i ^ 2
+  print(i)
+}
+```
+
+So far our loops have only printed out their results in the console, but have not given us much to work with afterwards. To save the output of your loop you will typically need to initialize some "holder" object ahead of running the loop. Then, within each iteration of the loop, you can save the result inside the "holder" object.
+
+```{r}
+holder <- NULL # Use NULL to create an empty object
+for (i in 1:100) {
+  holder[i] <- i ^ 2
+}
+```
+
+The code chunk above iterates through each number from 1 to 100, squares that number, then saves it in the `i`th position of the `holder` object. We can then take the vector of values stored in `holder` and access them as we would any object saved in our R Environment. 
+
+```{r}
+holder
+```
+
+Alternatively, we could write the functionally-equivalent code chunk below.
+
+```{r}
+holder <- NULL
+for (i in 1:100) {
+  holder <- c(holder, i ^ 2)
+}
+```
+
+Here we are using the `c()` function to *combine* the current value of the loop's iteration with everything that came before it in the `holder` object. This method is more flexible than indexing with `[i]`, but can be computationally slower to run because the `holder` object is re-writen by R each time the loop iterates.
+
+## Simulations
+
+In the final section of this chapter we will look at a few examples of simulations that have real-world applications. The basic idea behind each of these simulations is to use R's random sampling functions (such as `rnorm()` or `runif()`) *within* a loop to generate hundreds or thousands of synthetic data points. In the real world we only get one realization of our data to analyze, but common statistical techniques are based on imagining large numbers of repeated samples of data from the same population. Simulations built in R can therefore help us approximate this process.
+
+### Central Limit Theorem
+
+The Central Limit Theorem (CLT) is invoked all the time in frequentist statistical methods. In lay terms, it states that if we calculate the means of many samples from a single population, the distribution of these means will be normally distributed. And this is true regardless (with exceptions) of what the distribution of the population looks like. If this sounds like magic to you, let's use a simulation to prove it.
+
+```{r}
+n_sims <- 1000
+means <- NULL
+```
+
+First we will set the number of simulations we want to run with `n_sims <- 1000`. Generally, running more simulations will produce more accurate results, but will also take more computation time. The object `means` will be our "holder" object used to store the output of each loop iteration. We set its value to `NULL` initially because it starts empty.
+
+```{r}
+for (i in 1:n_sims) {
+  sample_data <- runif(100, min = -1, max = 1)
+  means[i] <- mean(sample_data)
+}
+```
+
+The loop above contains everything we need to simulate the CLT in action. By setting `for (i in 1:n_sims)` we make the loop run `n_sims` times. Within each iteration we generate a new vector of fake data called `sample_data` which contains 100 draws of a uniform distribution whose range is from -1 to 1. We then take the average value of `sample_data` with the `mean()` function and store that into the `i`th position of the `means` holder object. 
+
+Now let's graph our results!
+
+```{r}
+tibble(means) |> 
+  ggplot(aes(x = means)) +
+  geom_histogram(color = "white", bins = 30) +
+  labs(title = "Distribution of Means from Simulated Uniform Random Samples")
+```
+
+As you can see, the distribution of mean values inside `means` follow the familiar bell-shaped curve of a normal distribution---despite the fact that the random samples were drawn from a uniform distribution. Amazing!
+
+### Power Analysis
+
+Power analysis is a method used to figure out how big of a sample you need before running an experiment. Smaller sample sizes make it more difficult to detect an effect of some treatment, but budget constraints often limit how large of a sample we can acquire. To perform a power analysis, you need to have an idea of the possible effect sizes of your treatment, as well as your false-negative threshold (i.e. "if there really is an effect from the treatment, what proportion of times should my experiment detect it?"). Statisticians have developed fancy formulas for calculating optimal sample sizes based on these inputs. But it is much easier to instead write R code which simulates running your particular experiment thousands of times. 
+
+```{r}
+n_sims <- 10000
+p_values <- NULL
+effect <- 0.5
+sample_size <- 50
+```
+
+As in the Central Limit Theorem example, we will set `n_sims <- 10000`. Our "holder" object will be called `p_values` this time because that is what we will be extracting from every iteration of our loop below. Lastly we need to specify a treatment effect, `effect` and sample size for our experiment `sample_size`. The beauty of running simulations in R is that we can easily play around with different values of `effect` and `sample_size` and check out the new results.
+
+```{r}
+# Setting seed so we all get the same results
+set.seed(10071992)
+
+for (i in 1:n_sims) {
+  treated <- rnorm(sample_size / 2, mean = effect)
+  control <- rnorm(sample_size / 2, mean = 0)
+  
+  power_test <- t.test(treated, control)
+  p_values[i] <- power_test$p.value
+}
+```
+
+The loop above simulates a possible experimental design. First we create two vectors of outcomes, one for the treated group and one for our control group. The number of samples from each group is our `sample_size` divided by two, and each group is drawn from a normal distribution using `rnorm()`. However, you will notice that the `treated` group is being drawn from a normal distribution with mean equal to our specified `effect` of 0.5, whereas the `control` group is drawn from a normal distribution with `mean = 0`. In our simulated experiment, we *know* that the treatment has some effect because we generated the data to ensure it does! The normal distribution for each group has a standard deviation of one (the default in `rnorm()`). The variation in outcomes has major implications for our power analysis, but we will omit dealing with it here for simplicity.
+
+After generating sample outcomes for our `treated` and `control` groups, we perform a simple t-test to compare the means of each group and store the results in an object called `power_test`. Then we extract the p-value from the t-test using `$p.value` and save it into the `i`th position of the `p_values` holder object. If `power_test$p.value` is less than the conventional level of 0.05, then the simulated experiment has successfully detected the effect of the treatment. With our vector of 10,000 `p_values` in hand, we can now calculate the proportion of them which are below 0.05 using the `mean()` function.
+
+```{r}
+mean(p_values < 0.05)
+```
+
+It looks like our experiment (with effect size of 0.5 and sample size of 50) was only able to detect a true effect of the treatment about 40% of the time. Ideally we would like this number to above 80% so we will probably need to recruit more participants for our experiment.
+
+### Bootstrapping
+
+Bootstrapping is a technique used to calculate uncertainty regions around our statistical estimates. It approximates a confidence interval by re-sampling the underlying data (*with replacement*) thousands of times and refitting the statistical model to each of these samples. Bootstrapping is useful when calculating confidence intervals analytically is challenging or impossible (which may occur for complicated models). 
+
+In this example we will be looking at the coefficient estimate for a linear regression with median household income as the dependent variable and high school percentage as the independent variable. Recall that these variables come from the `county_elections` data.
+
+```{r}
+n_sims <- 1000
+estimates <- NULL
+```
+
+We will set `n_sims` to only 1,000 here because the re-sampling process can take a while. The holder `estimates` will be used to store the coefficient estimates from our linear regression.
+
+```{r}
+for (i in 1:n_sims) {
+  county_sample <- county_elections |> 
+    sample_n(size = nrow(county_elections), replace = TRUE)
+  
+  lm_model <- lm(median_hh_inc ~ lesshs_pct,
+                 data = county_sample)
+  estimates[i] <- summary(lm_model)$coef[[2]]
+}
+```
+
+The first step of our simulation is to create a `county_sample` object which contains random rows from the main `county_elections` data set. Inside `sample_n()` we set `size = nrow(county_elections)` to generate a sample which has the same number of rows as the original data set. Crucially, we also set `replace = TRUE` so that it is possible to include the same row multiple times in our sampled data. If you think it seems weird to replicate rows like this, you're not alone! Yet somehow this procedure works to produce valid confidence regions around the estimated coefficient.
+
+Next we create an object `lm_model` which stores the linear regression fit on the `county_sample` data. We can extract the coefficient/slope between `lesshs_pct` and `median_hh_inc` using the verbose `summary(lm_model)$coef[[2]]` (for easier ways to extract regression coefficients see the [broom package](https://broom.tidymodels.org/)). 
+
+Finally let's take a look at all these coefficient values stored in `estimates` graphically.
+
+```{r}
+bootstrap_plot <- tibble(estimates) |> 
+  ggplot(aes(x = estimates)) +
+  geom_histogram(color = "black",
+                 fill = "white",
+                 bins = 30) +
+  labs(x = "Bootstrapped Estimates of the Regression Coefficient") +
+  theme_bw()
+
+bootstrap_plot
+```
+
+Sometimes it is handy to save a ggplot graph in an object like we do with `bootstrap_plot`. This will allow us to add on subsequent geoms without re-writing the entire ggplot code.
+
+```{r}
+lm_model <- lm(median_hh_inc ~ lesshs_pct,
+               data = county_elections)
+estimate <- summary(lm_model)$coef[[2]]
+standard_error <- summary(lm_model)$coef[[4]]
+```
+
+How do our simulated bootstrapped estimates, fit on random samples of the `county_elections` data, compare to the results of a model fit to the original data set? The code chunk above runs the linear regression model on the full `county_elections` data and saves the single estimated coefficient and standard error.
+
+```{r}
+bootstrap_plot +
+  geom_vline(xintercept = estimate,
+             color = "maroon", size = 1.5) +
+  geom_vline(xintercept = estimate + standard_error * 1.96,
+             color = "darkcyan", size = 1.5, linetype = "dashed") +
+  geom_vline(xintercept = estimate - standard_error * 1.96,
+             color = "darkcyan", size = 1.5, linetype = "dashed") +
+  labs(caption = "Full sample estimate in maroon\n95% confidence interval in cyan")
+```
+
+Adding these values to our `bootstrap_plot` using `+ geom_vline()` we can see that the bootstrapped estimates correspond neatly to the full-data model! The center of the bootstrapped distribution is right on the full-data model estimate of the coefficient, and roughly 95% of our simulated results fall within $\pm 1.96 * \text{standard_error}$ (the definition of a confidence interval for a linear regression coefficient).

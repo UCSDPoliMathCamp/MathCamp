@@ -1,5 +1,5 @@
 
-# RStudio and Read in Data
+# RStudio and Reading in Data
 
 Welcome to Math Camp! The first day we will get to know each other and get acquainted with R. We will be working with R throughout this course, and today is the beginning, where you will learn about this program. It can be overwhelming to learn any programming language, but we will spend a lot of time and practice with it. Please work through the following tutorials and exercises. There is a lot of information here, and it will take time to understand everything. In fact, programming is a continual learning experience. Please come to class with areas of confusion and questions; we will walk through more examples together.
 
@@ -7,36 +7,25 @@ You should download the latest versions of [R](https://cran.r-project.org/) and 
 
 [R Studio Cloud](https://rstudio.cloud/learn/primers/) has great resources we will be using throughout this course. Please complete the following primer tutorial for the first session: [The Basics: Programming Basics](https://rstudio.cloud/learn/primers/1.2)
 
-## Where are we starting? {.unnumbered}
-
-Today we'll cover:
-
--   What's what in RStudio
--   What R is, at a high level
--   How to read in data
--   How to create cool graphs using the ggplot2 package
--   Best practices for reproducible workflow using R Markdown
-
-
 ## Orienting
 
-### Getting to know RStudio
+### Getting to know RStudio {.unnumbered}
 
-RStudio is an Integrated Development Environment for the programming language R. An IDE is a piece of software which allows you to more easily interface with programming languages. You can program with other languages (such as Python or SQL) using RStudio, and you can use other IDEs to program with R, but typically R users use RStudio---and vice versa. This is because RStudio was specifically created to facilitate R programming and comes with a ton of helpful features.
+RStudio is an Integrated Development Environment (IDE) for the programming language R. An IDE is a piece of software which allows you to more easily interface with programming languages. You can program in other languages (such as Python or SQL) using RStudio, and you can use other IDEs to program with R, but typically R users use RStudio---and vice versa. This is because RStudio was specifically created to facilitate R programming and comes with a ton of helpful features.
 
 There are four main sections, or "panes", in RStudio.
 
-1.  **Bottom Left**. This is the *Console*. It is the place that executes your R code. You can type directly in your Console and it will display the output immediately below. If your code generates errors or warning messages they will be displayed here too. You should rarely type code directly into your Console, however, because it can be difficult to keep track of things line by line. Also, every time you restart RStudio your Console will refresh itself which means you will lose your previous work! This is not only a problem for your own analysis, but it also makes it impossible for anyone else to replicate your steps. I only write in the Console directly if I'm testing small code snippets or for quick data exploration (for example using the `summary()` function on a variable).
+1.  **Bottom Left**. This is the *Console*. It is the place that executes your R code. You can type directly in your Console and it will display the output immediately below. If your code generates errors or warning messages they will be displayed here too. You should rarely type code directly into your Console, however, because it can be difficult to keep track of things line by line. Also, every time you restart RStudio your Console will refresh itself which means you will lose your previous work. This is not only a problem for keeping track of your own analyses, but it also makes it impossible for anyone else to replicate the steps you took while coding. The main reasons to write directly in the Console are testing small code snippets or for quick data exploration (for example using the `summary()` function on a variable).
 
     Useful tip: use the Up-Arrow on your keyboard to quickly re-run pieces of code which were previously sent to the Console.
 
-2.  **Top Left**. If you go to "File \> New File" you can open up a script file which will then appear in your *Source* window. Script files are text documents containing written R code which then gets sent down to the Console when executed. Script files are great because we can save them onto our computer to rerun our work or to continue writing later. Plus we can send these files to anyone else with R installed on their computer and they should be able to rerun our analysis too. This is a core concept in ensuring your research is reproducible.
+2.  **Top Left**. If you go to "File \> New File" you can open up a script file which will then appear in your *Source* window. Script files are text documents containing R code which then gets sent down to the Console when executed. Script files are great because we can save them onto our computer to rerun our work at any time in the future. Plus we can send these files to anyone else with R installed on their computer and they will be able to rerun our analysis too. This is a core concept in ensuring your research is reproducible.
 
-    There are two types of script files people typically use when programming in R: .R and .Rmd files. Most R users do the bulk of their programming in .R files. These are plain text files containing only commands for R to execute. If you want to write something else in .R files (such as English sentences), you can do so by starting a line with a `#` character. These are called **comments** and are a great way to explain what your R code is supposed to be doing. Comments make it helpful for other people to understand your code, as well as for yourself if you revisit a project months or years later!
+    There are two types of script files people typically use when programming in R: .R and .Rmd files. Most R users do the bulk of their programming in .R files. These are plain text files containing commands for R to execute. If you want to write something else in .R files (such as English sentences), you can do so by starting a line with a `#` character. These are called **comments** and are a great way to explain what your R code is supposed to be doing. Comments make it helpful for other people to understand your code, as well as for yourself if you revisit a project months or years later!
 
-    The other common type of file used to write R code is an .Rmd, or R Markdown, file. We will cover R Markdown in much greater detail in a later section, but these are the basics for now. R Markdown allows you to seamlessly combine R code with written text to create a wide variety of possible documents. All of my papers in grad school have been written in R Markdown, as well as my presentation slides and website. This book you're reading right now was written in R Markdown too. The strength of combining R code and written text comes from how easy it is to update your document when something in your analysis changes. New data? Simply plug it in to the top of your R Markdown document and every graph and table will be automatically updated once you compile a new document. No more copy and pasting figures into Word.
+    The other common type of file used to write R code is an .Rmd, or R Markdown, file. We will cover R Markdown in much greater detail in a later section, but these are the basics for now: R Markdown allows you to seamlessly combine R code with written text to create a wide variety of presentation-ready documents. You can write all your academic papers using RMarkdown, as well as any presentation slides or even your website. The book you're reading right now was written in R Markdown! The strength of combining R code and written text comes from how easy it is to update your document when something in your analysis changes. New data? Simply plug it in to the top of your R Markdown document and every graph and table will be automatically updated once you compile a new document. No more copy and pasting figures into Word---a practice which is tedious and prone to create errors.
 
-3.  **Top Right**. This is your *Environment* tab and it keeps track of which object you've created in R. Objects in R are things like data frames, vectors, and functions. Many people refer to R as an "object-oriented language", by which they mean that most of your code either creates new objects or modifies existing objects. This aspect is probably the largest difference between R and statistical programs like Stata. Each object in R has a specific type which defines what you can and cannot do with it. For example, you cannot add objects that are character types together `"UC" + "SD"`, but you can add two objects with numeric types `3 + 5`. Getting to know the rules surrounding object types is one of the trickier aspects of learning R. But overall, this method of programming is generally pretty intuitive.
+3.  **Top Right**. This is your *Environment* tab and it keeps track of which object you've created in R. Objects in R are things like data frames, vectors, and functions. Many people refer to R as an "object-oriented language", by which they mean that most of your code either creates new objects or modifies existing objects. This aspect is probably the largest difference between R and statistical programs like Stata. Each object in R has a specific type which defines what you can and cannot do with it. For example, you cannot add objects that are character types together `"UC" + "SD"`, but you can add two objects with numeric types `3 + 5`. Getting to know the rules surrounding object types is one of the trickier aspects of learning R. But overall, this method of programming is generally intuitive.
 
 4.  **Bottom Right**. Three important tabs live here. When you execute the code which makes a plot in a .R file it will, appropriately enough, show up down in your *Plot* tab.
 
@@ -54,35 +43,71 @@ There are four main sections, or "panes", in RStudio.
 <!-- - Use native pipe operator -->
 
 
-### RStudio Projects
+### RStudio Projects {.unnumbered}
 
 Speaking of files and file paths...
 
-Throughout your time in the Political Science PhD program you will likely load hundreds of data sets into R. The first step to loading data into R is locating the file holding on the data on your computer. This is done using a file path--a string of characters which points to the file. For example, `"/Users/bertrandwilden/Documents/UCSD/amazing_paper/data/cool_data.csv"` tells us the location of the file "cool_data.csv" located in the folder "data" which is a sub-directory of "amazing_paper" and so on. Getting a hang of using file paths to locate files can be one of the most frustrating parts of using a programming language like R. Modern computer systems, such as your phone, have made file paths invisible to most users. So don't worry if any of this is confusing to you in the beginning!
+Throughout your time in the Political Science PhD program you will likely load hundreds of data sets into R. The first step to loading data into R is locating the file holding on the data on your computer. This is done using a file path---a string of characters which points to the file.
 
-There are two aspects of file paths that make them particularly annoying/difficult to work with. First, a file path that correctly locates a file on one computer will not locate the same file in another computer. This is because everyone has their own unique folder structures on their computer. Computer-specific file paths make it difficult to share code with others or to collaborate on the same project. They also lead to headaches when revisiting old code on a new computer.
+```{r, eval=FALSE}
+"/Users/bertrandwilden/Documents/UCSD/amazing_paper/data/cool_data.csv"
+```
 
-The second, but related, issue with file paths is that they differ between Mac and PC computers. Mac file paths use the forward slash "`/`" between folders whereas PCs use the back slash "`\`". Back slashes in R strings are not processed literally--instead they are considered "escape" characters and serve a different purpose. This means you have to manually change all your backslashes to forward slashes to locate files when using a PC. Or you can manually add an extra back slash in front of each folder (`"C:\\Users\\bertrandwilden\\Documents\\UCSD\\amazing_paper\\data\\cool_data.csv"`). What a hassle!
+For example the string above tells us the location of the file "cool_data.csv" located in the folder "data" which is a sub-directory of "amazing_paper" and so on. Getting a hang of using file paths to locate files can be one of the most frustrating parts of using a programming language like R. Modern computer systems, such as your phone, have made file paths invisible to most users. So don't worry if any of this is confusing to you in the beginning!
 
-Luckily tools have been developed to solve all these file path annoyances. The first solution is to use RStudio Projects. When you create a new RStudio Project it adds a .Rproj file with your project name to a folder on your computer. The .Rproj file now serves as the top level directory for any R code or data files in folders below it. So instead of using the full path `"/Users/bertrandwilden/Documents/UCSD/amazing_paper/data/cool_data.csv"` to locate your data, you now only need to type `"data/cool_data.csv"`! This is sometimes called a *relative path*. Each RStudio Project is self-contained and easily portable to other machines. RStudio Projects also have the benefit of making it easy to switch between various projects--giving you a clean slate with which to work from every time.[^11_data-handling_counting-1]
+There are two aspects of file paths which make them particularly annoying/difficult to work with. First, a file path that correctly locates a file on one computer will not locate the same file in another computer. This is because everyone has their own unique folder structures on their computer. Computer-specific file paths make it difficult to share code with others or to collaborate on the same project. They also lead to headaches when revisiting old code on a new computer.
+
+The second, but related, issue with file paths is that they differ between Mac and PC computers. Mac file paths use the forward slash "`/`" between folders whereas PCs use the back slash "`\`". Back slashes in R strings are not processed literally--instead they are considered "escape" characters and serve a different purpose. This means you have to manually change all your backslashes to forward slashes to locate files when using a PC. Or you can manually add an extra back slash in front of each folder. 
+
+```{r, eval=FALSE}
+"C:\\Users\\bertrandwilden\\Documents\\UCSD\\amazing_paper\\data\\cool_data.csv"
+```
+
+What a hassle!
+
+Luckily tools have been developed to solve all these file path annoyances. The first solution is to use RStudio Projects. When you create a new RStudio Project it adds a .Rproj file with your project name to a folder on your computer. The .Rproj file now serves as the top level directory for any R code or data files in folders below it. So instead of using the full path
+
+```{r, eval=FALSE}
+"/Users/bertrandwilden/Documents/UCSD/amazing_paper/data/cool_data.csv"
+```
+
+to locate your data, you now only need to type 
+
+```{r, eval=FALSE}
+"data/cool_data.csv"
+```
+
+This is sometimes called a *relative path*. Each RStudio Project is self-contained and easily portable to other machines. RStudio Projects also have the benefit of making it easy to switch between various projects--giving you a clean slate with which to work from every time.[^11_data-handling_counting-1]
 
 [^11_data-handling_counting-1]: [Link](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/) to more on why you should be using R Studio Projects
 
-Awesome---RStudio Projects helped solve one of our file path issues by using relative paths, but what about the Mac vs PC problem with different slashes? That's where the R package {here} shines. The `{here}` package allows you to simply put each folder name in quotes and stitches the full path together behind the scenes. The file path `"data/cool_data.csv"` becomes `here("data", "cool_data.csv")`. This code will now point to the correct file on any computer.[^11_data-handling_counting-2]
+Awesome----so RStudio Projects helped us solve one of our file path issues by using relative paths, but what about the Mac vs PC problem with different slashes? That's where the [R package "here"](https://github.com/jennybc/here_here) shines. The here package allows you to simply put each folder name in quotes and stitches the full path together behind the scenes. The file path 
 
-[^11_data-handling_counting-2]: For more on the {here} package see: [Link](https://github.com/jennybc/here_here)
+```{r, eval=FALSE}
+"data/cool_data.csv"
+```
+
+
+becomes 
+
+```{r, eval=FALSE}
+here("data", "cool_data.csv")
+```
+
+This code will now point to the correct file on any computer.
+
 
 <!-- Class activity setting up R Project and folder structure -->
 
-### Installing Packages
+### Installing R Packages {.unnumbered}
 
-While it is technically feasible to use only the functions that come with R when you install it (aka "base R"), thousands of open source packages have been written to provide extra functionality. The term "open source" means that the underlying code for these packages lives on online repositories, such as [GitHub](https://github.com/), and can be viewed publicly. While open source packages can be written by anyone (including you someday!), there is a special process packages must undergo in order to be hosted officially by [CRAN](https://cran.r-project.org/). Packages that have passed this systematic review by CRAN can be installed on your computer using the following command:
+While it is technically feasible to use only the functions that come pre-installed with R (e.g. "base R"), thousands of open source packages have been written to provide extra functionality. The term "open source" means that the underlying code for these packages lives on online repositories, such as [GitHub](https://github.com/), and can be viewed publicly. While open source packages can be written by anyone (including you someday!), there is a special process packages must undergo in order to be hosted officially by [CRAN](https://cran.r-project.org/). Packages that have passed this systematic review by CRAN can be installed on your computer using the following command:
 
 ```{r, eval=FALSE}
 install.packages("package_name_here")
 ```
 
-It is good practice to only use the `install.packages` command in your Console, rather than in a .R or .qmd script file. This is because you only need to install a particular R package once and then you can then use it forever. Putting `install.packages` in your script file will make R attempt to download the package each time your code is run.
+It is good practice to only use the `install.packages` command in your Console, rather than in a .R or .Rmd script file. This is because you only need to install a particular R package once and then you can then use it forever. Putting `install.packages` in your script file will make R attempt to download the package each time your code is run.
 
 After using the `install.packages` command, you then need to use the following command to access the package's functions:
 
@@ -90,18 +115,32 @@ After using the `install.packages` command, you then need to use the following c
 library(package_name_here)
 ```
 
-Unlike the `install.packages` command, the `library` command *should* be included at the top of any script files which then make use of the package's functions. Another thing to note: the `install.packages` command requires the package name to be in quotes, whereas the `library` command requires the package name to *not* be in quotes. Don't worry---mixing up when to use quotes and when not to is a common error you might encounter when starting out!
+Unlike the `install.packages` command, the `library` command *should* be included at the top of any script files which then make use of the package's functions. Another thing to note: the `install.packages` command requires the package name to be in quotes, whereas the `library` command does not require the package name to be in quotes. Don't worry---mixing up when to use quotes and when not to is a common error you might encounter when starting out!
 
 
-### Installing the Tidyverse and Here Packages
+### Installing the Tidyverse and Here Packages {.unnumbered}
 
-In this course we will be making extensive use of the packages included in the [Tidyverse](https://www.tidyverse.org/). The Tidyverse is a set of packages designed to make data analysis in R easier and more streamlined.
+In this course we will be making extensive use of the packages included in the [Tidyverse](https://www.tidyverse.org/). The Tidyverse is a set of packages designed to make data analysis in R easier and more streamlined. Each time you run `library(tidyverse)` in R, all of the following packages will get loaded in for you to use:
 
--   
+  -   [ggplot2](https://ggplot2.tidyverse.org/) graphing
+  -   [dplyr](https://dplyr.tidyverse.org/) data manipulation
+  -   [tidyr](https://tidyr.tidyverse.org/) data cleaning
+  -   [readr](https://readr.tidyverse.org/) reading external data into R
+  -   [purrr](https://purrr.tidyverse.org/) functional programming
+  -   [tibble](https://tibble.tidyverse.org/) a nice alternative to base R `data.frame` objects
+  -   [stringr](https://stringr.tidyverse.org/) string manipulation
+  -   [forcats](https://forcats.tidyverse.org/) working with `factor` variables
 
-This approach is usually contrasted against "base R" functions, which do not require external packages. While everything Tidyverse can do, base R can do too, I find the Tidyverse approach much more intuitive. In fact, almost all my script files begin with the command `library(tidyverse)`. There are also a multitude of packages that, although not technically part of the Tidyverse, share the same coding conventions as the core Tidyverse. So learning the Tidyverse will help when you when using more advanced packages.
+The Tidyverse approach is usually contrasted against using "base R" functions, which do not require external packages. While everything Tidyverse can do, base R can do too, many find the Tidyverse approach much more intuitive. In fact, it is very common to see `library(tidyverse)` at the top of most R script files. There are also a multitude of packages that, although not technically part of the Tidyverse, share the same coding conventions as the core Tidyverse. So learning the Tidyverse will help when you when using more advanced packages.
 
--
+Some Tidyverse-adjacent packages:
+
+  -   [haven](https://haven.tidyverse.org/) reading in SPSS, Stata, and SAS data
+  -   [readxl](https://readxl.tidyverse.org/) reading in Excel sheets
+  -   [rvest](https://rvest.tidyverse.org/) webscraping
+  -   [lubridate](https://lubridate.tidyverse.org/) working with dates and times
+  -   [tidymodels](https://www.tidymodels.org/) machine learning workflows
+  -   [broom](https://broom.tidymodels.org/) statistical model object manipulation
 
 Install the Tidyverse using:
 
