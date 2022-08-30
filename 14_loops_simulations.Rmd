@@ -480,4 +480,6 @@ bootstrap_plot +
   labs(caption = "Full sample estimate in maroon\n95% confidence interval in cyan")
 ```
 
-Adding these values to our `bootstrap_plot` using `+ geom_vline()` we can see that the bootstrapped estimates correspond neatly to the full-data model! The center of the bootstrapped distribution is right on the full-data model estimate of the coefficient, and roughly 95% of our simulated results fall within $\pm 1.96 * \text{standard_error}$ (the definition of a confidence interval for a linear regression coefficient).
+Adding these values to our `bootstrap_plot` using `+ geom_vline()` we can see that the bootstrapped estimates correspond neatly to the full-data model! The center of the bootstrapped distribution is right on the full-data model estimate of the coefficient, and roughly 95% of our simulated results fall within 
+$\pm 1.96 \times \mathrm{StandardError}$
+(the definition of a confidence interval for a linear regression coefficient).
