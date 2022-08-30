@@ -2,16 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.38">
+<meta name="generator" content="quarto-1.1.163">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>UCSD Political Science Math Camp - Prerequisites</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +55,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -63,7 +68,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -190,7 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_orientation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Read in Data</span></a>
+  <a href="./11_orientation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Reading in Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -205,7 +210,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14_simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Simulation</span></a>
+  <a href="./14_loops_simulations.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Loops and Simulation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -303,12 +308,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
 </div>
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
 <li>
 <a href="#operators" id="toc-operators" class="nav-link active" data-scroll-target="#operators">Operators</a>
-  <ul class="collapse">
+  <ul>
 <li><a href="#summation" id="toc-summation" class="nav-link" data-scroll-target="#summation">Summation</a></li>
   <li><a href="#product" id="toc-product" class="nav-link" data-scroll-target="#product">Product</a></li>
   <li><a href="#factorials" id="toc-factorials" class="nav-link" data-scroll-target="#factorials">Factorials</a></li>
@@ -317,7 +322,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
   <li>
 <a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a>
-  <ul class="collapse">
+  <ul>
 <li><a href="#dimensionality" id="toc-dimensionality" class="nav-link" data-scroll-target="#dimensionality">Dimensionality</a></li>
   <li><a href="#types-of-functions" id="toc-types-of-functions" class="nav-link" data-scroll-target="#types-of-functions">Types of Functions</a></li>
   </ul>
@@ -352,8 +357,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </span></p>
 <p>The bottom of the <span class="math inline">\sum</span> symbol indicates an index (here, <span class="math inline">i</span>), and its start value <span class="math inline">1</span>. At the top is where the index ends. The notion of “addition” is part of the <span class="math inline">\sum</span> symbol. The content to the right of the summation is the meat of what we add. While you can pick your favorite index, start, and end values, the content must also have the index.</p>
 <div id="cor-summation" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 1 </strong></span></p>
 <ul>
+<li><span class="theorem-title"><strong>Corollary 1 </strong></span></li>
 <li><span class="math inline">\sum\limits_{i=1}^n c x_i = c \sum\limits_{i=1}^n x_i</span></li>
 <li><span class="math inline">\sum\limits_{i=1}^n (x_i + y_i) = \sum\limits_{i=1}^n x_i + \sum\limits_{i=1}^n y_i</span></li>
 <li><span class="math inline">\sum\limits_{i=1}^n c = n c</span></li>
@@ -364,8 +369,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \prod\limits_{i=1}^n x_i = x_1 x_2 x_3 \cdots x_n
 </span></p>
 <div id="cor-product" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 2 </strong></span></p>
 <ul>
+<li><span class="theorem-title"><strong>Corollary 2 </strong></span></li>
 <li><span class="math inline">\prod\limits_{i=1}^n c x_i = c^n \prod\limits_{i=1}^n x_i</span></li>
 <li><span class="math inline">\prod\limits_{i=k}^n c x_i = c^{n-k+1} \prod\limits_{i=k}^n x_i</span></li>
 <li>
@@ -375,8 +380,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section><section id="factorials" class="level3"><h3 class="anchored" data-anchor-id="factorials">Factorials</h3>
 <div id="def-summation" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (Factorials) </strong></span></p>
-<p><span class="math display">
+<p><span class="theorem-title"><strong>Definition 1 (Factorials) </strong></span><span class="math display">
 x! = x\cdot (x-1) \cdot (x-2) \cdots (1)
 </span></p>
 </div>
@@ -771,7 +775,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
@@ -805,7 +810,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./11_orientation.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Read in Data</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Reading in Data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">

@@ -2,16 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.38">
+<meta name="generator" content="quarto-1.1.163">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>UCSD Political Science Math Camp - 13&nbsp; Probability Theory</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +55,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -63,7 +68,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -190,7 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_orientation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Read in Data</span></a>
+  <a href="./11_orientation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Reading in Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -205,7 +210,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14_simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Simulation</span></a>
+  <a href="./14_loops_simulations.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Loops and Simulation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -303,25 +308,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
 </div>
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#counting-rules" id="toc-counting-rules" class="nav-link active" data-scroll-target="#counting-rules"> <span class="header-section-number">13.1</span> Counting Rules</a></li>
-  <li><a href="#setoper" id="toc-setoper" class="nav-link" data-scroll-target="#setoper"> <span class="header-section-number">13.2</span> Sets</a></li>
+<li><a href="#counting-rules" id="toc-counting-rules" class="nav-link active" data-scroll-target="#counting-rules"><span class="toc-section-number">13.1</span>  Counting Rules</a></li>
+  <li><a href="#setoper" id="toc-setoper" class="nav-link" data-scroll-target="#setoper"><span class="toc-section-number">13.2</span>  Sets</a></li>
   <li>
-<a href="#probdef" id="toc-probdef" class="nav-link" data-scroll-target="#probdef"> <span class="header-section-number">13.3</span> Probability</a>
-  <ul class="collapse">
+<a href="#probdef" id="toc-probdef" class="nav-link" data-scroll-target="#probdef"><span class="toc-section-number">13.3</span>  Probability</a>
+  <ul>
 <li><a href="#probability-definitions-formal-and-informal" id="toc-probability-definitions-formal-and-informal" class="nav-link" data-scroll-target="#probability-definitions-formal-and-informal">Probability Definitions: Formal and Informal</a></li>
   <li><a href="#probability-operations" id="toc-probability-operations" class="nav-link" data-scroll-target="#probability-operations">Probability Operations</a></li>
   </ul>
 </li>
-  <li><a href="#conditional-probability" id="toc-conditional-probability" class="nav-link" data-scroll-target="#conditional-probability"> <span class="header-section-number">13.4</span> Conditional Probability</a></li>
-  <li><a href="#bayes-rule" id="toc-bayes-rule" class="nav-link" data-scroll-target="#bayes-rule"> <span class="header-section-number">13.5</span> Bayes Rule</a></li>
-  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence"> <span class="header-section-number">13.6</span> Independence</a></li>
-  <li><a href="#random-variables" id="toc-random-variables" class="nav-link" data-scroll-target="#random-variables"> <span class="header-section-number">13.7</span> Random Variables</a></li>
+  <li><a href="#conditional-probability" id="toc-conditional-probability" class="nav-link" data-scroll-target="#conditional-probability"><span class="toc-section-number">13.4</span>  Conditional Probability</a></li>
+  <li><a href="#bayes-rule" id="toc-bayes-rule" class="nav-link" data-scroll-target="#bayes-rule"><span class="toc-section-number">13.5</span>  Bayes Rule</a></li>
+  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence"><span class="toc-section-number">13.6</span>  Independence</a></li>
+  <li><a href="#random-variables" id="toc-random-variables" class="nav-link" data-scroll-target="#random-variables"><span class="toc-section-number">13.7</span>  Random Variables</a></li>
   <li>
-<a href="#distributions" id="toc-distributions" class="nav-link" data-scroll-target="#distributions"> <span class="header-section-number">13.8</span> Distributions</a>
-  <ul class="collapse">
+<a href="#distributions" id="toc-distributions" class="nav-link" data-scroll-target="#distributions"><span class="toc-section-number">13.8</span>  Distributions</a>
+  <ul>
 <li><a href="#discrete-random-variables" id="toc-discrete-random-variables" class="nav-link" data-scroll-target="#discrete-random-variables">Discrete Random Variables</a></li>
   <li><a href="#continuous-random-variables" id="toc-continuous-random-variables" class="nav-link" data-scroll-target="#continuous-random-variables">Continuous Random Variables</a></li>
   </ul>
@@ -376,8 +381,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 </div>
 <div id="exr-counting1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 13.1 (Counting) </strong></span></p>
-<p>Four cards are selected from a deck of 52 cards. Once a card has been drawn, it is not reshuffled back into the deck. Moreover, we care only about the complete hand that we get (i.e.&nbsp;we care about the set of selected cards, not the sequence in which it was drawn). How many possible outcomes are there?</p>
+<p><span class="theorem-title"><strong>Exercise 13.1 (Counting) </strong></span>Four cards are selected from a deck of 52 cards. Once a card has been drawn, it is not reshuffled back into the deck. Moreover, we care only about the complete hand that we get (i.e.&nbsp;we care about the set of selected cards, not the sequence in which it was drawn). How many possible outcomes are there?</p>
 </div>
 </section><section id="setoper" class="level2" data-number="13.2"><h2 data-number="13.2" class="anchored" data-anchor-id="setoper">
 <span class="header-section-number">13.2</span> Sets</h2>
@@ -444,7 +448,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div id="fig-prob-image" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="images/probability.png" class="img-fluid figure-img" width="1075"></p>
-<p></p><figcaption class="figure-caption">Figure 13.1: Probablity as a Measure<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;13.1: Probablity as a Measure<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -454,8 +458,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Probability Distribution Function</strong>: a mapping of each event in the sample space <span class="math inline">S</span> to the real numbers that satisfy the following three axioms (also called Kolmogorov’s Axioms).</p>
 <p>Formally,</p>
 <div id="def-prob" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 13.1 (Probability) </strong></span></p>
-<p>Probability is a function that maps events to a real number, obeying the axioms of probability.</p>
+<p><span class="theorem-title"><strong>Definition 13.1 (Probability) </strong></span>Probability is a function that maps events to a real number, obeying the axioms of probability.</p>
 </div>
 <p>The axioms of probability make sure that the separate events add up in terms of probability, and – for standardization purposes – that they add up to 1.</p>
 <div id="def-" class="theorem definition">
@@ -545,8 +548,7 @@ P(A_1 \cup A_2) = P(A_1) + P(A_2) \quad\text{for disjoint } A_1, A_2
 </ol>
 </div>
 <div id="exm-condprobexm2" class="theorem example">
-<p><span class="theorem-title"><strong>Example 13.6 (Conditional Probability 2) </strong></span></p>
-<p>A six-sided die is rolled. What is the probability of a 1, given the outcome is an odd number?</p>
+<p><span class="theorem-title"><strong>Example 13.6 (Conditional Probability 2) </strong></span>A six-sided die is rolled. What is the probability of a 1, given the outcome is an odd number?</p>
 </div>
 <p>You could rearrange the fraction to highlight how a joint probability could be expressed as the product of a conditional probability.</p>
 <div id="def-" class="theorem definition">
@@ -579,18 +581,15 @@ P(A)&amp;=\sum\limits_{i=1}^k P(A \cap B_i)\\
 <p>Bayes’ rule determines the posterior probability of a state <span class="math inline">P(B_j|A)</span> by calculating the probability <span class="math inline">P(A \cap B_j)</span> that both the event <span class="math inline">A</span> and the state <span class="math inline">B_j</span> will occur and dividing it by the probability that the event will occur regardless of the state (by summing across all <span class="math inline">B_i</span>). The states could be something like Normal/Defective, Healthy/Diseased, Republican/Democrat/Independent, etc. The event on which one conditions could be something like a sampling from a batch of components, a test for a disease, or a question about a policy position.</p>
 <p><strong>Prior and Posterior Probabilities</strong>: Above, <span class="math inline">P(B_1)</span> is often called the prior probability, since it’s the probability of <span class="math inline">B_1</span> before anything else is known. <span class="math inline">P(B_1|A)</span> is called the posterior probability, since it’s the probability after other information is taken into account.</p>
 <div id="exm-bayesrule" class="theorem example">
-<p><span class="theorem-title"><strong>Example 13.7 (Bayes’ Rule) </strong></span></p>
-<p>In a given town, 40% of the voters are Democrat and 60% are Republican. The president’s budget is supported by 50% of the Democrats and 90% of the Republicans. If a randomly (equally likely) selected voter is found to support the president’s budget, what is the probability that they are a Democrat?</p>
+<p><span class="theorem-title"><strong>Example 13.7 (Bayes’ Rule) </strong></span>In a given town, 40% of the voters are Democrat and 60% are Republican. The president’s budget is supported by 50% of the Democrats and 90% of the Republicans. If a randomly (equally likely) selected voter is found to support the president’s budget, what is the probability that they are a Democrat?</p>
 </div>
 <div id="exr-condprobexr" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 13.4 (Conditional Probability) </strong></span></p>
-<p>Assume that 2% of the population of the U.S. are members of some extremist militia group. We develop a survey that positively classifies someone as being a member of a militia group given that they are a member 95% of the time and negatively classifies someone as not being a member of a militia group given that they are not a member 97% of the time. What is the probability that someone positively classified as being a member of a militia group is actually a militia member?</p>
+<p><span class="theorem-title"><strong>Exercise 13.4 (Conditional Probability) </strong></span>Assume that 2% of the population of the U.S. are members of some extremist militia group. We develop a survey that positively classifies someone as being a member of a militia group given that they are a member 95% of the time and negatively classifies someone as not being a member of a militia group given that they are not a member 97% of the time. What is the probability that someone positively classified as being a member of a militia group is actually a militia member?</p>
 </div>
 </section><section id="independence" class="level2" data-number="13.6"><h2 data-number="13.6" class="anchored" data-anchor-id="independence">
 <span class="header-section-number">13.6</span> Independence</h2>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 13.5 (Independence) </strong></span></p>
-<p>If the occurrence or nonoccurrence of either events <span class="math inline">A</span> and <span class="math inline">B</span> have no effect on the occurrence or nonoccurrence of the other, then <span class="math inline">A</span> and <span class="math inline">B</span> are independent.</p>
+<p><span class="theorem-title"><strong>Definition 13.5 (Independence) </strong></span>If the occurrence or nonoccurrence of either events <span class="math inline">A</span> and <span class="math inline">B</span> have no effect on the occurrence or nonoccurrence of the other, then <span class="math inline">A</span> and <span class="math inline">B</span> are independent.</p>
 </div>
 <p>If <span class="math inline">A</span> and <span class="math inline">B</span> are independent, then</p>
 <div id="prop-">
@@ -620,14 +619,13 @@ P(A)&amp;=\sum\limits_{i=1}^k P(A \cap B_i)\\
 <div class="cell-output-display">
 <div id="fig-rv-image" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="images/rv.png" class="img-fluid figure-img" width="1070"></p>
-<p></p><figcaption class="figure-caption">Figure 13.2: The Random Variable as a Real-Valued Function</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;13.2: The Random Variable as a Real-Valued Function</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 13.6 (Random Variable) </strong></span></p>
-<p>A random variable is a measurable function <span class="math inline">X</span> that maps from the sample space <span class="math inline">S</span> to the set of real numbers <span class="math inline">R.</span> It assigns a real number to every outcome <span class="math inline">s \in S</span>.</p>
+<p><span class="theorem-title"><strong>Definition 13.6 (Random Variable) </strong></span>A random variable is a measurable function <span class="math inline">X</span> that maps from the sample space <span class="math inline">S</span> to the set of real numbers <span class="math inline">R.</span> It assigns a real number to every outcome <span class="math inline">s \in S</span>.</p>
 </div>
 <p><a href="#fig-rv-image">Figure&nbsp;<span>13.2</span></a> shows a image of the function. It might seem strange to define a random variable as a function – which is neither random nor variable. The randomness comes from the realization of an event from the sample space <span class="math inline">s</span>.</p>
 <p><strong>Randomness</strong> means that the outcome of some experiment is not deterministic, i.e.&nbsp;there is some probability (<span class="math inline">0 &lt; P(A) &lt; 1</span>) that the event will occur.</p>
@@ -640,13 +638,11 @@ P(A)&amp;=\sum\limits_{i=1}^k P(A \cap B_i)\\
 <p>We now have two main concepts in this section – probability and random variables. Given a sample space <span class="math inline">S</span> and the same experiment, both probability and random variables take events as their inputs. But they output different things (probabilities measure the “size” of events, random variables give a number in a way that the analyst chose to define the random variable). How do the two concepts relate?</p>
 <p>The concept of distributions is the natural bridge between these two concepts.</p>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 13.7 (Distribution of a random variable) </strong></span></p>
-<p>A distribution of a random variable is a function that specifies the probabilities of all events associated with that random variable. There are several types of distributions: A probability mass function for a discrete random variable and probability density function for a continuous random variable.</p>
+<p><span class="theorem-title"><strong>Definition 13.7 (Distribution of a random variable) </strong></span>A distribution of a random variable is a function that specifies the probabilities of all events associated with that random variable. There are several types of distributions: A probability mass function for a discrete random variable and probability density function for a continuous random variable.</p>
 </div>
 <p>Notice how the definition of distributions combines two ideas of random variables and probabilities of events. First, the distribution considers a random variable, call it <span class="math inline">X</span>. <span class="math inline">X</span> can take a number of possible numeric values.</p>
 <div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Example 13.8 </strong></span></p>
-<p>Consider three binary outcomes, one for each patient recovering from a disease: <span class="math inline">R_i</span> denotes the event in which patient <span class="math inline">i</span> (<span class="math inline">i = 1, 2, 3</span>) recovers from a disease. <span class="math inline">R_1</span>, <span class="math inline">R_2</span>, and <span class="math inline">R_3</span>. How would we represent the total number of people who end up recovering from the disease?</p>
+<p><span class="theorem-title"><strong>Example 13.8 </strong></span>Consider three binary outcomes, one for each patient recovering from a disease: <span class="math inline">R_i</span> denotes the event in which patient <span class="math inline">i</span> (<span class="math inline">i = 1, 2, 3</span>) recovers from a disease. <span class="math inline">R_1</span>, <span class="math inline">R_2</span>, and <span class="math inline">R_3</span>. How would we represent the total number of people who end up recovering from the disease?</p>
 </div>
 <div class="solution proof">
 <p><span class="proof-title"><em>Solution</em>. </span>Define the random variable <span class="math inline">X</span> be the total number of people (out of three) who recover from the disease. Random variables are functions, that take as an input a set of events (in the sample space <span class="math inline">S</span>) and deterministically assigns them to a number of the analyst’s choice.</p>
@@ -662,8 +658,7 @@ P(A)&amp;=\sum\limits_{i=1}^k P(A \cap B_i)\\
 <section id="discrete-random-variables" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="discrete-random-variables">Discrete Random Variables</h3>
 <p>The formal definition of a random variable is easier to given by separating out two cases: discrete random variables when the numeric summaries of the events are discrete, and continuous random variables when they are continuous.</p>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 13.8 (Discrete Random Variable) </strong></span></p>
-<p><span class="math inline">X</span> is a discrete random variable if it can assume only a finite or countably infinite number of distinct values. Examples: number of wars per year, heads or tails.</p>
+<p><span class="theorem-title"><strong>Definition 13.8 (Discrete Random Variable) </strong></span><span class="math inline">X</span> is a discrete random variable if it can assume only a finite or countably infinite number of distinct values. Examples: number of wars per year, heads or tails.</p>
 </div>
 <p>The distribution of a discrete r.v. is a PMF:</p>
 <div id="def-" class="theorem definition">
@@ -674,8 +669,7 @@ P(A)&amp;=\sum\limits_{i=1}^k P(A \cap B_i)\\
 </ol>
 </div>
 <div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Example 13.9 </strong></span></p>
-<p>For a fair six-sided die, there is an equal probability of rolling any number. Since there are six sides, the probability mass function is then <span class="math inline">p(y)=1/6</span> for <span class="math inline">y=1,\ldots,6</span>, 0 otherwise.</p>
+<p><span class="theorem-title"><strong>Example 13.9 </strong></span>For a fair six-sided die, there is an equal probability of rolling any number. Since there are six sides, the probability mass function is then <span class="math inline">p(y)=1/6</span> for <span class="math inline">y=1,\ldots,6</span>, 0 otherwise.</p>
 </div>
 <p>In a discrete random variable, <strong>cumulative distribution function</strong> (Also referred to simply as the “cumulative distribution” or previously as the “distribution function”), <span class="math inline">F(x)</span> or <span class="math inline">P(X\le x)</span>, is the probability that <span class="math inline">X</span> is less than or equal to some value <span class="math inline">x</span>, or <span class="math display">P(X\le x)=\sum\limits_{i\le x} p(i)</span></p>
 <p>Properties a CDF must satisfy:</p>
@@ -700,8 +694,7 @@ P(A)&amp;=\sum\limits_{i=1}^k P(A \cap B_i)\\
 </section><section id="continuous-random-variables" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="continuous-random-variables">Continuous Random Variables</h3>
 <p>We also have a similar definition for <em>continuous</em> random variables.</p>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 13.10 (Continuous Random Variable) </strong></span></p>
-<p><span class="math inline">X</span> is a continuous random variable if there exists a nonnegative function <span class="math inline">f(x)</span> defined for all real <span class="math inline">x\in (-\infty,\infty)</span>, such that for any interval <span class="math inline">A</span>, <span class="math inline">P(X\in A)=\int\limits_A f(x)dx</span>. Examples: age, income, GNP, temperature.</p>
+<p><span class="theorem-title"><strong>Definition 13.10 (Continuous Random Variable) </strong></span><span class="math inline">X</span> is a continuous random variable if there exists a nonnegative function <span class="math inline">f(x)</span> defined for all real <span class="math inline">x\in (-\infty,\infty)</span>, such that for any interval <span class="math inline">A</span>, <span class="math inline">P(X\in A)=\int\limits_A f(x)dx</span>. Examples: age, income, GNP, temperature.</p>
 </div>
 <div id="def-" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 13.11 (Probability Density Function) </strong></span>The function <span class="math inline">f</span> above is called the probability density function (pdf) of <span class="math inline">X</span> and must satisfy</p>
@@ -711,15 +704,13 @@ P(A)&amp;=\sum\limits_{i=1}^k P(A \cap B_i)\\
 </div>
 <p>For both discrete and continuous random variables, we have a unifying concept of another measure: the cumulative distribution:</p>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 13.12 (Cumulative Distribution Function) </strong></span></p>
-<p>Because the probability that a continuous random variable will assume any particular value is zero, we can only make statements about the probability of a continuous random variable being within an interval. The cumulative distribution gives the probability that <span class="math inline">Y</span> lies on the interval <span class="math inline">(-\infty,y)</span> and is defined as <span class="math display">F(x)=P(X\le x)=\int\limits_{-\infty}^x f(s)ds.</span> Note that <span class="math inline">F(x)</span> has similar properties with continuous distributions as it does with discrete - non-decreasing, continuous (not just right-continuous), and <span class="math inline">\lim\limits_{x \to -\infty} F(x) = 0</span> and <span class="math inline">\lim\limits_{x \to \infty} F(x) = 1</span>.</p>
+<p><span class="theorem-title"><strong>Definition 13.12 (Cumulative Distribution Function) </strong></span>Because the probability that a continuous random variable will assume any particular value is zero, we can only make statements about the probability of a continuous random variable being within an interval. The cumulative distribution gives the probability that <span class="math inline">Y</span> lies on the interval <span class="math inline">(-\infty,y)</span> and is defined as <span class="math display">F(x)=P(X\le x)=\int\limits_{-\infty}^x f(s)ds.</span> Note that <span class="math inline">F(x)</span> has similar properties with continuous distributions as it does with discrete - non-decreasing, continuous (not just right-continuous), and <span class="math inline">\lim\limits_{x \to -\infty} F(x) = 0</span> and <span class="math inline">\lim\limits_{x \to \infty} F(x) = 1</span>.</p>
 </div>
 <p>We can also make statements about the probability of <span class="math inline">Y</span> falling in an interval <span class="math inline">a\le y\le b</span>.</p>
 <p><span class="math display">P(a\le x\le b)=\int\limits_a^b f(x)dx</span></p>
 <p>The PDF and CDF are linked by the integral: The CDF of the integral of the PDF: <span class="math display">f(x) = F'(x)=\frac{dF(x)}{dx}</span></p>
 <div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Example 13.11 </strong></span></p>
-<p>For <span class="math inline">f(y)=1, \quad 0&lt;y&lt;1</span>, find: (1) The CDF <span class="math inline">F(y)</span> and (2) The probability <span class="math inline">P(0.5&lt;y&lt;0.75)</span>.</p>
+<p><span class="theorem-title"><strong>Example 13.11 </strong></span>For <span class="math inline">f(y)=1, \quad 0&lt;y&lt;1</span>, find: (1) The CDF <span class="math inline">F(y)</span> and (2) The probability <span class="math inline">P(0.5&lt;y&lt;0.75)</span>.</p>
 </div>
 </section></section><section id="answers-to-examples-and-exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="answers-to-examples-and-exercises">Answers to Examples and Exercises</h2>
 <p>Answer to <a href="#exm-counting">Example&nbsp;<span>13.2</span></a>:</p>
@@ -787,10 +778,10 @@ P(A)&amp;=\sum\limits_{i=1}^k P(A \cap B_i)\\
 
 <!-- -->
 
-</section><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
+</section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
 <ol>
-<li id="fn1" role="doc-endnote"><p>Images of Probability and Random Variables drawn by Shiro Kuriwaki and inspired by Blitzstein and Morris<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>Example taken from Blitzstein and Hwang, Example 2.5.10<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Images of Probability and Random Variables drawn by Shiro Kuriwaki and inspired by Blitzstein and Morris<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Example taken from Blitzstein and Hwang, Example 2.5.10<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -911,7 +902,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);

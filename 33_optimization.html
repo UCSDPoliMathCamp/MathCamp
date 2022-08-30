@@ -2,16 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.38">
+<meta name="generator" content="quarto-1.1.163">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>UCSD Political Science Math Camp - 11&nbsp; Optimization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +55,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -63,7 +68,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -190,7 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_orientation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Read in Data</span></a>
+  <a href="./11_orientation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Reading in Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -205,7 +210,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14_simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Simulation</span></a>
+  <a href="./14_loops_simulations.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Loops and Simulation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -303,25 +308,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
 </div>
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#maxima-and-minima" id="toc-maxima-and-minima" class="nav-link active" data-scroll-target="#maxima-and-minima"> <span class="header-section-number">11.1</span> Maxima and Minima</a></li>
+<li><a href="#maxima-and-minima" id="toc-maxima-and-minima" class="nav-link active" data-scroll-target="#maxima-and-minima"><span class="toc-section-number">11.1</span>  Maxima and Minima</a></li>
   <li>
-<a href="#concavity-of-a-function" id="toc-concavity-of-a-function" class="nav-link" data-scroll-target="#concavity-of-a-function"> <span class="header-section-number">11.2</span> Concavity of a Function</a>
-  <ul class="collapse">
+<a href="#concavity-of-a-function" id="toc-concavity-of-a-function" class="nav-link" data-scroll-target="#concavity-of-a-function"><span class="toc-section-number">11.2</span>  Concavity of a Function</a>
+  <ul>
 <li><a href="#quadratic-forms" id="toc-quadratic-forms" class="nav-link" data-scroll-target="#quadratic-forms">Quadratic Forms</a></li>
   <li><a href="#definiteness-of-quadratic-forms" id="toc-definiteness-of-quadratic-forms" class="nav-link" data-scroll-target="#definiteness-of-quadratic-forms">Definiteness of Quadratic Forms</a></li>
   </ul>
 </li>
-  <li><a href="#gradient-and-foc" id="toc-gradient-and-foc" class="nav-link" data-scroll-target="#gradient-and-foc"> <span class="header-section-number">11.3</span> Gradient and FOC</a></li>
+  <li><a href="#gradient-and-foc" id="toc-gradient-and-foc" class="nav-link" data-scroll-target="#gradient-and-foc"><span class="toc-section-number">11.3</span>  Gradient and FOC</a></li>
   <li>
-<a href="#hessian-and-soc" id="toc-hessian-and-soc" class="nav-link" data-scroll-target="#hessian-and-soc"> <span class="header-section-number">11.4</span> Hessian and SOC</a>
-  <ul class="collapse">
+<a href="#hessian-and-soc" id="toc-hessian-and-soc" class="nav-link" data-scroll-target="#hessian-and-soc"><span class="toc-section-number">11.4</span>  Hessian and SOC</a>
+  <ul>
 <li><a href="#definiteness-and-concavity" id="toc-definiteness-and-concavity" class="nav-link" data-scroll-target="#definiteness-and-concavity">Definiteness and Concavity</a></li>
   </ul>
 </li>
-  <li><a href="#global-maxima-and-minima" id="toc-global-maxima-and-minima" class="nav-link" data-scroll-target="#global-maxima-and-minima"> <span class="header-section-number">11.5</span> Global Maxima and Minima</a></li>
+  <li><a href="#global-maxima-and-minima" id="toc-global-maxima-and-minima" class="nav-link" data-scroll-target="#global-maxima-and-minima"><span class="toc-section-number">11.5</span>  Global Maxima and Minima</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/33_optimization.Rmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
@@ -364,8 +369,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 11.1 (Plotting a mazimum and minimum) </strong></span></p>
-<p>Plot <span class="math inline">f(x)=x^3+ x^2 + 2</span>, plot its derivative, and identifiy where the derivative is zero. Is there a maximum or minimum?</p>
+<p><span class="theorem-title"><strong>Exercise 11.1 (Plotting a mazimum and minimum) </strong></span>Plot <span class="math inline">f(x)=x^3+ x^2 + 2</span>, plot its derivative, and identifiy where the derivative is zero. Is there a maximum or minimum?</p>
 </div>
 <div class="cell" data-hash="33_optimization_cache/html/unnamed-chunk-3_128839a3f6eafc5395211a4c79e94ced">
 
@@ -417,8 +421,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="header-section-number">11.2</span> Concavity of a Function</h2>
 <p>Concavity helps identify the curvature of a function, <span class="math inline">f(x)</span>, in 2 dimensional space.</p>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 11.1 (Concave Function) </strong></span></p>
-<p>A function <span class="math inline">f</span> is strictly concave over the set S <span class="math inline">\forall x_1,x_2 \in S</span> and <span class="math inline">\forall a \in (0,1)</span>, <span class="math display">f(ax_1 + (1-a)x_2) &gt; af(x_1) + (1-a)f(x_2)</span> line connecting two points on a concave function will lie the function.</p>
+<p><span class="theorem-title"><strong>Definition 11.1 (Concave Function) </strong></span>A function <span class="math inline">f</span> is strictly concave over the set S <span class="math inline">\forall x_1,x_2 \in S</span> and <span class="math inline">\forall a \in (0,1)</span>, <span class="math display">f(ax_1 + (1-a)x_2) &gt; af(x_1) + (1-a)f(x_2)</span> line connecting two points on a concave function will lie the function.</p>
 </div>
 <div class="cell" data-hash="33_optimization_cache/html/unnamed-chunk-4_1024d31c79190f6042907c07a1b32dcf">
 <div class="cell-output-display">
@@ -481,12 +484,10 @@ a_{11}&amp;\frac{1}{2}a_{12}&amp;\cdots&amp;\frac{1}{2}a_{1n}\\
 <p>The gradient points in the direction of the steepest rate of increase at each point <span class="math inline">\mathbf{x}</span>.</p>
 <p>Before we know whether a point is a maxima or minima, if it meets the FOC it is a “Critical Point”.</p>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 11.4 (Critical Point) </strong></span></p>
-<p><span class="math inline">\mathbf{x}^*</span> is a critical point if and only if <span class="math inline">\nabla f(\mathbf{x}^*)=\mathbf{0}</span> (the vector of zeros). If the partial derivative of f(x) with respect to <span class="math inline">x^*</span> is 0, then <span class="math inline">\mathbf{x}^*</span> is a critical point. To solve for <span class="math inline">\mathbf{x}^*</span>, find the gradient, set each element equal to 0, and solve the system of equations. <span class="math display">\mathbf{x}^* = \begin{bmatrix} x_1^*\\x_2^*\\ \vdots \\ x_n^*\end{bmatrix}</span></p>
+<p><span class="theorem-title"><strong>Definition 11.4 (Critical Point) </strong></span><span class="math inline">\mathbf{x}^*</span> is a critical point if and only if <span class="math inline">\nabla f(\mathbf{x}^*)=\mathbf{0}</span> (the vector of zeros). If the partial derivative of f(x) with respect to <span class="math inline">x^*</span> is 0, then <span class="math inline">\mathbf{x}^*</span> is a critical point. To solve for <span class="math inline">\mathbf{x}^*</span>, find the gradient, set each element equal to 0, and solve the system of equations. <span class="math display">\mathbf{x}^* = \begin{bmatrix} x_1^*\\x_2^*\\ \vdots \\ x_n^*\end{bmatrix}</span></p>
 </div>
 <div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Example 11.2 </strong></span></p>
-<p>Example: Given a function <span class="math inline">f(\mathbf{x})=(x_1-1)^2+x_2^2+1</span>, find the (1) Gradient and (2) Critical point of <span class="math inline">f(\mathbf{x})</span>.</p>
+<p><span class="theorem-title"><strong>Example 11.2 </strong></span>Example: Given a function <span class="math inline">f(\mathbf{x})=(x_1-1)^2+x_2^2+1</span>, find the (1) Gradient and (2) Critical point of <span class="math inline">f(\mathbf{x})</span>.</p>
 </div>
 <div class="solution proof">
 <p><span class="proof-title"><em>Solution</em>. </span>Gradient</p>
@@ -533,8 +534,7 @@ a_{11}&amp;\frac{1}{2}a_{12}&amp;\cdots&amp;\frac{1}{2}a_{1n}\\
 <li>If <span class="math inline">\mathrm{det}(\mathbf{A}) &lt; 0</span>, then <span class="math inline">\mathbf{A}</span> is indefinite</li>
 </ol>
 <div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Example 11.3 (Max and min with two dimensions) </strong></span></p>
-<p>We found that the only critical point of <span class="math inline">f(\mathbf{x})=(x_1-1)^2+x_2^2+1</span> is at <span class="math inline">\mathbf{x}^*=(1,0)</span>. Is it a min, max, or saddle point?</p>
+<p><span class="theorem-title"><strong>Example 11.3 (Max and min with two dimensions) </strong></span>We found that the only critical point of <span class="math inline">f(\mathbf{x})=(x_1-1)^2+x_2^2+1</span> is at <span class="math inline">\mathbf{x}^*=(1,0)</span>. Is it a min, max, or saddle point?</p>
 </div>
 <div class="solution proof">
 <p><span class="proof-title"><em>Solution</em>. </span>The Hessian is <span class="math display">\begin{align*}
@@ -579,8 +579,7 @@ a_{11}&amp;\frac{1}{2}a_{12}&amp;\cdots&amp;\frac{1}{2}a_{1n}\\
 </ul>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 11.2 </strong></span></p>
-<p>Given <span class="math inline">f(\mathbf{x})=x_1^3-x_2^3+9x_1x_2</span>, find any maxima or minima.</p>
+<p><span class="theorem-title"><strong>Exercise 11.2 </strong></span>Given <span class="math inline">f(\mathbf{x})=x_1^3-x_2^3+9x_1x_2</span>, find any maxima or minima.</p>
 </div>
 <p><em>Solution.</em></p>
 <ol type="1">
@@ -790,7 +789,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);

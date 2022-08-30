@@ -2,16 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.38">
+<meta name="generator" content="quarto-1.1.163">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>UCSD Political Science Math Camp - 14&nbsp; Summarizing Distributions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +55,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -63,7 +68,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -190,7 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_orientation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Read in Data</span></a>
+  <a href="./11_orientation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Reading in Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -205,7 +210,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14_simulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Simulation</span></a>
+  <a href="./14_loops_simulations.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Loops and Simulation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -303,19 +308,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
 </div>
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
 <li>
-<a href="#expectation" id="toc-expectation" class="nav-link active" data-scroll-target="#expectation"> <span class="header-section-number">14.1</span> Expectation</a>
-  <ul class="collapse">
+<a href="#expectation" id="toc-expectation" class="nav-link active" data-scroll-target="#expectation"><span class="toc-section-number">14.1</span>  Expectation</a>
+  <ul>
 <li><a href="#expected-value-of-a-function" id="toc-expected-value-of-a-function" class="nav-link" data-scroll-target="#expected-value-of-a-function">Expected Value of a Function</a></li>
   <li><a href="#properties-of-expected-values" id="toc-properties-of-expected-values" class="nav-link" data-scroll-target="#properties-of-expected-values">Properties of Expected Values</a></li>
   </ul>
 </li>
-  <li><a href="#variance-and-covariance" id="toc-variance-and-covariance" class="nav-link" data-scroll-target="#variance-and-covariance"> <span class="header-section-number">14.2</span> Variance and Covariance</a></li>
-  <li><a href="#common-distributions" id="toc-common-distributions" class="nav-link" data-scroll-target="#common-distributions"> <span class="header-section-number">14.3</span> Common Distributions</a></li>
-  <li><a href="#joint-distributions" id="toc-joint-distributions" class="nav-link" data-scroll-target="#joint-distributions"> <span class="header-section-number">14.4</span> Joint Distributions</a></li>
+  <li><a href="#variance-and-covariance" id="toc-variance-and-covariance" class="nav-link" data-scroll-target="#variance-and-covariance"><span class="toc-section-number">14.2</span>  Variance and Covariance</a></li>
+  <li><a href="#common-distributions" id="toc-common-distributions" class="nav-link" data-scroll-target="#common-distributions"><span class="toc-section-number">14.3</span>  Common Distributions</a></li>
+  <li><a href="#joint-distributions" id="toc-joint-distributions" class="nav-link" data-scroll-target="#joint-distributions"><span class="toc-section-number">14.4</span>  Joint Distributions</a></li>
   <li><a href="#answers-to-examples-and-exercises" id="toc-answers-to-examples-and-exercises" class="nav-link" data-scroll-target="#answers-to-examples-and-exercises">Answers to Examples and Exercises</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/42_distribution.Rmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -342,14 +347,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In words, it is the weighted average of all possible values of <span class="math inline">Y</span>, weighted by the probability that <span class="math inline">y</span> occurs. It is not necessarily the number we would expect <span class="math inline">Y</span> to take on, but the average value of <span class="math inline">Y</span> after a large number of repetitions of an experiment.</p>
 </div>
 <div id="exm-expectdiscrete" class="theorem example">
-<p><span class="theorem-title"><strong>Example 14.1 </strong></span></p>
-<p>What is the expectation of a fair, six-sided die?</p>
+<p><span class="theorem-title"><strong>Example 14.1 </strong></span>What is the expectation of a fair, six-sided die?</p>
 </div>
 <p><strong>Expectation of a Continuous Random Variable</strong>: The expected value of a continuous random variable is similar in concept to that of the discrete random variable, except that instead of summing using probabilities as weights, we integrate using the density to weight. Hence, the expected value of the continuous variable <span class="math inline">Y</span> is defined by</p>
 <p><span class="math display">E(Y)=\int\limits_{y} y f(y) dy</span></p>
 <div id="exm-expectconti" class="theorem example">
-<p><span class="theorem-title"><strong>Example 14.2 (Expectation of a Continuous Random Variable) </strong></span></p>
-<p>Find <span class="math inline">E(Y)</span> for <span class="math inline">f(y)=\frac{1}{1.5}, \quad 0&lt;y&lt;1.5</span>.</p>
+<p><span class="theorem-title"><strong>Example 14.2 (Expectation of a Continuous Random Variable) </strong></span>Find <span class="math inline">E(Y)</span> for <span class="math inline">f(y)=\frac{1}{1.5}, \quad 0&lt;y&lt;1.5</span>.</p>
 </div>
 <section id="expected-value-of-a-function" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="expected-value-of-a-function">Expected Value of a Function</h3>
 <p>Remember: An Expected Value is a type of weighted average. We can extend this to composite functions. For random variable <span class="math inline">Y</span>,</p>
@@ -459,13 +462,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="header-section-number">14.3</span> Common Distributions</h2>
 <p>Two <em>discrete</em> distributions used often are:</p>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 14.5 (Binomial Distribution) </strong></span></p>
-<p><span class="math inline">Y</span> is distributed binomial if it represents the number of “successes” observed in <span class="math inline">n</span> independent, identical “trials,” where the probability of success in any trial is <span class="math inline">p</span> and the probability of failure is <span class="math inline">q=1-p</span>.</p>
+<p><span class="theorem-title"><strong>Definition 14.5 (Binomial Distribution) </strong></span><span class="math inline">Y</span> is distributed binomial if it represents the number of “successes” observed in <span class="math inline">n</span> independent, identical “trials,” where the probability of success in any trial is <span class="math inline">p</span> and the probability of failure is <span class="math inline">q=1-p</span>.</p>
 </div>
 <p>For any particular sequence of <span class="math inline">y</span> successes and <span class="math inline">n-y</span> failures, the probability of obtaining that sequence is <span class="math inline">p^y q^{n-y}</span> (by the multiplicative law and independence). However, there are <span class="math inline">\binom{n}{y}=\frac{n!}{(n-y)!y!}</span> ways of obtaining a sequence with <span class="math inline">y</span> successes and <span class="math inline">n-y</span> failures. So the binomial distribution is given by <span class="math display">p(y)=\binom{n}{y}p^y q^{n-y}, \quad y=0,1,2,\ldots,n</span> with mean <span class="math inline">\mu=E(Y)=np</span> and variance <span class="math inline">\sigma^2=\text{Var}(Y)=npq</span>.</p>
 <div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Example 14.4 </strong></span></p>
-<p>Republicans vote for Democrat-sponsored bills 2% of the time. What is the probability that out of 10 Republicans questioned, half voted for a particular Democrat-sponsored bill? What is the mean number of Republicans voting for Democrat-sponsored bills? The variance? 1. <span class="math inline">P(Y=5)=</span> 2. <span class="math inline">E(Y)=</span> 3. <span class="math inline">\text{Var}(Y)=6</span></p>
+<p><span class="theorem-title"><strong>Example 14.4 </strong></span>Republicans vote for Democrat-sponsored bills 2% of the time. What is the probability that out of 10 Republicans questioned, half voted for a particular Democrat-sponsored bill? What is the mean number of Republicans voting for Democrat-sponsored bills? The variance? 1. <span class="math inline">P(Y=5)=</span> 2. <span class="math inline">E(Y)=</span> 3. <span class="math inline">\text{Var}(Y)=6</span></p>
 </div>
 <div id="def-" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 14.6 (Poisson Distribution) </strong></span>A random variable <span class="math inline">Y</span> has a Poisson distribution if</p>
@@ -473,13 +474,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The Poisson has the unusual feature that its expectation equals its variance: <span class="math inline">E(Y)=\text{Var}(Y)=\lambda</span>. The Poisson distribution is often used to model rare event counts: counts of the number of events that occur during some unit of time. <span class="math inline">\lambda</span> is often called the “arrival rate.”</p>
 </div>
 <div id="exm-" class="theorem example">
-<p><span class="theorem-title"><strong>Example 14.5 </strong></span></p>
-<p>Border disputes occur between two countries through a Poisson Distribution, at a rate of 2 per month. What is the probability of 0, 2, and less than 5 disputes occurring in a month?</p>
+<p><span class="theorem-title"><strong>Example 14.5 </strong></span>Border disputes occur between two countries through a Poisson Distribution, at a rate of 2 per month. What is the probability of 0, 2, and less than 5 disputes occurring in a month?</p>
 </div>
 <p>Two <em>continuous</em> distributions used often are:</p>
 <div id="def-" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 14.7 (Uniform Distribution) </strong></span></p>
-<p>A random variable <span class="math inline">Y</span> has a continuous uniform distribution on the interval <span class="math inline">(\alpha,\beta)</span> if its density is given by <span class="math display">f(y)=\frac{1}{\beta-\alpha}, \quad \alpha\le y\le \beta</span> The mean and variance of <span class="math inline">Y</span> are <span class="math inline">E(Y)=\frac{\alpha+\beta}{2}</span> and <span class="math inline">\text{Var}(Y)=\frac{(\beta-\alpha)^2}{12}</span>.</p>
+<p><span class="theorem-title"><strong>Definition 14.7 (Uniform Distribution) </strong></span>A random variable <span class="math inline">Y</span> has a continuous uniform distribution on the interval <span class="math inline">(\alpha,\beta)</span> if its density is given by <span class="math display">f(y)=\frac{1}{\beta-\alpha}, \quad \alpha\le y\le \beta</span> The mean and variance of <span class="math inline">Y</span> are <span class="math inline">E(Y)=\frac{\alpha+\beta}{2}</span> and <span class="math inline">\text{Var}(Y)=\frac{(\beta-\alpha)^2}{12}</span>.</p>
 </div>
 <div id="exm-" class="theorem example">
 <p><span class="theorem-title"><strong>Example 14.6 </strong></span>For <span class="math inline">Y</span> uniformly distributed over <span class="math inline">(1,3)</span>, what are the following probabilities?</p>
@@ -500,7 +499,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div id="fig-normaldens" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="42_distribution_files/figure-html/fig-normaldens-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure 14.1: Normal Distribution Density</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;14.1: Normal Distribution Density</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -701,7 +700,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
