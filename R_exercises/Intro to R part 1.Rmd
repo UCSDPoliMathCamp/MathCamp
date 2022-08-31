@@ -1,0 +1,250 @@
+
+# Class Activity. Introduction to R, Part 1. September 1, 2022
+
+## Reading in Data
+
+```{r}
+library(tidyverse)
+library(here)
+```
+
+```{r}
+county_elections <- read_csv(here("data", "county_elections.csv"))
+
+# Remove any rows with missing values to avoid warning messages
+county_elections <- na.omit(county_elections)
+```
+
+
+## Visualization
+
+### Univariate Graphs
+
+```{r, warning=FALSE, message=FALSE}
+ggplot(county_elections) +
+  aes(x = median_hh_inc) +
+  geom_histogram()
+```
+
+```{r, warning=FALSE}
+ggplot(county_elections) +
+  aes(x = median_hh_inc) +
+  geom_histogram(bins = 50,
+                 color = "white",
+                 fill = "steelblue")
+```
+
+```{r, warning=FALSE}
+ggplot(county_elections) +
+  aes(x = median_hh_inc) +
+  geom_histogram(bins = 50,
+                 color = "white",
+                 fill = "steelblue") +
+  labs(title = "Distribution of Median County Incomes",
+       x = "Median Household Income",
+       y = "Count")
+```
+
+```{r, warning=FALSE}
+ggplot(county_elections) +
+  aes(x = median_hh_inc) +
+  geom_histogram(bins = 50,
+                 color = "white",
+                 fill = "steelblue") +
+  labs(title = "Distribution of Median County Incomes",
+       x = "Median Household Income",
+       y = "Count") +
+  theme_minimal()
+```
+
+```{r, warning=FALSE}
+ggplot(county_elections) +
+  aes(x = median_hh_inc) +
+  geom_histogram(bins = 50,
+                 color = "white",
+                 fill = "steelblue") +
+  labs(title = "Distribution of Median County Incomes",
+       x = "Median Household Income",
+       y = "",
+       caption = "(log10 scale)") +
+  theme_minimal() +
+  scale_x_log10(labels = scales::dollar)
+```
+
+*Class Activity*:
+
+Create a univariate graph of your choosing using ggplot. Try other types of geoms besides histograms.
+
+
+
+### Bivariate Graphs
+
+```{r, warning=FALSE}
+ggplot(county_elections) +
+  aes(x = median_hh_inc, y = lesshs_pct) +
+  geom_point()
+```
+
+```{r, warning=FALSE}
+ggplot(county_elections) +
+  aes(x = median_hh_inc, y = lesshs_pct) +
+  geom_point() +
+  labs(title = "US Counties by Education and Income",
+       x = "Median Household Income",
+       y = "Less than High School %") +
+  scale_x_continuous(label = scales::dollar) +
+  theme_classic()
+```
+
+```{r, warning=FALSE}
+ggplot(county_elections) +
+  aes(x = median_hh_inc, y = lesshs_pct) +
+  geom_point(alpha = 0.2, color = "darkcyan") +
+  labs(title = "US Counties by Education and Income",
+       x = "Median Household Income",
+       y = "Less than High School %") +
+  scale_x_continuous(label = scales::dollar) +
+  theme_classic()
+```
+
+```{r, warning=FALSE}
+ggplot(county_elections) +
+  aes(x = median_hh_inc, y = lesshs_pct) +
+  geom_point(alpha = 0.2, color = "darkcyan") +
+  geom_smooth(method = "lm", color = "black") +
+  labs(title = "US Counties by Education and Income",
+       x = "Median Household Income",
+       y = "Less than High School %") +
+  scale_x_continuous(label = scales::dollar) +
+  theme_classic()
+```
+
+```{r, warning=FALSE}
+ggplot(county_elections) +
+  aes(x = median_hh_inc, y = lesshs_pct) +
+  geom_point(alpha = 0.2, color = "darkcyan") +
+  geom_smooth(method = "lm", color = "black",
+              formula = "y ~ log(x)") +
+  labs(title = "US Counties by Education and Income",
+       x = "Median Household Income",
+       y = "Less than High School %") +
+  scale_x_continuous(label = scales::dollar) +
+  theme_classic()
+```
+
+*Class Activity*:
+
+Create a bivariate graph of your choosing using ggplot
+
+
+
+### Trivariate(!) Graphs
+
+```{r}
+county_elections <- county_elections |> 
+  mutate(rural = ifelse(rural_pct > 50, "Rural", "Not Rural"))
+```
+
+```{r, warning=FALSE}
+ggplot(county_elections) +
+  aes(x = median_hh_inc, y = lesshs_pct,
+      color = rural) + # Coloring points based on rural variable
+  geom_point(alpha = 0.5) + # Removed color from geom
+  labs(title = "US Counties by Education and Income",
+       x = "Median Household Income",
+       y = "Less than High School %") +
+  scale_x_continuous(label = scales::dollar) +
+  theme_classic()
+```
+
+```{r, warning=FALSE}
+ggplot(county_elections) +
+  aes(x = median_hh_inc, y = lesshs_pct,
+      size = total_population) + # Changing size of points
+  geom_point(alpha = 0.2) + 
+  labs(title = "US Counties by Education and Income",
+       x = "Median Household Income",
+       y = "Less than High School %") +
+  scale_x_continuous(label = scales::dollar) +
+  theme_classic()
+```
+
+```{r}
+ggplot(county_elections) +
+  aes(x = median_hh_inc, y = lesshs_pct) +
+  geom_point(alpha = 0.2, color = "darkcyan") +
+  labs(title = "US Counties by Education and Income",
+       x = "Median Household Income",
+       y = "Less than High School %") +
+  scale_x_continuous(label = scales::dollar) +
+  theme_classic() +
+  facet_wrap(~ rural) # Adding faceting
+```
+
+```{r}
+ggplot(county_elections) +
+  aes(x = median_hh_inc, y = lesshs_pct) +
+  geom_point(alpha = 0.2, color = "darkcyan") +
+  labs(title = "US Counties by Education and Income",
+       x = "Median Household Income",
+       y = "Less than High School %") +
+  scale_x_continuous(label = scales::dollar) +
+  theme_classic() +
+  facet_wrap(~ rural, nrow = 2)
+```
+
+*Class Activity*:
+
+Using either colors, sizes, or facets, modify your bivariate graph to include information from a third variable.
+
+
+
+### Choropleth Maps
+
+```{r}
+library(urbnmapr)
+```
+
+```{r}
+county_elections <- county_elections |> 
+  mutate(county_fips = str_pad(countyCode, width = 5, pad = "0"))
+```
+
+```{r}
+map_data <- left_join(county_elections, counties,
+                      by = "county_fips")
+```
+
+```{r}
+ggplot(map_data) +
+  aes(x = long, y = lat, 
+      group = group, fill = lesshs_pct) +
+  geom_polygon(color = NA) +
+  # This second geom_polygon shows the state borders
+  geom_polygon(data = states, mapping = aes(long, lat, group = group),
+               fill = NA, size = 0.1, color = "white") +
+  # Making maps requires you to choose a geographic projection
+  coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
+  # theme_void gives us a blank canvas
+  theme_void()
+```
+
+```{r}
+ggplot(map_data) +
+  aes(x = long, y = lat, 
+      group = group, fill = lesshs_pct) +
+  geom_polygon(color = NA) +
+  geom_polygon(data = states, mapping = aes(long, lat, group = group),
+               fill = NA, size = 0.1, color = "white") +
+  coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
+  # This creates a diverging color scale
+  # that is also colorblind friendly
+  scale_fill_viridis_c() +
+  labs(fill = "Less than High School %") +
+  theme_void() +
+  theme(legend.position = "bottom") 
+```
+
+*Class Activity*:
+
+Choose a new variable from `county_elections` and create a choropleth map of it by adjusting the code above

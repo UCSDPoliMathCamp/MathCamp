@@ -1,0 +1,95 @@
+---
+title: "Do Countries that Spend More on Public Health Have Better Health Outcomes?"
+subtitle: "Example RMarkdown Report"
+author: "Bertrand Wilden"
+date: "`r Sys.Date()`"
+output: pdf_document
+header-includes:
+   - \usepackage{floatrow}
+   - \floatsetup[figure]{capposition=top}
+bibliography: packages.bib
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+# In this chunk I am setting some global options for all code chunks
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+
+# Loading in all necessary packages
+# Don't forget to install.packages("package name") if you're missing any of these packages
+library(dplyr)
+library(ggplot2)
+library(poliscidata)
+library(texreg)
+
+# This automatically generates a .bib file which contains the citation information for packages used
+# the YAML 'bibliography: packages.bib' will automatically add the citations to the end of the document
+knitr::write_bib(.packages(), "packages.bib")
+```
+
+```{r}
+world_data <- world %>% 
+  mutate(democracy = if_else(democ == "Yes", "Democracy", "Non-Democracy")) %>% 
+  filter(!is.na(democracy))
+
+lowest_spendhealth <- world_data %>% 
+  filter(spendhealth == min(spendhealth))
+
+highest_spendhealth <- world_data %>% 
+  filter(spendhealth == max(spendhealth))
+```
+
+# Introduction
+
+Around the world there is wide variation in how much countries spend on their public health services. At the low end is `r lowest_spendhealth$country`, which only spends `r lowest_spendhealth$spendhealth`% of its GPD on public health. On the other extreme is `r highest_spendhealth$country` whose public health expenditures are `r highest_spendhealth$spendhealth`% of its GPD. Figure 1 displays the full range of variation in health expenditures globally. But does how much a county spends on health services affect health outcomes, such as life expectancy, in that country?
+
+```{r, fig.cap="The Distribution of Public Health Expenditures Globally"}
+world_data %>% 
+  ggplot(aes(x = spendhealth)) +
+  geom_histogram(color = "white", fill = "cadetblue") +
+  theme_minimal() +
+  labs(x = "Public Expenditure on Health as a Percentage of GDP",
+       y = "Frequency",
+       caption = paste0("Mean: ", round(mean(world_data$spendhealth), 1),
+                         "\nStandard Deviation: ", round(sd(world_data$spendhealth), 1))) +
+  theme(text = element_text(family = "serif"))
+```
+
+# Analysis
+
+We can test the strength of the relationship between public health expenditures and life expectancy by running the following bivariate regression model:
+
+$$
+\text{LifeExpectancy}_i = \alpha + \beta \text{HealthExpenditure}_i + \epsilon
+$$
+
+```{r}
+model1 <- lm(lifeex_total ~ spendhealth, data = world_data)
+
+model1_tex <- texreg(model1,
+                     custom.model.names = "Life Expectancy",
+                     custom.coef.names = c("(Intercept)", "Health Exp (% of GDP)"),
+                     caption = "Bivariate OLS Regression")
+```
+
+`r model1_tex`
+
+Table 1 shows the results of this simple model. As we can see, there is a positive and statistically significant relationship between public health expenditures and life expectancy in a country. For every extra percentage point of its GDP that a country spends on public health, we predict that the average life expectancy in that country will increase by `r round(coef(model1)[[2]], 2)` years. This strong positive association is also shown in Figure 2.
+
+```{r, fig.cap="The Effect of Health Expenditure on Life Expectancy"}
+p <- world_data %>% 
+  ggplot(aes(x = spendhealth, y = lifeex_total, label = country)) +
+  geom_text(check_overlap = TRUE, size = 3) +
+  geom_smooth(method = "lm", color = "cadetblue", fill = "lightgray") +
+  theme_minimal() +
+  labs(x = "Public Expenditure on Health as a Percentage of GDP",
+       y = "Life Expextancy at Birth") +
+  theme(text = element_text(family = "serif"))
+p
+```
+
+\newpage
+
+# Software Packages
