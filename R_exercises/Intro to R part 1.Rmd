@@ -16,6 +16,10 @@ county_elections <- na.omit(county_elections)
 ```
 
 
+
+
+
+
 ## Visualization
 
 ### Univariate Graphs
@@ -25,6 +29,8 @@ ggplot(county_elections) +
   aes(x = median_hh_inc) +
   geom_histogram()
 ```
+
+
 
 ```{r, warning=FALSE}
 ggplot(county_elections) +
@@ -74,6 +80,13 @@ ggplot(county_elections) +
 *Class Activity*:
 
 Create a univariate graph of your choosing using ggplot. Try other types of geoms besides histograms.
+
+
+```{r}
+ggplot(county_elections) +
+  aes(x = clf_unemploy_pct) +
+  geom_density()
+```
 
 
 
