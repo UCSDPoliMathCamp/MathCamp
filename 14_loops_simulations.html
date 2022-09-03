@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.168">
+<meta name="generator" content="quarto-1.1.179">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>UCSD Political Science Math Camp - 4&nbsp; Loops and Simulation</title>
 <style>
@@ -369,7 +369,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span><span class="co"># From the set "my_animals", draw 2 at random</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">my_animals</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "cat"  "fish"</code></pre>
+<pre><code>[1] "parrot" "cat"   </code></pre>
 </div>
 </div>
 <p>By default, <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> samples <em>without</em> replacement. This means that once a value from <code>x</code> is drawn, it will be ineligible to be drawn again. The following code gives us an error because <code>size = 100</code> is larger than the total number of values in <code>my_animals</code>.</p>
@@ -383,19 +383,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-4_164ea68f5f22924e5b04e96398979c47">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">my_animals</span>, size <span class="op">=</span> <span class="fl">100</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] "fish"   "dog"    "monkey" "parrot" "fish"   "cat"    "parrot" "dog"   
-  [9] "monkey" "dog"    "parrot" "parrot" "cat"    "monkey" "monkey" "parrot"
- [17] "fish"   "parrot" "fish"   "monkey" "monkey" "parrot" "cat"    "parrot"
- [25] "monkey" "monkey" "cat"    "parrot" "cat"    "cat"    "monkey" "dog"   
- [33] "parrot" "parrot" "dog"    "dog"    "cat"    "parrot" "monkey" "dog"   
- [41] "dog"    "dog"    "cat"    "dog"    "cat"    "parrot" "dog"    "parrot"
- [49] "monkey" "cat"    "parrot" "parrot" "fish"   "cat"    "fish"   "dog"   
- [57] "cat"    "fish"   "fish"   "cat"    "cat"    "cat"    "parrot" "fish"  
- [65] "dog"    "cat"    "fish"   "dog"    "cat"    "parrot" "parrot" "monkey"
- [73] "parrot" "fish"   "fish"   "dog"    "parrot" "cat"    "monkey" "dog"   
- [81] "cat"    "dog"    "cat"    "parrot" "dog"    "monkey" "monkey" "parrot"
- [89] "monkey" "monkey" "monkey" "parrot" "fish"   "parrot" "parrot" "cat"   
- [97] "fish"   "fish"   "cat"    "cat"   </code></pre>
+<pre><code>  [1] "parrot" "monkey" "cat"    "fish"   "monkey" "parrot" "parrot" "dog"   
+  [9] "fish"   "cat"    "parrot" "cat"    "fish"   "dog"    "cat"    "cat"   
+ [17] "monkey" "dog"    "monkey" "dog"    "fish"   "parrot" "fish"   "fish"  
+ [25] "dog"    "monkey" "monkey" "monkey" "fish"   "fish"   "cat"    "fish"  
+ [33] "fish"   "parrot" "dog"    "fish"   "dog"    "monkey" "monkey" "fish"  
+ [41] "monkey" "dog"    "fish"   "cat"    "cat"    "fish"   "monkey" "fish"  
+ [49] "fish"   "dog"    "fish"   "cat"    "parrot" "monkey" "parrot" "cat"   
+ [57] "fish"   "monkey" "monkey" "fish"   "fish"   "monkey" "cat"    "dog"   
+ [65] "parrot" "parrot" "monkey" "dog"    "monkey" "fish"   "cat"    "cat"   
+ [73] "dog"    "dog"    "dog"    "cat"    "monkey" "monkey" "cat"    "dog"   
+ [81] "monkey" "parrot" "dog"    "monkey" "monkey" "dog"    "fish"   "fish"  
+ [89] "cat"    "fish"   "dog"    "cat"    "fish"   "cat"    "parrot" "monkey"
+ [97] "dog"    "monkey" "fish"   "parrot"</code></pre>
 </div>
 </div>
 <p>The decision to sample with, or without, replacement depends on the particular DGP you want to simulate.</p>
@@ -425,9 +425,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-7_fa3b83f8380fa471a5bbfb83db75c227">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, size <span class="op">=</span> <span class="fl">1</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] 0 1 0 1 0 0 0 0 1 1 1 1 0 1 1 0 1 0 1 1 1 1 0 1 0 0 0 0 1 0 0 0 1 0 1 0 0
- [38] 0 0 1 1 0 0 1 1 0 1 0 1 1 1 0 1 0 1 0 0 1 0 1 1 0 0 1 0 1 0 0 0 0 0 0 0 1
- [75] 1 1 0 0 1 0 1 0 0 0 1 0 1 1 0 1 0 1 1 1 1 0 1 0 1 0</code></pre>
+<pre><code>  [1] 1 0 0 1 1 0 0 1 1 0 1 1 1 1 0 0 0 1 1 1 1 0 0 1 0 1 1 0 0 1 0 0 0 0 0 1 1
+ [38] 1 1 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 1 1 0 0 1 1 0 0 0 0 0 0 1 0 0 1 0 1 1 1
+ [75] 0 0 1 1 1 0 1 1 1 1 0 1 1 1 0 1 0 0 1 1 1 1 0 1 1 1</code></pre>
 </div>
 </div>
 <p>We can replicate the same data generating process using <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> with the following code.</p>
@@ -436,18 +436,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span>       size <span class="op">=</span> <span class="fl">100</span>,</span>
 <span>       replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] 0 1 1 1 1 1 0 1 0 0 0 0 0 0 1 1 0 1 1 1 0 1 1 1 1 0 1 1 1 1 0 1 1 0 1 1 0
- [38] 1 1 0 0 1 0 1 0 1 0 0 0 1 0 1 1 1 0 0 1 1 0 1 1 1 0 0 0 1 0 0 0 1 1 1 1 1
- [75] 1 0 0 1 1 0 1 0 0 1 0 0 1 0 1 1 0 1 1 1 1 1 0 0 0 0</code></pre>
+<pre><code>  [1] 1 1 1 1 1 0 1 1 0 1 1 1 1 1 0 1 0 0 0 1 0 1 1 1 0 1 1 0 0 1 0 0 0 1 1 1 1
+ [38] 1 0 0 1 1 1 0 0 0 0 1 1 0 0 0 0 1 1 0 0 1 1 0 1 0 0 1 0 0 1 1 0 1 0 0 1 1
+ [75] 1 1 1 1 1 0 0 1 1 1 1 0 1 1 0 1 0 1 1 1 0 1 1 1 0 1</code></pre>
 </div>
 </div>
 <p>Let’s tweak the value for <code>prob</code> and see what happens.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-9_610cbeae34fffbf017e2ac3d5b27e6ee">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, size <span class="op">=</span> <span class="fl">1</span>, prob <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] 0 1 1 1 1 1 0 1 1 1 1 1 1 0 0 0 1 1 0 1 1 1 1 1 1 0 1 1 0 1 0 1 1 1 1 1 0
- [38] 1 1 0 1 1 0 1 1 1 1 1 1 0 1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 0 0 1 0 0 1
- [75] 1 0 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 1 1 1</code></pre>
+<pre><code>  [1] 1 1 0 1 1 0 0 1 0 1 1 0 1 1 1 0 0 0 1 1 1 1 0 1 0 1 1 0 1 1 1 1 1 1 1 1 1
+ [38] 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 0 1 1 1 1 1 1 1 1 1 1 0 1 1 0 1
+ [75] 1 1 1 1 1 1 1 1 0 1 0 1 1 0 1 1 1 1 1 1 1 1 1 1 1 0</code></pre>
 </div>
 </div>
 <p>Now there are way more <code>1</code>’s than <code>0</code>’s! A bar graph can help us visualize the proportions.</p>
@@ -467,7 +467,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-11_eeb4c414afbf457086aab79aec93c9ec">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">100</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 46</code></pre>
+<pre><code>[1] 49</code></pre>
 </div>
 </div>
 <p>As you can see, the code above gives us a single value which is the sum of <code>1</code>’s from 100 trials. Because <code>prob = 0.5</code>, this number should be around 50.</p>
@@ -510,11 +510,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Generating random numbers from between 0 and 1</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">25</span>, min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.06549761 0.70943565 0.61500278 0.63298515 0.84229714 0.98468877
- [7] 0.75655173 0.71581888 0.56980411 0.62161988 0.65383041 0.22125079
-[13] 0.68525422 0.90313022 0.16989073 0.07784565 0.76968059 0.50645032
-[19] 0.34144459 0.09099300 0.15457590 0.20328877 0.07846916 0.29609388
-[25] 0.34924400</code></pre>
+<pre><code> [1] 0.54337171 0.71002642 0.48195880 0.22570595 0.44268945 0.95055935
+ [7] 0.50057119 0.33930531 0.15806949 0.10024940 0.80346667 0.34544123
+[13] 0.58544779 0.29667138 0.51897068 0.52381265 0.86450114 0.69538650
+[19] 0.50264880 0.69550948 0.60846622 0.73475118 0.01994567 0.37766717
+[25] 0.12406208</code></pre>
 </div>
 </div>
 <p>Let’s graph the random draws we get from a uniform distribution to better understand what’s taking place.</p>
@@ -540,26 +540,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-17_8b66e22229b61b5dfaff389017aaf15e">
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  [1] -0.784945001 -0.167559451  0.010637509 -1.310885151  0.037809306
-  [6]  0.041061592 -0.732873225 -0.197878099  0.381739594  0.170711424
- [11]  1.358682225  1.118589651  1.768226927  1.662009137  0.996433245
- [16] -0.401469974  1.332359518  0.089883587  0.365245494 -0.540768121
- [21] -0.584597653 -0.409924525  0.858603176 -1.984040988 -0.536967606
- [26] -0.497701239  1.041168347  0.244583355 -1.361683736 -0.585615237
- [31] -0.865200427  0.605140845 -2.784482336 -0.951329587 -0.250556843
- [36] -2.626700129 -0.626032330  0.217395122 -2.375335849 -0.684771073
- [41] -1.044175702  0.082899241  0.187844626 -0.131716404  1.454515263
- [46] -0.413294332  0.680366732 -0.700771492 -1.838032295 -1.092337200
- [51]  1.288272756 -0.372843600  0.798894623 -0.569957968  1.746000214
- [56]  0.749864956  0.154046559 -0.913945752 -0.098989164  0.467730309
- [61]  1.735123287 -0.171760779  0.597984919  2.208033283 -0.909967417
- [66]  0.214233018  0.986794580  0.644420210 -0.026609291 -0.701540467
- [71]  0.272896723 -0.337493690  1.751483192  0.337047300 -0.402167160
- [76]  1.125999479 -0.214478776  0.045744268  1.334359926  0.215457097
- [81] -2.415679943  0.547639454 -0.220230146 -1.011280249  1.042957317
- [86]  0.724356256  2.629642966  1.673184277  0.444225668  0.131098278
- [91]  0.429060162 -1.670909189 -0.992945947 -1.239809139  1.392020865
- [96] -0.745419683 -0.278019513 -0.008965408 -0.251414384  0.636504364</code></pre>
+<pre><code>  [1]  0.701401693  0.563848586  0.083924053  0.583872090 -2.099774785
+  [6]  0.110344339 -0.787723239 -0.333248439  0.550758584  0.714693017
+ [11]  0.120548638  0.150896298 -0.512840980  0.867312927 -0.346141983
+ [16] -0.247085534 -0.641254732 -0.188211065 -0.683860328 -1.081965622
+ [21]  0.977785717  1.160655145  0.162338679  0.782390816 -1.763856075
+ [26] -0.564634301  2.213519318 -0.477646310 -0.004801969  0.094277717
+ [31]  0.778655437  1.727779901  0.586957584 -0.967434894 -1.328433688
+ [36] -0.245594927  1.629886013  0.590545573 -0.631178866 -1.501219305
+ [41] -0.179582084  0.511943231  0.436229912 -0.490867638 -0.667737678
+ [46]  1.111207564 -0.462655115  0.153127425 -0.763495384  0.504704055
+ [51]  0.159434501 -2.095171559 -0.406393021  0.088125564  0.201007399
+ [56] -0.628663068  1.759631869  1.150681772  0.375750165  0.938472032
+ [61]  1.560115129 -1.156157677 -0.235717709  0.022263851 -0.532578110
+ [66] -1.613624244  0.709041363  1.262709215  1.400904670 -0.910794053
+ [71]  0.234888338 -0.795670369 -0.696388954 -0.580520291 -2.437246699
+ [76] -0.599461865  1.868526238  0.239810630  1.930599107  1.818698435
+ [81]  1.724502768 -0.939630249 -0.667630396 -0.304484103 -0.749651786
+ [86]  0.260659673  2.084776203  0.774098464  0.478170287 -0.015065348
+ [91]  0.755561815 -1.698254712 -0.392527625 -0.179050762  1.521890755
+ [96]  0.767081993 -0.506149202 -0.718145288  0.889710784 -0.425267586</code></pre>
 </div>
 </div>
 <p>Like the uniform distribution, draws from the normal distribution can be any real number. It may be difficult to see from the random draws above that values close to the mean of 0 are more likely than more extreme values. So let’s take a look at the distribution graphically.</p>
@@ -645,23 +645,24 @@ dbl (25): countyCode, trump16, clinton16, otherpres16, romney12, obama12, ot...
 <pre><code># A tibble: 10 × 27
    state_abbrv county    count…¹ trump16 clint…² other…³ romne…⁴ obama12 other…⁵
    &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
- 1 PA          Jefferson   42065   15192    3650     636   13048    4787     262
- 2 KS          Rawlins     20153    1220     163      89    1223     190      31
- 3 IA          Buena Vi…   19021    4903    2856     519    4554    3700     129
- 4 KY          Whitley     21235   11312    2067     395   10232    2683     157
- 5 NV          Esmeralda   32009     329      65      29     317      92      26
- 6 TX          Galveston   48167   73757   43658    5488   69059   39511    1508
- 7 FL          Union       12125    4568    1014     112    3980    1339      74
- 8 TX          Coke        48081    1265     140      18    1218     179      11
- 9 GA          Crisp       13081    4549    2837     126    4182    3167      47
-10 NJ          Gloucest…   34015   67544   66870    5128   59456   74013    1717
+ 1 WI          Winnebago   55139   43448   37054    6642   42122   45449    1602
+ 2 SD          Custer      46033    3293    1121     307    3062    1335     123
+ 3 SD          Hutchins…   46067    2517     692     156    2451     923      51
+ 4 NC          Cleveland   37045   28479   14964    1230   25793   17062     485
+ 5 TX          Burleson    48051    5316    1491     153    4671    1705      80
+ 6 MT          Roosevelt   30085    1797    1560     295    1514    2086      72
+ 7 IL          Henderson   17071    2155    1155     208    1541    1978      49
+ 8 TN          Cheatham    47021   11297    3878     749   10268    4659     255
+ 9 IL          Stephens…   17177   11083    7768    1492   10512   10165     378
+10 KS          Allen       20001    3651    1433     370    3316    1869     125
 # … with 18 more variables: total_population &lt;dbl&gt;, cvap &lt;dbl&gt;,
 #   white_pct &lt;dbl&gt;, black_pct &lt;dbl&gt;, hispanic_pct &lt;dbl&gt;, nonwhite_pct &lt;dbl&gt;,
 #   foreignborn_pct &lt;dbl&gt;, female_pct &lt;dbl&gt;, age29andunder_pct &lt;dbl&gt;,
 #   age65andolder_pct &lt;dbl&gt;, median_hh_inc &lt;dbl&gt;, clf_unemploy_pct &lt;dbl&gt;,
 #   lesshs_pct &lt;dbl&gt;, lesscollege_pct &lt;dbl&gt;, lesshs_whites_pct &lt;dbl&gt;,
 #   lesscollege_whites_pct &lt;dbl&gt;, rural_pct &lt;dbl&gt;, ruralurban_cc &lt;dbl&gt;, and
-#   abbreviated variable names ¹​countyCode, ²​clinton16, ³​otherpres16, …</code></pre>
+#   abbreviated variable names ¹​countyCode, ²​clinton16, ³​otherpres16, …
+# ℹ Use `colnames()` to see all variable names</code></pre>
 </div>
 </div>
 <p>Alternatively, we can use <code><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_frac()</a></code> to specify how many random rows to draw based on a proportion of total rows.</p>
@@ -672,23 +673,24 @@ dbl (25): countyCode, trump16, clinton16, otherpres16, romney12, obama12, ot...
 <pre><code># A tibble: 31 × 27
    state_abbrv county    count…¹ trump16 clint…² other…³ romne…⁴ obama12 other…⁵
    &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
- 1 MS          Jasper      28061    4038    4368      69    4193    5097      50
- 2 NC          Catawba     37035   48324   21216    2811   44538   24069     994
- 3 WV          Hampshire   54027    6692    1580     336    5523    2299     164
- 4 NV          Pershing    32027    1403     430     149    1167     632      85
- 5 PA          Schuylki…   42107   44001   16770    2098   32278   24546     903
- 6 VA          Essex       51057    2657    2542     209    2602    3016      57
- 7 KS          Johnson     20091  137490  129852   22748  158401  110526    5438
- 8 MN          Olmsted     27109   35668   36268    8193   36832   39338    2146
- 9 AR          Monroe       5095    1489    1312      83    1585    1583      62
-10 MS          Attala      28007    4897    3242     117    5126    3927      39
+ 1 TN          Giles       47055    7970    2917     250    6915    3760     124
+ 2 OK          Kay         40071   12172    3738     893   11499    4627       0
+ 3 ID          Bonner      16017   13343    5819    1781   11367    6500     669
+ 4 NY          Cattarau…   36009   19692    9497    1972   14655   12040    3072
+ 5 OK          Logan       40083   13633    4248    1098   12314    4724       0
+ 6 TN          Blount      47009   37443   12100    2665   35441   12934     859
+ 7 AL          Covington    1039   13267    2387     286   12153    3158     112
+ 8 NE          Knox        31107    3188     720     207    2885    1059      92
+ 9 TX          Tyler       48457    6624    1248     144    5910    1668      76
+10 AR          Pulaski      5119   61257   89574    8945   68984   87248    3149
 # … with 21 more rows, 18 more variables: total_population &lt;dbl&gt;, cvap &lt;dbl&gt;,
 #   white_pct &lt;dbl&gt;, black_pct &lt;dbl&gt;, hispanic_pct &lt;dbl&gt;, nonwhite_pct &lt;dbl&gt;,
 #   foreignborn_pct &lt;dbl&gt;, female_pct &lt;dbl&gt;, age29andunder_pct &lt;dbl&gt;,
 #   age65andolder_pct &lt;dbl&gt;, median_hh_inc &lt;dbl&gt;, clf_unemploy_pct &lt;dbl&gt;,
 #   lesshs_pct &lt;dbl&gt;, lesscollege_pct &lt;dbl&gt;, lesshs_whites_pct &lt;dbl&gt;,
 #   lesscollege_whites_pct &lt;dbl&gt;, rural_pct &lt;dbl&gt;, ruralurban_cc &lt;dbl&gt;, and
-#   abbreviated variable names ¹​countyCode, ²​clinton16, ³​otherpres16, …</code></pre>
+#   abbreviated variable names ¹​countyCode, ²​clinton16, ³​otherpres16, …
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
 </div>
 </div>
 <p>Performing stratified sampling is very easy using the <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> function we introduced in the last chapter. The code below draws one random row (i.e.&nbsp;county) from each US state.</p>
@@ -701,23 +703,24 @@ dbl (25): countyCode, trump16, clinton16, otherpres16, romney12, obama12, ot...
 # Groups:   state_abbrv [50]
    state_abbrv county    count…¹ trump16 clint…² other…³ romne…⁴ obama12 other…⁵
    &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
- 1 AL          Cullman      1043   32989    3798    1086   28999    5052     406
- 2 AR          Scott        5127    2731     602     177    2631     897     112
- 3 AZ          Santa Cr…    4023    3897   11690     846    4235    9486     173
- 4 CA          Contra C…    6013  115956  319287   30932  136517  290824   10885
- 5 CO          Crowley      8025    1079     339     109     924     535      43
- 6 CT          New Lond…    9011   54058   62278    7192   46119   67144    1839
+ 1 AL          Elmore       1051   27634    8443    1183   26253    8954     278
+ 2 AR          Sharp        5135    5407    1472     370    4921    2092     270
+ 3 AZ          Cochise      4003   28092   17450    4473   29497   18546     960
+ 4 CA          Napa         6055   17411   39199    4762   19526   35870    1572
+ 5 CO          Montezuma    8083    7853    3973    1032    7401    4542     375
+ 6 CT          Tolland      9013   34194   38506    4724   19768   25957     863
  7 DC          District…   11001   12723  282830   15715   21381  267070    5313
- 8 DE          New Cast…   10003   85525  162919   13947   81230  167082    3700
- 9 FL          Volusia     12127  143007  109091    8771  117490  114748    2298
-10 GA          Long        13183    2626    1360     131    2306    1442      54
+ 8 DE          Sussex      10005   62611   39333    4064   52119   39975    1135
+ 9 FL          Marion      12083  107833   62041    4826   93043   66831    1511
+10 GA          Fannin      13111    9632    1923     257    7857    2028     132
 # … with 40 more rows, 18 more variables: total_population &lt;dbl&gt;, cvap &lt;dbl&gt;,
 #   white_pct &lt;dbl&gt;, black_pct &lt;dbl&gt;, hispanic_pct &lt;dbl&gt;, nonwhite_pct &lt;dbl&gt;,
 #   foreignborn_pct &lt;dbl&gt;, female_pct &lt;dbl&gt;, age29andunder_pct &lt;dbl&gt;,
 #   age65andolder_pct &lt;dbl&gt;, median_hh_inc &lt;dbl&gt;, clf_unemploy_pct &lt;dbl&gt;,
 #   lesshs_pct &lt;dbl&gt;, lesscollege_pct &lt;dbl&gt;, lesshs_whites_pct &lt;dbl&gt;,
 #   lesscollege_whites_pct &lt;dbl&gt;, rural_pct &lt;dbl&gt;, ruralurban_cc &lt;dbl&gt;, and
-#   abbreviated variable names ¹​countyCode, ²​clinton16, ³​otherpres16, …</code></pre>
+#   abbreviated variable names ¹​countyCode, ²​clinton16, ³​otherpres16, …
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
 </div>
 </div>
 </section><section id="set.seed" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="set.seed">set.seed()</h3>
@@ -728,7 +731,7 @@ dbl (25): countyCode, trump16, clinton16, otherpres16, romney12, obama12, ot...
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">my_animals</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "monkey" "monkey" "cat"   </code></pre>
+<pre><code>[1] "monkey" "dog"    "parrot"</code></pre>
 </div>
 </div>
 <p>Running the chunk of code above should output <code>"parrot" "cat" "monkey"</code> each time it is run and across different computers, or different versions of R.</p>
