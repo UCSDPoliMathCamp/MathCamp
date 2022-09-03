@@ -1,0 +1,551 @@
+
+# Class Activity. Introduction to R, Part 2. September 6, 2022
+
+Chapters 3 and 4 in https://ucsdpolimathcamp.github.io/MathCamp/
+
+## Data Cleaning
+
+```{r}
+# run in your Console
+
+# install.packages("unvotes")
+```
+
+```{r, message=FALSE, warning=FALSE}
+library(unvotes)
+library(tidyverse)
+library(here)
+```
+
+```{r}
+un_votes <- un_votes
+un_roll_calls <- un_roll_calls
+un_roll_call_issues <- un_roll_call_issues
+```
+
+About the data
+
+-   `un_votes`, country-vote level data. Each row is a country's vote on a particular UN Assembly resolution.
+-   `un_roll_calls`, resolution level data. Contains information about each resolution.
+-   `un_roll_call_issues`, resolution level data. Contains the issue-area for each resolution.
+
+### Pipe Operator
+
+```{r, eval=FALSE}
+# The pipe way
+me |> 
+  wake_up(time = "8:00") |> 
+  get_out_of_bed(side = "correct") |> 
+  get_dressed(pants = TRUE, shirt = TRUE) |> 
+  leave_house(car = FALSE, bike = TRUE)
+
+# The non-pipe way
+leave_house(get_dressed(get_out_of_bed(wake_up(me, time = "8:00"), side = "correct"), pants = TRUE, shirt = TRUE), car = FALSE, bike = TRUE)
+```
+
+
+### Select
+
+```{r}
+un_roll_calls |> 
+  select(rcid, date) # Keeping only two variables
+```
+
+```{r}
+# This creates a new object called "small_un_roll_calls"
+# containing only rcid and date columns
+small_un_roll_calls <- un_roll_calls |> 
+  select(rcid, date)
+```
+
+```{r}
+un_roll_calls |> 
+  select(-session) # Keep everything except session column
+```
+
+```{r}
+un_roll_calls |> 
+  select(where(is.character)) # Keep all character columns
+```
+
+```{r}
+un_roll_calls |> 
+  select(un_resolution = unres, date) # Select and rename columns
+```
+
+Renaming without selecting: 
+
+```{r}
+un_roll_calls |> 
+  rename(un_resolution = unres,
+         amendment = amend,
+         paragraph = para)
+```
+
+### Mutate
+
+```{r}
+un_votes |> 
+  mutate(rcid_10 = rcid * 10) # Creates the new rcid_10 variable
+```
+
+```{r}
+un_votes |> 
+  mutate(rcid = rcid * 10) # Overwrites the existing rcid variable
+```
+
+```{r}
+un_votes |> 
+  mutate(vote_dummy = case_when(vote == "yes" ~ 1,
+                                vote == "no" ~ 0))
+```
+
+```{r}
+un_votes |> 
+  mutate(rcid_era = case_when(rcid < 2000 ~ "old",
+                              rcid >= 2000 & rcid < 6000 ~ "middle",
+                              rcid >= 6000 ~ "recent"))
+```
+
+To recap, the most commonly used functions for cleaning columns/variables in your data are:
+
+  -   `select()` removes and/or renames columns.
+  -   `rename()` renames existing columns without removing any.
+  -   `mutate()` changes the values of existing columns and creates new columns.
+
+
+### Filter
+
+```{r}
+un_roll_calls |> 
+  filter(importantvote == 1)
+```
+
+```{r}
+# & for AND
+un_roll_calls |> 
+  filter(importantvote == 1 & session > 40)
+
+# | for OR
+un_roll_calls |> 
+  filter(importantvote == 1 | session > 40)
+```
+
+```{r}
+un_roll_calls |> 
+  filter(!is.na(amend)) # Removing rows with NA for the amend variable
+```
+
+```{r}
+# Cumbersome way
+un_votes |> 
+  filter(country == "Kenya" |
+         country == "Grenada" |
+         country == "Canada" |
+         country == "Latvia" |
+         country == "Yemen" |
+         country == "Angola")
+
+# Easier way
+country_list <- c("Kenya", "Grenada", "Canada",
+                  "Latvia", "Yemen", "Angola")
+un_votes |> 
+  filter(country %in% country_list)
+```
+
+### Aggregation
+
+```{r}
+un_votes |> 
+  # Creating a new numeric dummy vote variable
+  mutate(vote_dummy = case_when(vote == "yes" ~ 1,
+                                vote == "no" ~ 0)) |> 
+  # Specify level of aggregation
+  group_by(country) |> 
+  # Perform the aggregation function by group
+  summarize(proportion_yes_vote = mean(vote_dummy, na.rm = TRUE))
+```
+
+```{r}
+un_votes |> 
+  mutate(vote_dummy = case_when(vote == "yes" ~ 1,
+                                vote == "no" ~ 0)) |> 
+  group_by(country) |> 
+  summarize(proportion_yes_vote = mean(vote_dummy, na.rm = TRUE)) |> 
+  arrange(proportion_yes_vote)
+
+# Use arrange(desc(proportion_yes_vote))
+# to sort in descending order
+```
+
+```{r}
+un_roll_call_issues |> 
+  count(issue)
+```
+
+### Merging Data
+
+```{r, eval=FALSE}
+xy_data <- left_join(x, y, by = "key_variable")
+```
+
+```{r, eval=FALSE}
+xy_data <- x |> 
+  left_join(y, by = "key_variable")
+```
+
+```{r}
+un_votes |> 
+  left_join(un_roll_calls, by = "rcid")
+```
+
+https://github.com/gadenbuie/tidyexplain
+
+
+
+
+## Loops and Simulations
+
+### sample()
+
+```{r}
+# Create a vector of character values
+my_animals <- c("cat", "dog", "fish", "monkey", "parrot")
+
+# From the set "my_animals", draw 2 at random
+sample(x = my_animals, size = 2)
+```
+
+```{r, error=TRUE}
+sample(x = my_animals, size = 100)
+```
+
+We set `error=TRUE` in the code chunk above to tell R we expect the code to make an error. This allows us to knit the RMarkdown document despite the coding error.
+
+```{r}
+sample(x = my_animals, size = 100, replace = TRUE)
+```
+
+```{r}
+my_animals <- sample(
+  x = my_animals,
+  size = 1000,
+  replace = TRUE,
+  prob = c(0.1, 0.2, 0.2, 0.4, 0.1)
+)
+```
+
+```{r}
+# ggplot requires the data be in tibble or data.frame form
+tibble(my_animals) |> 
+  ggplot(aes(x = my_animals)) +
+  geom_bar()
+```
+
+### Sampling from Distributions
+
+### Binomial Distribution
+
+```{r}
+rbinom(n = 100, size = 1, prob = 0.5)
+```
+
+```{r}
+# This does the same thing as the chunk above
+sample(x = c(0, 1),
+       size = 100,
+       replace = TRUE)
+```
+
+```{r}
+rbinom(n = 100, size = 1, prob = 0.8)
+```
+
+```{r}
+binomial_draws <- rbinom(n = 100, size = 1, prob = 0.8)
+
+tibble(binomial_draws) |> 
+  ggplot(aes(x = binomial_draws)) +
+  geom_bar() +
+  scale_x_continuous(breaks = 0:1) +
+  labs(title = "Binomial Distribution: size = 1, prob = 0.8")
+```
+
+```{r}
+rbinom(n = 1, size = 100, prob = 0.5)
+```
+
+```{r}
+binomial_draws <- rbinom(n = 10000,
+                         size = 7,
+                         prob = 0.5)
+```
+
+```{r}
+tibble(binomial_draws) |> 
+  ggplot(aes(x = binomial_draws)) +
+  geom_bar() +
+  scale_x_continuous(breaks = 0:7) +
+  labs(title = "Binomial Distribution: size = 7, prob = 0.5")
+```
+
+```{r}
+binomial_draws <- rbinom(n = 10000,
+                         size = 7,
+                         prob = 0.8)
+
+tibble(binomial_draws) |> 
+  ggplot(aes(x = binomial_draws)) +
+  geom_bar() +
+  scale_x_continuous(breaks = 0:7) +
+  labs(title = "Binomial Distribution: size = 7, prob = 0.8")
+```
+
+### Uniform Distribution
+
+```{r}
+# Generating random numbers from between 0 and 1
+runif(n = 25, min = 0, max = 1)
+```
+
+```{r, waring=FALSE}
+uniform_draws <- runif(10000, min = 0, max = 1)
+
+tibble(uniform_draws) |> 
+  ggplot(aes(x = uniform_draws)) +
+  geom_histogram(color = "white", bins = 30) +
+  xlim(-0.5, 1.5) +
+  labs(title = "Unfiform Distribution: min = 0, max = 1")
+```
+
+### Normal Distribution
+
+```{r}
+rnorm(n = 100, mean = 0, sd = 1)
+```
+
+```{r}
+normal_draws <- rnorm(10000, mean = 0, sd = 1)
+
+tibble(normal_draws) |> 
+  ggplot(aes(x = normal_draws)) +
+  geom_histogram(color = "white", bins = 30) +
+  labs(title = "Normal Distribution: mean = 0, sd = 1")
+```
+
+```{r}
+# rnorm defaults to mean = 0, sd = 1 if those options are left blank
+normal_minus_one <- rnorm(10000, mean = -1)
+normal_zero <- rnorm(10000)
+normal_one <- rnorm(10000, mean = 1)
+
+# Combining the draws into a single "long" data frame
+normal_data <- cbind(normal_minus_one,
+                     normal_zero,
+                     normal_one) |> 
+  as_tibble() |> 
+  pivot_longer(cols = everything(),
+               names_to = "distribution",
+               values_to = "normal_draws")
+
+normal_data |> 
+  ggplot(aes(x = normal_draws)) +
+  geom_histogram(color = "white", bins = 90) +
+  facet_wrap(~ distribution, nrow = 3)
+```
+
+```{r}
+normal_narrow <- rnorm(10000, sd = 0.5)
+normal_standard <- rnorm(10000)
+normal_wide <- rnorm(10000, sd = 1.5)
+
+normal_data <- cbind(normal_narrow,
+                     normal_standard,
+                     normal_wide) |> 
+  as_tibble() |> 
+  pivot_longer(cols = everything(),
+               names_to = "distribution",
+               values_to = "normal_draws")
+
+normal_data |> 
+  ggplot(aes(x = normal_draws)) +
+  geom_histogram(color = "white", bins = 90) +
+  facet_wrap(~ distribution, nrow = 3)
+```
+
+### Sampling from Data
+
+```{r}
+county_elections <- read_csv(here("data", "county_elections.csv"))
+```
+
+```{r}
+county_elections |> 
+  sample_n(size = 10)
+```
+
+```{r}
+county_elections |> 
+  sample_frac(size = 0.01) # Return 1% of the final data
+```
+
+```{r}
+county_elections |> 
+  group_by(state_abbrv) |> 
+  sample_n(1)
+```
+
+### set.seed()
+
+```{r}
+set.seed(10071992)
+
+sample(my_animals, 3)
+```
+
+### Loops
+
+```{r}
+print("cat")
+print("dog")
+print("monkey")
+print("parrot")
+print("fish")
+```
+
+```{r}
+my_animals <- c("cat", "dog", "monkey", "parrot", "fish")
+
+for (animal in my_animals) {
+  print(animal)
+}
+```
+
+```{r}
+# Make vector of integers from 1 to 10
+1:10
+```
+
+```{r}
+for (i in 1:10) {
+  i <- i ^ 2
+  print(i)
+}
+```
+
+```{r}
+holder <- NULL # Use NULL to create an empty object
+for (i in 1:100) {
+  holder[i] <- i ^ 2
+}
+```
+
+```{r}
+holder
+```
+
+```{r}
+holder <- NULL
+for (i in 1:100) {
+  holder <- c(holder, i ^ 2)
+}
+```
+
+
+### Simulations
+
+### Central Limit Theorem
+
+```{r}
+n_sims <- 1000
+means <- NULL
+```
+
+```{r}
+for (i in 1:n_sims) {
+  sample_data <- runif(100, min = -1, max = 1)
+  means[i] <- mean(sample_data)
+}
+```
+
+```{r}
+tibble(means) |> 
+  ggplot(aes(x = means)) +
+  geom_histogram(color = "white", bins = 30) +
+  labs(title = "Distribution of Means from Simulated Uniform Random Samples")
+```
+
+### Power Analysis
+
+```{r}
+n_sims <- 10000
+p_values <- NULL
+effect <- 0.5
+sample_size <- 50
+```
+
+```{r}
+# Setting seed so we all get the same results
+set.seed(10071992)
+
+for (i in 1:n_sims) {
+  treated <- rnorm(sample_size / 2, mean = effect)
+  control <- rnorm(sample_size / 2, mean = 0)
+  
+  power_test <- t.test(treated, control)
+  p_values[i] <- power_test$p.value
+}
+```
+
+```{r}
+mean(p_values < 0.05)
+```
+
+### Bootstrapping
+
+```{r}
+n_sims <- 1000
+estimates <- NULL
+```
+
+```{r}
+for (i in 1:n_sims) {
+  county_sample <- county_elections |> 
+    sample_n(size = nrow(county_elections), replace = TRUE)
+  
+  lm_model <- lm(median_hh_inc ~ lesshs_pct,
+                 data = county_sample)
+  estimates[i] <- summary(lm_model)$coef[[2]]
+}
+```
+
+```{r}
+# saving ggplot object so we can add onto it later
+bootstrap_plot <- tibble(estimates) |> 
+  ggplot(aes(x = estimates)) +
+  geom_histogram(color = "black",
+                 fill = "white",
+                 bins = 30) +
+  labs(x = "Bootstrapped Estimates of the Regression Coefficient") +
+  theme_bw()
+
+bootstrap_plot
+```
+
+```{r}
+lm_model <- lm(median_hh_inc ~ lesshs_pct,
+               data = county_elections)
+estimate <- summary(lm_model)$coef[[2]]
+standard_error <- summary(lm_model)$coef[[4]]
+```
+
+```{r}
+bootstrap_plot +
+  geom_vline(xintercept = estimate,
+             color = "maroon", size = 1.5) +
+  geom_vline(xintercept = estimate + standard_error * 1.96,
+             color = "darkcyan", size = 1.5, linetype = "dashed") +
+  geom_vline(xintercept = estimate - standard_error * 1.96,
+             color = "darkcyan", size = 1.5, linetype = "dashed") +
+  labs(caption = "Full sample estimate in maroon\n95% confidence interval in cyan")
+```
