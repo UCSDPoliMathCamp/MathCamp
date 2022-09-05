@@ -1,5 +1,45 @@
 # Rank and Matrix Inverse
 
+
+## Linear Independence {#linearindependence}
+
+
+
+__Linear independence__:  A set of vectors ${\bf v}_1, {\bf v}_2,  \cdots , {\bf v}_k$ is linearly independent if the only solution to the equation
+
+$$c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k = 0$$
+
+is $c_1 = c_2 = \cdots = c_k = 0$.  If another solution exists, the set of vectors is linearly dependent.
+    
+A set $S$ of vectors is linearly dependent if and only if at least one of the vectors in $S$ can be written as a linear combination of the other vectors in $S$.
+
+ Linear independence is only defined for sets of vectors with the same number of elements; any linearly independent set of vectors in $n$-space contains at most $n$ vectors.
+ 
+ 
+ Since $\begin{bmatrix}9 \\ 13 \\ 17 \end{bmatrix}$ is a linear combination of $\begin{bmatrix}1 \\ 2 \\ 3 \end{bmatrix}$, $\begin{bmatrix} 2 \\ 3\\ 4\end{bmatrix}$, and $\begin{bmatrix} 3 \\ 4 \\ 5 \end{bmatrix}$, these 4 vectors constitute a linearly dependent set. 
+
+:::{#exm-linearindep} 
+Are the following sets of vectors linearly independent?
+  
+  1. $\begin{bmatrix}2 \\ 3 \\ 1 \end{bmatrix}$ and $\begin{bmatrix}4 \\ 6 \\ 1 \end{bmatrix}$
+  2. $\begin{bmatrix}1 \\ 0 \\ 0 \end{bmatrix}$, $\begin{bmatrix}0 \\ 5 \\ 0 \end{bmatrix}$, and $\begin{bmatrix}10 \\ 10 \\ 0 \end{bmatrix}$
+
+:::
+
+
+
+:::{#exr-linearindep1}
+Are the following sets of vectors linearly independent?
+  
+  1. $${\bf v}_1 = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} , {\bf v}_2 = \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} , {\bf v}_3 = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} $$ 
+  
+  2. $${\bf v}_1 = \begin{bmatrix} 2 \\ 2 \\ 1 \end{bmatrix} , {\bf v}_2 = \begin{bmatrix} -4 \\ 6 \\ 5 \end{bmatrix} , {\bf v}_3 = \begin{bmatrix} -2 \\ 8 \\ 6 \end{bmatrix} $$
+
+:::
+
+
+
+
 ## Rank of a Matrix
 
 To determine how many solutions exist, we can use information about (1) the number of equations $m$, (2) the number of unknowns $n$, and (3) the __rank__ of the matrix representing the linear system.
@@ -285,6 +325,17 @@ Caculate the inverse of $\mathbf{A}$
 ## Answers to Examples and Exercises {-}
 
 
+
+Answer to @exm-linearindep:
+
+  1. yes
+  2. no
+
+Answer to @exr-linearindep1:
+
+  1. yes
+  2. no ($-v_1 -v_2 + v_3  = 0$)
+  
 
 
 Answer to @exr-rank:
