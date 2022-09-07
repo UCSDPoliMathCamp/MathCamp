@@ -473,6 +473,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="header-section-number">6.6</span> Special Matrices</h2>
 <p><strong>Zero Matrix</strong>: The zero matrix is a matrix of all zeros. For example, the <span class="math inline">3\times 4</span> zero matrix is given by</p>
 <p><span class="math display">{\bf 0}_{3\times 4}=\begin{bmatrix} 0&amp;0&amp;0&amp;0\\0&amp;0&amp;0&amp;0\\0&amp;0&amp;0&amp;0 \end{bmatrix}</span></p>
+<p><strong>Square Matrix</strong>: A square matrix is a matrix with the same number of rows and columns. For example, the <span class="math inline">3\times 3</span> matrix is a square matrix, but the <span class="math inline">3\times 4</span> matrix is not.</p>
 <p><strong>Identity Matrix</strong>: The identity matrix is a square matrix with ones on the main diagonal and zeros elsewhere. For example, the <span class="math inline">3\times 3</span> identity matrix is given by</p>
 <p><span class="math display">{\bf I}_3=\begin{bmatrix} 1&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;0&amp;1 \end{bmatrix}</span></p>
 <p>Notice that we can write identity matrix as collections of unit vectors. For example, the <span class="math inline">3\times 3</span> identity matrix can be written as</p>
@@ -490,7 +491,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section><section id="vector-inner-product" class="level2" data-number="6.7"><h2 data-number="6.7" class="anchored" data-anchor-id="vector-inner-product">
 <span class="header-section-number">6.7</span> Vector Inner Product</h2>
 <p>When we multiply matrices, we do not perform the operation element-wise as we did with addition and scalar multiplication. Matrix multiplication is, in itself, a very powerful tool for summarizing information. In fact, many of the analytical tools, like linear regression, can all be understood more clearly with a firm grasp on matrix multiplication. Because this operation is so important, we will spend a considerable amount of energy breaking it down in many ways.</p>
-<p>We often want to summarize the relationship between two vectors into a single number. If the two vectors are pointing in similar directions, the number should be large and positive. If the two vectors are pointing in opposite directions, the number should be small and negative. If the two vectors are perpendicular, the number should be zero. This idea leads to the definition of the inner product of two vectors.</p>
+<p>We often want to summarize the relationship between two vectors into a single number. If the two vectors are pointing in similar directions, the number should be positive. If the two vectors are pointing in opposite directions, the number should be negative. If the two vectors are perpendicular, the number should be zero. This idea leads to the definition of the inner product of two vectors.</p>
 <p><strong>Inner Product</strong>: The inner product (also called dot product) of two vectors <span class="math inline">\mathbf{u}</span> and <span class="math inline">\mathbf{v}</span> is defined as</p>
 <p><span class="math display">\mathbf{u} \cdot \mathbf{v}=\mathbf{u}^\top\mathbf{v}=\sum_{i=1}^n u_i v_i = u_1 v_1 + u_2 v_2+\cdots u_n v_n.</span></p>
 <p>The inner product is a scalar quantity.</p>
@@ -554,6 +555,26 @@ a_y b_y \underbrace{\begin{bmatrix}0 \\ 1\end{bmatrix}^\top \begin{bmatrix}0 \\ 
 <li><p><span class="math inline">w \cdot v</span></p></li>
 </ol>
 </div>
+<p><strong>Vector Norm</strong>: The norm of a vector is a measure of its length. There are many different ways to calculate the norm, but the most common is the Euclidean norm (which corresponds to our usual conception of distance):</p>
+<p><span class="math display">\lVert \mathbf{v}\rVert = \sqrt{\mathbf{v}\cdot\mathbf{v}} =  \sqrt{\mathbf{v}^\top\mathbf{v}} = \sqrt{ v_1^2 + v_2^2 + \cdots + v_n^2}.</span></p>
+<p>This is merely measuring the distance between the point <span class="math inline">\mathbf{v}</span> and the origin.</p>
+<p>In other words, the norm of a vector is the square root of the sum of the squares of its components, which is also the square root of the inner product of itself. The norm of a vector is always non-negative. The norm of a zero vector is 0. The norm of a unit vector is 1.</p>
+<p>To compute the distance between two different points, say <span class="math inline">\mathbf{x}</span> and <span class="math inline">\mathbf{y}</span>, we’d calculate <span class="math display">\begin{align*}
+\lVert \mathbf{x}-\mathbf{y}\rVert
+&amp;= \sqrt{(\mathbf{x}-\mathbf{y})^\top(\mathbf{x}-\mathbf{y})} \\
+&amp;= \sqrt{(x_1-y_1)^2 + (x_2-y_2)^2 + \dots + (x_n-y_n)^2}
+\end{align*}</span></p>
+<div id="exm-norm" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6.6 </strong></span>Suppose I have two vectors in <span class="math inline">3</span>-dimensional space:</p>
+<p><span class="math display">\mathbf{x}=(1,1,1) \;\;\;\textrm{   and   }\;\;\; \mathbf{y}=(1,0,0)</span></p>
+<p>Then the Euclidean norm of <span class="math inline">\mathbf{x}</span> (i.e.&nbsp;its length or distance from the origin) is</p>
+<p><span class="math display">\lVert \mathbf{x}\rVert =\sqrt{1^2+1^2+1^2}=\sqrt{3}</span></p>
+<p>and the Euclidean norm of <span class="math inline">\mathbf{y}</span> is</p>
+<p><span class="math display">\lVert \mathbf{y} \rVert =\sqrt{1^2+0^2+0^2}=1</span></p>
+<p>and the Euclidean distance between point <span class="math inline">\mathbf{x}</span> and point <span class="math inline">\mathbf{y}</span> is</p>
+<p><span class="math display">\lVert \mathbf{x}-\mathbf{y} \rVert =\sqrt{(1-1)^2 + (1-0)^2 + (1-0)^2} =\sqrt{2}.</span></p>
+<p>The Euclidean norm is crucial to many methods in data analysis as it measures the closeness of two data points.</p>
+</div>
 </section><section id="matrix-multiplication" class="level2" data-number="6.8"><h2 data-number="6.8" class="anchored" data-anchor-id="matrix-multiplication">
 <span class="header-section-number">6.8</span> Matrix Multiplication</h2>
 <p>Matrix multiplication is nothing more than a collection of inner products done simultaneously in one operation. We must be careful when multiplying matrices because, as with vectors, the operation is not always possible. Unlike the vector inner product, the order in which you multiply matrices makes a big difference!</p>
@@ -572,7 +593,7 @@ a_y b_y \underbrace{\begin{bmatrix}0 \\ 1\end{bmatrix}^\top \begin{bmatrix}0 \\ 
 &amp;=\begin{bmatrix} \mathbf{a}_1\cdot\mathbf{b}_1 &amp; \mathbf{a}_1\cdot\mathbf{b}_2 &amp; \cdots &amp; \mathbf{a}_1\cdot\mathbf{b}_p \\ \mathbf{a}_2\cdot\mathbf{b}_1 &amp; \mathbf{a}_2\cdot\mathbf{b}_2 &amp; \cdots &amp; \mathbf{a}_2\cdot\mathbf{b}_p \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ \mathbf{a}_m\cdot\mathbf{b}_1 &amp; \mathbf{a}_m\cdot\mathbf{b}_2 &amp; \cdots &amp; \mathbf{a}_m\cdot\mathbf{b}_p \end{bmatrix}
 \end{align*}</span> where <span class="math inline">\mathbf{a}_i</span> is the <span class="math inline">i</span>th row of <span class="math inline">\mathbf{A}</span> and <span class="math inline">\mathbf{b}_j</span> is the <span class="math inline">j</span>th column of <span class="math inline">\mathbf{B}</span>.</p>
 <div id="exm-matmult" class="theorem example">
-<p><span class="theorem-title"><strong>Example 6.6 (Steps to Compute Matrix Multiplication) </strong></span>Let <span class="math display">\mathbf{A}=\begin{bmatrix} 2 &amp; 3 \\ -1 &amp; 4 \\ 5 &amp; 1 \end{bmatrix} \quad \;\;\mathrm{ and }\;\; \quad \mathbf{B}=\begin{bmatrix}  0 &amp; -2 \\ 2 &amp; -3 \end{bmatrix}</span></p>
+<p><span class="theorem-title"><strong>Example 6.7 (Steps to Compute Matrix Multiplication) </strong></span>Let <span class="math display">\mathbf{A}=\begin{bmatrix} 2 &amp; 3 \\ -1 &amp; 4 \\ 5 &amp; 1 \end{bmatrix} \quad \;\;\mathrm{ and }\;\; \quad \mathbf{B}=\begin{bmatrix}  0 &amp; -2 \\ 2 &amp; -3 \end{bmatrix}</span></p>
 <p>When we first get started with matrix multiplication, we often follow a few simple steps:</p>
 <ol type="1">
 <li>Write down the matrices and their dimensions. Make sure the “inside” dimensions match - those corresponding to the columns of the first matrix and the rows of the second matrix: <span class="math display">\underset{(3\times \red{2})}{\mathbf{A}} \underset{(\red{2} \times 2)}{\mathbf{B}}</span> If these dimensions match, then we can multiply the matrices. If they don’t, we stop right there - multiplication is not possible.</li>
@@ -625,22 +646,9 @@ a_y b_y \underbrace{\begin{bmatrix}0 \\ 1\end{bmatrix}^\top \begin{bmatrix}0 \\ 
 <p>In the case of <span class="math inline">\mathbf{A}\mathbf{x}</span>, we’d multiply each of the <span class="math inline">m</span> rows of <span class="math inline">\mathbf{A}</span> by the column <span class="math inline">\mathbf{x}</span>:</p>
 <p><span class="math display">\mathbf{A}\mathbf{x} = \begin{bmatrix} \mathbf{A}_{1*}\mathbf{x} \\ \mathbf{A}_{2*}\mathbf{x} \\ \vdots \\ \mathbf{A}_{m*}\mathbf{x} \end{bmatrix}.</span></p>
 <div id="exm-matrix-vector-product" class="theorem example">
-<p><span class="theorem-title"><strong>Example 6.7 (Matrix-Vector Product) </strong></span>Let <span class="math display">\mathbf{A}=\begin{bmatrix} 2 &amp; 3 \\ -1 &amp; 4 \\ 5 &amp; 1 \end{bmatrix}  \quad \mathbf{v}=\begin{bmatrix} 3\\2 \end{bmatrix} \quad \mathbf{q}=\begin{bmatrix} 2\\-1\\3\end{bmatrix}</span></p>
+<p><span class="theorem-title"><strong>Example 6.8 (Matrix-Vector Product) </strong></span>Let <span class="math display">\mathbf{A}=\begin{bmatrix} 2 &amp; 3 \\ -1 &amp; 4 \\ 5 &amp; 1 \end{bmatrix}  \quad \mathbf{v}=\begin{bmatrix} 3\\2 \end{bmatrix} \quad \mathbf{q}=\begin{bmatrix} 2\\-1\\3\end{bmatrix}</span></p>
 <p>Determine whether the following matrix-vector products are possible. When possible, compute the product.</p>
-<ol type="a">
-<li>
-<span class="math inline">\mathbf{A}\mathbf{q}</span> <span class="math display">\textrm{Not Possible: Inner dimensions do not match} \quad \underset{(3\times \red{2})}{\mathbf{A}}\underset{(\red{3}\times 1)}{\mathbf{q}}</span>
-</li>
-<li>
-<span class="math inline">\mathbf{A}\mathbf{v}</span> <span class="math display">\begin{bmatrix} 2 &amp; 3 \\ -1 &amp; 4 \\ 5 &amp; 1 \end{bmatrix} \begin{bmatrix} 3\\2 \end{bmatrix} = \begin{bmatrix} 2(3)+3(2) \\  -1(3)+4(2)\\5(3)+1(2) \end{bmatrix} = \begin{bmatrix} 12\\5\\17\end{bmatrix}</span>
-</li>
-<li>
-<span class="math inline">\mathbf{q}^\top\mathbf{A}</span> <span class="math display">\begin{bmatrix} \blue{2} &amp; \blue{-1} &amp; \blue{3}\end{bmatrix} \begin{bmatrix} \blue{2} &amp; 3 \\ \blue{-1} &amp; 4 \\ \blue{5} &amp; 1 \end{bmatrix}  =  \begin{bmatrix} \blue{20} &amp; 5  \end{bmatrix}</span>
-</li>
-<li>
-<span class="math inline">\mathbf{v}^\top\mathbf{A}</span> <span class="math display">\textrm{Not Possible: Inner dimensions do not match} \quad \underset{(1\times \red{2})}{\mathbf{v}^\top}\underset{(\red{3}\times 2)}{\mathbf{A}}</span>
-</li>
-</ol>
+<p>Let <span class="math display">\mathbf{A}=\begin{bmatrix} 2 &amp; 3 \\ -1 &amp; 4 \\ 5 &amp; 1 \end{bmatrix}  \quad \mathbf{v}=\begin{bmatrix} 3\\2 \end{bmatrix} \quad \mathbf{q}=\begin{bmatrix} 2\\-1\\3\end{bmatrix}</span> d.&nbsp;<span class="math inline">\mathbf{v}^\top\mathbf{A}</span> <span class="math display">\textrm{Not Possible: Inner dimensions do not match} \quad \underset{(1\times \red{2})}{\mathbf{v}^\top}\underset{(\red{3}\times 2)}{\mathbf{A}}</span></p>
 </div>
 </section><section id="matrix-product-is-linear-combination" class="level2" data-number="6.10"><h2 data-number="6.10" class="anchored" data-anchor-id="matrix-product-is-linear-combination">
 <span class="header-section-number">6.10</span> Matrix Product IS Linear Combination</h2>
@@ -663,7 +671,7 @@ a_y b_y \underbrace{\begin{bmatrix}0 \\ 1\end{bmatrix}^\top \begin{bmatrix}0 \\ 
 </div>
 </div>
 <div id="exm-matrix-vector-product-lc" class="theorem example">
-<p><span class="theorem-title"><strong>Example 6.8 </strong></span>Calculate</p>
+<p><span class="theorem-title"><strong>Example 6.9 </strong></span>Calculate</p>
 <p><span class="math display">\begin{bmatrix} 3 &amp; 1 \\ 1 &amp; 2\end{bmatrix}\begin{bmatrix}-1 \\ 2\end{bmatrix}.</span></p>
 <p>Calculate</p>
 <p><span class="math display">(-1)\begin{bmatrix} 3 \\ 1 \end{bmatrix}+(2)\begin{bmatrix}1 \\ 2\end{bmatrix}.</span></p>
@@ -1060,297 +1068,322 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>__Zero Matrix__: The zero matrix is a matrix of all zeros. For example, the $3\times 4$ zero matrix is given by </span>
 <span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a>$${\bf 0}_{3\times 4}=\begin{bmatrix} 0&amp;0&amp;0&amp;0<span class="sc">\\</span>0&amp;0&amp;0&amp;0<span class="sc">\\</span>0&amp;0&amp;0&amp;0 \end{bmatrix}$$</span>
 <span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>__Identity Matrix__: The identity matrix is a square matrix with ones on the main diagonal and zeros elsewhere. For example, the $3\times 3$ identity matrix is given by</span>
-<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>$${\bf I}_3=\begin{bmatrix} 1&amp;0&amp;0<span class="sc">\\</span>0&amp;1&amp;0<span class="sc">\\</span>0&amp;0&amp;1 \end{bmatrix}$$</span>
-<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>Notice that we can write identity matrix as collections of unit vectors. For example, the $3\times 3$ identity matrix can be written as</span>
-<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>$$\mathbf{I}_3=\left[ \mathbf{e}_1 | \mathbf{e}_2 | \mathbf{e}_3 \right],$$</span>
-<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>where</span>
-<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>$${\bf e}_1 = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, {\bf e}_2 = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}, \;\;\mathrm{ and }\;\; {\bf e}_3 = \begin{bmatrix} 0 <span class="sc">\\</span> 0 <span class="sc">\\</span> 1 \end{bmatrix}$$</span>
-<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a>are unit vectors in $\mathbb{R}^3$, the 3-dimensional vector space.</span>
-<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>__Symmetric Matrix__: A matrix is symmetric if it is equal to its transpose. That is, if $\mathbf{A}$ is a symmetric matrix, then </span>
-<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}=\mathbf{A}^\top.$$</span>
-<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a>__Diagonal Matrix__: A matrix is diagonal if all the elements outside the main diagonal are zero. </span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>__Square Matrix__: A square matrix is a matrix with the same number of rows and columns. For example, the $3\times 3$ matrix is a square matrix, but the $3\times 4$ matrix is not.</span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>__Identity Matrix__: The identity matrix is a square matrix with ones on the main diagonal and zeros elsewhere. For example, the $3\times 3$ identity matrix is given by</span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>$${\bf I}_3=\begin{bmatrix} 1&amp;0&amp;0<span class="sc">\\</span>0&amp;1&amp;0<span class="sc">\\</span>0&amp;0&amp;1 \end{bmatrix}$$</span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>Notice that we can write identity matrix as collections of unit vectors. For example, the $3\times 3$ identity matrix can be written as</span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>$$\mathbf{I}_3=\left[ \mathbf{e}_1 | \mathbf{e}_2 | \mathbf{e}_3 \right],$$</span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a>where</span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a>$${\bf e}_1 = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, {\bf e}_2 = \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}, \;\;\mathrm{ and }\;\; {\bf e}_3 = \begin{bmatrix} 0 <span class="sc">\\</span> 0 <span class="sc">\\</span> 1 \end{bmatrix}$$</span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>are unit vectors in $\mathbb{R}^3$, the 3-dimensional vector space.</span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>__Symmetric Matrix__: A matrix is symmetric if it is equal to its transpose. That is, if $\mathbf{A}$ is a symmetric matrix, then </span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}=\mathbf{A}^\top.$$</span>
 <span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>For example:</span>
-<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>$$\mathbf{D} = \begin{bmatrix} \sigma_1 &amp; 0 &amp; 0 &amp; 0 <span class="sc">\\</span> 0 &amp; \sigma_2 &amp; 0 &amp; 0<span class="sc">\\</span> 0&amp;0&amp;\sigma_3&amp;0<span class="sc">\\</span> 0&amp;0&amp;0&amp;\sigma_4 \end{bmatrix}$$</span>
-<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>Since the off diagonal elements are 0, we need only define the diagonal elements for such a matrix. Thus, we will frequently write</span>
-<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>$$\mathbf{D}=\mathrm{diag}<span class="sc">\{</span>\sigma_1,\sigma_2,\sigma_3,\sigma_4<span class="sc">\}</span>.$$</span>
-<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vector Inner Product</span></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>__Diagonal Matrix__: A matrix is diagonal if all the elements outside the main diagonal are zero. </span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a>For example:</span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>$$\mathbf{D} = \begin{bmatrix} \sigma_1 &amp; 0 &amp; 0 &amp; 0 <span class="sc">\\</span> 0 &amp; \sigma_2 &amp; 0 &amp; 0<span class="sc">\\</span> 0&amp;0&amp;\sigma_3&amp;0<span class="sc">\\</span> 0&amp;0&amp;0&amp;\sigma_4 \end{bmatrix}$$</span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>Since the off diagonal elements are 0, we need only define the diagonal elements for such a matrix. Thus, we will frequently write</span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a>$$\mathbf{D}=\mathrm{diag}<span class="sc">\{</span>\sigma_1,\sigma_2,\sigma_3,\sigma_4<span class="sc">\}</span>.$$</span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a>When we multiply matrices, we do not perform the operation element-wise as we did with addition and scalar multiplication. Matrix multiplication is, in itself, a very powerful tool for summarizing information. In fact, many of the analytical tools, like linear regression, can all be understood more clearly with a firm grasp on matrix multiplication. Because this operation is so important, we will spend a considerable amount of energy breaking it down in many ways. </span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vector Inner Product</span></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a>We often want to summarize the relationship between two vectors into a single number. If the two vectors are pointing in similar directions, the number should be large and positive. If the two vectors are pointing in opposite directions, the number should be small and negative. If the two vectors are perpendicular, the number should be zero. This idea leads to the definition of the inner product of two vectors.</span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a>When we multiply matrices, we do not perform the operation element-wise as we did with addition and scalar multiplication. Matrix multiplication is, in itself, a very powerful tool for summarizing information. In fact, many of the analytical tools, like linear regression, can all be understood more clearly with a firm grasp on matrix multiplication. Because this operation is so important, we will spend a considerable amount of energy breaking it down in many ways. </span>
 <span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>__Inner Product__: The inner product (also called dot product) of two vectors $\mathbf{u}$ and $\mathbf{v}$ is defined as</span>
-<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>$$\mathbf{u} \cdot \mathbf{v}=\mathbf{u}^\top\mathbf{v}=\sum_{i=1}^n u_i v_i = u_1 v_1 + u_2 v_2+\cdots u_n v_n.$$</span>
-<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a>The inner product is a scalar quantity.</span>
-<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a>If ${\bf u} \cdot {\bf v} = 0$, the two vectors are orthogonal (or perpendicular).</span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>We often want to summarize the relationship between two vectors into a single number. If the two vectors are pointing in similar directions, the number should be positive. If the two vectors are pointing in opposite directions, the number should be negative. If the two vectors are perpendicular, the number should be zero. This idea leads to the definition of the inner product of two vectors.</span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a>__Inner Product__: The inner product (also called dot product) of two vectors $\mathbf{u}$ and $\mathbf{v}$ is defined as</span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>$$\mathbf{u} \cdot \mathbf{v}=\mathbf{u}^\top\mathbf{v}=\sum_{i=1}^n u_i v_i = u_1 v_1 + u_2 v_2+\cdots u_n v_n.$$</span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a>The inner product is a scalar quantity.</span>
 <span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, label='fig-animinnerproduct', fig.align='center', fig.cap = 'Animation of Inner Product between two vectors [(Source)](https://shainarace.github.io/LinearAlgebra/mult.html)', echo=F, out.width="50%"}</span></span>
-<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"images/animinnerprod.gif"</span>)</span>
-<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a>Why are we doing this? To understand what's going on intuitively, let's think about the case of two-dimensions where we can break down the components of the inner product into $x$ and $y$ axis.</span>
-<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a>Denote</span>
-<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a>$$\mathbf{a}=\begin{bmatrix}a_x <span class="sc">\\</span> a_y\end{bmatrix}=a_x\begin{bmatrix}1 <span class="sc">\\</span> 0\end{bmatrix} + a_y\begin{bmatrix}0 <span class="sc">\\</span> 1\end{bmatrix}$$</span>
-<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>$$\mathbf{b}=\begin{bmatrix}b_x <span class="sc">\\</span> b_y\end{bmatrix}=b_x\begin{bmatrix}1 <span class="sc">\\</span> 0\end{bmatrix} + b_y\begin{bmatrix}0 <span class="sc">\\</span> 1\end{bmatrix}$$</span>
-<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>Since $x$ and $y$ axis are perpendicular to each other, the inner products of their unit vectors $\begin{bmatrix}1 <span class="sc">\\</span> 0\end{bmatrix}$ and $\begin{bmatrix}0 <span class="sc">\\</span> 1\end{bmatrix}$ are zero, thus we have that</span>
-<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a>\begin{align*}\mathbf{a}\cdot\mathbf{b}</span>
-<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>&amp;=\left(a_x\begin{bmatrix}1 <span class="sc">\\</span> 0\end{bmatrix} + a_y\begin{bmatrix}0 <span class="sc">\\</span> 1\end{bmatrix}\right)\cdot\left(b_x\begin{bmatrix}1 <span class="sc">\\</span> 0\end{bmatrix} + b_y\begin{bmatrix}0 <span class="sc">\\</span> 1\end{bmatrix}\right) <span class="sc">\\</span></span>
-<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a>&amp;=</span>
-<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>a_x b_x \underbrace{\begin{bmatrix}1 <span class="sc">\\</span> 0\end{bmatrix}^\top \begin{bmatrix}1 <span class="sc">\\</span> 0\end{bmatrix}}_{=1\cdot 1 + 0\cdot0=1} + </span>
-<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a>a_x b_y \underbrace{\begin{bmatrix}1 <span class="sc">\\</span> 0\end{bmatrix}^\top \begin{bmatrix}0 <span class="sc">\\</span> 1\end{bmatrix}}_{=1\cdot 0 + 0\cdot1=0} + </span>
-<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a>a_y b_x \underbrace{\begin{bmatrix}0 <span class="sc">\\</span> 1\end{bmatrix}^\top \begin{bmatrix}1 <span class="sc">\\</span> 0\end{bmatrix}}_{=0\cdot 1 + 1\cdot0=0} + </span>
-<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a>a_y b_y \underbrace{\begin{bmatrix}0 <span class="sc">\\</span> 1\end{bmatrix}^\top \begin{bmatrix}0 <span class="sc">\\</span> 1\end{bmatrix}}_{=0\cdot 0 + 1\cdot1=1}<span class="sc">\\</span></span>
-<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a>&amp;=a_x b_x + a_y b_y</span>
-<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
-<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, label='fig-dot-product-components', fig.align='center', fig.cap = 'Components of Inner Product [(Source)](https://betterexplained.com/articles/vector-calculus-understanding-the-dot-product/)', echo=F, out.width="50%"}</span></span>
-<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"images/dot_product_components.jpeg"</span>)</span>
-<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a>If ${\bf u} \cdot {\bf v} = 0$, the two vectors are orthogonal (or perpendicular).</span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, label='fig-animinnerproduct', fig.align='center', fig.cap = 'Animation of Inner Product between two vectors [(Source)](https://shainarace.github.io/LinearAlgebra/mult.html)', echo=F, out.width="50%"}</span></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"images/animinnerprod.gif"</span>)</span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a>Why are we doing this? To understand what's going on intuitively, let's think about the case of two-dimensions where we can break down the components of the inner product into $x$ and $y$ axis.</span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>Denote</span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>$$\mathbf{a}=\begin{bmatrix}a_x <span class="sc">\\</span> a_y\end{bmatrix}=a_x\begin{bmatrix}1 <span class="sc">\\</span> 0\end{bmatrix} + a_y\begin{bmatrix}0 <span class="sc">\\</span> 1\end{bmatrix}$$</span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a>$$\mathbf{b}=\begin{bmatrix}b_x <span class="sc">\\</span> b_y\end{bmatrix}=b_x\begin{bmatrix}1 <span class="sc">\\</span> 0\end{bmatrix} + b_y\begin{bmatrix}0 <span class="sc">\\</span> 1\end{bmatrix}$$</span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>Since $x$ and $y$ axis are perpendicular to each other, the inner products of their unit vectors $\begin{bmatrix}1 <span class="sc">\\</span> 0\end{bmatrix}$ and $\begin{bmatrix}0 <span class="sc">\\</span> 1\end{bmatrix}$ are zero, thus we have that</span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a>\begin{align*}\mathbf{a}\cdot\mathbf{b}</span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>&amp;=\left(a_x\begin{bmatrix}1 <span class="sc">\\</span> 0\end{bmatrix} + a_y\begin{bmatrix}0 <span class="sc">\\</span> 1\end{bmatrix}\right)\cdot\left(b_x\begin{bmatrix}1 <span class="sc">\\</span> 0\end{bmatrix} + b_y\begin{bmatrix}0 <span class="sc">\\</span> 1\end{bmatrix}\right) <span class="sc">\\</span></span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a>&amp;=</span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a>a_x b_x \underbrace{\begin{bmatrix}1 <span class="sc">\\</span> 0\end{bmatrix}^\top \begin{bmatrix}1 <span class="sc">\\</span> 0\end{bmatrix}}_{=1\cdot 1 + 0\cdot0=1} + </span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a>a_x b_y \underbrace{\begin{bmatrix}1 <span class="sc">\\</span> 0\end{bmatrix}^\top \begin{bmatrix}0 <span class="sc">\\</span> 1\end{bmatrix}}_{=1\cdot 0 + 0\cdot1=0} + </span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a>a_y b_x \underbrace{\begin{bmatrix}0 <span class="sc">\\</span> 1\end{bmatrix}^\top \begin{bmatrix}1 <span class="sc">\\</span> 0\end{bmatrix}}_{=0\cdot 1 + 1\cdot0=0} + </span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a>a_y b_y \underbrace{\begin{bmatrix}0 <span class="sc">\\</span> 1\end{bmatrix}^\top \begin{bmatrix}0 <span class="sc">\\</span> 1\end{bmatrix}}_{=0\cdot 0 + 1\cdot1=1}<span class="sc">\\</span></span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a>&amp;=a_x b_x + a_y b_y</span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, label='fig-dot-product-components', fig.align='center', fig.cap = 'Components of Inner Product [(Source)](https://betterexplained.com/articles/vector-calculus-understanding-the-dot-product/)', echo=F, out.width="50%"}</span></span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"images/dot_product_components.jpeg"</span>)</span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a>:::{#exm-inner-prod}</span>
-<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a><span class="fu">### Vector Inner Product</span></span>
-<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a>Let $$\mathbf{x}=\begin{bmatrix} -1 <span class="sc">\\</span>2<span class="sc">\\</span>4<span class="sc">\\</span>0 \end{bmatrix} \quad \mathbf{y}=\begin{bmatrix} 3 <span class="sc">\\</span>5<span class="sc">\\</span>1<span class="sc">\\</span>7 \end{bmatrix} \quad \mathbf{v}=\begin{bmatrix} -3 <span class="sc">\\</span>-2<span class="sc">\\</span>5<span class="sc">\\</span>3<span class="sc">\\</span>-2 \end{bmatrix} \quad \mathbf{u}= \begin{bmatrix} 2<span class="sc">\\</span>-1<span class="sc">\\</span>3<span class="sc">\\</span>-3<span class="sc">\\</span>-2 \end{bmatrix}$$</span>
-<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a>If possible, compute the following inner products:</span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a>:::{#exm-inner-prod}</span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a><span class="fu">### Vector Inner Product</span></span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a>Let $$\mathbf{x}=\begin{bmatrix} -1 <span class="sc">\\</span>2<span class="sc">\\</span>4<span class="sc">\\</span>0 \end{bmatrix} \quad \mathbf{y}=\begin{bmatrix} 3 <span class="sc">\\</span>5<span class="sc">\\</span>1<span class="sc">\\</span>7 \end{bmatrix} \quad \mathbf{v}=\begin{bmatrix} -3 <span class="sc">\\</span>-2<span class="sc">\\</span>5<span class="sc">\\</span>3<span class="sc">\\</span>-2 \end{bmatrix} \quad \mathbf{u}= \begin{bmatrix} 2<span class="sc">\\</span>-1<span class="sc">\\</span>3<span class="sc">\\</span>-3<span class="sc">\\</span>-2 \end{bmatrix}$$</span>
 <span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a>a. $\mathbf{x}^\top\mathbf{y}$</span>
-<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
-<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a>\mathbf{x}^\top\mathbf{y} &amp;=\begin{bmatrix} -1 &amp;2&amp;4&amp;0 \end{bmatrix} \begin{bmatrix} 3 <span class="sc">\\</span>5<span class="sc">\\</span>1<span class="sc">\\</span>7 \end{bmatrix} <span class="sc">\\</span></span>
-<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a>&amp;= (-1)(3)+(2)(5)+(4)(1)+(0)(7) = -3+10+4=11</span>
-<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
-<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>b. $\mathbf{x}^\top\mathbf{v}$</span>
-<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>This is not possible because $\mathbf{x}$ and $\mathbf{v}$ do not have the same number of elements</span>
-<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a>c. $\mathbf{v}^\top\mathbf{u}$</span>
-<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
-<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a>\mathbf{v}^\top\mathbf{u} &amp;= \begin{bmatrix} -3 &amp;-2&amp;5&amp;3&amp;-2 \end{bmatrix} \begin{bmatrix} 2<span class="sc">\\</span>-1<span class="sc">\\</span>3<span class="sc">\\</span>-3<span class="sc">\\</span>-2 \end{bmatrix} <span class="sc">\\</span></span>
-<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a>&amp;= (-3)(2)+(-2)(-1)+(5)(3)+(3)(-3)+(-2)(-2) = -6+2+15-9+4 = 6</span>
-<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
-<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a>If possible, compute the following inner products:</span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a>a. $\mathbf{x}^\top\mathbf{y}$</span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>\mathbf{x}^\top\mathbf{y} &amp;=\begin{bmatrix} -1 &amp;2&amp;4&amp;0 \end{bmatrix} \begin{bmatrix} 3 <span class="sc">\\</span>5<span class="sc">\\</span>1<span class="sc">\\</span>7 \end{bmatrix} <span class="sc">\\</span></span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a>&amp;= (-1)(3)+(2)(5)+(4)(1)+(0)(7) = -3+10+4=11</span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a>b. $\mathbf{x}^\top\mathbf{v}$</span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a>This is not possible because $\mathbf{x}$ and $\mathbf{v}$ do not have the same number of elements</span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a>c. $\mathbf{v}^\top\mathbf{u}$</span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a>\mathbf{v}^\top\mathbf{u} &amp;= \begin{bmatrix} -3 &amp;-2&amp;5&amp;3&amp;-2 \end{bmatrix} \begin{bmatrix} 2<span class="sc">\\</span>-1<span class="sc">\\</span>3<span class="sc">\\</span>-3<span class="sc">\\</span>-2 \end{bmatrix} <span class="sc">\\</span></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a>&amp;= (-3)(2)+(-2)(-1)+(5)(3)+(3)(-3)+(-2)(-2) = -6+2+15-9+4 = 6</span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-267"><a href="#cb1-267" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-268"><a href="#cb1-268" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-269"><a href="#cb1-269" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-270"><a href="#cb1-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a>:::{#exr-vectors1}</span>
+<span id="cb1-271"><a href="#cb1-271" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-272"><a href="#cb1-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a>Let $u = \begin{bmatrix} 7<span class="sc">\\</span>1<span class="sc">\\</span>-5<span class="sc">\\</span>3\end{bmatrix}$, $v = \begin{bmatrix} 9<span class="sc">\\</span>-3<span class="sc">\\</span>2<span class="sc">\\</span>8 \end{bmatrix}$, $w = \begin{bmatrix} 1<span class="sc">\\</span>13<span class="sc">\\</span> -7<span class="sc">\\</span>2 <span class="sc">\\</span>15 \end{bmatrix}$, and $c = 2$. Calculate the following: </span>
-<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a><span class="ss">  1. </span>$u-v$</span>
+<span id="cb1-273"><a href="#cb1-273" aria-hidden="true" tabindex="-1"></a>:::{#exr-vectors1}</span>
+<span id="cb1-274"><a href="#cb1-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-275"><a href="#cb1-275" aria-hidden="true" tabindex="-1"></a>Let $u = \begin{bmatrix} 7<span class="sc">\\</span>1<span class="sc">\\</span>-5<span class="sc">\\</span>3\end{bmatrix}$, $v = \begin{bmatrix} 9<span class="sc">\\</span>-3<span class="sc">\\</span>2<span class="sc">\\</span>8 \end{bmatrix}$, $w = \begin{bmatrix} 1<span class="sc">\\</span>13<span class="sc">\\</span> -7<span class="sc">\\</span>2 <span class="sc">\\</span>15 \end{bmatrix}$, and $c = 2$. Calculate the following: </span>
 <span id="cb1-276"><a href="#cb1-276" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a><span class="ss">  2. </span>$cw$</span>
+<span id="cb1-277"><a href="#cb1-277" aria-hidden="true" tabindex="-1"></a><span class="ss">  1. </span>$u-v$</span>
 <span id="cb1-278"><a href="#cb1-278" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a><span class="ss">  3. </span>$u \cdot v$</span>
+<span id="cb1-279"><a href="#cb1-279" aria-hidden="true" tabindex="-1"></a><span class="ss">  2. </span>$cw$</span>
 <span id="cb1-280"><a href="#cb1-280" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a><span class="ss">  4. </span>$w \cdot v$</span>
+<span id="cb1-281"><a href="#cb1-281" aria-hidden="true" tabindex="-1"></a><span class="ss">  3. </span>$u \cdot v$</span>
 <span id="cb1-282"><a href="#cb1-282" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a><span class="fu">## Matrix Multiplication</span></span>
-<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>Matrix multiplication is nothing more than a collection of inner products done simultaneously in one operation. We must be careful when multiplying matrices because, as with vectors, the operation is not always possible. Unlike the vector inner product, the order in which you multiply matrices makes a big difference!</span>
-<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-283"><a href="#cb1-283" aria-hidden="true" tabindex="-1"></a><span class="ss">  4. </span>$w \cdot v$</span>
+<span id="cb1-284"><a href="#cb1-284" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-285"><a href="#cb1-285" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a>__Vector Norm__: The norm of a vector is a measure of its length.  There are many different ways to calculate the norm, but the most common is the Euclidean norm (which corresponds to our usual conception of distance):</span>
+<span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a>$$\lVert \mathbf{v}\rVert = \sqrt{\mathbf{v}\cdot\mathbf{v}} =  \sqrt{\mathbf{v}^\top\mathbf{v}} = \sqrt{ v_1^2 + v_2^2 + \cdots + v_n^2}.$$</span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a>This is merely measuring the distance between the point $\mathbf{v}$ and the origin. </span>
 <span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a>__Matrix Multiplication__: Let $\mathbf{A}$ be a $m\times n$ matrix and $\mathbf{B}$ be a ${k\times p}$ matrix. The matrix product $\mathbf{A}\mathbf{B}$ is possible if and only if $n=k$; that is, when the number of columns in $\mathbf{A}$ is the same as the number of rows in $\mathbf{B}$. If this condition holds, then the the product, $\mathbf{A}\mathbf{B}$, is a $m\times p$ matrix and the $(i,j)$ entry of the product $\mathbf{A}\mathbf{B}$ is the inner product of the $i$th row of $\mathbf{A}$ and the $j$th column of $\mathbf{B}$:</span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a>In other words, the norm of a vector is the square root of the sum of the squares of its components, which is also the square root of the inner product of itself. The norm of a vector is always non-negative. The norm of a zero vector is 0. The norm of a unit vector is 1.</span>
 <span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a>$$(\mathbf{A}\mathbf{B})_{ij} = \mathbf{A}_{i\star}\cdot\mathbf{B}_{\star j}$$</span>
-<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a>In other words,</span>
-<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
-<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a>\mathbf{AB}</span>
-<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a>&amp;=\left[\begin{matrix} \longleftarrow &amp; \mathbf{a}_1 &amp; \longrightarrow <span class="sc">\\</span> </span>
-<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a>\longleftarrow &amp; \mathbf{a}_2 &amp; \longrightarrow <span class="sc">\\</span> </span>
-<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a>\vdots &amp; \vdots &amp; \vdots <span class="sc">\\</span> </span>
-<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a>\longleftarrow &amp; \mathbf{a}_m &amp; \longrightarrow \end{matrix}\right]</span>
-<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a>\left[\begin{matrix} \uparrow &amp; \uparrow &amp;\dots &amp; \uparrow <span class="sc">\\</span> </span>
-<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a>\mathbf{b}_1&amp;\mathbf{b}_2&amp;\dots&amp;\mathbf{b}_p <span class="sc">\\</span> </span>
-<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a>\downarrow &amp;\downarrow &amp;\dots&amp;\downarrow   \end{matrix}\right] <span class="sc">\\</span></span>
-<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a>&amp;=\begin{bmatrix} \mathbf{a}_1\cdot\mathbf{b}_1 &amp; \mathbf{a}_1\cdot\mathbf{b}_2 &amp; \cdots &amp; \mathbf{a}_1\cdot\mathbf{b}_p \\ \mathbf{a}_2\cdot\mathbf{b}_1 &amp; \mathbf{a}_2\cdot\mathbf{b}_2 &amp; \cdots &amp; \mathbf{a}_2\cdot\mathbf{b}_p \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ \mathbf{a}_m\cdot\mathbf{b}_1 &amp; \mathbf{a}_m\cdot\mathbf{b}_2 &amp; \cdots &amp; \mathbf{a}_m\cdot\mathbf{b}_p \end{bmatrix}</span>
-<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
-<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a>where $\mathbf{a}_i$ is the $i$th row of $\mathbf{A}$ and $\mathbf{b}_j$ is the $j$th column of $\mathbf{B}$.</span>
-<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a>:::{#exm-matmult}</span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a>To compute the distance between two different points, say $\mathbf{x}$ and $\mathbf{y}$, we'd calculate </span>
+<span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a>\lVert \mathbf{x}-\mathbf{y}\rVert </span>
+<span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a>&amp;= \sqrt{(\mathbf{x}-\mathbf{y})^\top(\mathbf{x}-\mathbf{y})} <span class="sc">\\</span></span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a>&amp;= \sqrt{(x_1-y_1)^2 + (x_2-y_2)^2 + \dots + (x_n-y_n)^2}</span>
+<span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a>:::{#exm-norm}</span>
+<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a>Suppose I have two vectors in $3$-dimensional space: </span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a>$$\mathbf{x}=(1,1,1) \;\;\;\textrm{   and   }\;\;\; \mathbf{y}=(1,0,0)$$</span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a>Then the Euclidean norm of $\mathbf{x}$ (i.e. its length or distance from the origin) is</span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a>$$\lVert \mathbf{x}\rVert =\sqrt{1^2+1^2+1^2}=\sqrt{3}$$</span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a>and the Euclidean norm of $\mathbf{y}$ is</span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a>$$\lVert \mathbf{y} \rVert =\sqrt{1^2+0^2+0^2}=1$$</span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a>and the Euclidean distance between point $\mathbf{x}$ and point $\mathbf{y}$ is</span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a>$$\lVert \mathbf{x}-\mathbf{y} \rVert =\sqrt{(1-1)^2 + (1-0)^2 + (1-0)^2} =\sqrt{2}.$$</span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a>The Euclidean norm is crucial to many methods in data analysis as it measures the closeness of two data points.</span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a><span class="fu">### Steps to Compute Matrix Multiplication</span></span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a><span class="fu">## Matrix Multiplication</span></span>
 <span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a>Let $$\mathbf{A}=\begin{bmatrix} 2 &amp; 3 <span class="sc">\\</span> -1 &amp; 4 <span class="sc">\\</span> 5 &amp; 1 \end{bmatrix} \quad \;\;\mathrm{ and }\;\; \quad \mathbf{B}=\begin{bmatrix}  0 &amp; -2 <span class="sc">\\</span> 2 &amp; -3 \end{bmatrix}$$</span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a>Matrix multiplication is nothing more than a collection of inner products done simultaneously in one operation. We must be careful when multiplying matrices because, as with vectors, the operation is not always possible. Unlike the vector inner product, the order in which you multiply matrices makes a big difference!</span>
 <span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a>When we first get started with matrix multiplication, we often follow a few simple steps:</span>
-<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Write down the matrices and their dimensions. Make sure the "inside" dimensions match - those corresponding to the columns of the first matrix and the rows of the second matrix: $$\underset{(3\times \red{2})}{\mathbf{A}} \underset{(\red{2} \times 2)}{\mathbf{B}}$$ If these dimensions match, then we can multiply the matrices. If they don't, we stop right there - multiplication is not possible.</span>
-<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Now, look at the "outer" dimensions - this will tell you the size of the resulting matrix. $$\underset{(\blue{3}\times 2)}{\mathbf{A}} \underset{(2\times \blue{2})}{\mathbf{B}}$$ So the product $\mathbf{A}\mathbf{B}$ is a $3\times 2$ matrix.</span>
-<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Finally, we compute the product of the matrices by multiplying each row of $\mathbf{A}$ by each column of $\mathbf{B}$ using inner products. The element in the first row and first column of the product (written $(\mathbf{A}\mathbf{B})_{11}$) will be the inner product of the first row of $\mathbf{A}$ and the first column of $\mathbf{B}$. Then, $(\mathbf{A}\mathbf{B})_{12}$ will be the inner product of the first row of $\mathbf{A}$ and the second column of $\mathbf{B}$, etc. $$\mathbf{A}\mathbf{B} =\begin{bmatrix} (2)(0)+(3)(2) &amp; (2)(-2)+(3)(-3)<span class="sc">\\</span> (-1)(0)+(4)(2) &amp; (-1)(-2)+(4)(-3)<span class="sc">\\</span> (5)(0)+(1)(2) &amp; (5)(-2)+(1)(-3) \end{bmatrix} = \begin{bmatrix} 6&amp;-13<span class="sc">\\</span>8 &amp; -10<span class="sc">\\</span>2&amp;-13\end{bmatrix} $$</span>
-<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a>__Matrix Multiplication__: Let $\mathbf{A}$ be a $m\times n$ matrix and $\mathbf{B}$ be a ${k\times p}$ matrix. The matrix product $\mathbf{A}\mathbf{B}$ is possible if and only if $n=k$; that is, when the number of columns in $\mathbf{A}$ is the same as the number of rows in $\mathbf{B}$. If this condition holds, then the the product, $\mathbf{A}\mathbf{B}$, is a $m\times p$ matrix and the $(i,j)$ entry of the product $\mathbf{A}\mathbf{B}$ is the inner product of the $i$th row of $\mathbf{A}$ and the $j$th column of $\mathbf{B}$:</span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a>$$(\mathbf{A}\mathbf{B})_{ij} = \mathbf{A}_{i\star}\cdot\mathbf{B}_{\star j}$$</span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a>In other words,</span>
 <span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a>:::{#exr-matmult}</span>
-<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a><span class="fu">### Matrix Multiplication</span></span>
-<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a>Suppose we have </span>
-<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}_{4\times 6} \quad \mathbf{B}_{5\times 5} \quad \mathbf{M}_{5\times 4} \quad \mathbf{P}_{6\times 5}$$</span>
-<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a>Circle the matrix products that are possible to compute and write the dimension of the result.</span>
-<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}\mathbf{M} \qquad \mathbf{M}\mathbf{A} \qquad \mathbf{B}\mathbf{M}  \qquad \mathbf{M}\mathbf{B} \qquad \mathbf{P}\mathbf{A} \qquad \mathbf{P}\mathbf{M} \qquad \mathbf{A}\mathbf{P} \qquad \mathbf{A}^\top\mathbf{P} \qquad \mathbf{M}^\top\mathbf{B}$$</span>
-<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a>Let </span>
-<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}=\begin{bmatrix} 1&amp;1&amp;0&amp;1<span class="sc">\\</span>0&amp;1&amp;1&amp;1<span class="sc">\\</span>1&amp;0&amp;1&amp;0\end{bmatrix} \quad \mathbf{M} = \begin{bmatrix} -2&amp;1&amp;-1&amp;2&amp;-2<span class="sc">\\</span>1&amp;-2&amp;0&amp;-1&amp;2<span class="sc">\\</span>2&amp;1&amp;-3&amp;-2&amp;3 <span class="sc">\\</span> 1&amp;3&amp;2&amp;-1&amp;2\end{bmatrix}$$</span>
-<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a>$$\mathbf{C}=\begin{bmatrix} -1&amp;0&amp;1&amp;0<span class="sc">\\</span>1&amp;-1&amp;0&amp;0<span class="sc">\\</span>0&amp;0&amp;1&amp;-1 \end{bmatrix}$$</span>
-<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a>Determine the following matrix products, if possible:</span>
-<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$\mathbf{A}\mathbf{C}$</span>
-<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>$\mathbf{A}\mathbf{M}$</span>
-<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>$\mathbf{A}^\top\mathbf{C}$</span>
-<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a>\mathbf{AB}</span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a>&amp;=\left[\begin{matrix} \longleftarrow &amp; \mathbf{a}_1 &amp; \longrightarrow <span class="sc">\\</span> </span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a>\longleftarrow &amp; \mathbf{a}_2 &amp; \longrightarrow <span class="sc">\\</span> </span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a>\vdots &amp; \vdots &amp; \vdots <span class="sc">\\</span> </span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a>\longleftarrow &amp; \mathbf{a}_m &amp; \longrightarrow \end{matrix}\right]</span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a>\left[\begin{matrix} \uparrow &amp; \uparrow &amp;\dots &amp; \uparrow <span class="sc">\\</span> </span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a>\mathbf{b}_1&amp;\mathbf{b}_2&amp;\dots&amp;\mathbf{b}_p <span class="sc">\\</span> </span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a>\downarrow &amp;\downarrow &amp;\dots&amp;\downarrow   \end{matrix}\right] <span class="sc">\\</span></span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a>&amp;=\begin{bmatrix} \mathbf{a}_1\cdot\mathbf{b}_1 &amp; \mathbf{a}_1\cdot\mathbf{b}_2 &amp; \cdots &amp; \mathbf{a}_1\cdot\mathbf{b}_p \\ \mathbf{a}_2\cdot\mathbf{b}_1 &amp; \mathbf{a}_2\cdot\mathbf{b}_2 &amp; \cdots &amp; \mathbf{a}_2\cdot\mathbf{b}_p \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ \mathbf{a}_m\cdot\mathbf{b}_1 &amp; \mathbf{a}_m\cdot\mathbf{b}_2 &amp; \cdots &amp; \mathbf{a}_m\cdot\mathbf{b}_p \end{bmatrix}</span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a>\end{align*}</span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a>where $\mathbf{a}_i$ is the $i$th row of $\mathbf{A}$ and $\mathbf{b}_j$ is the $j$th column of $\mathbf{B}$.</span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a>:::{#exm-matmult}</span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a><span class="fu">### Steps to Compute Matrix Multiplication</span></span>
 <span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a>The following properties of matrix multiplication and addition are useful to know:</span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a>Let $$\mathbf{A}=\begin{bmatrix} 2 &amp; 3 <span class="sc">\\</span> -1 &amp; 4 <span class="sc">\\</span> 5 &amp; 1 \end{bmatrix} \quad \;\;\mathrm{ and }\;\; \quad \mathbf{B}=\begin{bmatrix}  0 &amp; -2 <span class="sc">\\</span> 2 &amp; -3 \end{bmatrix}$$</span>
 <span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Associative: $\bf (A+B)+C = A+(B+C)$</span>
-<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>$\bf (AB)C = A(BC)$</span>
-<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Commutative: $\bf A+B=B+A$</span>
-<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Distributive: $\bf A(B+C)=AB+AC$</span>
-<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>$\bf (A+B)C=AC+BC$</span>
-<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a>Commutative law for multiplication does not hold -- the order of multiplication matters:</span>
-<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a>$$\bf AB \ne BA$$</span>
-<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a>For example,</span>
-<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a>$${\bf A}=\begin{bmatrix} 1&amp;2<span class="sc">\\</span>-1&amp;3\end{bmatrix}, \qquad {\bf B}=\begin{bmatrix} 2&amp;1<span class="sc">\\</span>0&amp;1\end{bmatrix}$$</span>
-<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a>$${\bf AB}=\begin{bmatrix} 2&amp;3<span class="sc">\\</span>-2&amp;2\end{bmatrix}, \qquad {\bf BA}=\begin{bmatrix} 1&amp;7<span class="sc">\\</span>-1&amp;3\end{bmatrix}$$</span>
-<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a><span class="fu">## Matrix-Vector Product</span></span>
-<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a>What if we want to multiply matrix and vector? A matrix-vector product works exactly the same way as matrix multiplication; after all, a vector $\mathbf{x}$ is nothing but an $n\times 1$ matrix. In order to multiply a matrix by a vector, again we must match the dimensions to make sure they line up correctly. For example, if we have an $m\times n$ matrix $\mathbf{A}$, we can multiply by a $1\times m$ row vector $\mathbf{v}^\top$ on the left:</span>
-<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a>$$\mathbf{v}^\top\mathbf{A} \quad \textrm{works because } \underset{ (1\times \red{m})}{\mathbf{v}^\top} \underset{(\red{m}\times n)}{\mathbf{A}}$$</span>
-<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a>$$\Longrightarrow \textrm{The result will be a   } 1 \times n \textrm{ row vector.}$$</span>
-<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a>or we can multiply by an $n\times 1$ column vector $\mathbf{x}$ on the right:</span>
-<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}\mathbf{x} \quad \textrm{works because } \underset{(m\times \red{n})}{\mathbf{A}}\underset{(\red{n}\times 1)}{\mathbf{x}} $$</span>
-<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a>$$\Longrightarrow \textrm{The result will be a   } m\times 1 \textrm{ column vector.}$$</span>
-<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a>Matrix-vector multiplication works the same way as matrix multiplication: we simply multiply rows by columns until we've completed the answer. In the case of $\mathbf{v}^\top\mathbf{A}$, we'd multiply the row $\mathbf{v}$ by each of the $n$ columns of $\mathbf{A}$, carving out our solution, one entry at a time :</span>
-<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a>$$\mathbf{v}^\top\mathbf{A} = \begin{bmatrix} \mathbf{v}^\top\mathbf{A}_{*1} &amp; \mathbf{v}^\top\mathbf{A}_{*2} &amp; \cdots &amp; \mathbf{v}^\top\mathbf{A}_{*n} \end{bmatrix}.$$</span>
-<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a>In the case of $\mathbf{A}\mathbf{x}$, we'd multiply each of the $m$ rows of $\mathbf{A}$ by the column $\mathbf{x}$:</span>
-<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}\mathbf{x} = \begin{bmatrix} \mathbf{A}_{1*}\mathbf{x} \\ \mathbf{A}_{2*}\mathbf{x} \\ \vdots \\ \mathbf{A}_{m*}\mathbf{x} \end{bmatrix}.$$</span>
-<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a>:::{#exm-matrix-vector-product}</span>
-<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a><span class="fu">### Matrix-Vector Product</span></span>
-<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a>Let $$\mathbf{A}=\begin{bmatrix} 2 &amp; 3 <span class="sc">\\</span> -1 &amp; 4 <span class="sc">\\</span> 5 &amp; 1 \end{bmatrix}  \quad \mathbf{v}=\begin{bmatrix} 3<span class="sc">\\</span>2 \end{bmatrix} \quad \mathbf{q}=\begin{bmatrix} 2<span class="sc">\\</span>-1<span class="sc">\\</span>3\end{bmatrix}$$</span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a>When we first get started with matrix multiplication, we often follow a few simple steps:</span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Write down the matrices and their dimensions. Make sure the "inside" dimensions match - those corresponding to the columns of the first matrix and the rows of the second matrix: $$\underset{(3\times \red{2})}{\mathbf{A}} \underset{(\red{2} \times 2)}{\mathbf{B}}$$ If these dimensions match, then we can multiply the matrices. If they don't, we stop right there - multiplication is not possible.</span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Now, look at the "outer" dimensions - this will tell you the size of the resulting matrix. $$\underset{(\blue{3}\times 2)}{\mathbf{A}} \underset{(2\times \blue{2})}{\mathbf{B}}$$ So the product $\mathbf{A}\mathbf{B}$ is a $3\times 2$ matrix.</span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Finally, we compute the product of the matrices by multiplying each row of $\mathbf{A}$ by each column of $\mathbf{B}$ using inner products. The element in the first row and first column of the product (written $(\mathbf{A}\mathbf{B})_{11}$) will be the inner product of the first row of $\mathbf{A}$ and the first column of $\mathbf{B}$. Then, $(\mathbf{A}\mathbf{B})_{12}$ will be the inner product of the first row of $\mathbf{A}$ and the second column of $\mathbf{B}$, etc. $$\mathbf{A}\mathbf{B} =\begin{bmatrix} (2)(0)+(3)(2) &amp; (2)(-2)+(3)(-3)<span class="sc">\\</span> (-1)(0)+(4)(2) &amp; (-1)(-2)+(4)(-3)<span class="sc">\\</span> (5)(0)+(1)(2) &amp; (5)(-2)+(1)(-3) \end{bmatrix} = \begin{bmatrix} 6&amp;-13<span class="sc">\\</span>8 &amp; -10<span class="sc">\\</span>2&amp;-13\end{bmatrix} $$</span>
+<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a>:::{#exr-matmult}</span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a><span class="fu">### Matrix Multiplication</span></span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a>Suppose we have </span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}_{4\times 6} \quad \mathbf{B}_{5\times 5} \quad \mathbf{M}_{5\times 4} \quad \mathbf{P}_{6\times 5}$$</span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a>Circle the matrix products that are possible to compute and write the dimension of the result.</span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}\mathbf{M} \qquad \mathbf{M}\mathbf{A} \qquad \mathbf{B}\mathbf{M}  \qquad \mathbf{M}\mathbf{B} \qquad \mathbf{P}\mathbf{A} \qquad \mathbf{P}\mathbf{M} \qquad \mathbf{A}\mathbf{P} \qquad \mathbf{A}^\top\mathbf{P} \qquad \mathbf{M}^\top\mathbf{B}$$</span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>Let </span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}=\begin{bmatrix} 1&amp;1&amp;0&amp;1<span class="sc">\\</span>0&amp;1&amp;1&amp;1<span class="sc">\\</span>1&amp;0&amp;1&amp;0\end{bmatrix} \quad \mathbf{M} = \begin{bmatrix} -2&amp;1&amp;-1&amp;2&amp;-2<span class="sc">\\</span>1&amp;-2&amp;0&amp;-1&amp;2<span class="sc">\\</span>2&amp;1&amp;-3&amp;-2&amp;3 <span class="sc">\\</span> 1&amp;3&amp;2&amp;-1&amp;2\end{bmatrix}$$</span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a>$$\mathbf{C}=\begin{bmatrix} -1&amp;0&amp;1&amp;0<span class="sc">\\</span>1&amp;-1&amp;0&amp;0<span class="sc">\\</span>0&amp;0&amp;1&amp;-1 \end{bmatrix}$$</span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a>Determine the following matrix products, if possible:</span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>$\mathbf{A}\mathbf{C}$</span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>$\mathbf{A}\mathbf{M}$</span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>$\mathbf{A}^\top\mathbf{C}$</span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-368"><a href="#cb1-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-369"><a href="#cb1-369" aria-hidden="true" tabindex="-1"></a>The following properties of matrix multiplication and addition are useful to know:</span>
+<span id="cb1-370"><a href="#cb1-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-371"><a href="#cb1-371" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Associative: $\bf (A+B)+C = A+(B+C)$</span>
+<span id="cb1-372"><a href="#cb1-372" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>$\bf (AB)C = A(BC)$</span>
+<span id="cb1-373"><a href="#cb1-373" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Commutative: $\bf A+B=B+A$</span>
+<span id="cb1-374"><a href="#cb1-374" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Distributive: $\bf A(B+C)=AB+AC$</span>
+<span id="cb1-375"><a href="#cb1-375" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>$\bf (A+B)C=AC+BC$</span>
+<span id="cb1-376"><a href="#cb1-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-377"><a href="#cb1-377" aria-hidden="true" tabindex="-1"></a>Commutative law for multiplication does not hold -- the order of multiplication matters:</span>
+<span id="cb1-378"><a href="#cb1-378" aria-hidden="true" tabindex="-1"></a>$$\bf AB \ne BA$$</span>
 <span id="cb1-379"><a href="#cb1-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a>Determine whether the following matrix-vector products are possible. When possible, compute the product.</span>
-<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a>a. $\mathbf{A}\mathbf{q}$ $$\textrm{Not Possible: Inner dimensions do not match} \quad \underset{(3\times \red{2})}{\mathbf{A}}\underset{(\red{3}\times 1)}{\mathbf{q}}$$</span>
-<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a>b. $\mathbf{A}\mathbf{v}$ $$\begin{bmatrix} 2 &amp; 3 <span class="sc">\\</span> -1 &amp; 4 <span class="sc">\\</span> 5 &amp; 1 \end{bmatrix} \begin{bmatrix} 3<span class="sc">\\</span>2 \end{bmatrix} = \begin{bmatrix} 2(3)+3(2) <span class="sc">\\</span>  -1(3)+4(2)<span class="sc">\\</span>5(3)+1(2) \end{bmatrix} = \begin{bmatrix} 12<span class="sc">\\</span>5<span class="sc">\\</span>17\end{bmatrix}$$</span>
-<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a>c. $\mathbf{q}^\top\mathbf{A}$ $$\begin{bmatrix} \blue{2} &amp; \blue{-1} &amp; \blue{3}\end{bmatrix} \begin{bmatrix} \blue{2} &amp; 3 <span class="sc">\\</span> \blue{-1} &amp; 4 <span class="sc">\\</span> \blue{5} &amp; 1 \end{bmatrix}  =  \begin{bmatrix} \blue{20} &amp; 5  \end{bmatrix}$$</span>
-<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a>d. $\mathbf{v}^\top\mathbf{A}$ $$\textrm{Not Possible: Inner dimensions do not match} \quad \underset{(1\times \red{2})}{\mathbf{v}^\top}\underset{(\red{3}\times 2)}{\mathbf{A}}$$</span>
-<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a><span class="fu">## Matrix Product IS Linear Combination</span></span>
-<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a>All matrix products can be viewed as linear combinations. This vantage point is _extremely_ crucial to our understanding of linear algebra. Let's start with matrix-vector product and see how we can depict it as a linear combination of the columns of the matrix.</span>
-<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>__Matrix-Vector Product as Linear Combination__:</span>
+<span id="cb1-380"><a href="#cb1-380" aria-hidden="true" tabindex="-1"></a>For example,</span>
+<span id="cb1-381"><a href="#cb1-381" aria-hidden="true" tabindex="-1"></a>$${\bf A}=\begin{bmatrix} 1&amp;2<span class="sc">\\</span>-1&amp;3\end{bmatrix}, \qquad {\bf B}=\begin{bmatrix} 2&amp;1<span class="sc">\\</span>0&amp;1\end{bmatrix}$$</span>
+<span id="cb1-382"><a href="#cb1-382" aria-hidden="true" tabindex="-1"></a>$${\bf AB}=\begin{bmatrix} 2&amp;3<span class="sc">\\</span>-2&amp;2\end{bmatrix}, \qquad {\bf BA}=\begin{bmatrix} 1&amp;7<span class="sc">\\</span>-1&amp;3\end{bmatrix}$$</span>
+<span id="cb1-383"><a href="#cb1-383" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-384"><a href="#cb1-384" aria-hidden="true" tabindex="-1"></a><span class="fu">## Matrix-Vector Product</span></span>
+<span id="cb1-385"><a href="#cb1-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-386"><a href="#cb1-386" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-387"><a href="#cb1-387" aria-hidden="true" tabindex="-1"></a>What if we want to multiply matrix and vector? A matrix-vector product works exactly the same way as matrix multiplication; after all, a vector $\mathbf{x}$ is nothing but an $n\times 1$ matrix. In order to multiply a matrix by a vector, again we must match the dimensions to make sure they line up correctly. For example, if we have an $m\times n$ matrix $\mathbf{A}$, we can multiply by a $1\times m$ row vector $\mathbf{v}^\top$ on the left:</span>
+<span id="cb1-388"><a href="#cb1-388" aria-hidden="true" tabindex="-1"></a>$$\mathbf{v}^\top\mathbf{A} \quad \textrm{works because } \underset{ (1\times \red{m})}{\mathbf{v}^\top} \underset{(\red{m}\times n)}{\mathbf{A}}$$</span>
+<span id="cb1-389"><a href="#cb1-389" aria-hidden="true" tabindex="-1"></a>$$\Longrightarrow \textrm{The result will be a   } 1 \times n \textrm{ row vector.}$$</span>
+<span id="cb1-390"><a href="#cb1-390" aria-hidden="true" tabindex="-1"></a>or we can multiply by an $n\times 1$ column vector $\mathbf{x}$ on the right:</span>
+<span id="cb1-391"><a href="#cb1-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-392"><a href="#cb1-392" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}\mathbf{x} \quad \textrm{works because } \underset{(m\times \red{n})}{\mathbf{A}}\underset{(\red{n}\times 1)}{\mathbf{x}} $$</span>
+<span id="cb1-393"><a href="#cb1-393" aria-hidden="true" tabindex="-1"></a>$$\Longrightarrow \textrm{The result will be a   } m\times 1 \textrm{ column vector.}$$</span>
 <span id="cb1-394"><a href="#cb1-394" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a>Let $\mathbf{A}$ be an $m\times n$ matrix partitioned into columns, </span>
-<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A} = \begin{bmatrix}\mathbf{a}_1 | \mathbf{a}_2 | \dots | \mathbf{a}_n\end{bmatrix}$$</span>
-<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a>and let $\mathbf{x}$ be a $n$-dimensional vector</span>
-<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a>$$\mathbf{x}=\begin{bmatrix} x_1 <span class="sc">\\</span> x_2 <span class="sc">\\</span> \vdots <span class="sc">\\</span> x_n \end{bmatrix}$$</span>
-<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a>Then, $\mathbf{A}\mathbf{x}$ is the linear combination of the columns of $\mathbf{A}$ using coefficients in $\mathbf{x}$:</span>
-<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}\mathbf{x} = x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + \dots + x_n\mathbf{a}_n.$$</span>
-<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a>The animation below illustrates the relationship between matrix-vector product and linear combination. </span>
-<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, fig=T, label='fig-matvecprodlincombanim', fig.show="hold", out.width="50%", echo=F,fig.align='center',fig.cap = 'Illustration of Matrix-Vector Product as Linear Combinations [(Source)](https://shainarace.github.io/LinearAlgebra/mult.html)'}</span></span>
-<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"images/animmatveclincomb.gif"</span>)</span>
-<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a>:::{#exm-matrix-vector-product-lc}</span>
-<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a>Calculate </span>
-<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a>$$\begin{bmatrix} 3 &amp; 1 <span class="sc">\\</span> 1 &amp; 2\end{bmatrix}\begin{bmatrix}-1 <span class="sc">\\</span> 2\end{bmatrix}.$$</span>
-<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a>Calculate </span>
-<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a>$$(-1)\begin{bmatrix} 3 <span class="sc">\\</span> 1 \end{bmatrix}+(2)\begin{bmatrix}1 <span class="sc">\\</span> 2\end{bmatrix}.$$</span>
-<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a>Interpret the geometric relationship between the two.</span>
-<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a>Conceptually, while doing matrix-vector product, the matrix $\mathbf{A}$ is **transforming** the vector $\mathbf{x}$ in a specific way (by taking linear cominations) to the vector $\mathbf{A}\mathbf{x}$. This is illustrated in the video below.</span>
-<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;iframe</span> <span class="er">width</span><span class="ot">=</span><span class="st">"560"</span> <span class="er">height</span><span class="ot">=</span><span class="st">"315"</span> <span class="er">src</span><span class="ot">=</span><span class="st">"https://www.youtube.com/embed/kYB8IZa5AuE"</span> <span class="er">title</span><span class="ot">=</span><span class="st">"YouTube video player"</span> <span class="er">frameborder</span><span class="ot">=</span><span class="st">"0"</span> <span class="er">allow</span><span class="ot">=</span><span class="st">"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"</span> <span class="er">allowfullscreen</span> <span class="er">style</span><span class="ot">=</span><span class="st">"border:1;display:block;margin:10px auto;"</span><span class="kw">&gt;&lt;/iframe&gt;</span></span>
-<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a>__Matrix Multiplication as Collection of Linear Combinations__:</span>
-<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a>We can view matrix multiplication as applying matrix-vector product iteratively. </span>
-<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a>If </span>
-<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}\mathbf{B}=\mathbf{C},$$ </span>
-<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a>then the columns of $\mathbf{C}$ can be viewed as linear combinations of the columns of $\mathbf{A}$ and the coefficients are given in the elements of each column of $\mathbf{B}$. Denote</span>
-<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}_{m\times n} = \begin{bmatrix}\mathbf{a}_1 | \mathbf{a}_2 | \dots | \mathbf{a}_n\end{bmatrix}$$</span>
-<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a>$$\mathbf{B}_{n\times p} = \begin{bmatrix}\mathbf{b}_1 | \mathbf{b}_2 | \dots | \mathbf{b}_p\end{bmatrix}$$</span>
-<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a>$$\mathbf{C}_{m\times p} = \begin{bmatrix}\mathbf{c}_1 | \mathbf{c}_2 | \dots | \mathbf{c}_p\end{bmatrix}$$</span>
-<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a>Then, for example, $\mathbf{c}_1$ is the linear combination of the columns of $\mathbf{A}$ using coefficients in the first column of $\mathbf{B}$, i.e., $\mathbf{b}_1$:</span>
-<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a>$$\mathbf{b}_1=\begin{bmatrix}B_{11}\\ B_{21}\\ \vdots \\ B_{n1} \end{bmatrix},$$</span>
-<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a>$$\mathbf{C}_1= B_{11}\mathbf{a}_1 + B_{21}\mathbf{a}_2 + \dots + B_{n1}\mathbf{a}_n=\mathbf{A}\mathbf{b}_1,$$</span>
-<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a>which is the matrix-vector product of $\mathbf{A}$ and $\mathbf{b}_1$. As a result, we can write the whole matrix multiplication as a collection of matrix-vector products by columns:</span>
-<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a>$$\mathbf{C} = \begin{bmatrix}\mathbf{c}_1 | \mathbf{c}_2 | \dots | \mathbf{c}_p\end{bmatrix} = \begin{bmatrix}\mathbf{A}\mathbf{b}_1 | \mathbf{A}\mathbf{b}_2 | \cdots | \mathbf{A}\mathbf{b}_p\end{bmatrix}.$$</span>
-<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-395"><a href="#cb1-395" aria-hidden="true" tabindex="-1"></a>Matrix-vector multiplication works the same way as matrix multiplication: we simply multiply rows by columns until we've completed the answer. In the case of $\mathbf{v}^\top\mathbf{A}$, we'd multiply the row $\mathbf{v}$ by each of the $n$ columns of $\mathbf{A}$, carving out our solution, one entry at a time :</span>
+<span id="cb1-396"><a href="#cb1-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-397"><a href="#cb1-397" aria-hidden="true" tabindex="-1"></a>$$\mathbf{v}^\top\mathbf{A} = \begin{bmatrix} \mathbf{v}^\top\mathbf{A}_{*1} &amp; \mathbf{v}^\top\mathbf{A}_{*2} &amp; \cdots &amp; \mathbf{v}^\top\mathbf{A}_{*n} \end{bmatrix}.$$</span>
+<span id="cb1-398"><a href="#cb1-398" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-399"><a href="#cb1-399" aria-hidden="true" tabindex="-1"></a>In the case of $\mathbf{A}\mathbf{x}$, we'd multiply each of the $m$ rows of $\mathbf{A}$ by the column $\mathbf{x}$:</span>
+<span id="cb1-400"><a href="#cb1-400" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-401"><a href="#cb1-401" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}\mathbf{x} = \begin{bmatrix} \mathbf{A}_{1*}\mathbf{x} \\ \mathbf{A}_{2*}\mathbf{x} \\ \vdots \\ \mathbf{A}_{m*}\mathbf{x} \end{bmatrix}.$$</span>
+<span id="cb1-402"><a href="#cb1-402" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-403"><a href="#cb1-403" aria-hidden="true" tabindex="-1"></a>:::{#exm-matrix-vector-product}</span>
+<span id="cb1-404"><a href="#cb1-404" aria-hidden="true" tabindex="-1"></a><span class="fu">### Matrix-Vector Product</span></span>
+<span id="cb1-405"><a href="#cb1-405" aria-hidden="true" tabindex="-1"></a>Let $$\mathbf{A}=\begin{bmatrix} 2 &amp; 3 <span class="sc">\\</span> -1 &amp; 4 <span class="sc">\\</span> 5 &amp; 1 \end{bmatrix}  \quad \mathbf{v}=\begin{bmatrix} 3<span class="sc">\\</span>2 \end{bmatrix} \quad \mathbf{q}=\begin{bmatrix} 2<span class="sc">\\</span>-1<span class="sc">\\</span>3\end{bmatrix}$$</span>
+<span id="cb1-406"><a href="#cb1-406" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-407"><a href="#cb1-407" aria-hidden="true" tabindex="-1"></a>Determine whether the following matrix-vector products are possible. When possible, compute the product.</span>
+<span id="cb1-408"><a href="#cb1-408" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-409"><a href="#cb1-409" aria-hidden="true" tabindex="-1"></a>Let $$\mathbf{A}=\begin{bmatrix} 2 &amp; 3 <span class="sc">\\</span> -1 &amp; 4 <span class="sc">\\</span> 5 &amp; 1 \end{bmatrix}  \quad \mathbf{v}=\begin{bmatrix} 3<span class="sc">\\</span>2 \end{bmatrix} \quad \mathbf{q}=\begin{bmatrix} 2<span class="sc">\\</span>-1<span class="sc">\\</span>3\end{bmatrix}$$</span>
+<span id="cb1-410"><a href="#cb1-410" aria-hidden="true" tabindex="-1"></a>d. $\mathbf{v}^\top\mathbf{A}$ $$\textrm{Not Possible: Inner dimensions do not match} \quad \underset{(1\times \red{2})}{\mathbf{v}^\top}\underset{(\red{3}\times 2)}{\mathbf{A}}$$</span>
+<span id="cb1-411"><a href="#cb1-411" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-412"><a href="#cb1-412" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-413"><a href="#cb1-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-414"><a href="#cb1-414" aria-hidden="true" tabindex="-1"></a><span class="fu">## Matrix Product IS Linear Combination</span></span>
+<span id="cb1-415"><a href="#cb1-415" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-416"><a href="#cb1-416" aria-hidden="true" tabindex="-1"></a>All matrix products can be viewed as linear combinations. This vantage point is _extremely_ crucial to our understanding of linear algebra. Let's start with matrix-vector product and see how we can depict it as a linear combination of the columns of the matrix.</span>
+<span id="cb1-417"><a href="#cb1-417" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-418"><a href="#cb1-418" aria-hidden="true" tabindex="-1"></a>__Matrix-Vector Product as Linear Combination__:</span>
+<span id="cb1-419"><a href="#cb1-419" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-420"><a href="#cb1-420" aria-hidden="true" tabindex="-1"></a>Let $\mathbf{A}$ be an $m\times n$ matrix partitioned into columns, </span>
+<span id="cb1-421"><a href="#cb1-421" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A} = \begin{bmatrix}\mathbf{a}_1 | \mathbf{a}_2 | \dots | \mathbf{a}_n\end{bmatrix}$$</span>
+<span id="cb1-422"><a href="#cb1-422" aria-hidden="true" tabindex="-1"></a>and let $\mathbf{x}$ be a $n$-dimensional vector</span>
+<span id="cb1-423"><a href="#cb1-423" aria-hidden="true" tabindex="-1"></a>$$\mathbf{x}=\begin{bmatrix} x_1 <span class="sc">\\</span> x_2 <span class="sc">\\</span> \vdots <span class="sc">\\</span> x_n \end{bmatrix}$$</span>
+<span id="cb1-424"><a href="#cb1-424" aria-hidden="true" tabindex="-1"></a>Then, $\mathbf{A}\mathbf{x}$ is the linear combination of the columns of $\mathbf{A}$ using coefficients in $\mathbf{x}$:</span>
+<span id="cb1-425"><a href="#cb1-425" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}\mathbf{x} = x_1\mathbf{a}_1 + x_2\mathbf{a}_2 + \dots + x_n\mathbf{a}_n.$$</span>
+<span id="cb1-426"><a href="#cb1-426" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-427"><a href="#cb1-427" aria-hidden="true" tabindex="-1"></a>The animation below illustrates the relationship between matrix-vector product and linear combination. </span>
+<span id="cb1-428"><a href="#cb1-428" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-429"><a href="#cb1-429" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, fig=T, label='fig-matvecprodlincombanim', fig.show="hold", out.width="50%", echo=F,fig.align='center',fig.cap = 'Illustration of Matrix-Vector Product as Linear Combinations [(Source)](https://shainarace.github.io/LinearAlgebra/mult.html)'}</span></span>
+<span id="cb1-430"><a href="#cb1-430" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"images/animmatveclincomb.gif"</span>)</span>
+<span id="cb1-431"><a href="#cb1-431" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-432"><a href="#cb1-432" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-433"><a href="#cb1-433" aria-hidden="true" tabindex="-1"></a>:::{#exm-matrix-vector-product-lc}</span>
+<span id="cb1-434"><a href="#cb1-434" aria-hidden="true" tabindex="-1"></a>Calculate </span>
+<span id="cb1-435"><a href="#cb1-435" aria-hidden="true" tabindex="-1"></a>$$\begin{bmatrix} 3 &amp; 1 <span class="sc">\\</span> 1 &amp; 2\end{bmatrix}\begin{bmatrix}-1 <span class="sc">\\</span> 2\end{bmatrix}.$$</span>
+<span id="cb1-436"><a href="#cb1-436" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-437"><a href="#cb1-437" aria-hidden="true" tabindex="-1"></a>Calculate </span>
+<span id="cb1-438"><a href="#cb1-438" aria-hidden="true" tabindex="-1"></a>$$(-1)\begin{bmatrix} 3 <span class="sc">\\</span> 1 \end{bmatrix}+(2)\begin{bmatrix}1 <span class="sc">\\</span> 2\end{bmatrix}.$$</span>
+<span id="cb1-439"><a href="#cb1-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-440"><a href="#cb1-440" aria-hidden="true" tabindex="-1"></a>Interpret the geometric relationship between the two.</span>
+<span id="cb1-441"><a href="#cb1-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-442"><a href="#cb1-442" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-443"><a href="#cb1-443" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a>The animation below illustrates the relationship between matrix multiplication and linear combinations.</span>
+<span id="cb1-444"><a href="#cb1-444" aria-hidden="true" tabindex="-1"></a>Conceptually, while doing matrix-vector product, the matrix $\mathbf{A}$ is **transforming** the vector $\mathbf{x}$ in a specific way (by taking linear cominations) to the vector $\mathbf{A}\mathbf{x}$. This is illustrated in the video below.</span>
 <span id="cb1-445"><a href="#cb1-445" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, fig=T, label='multlincombanim', fig.show="hold", out.width="50%", echo=F,fig.align='center',fig.cap = 'Illustration of Matrix Multiplication as Linear Combinations [(Source)](https://shainarace.github.io/LinearAlgebra/mult.html)'}</span></span>
-<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"images/animmultlincombanim.gif"</span>)</span>
-<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a>In fact, when doing matrix multiplication, we're actually applying a **series of transformations**, illustrated nicely in the video below.</span>
-<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;iframe</span> <span class="er">width</span><span class="ot">=</span><span class="st">"560"</span> <span class="er">height</span><span class="ot">=</span><span class="st">"315"</span> <span class="er">src</span><span class="ot">=</span><span class="st">"https://www.youtube.com/embed/XkY2DOUCWMU"</span> <span class="er">title</span><span class="ot">=</span><span class="st">"YouTube video player"</span> <span class="er">frameborder</span><span class="ot">=</span><span class="st">"0"</span> <span class="er">allow</span><span class="ot">=</span><span class="st">"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"</span> <span class="er">allowfullscreen</span> <span class="er">style</span><span class="ot">=</span><span class="st">"border:1;display:block;margin:10px auto;"</span><span class="kw">&gt;&lt;/iframe&gt;</span></span>
-<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-446"><a href="#cb1-446" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;iframe</span> <span class="er">width</span><span class="ot">=</span><span class="st">"560"</span> <span class="er">height</span><span class="ot">=</span><span class="st">"315"</span> <span class="er">src</span><span class="ot">=</span><span class="st">"https://www.youtube.com/embed/kYB8IZa5AuE"</span> <span class="er">title</span><span class="ot">=</span><span class="st">"YouTube video player"</span> <span class="er">frameborder</span><span class="ot">=</span><span class="st">"0"</span> <span class="er">allow</span><span class="ot">=</span><span class="st">"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"</span> <span class="er">allowfullscreen</span> <span class="er">style</span><span class="ot">=</span><span class="st">"border:1;display:block;margin:10px auto;"</span><span class="kw">&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-447"><a href="#cb1-447" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-448"><a href="#cb1-448" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-449"><a href="#cb1-449" aria-hidden="true" tabindex="-1"></a>__Matrix Multiplication as Collection of Linear Combinations__:</span>
+<span id="cb1-450"><a href="#cb1-450" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-451"><a href="#cb1-451" aria-hidden="true" tabindex="-1"></a>We can view matrix multiplication as applying matrix-vector product iteratively. </span>
+<span id="cb1-452"><a href="#cb1-452" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-453"><a href="#cb1-453" aria-hidden="true" tabindex="-1"></a>If </span>
+<span id="cb1-454"><a href="#cb1-454" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}\mathbf{B}=\mathbf{C},$$ </span>
+<span id="cb1-455"><a href="#cb1-455" aria-hidden="true" tabindex="-1"></a>then the columns of $\mathbf{C}$ can be viewed as linear combinations of the columns of $\mathbf{A}$ and the coefficients are given in the elements of each column of $\mathbf{B}$. Denote</span>
 <span id="cb1-456"><a href="#cb1-456" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers to Examples and Exercises {-}</span></span>
-<span id="cb1-461"><a href="#cb1-461" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-462"><a href="#cb1-462" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-463"><a href="#cb1-463" aria-hidden="true" tabindex="-1"></a>Answer to @exr-vectors1:</span>
-<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-465"><a href="#cb1-465" aria-hidden="true" tabindex="-1"></a><span class="ss">  1. </span>$\begin{bmatrix} -2 &amp;4&amp;-7&amp;-5 \end{bmatrix}$</span>
-<span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a><span class="ss">  2. </span>$\begin{bmatrix} 2 &amp;26&amp;-14&amp;4&amp;30 \end{bmatrix}$</span>
-<span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a><span class="ss">  3. </span>63 -3 -10 + 24 = 74</span>
-<span id="cb1-468"><a href="#cb1-468" aria-hidden="true" tabindex="-1"></a><span class="ss">  4. </span>undefined</span>
-<span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a>Answer to @exm-matrixaddition:</span>
-<span id="cb1-471"><a href="#cb1-471" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a>${\bf A+B}=\begin{bmatrix} 2 &amp; 4 &amp; 4 <span class="sc">\\</span> 6 &amp; 6 &amp; 8 \end{bmatrix}$</span>
-<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a>Answer to @exm-scalarmulti:</span>
-<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a>$s {\bf A} = \begin{bmatrix} 2 &amp; 4 &amp; 6 <span class="sc">\\</span> 8 &amp; 10 &amp; 12 \end{bmatrix}$</span>
-<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-457"><a href="#cb1-457" aria-hidden="true" tabindex="-1"></a>$$\mathbf{A}_{m\times n} = \begin{bmatrix}\mathbf{a}_1 | \mathbf{a}_2 | \dots | \mathbf{a}_n\end{bmatrix}$$</span>
+<span id="cb1-458"><a href="#cb1-458" aria-hidden="true" tabindex="-1"></a>$$\mathbf{B}_{n\times p} = \begin{bmatrix}\mathbf{b}_1 | \mathbf{b}_2 | \dots | \mathbf{b}_p\end{bmatrix}$$</span>
+<span id="cb1-459"><a href="#cb1-459" aria-hidden="true" tabindex="-1"></a>$$\mathbf{C}_{m\times p} = \begin{bmatrix}\mathbf{c}_1 | \mathbf{c}_2 | \dots | \mathbf{c}_p\end{bmatrix}$$</span>
+<span id="cb1-460"><a href="#cb1-460" aria-hidden="true" tabindex="-1"></a>Then, for example, $\mathbf{c}_1$ is the linear combination of the columns of $\mathbf{A}$ using coefficients in the first column of $\mathbf{B}$, i.e., $\mathbf{b}_1$:</span>
+<span id="cb1-461"><a href="#cb1-461" aria-hidden="true" tabindex="-1"></a>$$\mathbf{b}_1=\begin{bmatrix}B_{11}\\ B_{21}\\ \vdots \\ B_{n1} \end{bmatrix},$$</span>
+<span id="cb1-462"><a href="#cb1-462" aria-hidden="true" tabindex="-1"></a>$$\mathbf{C}_1= B_{11}\mathbf{a}_1 + B_{21}\mathbf{a}_2 + \dots + B_{n1}\mathbf{a}_n=\mathbf{A}\mathbf{b}_1,$$</span>
+<span id="cb1-463"><a href="#cb1-463" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-464"><a href="#cb1-464" aria-hidden="true" tabindex="-1"></a>which is the matrix-vector product of $\mathbf{A}$ and $\mathbf{b}_1$. As a result, we can write the whole matrix multiplication as a collection of matrix-vector products by columns:</span>
+<span id="cb1-465"><a href="#cb1-465" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-466"><a href="#cb1-466" aria-hidden="true" tabindex="-1"></a>$$\mathbf{C} = \begin{bmatrix}\mathbf{c}_1 | \mathbf{c}_2 | \dots | \mathbf{c}_p\end{bmatrix} = \begin{bmatrix}\mathbf{A}\mathbf{b}_1 | \mathbf{A}\mathbf{b}_2 | \cdots | \mathbf{A}\mathbf{b}_p\end{bmatrix}.$$</span>
+<span id="cb1-467"><a href="#cb1-467" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-468"><a href="#cb1-468" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-469"><a href="#cb1-469" aria-hidden="true" tabindex="-1"></a>The animation below illustrates the relationship between matrix multiplication and linear combinations.</span>
+<span id="cb1-470"><a href="#cb1-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-471"><a href="#cb1-471" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, fig=T, label='multlincombanim', fig.show="hold", out.width="50%", echo=F,fig.align='center',fig.cap = 'Illustration of Matrix Multiplication as Linear Combinations [(Source)](https://shainarace.github.io/LinearAlgebra/mult.html)'}</span></span>
+<span id="cb1-472"><a href="#cb1-472" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"images/animmultlincombanim.gif"</span>)</span>
+<span id="cb1-473"><a href="#cb1-473" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-474"><a href="#cb1-474" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-475"><a href="#cb1-475" aria-hidden="true" tabindex="-1"></a>In fact, when doing matrix multiplication, we're actually applying a **series of transformations**, illustrated nicely in the video below.</span>
+<span id="cb1-476"><a href="#cb1-476" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-477"><a href="#cb1-477" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;iframe</span> <span class="er">width</span><span class="ot">=</span><span class="st">"560"</span> <span class="er">height</span><span class="ot">=</span><span class="st">"315"</span> <span class="er">src</span><span class="ot">=</span><span class="st">"https://www.youtube.com/embed/XkY2DOUCWMU"</span> <span class="er">title</span><span class="ot">=</span><span class="st">"YouTube video player"</span> <span class="er">frameborder</span><span class="ot">=</span><span class="st">"0"</span> <span class="er">allow</span><span class="ot">=</span><span class="st">"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"</span> <span class="er">allowfullscreen</span> <span class="er">style</span><span class="ot">=</span><span class="st">"border:1;display:block;margin:10px auto;"</span><span class="kw">&gt;&lt;/iframe&gt;</span></span>
+<span id="cb1-478"><a href="#cb1-478" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-479"><a href="#cb1-479" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-480"><a href="#cb1-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-481"><a href="#cb1-481" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-482"><a href="#cb1-482" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-483"><a href="#cb1-483" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-484"><a href="#cb1-484" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-485"><a href="#cb1-485" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers to Examples and Exercises {-}</span></span>
+<span id="cb1-486"><a href="#cb1-486" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-487"><a href="#cb1-487" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-488"><a href="#cb1-488" aria-hidden="true" tabindex="-1"></a>Answer to @exr-vectors1:</span>
+<span id="cb1-489"><a href="#cb1-489" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-490"><a href="#cb1-490" aria-hidden="true" tabindex="-1"></a><span class="ss">  1. </span>$\begin{bmatrix} -2 &amp;4&amp;-7&amp;-5 \end{bmatrix}$</span>
+<span id="cb1-491"><a href="#cb1-491" aria-hidden="true" tabindex="-1"></a><span class="ss">  2. </span>$\begin{bmatrix} 2 &amp;26&amp;-14&amp;4&amp;30 \end{bmatrix}$</span>
+<span id="cb1-492"><a href="#cb1-492" aria-hidden="true" tabindex="-1"></a><span class="ss">  3. </span>63 -3 -10 + 24 = 74</span>
+<span id="cb1-493"><a href="#cb1-493" aria-hidden="true" tabindex="-1"></a><span class="ss">  4. </span>undefined</span>
+<span id="cb1-494"><a href="#cb1-494" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-495"><a href="#cb1-495" aria-hidden="true" tabindex="-1"></a>Answer to @exm-matrixaddition:</span>
+<span id="cb1-496"><a href="#cb1-496" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-497"><a href="#cb1-497" aria-hidden="true" tabindex="-1"></a>${\bf A+B}=\begin{bmatrix} 2 &amp; 4 &amp; 4 <span class="sc">\\</span> 6 &amp; 6 &amp; 8 \end{bmatrix}$</span>
+<span id="cb1-498"><a href="#cb1-498" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-499"><a href="#cb1-499" aria-hidden="true" tabindex="-1"></a>Answer to @exm-scalarmulti:</span>
+<span id="cb1-500"><a href="#cb1-500" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-501"><a href="#cb1-501" aria-hidden="true" tabindex="-1"></a>$s {\bf A} = \begin{bmatrix} 2 &amp; 4 &amp; 6 <span class="sc">\\</span> 8 &amp; 10 &amp; 12 \end{bmatrix}$</span>
+<span id="cb1-502"><a href="#cb1-502" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-503"><a href="#cb1-503" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
