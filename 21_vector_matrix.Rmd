@@ -186,6 +186,8 @@ $$ {\bf B}^\top{\bf A}^\top= \begin{bmatrix} 0&2&3\\1&2&-1 \end{bmatrix}  \begin
 __Zero Matrix__: The zero matrix is a matrix of all zeros. For example, the $3\times 4$ zero matrix is given by 
 $${\bf 0}_{3\times 4}=\begin{bmatrix} 0&0&0&0\\0&0&0&0\\0&0&0&0 \end{bmatrix}$$
 
+__Square Matrix__: A square matrix is a matrix with the same number of rows and columns. For example, the $3\times 3$ matrix is a square matrix, but the $3\times 4$ matrix is not.
+
 __Identity Matrix__: The identity matrix is a square matrix with ones on the main diagonal and zeros elsewhere. For example, the $3\times 3$ identity matrix is given by
 $${\bf I}_3=\begin{bmatrix} 1&0&0\\0&1&0\\0&0&1 \end{bmatrix}$$
 
@@ -211,7 +213,7 @@ $$\mathbf{D}=\mathrm{diag}\{\sigma_1,\sigma_2,\sigma_3,\sigma_4\}.$$
 
 When we multiply matrices, we do not perform the operation element-wise as we did with addition and scalar multiplication. Matrix multiplication is, in itself, a very powerful tool for summarizing information. In fact, many of the analytical tools, like linear regression, can all be understood more clearly with a firm grasp on matrix multiplication. Because this operation is so important, we will spend a considerable amount of energy breaking it down in many ways. 
 
-We often want to summarize the relationship between two vectors into a single number. If the two vectors are pointing in similar directions, the number should be large and positive. If the two vectors are pointing in opposite directions, the number should be small and negative. If the two vectors are perpendicular, the number should be zero. This idea leads to the definition of the inner product of two vectors.
+We often want to summarize the relationship between two vectors into a single number. If the two vectors are pointing in similar directions, the number should be positive. If the two vectors are pointing in opposite directions, the number should be negative. If the two vectors are perpendicular, the number should be zero. This idea leads to the definition of the inner product of two vectors.
 
 __Inner Product__: The inner product (also called dot product) of two vectors $\mathbf{u}$ and $\mathbf{v}$ is defined as
 $$\mathbf{u} \cdot \mathbf{v}=\mathbf{u}^\top\mathbf{v}=\sum_{i=1}^n u_i v_i = u_1 v_1 + u_2 v_2+\cdots u_n v_n.$$
@@ -283,6 +285,31 @@ Let $u = \begin{bmatrix} 7\\1\\-5\\3\end{bmatrix}$, $v = \begin{bmatrix} 9\\-3\\
   
 :::
 
+__Vector Norm__: The norm of a vector is a measure of its length.  There are many different ways to calculate the norm, but the most common is the Euclidean norm (which corresponds to our usual conception of distance):
+$$\lVert \mathbf{v}\rVert = \sqrt{\mathbf{v}\cdot\mathbf{v}} =  \sqrt{\mathbf{v}^\top\mathbf{v}} = \sqrt{ v_1^2 + v_2^2 + \cdots + v_n^2}.$$
+This is merely measuring the distance between the point $\mathbf{v}$ and the origin. 
+
+In other words, the norm of a vector is the square root of the sum of the squares of its components, which is also the square root of the inner product of itself. The norm of a vector is always non-negative. The norm of a zero vector is 0. The norm of a unit vector is 1.
+
+To compute the distance between two different points, say $\mathbf{x}$ and $\mathbf{y}$, we'd calculate 
+\begin{align*}
+\lVert \mathbf{x}-\mathbf{y}\rVert 
+&= \sqrt{(\mathbf{x}-\mathbf{y})^\top(\mathbf{x}-\mathbf{y})} \\
+&= \sqrt{(x_1-y_1)^2 + (x_2-y_2)^2 + \dots + (x_n-y_n)^2}
+\end{align*}
+
+
+:::{#exm-norm}
+Suppose I have two vectors in $3$-dimensional space: 
+$$\mathbf{x}=(1,1,1) \;\;\;\textrm{   and   }\;\;\; \mathbf{y}=(1,0,0)$$
+Then the Euclidean norm of $\mathbf{x}$ (i.e. its length or distance from the origin) is
+$$\lVert \mathbf{x}\rVert =\sqrt{1^2+1^2+1^2}=\sqrt{3}$$
+and the Euclidean norm of $\mathbf{y}$ is
+$$\lVert \mathbf{y} \rVert =\sqrt{1^2+0^2+0^2}=1$$
+and the Euclidean distance between point $\mathbf{x}$ and point $\mathbf{y}$ is
+$$\lVert \mathbf{x}-\mathbf{y} \rVert =\sqrt{(1-1)^2 + (1-0)^2 + (1-0)^2} =\sqrt{2}.$$
+The Euclidean norm is crucial to many methods in data analysis as it measures the closeness of two data points.
+:::
 
 ## Matrix Multiplication
 
@@ -380,9 +407,7 @@ Let $$\mathbf{A}=\begin{bmatrix} 2 & 3 \\ -1 & 4 \\ 5 & 1 \end{bmatrix}  \quad \
 
 Determine whether the following matrix-vector products are possible. When possible, compute the product.
 
-a. $\mathbf{A}\mathbf{q}$ $$\textrm{Not Possible: Inner dimensions do not match} \quad \underset{(3\times \red{2})}{\mathbf{A}}\underset{(\red{3}\times 1)}{\mathbf{q}}$$
-b. $\mathbf{A}\mathbf{v}$ $$\begin{bmatrix} 2 & 3 \\ -1 & 4 \\ 5 & 1 \end{bmatrix} \begin{bmatrix} 3\\2 \end{bmatrix} = \begin{bmatrix} 2(3)+3(2) \\  -1(3)+4(2)\\5(3)+1(2) \end{bmatrix} = \begin{bmatrix} 12\\5\\17\end{bmatrix}$$
-c. $\mathbf{q}^\top\mathbf{A}$ $$\begin{bmatrix} \blue{2} & \blue{-1} & \blue{3}\end{bmatrix} \begin{bmatrix} \blue{2} & 3 \\ \blue{-1} & 4 \\ \blue{5} & 1 \end{bmatrix}  =  \begin{bmatrix} \blue{20} & 5  \end{bmatrix}$$
+Let $$\mathbf{A}=\begin{bmatrix} 2 & 3 \\ -1 & 4 \\ 5 & 1 \end{bmatrix}  \quad \mathbf{v}=\begin{bmatrix} 3\\2 \end{bmatrix} \quad \mathbf{q}=\begin{bmatrix} 2\\-1\\3\end{bmatrix}$$
 d. $\mathbf{v}^\top\mathbf{A}$ $$\textrm{Not Possible: Inner dimensions do not match} \quad \underset{(1\times \red{2})}{\mathbf{v}^\top}\underset{(\red{3}\times 2)}{\mathbf{A}}$$
 :::
 
