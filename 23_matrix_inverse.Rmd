@@ -1,91 +1,4 @@
-# Rank and Matrix Inverse
-
-
-## Linear Independence {#linearindependence}
-
-
-
-__Linear independence__:  A set of vectors ${\bf v}_1, {\bf v}_2,  \cdots , {\bf v}_k$ is linearly independent if the only solution to the equation
-
-$$c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k = 0$$
-
-is $c_1 = c_2 = \cdots = c_k = 0$.  If another solution exists, the set of vectors is linearly dependent.
-    
-A set $S$ of vectors is linearly dependent if and only if at least one of the vectors in $S$ can be written as a linear combination of the other vectors in $S$.
-
- Linear independence is only defined for sets of vectors with the same number of elements; any linearly independent set of vectors in $n$-space contains at most $n$ vectors.
- 
- 
- Since $\begin{bmatrix}9 \\ 13 \\ 17 \end{bmatrix}$ is a linear combination of $\begin{bmatrix}1 \\ 2 \\ 3 \end{bmatrix}$, $\begin{bmatrix} 2 \\ 3\\ 4\end{bmatrix}$, and $\begin{bmatrix} 3 \\ 4 \\ 5 \end{bmatrix}$, these 4 vectors constitute a linearly dependent set. 
-
-:::{#exm-linearindep} 
-Are the following sets of vectors linearly independent?
-  
-  1. $\begin{bmatrix}2 \\ 3 \\ 1 \end{bmatrix}$ and $\begin{bmatrix}4 \\ 6 \\ 1 \end{bmatrix}$
-  2. $\begin{bmatrix}1 \\ 0 \\ 0 \end{bmatrix}$, $\begin{bmatrix}0 \\ 5 \\ 0 \end{bmatrix}$, and $\begin{bmatrix}10 \\ 10 \\ 0 \end{bmatrix}$
-
-:::
-
-
-
-:::{#exr-linearindep1}
-Are the following sets of vectors linearly independent?
-  
-  1. $${\bf v}_1 = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} , {\bf v}_2 = \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} , {\bf v}_3 = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} $$ 
-  
-  2. $${\bf v}_1 = \begin{bmatrix} 2 \\ 2 \\ 1 \end{bmatrix} , {\bf v}_2 = \begin{bmatrix} -4 \\ 6 \\ 5 \end{bmatrix} , {\bf v}_3 = \begin{bmatrix} -2 \\ 8 \\ 6 \end{bmatrix} $$
-
-:::
-
-
-
-
-## Rank of a Matrix
-
-To determine how many solutions exist, we can use information about (1) the number of equations $m$, (2) the number of unknowns $n$, and (3) the __rank__ of the matrix representing the linear system.
-    
-__Rank__:  The maximum number of linearly independent row or column vectors in the matrix. This is equivalent to the number of nonzero rows of a matrix in row echelon form. For any matrix __A__, the row rank always equals column rank, and we refer to this number as the rank of __A__.
-
-For example
-  $$\begin{bmatrix} 1 & 2 & 3 \\
-              0 & 4 & 5 \\
-              0 & 0 & 6 \end{bmatrix}$$
-            
-Rank = 3
-            
-  $$\begin{bmatrix} 1 & 2 & 3 \\ 
-    0 & 4 & 5 \\
-    0 & 0 & 0 \end{bmatrix}$$
-            
-Rank = 2
-
-
-:::{#exr-rank}
-
-Find the rank of each matrix below:
-
-(Hint: transform the matrices into row echelon form. Remember that the number of nonzero rows of a matrix in row echelon form is the rank of that matrix)
-
-1. 
-  $$\begin{bmatrix} 1 & 1 & 2 \\ 
-  2 & 1 & 3 \\
-  1 & 2 & 3 \end{bmatrix}$$
-
-2.
-  $$\begin{bmatrix} 1 & 3 & 3 & -3 & 3\\ 
-  1 & 3 & 1 & 1 & 3 \\
-  1 & 3 & 2 & -1 & -2 \\
-  1 & 3 & 0 & 3 & -2 \end{bmatrix}$$
-  
-:::
-
-
-
-Answer to @exr-rank:
-
-1. rank is 2
-2. rank is 3
-
+# Matrix Inverse and Linear Independence
 
 ## The Inverse of a Matrix
 
@@ -187,6 +100,157 @@ and
 
 :::
 
+## When is Matrix Invertible?
+
+
+The following statements for an $n\times n$ square matrix $\mathbf{A}$ are **equivalent**:
+
+- $\mathbf{A}$ is **invertible**:
+    $$
+    \mathbf{A}^{-1} \textrm{ exists and } \mathbf{A}^{-1}\mathbf{A}=\mathbf{I}_n
+    $$
+- The system $\mathbf{A}\mathbf{x} = \mathbf{b}$ has a **unique solution** for all $\mathbf{b}\neq\mathbf{0}$ (zero vector)
+- If $\mathbf{A}\mathbf{x} = \mathbf{0}$ (zero vector), it implies that $\mathbf{x} = \mathbf{0}$ (zero vector)
+- The column vectors in $\mathbf{A}$ are **linearly independent** and **spans** $\mathbb{R}^n$
+- The **rank** of $\mathbf{A}$ is $n$:
+    $$
+    \mathrm{rank}(\mathbf{A})=n
+    $$
+- The **determinant** of $\mathbf{A}$ is not zero:
+    $$
+    \det(\mathbf{A}) \neq 0
+    $$
+
+Conceptually, we want columns of $\mathbf{A}$ contains enough vectors to reach all coordinates (**span**) $\mathbb{R}^n$.  
+However, when we include too many vectors, we will have **redundant** vectors when the new vectors does not provide new information (you can already express the new vectors using the existing vectors) and so the vectors become **linearly dependent**
+
+
+
+## Linear Independence {#linearindependence}
+
+
+__Linear Dependence__: A set of vectors $\{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\}$ is **linearly dependent** if some vector $\mathbf{v}_i$ is a *linear combination* of the *other vectors* $\mathbf{v}_j$
+
+If all vectors **cannot** be written as linear combinations of the other vectors, then the set of vectors are **linearly independent**
+
+$\mathbf{v}_i$ is **not** a *linear combination* of the *other vectors* $\mathbf{v}_j$, i.e.,
+
+$$
+{\color{red}\mathbf{v}_i}
+\neq 
+\sum_{j\neq i} c_j \mathbf{v}_j 
+= \underbrace{c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \cdots + c_n \mathbf{v}_n}_{\textrm{linear combination {\color{red}excluding} } {\color{red}\mathbf{v}_i}}
+\;\;\;\;\;\; \textrm{ for all } i
+$$
+
+Subtracting $\mathbf{v}_i$, this is equivalent to 
+
+$$
+\underbrace{\mathbf{0}}_{\textrm{zero vector!}}
+\neq 
+{\color{red} - \mathbf{v}_i} + 
+\sum_{j\neq i} c_j \mathbf{v}_j 
+= 
+\underbrace{c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \cdots + {\color{red} (-1) \mathbf{v}_i} + \cdots + c_n \mathbf{v}_n}_{\textrm{linear combination of } \mathbf{v}_1, \mathbf{v}_2, \ldots, {\color{red} \mathbf{v}_i}, \ldots, \mathbf{v}_n}
+\;\; \textrm{ for all } i.
+$$
+
+
+This is equivalent to saying: The only solution to 
+$$
+\underbrace{\mathbf{0}}_{\textrm{zero vector!}}
+= 
+\underbrace{c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \cdots +  \mathbf{v}_i + \cdots + c_n \mathbf{v}_n}_{\textrm{linear combination of } \mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_i, \ldots, \mathbf{v}_n}
+$$
+is $c_1 = c_2 = \cdots = c_n = 0$.
+
+This is equivalent to the statement that $\mathbf{A}\mathbf{x} = \mathbf{0}$ implies $\mathbf{x} = \mathbf{0}$.
+
+
+__Linear independence__:  A set of vectors ${\bf v}_1, {\bf v}_2,  \cdots , {\bf v}_k$ is linearly independent if the only solution to the equation
+
+$$c_1{\bf v}_1 + c_2{\bf v}_2 +  \cdots + c_k{\bf v}_k = 0$$
+
+is $c_1 = c_2 = \cdots = c_k = 0$.  If another solution exists, the set of vectors is linearly dependent.
+    
+A set $S$ of vectors is linearly dependent if and only if at least one of the vectors in $S$ can be written as a linear combination of the other vectors in $S$.
+
+ Linear independence is only defined for sets of vectors with the same number of elements; any linearly independent set of vectors in $n$-space contains at most $n$ vectors.
+ 
+ 
+ Since $\begin{bmatrix}9 \\ 13 \\ 17 \end{bmatrix}$ is a linear combination of $\begin{bmatrix}1 \\ 2 \\ 3 \end{bmatrix}$, $\begin{bmatrix} 2 \\ 3\\ 4\end{bmatrix}$, and $\begin{bmatrix} 3 \\ 4 \\ 5 \end{bmatrix}$, these 4 vectors constitute a linearly dependent set. 
+
+:::{#exm-linearindep} 
+Are the following sets of vectors linearly independent?
+  
+  1. $\begin{bmatrix}2 \\ 3 \\ 1 \end{bmatrix}$ and $\begin{bmatrix}4 \\ 6 \\ 1 \end{bmatrix}$
+  2. $\begin{bmatrix}1 \\ 0 \\ 0 \end{bmatrix}$, $\begin{bmatrix}0 \\ 5 \\ 0 \end{bmatrix}$, and $\begin{bmatrix}10 \\ 10 \\ 0 \end{bmatrix}$
+
+:::
+
+
+
+:::{#exr-linearindep1}
+Are the following sets of vectors linearly independent?
+  
+  1. $${\bf v}_1 = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix} , {\bf v}_2 = \begin{bmatrix} 1 \\ 0 \\ 1 \end{bmatrix} , {\bf v}_3 = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} $$ 
+  
+  2. $${\bf v}_1 = \begin{bmatrix} 2 \\ 2 \\ 1 \end{bmatrix} , {\bf v}_2 = \begin{bmatrix} -4 \\ 6 \\ 5 \end{bmatrix} , {\bf v}_3 = \begin{bmatrix} -2 \\ 8 \\ 6 \end{bmatrix} $$
+
+:::
+
+
+
+
+## Rank of a Matrix
+
+Another way to think about linear independence is to consider the **rank** of a matrix.  
+    
+__Rank__:  The **rank** of a matrix is the number of linearly independent rows or columns in the matrix.  The rank of a matrix is denoted by $\textrm{rank}(\mathbf{A})$.
+
+For example
+  $$\begin{bmatrix} 1 & 2 & 3 \\
+              0 & 4 & 5 \\
+              0 & 0 & 6 \end{bmatrix}$$
+            
+Rank = 3
+            
+  $$\begin{bmatrix} 1 & 2 & 3 \\ 
+    0 & 4 & 5 \\
+    0 & 0 & 0 \end{bmatrix}$$
+            
+Rank = 2
+
+
+:::{#exr-rank}
+
+Find the rank of each matrix below:
+
+(Hint: transform the matrices into row echelon form. Remember that the number of nonzero rows of a matrix in row echelon form is the rank of that matrix)
+
+1. 
+  $$\begin{bmatrix} 1 & 1 & 2 \\ 
+  2 & 1 & 3 \\
+  1 & 2 & 3 \end{bmatrix}$$
+
+2.
+  $$\begin{bmatrix} 1 & 3 & 3 & -3 & 3\\ 
+  1 & 3 & 1 & 1 & 3 \\
+  1 & 3 & 2 & -1 & -2 \\
+  1 & 3 & 0 & 3 & -2 \end{bmatrix}$$
+  
+:::
+
+
+
+Answer to @exr-rank:
+
+1. rank is 2
+2. rank is 3
+
+
+
+
 ## Determinants
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ip3X9LOh2dk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:1;display:block;margin:10px auto;"></iframe>
@@ -276,10 +340,12 @@ Hence, we can examine how changes in the parameters and $b_i$ affect the solutio
 __Determinant Formula for the Inverse of a $2 \times 2$__: 
 
 The determinant of a $2 \times 2$ matrix $\mathbf{A}=\begin{bmatrix} a & b\\ c & d\\ \end{bmatrix}$ is defined as:
-  $$\frac{1}{\det({\bf A})} \begin{bmatrix}
-              d & -b\\
-              -c & a\\
-          \end{bmatrix}$$
+
+$$\det(\mathbf{A}) = a d - b c$$
+
+The inverse of $\mathbf{A}$ is given by:
+
+$$\frac{1}{\det({\bf A})} \begin{bmatrix} d & -b \\ -c & a\\ \end{bmatrix}$$
         
 
 For example, Let's calculate the inverse of matrix A from @exr-invlinsys using the determinant formula. 
