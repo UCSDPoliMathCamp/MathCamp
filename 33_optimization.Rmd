@@ -346,14 +346,9 @@ Since $\mathrm{det}(\mathbf{H}(x)) = 4 > 0$ and $H_{11}=2>0$, the  Hessian is po
 
 Maxima, Minima, or Saddle Point? Since the Hessian is positive definite and the gradient equals 0, $x^\star = (1,0)$ is a local minimum.
 
-Note: Alternate check of definiteness. Is $\mathbf{H(x^*)} \geq \leq 0 \quad \forall \quad \mathbf{x}\ne 0$
+Note: Alternate check of definiteness is to check the sign of the quardratic form:
   
-
-\begin{align*}
-\mathbf{x}^\top H(\mathbf{x}^*) \mathbf{x} &= \begin{bmatrix} x_1 & x_2 \end{bmatrix}\\
-&= \begin{bmatrix} 2&0\\0&2 \end{bmatrix}\\
-\begin{bmatrix} x_1\\x_2\end{bmatrix} &= 2x_1^2+2x_2^2
-\end{align*}
+$$\mathbf{x}^\top \mathbf{H}(\mathbf{x}^*) \mathbf{x} = \begin{bmatrix} x_1 & x_2 \end{bmatrix} \begin{bmatrix} 2&0\\0&2 \end{bmatrix} \begin{bmatrix} x_1\\x_2\end{bmatrix} = 2x_1^2+2x_2^2$$
 
 For any $\mathbf{x}\ne 0$, $2(x_1^2+x_2^2)>0$, so the Hessian is 	positive definite and $\mathbf{x}^*$ is a strict local minimum.
   

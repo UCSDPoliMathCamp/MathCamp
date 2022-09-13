@@ -4,9 +4,10 @@
 
 ## Linear Equation
 
-Linear equations take form of $a_1 x_1 + a_2 x_2 + \cdots + a_n x_n = b$
+Linear equations take form of $$a_1 x_1 + a_2 x_2 + \cdots + a_n x_n = b$$
 
-$a_i$ are parameters or coefficients.  $x_i$ are variables or unknowns.
+- $a_i$ are parameters or coefficients
+- $x_i$ are variables or unknowns
 
 Linear because only one variable per term and degree is at most 1.
 
@@ -183,6 +184,7 @@ Put the following system of equations into augmented matrix form. Then, using Ga
     \end{cases}$$
     
 :::
+
 
 
 
