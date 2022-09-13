@@ -1,0 +1,104 @@
+
+# Measuring Uncertainty {#uncertainty}
+
+Social science research is hard---in part because human behavior is so unpredictable. Unlike fields such as physics and chemistry, our theories are rarely deterministic. Rather, we express our arguments in terms of probabilities or likelihoods. "Democratic countries *tend* to have lower levels of corruption". Or "the belief that their vote matters increases the *likelihood* that an individual will turn out on election day". Theories like these highlight why statistics and probability theory are such useful tools for social scientists. The goal of statistics is to use data to measure our uncertainty about a proposition, or hypothesis. And probability is the language we use to describe this uncertainty.
+
+In this section of the book we will cover the theory of probability that underlies commonly used statistical methods you will encounter in subsequent courses. 
+
+The material for this section is drawn from the following sources:
+
+  - Jaynes E. T and G. Larry Bretthorst. 2003. *Probability Theory: The Logic of Science*. Cambridge UK: Cambridge University Press.
+  - Clayton Aubrey. 2021. *Bernoulli's Fallacy : Statistical Illogic and the Crisis of Modern Science*. New York: Columbia University Press.
+  - Kurt Will. 2019. *Bayesian Statistics the Fun Way*. San Francisco: No Starch Press.
+  - [Aubrey Clayton. 2015. YouTube Lectures on Probability Theory: The Logic of Science](https://www.youtube.com/watch?v=rfKS69cIwHc&list=PL9v9IXDsJkktefQzX39wC2YG07vw7DsQ_&ab_channel=AubreyClayton)
+
+
+## What is Probability?
+
+What does the phrase "the probability of a coin flip coming up heads is one half" mean? You may be surprised to learn that there are many different answers to this question. In this section we will discuss the various definitions of probability philosophers and statisticians have come up with. As we will see, many commonly used definitions have appealing qualities. But each ultimately falls short in important ways. The exception being viewing probability as an extension of logic. This idea, developed by Edwin T. Jaynes in his book *Probability Theory: the Logic of Science* (2003), is rarely found in introductions to probability, but as we will see, is the most coherent way to understand and reason about probabilistic statements. Before diving into probability-as-logic, let's take a look at the strengths and weaknesses of definitions with which you may be more familiar. 
+
+#### The Classical Definition {.unnumbered}
+
+The mathematics of probability originated in the study of gambling games. People wanted to know the answer to questions like "if I roll two six-sided dice, what is the probability that their values sum to seven"? This would have implications for how much to wager on a given bet. In the 15th and 16th centuries, mathematicians came up with the following solution. 
+
+$$
+\text{P(event A)} = \frac{\text{\# of ways event A can occur}}{\text{\# of all possible outcomes}}
+$$
+
+This classical definition of probability is still used in many introductory textbooks today---probably because it can be intuitively applied to most common examples used in teaching (e.g. flipping coins, rolling dice, dealing cards from a deck, or drawing balls from an urn). What is the probability that a coin will come up heads when we flip it? Well, there are two possible outcomes when we flip a coin: either it lands heads or tails, and there is one way for it to land heads. So our calculation would be:
+
+$$
+\frac{\text{heads}}{\text{[heads, tails]}} = \frac{1}{1 + 1} = \frac{1}{2}
+$$
+
+The classical definition also makes it clear to us that events which can happen in more ways are more likely. When we roll two six-sided dice, there are $6*6 = 36$ possible outcomes. Getting a sum equal to *seven* can happen in five ways [(1, 6), (2, 5), (3, 4), (4, 3), (5, 2), (6, 1)] whereas getting a sum equal to *two* can only happen in one way [(1, 1)]. Therefore, according to the classical definition of probability, rolling two dice and getting a sum of seven is five times more likely than getting a sum of two.
+
+The problem with the classical definition of probability is that is does a poor job describing uncertainty outside of simple games of chance. One of the main challenges comes from having to enumerate the "number of all possible outcomes" in the denominator. We can figure this out easily enough for flipping coins and rolling dice because there is an apparent symmetry in the outcome-space, but in the social sciences we rarely study such clear-cut systems. Take the statement "after receiving the encouragement treatment, an individual will turn out to vote with 70% probability." There are only two outcomes: either the individual votes or they do not vote. So should the probability of voting always be 50/50? There is no apparent way to cut up the outcome space such that the classical probability formula gives us an answer like $7/10$. 
+
+Another problem with the classical definition is that it requires each event in the denominator to be equi-probable. This is easy to assume when the events have a symmetric quality to them: flipping a coin, drawing cards from a deck, rolling dice etc. But what if we wanted to know the probability of rolling a specific value from a mis-shapen die? Furthmore, the fact that the denominator term requires events to be "equi-probable" means that this definition of probability is circular!
+
+#### The Frequentist Definition {.unnumbered}
+
+Beginning in the 19th century, a new definition of probability known as frequentism began to be widely used. According to frequentism, the probability of an event is defined by its long-run numerical frequency. We know that the probability of a coin toss coming up heads is $1/2$ because, if we were to toss a coin enough times, in the limit 50% of the tosses would come up heads. The mathematical basis for frequentism comes from Swiss mathematician Jacob Bernoulli's Law of Large Numbers. 
+
+> "Take a large enough sample that you can be morally certain, to whatever degree that means to you, the ratio in the sample is within your desired tolerance of the [true ratio]."^[Clayton (2021), pg. 8]
+
+Frequentism has an appealing objective quality to it because probabilities can supposedly be arrived at via empirical frequencies. But how can we ever truly verify that these frequencies match reality? In social science research we only get one shot of our data if we run a survey or a field experiment. And what about data from one-time events such as elections or wars? "The probability that the Democrats retain control of Congress in 2022 is 0.4." According to frequentists, we would have to imagine re-running the 2022 mid-term election an infinite number of times in order to make sense of this statement. But if we re-ran the election under all the same circumstances, wouldn't the outcome remain the same? Like the classical definition of probability, frequentism "works" for simple examples but leads to paradoxes when applied to modern scientific problems. Despite this, most statistical methods used today are based on the frequentist paradigm.
+
+<!-- As an aside, it is also worth noting that frequentist methods were developed by a set of individuals---chiefly Francis Galton, Karl Pearson, and Ronald Fisher---whose scientific interests were directed towards supporting eugenicist projects around the turn of the 20th century. These men were attracted to the apparent objectivity of frequentism (as opposed to subjective probability which we will turn to next) because they hoped to prove that human groups had innate differences. These "objective" differences somehow always showed how white Europeans were superior to colonized indigenous populations. For more on the dark origins of frequentist methods see [this article](https://nautil.us/how-eugenics-shaped-statistics-9365/). -->
+
+
+#### The Subjective Definition {.unnumbered}
+
+Standing in radical opposition to the frequentist and classical definitions is a view that probability statements are no more than someone's subjective degree of belief about a proposition. The nice thing about the subjective definition is that it is often how we talk about probability in our day to day lives. The statement "the probability that the Democrats retain control of Congress in 2022 is 0.4" is a perfectly valid way to express how certain we are about some outcome. We can also apply this to things like coin flips: "I don't have any reason to think either heads or tails is more likely, so the probability of heads is 50/50."
+
+Unfortunately, the subjective view of probability does not provide any way to compare competing probability statements. If I say the probability of flipping a coin and getting heads is $1/2$, but you say it is $1/8$, who can we say is more correct without some sort of empirical verification? This problem also exists for one-time events. Let's say I claim that the Democrats have a 20% chance of winning the election, and you claim they have an 80% chance of winning the election. The election happens and the Democrats win---who made the better prediction? 
+
+Subjective probability is often associated with Bayesian theories of probability. Bayes' theorem, however, is simply a well-established mathematical relation. And it is used in every type of probability framework. If you are not familiar with Bayes' theorem, the basic version looks like
+
+$$
+\text{P}(A|B) = \frac{\text{P}(A) \ \text{P}(B|A)}{\text{P}(B)}
+$$
+
+The most controversial part of this formula is $\text{P}(A)$, also known as the *prior*. Frequentist statistical methods ignore this part of Bayes' theorem when conducting inference, in part because of its association with a "subjective" way of thinking. But by doing so they implicitly assume all values of $\text{P}(A)$ are equally likely---which is itself a subjective choice! We will cover Bayes' theorem extensively in our chapter on conditional probability.
+
+<!-- Lastly, the subjective definition of probability does not give us any nice tools for working with probabilities mathematically. The following basic axiom of probability -->
+
+<!-- $$ -->
+<!-- \text{P(event A)} + \text{P(not event A)} = 1 -->
+<!-- $$ -->
+
+<!-- says that probabilities must be *complementary*. Either event A happens, or it doesn't happen, with certainty. And by "certainty" we mean probability equals $1$. But if probability is purely subjective, there is no reason we would have to force probabilities to sum to $1$ in this way.  -->
+
+#### The Axiomatic Definition {.unnumbered}
+
+In 1933 Russian mathematician Andrei Kolmogorov worked out a set of axioms governing how probability worked. Kolmogorov used a new field of mathematics called measure theory to construct a set of rules that probabilities must follow. Some of these rules might be familiar to you:
+
+  1. The probability of some event is a number greater than or equal to zero, and less than or equal to one.
+  2. The probability of an event, and the probability of not that event, must sum to one.
+  3. The probability of event A happening or event B happening is the sum of each of their independent probabilities minus their joint probability.
+
+Along with a few others, these rules formed the basis upon which to calculate any complex probability problem. Thus, the axiomatic definition of probability is something along the lines of "probability is a function that maps events to a real number, obeying the axioms of probability."^[https://iqss.github.io/prefresher/]
+
+That is all well and good, but the problem with the axiomatic definition is that it does not tell us anything about where probabilities come from, or what they mean in the real world. The axioms apply equally well to frequentist probability as well as subjective probability---which, as we saw, are philosophical antagonists.
+
+### Probability as Logic {.unnumbered}
+
+There are many ways to answer the question "what is probability?" But each of the definitions we've encountered so far have come with big drawbacks which limit their usefulness in social science research. Luckily there is one last way to conceptualize probability coming to our rescue. What if I told you that this final definition A) has the empirical rigor of frequentist and classical approaches, B) easily incorporates subjective background knowledge in a principled manner, and C) uses all the convenient mathematical rules from Kolmogorov's axioms!
+
+The trick is to think about probability as an extension of logic. Traditional Aristotelian logic deals with propositions that are only true or false such as "if P then Q; P; therefore Q". Or the contrapositive "if P then Q; not Q; therefore not P". But we never work with 100% true or 100% false propositions in social science. Rather, we would like to make inductive statements like "if P then Q *is more plausible*; Q; therefore P *is more plausible*". Here is a more tangible example. Say we have a theory that being a democracy makes countries less likely to start wars. We then go out and collect data on countries and find a negative association between democracy and wars started. Therefore we conclude that our theory has been made more plausible. 
+
+Viewing probability as an extension of logic comes to us primarily from Edwin T. Jaynes and his 2003 book *Probability Theory: the Logic of Science*. For Jaynes, probability is the language we use to reason about propositions when we are operating in a state of incomplete information. Contrary to what proponents of frequentism might claim, probabilities do not exist as tangible properties about some set of events. Jaynes calls this the "mind-projection fallacy"---confusing the nature of things as they are with the practice of gathering knowledge about something. In other words, mistaking ontology for epistemology.  
+
+One of Jaynes's major contributions was the insistence that all probability statements are provisional on background information or assumptions. So we should really write all probabilities as
+
+$$
+\text{P}(A|X)
+$$
+
+Where the "|" symbol means "conditional on", and $X$ stands for all the background knowledge we have relevant to the plausibility of proposition $A$. The beauty of this approach is that it allows us to combine the subjective and the objective when trying to solve a scientific problem. Reasonable people might disagree about what assumptions go into any particular $X$. But given some fixed $X$, everyone's conclusions will necessarily follow the logic of probability and end up in the same place.
+
+The Jaynesian view of probability is also Bayesian in the sense that we will be using all parts of Bayes' theorem to conduct scientific inference. The *prior probability of the hypothesis* is a crucial ingredient in coming up with an accurate *posterior probability of the hypothesis*---the probability we assign to the hypothesis after collecting data on it. 
+
+
+
