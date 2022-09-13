@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.1.189">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>UCSD Political Science Math Camp</title>
+<title>UCSD Political Science Math Camp - 16&nbsp; Probability Distributions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,7 +89,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./00_warmup.html" rel="next">
+<link href="./51_solutions-warmup.html" rel="next">
+<link href="./43_conditional.html" rel="prev">
 <link href="./favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -128,7 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">UCSD Political Science Math Camp</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Probability Distributions</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -157,7 +158,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <ul class="list-unstyled mt-1">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">About this Booklet</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">About this Booklet</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -285,7 +286,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./44_distributions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Probability Distributions</span></a>
+  <a href="./44_distributions.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Probability Distributions</span></a>
   </div>
 </li>
       </ul>
@@ -298,21 +299,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
 </div>
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
-   
-  <ul>
-<li>
-<a href="#about-this-booklet" id="toc-about-this-booklet" class="nav-link active" data-scroll-target="#about-this-booklet">About this Booklet</a>
-  <ul>
-<li><a href="#authors-and-contributors" id="toc-authors-and-contributors" class="nav-link" data-scroll-target="#authors-and-contributors">Authors and Contributors</a></li>
-  <li><a href="#contributing" id="toc-contributing" class="nav-link" data-scroll-target="#contributing">Contributing</a></li>
-  </ul>
-</li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/index.Rmd" class="toc-action">Edit this page</a></p></div></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">UCSD Political Science Math Camp</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span id="distributions" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Probability Distributions</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -324,19 +315,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><section id="about-this-booklet" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="about-this-booklet">About this Booklet</h2>
-<p>This booklet is adapted from the <a href="https://iqss.github.io/prefresher/">Harvard Gov Prefresher booklet</a>, maintained by <a href="https://www.shirokuriwaki.com">Shiro Kuriwaki</a>. It will serve as as the text for the UCSD Math Camp, taught by Bertrand Wilden and Keng-Chi Chang, and we have reordered and adapted it to fit the structure of our course. For information about the role of this math camp as an introduction to graduate school, you may be interested in <a href="https://gking.harvard.edu/prefresher">“The Math Prefresher and The Collective Future of Political Science Graduate Training”</a>, in PS: Political Science &amp; Politics, by Gary King, Shiro Kuriwaki, and Yon Soo Park.</p>
-<section id="authors-and-contributors" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="authors-and-contributors">Authors and Contributors</h3>
-<p>For information about the authors of the Harvard Gov Prefresher booklet, see <a href="https://iqss.github.io/prefresher/index.html#authors-and-contributors">here</a>.<br>
-We have also updated it to include some material from previous instructors of the class at UCSD, including Rachel Schoner (2021), Luke Sanford (2019-2020), Kathryn Baragwanath (2019-2020), Brandon Merrell (2018), Inbok Rhee (2018).</p>
-</section><section id="contributing" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="contributing">Contributing</h3>
-<p>We transitioned the booklet into a bookdown <a href="https://github.com/UCSDPoliMathCamp/MathCamp">github repository</a> in 2021. As we update this version, we appreciate any bug reports or fixes appreciated.</p>
-<p>All changes should be made in the <code>.Rmd</code> files in the project root. To contribute a change, please make a pull request and set the repository maintainer as the reviewer.</p>
-
+</header>
 
 <!-- -->
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+
+</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -485,31 +469,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./43_conditional.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Conditional Probability</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./00_warmup.html" class="pagination-link">
-        <span class="nav-page-text">Warmup Questions</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./51_solutions-warmup.html" class="pagination-link">
+        <span class="nav-page-text">Warmup Questions Solutions</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## About this Booklet {-}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>This booklet is adapted from the <span class="co">[</span><span class="ot">Harvard Gov Prefresher booklet</span><span class="co">](https://iqss.github.io/prefresher/)</span>, maintained by <span class="co">[</span><span class="ot">Shiro Kuriwaki</span><span class="co">](https://www.shirokuriwaki.com)</span>. </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>It will serve as as the text for the UCSD Math Camp, taught by Bertrand Wilden and Keng-Chi Chang, and we have reordered and adapted it to fit the structure of our course.</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>For information about the role of this math camp as an introduction to graduate school, you may be interested in <span class="co">[</span><span class="ot">"The Math Prefresher and The Collective Future of Political Science Graduate Training"</span><span class="co">](https://gking.harvard.edu/prefresher)</span>, in PS: Political Science &amp; Politics, by Gary King, Shiro Kuriwaki, and Yon Soo Park.</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">### Authors and Contributors {-}</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>For information about the authors of the Harvard Gov Prefresher booklet, see <span class="co">[</span><span class="ot">here</span><span class="co">](https://iqss.github.io/prefresher/index.html#authors-and-contributors)</span>.  </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>We have also updated it to include some material from previous instructors of the class at UCSD, including Rachel Schoner (2021), Luke Sanford (2019-2020), Kathryn Baragwanath (2019-2020), Brandon Merrell (2018), Inbok Rhee (2018).</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">### Contributing {-}</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>We transitioned the booklet into a bookdown <span class="co">[</span><span class="ot">github repository</span><span class="co">](https://github.com/UCSDPoliMathCamp/MathCamp)</span> in 2021. </span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>As we update this version, we appreciate any bug reports or fixes appreciated. </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>All changes should be made in the <span class="in">`.Rmd`</span> files in the project root. </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>To contribute a change, please make a pull request and set the repository maintainer as the reviewer.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Probability Distributions {#distributions}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
