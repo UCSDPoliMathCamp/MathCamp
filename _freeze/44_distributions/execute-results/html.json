@@ -1,0 +1,14 @@
+{
+  "hash": "3281827849212f3ca432fc29893b05fc",
+  "result": {
+    "markdown": "\n# Probability Distributions {#distributions}",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

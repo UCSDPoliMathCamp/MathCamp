@@ -41,9 +41,10 @@ book:
       - 34_intergrals.Rmd
     - part: "IV Probability"
       chapters:
-      - 41_probability.Rmd
-      - 42_distribution.Rmd
-      - 43_statistics.Rmd
+      - 41_measuring_uncertainty.Rmd
+      - 42_logic_probability.Rmd
+      - 43_conditional.Rmd
+      - 44_distributions.Rmd
     - 51_solutions-warmup.Rmd
 
 format:
