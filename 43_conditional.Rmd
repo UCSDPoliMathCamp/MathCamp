@@ -1,2 +1,103 @@
 
 # Conditional Probability {#conditional}
+
+In the last chapter we looked at how to combine *independent* probabilities together using AND and OR. Most real world probabilities that we would like to combine, however, are *not* independent of one another. On the one hand this is unfortunate because it requires us to use more complicated mathematics. But on the other hand, using what is known as *conditional* probability to combine non-independent probabilities together allows us to incorporate so much more information into our analyses. In fact, the rules of conditional probability are what make statistical inference possible in the first place!
+
+We use the "|" symbol to denote conditionality. You can read the statement below as "the probability of A *conditional* on B being true", or "*given that* B is true, this is the probability of A"
+
+$$
+\text{P}(A|B)
+$$
+
+The conditional notation allows us to make our definition of probabilistic independence more formal. **The propositions $A$ is independent of $B$ if**:
+
+$$
+\text{P}(A|B) = \text{P}(A)
+$$
+
+A nice way to think about the statement above is that $B$'s truth value provides no extra information about the truth of $A$. Or, $B$ being true of false does not change our probability for $A$. Probabilistic independence is a tricky concept to grasp at first. In some ways, it is more natural to think of two probabilities as non-independent by default.
+
+Let's use a concrete example to help us understand conditional probability. Say we want to investigate the relationship between partisanship in the US and UFO encounters. The overall percentage of Americans who claim to have had an encounter with a UFO is about 8%, but the numbers are higher for Republicans and lower for Democrats:
+
+$$
+\text{P(alien encounter)} = 0.08
+$$
+
+$$
+\text{P(alien encounter | Republican)} = 0.12
+$$
+
+$$
+\text{P(alien encounter | Democrat)} = 0.04
+$$
+
+We will also assume for the sake of simplicity that everyone in America is either a Republican or Democrat, and that they are split 50/50 in the population.
+
+$$
+\text{P(Republican)} = \text{P(Democrat)} = 0.5
+$$
+
+Let's try to use our old product rule to calculate the probability that a randomly chosen American is a Republican *AND* claims to have had an alien encounter.
+
+$$
+\text{P(Republican)} * \text{P(alien encounter)} = 0.5 * 0.08 = 0.04
+$$
+
+But if we do the same for Democrats we get the same answer!
+
+$$
+\text{P(Democrat)} * \text{P(alien encounter)} = 0.5 * 0.08 = 0.04
+$$
+
+This does not make sense since we established that the probability of having an alien encounter changes conditional on an individual's political party affiliation. So there must be something wrong with our product rule when trying to combine probabilities that are not independent.
+
+The correct way to find out if a randomly chosen American is both a Republican and a UFO survivor is to multiply the partisanship probability by its conditional probability.
+
+$$
+\text{P(Republican)} * \text{P(alien encounter | Republican)} = 0.5 * 0.12 = 0.06
+$$
+
+This gives us our **updated product rule**:
+
+$$
+\text{P}(A, B) = \text{P}(A) * \text{P}(B|A)
+$$
+
+Note that this rule works for combining independent probabilities too because $\text{P}(B|A) = \text{P}(B)$ in that case. While we're at it, let's also write down our **updated sum rule**:
+
+$$
+\text{P}(A \ \text{or} \ B) = \text{P}(A) + \text{P}(B) - \text{P}(A) * \text{P}(B|A)
+$$
+
+Our new product and sum rules can handle any number of propositions. The trick, like we saw in the last chapter, is to simply treat multiple probabilities as a single probability. Here is an example:
+
+$$\begin{aligned}
+\text{P}(A, B, C) &= \text{P}(A, (B, C)) \\
+&= \text{P}(A) * \text{P}(B, C | A) \\
+&= \text{P}(A) * \text{P}(B|A) * \text{P}(C|B, A)
+\end{aligned}$$
+
+## Bayes' Theorem
+
+In the previous example we were interested in finding out the probability of someone's partisanship based on information about their UFO encounters. What if we wanted to ask the question in reverse? Given a partisan affiliation, what is the probability that someone claims to have encountered a UFO? Amazingly, thanks to conditional probability, we have everything we need to answer that question. The first step comes from realizing that $\text{P}(A, B)$ is the same as $\text{P}(B, A)$. According to the rules of logic, $A$ *AND* $B$ is the same as $B$ *AND* $A$. Let's apply our product rule to both of these quantities:
+
+$$\begin{aligned}
+\text{P}(B,A) &= \text{P}(A, B) \\
+\text{P}(B) * \text{P}(A|B) &= \text{P}(A) * \text{P}(B|A)
+\end{aligned}$$
+
+Now we just divide both sides by $\text{P}(B)$ and we get:
+
+$$\text{P}(A|B) = \frac{\text{P}(A) * \text{P}(B|A)}{\text{P}(B)}$$
+
+The most important formula in statistics and probability, **Bayes' theorem**. To see why it is so useful let's substitute our $A$ and $B$ placeholders for something more concrete. The goal of all scientific inference is to use *evidence* to inform our *belief* about whether something is true or false. In the language of conditional probability that would be $\text{P}(\text{belief} \ | \ \text{evidence})$. This is the *posterior probability* in Bayes' theorem. Substituting "belief" and "evidence" into the rest of the equation gives us:
+
+$$\text{P}(\text{belief} \ | \ \text{evidence}) = \frac{\text{P}(\text{belief}) * \text{P}(\text{evidence} \ | \ \text{belief})}{\text{P}(\text{evidence})}$$
+
+On the right hand side of the equation, $\text{P}(\text{evidence} \ | \ \text{belief})$ is often called the "likelihood" or "sampling probability" of the evidence we have gathered. The ratio $\frac{\text{P}(\text{evidence} \ | \ \text{belief})}{\text{P}(\text{evidence})}$ gives us a relative measure of how probable we were to gather this particular set of evidence given a certain belief. But this ratio needs to be multiplied by our *prior probability* of that belief being true, $\text{P}(\text{belief})$ in order to come up with a valid posterior probability of our belief.
+
+
+
+
+
+

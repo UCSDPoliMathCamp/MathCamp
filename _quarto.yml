@@ -44,7 +44,8 @@ book:
       - 41_measuring_uncertainty.Rmd
       - 42_logic_probability.Rmd
       - 43_conditional.Rmd
-      - 44_distributions.Rmd
+      - 44_parameter_estimation.Rmd
+      - 45_distributions.Rmd
     - 51_solutions-warmup.Rmd
 
 format:
