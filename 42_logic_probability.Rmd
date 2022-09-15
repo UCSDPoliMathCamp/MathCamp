@@ -222,8 +222,7 @@ ggplot(df) +
   facet_wrap(~ group, nrow = 3) +
   theme_classic() +
   labs(x = "k", y = "Probability",
-       title = "Binomial PMFs for n = 3") +
-  scale_x_continuous(breaks = 0:7)
+       title = "Binomial PMFs for n = 3")
 ```
 
 The height of each bar corresponds to the probability of a given value of *k*.
