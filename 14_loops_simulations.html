@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.3.340">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
 <title>UCSD Political Science Math Camp - 4&nbsp; Loops and Simulation</title>
 <style>
 code{white-space: pre-wrap;}
@@ -14,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -43,44 +47,15 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -100,7 +75,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -118,12 +94,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script><style>html{ scroll-behavior: smooth; }</style>
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
 <script type="application/json" class="js-hypothesis-config">
 {
   "theme": "clean"
 }
-</script><script async="" src="https://hypothes.is/embed.js"></script><script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
+</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
  for (var i = 0; i < mathElements.length; i++) {
@@ -136,26 +117,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     fleqn: false
    });
 }}});
-  </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Loops and Simulation</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11_orientation.html">I Introduction to R</a></li><li class="breadcrumb-item"><a href="./14_loops_simulations.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Loops and Simulation</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">UCSD Political Science Math Camp</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/UCSDPoliMathCamp/MathCamp/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+    <a href="https://github.com/UCSDPoliMathCamp/MathCamp/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
@@ -163,184 +158,209 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">About this Booklet</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About this Booklet</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00_warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions</a>
+  <a href="./00_warmup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Warmup Questions</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_prerequisites.html" class="sidebar-item-text sidebar-link">Prerequisites</a>
+  <a href="./01_prerequisites.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prerequisites</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">I Introduction to R</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">I Introduction to R</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_orientation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Reading in Data</span></a>
+  <a href="./11_orientation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Reading in Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_visualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Visualization</span></a>
+  <a href="./12_visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Visualization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_data_wrangling_cleaning.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Wrangling</span></a>
+  <a href="./13_data_wrangling_cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14_loops_simulations.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Loops and Simulation</span></a>
+  <a href="./14_loops_simulations.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Loops and Simulation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15_non-wysiwyg.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LaTeX and Markdown</span></a>
+  <a href="./15_non-wysiwyg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LaTeX and Markdown</span></span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">II Linear Algebra</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">II Linear Algebra</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21_vector_matrix.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrix Operations</span></a>
+  <a href="./21_vector_matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrix Operations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22_linear_systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Systems of Linear Equations</span></a>
+  <a href="./22_linear_systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Systems of Linear Equations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./23_matrix_inverse.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Matrix Inverse and Linear Independence</span></a>
+  <a href="./23_matrix_inverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Matrix Inverse and Linear Independence</span></span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">III Calculus</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">III Calculus</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./31_limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Limits</span></a>
+  <a href="./31_limits.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Limits</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./32_derivatives.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Differential Calculus</span></a>
+  <a href="./32_derivatives.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Differential Calculus</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./33_optimization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Optimization</span></a>
+  <a href="./33_optimization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Optimization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./34_intergrals.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Integral Calculus</span></a>
+  <a href="./34_intergrals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Integral Calculus</span></span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">IV Probability</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">IV Probability</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./41_probability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Probability Theory</span></a>
+  <a href="./41_probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Probability Theory</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./42_distribution.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Summarizing Distributions</span></a>
+  <a href="./42_distribution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Summarizing Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./43_statistics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Learning from Data</span></a>
+  <a href="./43_statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Learning from Data</span></span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./51_solutions-warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions Solutions</a>
+  <a href="./51_solutions-warmup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Warmup Questions Solutions</span></a>
   </div>
 </li>
     </ul>
-</div>
-</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-<li>
-<a href="#generating-fake-data" id="toc-generating-fake-data" class="nav-link active" data-scroll-target="#generating-fake-data"><span class="toc-section-number">4.1</span>  Generating Fake Data</a>
+  <li><a href="#generating-fake-data" id="toc-generating-fake-data" class="nav-link active" data-scroll-target="#generating-fake-data"><span class="header-section-number">4.1</span> Generating Fake Data</a>
   <ul>
-<li><a href="#sample" id="toc-sample" class="nav-link" data-scroll-target="#sample">sample()</a></li>
-  <li>
-<a href="#sampling-from-distributions" id="toc-sampling-from-distributions" class="nav-link" data-scroll-target="#sampling-from-distributions">Sampling from Distributions</a>
+  <li><a href="#sample" id="toc-sample" class="nav-link" data-scroll-target="#sample">sample()</a></li>
+  <li><a href="#sampling-from-distributions" id="toc-sampling-from-distributions" class="nav-link" data-scroll-target="#sampling-from-distributions">Sampling from Distributions</a>
   <ul class="collapse">
-<li><a href="#binomial-distribution" id="toc-binomial-distribution" class="nav-link" data-scroll-target="#binomial-distribution">Binomial Distribution</a></li>
+  <li><a href="#binomial-distribution" id="toc-binomial-distribution" class="nav-link" data-scroll-target="#binomial-distribution">Binomial Distribution</a></li>
   <li><a href="#the-uniform-distribution" id="toc-the-uniform-distribution" class="nav-link" data-scroll-target="#the-uniform-distribution">The Uniform Distribution</a></li>
   <li><a href="#the-normal-distribution" id="toc-the-normal-distribution" class="nav-link" data-scroll-target="#the-normal-distribution">The Normal Distribution</a></li>
-  </ul>
-</li>
+  </ul></li>
   <li><a href="#sampling-from-data" id="toc-sampling-from-data" class="nav-link" data-scroll-target="#sampling-from-data">Sampling from Data</a></li>
   <li><a href="#set.seed" id="toc-set.seed" class="nav-link" data-scroll-target="#set.seed">set.seed()</a></li>
-  </ul>
-</li>
-  <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops"><span class="toc-section-number">4.2</span>  Loops</a></li>
-  <li>
-<a href="#simulations" id="toc-simulations" class="nav-link" data-scroll-target="#simulations"><span class="toc-section-number">4.3</span>  Simulations</a>
+  </ul></li>
+  <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops"><span class="header-section-number">4.2</span> Loops</a></li>
+  <li><a href="#simulations" id="toc-simulations" class="nav-link" data-scroll-target="#simulations"><span class="header-section-number">4.3</span> Simulations</a>
   <ul>
-<li><a href="#central-limit-theorem" id="toc-central-limit-theorem" class="nav-link" data-scroll-target="#central-limit-theorem">Central Limit Theorem</a></li>
+  <li><a href="#central-limit-theorem" id="toc-central-limit-theorem" class="nav-link" data-scroll-target="#central-limit-theorem">Central Limit Theorem</a></li>
   <li><a href="#power-analysis" id="toc-power-analysis" class="nav-link" data-scroll-target="#power-analysis">Power Analysis</a></li>
   <li><a href="#bootstrapping" id="toc-bootstrapping" class="nav-link" data-scroll-target="#bootstrapping">Bootstrapping</a></li>
+  </ul></li>
   </ul>
-</li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/14_loops_simulations.Rmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/14_loops_simulations.Rmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="simulation" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Loops and Simulation</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="simulation" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Loops and Simulation</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -353,36 +373,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
   
 
-</header><p>Thus far in the course we have been working with real data. These data sets contained variables which correspond to tangible phenomena out in the world. While the bulk of social science research uses data of this sort, generating <em>fake</em> data can be surprisingly useful. Fake, or synthetic, data allows us to control every aspect of the <strong>data generating process (DGP)</strong>. By manually tweaking different parameters that govern the DGP, we can better understand how our statistical methods will perform on real data. In this chapter we will learn some of the tools in R used to simulate fake data.</p>
-<section id="generating-fake-data" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="generating-fake-data">
-<span class="header-section-number">4.1</span> Generating Fake Data</h2>
+</header>
+
+<p>Thus far in the course we have been working with real data. These data sets contained variables which correspond to tangible phenomena out in the world. While the bulk of social science research uses data of this sort, generating <em>fake</em> data can be surprisingly useful. Fake, or synthetic, data allows us to control every aspect of the <strong>data generating process (DGP)</strong>. By manually tweaking different parameters that govern the DGP, we can better understand how our statistical methods will perform on real data. In this chapter we will learn some of the tools in R used to simulate fake data.</p>
+<section id="generating-fake-data" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="generating-fake-data"><span class="header-section-number">4.1</span> Generating Fake Data</h2>
 <p>First let’s load in our favorite packages.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-1_ff80c5c86212929ef6152b61bf8d4c04">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="sample" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sample">sample()</h3>
-<p>The simplest way to generate random data in R is through the function <code>samples()</code>. The primary inputs to <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> are <code>x</code>, which is the set of values you want to draw from and <code>size</code>, which is the number of samples you want to draw. Let’s takes a look at an example.</p>
+<section id="sample" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="sample">sample()</h3>
+<p>The simplest way to generate random data in R is through the function <code>samples()</code>. The primary inputs to <code>sample()</code> are <code>x</code>, which is the set of values you want to draw from and <code>size</code>, which is the number of samples you want to draw. Let’s takes a look at an example.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-2_112fb861902c9dbc86e537bc35269c34">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Create a vector of character values</span></span>
-<span><span class="va">my_animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cat"</span>, <span class="st">"dog"</span>, <span class="st">"fish"</span>, <span class="st">"monkey"</span>, <span class="st">"parrot"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># From the set "my_animals", draw 2 at random</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">my_animals</span>, size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a vector of character values</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>my_animals <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"cat"</span>, <span class="st">"dog"</span>, <span class="st">"fish"</span>, <span class="st">"monkey"</span>, <span class="st">"parrot"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># From the set "my_animals", draw 2 at random</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> my_animals, <span class="at">size =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "parrot" "cat"   </code></pre>
 </div>
 </div>
-<p>By default, <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> samples <em>without</em> replacement. This means that once a value from <code>x</code> is drawn, it will be ineligible to be drawn again. The following code gives us an error because <code>size = 100</code> is larger than the total number of values in <code>my_animals</code>.</p>
+<p>By default, <code>sample()</code> samples <em>without</em> replacement. This means that once a value from <code>x</code> is drawn, it will be ineligible to be drawn again. The following code gives us an error because <code>size = 100</code> is larger than the total number of values in <code>my_animals</code>.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-3_cf9f265205f037e2398e217ba5dcd934">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">my_animals</span>, size <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> my_animals, <span class="at">size =</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in sample.int(length(x), size, replace, prob): cannot take a sample larger than the population when 'replace = FALSE'</code></pre>
 </div>
 </div>
-<p>To fix this we need to sample <em>with</em> replacement by setting <code>replace = TRUE</code> inside <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code>.</p>
+<p>To fix this we need to sample <em>with</em> replacement by setting <code>replace = TRUE</code> inside <code>sample()</code>.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-4_164ea68f5f22924e5b04e96398979c47">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">my_animals</span>, size <span class="op">=</span> <span class="fl">100</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> my_animals, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] "parrot" "monkey" "cat"    "fish"   "monkey" "parrot" "parrot" "dog"   
   [9] "fish"   "cat"    "parrot" "cat"    "fish"   "dog"    "cat"    "cat"   
@@ -400,42 +423,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>The decision to sample with, or without, replacement depends on the particular DGP you want to simulate.</p>
-<p>The <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> function has an additional option which may be useful when generating random values. If you give <code>prob</code> a vector of values, <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> will draw samples from <code>x</code> in proportion to the values in <code>prob</code>. Each value in <code>prob</code> corresponds to the values in <code>x</code> that shares its position in the vector.</p>
+<p>The <code>sample()</code> function has an additional option which may be useful when generating random values. If you give <code>prob</code> a vector of values, <code>sample()</code> will draw samples from <code>x</code> in proportion to the values in <code>prob</code>. Each value in <code>prob</code> corresponds to the values in <code>x</code> that shares its position in the vector.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-5_d1fd4431cb039bdc9f8f486f90f4c69e">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span></span>
-<span>  x <span class="op">=</span> <span class="va">my_animals</span>,</span>
-<span>  size <span class="op">=</span> <span class="fl">1000</span>,</span>
-<span>  replace <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.4</span>, <span class="fl">0.1</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>my_animals <span class="ot">&lt;-</span> <span class="fu">sample</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> my_animals,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">size =</span> <span class="dv">1000</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.4</span>, <span class="fl">0.1</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The code above samples <code>my_animals</code> with 10% weight on <code>cat</code>, 20% weight on <code>dog</code> and <code>fish</code>, 40% weight on <code>monkey</code>, and 10% weight on <code>parrot</code>. We can confirm this worked by inspecting a bar graph of our <code>my_animals</code> data.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-6_15c1a1d708ecc3a386cf217b2589b78d">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># ggplot requires the data be in tibble or data.frame form</span></span>
-<span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">my_animals</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">my_animals</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot requires the data be in tibble or data.frame form</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(my_animals) <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> my_animals)) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="14_loops_simulations_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section><section id="sampling-from-distributions" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sampling-from-distributions">Sampling from Distributions</h3>
-<p>The <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> function is great for generating random data, but its use is limited by the fact that you have to manually specify the set of values <code>x</code> to draw from. For many common distributions of data (for example the Normal distribution), the set of possible values can range from negative infinity to positive infinity! To help us with this problem, base R comes with dozens of functions for drawing samples from well-known statistical distributions. The first one we will take a look at is <code><a href="https://rdrr.io/r/stats/Binomial.html">rbinom()</a></code> (<code>r</code> for “random” and <code>binom</code> for “binomial”).</p>
-<section id="binomial-distribution" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="binomial-distribution">Binomial Distribution</h4>
-<p>The <code><a href="https://rdrr.io/r/stats/Binomial.html">rbinom()</a></code> function takes three inputs: <code>n</code> for the number of draws we want, <code>size</code> for the number of binomial trails, and <code>prob</code> for the probability of a “success”. Don’t worry if some of these parameters are unfamiliar, we will cover the binomial distribution in much greater detail in the Probability section of the course. The easiest introduction to the binomial distribution is to set <code>size = 1</code> and <code>prob = 0.5</code>. This simulates flipping a coin and getting either a heads, <code>1</code>, or tails, <code>0</code> with equal probability. The code below generates 100 coin flips in this way.</p>
+</section>
+<section id="sampling-from-distributions" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="sampling-from-distributions">Sampling from Distributions</h3>
+<p>The <code>sample()</code> function is great for generating random data, but its use is limited by the fact that you have to manually specify the set of values <code>x</code> to draw from. For many common distributions of data (for example the Normal distribution), the set of possible values can range from negative infinity to positive infinity! To help us with this problem, base R comes with dozens of functions for drawing samples from well-known statistical distributions. The first one we will take a look at is <code>rbinom()</code> (<code>r</code> for “random” and <code>binom</code> for “binomial”).</p>
+<section id="binomial-distribution" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="binomial-distribution">Binomial Distribution</h4>
+<p>The <code>rbinom()</code> function takes three inputs: <code>n</code> for the number of draws we want, <code>size</code> for the number of binomial trails, and <code>prob</code> for the probability of a “success”. Don’t worry if some of these parameters are unfamiliar, we will cover the binomial distribution in much greater detail in the Probability section of the course. The easiest introduction to the binomial distribution is to set <code>size = 1</code> and <code>prob = 0.5</code>. This simulates flipping a coin and getting either a heads, <code>1</code>, or tails, <code>0</code> with equal probability. The code below generates 100 coin flips in this way.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-7_fa3b83f8380fa471a5bbfb83db75c227">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, size <span class="op">=</span> <span class="fl">1</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] 1 0 0 1 1 0 0 1 1 0 1 1 1 1 0 0 0 1 1 1 1 0 0 1 0 1 1 0 0 1 0 0 0 0 0 1 1
  [38] 1 1 1 0 1 1 0 1 0 0 1 0 1 1 0 1 0 1 1 0 0 1 1 0 0 0 0 0 0 1 0 0 1 0 1 1 1
  [75] 0 0 1 1 1 0 1 1 1 1 0 1 1 1 0 1 0 0 1 1 1 1 0 1 1 1</code></pre>
 </div>
 </div>
-<p>We can replicate the same data generating process using <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> with the following code.</p>
+<p>We can replicate the same data generating process using <code>sample()</code> with the following code.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-8_1deceb2176c80282b75ebd70a06d269a">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
-<span>       size <span class="op">=</span> <span class="fl">100</span>,</span>
-<span>       replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">size =</span> <span class="dv">100</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] 1 1 1 1 1 0 1 1 0 1 1 1 1 1 0 1 0 0 0 1 0 1 1 1 0 1 1 0 0 1 0 0 0 1 1 1 1
  [38] 1 0 0 1 1 1 0 0 0 0 1 1 0 0 0 0 1 1 0 0 1 1 0 1 0 0 1 0 0 1 1 0 1 0 0 1 1
@@ -444,7 +470,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Let’s tweak the value for <code>prob</code> and see what happens.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-9_610cbeae34fffbf017e2ac3d5b27e6ee">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, size <span class="op">=</span> <span class="fl">1</span>, prob <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] 1 1 0 1 1 0 0 1 0 1 1 0 1 1 1 0 0 0 1 1 1 1 0 1 0 1 1 0 1 1 1 1 1 1 1 1 1
  [38] 1 1 1 0 1 1 1 1 1 1 1 1 1 1 1 0 1 1 1 0 1 0 1 1 1 1 1 1 1 1 1 1 0 1 1 0 1
@@ -453,38 +479,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Now there are way more <code>1</code>’s than <code>0</code>’s! A bar graph can help us visualize the proportions.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-10_3a7cda5a2083135e85f08df3ed3f412c">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">binomial_draws</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, size <span class="op">=</span> <span class="fl">1</span>, prob <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">binomial_draws</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">binomial_draws</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Binomial Distribution: size = 1, prob = 0.8"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>binomial_draws <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="fl">0.8</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(binomial_draws) <span class="sc">|&gt;</span> </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> binomial_draws)) <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Binomial Distribution: size = 1, prob = 0.8"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="14_loops_simulations_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Differentiating <code>size</code> from <code>n</code> in <code><a href="https://rdrr.io/r/stats/Binomial.html">rbinom()</a></code> can be difficult to understand at first, so let’s experiment with the code to help figure it out. When we set <code>n = 100</code> and <code>size = 1</code> we were drawing 100 values from a trial that only ran once. Instead, if we reverse these numbers, we would be drawing a single value from 100 trials.</p>
+<p>Differentiating <code>size</code> from <code>n</code> in <code>rbinom()</code> can be difficult to understand at first, so let’s experiment with the code to help figure it out. When we set <code>n = 100</code> and <code>size = 1</code> we were drawing 100 values from a trial that only ran once. Instead, if we reverse these numbers, we would be drawing a single value from 100 trials.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-11_eeb4c414afbf457086aab79aec93c9ec">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">100</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 49</code></pre>
 </div>
 </div>
 <p>As you can see, the code above gives us a single value which is the sum of <code>1</code>’s from 100 trials. Because <code>prob = 0.5</code>, this number should be around 50.</p>
-<p>Like in our example of sampling animal names with <code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code>, it can be useful to create histograms to understand how sampling parameters affect the distribution of draws we get.</p>
+<p>Like in our example of sampling animal names with <code>sample()</code>, it can be useful to create histograms to understand how sampling parameters affect the distribution of draws we get.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-12_630cb8180266f997c6d0b80d46914eb6">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">binomial_draws</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10000</span>,</span>
-<span>                         size <span class="op">=</span> <span class="fl">7</span>,</span>
-<span>                         prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>binomial_draws <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">10000</span>,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">size =</span> <span class="dv">7</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">prob =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The code chunk above creates an object called <code>binomial_draws</code> which holds 10,000 draws from a binomial distribution with seven trials and where the probability of a successful trial is 0.5. Let’s plot the values of <code>binomial_draws</code>.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-13_883d49bddee08e76dd61a94bdf99aac3">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">binomial_draws</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">binomial_draws</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">7</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Binomial Distribution: size = 7, prob = 0.5"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(binomial_draws) <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> binomial_draws)) <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">7</span>) <span class="sc">+</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Binomial Distribution: size = 7, prob = 0.5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="14_loops_simulations_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -492,24 +518,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>As you can see, the results of our random draws cluster around <code>3</code> and <code>4</code>. This is because the expected value of a binomial distribution is the total number of trials multiplied by the probability of a success. So that would be <span class="math inline">7 * 0.5 = 3.5</span> in this example.</p>
 <p>Now let’s try changing <code>prob</code> to equal <code>0.8</code> in our simulation. The histogram below shows that the values of <code>binomial_draws</code> are clustered towards the higher end of the distribution with an average value of <span class="math inline">7 * 0.8 = 5.6</span>.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-14_831e717ad13a4e19248876258d73307b">
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">binomial_draws</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10000</span>,</span>
-<span>                         size <span class="op">=</span> <span class="fl">7</span>,</span>
-<span>                         prob <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">binomial_draws</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">binomial_draws</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">7</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Binomial Distribution: size = 7, prob = 0.8"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>binomial_draws <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">10000</span>,</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">size =</span> <span class="dv">7</span>,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">prob =</span> <span class="fl">0.8</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(binomial_draws) <span class="sc">|&gt;</span> </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> binomial_draws)) <span class="sc">+</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">7</span>) <span class="sc">+</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Binomial Distribution: size = 7, prob = 0.8"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="14_loops_simulations_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section><section id="the-uniform-distribution" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="the-uniform-distribution">The Uniform Distribution</h4>
-<p>Whereas the binomial distribution only returns whole numbers when we sample from it, samples drawn from a uniform distribution can be any real number between a specified minimum and maximum. The uniform distribution is useful when you want to generate random numbers with equal weight from within a pre-determined range. To generate random samples from the uniform distribution we use <code><a href="https://rdrr.io/r/stats/Uniform.html">runif()</a></code>. Like <code><a href="https://rdrr.io/r/stats/Binomial.html">rbinom()</a></code>, the option <code>n</code> sets the number of random draws we want. We also need to specify our range by including a <code>max</code> and <code>min</code>.</p>
+</section>
+<section id="the-uniform-distribution" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="the-uniform-distribution">The Uniform Distribution</h4>
+<p>Whereas the binomial distribution only returns whole numbers when we sample from it, samples drawn from a uniform distribution can be any real number between a specified minimum and maximum. The uniform distribution is useful when you want to generate random numbers with equal weight from within a pre-determined range. To generate random samples from the uniform distribution we use <code>runif()</code>. Like <code>rbinom()</code>, the option <code>n</code> sets the number of random draws we want. We also need to specify our range by including a <code>max</code> and <code>min</code>.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-15_ffa4785badff9b6fe77c12088ccafd04">
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Generating random numbers from between 0 and 1</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">25</span>, min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generating random numbers from between 0 and 1</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">25</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 0.54337171 0.71002642 0.48195880 0.22570595 0.44268945 0.95055935
  [7] 0.50057119 0.33930531 0.15806949 0.10024940 0.80346667 0.34544123
@@ -520,13 +548,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Let’s graph the random draws we get from a uniform distribution to better understand what’s taking place.</p>
 <div class="cell" data-waring="false" data-hash="14_loops_simulations_cache/html/unnamed-chunk-16_8aefc76d9f18f17cdf7fe62909cd15d6">
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">uniform_draws</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">10000</span>, min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">uniform_draws</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">uniform_draws</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"white"</span>, bins <span class="op">=</span> <span class="fl">30</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.5</span>, <span class="fl">1.5</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Unfiform Distribution: min = 0, max = 1"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>uniform_draws <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10000</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(uniform_draws) <span class="sc">|&gt;</span> </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> uniform_draws)) <span class="sc">+</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">bins =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Unfiform Distribution: min = 0, max = 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 2 rows containing missing values (geom_bar).</code></pre>
 </div>
@@ -535,11 +563,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>The histogram above shows that values between 0 and 1 are all about equally likely, but we won’t get any draws that are less than 0 or greater than 1.</p>
-</section><section id="the-normal-distribution" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="the-normal-distribution">The Normal Distribution</h4>
+</section>
+<section id="the-normal-distribution" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="the-normal-distribution">The Normal Distribution</h4>
 <p>The normal distribution creates the familiar bell-shaped curve and has two parameters: the mean which controls the center of the distribution, and the standard deviation which controls the width of the curve. We often model variables as following a normal distribution when we believe they should be drawn from some central value plus or minus some random “noise”. Normal distributions arise naturally when the data-generating process involves the addition of many small fluctuations via some process.</p>
-<p>The function for generating samples from a normal distribution, <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code>, follows the same pattern we have seen with <code><a href="https://rdrr.io/r/stats/Binomial.html">rbinom()</a></code> and <code>ruinf()</code>. First we specify how many samples we want to draw <code>n</code>, then we specify the parameters <code>mean</code> and <code>sd</code> of the normal distribution we want to draw from.</p>
+<p>The function for generating samples from a normal distribution, <code>rnorm()</code>, follows the same pattern we have seen with <code>rbinom()</code> and <code>ruinf()</code>. First we specify how many samples we want to draw <code>n</code>, then we specify the parameters <code>mean</code> and <code>sd</code> of the normal distribution we want to draw from.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-17_8b66e22229b61b5dfaff389017aaf15e">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1]  0.701401693  0.563848586  0.083924053  0.583872090 -2.099774785
   [6]  0.110344339 -0.787723239 -0.333248439  0.550758584  0.714693017
@@ -565,68 +595,71 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Like the uniform distribution, draws from the normal distribution can be any real number. It may be difficult to see from the random draws above that values close to the mean of 0 are more likely than more extreme values. So let’s take a look at the distribution graphically.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-18_6a578986df71bfd68a077096743d4333">
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">normal_draws</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span>, mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">normal_draws</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">normal_draws</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"white"</span>, bins <span class="op">=</span> <span class="fl">30</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Normal Distribution: mean = 0, sd = 1"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>normal_draws <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(normal_draws) <span class="sc">|&gt;</span> </span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> normal_draws)) <span class="sc">+</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">bins =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Normal Distribution: mean = 0, sd = 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="14_loops_simulations_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>A normal distribution that looks like the one above (mean = 0, standard deviation = 1) is often called a “Standard Normal” distribution, and you will come across it all the time in statistics. Let’s take a look at some other normal distributions by varying their mean and standard deviation values.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-19_a101f672375edfcd9908f045ae73ca3c">
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># rnorm defaults to mean = 0, sd = 1 if those options are left blank</span></span>
-<span><span class="va">normal_minus_one</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span>, mean <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
-<span><span class="va">normal_zero</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span><span class="op">)</span></span>
-<span><span class="va">normal_one</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span>, mean <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Combining the draws into a single "long" data frame</span></span>
-<span><span class="va">normal_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">normal_minus_one</span>,</span>
-<span>                     <span class="va">normal_zero</span>,</span>
-<span>                     <span class="va">normal_one</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>               names_to <span class="op">=</span> <span class="st">"distribution"</span>,</span>
-<span>               values_to <span class="op">=</span> <span class="st">"normal_draws"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">normal_data</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">normal_draws</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"white"</span>, bins <span class="op">=</span> <span class="fl">90</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">distribution</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rnorm defaults to mean = 0, sd = 1 if those options are left blank</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>normal_minus_one <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>, <span class="at">mean =</span> <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>normal_zero <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>normal_one <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>, <span class="at">mean =</span> <span class="dv">1</span>)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Combining the draws into a single "long" data frame</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>normal_data <span class="ot">&lt;-</span> <span class="fu">cbind</span>(normal_minus_one,</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>                     normal_zero,</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>                     normal_one) <span class="sc">|&gt;</span> </span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(),</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"distribution"</span>,</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"normal_draws"</span>)</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>normal_data <span class="sc">|&gt;</span> </span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> normal_draws)) <span class="sc">+</span></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">bins =</span> <span class="dv">90</span>) <span class="sc">+</span></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> distribution, <span class="at">nrow =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="14_loops_simulations_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Changing the value for <code>mean</code> shifts the distribution along the x-axis but the spread of the data remains the same.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-20_3393cadebeb6e0e431a945960d25fb67">
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">normal_narrow</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span>, sd <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span>
-<span><span class="va">normal_standard</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span><span class="op">)</span></span>
-<span><span class="va">normal_wide</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span>, sd <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">normal_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">normal_narrow</span>,</span>
-<span>                     <span class="va">normal_standard</span>,</span>
-<span>                     <span class="va">normal_wide</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>               names_to <span class="op">=</span> <span class="st">"distribution"</span>,</span>
-<span>               values_to <span class="op">=</span> <span class="st">"normal_draws"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">normal_data</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">normal_draws</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"white"</span>, bins <span class="op">=</span> <span class="fl">90</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">distribution</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>normal_narrow <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>, <span class="at">sd =</span> <span class="fl">0.5</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>normal_standard <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>normal_wide <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>, <span class="at">sd =</span> <span class="fl">1.5</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>normal_data <span class="ot">&lt;-</span> <span class="fu">cbind</span>(normal_narrow,</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>                     normal_standard,</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>                     normal_wide) <span class="sc">|&gt;</span> </span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">everything</span>(),</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"distribution"</span>,</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"normal_draws"</span>)</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>normal_data <span class="sc">|&gt;</span> </span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> normal_draws)) <span class="sc">+</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">bins =</span> <span class="dv">90</span>) <span class="sc">+</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> distribution, <span class="at">nrow =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="14_loops_simulations_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Changing the value for only <code>sd</code> keeps each distribution centered at 0, but makes the data more or less spread out.</p>
-</section></section><section id="sampling-from-data" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="sampling-from-data">Sampling from Data</h3>
+</section>
+</section>
+<section id="sampling-from-data" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="sampling-from-data">Sampling from Data</h3>
 <p>While we’re discussing sampling to create fake data, it’s also handy to know how to sample from real data. Sometimes you will be working with data sets that are so large that you’ll want to test your code on smaller portions first. Or you may want to perform sampling on data when creating bootstrapped confidence intervals (a topic we will return to at the end of this chapter).</p>
 <p>Let’s read in the “county_elections.csv” data once again.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-21_6549ba980b7cd5169a1bc03ae1411414">
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">county_elections</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"county_elections.csv"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>county_elections <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"county_elections.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 3114 Columns: 27
 ── Column specification ────────────────────────────────────────────────────────
@@ -638,10 +671,10 @@ dbl (25): countyCode, trump16, clinton16, otherpres16, romney12, obama12, ot...
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 </div>
-<p>Dplyr contains a function called <code><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n()</a></code> which lets you easily draw a number of random rows from your data.</p>
+<p>Dplyr contains a function called <code>sample_n()</code> which lets you easily draw a number of random rows from your data.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-22_66b7706326cde6eb6d476609edc5cb08">
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">county_elections</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>county_elections <span class="sc">|&gt;</span> </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 27
    state_abbrv county    count…¹ trump16 clint…² other…³ romne…⁴ obama12 other…⁵
@@ -666,10 +699,10 @@ dbl (25): countyCode, trump16, clinton16, otherpres16, romney12, obama12, ot...
 # ℹ Use `colnames()` to see all variable names</code></pre>
 </div>
 </div>
-<p>Alternatively, we can use <code><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_frac()</a></code> to specify how many random rows to draw based on a proportion of total rows.</p>
+<p>Alternatively, we can use <code>sample_frac()</code> to specify how many random rows to draw based on a proportion of total rows.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-23_6a175625c0bc6b09a6ae08129cfe2899">
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">county_elections</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_frac</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span> <span class="co"># Return 1% of the final data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>county_elections <span class="sc">|&gt;</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_frac</span>(<span class="at">size =</span> <span class="fl">0.01</span>) <span class="co"># Return 1% of the final data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 31 × 27
    state_abbrv county    count…¹ trump16 clint…² other…³ romne…⁴ obama12 other…⁵
@@ -694,11 +727,11 @@ dbl (25): countyCode, trump16, clinton16, otherpres16, romney12, obama12, ot...
 # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
 </div>
 </div>
-<p>Performing stratified sampling is very easy using the <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> function we introduced in the last chapter. The code below draws one random row (i.e.&nbsp;county) from each US state.</p>
+<p>Performing stratified sampling is very easy using the <code>group_by()</code> function we introduced in the last chapter. The code below draws one random row (i.e.&nbsp;county) from each US state.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-24_49c2460d80066237336765b46956d742">
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">county_elections</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">state_abbrv</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>county_elections <span class="sc">|&gt;</span> </span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state_abbrv) <span class="sc">|&gt;</span> </span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 50 × 27
 # Groups:   state_abbrv [50]
@@ -724,50 +757,54 @@ dbl (25): countyCode, trump16, clinton16, otherpres16, romney12, obama12, ot...
 # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
 </div>
 </div>
-</section><section id="set.seed" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="set.seed">set.seed()</h3>
-<p>If you have been running the code chunks above yourself, you may have noticed that random values you got differed from those printed in this chapter. In fact, each time you run a function like <code>rnorm(n = 100, mean = 0, sd = 1)</code> you will get different results. The function <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code> is R’s way of making sure that the results of your random simulations are the same for others, and for yourself if you re-run your code. This is an important part of making sure the results of your statistical analyses are reproducible.</p>
-<p>Simply put any number inside <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code> and R’s randomness will become tied to that particular number.</p>
+</section>
+<section id="set.seed" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="set.seed">set.seed()</h3>
+<p>If you have been running the code chunks above yourself, you may have noticed that random values you got differed from those printed in this chapter. In fact, each time you run a function like <code>rnorm(n = 100, mean = 0, sd = 1)</code> you will get different results. The function <code>set.seed()</code> is R’s way of making sure that the results of your random simulations are the same for others, and for yourself if you re-run your code. This is an important part of making sure the results of your statistical analyses are reproducible.</p>
+<p>Simply put any number inside <code>set.seed()</code> and R’s randomness will become tied to that particular number.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-25_2a2eeb3ff19c28991a4ad0daace827c6">
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">10071992</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">my_animals</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10071992</span>)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(my_animals, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "monkey" "dog"    "parrot"</code></pre>
 </div>
 </div>
 <p>Running the chunk of code above should output <code>"parrot" "cat" "monkey"</code> each time it is run and across different computers, or different versions of R.</p>
-</section></section><section id="loops" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="loops">
-<span class="header-section-number">4.2</span> Loops</h2>
-<p>Loops are handy tools for running the same process repeatedly in R. For example, let’s say we wanted to print out the name of every animal in our vector of <code>my_animals</code>. The tedious way would be to type out the <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> function for each animal as in the code below.</p>
+</section>
+</section>
+<section id="loops" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="loops"><span class="header-section-number">4.2</span> Loops</h2>
+<p>Loops are handy tools for running the same process repeatedly in R. For example, let’s say we wanted to print out the name of every animal in our vector of <code>my_animals</code>. The tedious way would be to type out the <code>print()</code> function for each animal as in the code below.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-26_685e540f26f2c1ea950925c19f1cd214">
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"cat"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"cat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "cat"</code></pre>
 </div>
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"dog"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"dog"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "dog"</code></pre>
 </div>
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"monkey"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"monkey"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "monkey"</code></pre>
 </div>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"parrot"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"parrot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "parrot"</code></pre>
 </div>
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"fish"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"fish"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "fish"</code></pre>
 </div>
 </div>
 <p>But with loops we can perform the same task in a much more concise fashion.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-27_cb7791d456a2b4e47fdf8197dc8d233e">
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cat"</span>, <span class="st">"dog"</span>, <span class="st">"monkey"</span>, <span class="st">"parrot"</span>, <span class="st">"fish"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="kw">for</span> <span class="op">(</span><span class="va">animal</span> <span class="kw">in</span> <span class="va">my_animals</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">animal</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>my_animals <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"cat"</span>, <span class="st">"dog"</span>, <span class="st">"monkey"</span>, <span class="st">"parrot"</span>, <span class="st">"fish"</span>)</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (animal <span class="cf">in</span> my_animals) {</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(animal)</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "cat"
 [1] "dog"
@@ -778,23 +815,23 @@ dbl (25): countyCode, trump16, clinton16, otherpres16, romney12, obama12, ot...
 </div>
 <p>The basic structure of a loop is shown in the code chunk below. The object <code>set_of_things</code> should be some object in R which holds many values (such as a vector, a data frame, a list, or a matrix). The <code>thing</code> object refers to each element in <code>set_of_things</code> and changes its value each time the loop goes through a single iteration. Typically you will refer to <code>thing</code> in the body of your loop, such as in the function <code>do_something_to()</code>. A loop structured like this runs until every element in <code>set_of_things</code> is iterated through.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-28_f45ae1a9bd360e5e091501210b143f97">
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">thing</span> <span class="kw">in</span> <span class="va">set_of_things</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu">do_something_to</span><span class="op">(</span><span class="va">thing</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (thing <span class="cf">in</span> set_of_things) {</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do_something_to</span>(thing)</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>It is very common to use loops as a way to run a set of R commands N times, where N is some integer greater than 1. The easiest way to do this is to create a sequence of numbers using <code>:</code> as shown below.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-29_d5f36afb8e4c99d7ef63cec45dfa7afa">
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 </div>
 </div>
 <p>The object <code>1:10</code> is then what we will insert into the <code>set_of_things</code> position in our loop in order to iterate through each number in the sequence. When you construct a loop in this manner you should name your <code>thing</code> object <code>i</code>. This is the standard style taken from mathematical indexing, and helps readers of your code better understand the purpose of your loop.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-30_5bdb894b12c59081b01492eae1a274ca">
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">i</span> <span class="op">&lt;-</span> <span class="va">i</span> <span class="op">^</span> <span class="fl">2</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">&lt;-</span> i <span class="sc">^</span> <span class="dv">2</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1
 [1] 4
@@ -810,14 +847,14 @@ dbl (25): countyCode, trump16, clinton16, otherpres16, romney12, obama12, ot...
 </div>
 <p>So far our loops have only printed out their results in the console, but have not given us much to work with afterwards. To save the output of your loop you will typically need to initialize some “holder” object ahead of running the loop. Then, within each iteration of the loop, you can save the result inside the “holder” object.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-31_aa1ddc0acf7eaf9fb83ab4834074ff52">
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">holder</span> <span class="op">&lt;-</span> <span class="cn">NULL</span> <span class="co"># Use NULL to create an empty object</span></span>
-<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">holder</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">i</span> <span class="op">^</span> <span class="fl">2</span></span>
-<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>holder <span class="ot">&lt;-</span> <span class="cn">NULL</span> <span class="co"># Use NULL to create an empty object</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) {</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  holder[i] <span class="ot">&lt;-</span> i <span class="sc">^</span> <span class="dv">2</span></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The code chunk above iterates through each number from 1 to 100, squares that number, then saves it in the <code>i</code>th position of the <code>holder</code> object. We can then take the vector of values stored in <code>holder</code> and access them as we would any object saved in our R Environment.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-32_e685d1d6ab19fe7e9117e5209b8146ae">
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">holder</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>holder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1]     1     4     9    16    25    36    49    64    81   100   121   144
  [13]   169   196   225   256   289   324   361   400   441   484   529   576
@@ -832,122 +869,128 @@ dbl (25): countyCode, trump16, clinton16, otherpres16, romney12, obama12, ot...
 </div>
 <p>Alternatively, we could write the functionally-equivalent code chunk below.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-33_27fb2b359d8b79ae50c638fa75117066">
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">holder</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
-<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">holder</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">holder</span>, <span class="va">i</span> <span class="op">^</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>holder <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) {</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  holder <span class="ot">&lt;-</span> <span class="fu">c</span>(holder, i <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Here we are using the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function to <em>combine</em> the current value of the loop’s iteration with everything that came before it in the <code>holder</code> object. This method is more flexible than indexing with <code>[i]</code>, but can be computationally slower to run because the <code>holder</code> object is re-writen by R each time the loop iterates.</p>
-</section><section id="simulations" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="simulations">
-<span class="header-section-number">4.3</span> Simulations</h2>
-<p>In the final section of this chapter we will look at a few examples of simulations that have real-world applications. The basic idea behind each of these simulations is to use R’s random sampling functions (such as <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> or <code><a href="https://rdrr.io/r/stats/Uniform.html">runif()</a></code>) <em>within</em> a loop to generate hundreds or thousands of synthetic data points. In the real world we only get one realization of our data to analyze, but common statistical techniques are based on imagining large numbers of repeated samples of data from the same population. Simulations built in R can therefore help us approximate this process.</p>
-<section id="central-limit-theorem" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="central-limit-theorem">Central Limit Theorem</h3>
+<p>Here we are using the <code>c()</code> function to <em>combine</em> the current value of the loop’s iteration with everything that came before it in the <code>holder</code> object. This method is more flexible than indexing with <code>[i]</code>, but can be computationally slower to run because the <code>holder</code> object is re-writen by R each time the loop iterates.</p>
+</section>
+<section id="simulations" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="simulations"><span class="header-section-number">4.3</span> Simulations</h2>
+<p>In the final section of this chapter we will look at a few examples of simulations that have real-world applications. The basic idea behind each of these simulations is to use R’s random sampling functions (such as <code>rnorm()</code> or <code>runif()</code>) <em>within</em> a loop to generate hundreds or thousands of synthetic data points. In the real world we only get one realization of our data to analyze, but common statistical techniques are based on imagining large numbers of repeated samples of data from the same population. Simulations built in R can therefore help us approximate this process.</p>
+<section id="central-limit-theorem" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="central-limit-theorem">Central Limit Theorem</h3>
 <p>The Central Limit Theorem (CLT) is invoked all the time in frequentist statistical methods. In lay terms, it states that if we calculate the means of many samples from a single population, the distribution of these means will be normally distributed. And this is true regardless (with exceptions) of what the distribution of the population looks like. If this sounds like magic to you, let’s use a simulation to prove it.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-34_c4a4c456346edf1c2083f9558ffbff8d">
-<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n_sims</span> <span class="op">&lt;-</span> <span class="fl">1000</span></span>
-<span><span class="va">means</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>n_sims <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>means <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>First we will set the number of simulations we want to run with <code>n_sims &lt;- 1000</code>. Generally, running more simulations will produce more accurate results, but doing so will also take more computation time. The object <code>means</code> will be our “holder” object used to store the output of each loop iteration. We set its value to <code>NULL</code> initially because it starts empty.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-35_224cc45a33060b76b9dea386f264e273">
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">n_sims</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">sample_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">100</span>, min <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, max <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span>  <span class="va">means</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_data</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n_sims) {</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  sample_data <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">100</span>, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">1</span>)</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>  means[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(sample_data)</span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The loop above contains everything we need to simulate the CLT in action. By setting <code>for (i in 1:n_sims)</code> we make the loop run <code>n_sims</code> times. Within each iteration we generate a new vector of fake data called <code>sample_data</code> which contains 100 draws of a uniform distribution whose range is from -1 to 1. We then take the average value of <code>sample_data</code> with the <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> function and store that into the <code>i</code>th position of the <code>means</code> holder object.</p>
+<p>The loop above contains everything we need to simulate the CLT in action. By setting <code>for (i in 1:n_sims)</code> we make the loop run <code>n_sims</code> times. Within each iteration we generate a new vector of fake data called <code>sample_data</code> which contains 100 draws of a uniform distribution whose range is from -1 to 1. We then take the average value of <code>sample_data</code> with the <code>mean()</code> function and store that into the <code>i</code>th position of the <code>means</code> holder object.</p>
 <p>Now let’s graph our results!</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-36_6b4888c5d424c505363b601a66d88601">
-<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">means</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">means</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"white"</span>, bins <span class="op">=</span> <span class="fl">30</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Distribution of Means from Simulated Uniform Random Samples"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(means) <span class="sc">|&gt;</span> </span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> means)) <span class="sc">+</span></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">bins =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of Means from Simulated Uniform Random Samples"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="14_loops_simulations_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>As you can see, the distribution of mean values inside <code>means</code> follow the familiar bell-shaped curve of a normal distribution—despite the fact that the random samples were drawn from a uniform distribution. Amazing!</p>
-</section><section id="power-analysis" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="power-analysis">Power Analysis</h3>
+</section>
+<section id="power-analysis" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="power-analysis">Power Analysis</h3>
 <p>Power analysis is a method used to figure out how big of a sample you need before running an experiment. Smaller sample sizes make it more difficult to detect an effect of some treatment, but budget constraints often limit how large of a sample we can acquire. To perform a power analysis, you need to have an idea of the possible effect sizes of your treatment, as well as your false-negative threshold (i.e.&nbsp;“if there really is an effect from the treatment, what proportion of times should my experiment detect it?”). Statisticians have developed fancy formulas for calculating optimal sample sizes based on these inputs. But it is much easier to instead write R code which simulates running your particular experiment thousands of times.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-37_a883099c4c8d4c43f280b0d9f08e3566">
-<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n_sims</span> <span class="op">&lt;-</span> <span class="fl">10000</span></span>
-<span><span class="va">p_values</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span>
-<span><span class="va">effect</span> <span class="op">&lt;-</span> <span class="fl">0.5</span></span>
-<span><span class="va">sample_size</span> <span class="op">&lt;-</span> <span class="fl">50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>n_sims <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>p_values <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>effect <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>sample_size <span class="ot">&lt;-</span> <span class="dv">50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>As in the Central Limit Theorem example, we will set <code>n_sims &lt;- 10000</code>. Our “holder” object will be called <code>p_values</code> this time because that is what we will be extracting from every iteration of our loop below. Lastly we need to specify a treatment effect, <code>effect</code> and sample size for our experiment <code>sample_size</code>. The beauty of running simulations in R is that we can easily play around with different values of <code>effect</code> and <code>sample_size</code> and check out the new results.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-38_9c1554266f60d8eb8f2d50b3db5f1f1a">
-<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Setting seed so we all get the same results</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">10071992</span><span class="op">)</span></span>
-<span></span>
-<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">n_sims</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">treated</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">sample_size</span> <span class="op">/</span> <span class="fl">2</span>, mean <span class="op">=</span> <span class="va">effect</span><span class="op">)</span></span>
-<span>  <span class="va">control</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">sample_size</span> <span class="op">/</span> <span class="fl">2</span>, mean <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
-<span>  </span>
-<span>  <span class="va">power_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">treated</span>, <span class="va">control</span><span class="op">)</span></span>
-<span>  <span class="va">p_values</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">power_test</span><span class="op">$</span><span class="va">p.value</span></span>
-<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting seed so we all get the same results</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">10071992</span>)</span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n_sims) {</span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>  treated <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(sample_size <span class="sc">/</span> <span class="dv">2</span>, <span class="at">mean =</span> effect)</span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>  control <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(sample_size <span class="sc">/</span> <span class="dv">2</span>, <span class="at">mean =</span> <span class="dv">0</span>)</span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>  power_test <span class="ot">&lt;-</span> <span class="fu">t.test</span>(treated, control)</span>
+<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a>  p_values[i] <span class="ot">&lt;-</span> power_test<span class="sc">$</span>p.value</span>
+<span id="cb66-10"><a href="#cb66-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The loop above simulates a possible experimental design. First we create two vectors of outcomes, one for the treated group and one for our control group. The number of samples from each group is our <code>sample_size</code> divided by two, and each group is drawn from a normal distribution using <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code>. However, you will notice that the <code>treated</code> group is being drawn from a normal distribution with mean equal to our specified <code>effect</code> of 0.5, whereas the <code>control</code> group is drawn from a normal distribution with <code>mean = 0</code>. In our simulated experiment, we <em>know</em> that the treatment has some effect because we generated the data to ensure it does! The normal distribution for each group has a standard deviation of one (the default in <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code>). The variation in outcomes has major implications for our power analysis, but we will omit dealing with that here for simplicity.</p>
-<p>After generating sample outcomes for our <code>treated</code> and <code>control</code> groups, we perform a simple t-test to compare the means of each group and store the results in an object called <code>power_test</code>. Then we extract the p-value from the t-test using <code>$p.value</code> and save it into the <code>i</code>th position of the <code>p_values</code> holder object. If <code>power_test$p.value</code> is less than the conventional level of 0.05, then the simulated experiment has successfully detected the effect of the treatment. With our vector of 10,000 <code>p_values</code> in hand, we can now calculate the proportion of them which are below 0.05 using the <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> function.</p>
+<p>The loop above simulates a possible experimental design. First we create two vectors of outcomes, one for the treated group and one for our control group. The number of samples from each group is our <code>sample_size</code> divided by two, and each group is drawn from a normal distribution using <code>rnorm()</code>. However, you will notice that the <code>treated</code> group is being drawn from a normal distribution with mean equal to our specified <code>effect</code> of 0.5, whereas the <code>control</code> group is drawn from a normal distribution with <code>mean = 0</code>. In our simulated experiment, we <em>know</em> that the treatment has some effect because we generated the data to ensure it does! The normal distribution for each group has a standard deviation of one (the default in <code>rnorm()</code>). The variation in outcomes has major implications for our power analysis, but we will omit dealing with that here for simplicity.</p>
+<p>After generating sample outcomes for our <code>treated</code> and <code>control</code> groups, we perform a simple t-test to compare the means of each group and store the results in an object called <code>power_test</code>. Then we extract the p-value from the t-test using <code>$p.value</code> and save it into the <code>i</code>th position of the <code>p_values</code> holder object. If <code>power_test$p.value</code> is less than the conventional level of 0.05, then the simulated experiment has successfully detected the effect of the treatment. With our vector of 10,000 <code>p_values</code> in hand, we can now calculate the proportion of them which are below 0.05 using the <code>mean()</code> function.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-39_96e70d772ad5c5570babb4e9e223a495">
-<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">p_values</span> <span class="op">&lt;</span> <span class="fl">0.05</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(p_values <span class="sc">&lt;</span> <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.4038</code></pre>
 </div>
 </div>
 <p>It looks like our experiment (with effect size of 0.5 and sample size of 50) was only able to detect a true effect of the treatment about 40% of the time. Ideally we would like this number to above 80% so we will probably need to recruit more than 50 participants for our experiment if we hypothesize that the treatment has a 0.5 standardized effect.</p>
-</section><section id="bootstrapping" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="bootstrapping">Bootstrapping</h3>
+</section>
+<section id="bootstrapping" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="bootstrapping">Bootstrapping</h3>
 <p>Bootstrapping is a technique used to calculate uncertainty regions around our statistical estimates. It approximates a confidence interval by re-sampling the underlying data (<em>with replacement</em>) thousands of times and refitting the statistical model to each of these samples. Bootstrapping is useful when calculating confidence intervals analytically is challenging or impossible (which may occur for complicated models).</p>
 <p>In this example we will be looking at the coefficient estimate for a linear regression with median household income as the dependent variable and high school percentage as the independent variable. Recall that these variables come from the <code>county_elections</code> data.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-40_7dfef3827fdc901a5b15fbfd08c58217">
-<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n_sims</span> <span class="op">&lt;-</span> <span class="fl">1000</span></span>
-<span><span class="va">estimates</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>n_sims <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>estimates <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We will set <code>n_sims</code> to only 1,000 here because the re-sampling process can take a while. The holder <code>estimates</code> will be used to store the coefficient estimates from our linear regression.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-41_50950d408e1b08fa8ae98bcf8d51b587">
-<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">n_sims</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">county_sample</span> <span class="op">&lt;-</span> <span class="va">county_elections</span> <span class="op">|&gt;</span> </span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">county_elections</span><span class="op">)</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span>  </span>
-<span>  <span class="va">lm_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">median_hh_inc</span> <span class="op">~</span> <span class="va">lesshs_pct</span>,</span>
-<span>                 data <span class="op">=</span> <span class="va">county_sample</span><span class="op">)</span></span>
-<span>  <span class="va">estimates</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lm_model</span><span class="op">)</span><span class="op">$</span><span class="va">coef</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></span>
-<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n_sims) {</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  county_sample <span class="ot">&lt;-</span> county_elections <span class="sc">|&gt;</span> </span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="fu">nrow</span>(county_elections), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>  lm_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(median_hh_inc <span class="sc">~</span> lesshs_pct,</span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> county_sample)</span>
+<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a>  estimates[i] <span class="ot">&lt;-</span> <span class="fu">summary</span>(lm_model)<span class="sc">$</span>coef[[<span class="dv">2</span>]]</span>
+<span id="cb70-8"><a href="#cb70-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The first step of our simulation is to create a <code>county_sample</code> object which contains random rows from the main <code>county_elections</code> data set. Inside <code><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n()</a></code> we set <code>size = nrow(county_elections)</code> to generate a sample which has the same number of rows as the original data set. Crucially, we also set <code>replace = TRUE</code> so that it is possible to include the same row multiple times in our sampled data. If you think it seems weird to replicate rows like this, you’re not alone! Yet somehow this procedure works to produce valid confidence regions around the estimated coefficient.</p>
+<p>The first step of our simulation is to create a <code>county_sample</code> object which contains random rows from the main <code>county_elections</code> data set. Inside <code>sample_n()</code> we set <code>size = nrow(county_elections)</code> to generate a sample which has the same number of rows as the original data set. Crucially, we also set <code>replace = TRUE</code> so that it is possible to include the same row multiple times in our sampled data. If you think it seems weird to replicate rows like this, you’re not alone! Yet somehow this procedure works to produce valid confidence regions around the estimated coefficient.</p>
 <p>Next we create an object <code>lm_model</code> which stores the linear regression fit on the <code>county_sample</code> data. We can extract the coefficient/slope between <code>lesshs_pct</code> and <code>median_hh_inc</code> using the verbose <code>summary(lm_model)$coef[[2]]</code> (for easier ways to extract regression coefficients see the <a href="https://broom.tidymodels.org/">broom package</a>).</p>
 <p>Finally let’s take a look at all these coefficient values stored in <code>estimates</code> graphically.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-42_3bc33fe2d9b0eac49238a1118e8a7be7">
-<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bootstrap_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">estimates</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">estimates</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span>,</span>
-<span>                 fill <span class="op">=</span> <span class="st">"white"</span>,</span>
-<span>                 bins <span class="op">=</span> <span class="fl">30</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Bootstrapped Estimates of the Regression Coefficient"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">bootstrap_plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>bootstrap_plot <span class="ot">&lt;-</span> <span class="fu">tibble</span>(estimates) <span class="sc">|&gt;</span> </span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> estimates)) <span class="sc">+</span></span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">fill =</span> <span class="st">"white"</span>,</span>
+<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">bins =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb71-6"><a href="#cb71-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Bootstrapped Estimates of the Regression Coefficient"</span>) <span class="sc">+</span></span>
+<span id="cb71-7"><a href="#cb71-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb71-8"><a href="#cb71-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-9"><a href="#cb71-9" aria-hidden="true" tabindex="-1"></a>bootstrap_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="14_loops_simulations_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Sometimes it is handy to save a ggplot graph in an object like we do with <code>bootstrap_plot</code>. This will allow us to add on subsequent geoms without re-writing the entire ggplot code.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-43_0eccfd9e7c791af074f38c3cafc59beb">
-<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">lm_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">median_hh_inc</span> <span class="op">~</span> <span class="va">lesshs_pct</span>,</span>
-<span>               data <span class="op">=</span> <span class="va">county_elections</span><span class="op">)</span></span>
-<span><span class="va">estimate</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lm_model</span><span class="op">)</span><span class="op">$</span><span class="va">coef</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></span>
-<span><span class="va">standard_error</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lm_model</span><span class="op">)</span><span class="op">$</span><span class="va">coef</span><span class="op">[[</span><span class="fl">4</span><span class="op">]</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>lm_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(median_hh_inc <span class="sc">~</span> lesshs_pct,</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> county_elections)</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>estimate <span class="ot">&lt;-</span> <span class="fu">summary</span>(lm_model)<span class="sc">$</span>coef[[<span class="dv">2</span>]]</span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>standard_error <span class="ot">&lt;-</span> <span class="fu">summary</span>(lm_model)<span class="sc">$</span>coef[[<span class="dv">4</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>How do our simulated bootstrapped estimates, fit on random samples of the <code>county_elections</code> data, compare to the results of a model fit to the original data set? The code chunk above runs the linear regression model on the full <code>county_elections</code> data and saves the single estimated coefficient and standard error.</p>
 <div class="cell" data-hash="14_loops_simulations_cache/html/unnamed-chunk-44_af7db9317bf4544b1043156ec063371c">
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">bootstrap_plot</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="va">estimate</span>,</span>
-<span>             color <span class="op">=</span> <span class="st">"maroon"</span>, size <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="va">estimate</span> <span class="op">+</span> <span class="va">standard_error</span> <span class="op">*</span> <span class="fl">1.96</span>,</span>
-<span>             color <span class="op">=</span> <span class="st">"darkcyan"</span>, size <span class="op">=</span> <span class="fl">1.5</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="va">estimate</span> <span class="op">-</span> <span class="va">standard_error</span> <span class="op">*</span> <span class="fl">1.96</span>,</span>
-<span>             color <span class="op">=</span> <span class="st">"darkcyan"</span>, size <span class="op">=</span> <span class="fl">1.5</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>caption <span class="op">=</span> <span class="st">"Full sample estimate in maroon\n95% confidence interval in cyan"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>bootstrap_plot <span class="sc">+</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> estimate,</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"maroon"</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> estimate <span class="sc">+</span> standard_error <span class="sc">*</span> <span class="fl">1.96</span>,</span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"darkcyan"</span>, <span class="at">size =</span> <span class="fl">1.5</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> estimate <span class="sc">-</span> standard_error <span class="sc">*</span> <span class="fl">1.96</span>,</span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"darkcyan"</span>, <span class="at">size =</span> <span class="fl">1.5</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">caption =</span> <span class="st">"Full sample estimate in maroon</span><span class="sc">\n</span><span class="st">95% confidence interval in cyan"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="14_loops_simulations_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -957,7 +1000,11 @@ dbl (25): countyCode, trump16, clinton16, otherpres16, romney12, obama12, ot...
 
 <!-- -->
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -984,9 +1031,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1102,6 +1163,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1140,7 +1287,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
       <a href="./13_data_wrangling_cleaning.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span>
       </a>          
