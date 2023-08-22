@@ -1,26 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.340">
-
+<meta name="generator" content="quarto-1.0.25">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>UCSD Political Science Math Camp - 3&nbsp; Data Wrangling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,15 +38,44 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
+    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
-
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -75,8 +95,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -94,47 +113,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
-<style>html{ scroll-behavior: smooth; }</style>
+}</script><style>html{ scroll-behavior: smooth; }</style>
 <script type="application/json" class="js-hypothesis-config">
 {
   "theme": "clean"
 }
-</script>
-<script async="" src="https://hypothes.is/embed.js"></script>
-
-
-<link rel="stylesheet" href="style.css">
+</script><script async="" src="https://hypothes.is/embed.js"></script><link rel="stylesheet" href="style.css">
 </head>
-
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11_orientation.html">I Introduction to R</a></li><li class="breadcrumb-item"><a href="./13_data_wrangling_cleaning.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Wrangling</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Wrangling</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">UCSD Political Science Math Camp</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/UCSDPoliMathCamp/MathCamp/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+    <a href="https://github.com/UCSDPoliMathCamp/MathCamp/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
@@ -142,206 +144,181 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
     </div>
       </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
+      <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-        </div>
+      </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">About this Booklet</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">About this Booklet</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00_warmup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Warmup Questions</span></a>
+  <a href="./00_warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_prerequisites.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Prerequisites</span></a>
+  <a href="./01_prerequisites.html" class="sidebar-item-text sidebar-link">Prerequisites</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">I Introduction to R</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">I Introduction to R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_orientation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Reading in Data</span></span></a>
+  <a href="./11_orientation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Reading in Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Visualization</span></span></a>
+  <a href="./12_visualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Visualization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_data_wrangling_cleaning.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></a>
+  <a href="./13_data_wrangling_cleaning.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Wrangling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14_loops_simulations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Loops and Simulation</span></span></a>
+  <a href="./14_loops_simulations.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Loops and Simulation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15_non-wysiwyg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LaTeX and Markdown</span></span></a>
+  <a href="./15_non-wysiwyg.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LaTeX and Markdown</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">II Linear Algebra</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">II Linear Algebra</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21_vector_matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrix Operations</span></span></a>
+  <a href="./21_vector_matrix.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrix Operations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22_linear_systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Systems of Linear Equations</span></span></a>
+  <a href="./22_linear_systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Systems of Linear Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./23_matrix_inverse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Matrix Inverse and Linear Independence</span></span></a>
+  <a href="./23_matrix_inverse.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Matrix Inverse and Linear Independence</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">III Calculus</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">III Calculus</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./31_limits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Limits</span></span></a>
+  <a href="./31_limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Limits</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./32_derivatives.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Differential Calculus</span></span></a>
+  <a href="./32_derivatives.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Differential Calculus</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./33_optimization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Optimization</span></span></a>
+  <a href="./33_optimization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Optimization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./34_intergrals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Integral Calculus</span></span></a>
+  <a href="./34_intergrals.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Integral Calculus</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">IV Probability</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">IV Probability</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./41_probability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Probability Theory</span></span></a>
+  <a href="./41_probability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Probability Theory</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./42_distribution.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Summarizing Distributions</span></span></a>
+  <a href="./42_distribution.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Summarizing Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./43_statistics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Learning from Data</span></span></a>
+  <a href="./43_statistics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Learning from Data</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./51_solutions-warmup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Warmup Questions Solutions</span></a>
+  <a href="./51_solutions-warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions Solutions</a>
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#clean-data" id="toc-clean-data" class="nav-link active" data-scroll-target="#clean-data"><span class="header-section-number">3.1</span> Clean Data</a></li>
-  <li><a href="#cleaning-data-using-dplyr" id="toc-cleaning-data-using-dplyr" class="nav-link" data-scroll-target="#cleaning-data-using-dplyr"><span class="header-section-number">3.2</span> Cleaning Data Using dplyr</a>
-  <ul>
-  <li><a href="#the-pipe-operator" id="toc-the-pipe-operator" class="nav-link" data-scroll-target="#the-pipe-operator">The Pipe Operator</a></li>
-  </ul></li>
-  <li><a href="#working-with-columns" id="toc-working-with-columns" class="nav-link" data-scroll-target="#working-with-columns"><span class="header-section-number">3.3</span> Working with Columns</a>
-  <ul>
-  <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select">Select</a></li>
-  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate">Mutate</a></li>
-  </ul></li>
-  <li><a href="#working-with-rows" id="toc-working-with-rows" class="nav-link" data-scroll-target="#working-with-rows"><span class="header-section-number">3.4</span> Working with Rows</a>
-  <ul>
-  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter">Filter</a></li>
-  <li><a href="#aggregation" id="toc-aggregation" class="nav-link" data-scroll-target="#aggregation">Aggregation</a></li>
-  </ul></li>
-  <li><a href="#merging-data" id="toc-merging-data" class="nav-link" data-scroll-target="#merging-data"><span class="header-section-number">3.5</span> Merging Data</a></li>
+<li><a href="#clean-data" id="toc-clean-data" class="nav-link active" data-scroll-target="#clean-data"> <span class="header-section-number">3.1</span> Clean Data</a></li>
+  <li>
+<a href="#cleaning-data-using-dplyr" id="toc-cleaning-data-using-dplyr" class="nav-link" data-scroll-target="#cleaning-data-using-dplyr"> <span class="header-section-number">3.2</span> Cleaning Data Using dplyr</a>
+  <ul class="collapse">
+<li><a href="#the-pipe-operator" id="toc-the-pipe-operator" class="nav-link" data-scroll-target="#the-pipe-operator">The Pipe Operator</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/13_data_wrangling_cleaning.Rmd" class="toc-action">Edit this page</a></p></div></div></nav>
+</li>
+  <li>
+<a href="#working-with-columns" id="toc-working-with-columns" class="nav-link" data-scroll-target="#working-with-columns"> <span class="header-section-number">3.3</span> Working with Columns</a>
+  <ul class="collapse">
+<li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select">Select</a></li>
+  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate">Mutate</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#working-with-rows" id="toc-working-with-rows" class="nav-link" data-scroll-target="#working-with-rows"> <span class="header-section-number">3.4</span> Working with Rows</a>
+  <ul class="collapse">
+<li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter">Filter</a></li>
+  <li><a href="#aggregation" id="toc-aggregation" class="nav-link" data-scroll-target="#aggregation">Aggregation</a></li>
+  </ul>
+</li>
+  <li><a href="#merging-data" id="toc-merging-data" class="nav-link" data-scroll-target="#merging-data"> <span class="header-section-number">3.5</span> Merging Data</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/13_data_wrangling_cleaning.Rmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="datawrangling" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="datawrangling" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -349,69 +326,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-meta">
 
     
-  
     
   </div>
   
 
-</header>
-
-<section id="clean-data" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="clean-data"><span class="header-section-number">3.1</span> Clean Data</h2>
+</header><section id="clean-data" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="clean-data">
+<span class="header-section-number">3.1</span> Clean Data</h2>
 <p>The raw data used in much of political science research rarely comes to us in a format that is immediately accessible for analysis. Instead, we frequently need to write an R script to “clean” the data first. Only after cleaning the data will it be usable for visualization or statistical modeling. This process (also known as “data wrangling”) can be extremely arduous and time-consuming—depending on how messy the raw data is in the first place. According to the common aphorism, the time you spend writing R code to clean your data sets will far exceed the time you spend subsequently running any sort of statistical analysis on the cleaned data.</p>
 <p>Although data cleaning has a reputation as a dull, menial task (compared to the “fun” of statistical modeling), try to avoid treating the process like it is merely a roadblock—something to be overcome before you can begin the <em>real</em> analysis. In fact, each decision you make when wrangling your raw data into its final state <a href="https://counting.substack.com/p/data-cleaning-is-analysis-not-grunt#:~:text=The%20act%20of%20cleaning%20data%20is%20the%20act%20of%20preferentially,the%20act%20of%20data%20analysis.">is a crucial part of the final research product</a>. Whether or not to drop certain observations, or using different levels of data aggregation, are some examples of choices which can have massive downstream effects. You should be thoughtful and transparent about your decision-making process the whole time you spend cleaning data.</p>
-</section>
-<section id="cleaning-data-using-dplyr" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="cleaning-data-using-dplyr"><span class="header-section-number">3.2</span> Cleaning Data Using dplyr</h2>
+</section><section id="cleaning-data-using-dplyr" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="cleaning-data-using-dplyr">
+<span class="header-section-number">3.2</span> Cleaning Data Using dplyr</h2>
 <p>As in the other sections of this book, we will be using the Tidyverse approach to data cleaning here. The primary Tidyverse package for data cleaning is <a href="https://dplyr.tidyverse.org/">dplyr</a> and it contains most of the functions we will be using in this chapter.</p>
-<p>Rather than downloading a .csv file and using the <code>read_csv()</code> function to load in our data for this chapter, we will be using a package which contains multiple data sets. The data come from the <a href="https://github.com/dgrtwo/unvotes">United Nations General Assembly</a>. First install the unvotes package by running the following command in your Console.</p>
+<p>Rather than downloading a .csv file and using the <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> function to load in our data for this chapter, we will be using a package which contains multiple data sets. The data come from the <a href="https://github.com/dgrtwo/unvotes">United Nations General Assembly</a>. First install the unvotes package by running the following command in your Console.</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-1_db8b492b5dd60ca6c6050e6adccb0d11">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"unvotes"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"unvotes"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then run</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-2_511fa903c0987dcdfe829eed50deec0b">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(unvotes)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dgrtwo/unvotes">unvotes</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>When you use the <code>library()</code> function, many packages automatically load small data sets which immediately become available for use. However, accessing these data can be a bit confusing because they do not automatically show up as objects in your Environment tab. Let’s add the unvotes data sets to our Environment with the following chunk of code:</p>
+<p>When you use the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> function, many packages automatically load small data sets which immediately become available for use. However, accessing these data can be a bit confusing because they do not automatically show up as objects in your Environment tab. Let’s add the unvotes data sets to our Environment with the following chunk of code:</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-3_1f3ff9feaa5c578c8c0bc95ff51484bd">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>un_votes <span class="ot">&lt;-</span> un_votes</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>un_roll_calls <span class="ot">&lt;-</span> un_roll_calls</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>un_roll_call_issues <span class="ot">&lt;-</span> un_roll_call_issues</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_votes</span> <span class="op">&lt;-</span> <span class="va">un_votes</span></span>
+<span><span class="va">un_roll_calls</span> <span class="op">&lt;-</span> <span class="va">un_roll_calls</span></span>
+<span><span class="va">un_roll_call_issues</span> <span class="op">&lt;-</span> <span class="va">un_roll_call_issues</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>About the data</p>
 <ul>
-<li><code>un_votes</code>, country-vote level data. Each row is a country’s vote on a particular UN Assembly resolution.</li>
-<li><code>un_roll_calls</code>, resolution level data. Contains information about each resolution.</li>
-<li><code>un_roll_call_issues</code>, resolution level data. Contains the issue-area for each resolution.</li>
+<li>
+<code>un_votes</code>, country-vote level data. Each row is a country’s vote on a particular UN Assembly resolution.</li>
+<li>
+<code>un_roll_calls</code>, resolution level data. Contains information about each resolution.</li>
+<li>
+<code>un_roll_call_issues</code>, resolution level data. Contains the issue-area for each resolution.</li>
 </ul>
-<section id="the-pipe-operator" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="the-pipe-operator">The Pipe Operator</h3>
+<section id="the-pipe-operator" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="the-pipe-operator">The Pipe Operator</h3>
 <p>Before we get started using dplyr we need to first introduce the “pipe” operator <code>|&gt;</code>. Pipes are an extremely convenient tool for linking several functions together. They work by passing the object on the left hand side of the pipe into the function following the pipe. <a href="https://twitter.com/andrewheiss/status/1359583543509348356">Here is an example</a>.</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-4_6f5e551ce2ae2924c20b9cf442092172">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The pipe way</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>me <span class="sc">|&gt;</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">wake_up</span>(<span class="at">time =</span> <span class="st">"8:00"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_out_of_bed</span>(<span class="at">side =</span> <span class="st">"correct"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_dressed</span>(<span class="at">pants =</span> <span class="cn">TRUE</span>, <span class="at">shirt =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">leave_house</span>(<span class="at">car =</span> <span class="cn">FALSE</span>, <span class="at">bike =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># The non-pipe way</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">leave_house</span>(<span class="fu">get_dressed</span>(<span class="fu">get_out_of_bed</span>(<span class="fu">wake_up</span>(me, <span class="at">time =</span> <span class="st">"8:00"</span>), <span class="at">side =</span> <span class="st">"correct"</span>), <span class="at">pants =</span> <span class="cn">TRUE</span>, <span class="at">shirt =</span> <span class="cn">TRUE</span>), <span class="at">car =</span> <span class="cn">FALSE</span>, <span class="at">bike =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># The pipe way</span></span>
+<span><span class="va">me</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">wake_up</span><span class="op">(</span>time <span class="op">=</span> <span class="st">"8:00"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">get_out_of_bed</span><span class="op">(</span>side <span class="op">=</span> <span class="st">"correct"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">get_dressed</span><span class="op">(</span>pants <span class="op">=</span> <span class="cn">TRUE</span>, shirt <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">leave_house</span><span class="op">(</span>car <span class="op">=</span> <span class="cn">FALSE</span>, bike <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># The non-pipe way</span></span>
+<span><span class="fu">leave_house</span><span class="op">(</span><span class="fu">get_dressed</span><span class="op">(</span><span class="fu">get_out_of_bed</span><span class="op">(</span><span class="fu">wake_up</span><span class="op">(</span><span class="va">me</span>, time <span class="op">=</span> <span class="st">"8:00"</span><span class="op">)</span>, side <span class="op">=</span> <span class="st">"correct"</span><span class="op">)</span>, pants <span class="op">=</span> <span class="cn">TRUE</span>, shirt <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, car <span class="op">=</span> <span class="cn">FALSE</span>, bike <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Both code chunks above will end up doing the same thing. But the pipe method is much easier to write, and much easier for others to read and understand.</p>
 <p>Before R version 4.1, the pipe operator was only available in the <a href="https://magrittr.tidyverse.org/">magrittr</a> package (which remains part of the Tidyverse). The magrittr pipe is written <code>%&gt;%</code> and many R users continue to use this over the native R <code>|&gt;</code>. There are a few very minor differences between the two pipes, which you should feel free to ignore. We use the native R <code>|&gt;</code> pipe in this book because it is generally a good idea, all else equal, to reduce your dependency on outside packages when writing code.</p>
-</section>
-</section>
-<section id="working-with-columns" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="working-with-columns"><span class="header-section-number">3.3</span> Working with Columns</h2>
+</section></section><section id="working-with-columns" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="working-with-columns">
+<span class="header-section-number">3.3</span> Working with Columns</h2>
 <p>Each column in a data set typically represents a single variable, or attribute, relating to the observation in a particular row. In this section we will look at some of dplyr’s functions for working with columns.</p>
-<section id="select" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="select">Select</h3>
-<p>The <code>select()</code> function is primarily used to remove unwanted columns from the data. Here is an example.</p>
+<section id="select" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="select">Select</h3>
+<p>The <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function is primarily used to remove unwanted columns from the data. Here is an example.</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-5_db8f5022a48c9d1a255f61b130dd0cf6">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>un_roll_calls <span class="sc">|&gt;</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rcid, date) <span class="co"># Keeping only two variables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_roll_calls</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">rcid</span>, <span class="va">date</span><span class="op">)</span> <span class="co"># Keeping only two variables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6,202 × 2
     rcid date      
@@ -432,15 +404,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Note that the code chunk above did not alter the data set object <code>un_roll_calls</code>. If we wanted to take this smaller data set and use it for something else, we will need to use the assignment operator <code>&lt;-</code> to save our work.</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-6_c57bda7813b9b818a49915806aa917c5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This creates a new object called "small_un_roll_calls"</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># containing only rcid and date columns</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>small_un_roll_calls <span class="ot">&lt;-</span> un_roll_calls <span class="sc">|&gt;</span> </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(rcid, date)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># This creates a new object called "small_un_roll_calls"</span></span>
+<span><span class="co"># containing only rcid and date columns</span></span>
+<span><span class="va">small_un_roll_calls</span> <span class="op">&lt;-</span> <span class="va">un_roll_calls</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">rcid</span>, <span class="va">date</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The <code>select()</code> function can be very versatile. Rather than typing every column name we want to keep, it is often faster to specify the columns we want to drop.</p>
+<p>The <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function can be very versatile. Rather than typing every column name we want to keep, it is often faster to specify the columns we want to drop.</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-7_a320bfb032fe77b7a3b156f7c6a972e3">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>un_roll_calls <span class="sc">|&gt;</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>session) <span class="co"># Keep everything except session column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_roll_calls</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">session</span><span class="op">)</span> <span class="co"># Keep everything except session column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6,202 × 8
     rcid importantvote date       unres   amend  para short                descr
@@ -459,10 +431,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
-<p>There are many other convenient ways to selection columns (e.g.&nbsp;by common names, by type of data, or by position in the data set). For a full list of ways to use <code>select()</code> see <a href="https://dplyr.tidyverse.org/reference/select.html">this link</a>. Here is one example of selecting every column which is a “character” type.</p>
+<p>There are many other convenient ways to selection columns (e.g.&nbsp;by common names, by type of data, or by position in the data set). For a full list of ways to use <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> see <a href="https://dplyr.tidyverse.org/reference/select.html">this link</a>. Here is one example of selecting every column which is a “character” type.</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-8_9461702a37ecfb664486c9a1a458f374">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>un_roll_calls <span class="sc">|&gt;</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.character))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_roll_calls</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.character</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6,202 × 3
    unres   short                              descr                             
@@ -481,10 +453,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
-<p>Lastly, we can use <code>select()</code> to rename columns in our data. The chunk of code below selects the “unres” and date columns, and renames “unres” to “un_resolution” at the same time.</p>
+<p>Lastly, we can use <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> to rename columns in our data. The chunk of code below selects the “unres” and date columns, and renames “unres” to “un_resolution” at the same time.</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-9_21ba63b1acf4a129a90f8acbebfd9fd3">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>un_roll_calls <span class="sc">|&gt;</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">un_resolution =</span> unres, date)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_roll_calls</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span>un_resolution <span class="op">=</span> <span class="va">unres</span>, <span class="va">date</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6,202 × 2
    un_resolution date      
@@ -503,12 +475,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
-<p>If you only want to rename columns—without specifying which to select—dplyr has a function <code>rename()</code> for this purpose. The syntax is similar to the code chunk above <code>new_variable_name = original_variable_name</code>. This code will keep all columns and change the names of the specified variables.</p>
+<p>If you only want to rename columns—without specifying which to select—dplyr has a function <code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename()</a></code> for this purpose. The syntax is similar to the code chunk above <code>new_variable_name = original_variable_name</code>. This code will keep all columns and change the names of the specified variables.</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-10_6b462cb3c764b58f605829beb2fc1d88">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>un_roll_calls <span class="sc">|&gt;</span> </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">un_resolution =</span> unres,</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">amendment =</span> amend,</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">paragraph =</span> para)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_roll_calls</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>un_resolution <span class="op">=</span> <span class="va">unres</span>,</span>
+<span>         amendment <span class="op">=</span> <span class="va">amend</span>,</span>
+<span>         paragraph <span class="op">=</span> <span class="va">para</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6,202 × 9
     rcid session importantvote date       un_resol…¹ amend…² parag…³ short descr
@@ -528,14 +500,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
-</section>
-<section id="mutate" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="mutate">Mutate</h3>
-<p>The <code>select()</code> and <code>rename()</code> functions are great for tidying up your data sets, but they do not change the underlying variables. To change existing variables or to create new ones we use <code>mutate()</code>.</p>
+</section><section id="mutate" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="mutate">Mutate</h3>
+<p>The <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename()</a></code> functions are great for tidying up your data sets, but they do not change the underlying variables. To change existing variables or to create new ones we use <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>.</p>
 <p>Let’s say we discovered that all the roll call IDs in the column “rcid” were supposed to be in multiples of 10. The code chunk below creates a new variable called “rcid_10” which is simply the value of the original “rcid” variable multiplied by 10.</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-11_48508537eaf3368c1ec70f121c1a9ea0">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>un_votes <span class="sc">|&gt;</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rcid_10 =</span> rcid <span class="sc">*</span> <span class="dv">10</span>) <span class="co"># Creates the new rcid_10 variable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_votes</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>rcid_10 <span class="op">=</span> <span class="va">rcid</span> <span class="op">*</span> <span class="fl">10</span><span class="op">)</span> <span class="co"># Creates the new rcid_10 variable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 869,937 × 5
     rcid country            country_code vote  rcid_10
@@ -554,10 +524,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
-<p>If you didn’t want to create a brand new variable, but instead wanted to overwrite the original variable, you just need to put the original variable to the left of the <code>=</code> in <code>mutate()</code>.</p>
+<p>If you didn’t want to create a brand new variable, but instead wanted to overwrite the original variable, you just need to put the original variable to the left of the <code>=</code> in <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>.</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-12_510a313c0f7778211aefe83110b5d1f6">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>un_votes <span class="sc">|&gt;</span> </span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rcid =</span> rcid <span class="sc">*</span> <span class="dv">10</span>) <span class="co"># Overwrites the existing rcid variable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_votes</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>rcid <span class="op">=</span> <span class="va">rcid</span> <span class="op">*</span> <span class="fl">10</span><span class="op">)</span> <span class="co"># Overwrites the existing rcid variable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 869,937 × 4
     rcid country            country_code vote 
@@ -576,11 +546,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
-<p>We commonly need to create a new variable whose values depend on the values of one of the original variables. The function <code>case_when()</code> helps us do this inside <code>mutate()</code>.</p>
+<p>We commonly need to create a new variable whose values depend on the values of one of the original variables. The function <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> helps us do this inside <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>.</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-13_5d3c0208ff805f7bb9cc2b33c16ae2cb">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>un_votes <span class="sc">|&gt;</span> </span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">vote_dummy =</span> <span class="fu">case_when</span>(vote <span class="sc">==</span> <span class="st">"yes"</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                                vote <span class="sc">==</span> <span class="st">"no"</span> <span class="sc">~</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_votes</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>vote_dummy <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">vote</span> <span class="op">==</span> <span class="st">"yes"</span> <span class="op">~</span> <span class="fl">1</span>,</span>
+<span>                                <span class="va">vote</span> <span class="op">==</span> <span class="st">"no"</span> <span class="op">~</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 869,937 × 5
     rcid country            country_code vote  vote_dummy
@@ -599,13 +569,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
-<p>As you can see, the code chunk above creates a new variable called “vote_dummy” which takes the value <code>1</code> if “vote” equals <code>"yes"</code> and takes the values <code>0</code> if “vote” equals <code>"no"</code>. Like other programming languages, R uses the <code>==</code> logical operator to check whether a value <em>equals</em>, or is equivalent, to some other value. This is different from the single <code>=</code> which is used to create entire new variables inside <code>mutate()</code>.</p>
-<p>Here is one more example using <code>case_when()</code>.</p>
+<p>As you can see, the code chunk above creates a new variable called “vote_dummy” which takes the value <code>1</code> if “vote” equals <code>"yes"</code> and takes the values <code>0</code> if “vote” equals <code>"no"</code>. Like other programming languages, R uses the <code>==</code> logical operator to check whether a value <em>equals</em>, or is equivalent, to some other value. This is different from the single <code>=</code> which is used to create entire new variables inside <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>.</p>
+<p>Here is one more example using <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code>.</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-14_0c228745173807ec51383d7fda411a26">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>un_votes <span class="sc">|&gt;</span> </span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rcid_era =</span> <span class="fu">case_when</span>(rcid <span class="sc">&lt;</span> <span class="dv">2000</span> <span class="sc">~</span> <span class="st">"old"</span>,</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                              rcid <span class="sc">&gt;=</span> <span class="dv">2000</span> <span class="sc">&amp;</span> rcid <span class="sc">&lt;</span> <span class="dv">6000</span> <span class="sc">~</span> <span class="st">"middle"</span>,</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>                              rcid <span class="sc">&gt;=</span> <span class="dv">6000</span> <span class="sc">~</span> <span class="st">"recent"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_votes</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>rcid_era <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">rcid</span> <span class="op">&lt;</span> <span class="fl">2000</span> <span class="op">~</span> <span class="st">"old"</span>,</span>
+<span>                              <span class="va">rcid</span> <span class="op">&gt;=</span> <span class="fl">2000</span> <span class="op">&amp;</span> <span class="va">rcid</span> <span class="op">&lt;</span> <span class="fl">6000</span> <span class="op">~</span> <span class="st">"middle"</span>,</span>
+<span>                              <span class="va">rcid</span> <span class="op">&gt;=</span> <span class="fl">6000</span> <span class="op">~</span> <span class="st">"recent"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 869,937 × 5
     rcid country            country_code vote  rcid_era
@@ -627,20 +597,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The new variable “rcid_era” takes three values, <code>"old"</code>, <code>"middle"</code>, and <code>"recent"</code> based on what range the “rcid” variable falls within.</p>
 <p>To recap, the most commonly used functions for cleaning columns/variables in your data are:</p>
 <ul>
-<li><code>select()</code> removes and/or renames columns.</li>
-<li><code>rename()</code> renames existing columns without removing any.</li>
-<li><code>mutate()</code> changes the values of existing columns and creates new columns.</li>
-</ul>
-</section>
-</section>
-<section id="working-with-rows" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="working-with-rows"><span class="header-section-number">3.4</span> Working with Rows</h2>
-<section id="filter" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="filter">Filter</h3>
-<p>Dplyr’s primary function for removing unwanted rows is <code>filter()</code>. Like we saw when using <code>case_when()</code> inside <code>mutate()</code>, using <code>filter()</code> requires some practice with logical operators. The function <code>filter()</code> works by specifying some variable and only keeping rows in the data for which the logical operation evaluates to <code>TRUE</code>. Here is an example.</p>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> removes and/or renames columns.</li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename()</a></code> renames existing columns without removing any.</li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> changes the values of existing columns and creates new columns.</li>
+</ul></section></section><section id="working-with-rows" class="level2" data-number="3.4"><h2 data-number="3.4" class="anchored" data-anchor-id="working-with-rows">
+<span class="header-section-number">3.4</span> Working with Rows</h2>
+<section id="filter" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="filter">Filter</h3>
+<p>Dplyr’s primary function for removing unwanted rows is <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>. Like we saw when using <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> inside <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>, using <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> requires some practice with logical operators. The function <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> works by specifying some variable and only keeping rows in the data for which the logical operation evaluates to <code>TRUE</code>. Here is an example.</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-15_d97f38668769a783ca2637db9fbdce36">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>un_roll_calls <span class="sc">|&gt;</span> </span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(importantvote <span class="sc">==</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_roll_calls</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">importantvote</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 411 × 9
     rcid session importantvote date       unres     amend  para short      descr
@@ -659,11 +628,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
-<p>The original “un_roll_calls” data set object has 6202 rows, whereas this new data set only has 411 rows. This is because we filtered out any row in which the variable “importantvote” was not equal to <code>1</code>. Like <code>select()</code>, we can extend the use of <code>filter()</code> in many ways.</p>
+<p>The original “un_roll_calls” data set object has 6202 rows, whereas this new data set only has 411 rows. This is because we filtered out any row in which the variable “importantvote” was not equal to <code>1</code>. Like <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>, we can extend the use of <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> in many ways.</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-16_ffa5986fa428efff5032c6d678d15d8d">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># &amp; for AND</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>un_roll_calls <span class="sc">|&gt;</span> </span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(importantvote <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> session <span class="sc">&gt;</span> <span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># &amp; for AND</span></span>
+<span><span class="va">un_roll_calls</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">importantvote</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">&amp;</span> <span class="va">session</span> <span class="op">&gt;</span> <span class="fl">40</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 386 × 9
     rcid session importantvote date       unres     amend  para short      descr
@@ -681,9 +650,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # … with 376 more rows
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># | for OR</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>un_roll_calls <span class="sc">|&gt;</span> </span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(importantvote <span class="sc">==</span> <span class="dv">1</span> <span class="sc">|</span> session <span class="sc">&gt;</span> <span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># | for OR</span></span>
+<span><span class="va">un_roll_calls</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">importantvote</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">|</span> <span class="va">session</span> <span class="op">&gt;</span> <span class="fl">40</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3,228 × 9
     rcid session importantvote date       unres     amend  para short      descr
@@ -703,10 +672,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The first chunk above filters out all rows in which “importantvote” did not equal <code>1</code> <strong>AND</strong> “session” was less than <code>40</code>. The second chunk above filters out all rows in which “importantvote” did not equal <code>1</code> <strong>OR</strong> “session” was less than <code>40</code>.</p>
-<p>Removing missing, or <code>NA</code>, values is another common job for <code>filter()</code>. To do this you can use the function <code>is.na()</code> inside <code>filter()</code>. The function <code>is.na()</code> evaluates to <code>TRUE</code> if the variable’s value is <code>NA</code> and evaluates to <code>FALSE</code> otherwise. Because <code>filter()</code> only keeps rows where the condition evaluates to <code>TRUE</code>, in order to <em>remove</em> <code>NA</code> values we need to negate <code>is.na()</code> with the <code>!</code> operator. The <code>!</code> operator flips the truthiness of any logical statement it precedes.</p>
+<p>Removing missing, or <code>NA</code>, values is another common job for <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>. To do this you can use the function <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> inside <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>. The function <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> evaluates to <code>TRUE</code> if the variable’s value is <code>NA</code> and evaluates to <code>FALSE</code> otherwise. Because <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> only keeps rows where the condition evaluates to <code>TRUE</code>, in order to <em>remove</em> <code>NA</code> values we need to negate <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> with the <code>!</code> operator. The <code>!</code> operator flips the truthiness of any logical statement it precedes.</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-17_de156b6a068e9bfd643a0faad57755d1">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>un_roll_calls <span class="sc">|&gt;</span> </span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(amend)) <span class="co"># Removing rows with NA for the amend variable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_roll_calls</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">amend</span><span class="op">)</span><span class="op">)</span> <span class="co"># Removing rows with NA for the amend variable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2,868 × 9
     rcid session importantvote date       unres   amend  para short        descr
@@ -725,17 +694,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
-<p>It can be confusing to think in terms of logical statements, especially when negation is involved! But you will become more comfortable with <code>filter()</code> the more you practice.</p>
-<p>Another handy logical operator is <code>%in%</code>. This lets you specify several values at once when checking whether to keep rows in <code>filter()</code>.</p>
+<p>It can be confusing to think in terms of logical statements, especially when negation is involved! But you will become more comfortable with <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> the more you practice.</p>
+<p>Another handy logical operator is <code>%in%</code>. This lets you specify several values at once when checking whether to keep rows in <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>.</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-18_2fd7c86236e8e37f6ee827cad3699c78">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cumbersome way</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>un_votes <span class="sc">|&gt;</span> </span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">"Kenya"</span> <span class="sc">|</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>         country <span class="sc">==</span> <span class="st">"Grenada"</span> <span class="sc">|</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>         country <span class="sc">==</span> <span class="st">"Canada"</span> <span class="sc">|</span></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>         country <span class="sc">==</span> <span class="st">"Latvia"</span> <span class="sc">|</span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>         country <span class="sc">==</span> <span class="st">"Yemen"</span> <span class="sc">|</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>         country <span class="sc">==</span> <span class="st">"Angola"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cumbersome way</span></span>
+<span><span class="va">un_votes</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">country</span> <span class="op">==</span> <span class="st">"Kenya"</span> <span class="op">|</span></span>
+<span>         <span class="va">country</span> <span class="op">==</span> <span class="st">"Grenada"</span> <span class="op">|</span></span>
+<span>         <span class="va">country</span> <span class="op">==</span> <span class="st">"Canada"</span> <span class="op">|</span></span>
+<span>         <span class="va">country</span> <span class="op">==</span> <span class="st">"Latvia"</span> <span class="op">|</span></span>
+<span>         <span class="va">country</span> <span class="op">==</span> <span class="st">"Yemen"</span> <span class="op">|</span></span>
+<span>         <span class="va">country</span> <span class="op">==</span> <span class="st">"Angola"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 23,324 × 4
     rcid country country_code vote 
@@ -753,11 +722,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # … with 23,314 more rows
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Easier way</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>country_list <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Kenya"</span>, <span class="st">"Grenada"</span>, <span class="st">"Canada"</span>,</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"Latvia"</span>, <span class="st">"Yemen"</span>, <span class="st">"Angola"</span>)</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>un_votes <span class="sc">|&gt;</span> </span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span> country_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Easier way</span></span>
+<span><span class="va">country_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Kenya"</span>, <span class="st">"Grenada"</span>, <span class="st">"Canada"</span>,</span>
+<span>                  <span class="st">"Latvia"</span>, <span class="st">"Yemen"</span>, <span class="st">"Angola"</span><span class="op">)</span></span>
+<span><span class="va">un_votes</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">country</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">country_list</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 23,324 × 4
     rcid country country_code vote 
@@ -777,20 +746,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The two chunks of code above will produce the same filtered data set, but the second chunk requires fewer lines of code and is more flexible if we want to add or remove countries.</p>
-</section>
-<section id="aggregation" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="aggregation">Aggregation</h3>
-<p>Filtering is great for removing unwanted rows in your data. However, after using <code>filter()</code> the data set’s unit of analysis typically remains the same. In the code chunk above, for example, we removed most of the countries from our data, but each row in the resulting data set is still a unique country-vote observation.</p>
-<p>Let’s say we want to reduce the data set down to the country level, rather than country-vote level, and examine the proportion of “no” votes taken by each country. We can do this in dplyr using the pair of functions <code>group_by()</code> and <code>summarize()</code>. Here is an example.</p>
+</section><section id="aggregation" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="aggregation">Aggregation</h3>
+<p>Filtering is great for removing unwanted rows in your data. However, after using <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> the data set’s unit of analysis typically remains the same. In the code chunk above, for example, we removed most of the countries from our data, but each row in the resulting data set is still a unique country-vote observation.</p>
+<p>Let’s say we want to reduce the data set down to the country level, rather than country-vote level, and examine the proportion of “no” votes taken by each country. We can do this in dplyr using the pair of functions <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code>. Here is an example.</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-19_32f3e0c81d13e8b29a665a915cb59694">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>un_votes <span class="sc">|&gt;</span> </span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Creating a new numeric dummy vote variable</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">vote_dummy =</span> <span class="fu">case_when</span>(vote <span class="sc">==</span> <span class="st">"yes"</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>                                vote <span class="sc">==</span> <span class="st">"no"</span> <span class="sc">~</span> <span class="dv">0</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Specify level of aggregation</span></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">|&gt;</span> </span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Perform the aggregation function by group</span></span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">proportion_yes_vote =</span> <span class="fu">mean</span>(vote_dummy, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_votes</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="co"># Creating a new numeric dummy vote variable</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>vote_dummy <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">vote</span> <span class="op">==</span> <span class="st">"yes"</span> <span class="op">~</span> <span class="fl">1</span>,</span>
+<span>                                <span class="va">vote</span> <span class="op">==</span> <span class="st">"no"</span> <span class="op">~</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="co"># Specify level of aggregation</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">country</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="co"># Perform the aggregation function by group</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>proportion_yes_vote <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">vote_dummy</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 200 × 2
    country           proportion_yes_vote
@@ -809,15 +776,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
-<p>The code above uses the function <code>mean()</code> to calculate the average value of “vote_dummy” within each country. Because “vote_dummy” takes the values <code>1</code> and <code>0</code>, this average can be interpreted as a proportion of 1’s, or “yes” votes. We need to add <code>na.rm = TRUE</code> inside <code>mean()</code> to tell R to ignore <code>NA</code> values when calculating this average.</p>
-<p>If we want to sort our data by the new aggregated column, we can do so using <code>arrange()</code> after <code>summarize()</code>.</p>
+<p>The code above uses the function <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> to calculate the average value of “vote_dummy” within each country. Because “vote_dummy” takes the values <code>1</code> and <code>0</code>, this average can be interpreted as a proportion of 1’s, or “yes” votes. We need to add <code>na.rm = TRUE</code> inside <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> to tell R to ignore <code>NA</code> values when calculating this average.</p>
+<p>If we want to sort our data by the new aggregated column, we can do so using <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> after <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize()</a></code>.</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-20_5ec2ba40801444c7b34e213d52328822">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>un_votes <span class="sc">|&gt;</span> </span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">vote_dummy =</span> <span class="fu">case_when</span>(vote <span class="sc">==</span> <span class="st">"yes"</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>                                vote <span class="sc">==</span> <span class="st">"no"</span> <span class="sc">~</span> <span class="dv">0</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">|&gt;</span> </span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">proportion_yes_vote =</span> <span class="fu">mean</span>(vote_dummy, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(proportion_yes_vote)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_votes</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>vote_dummy <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">vote</span> <span class="op">==</span> <span class="st">"yes"</span> <span class="op">~</span> <span class="fl">1</span>,</span>
+<span>                                <span class="va">vote</span> <span class="op">==</span> <span class="st">"no"</span> <span class="op">~</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">country</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>proportion_yes_vote <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">vote_dummy</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">proportion_yes_vote</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 200 × 2
    country                          proportion_yes_vote
@@ -835,14 +802,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # … with 190 more rows
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use arrange(desc(proportion_yes_vote))</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># to sort in descending order</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Use arrange(desc(proportion_yes_vote))</span></span>
+<span><span class="co"># to sort in descending order</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The United States votes “No” at a much higher rate than other countries!</p>
-<p>Lastly, the dplyr function <code>count()</code> is very handy for quickly tallying the number of observations within each category of a variable. Simply put the name of the variable you want to count inside <code>count()</code> and voila.</p>
+<p>Lastly, the dplyr function <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code> is very handy for quickly tallying the number of observations within each category of a variable. Simply put the name of the variable you want to count inside <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code> and voila.</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-21_8e3148c22d78763dfcaed01b9ef89569">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>un_roll_call_issues <span class="sc">|&gt;</span> </span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(issue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_roll_call_issues</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">issue</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 2
   issue                                    n
@@ -855,24 +822,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6 Nuclear weapons and nuclear material   855</code></pre>
 </div>
 </div>
-</section>
-</section>
-<section id="merging-data" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="merging-data"><span class="header-section-number">3.5</span> Merging Data</h2>
-<p>So far we have only been working with one data set at a time. But it is rare to find all the data you need for a particular project in one single data set. Frequently we will have to merge data sets together in order to have all our variables in the same place. The most common way to merge data using dplyr is with the <code>left_join()</code> function.</p>
-<p>To illustrate how <code>left_join()</code> works, let’s say we have two data sets: our main data set, <code>x</code> and the data set we want to merge, <code>y</code>. Here is an example:</p>
+</section></section><section id="merging-data" class="level2" data-number="3.5"><h2 data-number="3.5" class="anchored" data-anchor-id="merging-data">
+<span class="header-section-number">3.5</span> Merging Data</h2>
+<p>So far we have only been working with one data set at a time. But it is rare to find all the data you need for a particular project in one single data set. Frequently we will have to merge data sets together in order to have all our variables in the same place. The most common way to merge data using dplyr is with the <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code> function.</p>
+<p>To illustrate how <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code> works, let’s say we have two data sets: our main data set, <code>x</code> and the data set we want to merge, <code>y</code>. Here is an example:</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-22_992703132ae222594b8663e21719ef94">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>xy_data <span class="ot">&lt;-</span> <span class="fu">left_join</span>(x, y, <span class="at">by =</span> <span class="st">"key_variable"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">xy_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, by <span class="op">=</span> <span class="st">"key_variable"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The new data set <code>xy_data</code> is produced by merging the <code>y</code> data set <em>into</em> the <code>x</code> data set based on the shared value of the <code>key_variable</code> variable. Left joins will always keep all rows in the <code>x</code> data set, but will only merge in rows from <code>y</code> if they match up with the <code>key_variable</code>. Your key variable will typically be something like country ID code or a unit’s name in the data. Because we like to use pipes in this course, the chunk of code above can be rewritten as:</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-23_3342ca51428fa77f270b81c5c2819b87">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>xy_data <span class="ot">&lt;-</span> x <span class="sc">|&gt;</span> </span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(y, <span class="at">by =</span> <span class="st">"key_variable"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">xy_data</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">y</span>, by <span class="op">=</span> <span class="st">"key_variable"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now let’s take a look at <code>left_join()</code> using real data from the unvotes data set.</p>
+<p>Now let’s take a look at <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code> using real data from the unvotes data set.</p>
 <div class="cell" data-hash="13_data_wrangling_cleaning_cache/html/unnamed-chunk-24_cd96a10b81395ba4f0341e1035e424ab">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>un_votes <span class="sc">|&gt;</span> </span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(un_roll_calls, <span class="at">by =</span> <span class="st">"rcid"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">un_votes</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">un_roll_calls</span>, by <span class="op">=</span> <span class="st">"rcid"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 869,937 × 12
     rcid country      count…¹ vote  session impor…² date       unres amend  para
@@ -893,7 +858,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The code chunk above merged all the variables from the <code>un_roll_calls</code> data set into the <code>un_votes</code> data set. Recall that the <code>un_votes</code> data contains information about how countries voted on particular UN roll call votes, and the <code>un_roll_calls</code> data contains information about the specific votes (such as whether the vote was an “importantvote”). If there were any rows in <code>un_roll_calls</code> that had <code>rcid</code> values which failed to match with an <code>rcid</code> value in <code>un_votes</code>, the row would not get merged.</p>
-<p>While <code>left_join()</code> is far and away the most common, and useful, way to merge two data sets when using dplyr, there are various other types of merges which have their niche applications. For a more in-depth look at merging data in dplyr see <a href="https://github.com/gadenbuie/tidyexplain">this page</a> with helpful animations.</p>
+<p>While <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join()</a></code> is far and away the most common, and useful, way to merge two data sets when using dplyr, there are various other types of merges which have their niche applications. For a more in-depth look at merging data in dplyr see <a href="https://github.com/gadenbuie/tidyexplain">this page</a> with helpful animations.</p>
 <!-- un_votes |>  -->
 <!--   left_join(un_roll_call_issues, by = "rcid") -->
 <!-- un_roll_calls |>  -->
@@ -917,10 +882,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <!-- -->
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -947,23 +909,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
+    target: function(trigger) {
+      return trigger.previousElementSibling;
     }
   });
   clipboard.on('success', function(e) {
@@ -975,24 +923,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
     setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -1071,141 +1002,34 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      let href = ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
       });
-    }
+      return popup.innerHTML;
+    });
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./12_visualization.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Visualization</span></span>
       </a>          

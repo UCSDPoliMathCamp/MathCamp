@@ -1,26 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.340">
-
+<meta name="generator" content="quarto-1.0.25">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>UCSD Political Science Math Camp - 1&nbsp; RStudio and Reading in Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,15 +38,44 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
+    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
-
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -75,8 +95,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -94,47 +113,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
-<style>html{ scroll-behavior: smooth; }</style>
+}</script><style>html{ scroll-behavior: smooth; }</style>
 <script type="application/json" class="js-hypothesis-config">
 {
   "theme": "clean"
 }
-</script>
-<script async="" src="https://hypothes.is/embed.js"></script>
-
-
-<link rel="stylesheet" href="style.css">
+</script><script async="" src="https://hypothes.is/embed.js"></script><link rel="stylesheet" href="style.css">
 </head>
-
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11_orientation.html">I Introduction to R</a></li><li class="breadcrumb-item"><a href="./11_orientation.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Reading in Data</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">
+<span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Reading in Data</span>
+</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">UCSD Political Science Math Camp</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/UCSDPoliMathCamp/MathCamp/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+    <a href="https://github.com/UCSDPoliMathCamp/MathCamp/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
@@ -142,198 +146,171 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
     </div>
       </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
+      <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-        </div>
+      </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">About this Booklet</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">About this Booklet</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00_warmup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Warmup Questions</span></a>
+  <a href="./00_warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_prerequisites.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Prerequisites</span></a>
+  <a href="./01_prerequisites.html" class="sidebar-item-text sidebar-link">Prerequisites</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">I Introduction to R</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">I Introduction to R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_orientation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Reading in Data</span></span></a>
+  <a href="./11_orientation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Reading in Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Visualization</span></span></a>
+  <a href="./12_visualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Visualization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_data_wrangling_cleaning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></a>
+  <a href="./13_data_wrangling_cleaning.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Wrangling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14_loops_simulations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Loops and Simulation</span></span></a>
+  <a href="./14_loops_simulations.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Loops and Simulation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15_non-wysiwyg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LaTeX and Markdown</span></span></a>
+  <a href="./15_non-wysiwyg.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LaTeX and Markdown</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">II Linear Algebra</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">II Linear Algebra</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21_vector_matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrix Operations</span></span></a>
+  <a href="./21_vector_matrix.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrix Operations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22_linear_systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Systems of Linear Equations</span></span></a>
+  <a href="./22_linear_systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Systems of Linear Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./23_matrix_inverse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Matrix Inverse and Linear Independence</span></span></a>
+  <a href="./23_matrix_inverse.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Matrix Inverse and Linear Independence</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">III Calculus</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">III Calculus</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./31_limits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Limits</span></span></a>
+  <a href="./31_limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Limits</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./32_derivatives.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Differential Calculus</span></span></a>
+  <a href="./32_derivatives.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Differential Calculus</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./33_optimization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Optimization</span></span></a>
+  <a href="./33_optimization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Optimization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./34_intergrals.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Integral Calculus</span></span></a>
+  <a href="./34_intergrals.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Integral Calculus</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">IV Probability</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">IV Probability</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./41_probability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Probability Theory</span></span></a>
+  <a href="./41_probability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Probability Theory</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./42_distribution.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Summarizing Distributions</span></span></a>
+  <a href="./42_distribution.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Summarizing Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./43_statistics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Learning from Data</span></span></a>
+  <a href="./43_statistics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Learning from Data</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./51_solutions-warmup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Warmup Questions Solutions</span></a>
+  <a href="./51_solutions-warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions Solutions</a>
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#orienting" id="toc-orienting" class="nav-link active" data-scroll-target="#orienting"><span class="header-section-number">1.1</span> Orienting</a>
-  <ul>
-  <li><a href="#getting-to-know-rstudio" id="toc-getting-to-know-rstudio" class="nav-link" data-scroll-target="#getting-to-know-rstudio">Getting to know RStudio</a></li>
+<li>
+<a href="#orienting" id="toc-orienting" class="nav-link active" data-scroll-target="#orienting"> <span class="header-section-number">1.1</span> Orienting</a>
+  <ul class="collapse">
+<li><a href="#getting-to-know-rstudio" id="toc-getting-to-know-rstudio" class="nav-link" data-scroll-target="#getting-to-know-rstudio">Getting to know RStudio</a></li>
   <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects">RStudio Projects</a></li>
   <li><a href="#installing-r-packages" id="toc-installing-r-packages" class="nav-link" data-scroll-target="#installing-r-packages">Installing R Packages</a></li>
   <li><a href="#installing-the-tidyverse-and-here-packages" id="toc-installing-the-tidyverse-and-here-packages" class="nav-link" data-scroll-target="#installing-the-tidyverse-and-here-packages">Installing the Tidyverse and Here Packages</a></li>
-  </ul></li>
-  <li><a href="#reading-in-data" id="toc-reading-in-data" class="nav-link" data-scroll-target="#reading-in-data"><span class="header-section-number">1.2</span> Reading in Data</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/11_orientation.Rmd" class="toc-action">Edit this page</a></p></div></div></nav>
+</li>
+  <li><a href="#reading-in-data" id="toc-reading-in-data" class="nav-link" data-scroll-target="#reading-in-data"> <span class="header-section-number">1.2</span> Reading in Data</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/11_orientation.Rmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Reading in Data</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">
+<span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Reading in Data</span>
+</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -341,134 +318,134 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-meta">
 
     
-  
     
   </div>
   
 
-</header>
-
-<p>Welcome to Math Camp! The first day we will get to know each other and get acquainted with R. We will be working with R throughout this course, and today is the beginning, where you will learn about this program. It can be overwhelming to learn any programming language, but we will spend a lot of time and practice with it. Please work through the following tutorials and exercises. There is a lot of information here, and it will take time to understand everything. In fact, programming is a continual learning experience. Please come to class with areas of confusion and questions; we will walk through more examples together.</p>
+</header><p>Welcome to Math Camp! The first day we will get to know each other and get acquainted with R. We will be working with R throughout this course, and today is the beginning, where you will learn about this program. It can be overwhelming to learn any programming language, but we will spend a lot of time and practice with it. Please work through the following tutorials and exercises. There is a lot of information here, and it will take time to understand everything. In fact, programming is a continual learning experience. Please come to class with areas of confusion and questions; we will walk through more examples together.</p>
 <p>You should download the latest versions of <a href="https://cran.r-project.org/">R</a> and <a href="https://www.rstudio.com/products/rstudio/">R Studio</a>.</p>
 <p><a href="https://rstudio.cloud/learn/primers/">R Studio Cloud</a> has great resources we will be using throughout this course. Please complete the following primer tutorial for the first session: <a href="https://rstudio.cloud/learn/primers/1.2">The Basics: Programming Basics</a></p>
-<section id="orienting" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="orienting"><span class="header-section-number">1.1</span> Orienting</h2>
-<section id="getting-to-know-rstudio" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="getting-to-know-rstudio">Getting to know RStudio</h3>
+<section id="orienting" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="orienting">
+<span class="header-section-number">1.1</span> Orienting</h2>
+<section id="getting-to-know-rstudio" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="getting-to-know-rstudio">Getting to know RStudio</h3>
 <p>RStudio is an Integrated Development Environment (IDE) for the programming language R. An IDE is a piece of software which allows you to more easily interface with programming languages. You can program in other languages (such as Python or SQL) using RStudio, and you can use other IDEs to program with R, but typically R users use RStudio—and vice versa. This is because RStudio was specifically created to facilitate R programming and comes with a ton of helpful features.</p>
 <p>There are four main sections, or “panes”, in RStudio.</p>
 <ol type="1">
-<li><p><strong>Bottom Left</strong>. This is the <em>Console</em>. It is the place that executes your R code. You can type directly in your Console and it will display the output immediately below. If your code generates errors or warning messages they will be displayed here too. You should rarely type code directly into your Console, however, because it can be difficult to keep track of things line by line. Also, every time you restart RStudio your Console will refresh itself which means you will lose your previous work. This is not only a problem for keeping track of your own analyses, but it also makes it impossible for anyone else to replicate the steps you took while coding. The main reasons to write directly in the Console are testing small code snippets or for quick data exploration (for example using the <code>summary()</code> function on a variable).</p>
-<p>Useful tip: use the Up-Arrow on your keyboard to quickly re-run pieces of code which were previously sent to the Console.</p></li>
-<li><p><strong>Top Left</strong>. If you go to “File &gt; New File” you can open up a script file which will then appear in your <em>Source</em> window. Script files are text documents containing R code which then gets sent down to the Console when executed. Script files are great because we can save them onto our computer to rerun our work at any time in the future. Plus we can send these files to anyone else with R installed on their computer and they will be able to rerun our analysis too. This is a core concept in ensuring your research is reproducible.</p>
+<li>
+<p><strong>Bottom Left</strong>. This is the <em>Console</em>. It is the place that executes your R code. You can type directly in your Console and it will display the output immediately below. If your code generates errors or warning messages they will be displayed here too. You should rarely type code directly into your Console, however, because it can be difficult to keep track of things line by line. Also, every time you restart RStudio your Console will refresh itself which means you will lose your previous work. This is not only a problem for keeping track of your own analyses, but it also makes it impossible for anyone else to replicate the steps you took while coding. The main reasons to write directly in the Console are testing small code snippets or for quick data exploration (for example using the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function on a variable).</p>
+<p>Useful tip: use the Up-Arrow on your keyboard to quickly re-run pieces of code which were previously sent to the Console.</p>
+</li>
+<li>
+<p><strong>Top Left</strong>. If you go to “File &gt; New File” you can open up a script file which will then appear in your <em>Source</em> window. Script files are text documents containing R code which then gets sent down to the Console when executed. Script files are great because we can save them onto our computer to rerun our work at any time in the future. Plus we can send these files to anyone else with R installed on their computer and they will be able to rerun our analysis too. This is a core concept in ensuring your research is reproducible.</p>
 <p>There are two types of script files people typically use when programming in R: .R and .Rmd files. Most R users do the bulk of their programming in .R files. These are plain text files containing commands for R to execute. If you want to write something else in .R files (such as English sentences), you can do so by starting a line with a <code>#</code> character. These are called <strong>comments</strong> and are a great way to explain what your R code is supposed to be doing. Comments make it helpful for other people to understand your code, as well as for yourself if you revisit a project months or years later!</p>
-<p>The other common type of file used to write R code is an .Rmd, or R Markdown, file. We will cover R Markdown in much greater detail in a later section, but these are the basics for now: R Markdown allows you to seamlessly combine R code with written text to create a wide variety of presentation-ready documents. You can write all your academic papers using RMarkdown, as well as any presentation slides or even your website. The book you’re reading right now was written in R Markdown! The strength of combining R code and written text comes from how easy it is to update your document when something in your analysis changes. New data? Simply plug it in to the top of your R Markdown document and every graph and table will be automatically updated once you compile a new document. No more copy and pasting figures into Word—a practice which is tedious and prone to create errors.</p></li>
+<p>The other common type of file used to write R code is an .Rmd, or R Markdown, file. We will cover R Markdown in much greater detail in a later section, but these are the basics for now: R Markdown allows you to seamlessly combine R code with written text to create a wide variety of presentation-ready documents. You can write all your academic papers using RMarkdown, as well as any presentation slides or even your website. The book you’re reading right now was written in R Markdown! The strength of combining R code and written text comes from how easy it is to update your document when something in your analysis changes. New data? Simply plug it in to the top of your R Markdown document and every graph and table will be automatically updated once you compile a new document. No more copy and pasting figures into Word—a practice which is tedious and prone to create errors.</p>
+</li>
 <li><p><strong>Top Right</strong>. This is your <em>Environment</em> tab and it keeps track of which object you’ve created in R. Objects in R are things like data frames, vectors, and functions. Many people refer to R as an “object-oriented language”, by which they mean that most of your code either creates new objects or modifies existing objects. This aspect is probably the largest difference between R and statistical programs like Stata. Each object in R has a specific type which defines what you can and cannot do with it. For example, you cannot add objects that are character types together <code>"UC" + "SD"</code>, but you can add two objects with numeric types <code>3 + 5</code>. Getting to know the rules surrounding object types is one of the trickier aspects of learning R. But overall, this method of programming is generally intuitive.</p></li>
-<li><p><strong>Bottom Right</strong>. Three important tabs live here. When you execute the code which makes a plot in a .R file it will, appropriately enough, show up down in your <em>Plot</em> tab.</p>
+<li>
+<p><strong>Bottom Right</strong>. Three important tabs live here. When you execute the code which makes a plot in a .R file it will, appropriately enough, show up down in your <em>Plot</em> tab.</p>
 <p>The <em>Help</em> tab is where you can read the documentation for a specific function in R. To find the right help file you can either enter the function name into the search bar, or you can type <code>?function_name</code> in the Console. Use the Help tab often! This should be the first place you go when you encounter a problem with your R code.</p>
-<p>Lastly, the <em>Files</em> tab is very handy for keeping track of the various R scripts and data you may be working with on a particular project. It acts like a replacement File Explorer (if using a PC) or Finder (if using a Mac) without you having to have multiple windows open on your computer.</p></li>
+<p>Lastly, the <em>Files</em> tab is very handy for keeping track of the various R scripts and data you may be working with on a particular project. It acts like a replacement File Explorer (if using a PC) or Finder (if using a Mac) without you having to have multiple windows open on your computer.</p>
+</li>
 </ol>
-<!-- Class activity involving customizing RStudio interface -->
-<!-- - Show my RStudio set up -->
-<!-- - Themes -->
-<!-- - Panes / Add column -->
-<!-- - Rainbow parentheses -->
-<!-- - Uncheck "Restore .RData into workspace at startup -->
-<!-- - Save workspace to .RData on exit > Never -->
-<!-- - Use native pipe operator -->
-</section>
-<section id="rstudio-projects" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="rstudio-projects">RStudio Projects</h3>
+<!-- Class activity involving customizing RStudio interface --><!-- - Show my RStudio set up --><!-- - Themes --><!-- - Panes / Add column --><!-- - Rainbow parentheses --><!-- - Uncheck "Restore .RData into workspace at startup --><!-- - Save workspace to .RData on exit > Never --><!-- - Use native pipe operator --></section><section id="rstudio-projects" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="rstudio-projects">RStudio Projects</h3>
 <p>Speaking of files and file paths…</p>
 <p>Throughout your time in the Political Science PhD program you will likely load hundreds of data sets into R. The first step to loading data into R is locating the file holding on the data on your computer. This is done using a file path—a string of characters which points to the file.</p>
 <div class="cell" data-hash="11_orientation_cache/html/unnamed-chunk-1_1dd7aac45e35494279e4f64bd6f83bd5">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="st">"/Users/bertrandwilden/Documents/UCSD/amazing_paper/data/cool_data.csv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="st">"/Users/bertrandwilden/Documents/UCSD/amazing_paper/data/cool_data.csv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>For example the string above tells us the location of the file “cool_data.csv” located in the folder “data” which is a sub-directory of “amazing_paper” and so on. Getting a hang of using file paths to locate files can be one of the most frustrating parts of using a programming language like R. Modern computer systems, such as your phone, have made file paths invisible to most users. So don’t worry if any of this is confusing to you in the beginning!</p>
 <p>There are two aspects of file paths which make them particularly annoying/difficult to work with. First, a file path that correctly locates a file on one computer will not locate the same file in another computer. This is because everyone has their own unique folder structures on their computer. Computer-specific file paths make it difficult to share code with others or to collaborate on the same project. They also lead to headaches when revisiting old code on a new computer.</p>
 <p>The second, but related, issue with file paths is that they differ between Mac and PC computers. Mac file paths use the forward slash “<code>/</code>” between folders whereas PCs use the back slash “<code>\</code>”. Back slashes in R strings are not processed literally–instead they are considered “escape” characters and serve a different purpose. This means you have to manually change all your backslashes to forward slashes to locate files when using a PC. Or you can manually add an extra back slash in front of each folder.</p>
 <div class="cell" data-hash="11_orientation_cache/html/unnamed-chunk-2_fabebd6338ad51f93fc049e94f970cd7">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="st">"C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">bertrandwilden</span><span class="sc">\\</span><span class="st">Documents</span><span class="sc">\\</span><span class="st">UCSD</span><span class="sc">\\</span><span class="st">amazing_paper</span><span class="sc">\\</span><span class="st">data</span><span class="sc">\\</span><span class="st">cool_data.csv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="st">"C:\\Users\\bertrandwilden\\Documents\\UCSD\\amazing_paper\\data\\cool_data.csv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>What a hassle!</p>
 <p>Luckily tools have been developed to solve all these file path annoyances. The first solution is to use RStudio Projects. When you create a new RStudio Project it adds a .Rproj file with your project name to a folder on your computer. The .Rproj file now serves as the top level directory for any R code or data files in folders below it. So instead of using the full path</p>
 <div class="cell" data-hash="11_orientation_cache/html/unnamed-chunk-3_0155b87e25404b0c9537b87da4509b52">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="st">"/Users/bertrandwilden/Documents/UCSD/amazing_paper/data/cool_data.csv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="st">"/Users/bertrandwilden/Documents/UCSD/amazing_paper/data/cool_data.csv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>to locate your data, you now only need to type</p>
 <div class="cell" data-hash="11_orientation_cache/html/unnamed-chunk-4_a8d806f6474f0fa8622047e6c46f3905">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="st">"data/cool_data.csv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="st">"data/cool_data.csv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This is sometimes called a <em>relative path</em>. Each RStudio Project is self-contained and easily portable to other machines. RStudio Projects also have the benefit of making it easy to switch between various projects–giving you a clean slate with which to work from every time.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>Awesome—-so RStudio Projects helped us solve one of our file path issues by using relative paths, but what about the Mac vs PC problem with different slashes? That’s where the <a href="https://github.com/jennybc/here_here">R package “here”</a> shines. The here package allows you to simply put each folder name in quotes and stitches the full path together behind the scenes. The file path</p>
 <div class="cell" data-hash="11_orientation_cache/html/unnamed-chunk-5_f7eba6959ab9e168a5e84070b37718ac">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="st">"data/cool_data.csv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="st">"data/cool_data.csv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>becomes</p>
 <div class="cell" data-hash="11_orientation_cache/html/unnamed-chunk-6_c9ad70f7c485b678a1e2d97e7a19aa9b">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"cool_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">here</span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"cool_data.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This code will now point to the correct file on any computer.</p>
 <!-- Class activity setting up R Project and folder structure -->
-</section>
-<section id="installing-r-packages" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="installing-r-packages">Installing R Packages</h3>
+</section><section id="installing-r-packages" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="installing-r-packages">Installing R Packages</h3>
 <p>While it is technically feasible to use only the functions that come pre-installed with R (e.g.&nbsp;“base R”), thousands of open source packages have been written to provide extra functionality. The term “open source” means that the underlying code for these packages lives on online repositories, such as <a href="https://github.com/">GitHub</a>, and can be viewed publicly. While open source packages can be written by anyone (including you someday!), there is a special process packages must undergo in order to be hosted officially by <a href="https://cran.r-project.org/">CRAN</a>. Packages that have passed this systematic review by CRAN can be installed on your computer using the following command:</p>
 <div class="cell" data-hash="11_orientation_cache/html/unnamed-chunk-7_678b91863265c66e783571461864569f">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"package_name_here"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"package_name_here"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>It is good practice to only use the <code>install.packages</code> command in your Console, rather than in a .R or .Rmd script file. This is because you only need to install a particular R package once and then you can then use it forever. Putting <code>install.packages</code> in your script file will make R attempt to download the package each time your code is run.</p>
 <p>After using the <code>install.packages</code> command, you then need to use the following command to access the package’s functions:</p>
 <div class="cell" data-hash="11_orientation_cache/html/unnamed-chunk-8_d3f0d4c40b97dae34e7d401194028d09">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(package_name_here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">package_name_here</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Unlike the <code>install.packages</code> command, the <code>library</code> command <em>should</em> be included at the top of any script files which then make use of the package’s functions. Another thing to note: the <code>install.packages</code> command requires the package name to be in quotes, whereas the <code>library</code> command does not require the package name to be in quotes. Don’t worry—mixing up when to use quotes and when not to is a common error you might encounter when starting out!</p>
-</section>
-<section id="installing-the-tidyverse-and-here-packages" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="installing-the-tidyverse-and-here-packages">Installing the Tidyverse and Here Packages</h3>
-<p>In this course we will be making extensive use of the packages included in the <a href="https://www.tidyverse.org/">Tidyverse</a>. The Tidyverse is a set of packages designed to make data analysis in R easier and more streamlined. Each time you run <code>library(tidyverse)</code> in R, all of the following packages will get loaded in for you to use:</p>
+</section><section id="installing-the-tidyverse-and-here-packages" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="installing-the-tidyverse-and-here-packages">Installing the Tidyverse and Here Packages</h3>
+<p>In this course we will be making extensive use of the packages included in the <a href="https://www.tidyverse.org/">Tidyverse</a>. The Tidyverse is a set of packages designed to make data analysis in R easier and more streamlined. Each time you run <code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code> in R, all of the following packages will get loaded in for you to use:</p>
 <ul>
-<li><a href="https://ggplot2.tidyverse.org/">ggplot2</a> graphing</li>
-<li><a href="https://dplyr.tidyverse.org/">dplyr</a> data manipulation</li>
-<li><a href="https://tidyr.tidyverse.org/">tidyr</a> data cleaning</li>
-<li><a href="https://readr.tidyverse.org/">readr</a> reading external data into R</li>
-<li><a href="https://purrr.tidyverse.org/">purrr</a> functional programming</li>
-<li><a href="https://tibble.tidyverse.org/">tibble</a> a nice alternative to base R <code>data.frame</code> objects</li>
-<li><a href="https://stringr.tidyverse.org/">stringr</a> string manipulation</li>
-<li><a href="https://forcats.tidyverse.org/">forcats</a> working with <code>factor</code> variables</li>
+<li>
+<a href="https://ggplot2.tidyverse.org/">ggplot2</a> graphing</li>
+<li>
+<a href="https://dplyr.tidyverse.org/">dplyr</a> data manipulation</li>
+<li>
+<a href="https://tidyr.tidyverse.org/">tidyr</a> data cleaning</li>
+<li>
+<a href="https://readr.tidyverse.org/">readr</a> reading external data into R</li>
+<li>
+<a href="https://purrr.tidyverse.org/">purrr</a> functional programming</li>
+<li>
+<a href="https://tibble.tidyverse.org/">tibble</a> a nice alternative to base R <code>data.frame</code> objects</li>
+<li>
+<a href="https://stringr.tidyverse.org/">stringr</a> string manipulation</li>
+<li>
+<a href="https://forcats.tidyverse.org/">forcats</a> working with <code>factor</code> variables</li>
 </ul>
-<p>The Tidyverse approach is usually contrasted against using “base R” functions, which do not require external packages. While everything Tidyverse can do, base R can do too, many find the Tidyverse approach much more intuitive. In fact, it is very common to see <code>library(tidyverse)</code> at the top of most R script files. There are also a multitude of packages that, although not technically part of the Tidyverse, share the same coding conventions as the core Tidyverse. So learning the Tidyverse will help when you when using more advanced packages.</p>
+<p>The Tidyverse approach is usually contrasted against using “base R” functions, which do not require external packages. While everything Tidyverse can do, base R can do too, many find the Tidyverse approach much more intuitive. In fact, it is very common to see <code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code> at the top of most R script files. There are also a multitude of packages that, although not technically part of the Tidyverse, share the same coding conventions as the core Tidyverse. So learning the Tidyverse will help when you when using more advanced packages.</p>
 <p>Some Tidyverse-adjacent packages:</p>
 <ul>
-<li><a href="https://haven.tidyverse.org/">haven</a> reading in SPSS, Stata, and SAS data</li>
-<li><a href="https://readxl.tidyverse.org/">readxl</a> reading in Excel sheets</li>
-<li><a href="https://rvest.tidyverse.org/">rvest</a> webscraping</li>
-<li><a href="https://lubridate.tidyverse.org/">lubridate</a> working with dates and times</li>
-<li><a href="https://www.tidymodels.org/">tidymodels</a> machine learning workflows</li>
-<li><a href="https://broom.tidymodels.org/">broom</a> statistical model object manipulation</li>
+<li>
+<a href="https://haven.tidyverse.org/">haven</a> reading in SPSS, Stata, and SAS data</li>
+<li>
+<a href="https://readxl.tidyverse.org/">readxl</a> reading in Excel sheets</li>
+<li>
+<a href="https://rvest.tidyverse.org/">rvest</a> webscraping</li>
+<li>
+<a href="https://lubridate.tidyverse.org/">lubridate</a> working with dates and times</li>
+<li>
+<a href="https://www.tidymodels.org/">tidymodels</a> machine learning workflows</li>
+<li>
+<a href="https://broom.tidymodels.org/">broom</a> statistical model object manipulation</li>
 </ul>
 <p>Install the Tidyverse using:</p>
 <div class="cell" data-hash="11_orientation_cache/html/unnamed-chunk-9_782ede2b2d95f393f208b362dc4ac4eb">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This might take a couple minutes to download all packages</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># This might take a couple minutes to download all packages</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>I also highly recommend using the “here” package for file path management as explained earlier.</p>
 <div class="cell" data-hash="11_orientation_cache/html/unnamed-chunk-10_ced0c191dc95e159f737092118cb682d">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"here"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"here"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Once both packages are done installing, run the following lines of code to load them into R and make them available for use.</p>
 <div class="cell" data-hash="11_orientation_cache/html/unnamed-chunk-11_69e5174b13bcb175fce0d57dfd5deab7">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-</section>
-<section id="reading-in-data" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="reading-in-data"><span class="header-section-number">1.2</span> Reading in Data</h2>
+</section></section><section id="reading-in-data" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="reading-in-data">
+<span class="header-section-number">1.2</span> Reading in Data</h2>
 <p>For our data visualization exercises we will be using the data set “county_elections.csv” which you can download at the Math Bootcamp GitHub repository <a href="https://github.com/UCSDPoliMathCamp/MathCamp/tree/main/data">here</a>. After you download “county_elections.csv”, either copy or move it into your “data” folder in your Math Camp R Project directory. The source for this data comes from the <a href="https://electionlab.mit.edu/data">MIT Election Data Science Lab</a> and from the US Census accessed via <a href="https://www.nhgis.org/">IPUMS NHGIS</a>.</p>
 <p>Now read the “county_elections.csv” data set into R using the following command:</p>
 <div class="cell" data-hash="11_orientation_cache/html/unnamed-chunk-12_aa8de1ddf3055cc8ac6dd87681b5b61e">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>county_elections <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"county_elections.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">county_elections</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"county_elections.csv"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s break down this line of code.</p>
 <ul>
@@ -484,16 +461,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <!-- -->
 
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
+</section><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
 <ol>
-<li id="fn1"><p><a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/">Link</a> to more on why you should be using R Studio Projects<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+<li id="fn1" role="doc-endnote"><p><a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/">Link</a> to more on why you should be using R Studio Projects<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -520,23 +491,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
+    target: function(trigger) {
+      return trigger.previousElementSibling;
     }
   });
   clipboard.on('success', function(e) {
@@ -548,24 +505,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
     setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -644,141 +584,34 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      let href = ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
       });
-    }
+      return popup.innerHTML;
+    });
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./01_prerequisites.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Prerequisites</span>
       </a>          

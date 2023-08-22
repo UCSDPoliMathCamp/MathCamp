@@ -1,26 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.340">
-
+<meta name="generator" content="quarto-1.0.25">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>UCSD Political Science Math Camp - 12&nbsp; Integral Calculus</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,15 +38,44 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
+    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
-
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -75,8 +95,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -94,17 +113,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
-<style>html{ scroll-behavior: smooth; }</style>
+}</script><style>html{ scroll-behavior: smooth; }</style>
 <script type="application/json" class="js-hypothesis-config">
 {
   "theme": "clean"
 }
-</script>
-<script async="" src="https://hypothes.is/embed.js"></script>
-
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
+</script><script async="" src="https://hypothes.is/embed.js"></script><script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
  for (var i = 0; i < mathElements.length; i++) {
@@ -117,40 +131,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     fleqn: false
    });
 }}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
-
+  </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./31_limits.html">III Calculus</a></li><li class="breadcrumb-item"><a href="./34_intergrals.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Integral Calculus</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Integral Calculus</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">UCSD Political Science Math Camp</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/UCSDPoliMathCamp/MathCamp/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+    <a href="https://github.com/UCSDPoliMathCamp/MathCamp/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
@@ -158,203 +158,174 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
     </div>
       </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
+      <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-        </div>
+      </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">About this Booklet</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">About this Booklet</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00_warmup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Warmup Questions</span></a>
+  <a href="./00_warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_prerequisites.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Prerequisites</span></a>
+  <a href="./01_prerequisites.html" class="sidebar-item-text sidebar-link">Prerequisites</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">I Introduction to R</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">I Introduction to R</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_orientation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Reading in Data</span></span></a>
+  <a href="./11_orientation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">RStudio and Reading in Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Visualization</span></span></a>
+  <a href="./12_visualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Visualization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_data_wrangling_cleaning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></a>
+  <a href="./13_data_wrangling_cleaning.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Wrangling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14_loops_simulations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Loops and Simulation</span></span></a>
+  <a href="./14_loops_simulations.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Loops and Simulation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./15_non-wysiwyg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LaTeX and Markdown</span></span></a>
+  <a href="./15_non-wysiwyg.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">LaTeX and Markdown</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">II Linear Algebra</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">II Linear Algebra</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21_vector_matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrix Operations</span></span></a>
+  <a href="./21_vector_matrix.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrix Operations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22_linear_systems.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Systems of Linear Equations</span></span></a>
+  <a href="./22_linear_systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Systems of Linear Equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./23_matrix_inverse.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Matrix Inverse and Linear Independence</span></span></a>
+  <a href="./23_matrix_inverse.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Matrix Inverse and Linear Independence</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">III Calculus</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">III Calculus</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./31_limits.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Limits</span></span></a>
+  <a href="./31_limits.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Limits</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./32_derivatives.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Differential Calculus</span></span></a>
+  <a href="./32_derivatives.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Differential Calculus</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./33_optimization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Optimization</span></span></a>
+  <a href="./33_optimization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Optimization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./34_intergrals.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Integral Calculus</span></span></a>
+  <a href="./34_intergrals.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Integral Calculus</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">IV Probability</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">IV Probability</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./41_probability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Probability Theory</span></span></a>
+  <a href="./41_probability.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Probability Theory</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./42_distribution.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Summarizing Distributions</span></span></a>
+  <a href="./42_distribution.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Summarizing Distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./43_statistics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Learning from Data</span></span></a>
+  <a href="./43_statistics.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Learning from Data</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./51_solutions-warmup.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Warmup Questions Solutions</span></a>
+  <a href="./51_solutions-warmup.html" class="sidebar-item-text sidebar-link">Warmup Questions Solutions</a>
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-indefinite-integral" id="toc-the-indefinite-integral" class="nav-link active" data-scroll-target="#the-indefinite-integral"><span class="header-section-number">12.1</span> The Indefinite Integral</a>
-  <ul>
-  <li><a href="#properties-of-integration" id="toc-properties-of-integration" class="nav-link" data-scroll-target="#properties-of-integration">Properties of Integration</a></li>
-  <li><a href="#properties-of-integration-1" id="toc-properties-of-integration-1" class="nav-link" data-scroll-target="#properties-of-integration-1"><span class="header-section-number">12.1.1</span> Properties of Integration</a></li>
-  </ul></li>
-  <li><a href="#the-definite-integral" id="toc-the-definite-integral" class="nav-link" data-scroll-target="#the-definite-integral"><span class="header-section-number">12.2</span> The Definite Integral</a>
-  <ul>
-  <li><a href="#second-fundamental-theorem-of-calculus" id="toc-second-fundamental-theorem-of-calculus" class="nav-link" data-scroll-target="#second-fundamental-theorem-of-calculus"><span class="header-section-number">12.2.1</span> Second Fundamental Theorem of Calculus</a></li>
-  <li><a href="#properties-for-definite-integrals" id="toc-properties-for-definite-integrals" class="nav-link" data-scroll-target="#properties-for-definite-integrals">Properties for Definite Integrals</a></li>
-  </ul></li>
-  <li><a href="#integration-by-substitution" id="toc-integration-by-substitution" class="nav-link" data-scroll-target="#integration-by-substitution"><span class="header-section-number">12.3</span> Integration by Substitution</a></li>
-  <li><a href="#integration-by-parts" id="toc-integration-by-parts" class="nav-link" data-scroll-target="#integration-by-parts"><span class="header-section-number">12.4</span> Integration by Parts</a></li>
-  <li><a href="#answers-to-examples-and-exercises" id="toc-answers-to-examples-and-exercises" class="nav-link" data-scroll-target="#answers-to-examples-and-exercises">Answers to Examples and Exercises</a></li>
+<li>
+<a href="#the-indefinite-integral" id="toc-the-indefinite-integral" class="nav-link active" data-scroll-target="#the-indefinite-integral"> <span class="header-section-number">12.1</span> The Indefinite Integral</a>
+  <ul class="collapse">
+<li><a href="#properties-of-integration" id="toc-properties-of-integration" class="nav-link" data-scroll-target="#properties-of-integration">Properties of Integration</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/34_intergrals.Rmd" class="toc-action">Edit this page</a></p></div></div></nav>
+</li>
+  <li>
+<a href="#the-definite-integral" id="toc-the-definite-integral" class="nav-link" data-scroll-target="#the-definite-integral"> <span class="header-section-number">12.2</span> The Definite Integral</a>
+  <ul class="collapse">
+<li><a href="#properties-for-definite-integrals" id="toc-properties-for-definite-integrals" class="nav-link" data-scroll-target="#properties-for-definite-integrals">Properties for Definite Integrals</a></li>
+  </ul>
+</li>
+  <li><a href="#integration-by-substitution" id="toc-integration-by-substitution" class="nav-link" data-scroll-target="#integration-by-substitution"> <span class="header-section-number">12.3</span> Integration by Substitution</a></li>
+  <li><a href="#integration-by-parts" id="toc-integration-by-parts" class="nav-link" data-scroll-target="#integration-by-parts"> <span class="header-section-number">12.4</span> Integration by Parts</a></li>
+  <li><a href="#answers-to-examples-and-exercises" id="toc-answers-to-examples-and-exercises" class="nav-link" data-scroll-target="#answers-to-examples-and-exercises">Answers to Examples and Exercises</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/UCSDPoliMathCamp/MathCamp/edit/main/34_intergrals.Rmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span id="integrals" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Integral Calculus</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span id="integrals" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Integral Calculus</span></span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -362,17 +333,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-meta">
 
     
-  
     
   </div>
   
 
-</header>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/rfG8ce4nNh0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" style="border:1;display:block;margin:10px auto;">
+</header><iframe width="560" height="315" src="https://www.youtube.com/embed/rfG8ce4nNh0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" style="border:1;display:block;margin:10px auto;">
 </iframe>
-<section id="the-indefinite-integral" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="the-indefinite-integral"><span class="header-section-number">12.1</span> The Indefinite Integral</h2>
+<section id="the-indefinite-integral" class="level2" data-number="12.1"><h2 data-number="12.1" class="anchored" data-anchor-id="the-indefinite-integral">
+<span class="header-section-number">12.1</span> The Indefinite Integral</h2>
 <p>So far, we’ve been interested in finding the derivative <span class="math inline">f=F'</span> of a function <span class="math inline">F</span>. However, sometimes we’re interested in exactly the reverse: finding the function <span class="math inline">F</span> for which <span class="math inline">f</span> is its derivative. We refer to <span class="math inline">F</span> as the antiderivative of <span class="math inline">f</span>.</p>
 <div id="def-" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 12.1 (Antiderivative) </strong></span>The antiverivative of a function <span class="math inline">f(x)</span> is a differentiable function <span class="math inline">F</span> whose derivative is <span class="math inline">f</span>.</p>
@@ -404,32 +372,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-hash="34_intergrals_cache/html/fig-integralc_958f54e393dbb6cf1764d95c23b74371">
 <div class="cell-output-display">
 <div id="fig-integralc" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="34_intergrals_files/figure-html/fig-integralc-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;12.1: The Many Indefinite Integrals of a Function</figcaption>
+<figure class="figure"><p><img src="34_intergrals_files/figure-html/fig-integralc-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure 12.1: The Many Indefinite Integrals of a Function</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Notice from these examples that while there is only a single derivative for any function, there are multiple antiderivatives: one for any arbitrary constant <span class="math inline">c</span>. <span class="math inline">c</span> just shifts the curve up or down on the <span class="math inline">y</span>-axis. If more information is present about the antiderivative — e.g., that it passes through a particular point — then we can solve for a specific value of <span class="math inline">c</span>.</p>
-<section id="properties-of-integration" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="properties-of-integration">Properties of Integration</h3>
+<section id="properties-of-integration" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="properties-of-integration">Properties of Integration</h3>
 <p>Some useful properties of integrals follow by virtue of being the inverse of a derivative.</p>
-</section>
-<div id="prop-">
-<section id="properties-of-integration-1" class="level3" data-number="12.1.1">
-<h3 data-number="12.1.1" class="anchored" data-anchor-id="properties-of-integration-1"><span class="header-section-number">12.1.1</span> Properties of Integration</h3>
+</section><div id="prop-">
+<section id="properties-of-integration-1" class="level3" data-number="12.1.1"><h3 data-number="12.1.1" class="anchored" data-anchor-id="properties-of-integration-1">
+<span class="header-section-number">12.1.1</span> Properties of Integration</h3>
 <ol type="1">
-<li>Constants are allowed to slip out: <span class="math inline">\int a f(x)dx = a\int f(x)dx</span></li>
-<li>Integration of the sum is sum of integrations: <span class="math inline">\int [f(x)+g(x)]dx=\int f(x)dx + \int g(x)dx</span></li>
-<li>Reverse Power-rule: <span class="math inline">\int x^n dx = \frac{1}{n+1} x^{n+1} + c</span></li>
-<li>Exponents are still exponents: <span class="math inline">\int e^x dx = e^x +c</span></li>
-<li>Recall the derivative of <span class="math inline">\ln(x)</span> is one over <span class="math inline">x</span>, and so: <span class="math inline">\int \frac{1}{x} dx = \ln x + c</span></li>
-<li>Reverse chain-rule: <span class="math inline">\int e^{f(x)}f^\prime(x)dx = e^{f(x)}+c</span></li>
-<li>More generally: <span class="math inline">\int [f(x)]^n f'(x)dx = \frac{1}{n+1}[f(x)]^{n+1}+c</span></li>
-<li>Remember the derivative of a log of a function: <span class="math inline">\int \frac{f^\prime(x)}{f(x)}dx=\ln f(x) + c</span></li>
-</ol>
-</section>
+<li>Constants are allowed to slip out: <span class="math inline">\int a f(x)dx = a\int f(x)dx</span>
+</li>
+<li>Integration of the sum is sum of integrations: <span class="math inline">\int [f(x)+g(x)]dx=\int f(x)dx + \int g(x)dx</span>
+</li>
+<li>Reverse Power-rule: <span class="math inline">\int x^n dx = \frac{1}{n+1} x^{n+1} + c</span>
+</li>
+<li>Exponents are still exponents: <span class="math inline">\int e^x dx = e^x +c</span>
+</li>
+<li>Recall the derivative of <span class="math inline">\ln(x)</span> is one over <span class="math inline">x</span>, and so: <span class="math inline">\int \frac{1}{x} dx = \ln x + c</span>
+</li>
+<li>Reverse chain-rule: <span class="math inline">\int e^{f(x)}f^\prime(x)dx = e^{f(x)}+c</span>
+</li>
+<li>More generally: <span class="math inline">\int [f(x)]^n f'(x)dx = \frac{1}{n+1}[f(x)]^{n+1}+c</span>
+</li>
+<li>Remember the derivative of a log of a function: <span class="math inline">\int \frac{f^\prime(x)}{f(x)}dx=\ln f(x) + c</span>
+</li>
+</ol></section>
 </div>
 <div id="exm-" class="theorem example">
 <p><span class="theorem-title"><strong>Example 12.2 (Common Integration) </strong></span>Simplify the following indefinite integrals:</p>
@@ -439,17 +411,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><span class="math inline">\int e^x e^{e^x} dx</span></li>
 </ul>
 </div>
-</section>
-<section id="the-definite-integral" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="the-definite-integral"><span class="header-section-number">12.2</span> The Definite Integral</h2>
+</section><section id="the-definite-integral" class="level2" data-number="12.2"><h2 data-number="12.2" class="anchored" data-anchor-id="the-definite-integral">
+<span class="header-section-number">12.2</span> The Definite Integral</h2>
 <p>If there is a indefinite integral, there <em>must</em> be a definite integral. Indeed there is, but the notion of definite integrals comes from a different objective: finding the are a under a function. We will find, perhaps remarkably, that the formula we find to get the sum turns out to be expressible by the anti-derivative.</p>
 <p>Suppose we want to determine the area <span class="math inline">A(R)</span> of a region <span class="math inline">R</span> defined by a curve <span class="math inline">f(x)</span> and some interval <span class="math inline">a\le x \le b</span>.</p>
 <div class="cell" data-hash="34_intergrals_cache/html/fig-defintfig_f8b353208edef5a3f1663aef3a0c6c5f">
 <div class="cell-output-display">
 <div id="fig-defintfig" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="34_intergrals_files/figure-html/fig-defintfig-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;12.2: The Riemann Integral as a Sum of Evaluations</figcaption>
+<figure class="figure"><p><img src="34_intergrals_files/figure-html/fig-defintfig-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure 12.2: The Riemann Integral as a Sum of Evaluations</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -473,8 +443,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This is again a long way of saying that that differentiation is the inverse of integration. But now, we’ve covered definite integrals.</p>
 <p>The second theorem gives us a simple way of computing a definite integral as a function of indefinite integrals.</p>
 <div id="thm">
-<section id="second-fundamental-theorem-of-calculus" class="level3" data-number="12.2.1">
-<h3 data-number="12.2.1" class="anchored" data-anchor-id="second-fundamental-theorem-of-calculus"><span class="header-section-number">12.2.1</span> Second Fundamental Theorem of Calculus</h3>
+<section id="second-fundamental-theorem-of-calculus" class="level3" data-number="12.2.1"><h3 data-number="12.2.1" class="anchored" data-anchor-id="second-fundamental-theorem-of-calculus">
+<span class="header-section-number">12.2.1</span> Second Fundamental Theorem of Calculus</h3>
 <p>Let the function <span class="math inline">f</span> be bounded on <span class="math inline">[a,b]</span> and continuous on <span class="math inline">(a,b)</span>. Let <span class="math inline">F</span> be any function that is continuous on <span class="math inline">[a,b]</span> such that <span class="math inline">F^\prime(x)=f(x)</span> on <span class="math inline">(a,b)</span>. Then <span class="math display">\int\limits_a^bf(x)dx = F(b)-F(a)</span></p>
 </section>
 </div>
@@ -484,20 +454,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Evaluate <span class="math inline">F(b)-F(a)</span>.</li>
 </ol>
 <div id="exm-defintmon" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.3 (Definite Integral of a monomial) </strong></span>Solve <span class="math inline">\int\limits_1^3 3x^2 dx.</span> Let <span class="math inline">f(x) = 3x^2</span>.</p>
+<p><span class="theorem-title"><strong>Example 12.3 (Definite Integral of a monomial) </strong></span></p>
+<p>Solve <span class="math inline">\int\limits_1^3 3x^2 dx.</span> Let <span class="math inline">f(x) = 3x^2</span>.</p>
 </div>
 <div id="exr-" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 12.2 </strong></span>What is the value of <span class="math inline">\int\limits_{-2}^2 e^x e^{e^x} dx</span>?</p>
+<p><span class="theorem-title"><strong>Exercise 12.2 </strong></span></p>
+<p>What is the value of <span class="math inline">\int\limits_{-2}^2 e^x e^{e^x} dx</span>?</p>
 </div>
-<section id="properties-for-definite-integrals" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="properties-for-definite-integrals">Properties for Definite Integrals</h3>
+<section id="properties-for-definite-integrals" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="properties-for-definite-integrals">Properties for Definite Integrals</h3>
 <p>The area-interpretation of the definite integral provides some useful properties for definite integrals</p>
 <div id="prop-">
 <ol type="1">
-<li>There is no area below a point: <span class="math display">\int\limits_a^a f(x)dx=0</span></li>
-<li>Reversing the limits changes the sign of the integral: <span class="math display">\int\limits_a^b f(x)dx=-\int\limits_b^a f(x)dx</span></li>
-<li>Sums can be separated into their own integrals: <span class="math display">\int\limits_a^b [\alpha f(x)+\beta g(x)]dx = \alpha \int\limits_a^b f(x)dx + \beta \int\limits_a^b g(x)dx</span></li>
-<li>Areas can be combined as long as limits are linked: <span class="math display">\int\limits_a^b f(x) dx +\int\limits_b^c f(x)dx = \int\limits_a^c f(x)dx</span></li>
+<li>There is no area below a point: <span class="math display">\int\limits_a^a f(x)dx=0</span>
+</li>
+<li>Reversing the limits changes the sign of the integral: <span class="math display">\int\limits_a^b f(x)dx=-\int\limits_b^a f(x)dx</span>
+</li>
+<li>Sums can be separated into their own integrals: <span class="math display">\int\limits_a^b [\alpha f(x)+\beta g(x)]dx = \alpha \int\limits_a^b f(x)dx + \beta \int\limits_a^b g(x)dx</span>
+</li>
+<li>Areas can be combined as long as limits are linked: <span class="math display">\int\limits_a^b f(x) dx +\int\limits_b^c f(x)dx = \int\limits_a^c f(x)dx</span>
+</li>
 </ol>
 </div>
 <div id="exr-" class="theorem exercise">
@@ -508,10 +483,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><span class="math inline">\int\limits_{-2}^0 e^x e^{e^x} dx + \int\limits_0^2 e^x e^{e^x} dx =</span></li>
 </ol>
 </div>
-</section>
-</section>
-<section id="integration-by-substitution" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="integration-by-substitution"><span class="header-section-number">12.3</span> Integration by Substitution</h2>
+</section></section><section id="integration-by-substitution" class="level2" data-number="12.3"><h2 data-number="12.3" class="anchored" data-anchor-id="integration-by-substitution">
+<span class="header-section-number">12.3</span> Integration by Substitution</h2>
 <p>From the second fundamental theorem of calculus, we now that a quick way to get a definite integral is to first find the indefinite integral, and then just plug in the bounds.</p>
 <p>Sometimes the integrand (the thing that we are trying to take an integral of) doesn’t appear integrable using common rules and antiderivatives. A method one might try is <strong>integration by substitution</strong>, which is related to the Chain Rule.</p>
 <p>Suppose we want to find the indefinite integral <span class="math display">\int g(x)dx</span> but <span class="math inline">g(x)</span> is complex and none of the formulas we have seen so far seem to apply immediately. The trick is to come up with a <em>new</em> function <span class="math inline">u(x)</span> such that <span class="math display">g(x)=f[u(x)]u'(x).</span></p>
@@ -521,20 +494,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Identify some part of <span class="math inline">g(x)</span> that might be simplified by substituting in a single variable <span class="math inline">u</span> (which will then be a function of <span class="math inline">x</span>).</li>
 <li>Determine if <span class="math inline">g(x)dx</span> can be reformulated in terms of <span class="math inline">u</span> and <span class="math inline">du</span>.</li>
 <li>Solve the indefinite integral.</li>
-<li>Substitute back in for <span class="math inline">x</span></li>
+<li>Substitute back in for <span class="math inline">x</span>
+</li>
 </ol>
 <p>Substitution can also be used to calculate a definite integral. Using the same procedure as above, <span class="math display">\int\limits_a^b g(x)dx=\int\limits_c^d f(u)du = F(d)-F(c)</span> where <span class="math inline">c=u(a)</span> and <span class="math inline">d=u(b)</span>.</p>
 <div id="exm-intsub1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.4 (Integration by Substitution I) </strong></span>Solve the indefinite integral <span class="math display">\int x^2 \sqrt{x+1}dx.</span></p>
+<p><span class="theorem-title"><strong>Example 12.4 (Integration by Substitution I) </strong></span></p>
+<p>Solve the indefinite integral <span class="math display">\int x^2 \sqrt{x+1}dx.</span></p>
 </div>
 <p>For the above problem, we could have also used the substitution <span class="math inline">u=\sqrt{x+1}</span>. Then <span class="math inline">x=u^2-1</span> and <span class="math inline">dx=2u du</span>. Substituting these in, we get <span class="math display">\int x^2\sqrt{x+1}dx=\int (u^2-1)^2 u 2u du</span> which when expanded is again a polynomial and gives the same result as above.</p>
 <p>Another case in which integration by substitution is is useful is with a fraction.</p>
 <div id="exm-intsub2" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12.5 (Integration by Substitutiton II) </strong></span>Simplify <span class="math display">\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx.</span></p>
+<p><span class="theorem-title"><strong>Example 12.5 (Integration by Substitutiton II) </strong></span></p>
+<p>Simplify <span class="math display">\int\limits_0^1 \frac{5e^{2x}}{(1+e^{2x})^{1/3}}dx.</span></p>
 </div>
-</section>
-<section id="integration-by-parts" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="integration-by-parts"><span class="header-section-number">12.4</span> Integration by Parts</h2>
+</section><section id="integration-by-parts" class="level2" data-number="12.4"><h2 data-number="12.4" class="anchored" data-anchor-id="integration-by-parts">
+<span class="header-section-number">12.4</span> Integration by Parts</h2>
 <p>Another useful integration technique is <strong>integration by parts</strong>, which is related to the Product Rule of differentiation. The product rule states that <span class="math display">\frac{d}{dx}(uv)=u\frac{dv}{dx}+v\frac{du}{dx}</span> Integrating this and rearranging, we get <span class="math display">\int u\frac{dv}{dx}dx= u v - \int v \frac{du}{dx}dx</span> or <span class="math display">\int u(x) v'(x)dx=u(x)v(x) - \int v(x)u'(x)dx</span></p>
 <p>More easily remembered with the mnemonic “Ultraviolet Voodoo”: <span class="math display">\int u dv = u v - \int v du</span> where <span class="math inline">du=u'(x)dx</span> and <span class="math inline">dv=v'(x)dx</span>.</p>
 <p>For definite integrals, this is simply</p>
@@ -545,16 +520,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><span class="math display">\int x e^{ax} dx</span></p>
 </div>
 <div class="solution proof">
-<p><span class="proof-title"><em>Solution</em>. </span>Let <span class="math inline">u=x</span> and <span class="math inline">\frac{dv}{dx} = e^{ax}</span>. Then <span class="math inline">du=dx</span> and <span class="math inline">v=(1/a)e^{ax}</span>. Substituting this into the integration by parts formula, we obtain<br>
-<span class="math display">\begin{align*}
+<p><span class="proof-title"><em>Solution</em>. </span>Let <span class="math inline">u=x</span> and <span class="math inline">\frac{dv}{dx} = e^{ax}</span>. Then <span class="math inline">du=dx</span> and <span class="math inline">v=(1/a)e^{ax}</span>. Substituting this into the integration by parts formula, we obtain<br><span class="math display">\begin{align*}
 \int x e^{ax} dx &amp;= u v - \int v du\nonumber\\
                 &amp;=x\left( \frac{1}{a}e^{ax}\right) -\int\frac{1}{a}e^{ax}dx\nonumber\\
                 &amp;=\frac{1}{a}xe^{ax}-\frac{1}{a^2}e^{ax}+c\nonumber
 \end{align*}</span></p>
 </div>
 <div id="exr-intparts-adv" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 12.4 (Integration by Parts II) </strong></span>&nbsp;</p>
 <ol type="1">
+<li><span class="theorem-title"><strong>Exercise 12.4 (Integration by Parts II) </strong></span></li>
 <li>Integrate</li>
 </ol>
 <p><span class="math display">\int x^n e^{ax} dx</span></p>
@@ -563,9 +537,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p><span class="math display">\int x^3 e^{-x^2} dx</span></p>
 </div>
-</section>
-<section id="answers-to-examples-and-exercises" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="answers-to-examples-and-exercises">Answers to Examples and Exercises</h2>
+</section><section id="answers-to-examples-and-exercises" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="answers-to-examples-and-exercises">Answers to Examples and Exercises</h2>
 <p><a href="32_derivatives.html#exr-introderivatives">Exercise&nbsp;<span>10.1</span></a></p>
 <p><em>Solution.</em></p>
 <ol type="1">
@@ -597,10 +569,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="32_derivatives.html#exm-exmderivlog">Example&nbsp;<span>10.5</span></a></p>
 <p><em>Solution.</em></p>
 <ol type="1">
-<li>Let <span class="math inline">u(x)=x^2+9</span>. Then <span class="math inline">u^\prime(x)=2x</span> and <span class="math display">\frac{dy}{dx}= \frac{u^\prime(x)}{u(x)} = \frac{2x}{(x^2+9)}</span></li>
+<li>Let <span class="math inline">u(x)=x^2+9</span>. Then <span class="math inline">u^\prime(x)=2x</span> and <span class="math display">\frac{dy}{dx}= \frac{u^\prime(x)}{u(x)} = \frac{2x}{(x^2+9)}</span>
+</li>
 <li>Let <span class="math inline">u(x)=\ln x</span>. Then <span class="math inline">u^\prime(x)=1/x</span> and <span class="math inline">\frac{dy}{dx} = \frac{1}{(x\ln x)}</span>.</li>
-<li>Use the generalized power rule. <span class="math display">\frac{dy}{dx} = \frac{(2 \ln x)}{x}</span></li>
-<li>We know that <span class="math inline">\ln e^x=x</span> and that <span class="math inline">dx/dx=1</span>, but we can double check. Let <span class="math inline">u(x)=e^x</span>. Then <span class="math inline">u^\prime(x)=e^x</span> and <span class="math inline">\frac{dy}{dx} = \frac{u^\prime(x)}{u(x)} = \frac{e^x}{e^x} = 1.</span></li>
+<li>Use the generalized power rule. <span class="math display">\frac{dy}{dx} = \frac{(2 \ln x)}{x}</span>
+</li>
+<li>We know that <span class="math inline">\ln e^x=x</span> and that <span class="math inline">dx/dx=1</span>, but we can double check. Let <span class="math inline">u(x)=e^x</span>. Then <span class="math inline">u^\prime(x)=e^x</span> and <span class="math inline">\frac{dy}{dx} = \frac{u^\prime(x)}{u(x)} = \frac{e^x}{e^x} = 1.</span>
+</li>
 </ol>
 <p><a href="#exm-defintmon">Example&nbsp;<span>12.3</span></a></p>
 <div class="solution proof">
@@ -663,10 +638,7 @@ F(x) &amp;= x^3\\
 
 <!-- -->
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -693,23 +665,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
+    target: function(trigger) {
+      return trigger.previousElementSibling;
     }
   });
   clipboard.on('success', function(e) {
@@ -721,24 +679,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
     setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -817,141 +758,34 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      let href = ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
       });
-    }
+      return popup.innerHTML;
+    });
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./33_optimization.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Optimization</span></span>
       </a>          
